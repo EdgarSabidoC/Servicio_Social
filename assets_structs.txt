@@ -1,0 +1,13 @@
+*music
+ |_songs
+ |_special_effects
+
+
+*graphical_assets
+ |_characters
+   |_main
+ |_environments
+   |_backgrounds
+ |_menus
+   |_mouse_cursor
+   |_buttons
