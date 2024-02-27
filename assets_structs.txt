@@ -6,8 +6,12 @@
 *graphical_assets
  |_characters
    |_main
+   |_secondary
  |_environments
    |_backgrounds
+   |_utilities
  |_menus
    |_mouse_cursor
    |_buttons
+   |_fonts
+ |_texts
