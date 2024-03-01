@@ -1,5 +1,5 @@
-*music
- |_songs (.ogg)
+*sounds
+ |_music (.ogg)
  |_special_effects (.wav)
 
 
