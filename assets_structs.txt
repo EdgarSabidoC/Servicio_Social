@@ -1,6 +1,6 @@
 *music
- |_songs
- |_special_effects
+ |_songs (.ogg)
+ |_special_effects (.wav)
 
 
 *graphical_assets
