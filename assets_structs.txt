@@ -14,7 +14,9 @@
    |_mouse_cursor
    |_buttons
    |_fonts
- |_texts
+
+
+*texts
    |_dialogues
    |_license
    |_docs
