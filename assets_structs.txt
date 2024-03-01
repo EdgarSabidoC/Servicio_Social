@@ -18,3 +18,4 @@
    |_dialogues
    |_license
    |_docs
+   |_hints
