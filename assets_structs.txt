@@ -15,3 +15,6 @@
    |_buttons
    |_fonts
  |_texts
+   |_dialogues
+   |_license
+   |_docs
