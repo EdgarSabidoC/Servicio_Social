@@ -1,4 +1,5 @@
 extends TabContainer
+@onready var video = $Video
 
 #var textureTab0: Texture2D = load("res://icon.svg")
 #var textureTab1: Texture2D
