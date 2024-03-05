@@ -24,6 +24,7 @@ func remap_action_to(event: InputEvent) -> void:
 	
 	text = event.as_text()
 
+
 # Enciende el proceso de la tecla y cambia el texto:
 func _on_pressed() -> void:
 	set_process_unhandled_key_input(true)
