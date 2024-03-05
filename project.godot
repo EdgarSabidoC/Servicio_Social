@@ -12,14 +12,21 @@ config_version=5
 
 config/name="Servicio_Social"
 config/version="0.0.1"
-run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Persistence="*res://scripts/autoloads/Persistence.gd"
 
 [display]
 
 window/size/viewport_width=1024
 window/size/viewport_height=576
+
+[dotnet]
+
+project/assembly_name="Servicio_Social"
 
 [rendering]
 
