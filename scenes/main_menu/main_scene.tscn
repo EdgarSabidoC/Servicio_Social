@@ -77,7 +77,6 @@ focus_mode = 2
 script = ExtResource("4_jshqj")
 
 [node name="Video" type="TabBar" parent="UI/Settings"]
-visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath("../Controls")
 focus_neighbor_top = NodePath("../Controls")
@@ -253,15 +252,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -44.5
-offset_top = -52.0
-offset_right = 44.5
-offset_bottom = 52.0
+offset_left = -94.5
+offset_top = -103.0
+offset_right = 94.5
+offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ControlsLabelsContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Up" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
 layout_mode = 2
@@ -283,46 +283,60 @@ layout_mode = 2
 size_flags_vertical = 6
 text = "DERECHA"
 
+[node name="Aceptar" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "ACEPTAR"
+
 [node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 text = "PAUSA"
 
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 script = ExtResource("6_oi5d6")
 
-[node name="ActionButton" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
+[node name="Up" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 7
 text = "Arriba"
 
-[node name="ActionButton2" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
+[node name="Down" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 7
 text = "Abajo"
 action = "ui_down"
 
-[node name="ActionButton3" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
+[node name="Left" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 7
 text = "Izquierda"
 action = "ui_left"
 
-[node name="ActionButton4" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
+[node name="Right" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 7
 text = "Derecha"
 action = "ui_right"
 
-[node name="ActionButton5" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
+[node name="Accept" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
 layout_mode = 2
+text = "Aceptar"
+action = "ui_accept"
+
+[node name="Pause" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("3_kij6h")]
+layout_mode = 2
+text = "Pausa"
 action = "ui_cancel"
 
 [node name="BackButton" type="Button" parent="UI/Settings/Controls"]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 anchors_preset = 3
