@@ -1,9 +1,16 @@
-[gd_scene format=3 uid="uid://b10fpsg5nyh8a"]
+[gd_scene load_steps=3 format=3 uid="uid://b10fpsg5nyh8a"]
 
-[node name="GodotSplashScreen" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" path="res://scenes/splash_screen/SplashScreen.gd" id="1_vwlxv"]
+[ext_resource type="Texture2D" uid="uid://cmw8ndsctphta" path="res://assets/graphical_assets/logos/Godot_logo.png" id="2_l2nuu"]
+
+[node name="GodotSplashScreen" type="VBoxContainer"]
+offset_right = 461.0
+offset_bottom = 256.0
+script = ExtResource("1_vwlxv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+texture = ExtResource("2_l2nuu")
+expand_mode = 3
+stretch_mode = 5

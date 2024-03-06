@@ -1,9 +1,9 @@
 extends Control
 
 @export var _move_to: PackedScene
-
 @export var _initial_delay: float = 1
 
+# Arreglo de SplashScreen, son los hijos de SplashScreenContainer:
 var _splash_screens: Array[SplashScreen] = []
 
 @onready var _splash_screen_container: CenterContainer = $SplashScreenContainer
@@ -25,8 +25,11 @@ func _ready() -> void:
 	set_process_input(true)
 
 
+# Lee los inputs que permiten saltar las escenas, llama a _skip():
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_skip"):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) \
+	|| Input.is_key_pressed(KEY_SPACE) \
+	|| Input.is_key_pressed(KEY_ESCAPE):
 		_skip()
 
 
@@ -39,6 +42,7 @@ func _start_splash_screen() -> void:
 		splash_screen.connect("finished", _start_splash_screen)
 
 
+# Permite saltar las splash_screen:
 func _skip() -> void:
 	_splash_screen_container.get_child(0).queue_free()
 	_start_splash_screen()
