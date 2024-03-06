@@ -1,29 +1,32 @@
 extends VBoxContainer
 
-@onready var button1: Button = $ActionButton
-@onready var button2: Button = $ActionButton2
-@onready var button3: Button = $ActionButton3
-@onready var button4: Button = $ActionButton4
-@onready var button5: Button = $ActionButton5
+@onready var button1: Button = $Up
+@onready var button2: Button = $Down
+@onready var button3: Button = $Left
+@onready var button4: Button = $Right
+@onready var button5: Button = $Accept
+@onready var button6: Button = $Pause
 var keyInputFlag: bool = true
 
 func _process(_delta: float) -> void:
 	# Se verifica si algún botón se presionó y está a la espera de un evento:
 	if button1.is_processing_unhandled_key_input():
-		disable_buttons([button2, button3, button4, button5])
+		disable_buttons([button2, button3, button4, button5, button6])
 	elif button2.is_processing_unhandled_key_input():
-		disable_buttons([button1, button3, button4, button5])
+		disable_buttons([button1, button3, button4, button5, button6])
 	elif button3.is_processing_unhandled_key_input():
-		disable_buttons([button1, button2, button4, button5])
+		disable_buttons([button1, button2, button4, button5, button6])
 	elif button4.is_processing_unhandled_key_input():
-		disable_buttons([button1, button2, button3, button5])
+		disable_buttons([button1, button2, button3, button5, button6])
 	elif button5.is_processing_unhandled_key_input():
-		disable_buttons([button1, button2, button3, button4])
+		disable_buttons([button1, button2, button3, button4, button6])
+	elif button6.is_processing_unhandled_key_input():
+		disable_buttons([button1, button2, button3, button4, button5])
 
 
 func _unhandled_key_input(_event: InputEvent) -> void:
 	# Se reactivan los botones una vez se remapeó una tecla:
-	enable_buttons([button1, button2, button3, button4, button5])
+	enable_buttons([button1, button2, button3, button4, button5, button6])
 	keyInputFlag = true
 
 
