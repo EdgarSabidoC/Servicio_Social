@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://0fx6dc8c8ukb"]
+
+[ext_resource type="Script" path="res://components/back_button/BackButton.gd" id="1_4ro7x"]
+
+[node name="BackButton" type="Control"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_4ro7x")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Regresar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
