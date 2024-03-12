@@ -3,6 +3,8 @@ extends Button
 @onready var video = $"../../Settings/Video"
 @onready var text_box_container: VBoxContainer = %MenuTextbox
 
+var hint: String = "Abre el menú de opciones de configuración:\n⚙️ Vídeo\n⚙️ Audio\n⚙️ Controles"
+
 # Muestra el menú de las opciones de configuración y oculta el menú principal:
 func _on_pressed() -> void:
 	settings.show() # Muestra el menú de opciones

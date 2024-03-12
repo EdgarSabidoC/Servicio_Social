@@ -29,7 +29,7 @@ func get_hovered_button() -> Button:
 func update_message() -> void:
 	if current_button != null:
 		# Si hay un botón actualmente:
-		menu_textbox.print_message(current_button.text)
+		menu_textbox.print_message(current_button.hint)
 	else:
 		# Si no, se limpia el mensaje:
 		menu_textbox.clear_message()
