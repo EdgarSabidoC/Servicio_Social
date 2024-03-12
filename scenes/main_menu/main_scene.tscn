@@ -32,6 +32,7 @@ script = ExtResource("1_fw3k4")
 
 [node name="MainMenu" type="VBoxContainer" parent="UI/MenuContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 158)
 layout_mode = 2
 focus_mode = 2
 
@@ -74,11 +75,18 @@ focus_previous = NodePath("../Options")
 text = "Salir"
 script = ExtResource("2_l46kg")
 
+[node name="PlaceholderContainer" type="VBoxContainer" parent="UI/MenuContainer"]
+custom_minimum_size = Vector2(200, 158)
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="MenuTextbox" type="VBoxContainer" parent="UI/MenuContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 158)
 layout_mode = 2
 
 [node name="MenuTextbox" parent="UI/MenuContainer/MenuTextbox" instance=ExtResource("10_7xsny")]
+custom_minimum_size = Vector2(200, 158)
 layout_mode = 2
 size_flags_vertical = 6
 
@@ -95,6 +103,7 @@ script = ExtResource("4_jshqj")
 
 [node name="Video" type="TabBar" parent="UI/Settings"]
 layout_mode = 2
+tooltip_text = "Opciones de configuración de vídeo"
 focus_neighbor_left = NodePath("../Controls")
 focus_neighbor_top = NodePath("../Controls")
 focus_neighbor_right = NodePath("../Audio")
@@ -122,14 +131,20 @@ layout_mode = 2
 
 [node name="Fullscreen" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
 layout_mode = 2
+tooltip_text = "El modo pantalla completa permite deshacerse de los bordes y ventanas del sistema operativo"
+mouse_filter = 1
 text = "Pantalla completa"
 
 [node name="Borderless" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
 layout_mode = 2
+tooltip_text = "El modo sin bordes se deshace solo de los marcos de la ventana del sistema operativo"
+mouse_filter = 1
 text = "Sin bordes"
 
 [node name="Vsync" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
 layout_mode = 2
+tooltip_text = "Elige un tipo de sinscronización vertical sólo si está disponible"
+mouse_filter = 1
 text = "Sincronización vertical (VSync)"
 
 [node name="VideoInputsContainer" type="VBoxContainer" parent="UI/Settings/Video/VideoOptionsContainer"]
@@ -138,14 +153,19 @@ layout_mode = 2
 [node name="Fullscreen" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Activa/Desactiva el modo pantalla completa"
 
 [node name="Borderless" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Activa/Desactiva el modo sin bordes"
 
 [node name="Vsync" type="OptionButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "Selecciona el tipo de sincronización vertical"
 item_count = 4
 selected = 1
 popup/item_0/text = "Desactivado"
@@ -163,6 +183,7 @@ layout_mode = 1
 [node name="Audio" type="TabBar" parent="UI/Settings"]
 visible = false
 layout_mode = 2
+tooltip_text = "Opciones de configuración de audio"
 focus_neighbor_left = NodePath("../Video")
 focus_neighbor_top = NodePath("../Video")
 focus_neighbor_right = NodePath("../Controls")
@@ -190,14 +211,20 @@ layout_mode = 2
 
 [node name="Master" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/AudioLabelsContainer"]
 layout_mode = 2
+tooltip_text = "Control del volumen principal del audio"
+mouse_filter = 1
 text = "Master"
 
 [node name="Music" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/AudioLabelsContainer"]
 layout_mode = 2
+tooltip_text = "Control del volumen de la música del juego"
+mouse_filter = 1
 text = "Música"
 
 [node name="SFX" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/AudioLabelsContainer"]
 layout_mode = 2
+tooltip_text = "Control del volumen de los efectos especiales dentro del juego"
+mouse_filter = 1
 text = "Efectos especiales"
 
 [node name="AudioInputsContainer" type="VBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer"]
@@ -208,6 +235,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Ajusta el nivel de volumen principal"
 max_value = 1.0
 step = 0.05
 
@@ -215,6 +243,7 @@ step = 0.05
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Ajusta el nivel de volumen de la música"
 max_value = 1.0
 step = 0.05
 
@@ -222,6 +251,7 @@ step = 0.05
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Ajusta el nivel de volumen de los efectos especiales"
 max_value = 1.0
 step = 0.05
 
@@ -231,6 +261,7 @@ layout_mode = 1
 [node name="Controls" type="TabBar" parent="UI/Settings"]
 visible = false
 layout_mode = 2
+tooltip_text = "Opciones de configuración de los controles"
 focus_neighbor_left = NodePath("../Audio")
 focus_neighbor_top = NodePath("../Audio")
 focus_neighbor_right = NodePath("../Video")
@@ -259,31 +290,43 @@ size_flags_horizontal = 4
 [node name="Up" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Acción para moverse hacia arriba"
+mouse_filter = 1
 text = "ARRIBA"
 
 [node name="Down" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Acción para moverse hacia abajo"
+mouse_filter = 1
 text = "ABAJO"
 
 [node name="Left" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Acción para moverse hacia la izquierda"
+mouse_filter = 1
 text = "IZQUIERDA"
 
 [node name="Right" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Acción para moverse hacia la derecha"
+mouse_filter = 1
 text = "DERECHA"
 
 [node name="Aceptar" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Acción para aceptar"
+mouse_filter = 1
 text = "ACEPTAR"
 
 [node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+tooltip_text = "Acción para abrir el menú de pausa"
+mouse_filter = 1
 text = "PAUSA"
 
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]

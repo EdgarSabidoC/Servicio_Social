@@ -5,6 +5,7 @@
 [node name="ActionButton" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
+tooltip_text = "Selecciona y presiona después una tecla/botón para asignarlo a la acción"
 script = ExtResource("1_f442w")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
