@@ -13,5 +13,5 @@ func print_message(string: String) -> void:
 
 func clear_message() -> void:
 	if !text.text.is_empty():
-		text.text = ""
+		text.text = "Pasa el cursor encima de una opción para más información."
 	
