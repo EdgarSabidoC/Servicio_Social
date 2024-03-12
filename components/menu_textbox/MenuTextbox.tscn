@@ -27,4 +27,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Pasa el cursor encima de una opción para más información."
+text = "Pasa el cursor sobre una opción para ver más información."
