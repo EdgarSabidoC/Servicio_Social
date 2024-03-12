@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=13 format=3 uid="uid://deare6ipirplk"]
 
+[ext_resource type="Script" path="res://scenes/main_menu/MainScene.gd" id="1_25oib"]
 [ext_resource type="Script" path="res://scenes/main_menu/Video.gd" id="1_b2mno"]
 [ext_resource type="Script" path="res://scenes/main_menu/Options.gd" id="1_cf3km"]
 [ext_resource type="Script" path="res://scenes/main_menu/MenuContainer.gd" id="1_fw3k4"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="10_7xsny"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_25oib")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -238,6 +240,7 @@ size_flags_vertical = 6
 tooltip_text = "Ajusta el nivel de volumen principal"
 max_value = 1.0
 step = 0.05
+value = 0.5
 
 [node name="Music" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/AudioInputsContainer"]
 unique_name_in_owner = true
@@ -246,6 +249,7 @@ size_flags_vertical = 6
 tooltip_text = "Ajusta el nivel de volumen de la música"
 max_value = 1.0
 step = 0.05
+value = 0.5
 
 [node name="SFX" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/AudioInputsContainer"]
 unique_name_in_owner = true
@@ -254,6 +258,7 @@ size_flags_vertical = 6
 tooltip_text = "Ajusta el nivel de volumen de los efectos especiales"
 max_value = 1.0
 step = 0.05
+value = 0.4
 
 [node name="BackButton" parent="UI/Settings/Audio" instance=ExtResource("7_aecv6")]
 layout_mode = 1
