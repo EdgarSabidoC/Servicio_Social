@@ -28,3 +28,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Pasa el cursor sobre una opción para ver más información."
+fit_content = true

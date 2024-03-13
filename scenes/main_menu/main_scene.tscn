@@ -379,6 +379,7 @@ action = "ui_cancel"
 [node name="BackButton" parent="UI/Settings/Controls" instance=ExtResource("7_aecv6")]
 layout_mode = 1
 
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_pressed"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_pressed"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_pressed"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]

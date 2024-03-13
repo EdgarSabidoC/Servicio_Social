@@ -6,6 +6,7 @@ extends HBoxContainer
 @onready var menu_textbox: Control = $MenuTextbox/MenuTextbox
 var current_button: Button = null
 
+
 func _process(_delta) -> void:
 	var new_button: Button = get_hovered_button()
 
@@ -13,6 +14,7 @@ func _process(_delta) -> void:
 	if new_button != current_button:
 		current_button = new_button
 		update_message()
+
 
 # Retorna un Button:
 func get_hovered_button() -> Button:
@@ -25,6 +27,7 @@ func get_hovered_button() -> Button:
 		return quit
 	else:
 		return null
+
 
 func update_message() -> void:
 	if current_button != null:
