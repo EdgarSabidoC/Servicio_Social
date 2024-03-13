@@ -10,3 +10,4 @@ func _ready() -> void:
 	#set_tab_icon(0, textureTab0)
 	set_tab_title(1, "Audio")
 	set_tab_title(2, "Controles")
+	set_tab_title(3, "Licencia")
