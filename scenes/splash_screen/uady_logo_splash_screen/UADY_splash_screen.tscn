@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://jf2ofsmwkllw"]
 
-[ext_resource type="Script" path="res://scenes/splash_screen/SplashScreen.gd" id="1_y7n2q"]
+[ext_resource type="Script" path="res://scenes/splash_screen/scripts/SplashScreen.gd" id="1_y7n2q"]
 [ext_resource type="Texture2D" uid="uid://ljd4xja0kcfw" path="res://assets/graphical_assets/logos/UADY/Logo_UADY_Letras-a-color.png" id="2_fy4h8"]
 
 [node name="UADYSplashScreen" type="VBoxContainer"]

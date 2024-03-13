@@ -1,17 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=15 format=3 uid="uid://deare6ipirplk"]
 
-[ext_resource type="Script" path="res://scenes/main_menu/MainScene.gd" id="1_25oib"]
-[ext_resource type="Script" path="res://scenes/main_menu/Video.gd" id="1_b2mno"]
-[ext_resource type="Script" path="res://scenes/main_menu/Options.gd" id="1_cf3km"]
-[ext_resource type="Script" path="res://scenes/main_menu/MenuContainer.gd" id="1_fw3k4"]
-[ext_resource type="Script" path="res://scenes/main_menu/Play.gd" id="1_kq1qb"]
-[ext_resource type="Script" path="res://scenes/main_menu/Audio.gd" id="2_0jv5w"]
-[ext_resource type="Script" path="res://scenes/main_menu/Quit.gd" id="2_l46kg"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/MainScene.gd" id="1_25oib"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/Video.gd" id="1_b2mno"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/Options.gd" id="1_cf3km"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="1_fw3k4"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/Play.gd" id="1_kq1qb"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/Audio.gd" id="2_0jv5w"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/Quit.gd" id="2_l46kg"]
 [ext_resource type="PackedScene" uid="uid://c4x8k1nr1nq2u" path="res://components/action_button/action_button.tscn" id="3_kij6h"]
-[ext_resource type="Script" path="res://scenes/main_menu/Settings.gd" id="4_jshqj"]
-[ext_resource type="Script" path="res://scenes/main_menu/ActionButtonContainer.gd" id="6_oi5d6"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/Settings.gd" id="4_jshqj"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionButtonContainer.gd" id="6_oi5d6"]
 [ext_resource type="PackedScene" uid="uid://0fx6dc8c8ukb" path="res://components/back_button/BackButton.tscn" id="7_aecv6"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="10_7xsny"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseMarginContainer.gd" id="13_2njq1"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseText.gd" id="13_u3qr3"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_25oib")
@@ -269,9 +271,9 @@ layout_mode = 2
 tooltip_text = "Opciones de configuración de los controles"
 focus_neighbor_left = NodePath("../Audio")
 focus_neighbor_top = NodePath("../Audio")
-focus_neighbor_right = NodePath("../Video")
-focus_neighbor_bottom = NodePath("../Video")
-focus_next = NodePath("../Video")
+focus_neighbor_right = NodePath("../License")
+focus_neighbor_bottom = NodePath("../License")
+focus_next = NodePath("../License")
 focus_previous = NodePath("../Audio")
 
 [node name="ControlsOptionsContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
@@ -377,6 +379,38 @@ text = "Pausa"
 action = "ui_cancel"
 
 [node name="BackButton" parent="UI/Settings/Controls" instance=ExtResource("7_aecv6")]
+layout_mode = 1
+
+[node name="License" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("../Controls")
+focus_neighbor_top = NodePath("../Controls")
+focus_neighbor_right = NodePath("../Video")
+focus_neighbor_bottom = NodePath("../Video")
+focus_next = NodePath("../Video")
+focus_previous = NodePath("../Controls")
+
+[node name="LicenseMarginContainer" type="MarginContainer" parent="UI/Settings/License"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+script = ExtResource("13_2njq1")
+
+[node name="LicenseText" type="RichTextLabel" parent="UI/Settings/License/LicenseMarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("13_u3qr3")
+
+[node name="BackButton" parent="UI/Settings/License" instance=ExtResource("7_aecv6")]
 layout_mode = 1
 
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_pressed"]
