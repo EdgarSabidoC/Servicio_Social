@@ -28,7 +28,7 @@ func save_data() -> void:
 
 
 # Carga la configuración. Si el archivo no existe, guarda los valores
-# redeterminados y retorna.
+# predeterminados y retorna.
 func load_data() -> void:
 	if config.load(PATH) != OK:
 		save_data()

@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://components/menu_textbox/MenuTextbox.gd" id="1_l1de0"]
 
-[node name="MenuTextbox" type="Control"]
-layout_mode = 3
+[node name="MenuTextbox" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,21 +10,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l1de0")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
+[node name="BackgroundExample" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.34902, 0.34902, 0.34902, 1)
 
-[node name="Text" type="RichTextLabel" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
 text = "Pasa el cursor sobre una opción para ver más información."
 fit_content = true

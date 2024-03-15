@@ -6,8 +6,8 @@ extends TabContainer
 #var textureTab2: Texture2D
 
 func _ready() -> void:
-	set_tab_title(0, "Vídeo")
+	self.set_tab_title(0, "Vídeo")
 	#set_tab_icon(0, textureTab0)
-	set_tab_title(1, "Audio")
-	set_tab_title(2, "Controles")
-	set_tab_title(3, "Licencia")
+	self.set_tab_title(1, "Audio")
+	self.set_tab_title(2, "Controles")
+	self.set_tab_title(3, "Licencia")

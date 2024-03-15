@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=16 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MainScene.gd" id="1_25oib"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Video.gd" id="1_b2mno"]
@@ -6,19 +6,31 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="1_fw3k4"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Play.gd" id="1_kq1qb"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Audio.gd" id="2_0jv5w"]
+[ext_resource type="Texture2D" uid="uid://b6l1sa5oxnfbj" path="res://assets/graphical_assets/menus/backgrounds/dark-texture-watercolor.jpg" id="2_gmexs"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Quit.gd" id="2_l46kg"]
 [ext_resource type="PackedScene" uid="uid://c4x8k1nr1nq2u" path="res://components/action_button/action_button.tscn" id="3_kij6h"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Settings.gd" id="4_jshqj"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionButtonContainer.gd" id="6_oi5d6"]
 [ext_resource type="PackedScene" uid="uid://0fx6dc8c8ukb" path="res://components/back_button/BackButton.tscn" id="7_aecv6"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="10_7xsny"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseMarginContainer.gd" id="13_2njq1"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseScrollContainer.gd" id="13_2eas5"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseText.gd" id="13_u3qr3"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_25oib")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextureExample" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_gmexs")
+expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
 anchors_preset = 8
@@ -38,6 +50,7 @@ script = ExtResource("1_fw3k4")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 158)
 layout_mode = 2
+size_flags_horizontal = 3
 focus_mode = 2
 
 [node name="Play" type="Button" parent="UI/MenuContainer/MainMenu"]
@@ -88,6 +101,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 158)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MenuTextbox" parent="UI/MenuContainer/MenuTextbox" instance=ExtResource("10_7xsny")]
 custom_minimum_size = Vector2(200, 158)
@@ -108,12 +122,12 @@ script = ExtResource("4_jshqj")
 [node name="Video" type="TabBar" parent="UI/Settings"]
 layout_mode = 2
 tooltip_text = "Opciones de configuración de vídeo"
-focus_neighbor_left = NodePath("../Controls")
-focus_neighbor_top = NodePath("../Controls")
+focus_neighbor_left = NodePath("../License")
+focus_neighbor_top = NodePath("../License")
 focus_neighbor_right = NodePath("../Audio")
 focus_neighbor_bottom = NodePath("../Audio")
 focus_next = NodePath("../Audio")
-focus_previous = NodePath("../Controls")
+focus_previous = NodePath("../License")
 script = ExtResource("1_b2mno")
 
 [node name="VideoOptionsContainer" type="HBoxContainer" parent="UI/Settings/Video"]
@@ -391,23 +405,32 @@ focus_neighbor_bottom = NodePath("../Video")
 focus_next = NodePath("../Video")
 focus_previous = NodePath("../Controls")
 
-[node name="LicenseMarginContainer" type="MarginContainer" parent="UI/Settings/License"]
+[node name="LicenseScrollContainer" type="ScrollContainer" parent="UI/Settings/License"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 20
-script = ExtResource("13_2njq1")
+size_flags_horizontal = 4
+script = ExtResource("13_2eas5")
 
-[node name="LicenseText" type="RichTextLabel" parent="UI/Settings/License/LicenseMarginContainer"]
+[node name="LicenseMarginContainer" type="MarginContainer" parent="UI/Settings/License/LicenseScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LicenseText" type="RichTextLabel" parent="UI/Settings/License/LicenseScrollContainer/LicenseMarginContainer"]
+custom_minimum_size = Vector2(520, 520)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 2
 bbcode_enabled = true
 fit_content = true
+scroll_following = true
+context_menu_enabled = true
+selection_enabled = true
 script = ExtResource("13_u3qr3")
 
 [node name="BackButton" parent="UI/Settings/License" instance=ExtResource("7_aecv6")]

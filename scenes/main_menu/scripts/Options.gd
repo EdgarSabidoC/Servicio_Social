@@ -8,6 +8,6 @@ var hint: String = "Abre el menú de opciones de configuración:\n⚙️ Vídeo\
 # Muestra el menú de las opciones de configuración y oculta el menú principal:
 func _on_pressed() -> void:
 	settings.show() # Muestra el menú de opciones
-	settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Vídeo
+	settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
 	get_parent().hide() # Oculta el menú principal
-	text_box_container.hide()
+	text_box_container.hide() # Oculta el textbox del menú principal
