@@ -6,9 +6,10 @@ class_name SplashScreen extends Control
 signal finished()
 
 
+# Inicia el fade:
 func start() -> void:
 	modulate.a = 0
-	show()
+	self.show()
 	var tween: Tween = create_tween()
 	tween.connect("finished", _finish)
 	tween.tween_property(self, "modulate:a", 1, _fade_time)

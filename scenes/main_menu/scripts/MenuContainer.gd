@@ -29,6 +29,7 @@ func get_hovered_button() -> Button:
 		return null
 
 
+# Actualiza el mensaje que se imprime en el textbox del menú:
 func update_message() -> void:
 	if current_button != null:
 		# Si hay un botón actualmente:
