@@ -7,3 +7,4 @@ func _ready() -> void:
 	var width: int = license_text.get_content_width()
 	var minimum_size: Vector2 = Vector2(height, width)
 	self.custom_minimum_size = minimum_size
+"position"
