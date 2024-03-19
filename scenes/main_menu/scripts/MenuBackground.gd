@@ -1,6 +1,6 @@
-extends TextureRect
+extends CanvasItem
 
-@export var _time_interval: float = 0.5
+@export var _time_interval: float = 0.15
 @export var _fade_time: float = 1
 
 signal finished()

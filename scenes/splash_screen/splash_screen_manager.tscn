@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp8tc3wjyk3wn"]
 
 [ext_resource type="Script" path="res://scenes/splash_screen/scripts/SplashScreenManager.gd" id="1_y3nvj"]
-[ext_resource type="PackedScene" uid="uid://cepplku7d7gex" path="res://scenes/title_screen/TitleScreen.tscn" id="2_l7u7x"]
+[ext_resource type="PackedScene" uid="uid://deare6ipirplk" path="res://scenes/main_menu/main_scene.tscn" id="2_1w0uu"]
 [ext_resource type="PackedScene" uid="uid://b10fpsg5nyh8a" path="res://scenes/splash_screen/godot_engine_splash_screen/godot_splash_screen.tscn" id="3_pi40e"]
 [ext_resource type="PackedScene" uid="uid://jf2ofsmwkllw" path="res://scenes/splash_screen/uady_logo_splash_screen/UADY_splash_screen.tscn" id="4_aukem"]
 
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y3nvj")
-_move_to = ExtResource("2_l7u7x")
+_move_to = ExtResource("2_1w0uu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
