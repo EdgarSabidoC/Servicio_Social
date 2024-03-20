@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp8tc3wjyk3wn"]
 
 [ext_resource type="Script" path="res://scenes/splash_screen/scripts/SplashScreenManager.gd" id="1_y3nvj"]
-[ext_resource type="PackedScene" uid="uid://deare6ipirplk" path="res://scenes/main_menu/main_scene.tscn" id="2_1w0uu"]
-[ext_resource type="PackedScene" uid="uid://b10fpsg5nyh8a" path="res://scenes/splash_screen/godot_engine_splash_screen/godot_splash_screen.tscn" id="3_pi40e"]
-[ext_resource type="PackedScene" uid="uid://jf2ofsmwkllw" path="res://scenes/splash_screen/uady_logo_splash_screen/UADY_splash_screen.tscn" id="4_aukem"]
+[ext_resource type="PackedScene" uid="uid://deare6ipirplk" path="res://scenes/main_menu/MainScene.tscn" id="2_1w0uu"]
+[ext_resource type="PackedScene" uid="uid://b10fpsg5nyh8a" path="res://scenes/splash_screen/godot_engine_splash_screen/GodotSplashScreen.tscn" id="3_pi40e"]
+[ext_resource type="PackedScene" uid="uid://jf2ofsmwkllw" path="res://scenes/splash_screen/uady_logo_splash_screen/UADYSplashScreen.tscn" id="4_aukem"]
 
 [node name="SplashScreenManager" type="Control"]
 layout_mode = 3
