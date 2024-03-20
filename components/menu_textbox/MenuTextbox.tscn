@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cho5axinwlg15"]
+[gd_scene load_steps=3 format=3 uid="uid://cho5axinwlg15"]
 
 [ext_resource type="Script" path="res://components/menu_textbox/MenuTextbox.gd" id="1_l1de0"]
+[ext_resource type="PackedScene" uid="uid://b12ejnmltv8tj" path="res://components/moving_text/MovingText.tscn" id="2_nf67f"]
 
 [node name="MenuTextbox" type="MarginContainer"]
 anchors_preset = 15
@@ -14,8 +15,6 @@ script = ExtResource("1_l1de0")
 layout_mode = 2
 color = Color(0.34902, 0.34902, 0.34902, 1)
 
-[node name="Text" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" parent="." instance=ExtResource("2_nf67f")]
 layout_mode = 2
-bbcode_enabled = true
 text = "Pasa el cursor sobre una opción para ver más información."
-fit_content = true
