@@ -1,6 +1,7 @@
 extends TabBar
 
 func _ready() -> void:
+	# Se cargan los valores de Audio del archivo de configuración:
 	%Master.value = Persistence.config.get_value("Audio", "0")
 	AudioServer.set_bus_volume_db(0, linear_to_db(%Master.value))
 	
@@ -9,6 +10,7 @@ func _ready() -> void:
 	
 	%SFX.value = Persistence.config.get_value("Audio", "2")
 	AudioServer.set_bus_volume_db(0, linear_to_db(%SFX.value))
+
 
 # Para la señal Master: cambia el volumen para el index 0.
 func _on_master_value_changed(value: float) -> void:
