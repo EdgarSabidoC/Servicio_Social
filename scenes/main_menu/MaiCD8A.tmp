@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=22 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MainScene.gd" id="1_hgypm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="2_vn4r8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Options.gd" id="6_6htjl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Quit.gd" id="7_26t7j"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
+[ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="9_dwnp8"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Settings.gd" id="10_pvbhm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Video.gd" id="11_c0uvf"]
 [ext_resource type="PackedScene" uid="uid://0fx6dc8c8ukb" path="res://components/back_button/BackButton.tscn" id="12_ax4u8"]
@@ -18,6 +19,9 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseText.gd" id="18_co63x"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
 [ext_resource type="PackedScene" uid="uid://cepplku7d7gex" path="res://scenes/title_screen/TitleScreen.tscn" id="20_0cjio"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xus76"]
+texture = ExtResource("9_dwnp8")
 
 [sub_resource type="GDScript" id="GDScript_hhh7j"]
 script/source = "extends ScrollContainer
@@ -146,7 +150,6 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(200, 158)
 layout_mode = 2
 size_flags_vertical = 6
-default_text = "Pasa el cursor sobre una opción para ver más información."
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
@@ -157,6 +160,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_xus76")
 script = ExtResource("10_pvbhm")
 
 [node name="Video" type="TabBar" parent="UI/Settings"]
@@ -432,16 +436,11 @@ layout_mode = 2
 text = "Pausa"
 action = "ui_cancel"
 
-[node name="Placeholder" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
-custom_minimum_size = Vector2(50, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
 layout_mode = 2
 
-[node name="MenutTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MenutTextboxContainer" instance=ExtResource("8_5asj7")]
-custom_minimum_size = Vector2(200, 75)
+[node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/VBoxContainer" instance=ExtResource("8_5asj7")]
+custom_minimum_size = Vector2(200, 158)
 layout_mode = 2
 
 [node name="BackButton" parent="UI/Settings/Controls" instance=ExtResource("12_ax4u8")]
