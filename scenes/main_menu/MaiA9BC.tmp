@@ -388,7 +388,7 @@ layout_mode = 2
 size_flags_vertical = 6
 tooltip_text = "Acción para abrir el menú de pausa"
 mouse_filter = 1
-text = "PAUSA/SALIR"
+text = "PAUSA"
 
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
 layout_mode = 2
