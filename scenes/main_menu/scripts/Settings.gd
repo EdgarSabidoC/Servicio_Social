@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 # Función que permite regresar al menú principal si se presiona el botón de Pausa/Salir:
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_key_input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("ui_cancel"):
 		menu_background_color.fade_in() # Realiza un fade in al fondo del menú
 		settings.current_tab = 0 # Se selecciona la TabBar de Video
