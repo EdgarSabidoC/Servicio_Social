@@ -1,5 +1,6 @@
 extends TabBar
 
+
 func _ready() -> void:
 	# Se cargan los valores de Audio del archivo de configuración:
 	%Master.value = Persistence.config.get_value("Audio", "0")
