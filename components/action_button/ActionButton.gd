@@ -1,3 +1,5 @@
+class_name ActionButton
+
 extends Button
 
 @export var action: String = "ui_up" # Acción predeterminada

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqyxgq2yrley3"]
+
+[ext_resource type="Script" path="res://components/answer_button/AnswerButton.gd" id="1_ckq0l"]
+
+[node name="AnswerButton" type="Button"]
+offset_right = 80.0
+offset_bottom = 31.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Answer"
+script = ExtResource("1_ckq0l")

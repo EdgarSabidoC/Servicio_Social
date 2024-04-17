@@ -142,7 +142,14 @@ custom_minimum_size = Vector2(220, 158)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MenuTextbox" parent="UI/MenuContainer/MenuTextbox" instance=ExtResource("8_5asj7")]
+[node name="PanelContainer" type="PanelContainer" parent="UI/MenuContainer/MenuTextbox"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/MenuContainer/MenuTextbox/PanelContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MenuTextbox" parent="UI/MenuContainer/MenuTextbox/PanelContainer" instance=ExtResource("8_5asj7")]
 custom_minimum_size = Vector2(200, 158)
 layout_mode = 2
 size_flags_vertical = 6
@@ -498,6 +505,7 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="TitleScreen" parent="UI" instance=ExtResource("20_0cjio")]
+visible = false
 
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_pressed"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_pressed"]
