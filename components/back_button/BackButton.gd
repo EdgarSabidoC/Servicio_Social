@@ -1,4 +1,7 @@
+class_name BackButton
+
 extends Control
+
 @onready var main_menu: VBoxContainer = %MainMenu
 @onready var settings: TabContainer = %Settings
 @onready var play: Button = $"../../../MenuContainer/MainMenu/Play"

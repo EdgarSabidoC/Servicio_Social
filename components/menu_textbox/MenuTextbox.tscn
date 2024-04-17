@@ -11,9 +11,5 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l1de0")
 
-[node name="BackgroundExample" type="ColorRect" parent="."]
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-
 [node name="MovingText" parent="." instance=ExtResource("2_nf67f")]
 layout_mode = 2
