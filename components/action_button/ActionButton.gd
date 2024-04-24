@@ -28,7 +28,7 @@ func remap_action_to(event: InputEvent) -> void:
 		# Si las cciones son diferentes, pero tienen la misma tecla, se intercambian:
 		if a != action && compare_key.keycode == event.keycode:
 			text = old_key.as_text()
-			errorMsg = "No es posible asignar " + InputMap.action_get_events(a)[0].as_text() + " debido a que ya se encuentra asignada."
+			errorMsg = "No es posible asignar «" + InputMap.action_get_events(a)[0].as_text() + "» debido a que ya se encuentra asignada."
 			error = true
 			return
 	

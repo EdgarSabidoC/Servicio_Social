@@ -7,6 +7,7 @@ extends VBoxContainer
 @onready var button5: Button = $Accept
 @onready var button6: Button = $Pause
 @onready var menu_textbox = $"../MenutTextboxContainer/MenuTextbox" # Textbox para errores.
+var time_to_clear: int = 15 # Variable que controla el tiempo en (segundos) para borrar el mensaje de error del textbox.
 var keyInputFlag: bool = true
 
 
@@ -52,8 +53,8 @@ func _unhandled_key_input(_event: InputEvent) -> void:
 	enable_buttons([button1, button2, button3, button4, button5, button6])
 	keyInputFlag = true
 	
-	# Se borra el mensaje después de 20 segundos:
-	menu_textbox.clear_message_after_time(20)
+	# Se borra el mensaje después de una cantidad de segundos:
+	menu_textbox.clear_message_after_time(time_to_clear)
 
 
 # Desactiva los botones:

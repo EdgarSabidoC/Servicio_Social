@@ -1,0 +1,10 @@
+character.json:
+{
+  levels: [Number, Number, ...],
+  bonus: Number, <-- Contador de veces que se atendió
+  multiplier: Number,
+  textVersion: [[String, String, String, ...],
+                [String, String, String, ...],
+                ...
+               ]
+}

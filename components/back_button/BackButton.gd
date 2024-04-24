@@ -5,7 +5,7 @@ extends Control
 @onready var main_menu: VBoxContainer = %MainMenu
 @onready var settings: TabContainer = %Settings
 @onready var play: Button = $"../../../MenuContainer/MainMenu/Play"
-@onready var text_box_container: VBoxContainer = %MenuTextbox
+@onready var text_box_container: Control = %MenuTextbox
 @onready var menu_background_color = $"../../../MenuBackgroundColor"
 @onready var settings_background_color = $"../../../SettingsBackgroundColor"
 
