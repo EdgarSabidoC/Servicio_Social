@@ -1,0 +1,30 @@
+answers.json:
+{
+  data: [
+    {
+      answer: [Number, Number, ...],
+      bread: Number,
+      beverage: Number,
+      asset: String
+    },
+    {
+      answer: [Number, Number, ...],
+      bread: Number,
+      beverage: Number,
+      asset: String
+    },
+    {
+      answer: [Number, Number, ...],
+      bread: Number,
+      beverage: Number,
+      asset: String
+    },
+    {
+      answer: [Number, Number, ...],
+      bread: Number,
+      beverage: Number,
+      asset: String
+    }, 
+    ...
+  ]
+}

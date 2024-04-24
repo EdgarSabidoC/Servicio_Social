@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=22 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MainScene.gd" id="1_hgypm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="2_vn4r8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Quit.gd" id="7_26t7j"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
 [ext_resource type="Texture2D" uid="uid://sutvf5oumf1t" path="res://assets/graphical_assets/menus/boxes/box_settings.tga" id="8_hxur4"]
+[ext_resource type="Script" path="res://scenes/main_menu/MenuTextbox.gd" id="8_v4crj"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Settings.gd" id="10_pvbhm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Video.gd" id="11_c0uvf"]
 [ext_resource type="PackedScene" uid="uid://0fx6dc8c8ukb" path="res://components/back_button/BackButton.tscn" id="12_ax4u8"]
@@ -133,7 +134,7 @@ focus_previous = NodePath("../Options")
 text = "Salir"
 script = ExtResource("7_26t7j")
 
-[node name="Placeholder" type="VBoxContainer" parent="UI/MenuContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MenuContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -143,6 +144,7 @@ clip_contents = true
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("8_v4crj")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MenuContainer/MenuTextbox"]
 clip_contents = true
@@ -519,6 +521,7 @@ visible = false
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_pressed"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_pressed"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_pressed"]
+[connection signal="resized" from="UI/MenuContainer/MenuTextbox" to="UI/MenuContainer/MenuTextbox" method="_on_resized"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_toggled"]
 [connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]

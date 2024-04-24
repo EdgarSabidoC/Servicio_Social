@@ -1,5 +1,6 @@
 class_name AnswerButton extends Button
 
+# Utilizar custom resources para almacenar la respuesta y los assets del botón.
 var answerFlag: bool = false
 var normalAsset: Texture2D
 var hoverAsset: Texture2D
