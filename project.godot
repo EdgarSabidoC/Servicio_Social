@@ -25,6 +25,7 @@ buses/default_bus_layout="res://scripts/autoloads/sound/default_bus_layout.tres"
 
 Persistence="*res://scripts/autoloads/data/Persistence.gd"
 MenuBackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/MenuBackgroundMusic.tscn"
+PizzaProblems="*res://scripts/autoloads/data/json_data/PizzaProblems.gd"
 
 [display]
 
