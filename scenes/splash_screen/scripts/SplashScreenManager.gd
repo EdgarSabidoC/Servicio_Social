@@ -11,7 +11,17 @@ var _splash_screens: Array[SplashScreen] = []
 
 func _ready() -> void:
 	assert(_move_to)
-
+	
+	#Se cargan los valores de Audio del archivo de configuración:
+	var master = Persistence.config.get_value("Audio", "0")
+	AudioServer.set_bus_volume_db(0, linear_to_db(master))
+	
+	var music = Persistence.config.get_value("Audio", "1")
+	AudioServer.set_bus_volume_db(1, linear_to_db(music))
+	
+	var sfx = Persistence.config.get_value("Audio", "2")
+	AudioServer.set_bus_volume_db(0, linear_to_db(sfx))
+	
 	set_process_input(false)
 
 	for splash_screen in _splash_screen_container.get_children():

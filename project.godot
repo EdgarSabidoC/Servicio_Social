@@ -17,10 +17,14 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://scripts/autoloads/sound/default_bus_layout.tres"
+
 [autoload]
 
-Persistence="*res://scripts/autoloads/Persistence.gd"
-MenuBackgroundMusic="*res://components/menu_background_music/MenuBackgroundMusic.tscn"
+Persistence="*res://scripts/autoloads/data/Persistence.gd"
+MenuBackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/MenuBackgroundMusic.tscn"
 
 [display]
 
