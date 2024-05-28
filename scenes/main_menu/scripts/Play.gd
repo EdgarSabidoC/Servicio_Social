@@ -16,5 +16,5 @@ func _on_pressed() -> void:
 
 
 func change_scene():
-	# Obtener el nodo raíz actual
+	# Se cambia a la siguiente escena:
 	get_tree().change_scene_to_file("res://cutscenes/level_01/CutsceneLvl01.tscn");

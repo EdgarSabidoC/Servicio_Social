@@ -25,7 +25,7 @@ func load_data() -> void:
 		save_data()
 		return
 	
-	# Si el archivo existe, se cargan los:
+	# Si el archivo existe, se cargan los datos:
 	load_control_settings()
 	load_video_settings()
 

@@ -25,6 +25,7 @@ buses/default_bus_layout="res://scripts/autoloads/sound/default_bus_layout.tres"
 
 Persistence="*res://scripts/autoloads/data/Persistence.gd"
 MenuBackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/MenuBackgroundMusic.tscn"
+PizzaProblems="*res://scripts/autoloads/data/json_data/PizzaProblems.gd"
 
 [display]
 
@@ -39,6 +40,10 @@ project/assembly_name="Servicio_Social"
 
 import/blender/enabled=false
 import/fbx/enabled=false
+
+[gui]
+
+theme/custom_font="res://assets/graphical_assets/menus/fonts/nokiafc22.ttf"
 
 [input]
 
