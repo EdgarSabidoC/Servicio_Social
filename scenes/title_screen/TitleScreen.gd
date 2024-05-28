@@ -1,6 +1,5 @@
 extends Control
 @onready var texture_rect = $TextureRect
-#@export var _move_to: PackedScene
 @onready var menu_container = $"../MenuContainer"
 @onready var menu_background_color = $"../MenuBackgroundColor"
 @onready var label = $Label
