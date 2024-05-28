@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://jf2ofsmwkllw"]
+
+[ext_resource type="Script" path="res://scenes/splash_screen/scripts/SplashScreen.gd" id="1_y7n2q"]
+[ext_resource type="Texture2D" uid="uid://ljd4xja0kcfw" path="res://assets/graphical_assets/logos/UADY/Logo_UADY_Letras-a-color.png" id="2_fy4h8"]
+
+[node name="UADYSplashScreen" type="VBoxContainer"]
+offset_right = 461.0
+offset_bottom = 256.0
+script = ExtResource("1_y7n2q")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+texture = ExtResource("2_fy4h8")
+expand_mode = 3
+stretch_mode = 5

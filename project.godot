@@ -12,14 +12,19 @@ config_version=5
 
 config/name="Servicio_Social"
 config/version="0.0.1"
-run/main_scene="res://scenes/splash_screen/splash_screen_manager.tscn"
+run/main_scene="res://scenes/splash_screen/SplashScreenManager.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://scripts/autoloads/sound/default_bus_layout.tres"
+
 [autoload]
 
-Persistence="*res://scripts/autoloads/Persistence.gd"
+Persistence="*res://scripts/autoloads/data/Persistence.gd"
+MenuBackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/MenuBackgroundMusic.tscn"
 
 [display]
 
@@ -29,6 +34,11 @@ window/size/viewport_height=576
 [dotnet]
 
 project/assembly_name="Servicio_Social"
+
+[filesystem]
+
+import/blender/enabled=false
+import/fbx/enabled=false
 
 [input]
 
@@ -42,5 +52,8 @@ ui_skip={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

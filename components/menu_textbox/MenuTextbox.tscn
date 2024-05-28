@@ -1,30 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://cho5axinwlg15"]
+[gd_scene load_steps=3 format=3 uid="uid://cho5axinwlg15"]
 
 [ext_resource type="Script" path="res://components/menu_textbox/MenuTextbox.gd" id="1_l1de0"]
+[ext_resource type="PackedScene" uid="uid://b12ejnmltv8tj" path="res://components/moving_text/MovingText.tscn" id="2_nf67f"]
 
-[node name="MenuTextbox" type="Control"]
-layout_mode = 3
+[node name="MenuTextbox" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -983.0
+offset_bottom = -536.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 script = ExtResource("1_l1de0")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-
-[node name="Text" type="RichTextLabel" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Pasa el cursor encima de una opción para más información."
+[node name="MovingText" parent="." instance=ExtResource("2_nf67f")]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
