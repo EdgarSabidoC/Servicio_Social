@@ -41,6 +41,10 @@ project/assembly_name="Servicio_Social"
 import/blender/enabled=false
 import/fbx/enabled=false
 
+[gui]
+
+theme/custom_font="res://assets/graphical_assets/menus/fonts/nokiafc22.ttf"
+
 [input]
 
 ui_skip={
