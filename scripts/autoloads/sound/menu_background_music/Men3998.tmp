@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcwavj3h5my52"]
+
+[ext_resource type="AudioStream" uid="uid://cbvaqf43nsv5r" path="res://assets/sounds/music/tarantella_napoletana_tremolo.ogg" id="1_nfnsb"]
+
+[sub_resource type="GDScript" id="GDScript_xs42f"]
+script/source = "extends AudioStreamPlayer
+
+# Se llama cuando el nodo entra al árbol de escena la primera vez:
+func _ready() -> void:
+ 	pass
+
+"
+
+[node name="MenuBackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_nfnsb")
+autoplay = true
+bus = &"Music"
+script = SubResource("GDScript_xs42f")

@@ -8,7 +8,6 @@ func _ready() -> void:
 	scrollbar_textbox.print_text(text)
 	
 	
-	
 # Carga el archivo de licensia de Godot:
 func _load_license() -> String:
 	var file: FileAccess = FileAccess.open("res://assets/graphical_assets/texts/license/godot_license.txt", FileAccess.READ)

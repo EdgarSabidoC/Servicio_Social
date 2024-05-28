@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=20 format=3 uid="uid://deare6ipirplk"]
 
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/MainScene.gd" id="1_hgypm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="2_vn4r8"]
 [ext_resource type="Texture2D" uid="uid://b6l1sa5oxnfbj" path="res://assets/graphical_assets/menus/backgrounds/dark-texture-watercolor.jpg" id="3_h3avq"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="4_5awxv"]
@@ -32,6 +33,7 @@ func _ready() -> void:
 "
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_hgypm")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -306,7 +308,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-tooltip_text = "Ajusta el nivel del volumen principal"
+tooltip_text = "Ajusta el nivel de volumen principal"
 max_value = 1.0
 step = 0.05
 value = 0.5
@@ -315,7 +317,7 @@ value = 0.5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-tooltip_text = "Ajusta el nivel del volumen de la música"
+tooltip_text = "Ajusta el nivel de volumen de la música"
 max_value = 1.0
 step = 0.05
 value = 0.5
@@ -324,7 +326,7 @@ value = 0.5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-tooltip_text = "Ajusta el nivel del volumen de los efectos especiales"
+tooltip_text = "Ajusta el nivel de volumen de los efectos especiales"
 max_value = 1.0
 step = 0.05
 value = 0.4

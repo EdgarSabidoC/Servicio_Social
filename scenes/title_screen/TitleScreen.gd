@@ -1,20 +1,22 @@
 extends Control
-@onready var texture_rect = $TextureRect
-@onready var menu_container = $"../MenuContainer"
-@onready var menu_background_color = $"../MenuBackgroundColor"
-@onready var label = $Label
 
+@onready var texture_rect = $TextureRect
+@onready var label = $Label
+@export var _move_to: PackedScene
+
+func _ready() -> void:
+	assert(_move_to)
 
 func _process(_delta: float) -> void:
-	if Input.is_key_pressed(KEY_SPACE) \
-	|| Input.is_key_pressed(KEY_ENTER):
-		await wait_to_hide(0.01)
+	if Input.is_key_pressed(KEY_SPACE) or Input.is_key_pressed(KEY_ENTER):
+		# Consume el evento:
+		get_viewport().set_input_as_handled()
+		# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
+		await fade_out_and_change_scene()
 
-
-# Función que espera para ocltar el componente:
-func wait_to_hide(seconds: float) -> void:
-	var musicPosition: float = MenuBackgroundMusic.get_playback_position()
-	await get_tree().create_timer(seconds).timeout
-	texture_rect.fade_out()
-	self.hide()
-	MenuBackgroundMusic.play(musicPosition)
+# Función asíncrona que inicia el desvanecimiento y cambia de escena al final de la animación:
+func fade_out_and_change_scene() -> void:
+	# Reproduce la animación de desvanecimiento del TextureRect
+	await texture_rect.fade_out()
+	# Cambia a la nueva escena
+	get_tree().change_scene_to_packed(_move_to)

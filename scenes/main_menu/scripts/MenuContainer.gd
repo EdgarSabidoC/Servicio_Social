@@ -21,7 +21,6 @@ func _ready() -> void:
 	main_window_size_changed.connect(_on_main_window_size_changed)
 	main_window_size_changed.emit()
 
-
 func _process(_delta) -> void:
 	var new_button: Button = get_hovered_button()
 	
