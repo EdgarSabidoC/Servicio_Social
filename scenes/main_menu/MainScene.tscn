@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=20 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="2_vn4r8"]
 [ext_resource type="Texture2D" uid="uid://b6l1sa5oxnfbj" path="res://assets/graphical_assets/menus/backgrounds/dark-texture-watercolor.jpg" id="3_h3avq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Audio.gd" id="13_0wpcl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionButtonContainer.gd" id="14_2m575"]
 [ext_resource type="PackedScene" uid="uid://c4x8k1nr1nq2u" path="res://components/action_button/ActionButton.tscn" id="15_gjpx2"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/MenutTextboxContainer.gd" id="15_kdu1y"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/License.gd" id="16_pabyu"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseText.gd" id="18_co63x"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
@@ -36,7 +37,6 @@ func _ready() -> void:
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="SettingsBackgroundColor" type="ColorRect" parent="UI"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -252,7 +252,6 @@ popup/item_3/id = 3
 layout_mode = 1
 
 [node name="Audio" type="TabBar" parent="UI/Settings"]
-visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de audio"
 focus_neighbor_left = NodePath("../Video")
@@ -333,7 +332,6 @@ value = 0.4
 layout_mode = 1
 
 [node name="Controls" type="TabBar" parent="UI/Settings"]
-visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de los controles"
 focus_neighbor_left = NodePath("../Audio")
@@ -350,10 +348,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -94.5
-offset_top = -103.0
-offset_right = 94.5
-offset_bottom = 103.0
+offset_left = -290.0
+offset_top = -125.0
+offset_right = 290.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -452,6 +450,7 @@ layout_mode = 2
 [node name="MenutTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+script = ExtResource("15_kdu1y")
 
 [node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MenutTextboxContainer" instance=ExtResource("8_5asj7")]
 custom_minimum_size = Vector2(300, 250)
