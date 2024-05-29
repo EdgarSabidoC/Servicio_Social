@@ -7,7 +7,7 @@ extends VBoxContainer
 @onready var button5: Button = $Accept
 @onready var button6: Button = $Pause
 @onready var menu_textbox = $"../MenutTextboxContainer/MenuTextbox" # Textbox para errores.
-var time_to_clear: int = 15 # Variable que controla el tiempo en (segundos) para borrar el mensaje de error del textbox.
+var time_to_clear: int = 5 # Variable que controla el tiempo en (segundos) para borrar el mensaje de error del textbox.
 var keyInputFlag: bool = true
 
 
@@ -29,24 +29,25 @@ func _process(_delta: float) -> void:
 
 func _unhandled_key_input(_event: InputEvent) -> void:
 	menu_textbox.moving_text.seconds = 0
+
 	# Manejo de errores:
 	if button1.error:
-		menu_textbox.print_message(button1.errorMsg, "c")
+		menu_textbox.print_message(button1.errorMsg)
 		button1.error = false
 	elif button2.error:
-		menu_textbox.print_message(button2.errorMsg, "c")
+		menu_textbox.print_message(button2.errorMsg)
 		button2.error = false
 	elif button3.error:
-		menu_textbox.print_message(button3.errorMsg, "c")
+		menu_textbox.print_message(button3.errorMsg)
 		button3.error = false
 	elif button4.error:
-		menu_textbox.print_message(button4.errorMsg, "c")
+		menu_textbox.print_message(button4.errorMsg)
 		button4.error = false
 	elif button5.error:
-		menu_textbox.print_message(button5.errorMsg, "c")
+		menu_textbox.print_message(button5.errorMsg)
 		button5.error = false
 	elif button6.error:
-		menu_textbox.print_message(button6.errorMsg, "c")
+		menu_textbox.print_message(button6.errorMsg)
 		button6.error = false
 	
 	# Se reactivan los botones una vez se remapeó una tecla:

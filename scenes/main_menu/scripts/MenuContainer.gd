@@ -21,12 +21,6 @@ func _ready() -> void:
 	main_window_size_changed.connect(_on_main_window_size_changed)
 	main_window_size_changed.emit()
 	
-	# Prueba para imprimir datos de CharactersData:
-	var cd = get_tree().root.get_node("CharactersData")
-	cd.difficulty = "hard" # Se cambia la dificultad.
-	cd.loadProblemsData() # Se cargan los datos.
-	print(cd.characters[0]["name"]) # Ejemplo de impresión del personaje del nivel 1.
-	print(cd.characters[5]["name"]) # Ejemplo de impresión del personaje del nivel 6.
 
 func _process(_delta) -> void:
 	var new_button: Button = get_hovered_button()
@@ -59,7 +53,7 @@ func get_hovered_button() -> Button:
 func update_message() -> void:
 	if current_button != null:
 		# Si hay un botón actualmente:
-		menu_textbox.print_message(current_button.hint, "l")
+		menu_textbox.print_message(current_button.hint)
 	else:
 		# Si no, se limpia el mensaje:
 		menu_textbox.clear_message()

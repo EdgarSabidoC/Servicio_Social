@@ -3,14 +3,14 @@ extends Control
 # Add text to print:
 @onready var moving_text = $MovingText
 @export var default_text = ""
-
+@export var alignment = "l"
 
 func _ready() -> void:
-	print_message(default_text, "l")
+	print_message(default_text)
 
 
 # Imprime una cadena que se la pase y la alineación [l: left, c: center, r: right, f: fill]:
-func print_message(string: String, alignment: String) -> void:
+func print_message(string: String) -> void:
 	match alignment:
 		"l":
 			moving_text.text = "[left]%s[/left]" %string
