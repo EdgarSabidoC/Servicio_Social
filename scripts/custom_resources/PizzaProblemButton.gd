@@ -1,7 +1,8 @@
 extends Node
 
-@export var data: String
-@export var isTrue: bool
+var fraction: String
+var isTrue: bool
+var image: Image
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
