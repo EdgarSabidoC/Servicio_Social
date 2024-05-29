@@ -252,6 +252,7 @@ popup/item_3/id = 3
 layout_mode = 1
 
 [node name="Audio" type="TabBar" parent="UI/Settings"]
+visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de audio"
 focus_neighbor_left = NodePath("../Video")
@@ -332,6 +333,7 @@ value = 0.4
 layout_mode = 1
 
 [node name="Controls" type="TabBar" parent="UI/Settings"]
+visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de los controles"
 focus_neighbor_left = NodePath("../Audio")
