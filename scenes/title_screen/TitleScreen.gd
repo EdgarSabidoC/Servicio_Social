@@ -6,6 +6,11 @@ extends Control
 
 func _ready() -> void:
 	assert(_move_to)
+	
+	# Se cargan los datos de los personajes (nombre, bonus, defeated y assets) y se añade el nodo en el árbol:
+	var LoadData = load("res://scripts/autoloads/data/json_data/CharactersData.gd").new()
+	LoadData.name = "CharactersData"
+	get_tree().root.add_child(LoadData)
 
 func _process(_delta: float) -> void:
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_key_pressed(KEY_ENTER):
