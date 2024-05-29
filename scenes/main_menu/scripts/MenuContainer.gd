@@ -20,6 +20,13 @@ func _ready() -> void:
 	# Se conecta la señal:
 	main_window_size_changed.connect(_on_main_window_size_changed)
 	main_window_size_changed.emit()
+	
+	# Prueba para imprimir datos de CharactersData:
+	var cd = get_tree().root.get_node("CharactersData")
+	cd.difficulty = "hard" # Se cambia la dificultad.
+	cd.loadProblemsData() # Se cargan los datos.
+	print(cd.characters[0]["name"]) # Ejemplo de impresión del personaje del nivel 1.
+	print(cd.characters[5]["name"]) # Ejemplo de impresión del personaje del nivel 6.
 
 func _process(_delta) -> void:
 	var new_button: Button = get_hovered_button()
