@@ -20,12 +20,11 @@ func display_key() -> void:
 
 # Remapea la tecla borrando el evento previo y añadiendo uno nuevo:
 func remap_action_to(event: InputEvent) -> void:
-
 	# Se verifica que la tecla ingresada no esté repetida:
 	var old_key: InputEventKey = Persistence.config.get_value("Controls", action, InputEventKey)
 	for a in actions:
 		var compare_key: InputEventKey = Persistence.config.get_value("Controls", a, InputEventKey)
-		# Si las cciones son diferentes, pero tienen la misma tecla, se intercambian:
+		# Si las acciones son diferentes, pero tienen la misma tecla, se intercambian:
 		if a != action && compare_key.keycode == event.keycode:
 			text = old_key.as_text()
 			errorMsg = "No es posible asignar «" + InputMap.action_get_events(a)[0].as_text() + "» debido a que ya se encuentra asignada."
