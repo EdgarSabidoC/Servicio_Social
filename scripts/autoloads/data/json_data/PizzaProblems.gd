@@ -50,7 +50,7 @@ func loadData() -> void:
 		var problem: PizzaProblem = PizzaProblem.new()
 		problem.correctAnswer = pizza_data[17]
 		problem.wrongAnswers = [pizza_data[0], pizza_data[10], pizza_data[15]]
-		problem.text = pizza_texts[randi_range(0,8)]["text"].format({"a": problem.correctAnswer["fraction"], \
+		problem.text = pizza_texts[randi_range(1,8)]["text"].format({"a": problem.correctAnswer["fraction"], \
 													"b": problem.correctAnswer["beverages"], \
 													"c": problem.correctAnswer["breads"]})
 		
