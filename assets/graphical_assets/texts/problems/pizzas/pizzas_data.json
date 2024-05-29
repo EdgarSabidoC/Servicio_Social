@@ -1,7 +1,7 @@
 {
 	"pizzaData": [
 		{"fraction": "4/2", "beverages": "3", "breads": "1", "imagePath": "url"},
-		{"fraction": "8/4", "beverages": "3", "breads": "1", "imagePath": "url"},
+		{"fraction": "3/4", "beverages": "3", "breads": "1", "imagePath": "url"},
 		{"fraction": "12/6", "beverages": "3", "breads": "1", "imagePath": "url"},
 		{"fraction": "7/3", "beverages": "3", "breads": "1", "imagePath": "url"},
 		{"fraction": "15/5", "beverages": "3", "breads": "1", "imagePath": "url"},

@@ -3,8 +3,8 @@ class_name PizzaProblem
 
 # Tipos de datos tentativos
 @export var text: String
-@export var correctAnswer: Dictionary
-@export var wrongAnswers: Array[Dictionary]
+@export var correct_answer: Dictionary
+@export var wrong_answers: Array[Dictionary]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
