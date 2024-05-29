@@ -7,8 +7,7 @@ var pizza_text_path: String = "res://assets/graphical_assets/texts/problems/pizz
 # Se accede al Autoload como: PizzaProblems.data
 var data: Array[PizzaProblem]
 
-# Configura todas las acciones y eventos predeterminados en la sección
-# "Controls" dentro del archivo de configuración.
+
 func _ready() -> void:
 	# Se cargan los datos:
 	loadData()
@@ -48,17 +47,17 @@ func loadData() -> void:
 		# Se crear el recurso para el problema de las pizzas:
 		randomize()
 		var problem: PizzaProblem = PizzaProblem.new()
-		problem.correctAnswer = pizza_data[17]
-		problem.wrongAnswers = [pizza_data[0], pizza_data[10], pizza_data[15]]
-		problem.text = pizza_texts[randi_range(1,8)]["text"].format({"a": problem.correctAnswer["fraction"], \
-													"b": problem.correctAnswer["beverages"], \
-													"c": problem.correctAnswer["breads"]})
+		problem.correct_answer = pizza_data[17]
+		problem.wrong_answers = [pizza_data[0], pizza_data[10], pizza_data[15]]
+		problem.text = pizza_texts[randi_range(1,8)]["text"].format({"a": problem.correct_answer["fraction"], \
+													"b": problem.correct_answer["beverages"], \
+													"c": problem.correct_answer["breads"]})
 		
 		# Se añade el recurso a la lista problemas del juego de pizzas:
 		data.append(problem)
 		
 		# Impresión para debug:
-		print_debug("Text: {a}\nCorrect answer: {b}\nWrong answers: {c}\nUrl: {d}\n".format({"a": problem.text, \
-																	 "b": problem.correctAnswer, \
-																	 "c": problem.wrongAnswers, \
-																	 "d": problem.correctAnswer["imagePath"]}))
+		#print_debug("Text: {a}\nCorrect answer: {b}\nWrong answers: {c}\nUrl: {d}\n".format({"a": problem.text, \
+																	 #"b": problem.correct_answer, \
+																	 #"c": problem.wrong_answers, \
+																	 #"d": problem.correct_answer["imagePath"]}))
