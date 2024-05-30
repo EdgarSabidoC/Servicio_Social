@@ -1,5 +1,8 @@
 extends TabBar
 
+@onready var master = %Master
+
+
 # Para la señal Master: cambia el volumen para el index 0.
 func _on_master_value_changed(value: float) -> void:
 	set_volume(0, value)
@@ -23,3 +26,7 @@ func set_volume(idx: int, value: float) -> void:
 	AudioServer.set_bus_volume_db(idx, linear_to_db(value))
 	Persistence.config.set_value("Audio", str(idx), value)
 	Persistence.save_data()
+
+
+func _on_master_visibility_changed():
+	master.grab_focus()

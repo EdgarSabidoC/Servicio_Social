@@ -28,6 +28,19 @@ func load_data() -> void:
 	# Si el archivo existe, se cargan los datos:
 	load_control_settings()
 	load_video_settings()
+	load_audio_settings()
+
+
+# Obtiene los datos de audio y cambia la configuración:
+func load_audio_settings() -> void:
+	var master: Variant = config.get_value("Audio", "0")
+	AudioServer.set_bus_volume_db(0, linear_to_db(master))
+	
+	var music: Variant = config.get_value("Audio", "1")
+	AudioServer.set_bus_volume_db(1, linear_to_db(music))
+	
+	var sfx: Variant = config.get_value("Audio", "2")
+	AudioServer.set_bus_volume_db(2, linear_to_db(sfx))
 
 
 # Carga los controles de configuración:

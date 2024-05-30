@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cepplku7d7gex"]
+[gd_scene load_steps=6 format=3 uid="uid://cepplku7d7gex"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/TitleScreen.gd" id="1_b267g"]
 [ext_resource type="PackedScene" uid="uid://deare6ipirplk" path="res://scenes/main_menu/MainScene.tscn" id="2_ike7s"]
 [ext_resource type="Texture2D" uid="uid://bin0k7wugyba7" path="res://assets/graphical_assets/menus/backgrounds/sl_0210121_40570_43.jpg" id="3_nk0gx"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="4_35evy"]
+[ext_resource type="Script" path="res://scenes/title_screen/Label.gd" id="5_446se"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -41,3 +42,4 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
 text = "Presiona la tecla <ENTER> o la tecla <ESPACIO> para continuar"
+script = ExtResource("5_446se")

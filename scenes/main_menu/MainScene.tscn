@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=25 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="2_vn4r8"]
 [ext_resource type="Texture2D" uid="uid://b6l1sa5oxnfbj" path="res://assets/graphical_assets/menus/backgrounds/dark-texture-watercolor.jpg" id="3_h3avq"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c4x8k1nr1nq2u" path="res://components/action_button/ActionButton.tscn" id="15_gjpx2"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenutTextboxContainer.gd" id="15_kdu1y"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/License.gd" id="16_pabyu"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseText.gd" id="18_co63x"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
 
@@ -41,17 +42,6 @@ func _ready() -> void:
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="SettingsBackgroundColor" type="ColorRect" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(1, 0.74902, 0.470588, 1)
-script = ExtResource("2_vn4r8")
-
-[node name="DifficultyMenuBackgroundColor" type="ColorRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -85,7 +75,6 @@ texture = ExtResource("3_h3avq")
 expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.108887
 anchor_top = 0.309896
@@ -247,6 +236,7 @@ script = ExtResource("13_0ewxx")
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -255,6 +245,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 2
+theme_override_constants/side_margin = 25
 script = ExtResource("10_pvbhm")
 
 [node name="Video" type="TabBar" parent="UI/Settings"]
@@ -310,17 +301,17 @@ size_flags_horizontal = 3
 [node name="Fullscreen" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 3
 tooltip_text = "Activa/Desactiva el modo pantalla completa"
-icon_alignment = 1
 expand_icon = true
 
 [node name="Borderless" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 3
 tooltip_text = "Activa/Desactiva el modo sin bordes"
-icon_alignment = 1
 expand_icon = true
 
 [node name="Vsync" type="OptionButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
@@ -328,6 +319,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Selecciona el tipo de sincronización vertical"
+alignment = 1
 item_count = 4
 selected = 1
 popup/item_0/text = "Desactivado"
@@ -340,7 +332,11 @@ popup/item_3/text = "Mailbox"
 popup/item_3/id = 3
 
 [node name="BackButton" parent="UI/Settings/Video" instance=ExtResource("12_ax4u8")]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.804688
+anchor_top = 0.908759
 
 [node name="Audio" type="TabBar" parent="UI/Settings"]
 visible = false
@@ -354,71 +350,100 @@ focus_next = NodePath("../Controls")
 focus_previous = NodePath("../Video")
 script = ExtResource("13_0wpcl")
 
-[node name="AudioOptionsContainer" type="HBoxContainer" parent="UI/Settings/Audio"]
+[node name="AudioOptionsContainer" type="MarginContainer" parent="UI/Settings/Audio"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -38.5
-offset_right = 72.0
-offset_bottom = 38.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="AudioLabelsContainer" type="VBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer"]
 layout_mode = 2
 
-[node name="Master" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/AudioLabelsContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioLabelsContainer" type="VBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Master" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioLabelsContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "Control del volumen principal del audio"
 mouse_filter = 1
 text = "Master"
+vertical_alignment = 1
 
-[node name="Music" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/AudioLabelsContainer"]
+[node name="Music" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioLabelsContainer"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "Control del volumen de la música del juego"
 mouse_filter = 1
 text = "Música"
+vertical_alignment = 1
 
-[node name="SFX" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/AudioLabelsContainer"]
+[node name="SFX" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioLabelsContainer"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "Control del volumen de los efectos especiales dentro del juego"
 mouse_filter = 1
 text = "Efectos especiales"
+vertical_alignment = 1
 
-[node name="AudioInputsContainer" type="VBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="AudioInputsContainer" type="VBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("17_cql55")
 
-[node name="Master" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/AudioInputsContainer"]
+[node name="Master" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 tooltip_text = "Ajusta el nivel del volumen principal"
 max_value = 1.0
 step = 0.05
-value = 0.5
+tick_count = 11
 
-[node name="Music" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/AudioInputsContainer"]
+[node name="Music" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 tooltip_text = "Ajusta el nivel del volumen de la música"
 max_value = 1.0
 step = 0.05
-value = 0.5
+tick_count = 11
 
-[node name="SFX" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/AudioInputsContainer"]
+[node name="SFX" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 tooltip_text = "Ajusta el nivel del volumen de los efectos especiales"
 max_value = 1.0
 step = 0.05
-value = 0.4
+tick_count = 11
+
+[node name="BoxContainer2" type="BoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="BackButton" parent="UI/Settings/Audio" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
@@ -436,119 +461,136 @@ focus_previous = NodePath("../Audio")
 
 [node name="ControlsOptionsContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -290.0
-offset_top = -125.0
-offset_right = 290.0
-offset_bottom = 125.0
+offset_top = -175.0
+offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="ControlsLabelsContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="Up" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlsLabelsContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Up" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 tooltip_text = "Acción para moverse hacia arriba"
 mouse_filter = 1
 text = "ARRIBA"
 
-[node name="Down" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
+[node name="Down" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 tooltip_text = "Acción para moverse hacia abajo"
 mouse_filter = 1
 text = "ABAJO"
 
-[node name="Left" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
+[node name="Left" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 tooltip_text = "Acción para moverse hacia la izquierda"
 mouse_filter = 1
 text = "IZQUIERDA"
 
-[node name="Right" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
+[node name="Right" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 tooltip_text = "Acción para moverse hacia la derecha"
 mouse_filter = 1
 text = "DERECHA"
 
-[node name="Aceptar" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
+[node name="Aceptar" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 tooltip_text = "Acción para aceptar"
 mouse_filter = 1
 text = "ACEPTAR"
 
-[node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/ControlsLabelsContainer"]
+[node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 tooltip_text = "Acción para abrir el menú de pausa"
 mouse_filter = 1
 text = "PAUSA/SALIR"
 
-[node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
+[node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("14_2m575")
 
-[node name="Up" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
-custom_minimum_size = Vector2(100, 0)
+[node name="Up" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 7
 text = "Arriba"
 
-[node name="Down" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
-custom_minimum_size = Vector2(100, 0)
+[node name="Down" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 7
 text = "Abajo"
 action = "ui_down"
 
-[node name="Left" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
-custom_minimum_size = Vector2(100, 0)
+[node name="Left" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 7
 text = "Izquierda"
 action = "ui_left"
 
-[node name="Right" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
-custom_minimum_size = Vector2(100, 0)
+[node name="Right" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 7
 text = "Derecha"
 action = "ui_right"
 
-[node name="Accept" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+[node name="Accept" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Aceptar"
 action = "ui_accept"
 
-[node name="Pause" parent="UI/Settings/Controls/ControlsOptionsContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+[node name="Pause" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Pausa"
 action = "ui_cancel"
 
-[node name="Placeholder" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
-custom_minimum_size = Vector2(50, 0)
+[node name="MenutTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-
-[node name="MenutTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
-layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
 script = ExtResource("15_kdu1y")
 
-[node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MenutTextboxContainer" instance=ExtResource("8_5asj7")]
+[node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/MenutTextboxContainer" instance=ExtResource("8_5asj7")]
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 2
 alignment = "c"
+
+[node name="Placeholder2" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="BackButton" parent="UI/Settings/Controls" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
@@ -611,9 +653,11 @@ layout_mode = 1
 [connection signal="pressed" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_pressed"]
 [connection signal="pressed" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_pressed"]
 [connection signal="pressed" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_pressed"]
-[connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
+[connection signal="visibility_changed" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_visibility_changed"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_toggled"]
 [connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
-[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
-[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
-[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
+[connection signal="visibility_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_visibility_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
+[connection signal="visibility_changed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/Up" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" method="_on_up_visibility_changed"]

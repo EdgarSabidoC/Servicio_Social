@@ -1,4 +1,5 @@
 extends TabBar
+@onready var fullscreen = %Fullscreen
 
 func _ready() -> void:
 	# Se obtiene el valor de pantalla completa y se configura el botón

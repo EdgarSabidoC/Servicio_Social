@@ -71,3 +71,7 @@ func enable_buttons(buttons: Array) -> void:
 	for i in buttons.size():
 		buttons[i].disabled = false
 	
+
+
+func _on_up_visibility_changed():
+	button1.grab_focus()

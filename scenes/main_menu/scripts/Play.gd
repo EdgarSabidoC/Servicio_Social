@@ -5,7 +5,7 @@ extends Button
 @onready var difficulty_menu = %DifficultyMenu
 @onready var text_box_container: Control = %MenuTextbox
 @onready var menu_background_color = $"../../../MenuBackgroundColor"
-@onready var difficulty_menu_background_color = $"../../../DifficultyMenuBackgroundColor"
+@onready var settings_background_color = $"../../../SettingsBackgroundColor"
 
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	# Moverse al menú de selección de dificultad:
-	difficulty_menu_background_color.show()
+	settings_background_color.show()
 	menu_background_color.fade_out()
 	difficulty_menu.show()
 	get_parent().hide() # Oculta el menú principal
