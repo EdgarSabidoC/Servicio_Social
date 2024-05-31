@@ -1,6 +1,6 @@
 class_name BackButton
 
-extends Control
+extends Button
 
 @onready var main_menu: VBoxContainer = %MainMenu
 @onready var settings: TabContainer = %Settings
@@ -11,7 +11,7 @@ extends Control
 
 
 # Oculta el menú de opciones y muestra el menú principal:
-func _on_button_pressed() -> void:
+func _on_pressed():
 	menu_background_color.fade_in() # Realiza un fade in al fondo del menú
 	settings.current_tab = 0 # Se selecciona la TabBar de Video
 	settings.get_current_tab_control().grab_focus() # Se enfoca la TabBar de Video

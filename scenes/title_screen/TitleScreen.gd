@@ -4,6 +4,7 @@ extends Control
 @onready var label = $Label
 @export var _move_to: PackedScene
 
+
 func _ready() -> void:
 	assert(_move_to)
 	
@@ -12,12 +13,15 @@ func _ready() -> void:
 	LoadData.name = "CharactersData"
 	get_tree().root.add_child(LoadData)
 
+
 func _process(_delta: float) -> void:
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_key_pressed(KEY_ENTER):
 		# Consume el evento:
 		get_viewport().set_input_as_handled()
+		label.speed = 100
 		# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
 		await fade_out_and_change_scene()
+
 
 # Función asíncrona que inicia el desvanecimiento y cambia de escena al final de la animación:
 func fade_out_and_change_scene() -> void:
