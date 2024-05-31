@@ -25,11 +25,15 @@ buses/default_bus_layout="res://scripts/autoloads/sound/default_bus_layout.tres"
 
 Persistence="*res://scripts/autoloads/data/Persistence.gd"
 MenuBackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/MenuBackgroundMusic.tscn"
+PlayerSession="*res://scripts/autoloads/data/PlayerSession.gd"
 
 [display]
 
 window/size/viewport_width=1024
 window/size/viewport_height=576
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/stretch/scale=0.7
 
 [dotnet]
 
@@ -43,6 +47,9 @@ import/fbx/enabled=false
 [gui]
 
 theme/custom_font="res://assets/graphical_assets/menus/fonts/nokiafc22.ttf"
+theme/default_font_antialiasing=2
+theme/default_font_hinting=2
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 

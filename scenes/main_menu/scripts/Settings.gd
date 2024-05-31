@@ -1,17 +1,14 @@
 extends TabContainer
+
+@onready var settings = %Settings
 @onready var video = $Video
-@onready var menu_background = %MenuBackground
-@onready var main_menu: VBoxContainer = %MainMenu
-@onready var settings: TabContainer = %Settings
-@onready var play: Button = $"../MenuContainer/MainMenu/Play"
-@onready var text_box_container: Control = %MenuTextbox
-@onready var menu_background_color = $"../MenuBackgroundColor"
-@onready var settings_background_color = $"../SettingsBackgroundColor"
+@onready var audio = $Audio
+@onready var controls = $Controls
+@onready var license = $License
 
 #var textureTab0: Texture2D = load("res://icon.svg")
 #var textureTab1: Texture2D
 #var textureTab2: Texture2D
-
 
 func _ready() -> void:
 	self.set_tab_title(0, "Vídeo")

@@ -7,11 +7,11 @@ extends Button
 @onready var menu_background_color = $"../../../MenuBackgroundColor"
 @onready var settings_background_color = $"../../../SettingsBackgroundColor"
 
+const MENU_BUTTONS: Texture2D = preload("res://assets/graphical_assets/menus/buttons/menu_buttons.png")
 
 func _ready() -> void:
 	grab_focus()
-
-
+	
 func _on_pressed() -> void:
 	# Moverse al menú de selección de dificultad:
 	settings_background_color.show()

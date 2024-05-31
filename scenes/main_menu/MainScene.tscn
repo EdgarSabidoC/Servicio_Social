@@ -1,13 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=27 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="2_vn4r8"]
-[ext_resource type="Texture2D" uid="uid://b6l1sa5oxnfbj" path="res://assets/graphical_assets/menus/backgrounds/dark-texture-watercolor.jpg" id="3_h3avq"]
+[ext_resource type="Texture2D" uid="uid://dov6ogdd6ifg4" path="res://assets/graphical_assets/menus/buttons/menu_buttons.png" id="3_33rqv"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="4_5awxv"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Play.gd" id="5_7ioq7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Options.gd" id="6_6htjl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Quit.gd" id="7_26t7j"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
-[ext_resource type="Texture2D" uid="uid://sutvf5oumf1t" path="res://assets/graphical_assets/menus/boxes/box_settings.tga" id="8_hxur4"]
+[ext_resource type="Texture2D" uid="uid://y66fgqibcfng" path="res://assets/graphical_assets/menus/boxes/box_settings.tga" id="8_hxur4"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/DifficultyMenu.gd" id="9_tu7mx"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Settings.gd" id="10_pvbhm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/EasyBtn.gd" id="10_xbasp"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MediumBtn.gd" id="11_aki4r"]
@@ -23,6 +24,16 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseText.gd" id="18_co63x"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0q2s"]
+texture = ExtResource("3_33rqv")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(11, 59, 26, 28)
 
 [sub_resource type="GDScript" id="GDScript_hhh7j"]
 script/source = "extends ScrollContainer
@@ -42,6 +53,7 @@ func _ready() -> void:
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="SettingsBackgroundColor" type="ColorRect" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,7 +83,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_h3avq")
 expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
@@ -106,6 +117,7 @@ focus_neighbor_right = NodePath("../Options")
 focus_neighbor_bottom = NodePath("../Options")
 focus_next = NodePath("../Options")
 focus_previous = NodePath("../Quit")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k0q2s")
 text = "Jugar"
 script = ExtResource("5_7ioq7")
 
@@ -178,12 +190,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("9_tu7mx")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/DifficultyMenu"]
 clip_contents = true
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/DifficultyMenu/MarginContainer"]
 custom_minimum_size = Vector2(300, 100)
@@ -192,14 +205,20 @@ texture = ExtResource("8_hxur4")
 region_rect = Rect2(59, 12, 26, 26)
 
 [node name="MenuTextbox" parent="UI/DifficultyMenu/MarginContainer" instance=ExtResource("8_5asj7")]
-custom_minimum_size = Vector2(400, 100)
+custom_minimum_size = Vector2(400, 150)
 layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 default_text = "Selecciona una dificultad"
 alignment = "c"
+
+[node name="Placeholder1" type="BoxContainer" parent="UI/DifficultyMenu"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [node name="EasyBtn" type="Button" parent="UI/DifficultyMenu"]
 custom_minimum_size = Vector2(200, 75)
@@ -222,8 +241,8 @@ size_flags_vertical = 3
 text = "Difícil"
 script = ExtResource("12_pwd64")
 
-[node name="Placeholder" type="BoxContainer" parent="UI/DifficultyMenu"]
-custom_minimum_size = Vector2(200, 50)
+[node name="Placeholder2" type="BoxContainer" parent="UI/DifficultyMenu"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -332,11 +351,17 @@ popup/item_3/text = "Mailbox"
 popup/item_3/id = 3
 
 [node name="BackButton" parent="UI/Settings/Video" instance=ExtResource("12_ax4u8")]
-custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.804688
-anchor_top = 0.908759
+offset_left = -116.0
+offset_top = -68.0
+
+[node name="Label" type="Label" parent="UI/Settings/Video"]
+visible = false
+layout_mode = 2
+offset_top = -28.0
+offset_right = 88.0
+offset_bottom = -8.0
+text = "Opciones"
 
 [node name="Audio" type="TabBar" parent="UI/Settings"]
 visible = false
@@ -535,7 +560,7 @@ text = "PAUSA/SALIR"
 
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 script = ExtResource("14_2m575")
 
 [node name="Up" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -577,12 +602,12 @@ layout_mode = 2
 text = "Pausa"
 action = "ui_cancel"
 
-[node name="MenutTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+[node name="MenuTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("15_kdu1y")
 
-[node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/MenutTextboxContainer" instance=ExtResource("8_5asj7")]
+[node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/MenuTextboxContainer" instance=ExtResource("8_5asj7")]
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 2
 alignment = "c"

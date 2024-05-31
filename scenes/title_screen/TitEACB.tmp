@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cepplku7d7gex"]
+
+[ext_resource type="Script" path="res://scenes/title_screen/TitleScreen.gd" id="1_b267g"]
+[ext_resource type="PackedScene" uid="uid://deare6ipirplk" path="res://scenes/main_menu/MainScene.tscn" id="2_ike7s"]
+[ext_resource type="Texture2D" uid="uid://bin0k7wugyba7" path="res://assets/graphical_assets/menus/backgrounds/sl_0210121_40570_43.jpg" id="3_nk0gx"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="4_35evy"]
+[ext_resource type="Script" path="res://scenes/title_screen/Label.gd" id="5_446se"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b267g")
+_move_to = ExtResource("2_ike7s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nk0gx")
+expand_mode = 3
+script = ExtResource("4_35evy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = -11.5
+offset_right = 125.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
+text = "Presiona la tecla <ENTER> o la tecla <ESPACIO> para continuar"
+script = ExtResource("5_446se")
+speed = null
+fade = true

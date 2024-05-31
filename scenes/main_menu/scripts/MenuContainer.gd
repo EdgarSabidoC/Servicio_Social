@@ -15,20 +15,21 @@ var margin_value: int
 
 func _ready() -> void:
 	# Se obtiene el tamaño de pantalla actual:
-	last_size = DisplayServer.window_get_size()
+	#last_size = DisplayServer.window_get_size()
 	
 	# Se conecta la señal:
-	main_window_size_changed.connect(_on_main_window_size_changed)
-	main_window_size_changed.emit()
+	#main_window_size_changed.connect(_on_main_window_size_changed)
+	#main_window_size_changed.emit()
+	pass
 	
 
 func _process(_delta) -> void:
 	var new_button: Button = get_hovered_button()
 	
 	# Se verifica si hubo un cambio en el tamaño de la pantalla:
-	if last_size != DisplayServer.window_get_size():
-		# Se emite la señal:
-		main_window_size_changed.emit()
+	#if last_size != DisplayServer.window_get_size():
+		## Se emite la señal:
+		#main_window_size_changed.emit()
 	
 	# Solo actualiza el mensaje si el botón actual es diferente al anterior:
 	if new_button != current_button:
@@ -66,17 +67,15 @@ func _on_main_window_size_changed():
 	var textbox_font_size: int
 	var button_font_size: int
 	
-	#if DisplayServer.window_get_mode(0) == DisplayServer.WINDOW_MODE_FULLSCREEN || \
-	#DisplayServer.window_get_mode(0) == DisplayServer.WINDOW_MODE_MAXIMIZED:
 	# Se valida si el último tamaño de la pantalla es más pequeño que el actual:
 	if last_size < actual_size:
 		margin_value = 55
 		textbox_font_size = 22
-		button_font_size = 40
+		button_font_size = 20
 	else:
 		margin_value = 45
 		textbox_font_size = 16
-		button_font_size = 25
+		button_font_size = 18
 	
 	# Se sobreescriben los márgenes del textbox:
 	menu_textbox.add_theme_constant_override("margin_top", margin_value)

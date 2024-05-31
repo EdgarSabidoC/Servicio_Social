@@ -43,3 +43,4 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
 text = "Presiona la tecla <ENTER> o la tecla <ESPACIO> para continuar"
 script = ExtResource("5_446se")
+fade = true

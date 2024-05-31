@@ -2,35 +2,22 @@
 
 [ext_resource type="Script" path="res://components/back_button/BackButton.gd" id="1_4ro7x"]
 
-[node name="BackButton" type="Control"]
-layout_mode = 3
+[node name="BackButton" type="Button"]
+custom_minimum_size = Vector2(100, 50)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -46.0
+offset_right = -16.0
+offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_4ro7x")
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -210.0
-offset_top = -60.0
-offset_right = -10.0
-offset_bottom = -10.0
-grow_horizontal = 0
-grow_vertical = 0
-tooltip_text = "Regresar al menú principal"
 text = "Regresar"
+script = ExtResource("1_4ro7x")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
