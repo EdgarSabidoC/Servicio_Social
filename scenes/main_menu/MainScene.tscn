@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=25 format=3 uid="uid://deare6ipirplk"]
 
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuBackground.gd" id="2_vn4r8"]
-[ext_resource type="Texture2D" uid="uid://dov6ogdd6ifg4" path="res://assets/graphical_assets/menus/buttons/menu_buttons.png" id="3_33rqv"]
+[ext_resource type="Script" path="res://scenes/title_screen/ColorRect.gd" id="1_uy7ao"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="4_5awxv"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Play.gd" id="5_7ioq7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Options.gd" id="6_6htjl"]
@@ -24,16 +23,6 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseText.gd" id="18_co63x"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0q2s"]
-texture = ExtResource("3_33rqv")
-texture_margin_left = 8.0
-texture_margin_top = 8.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(11, 59, 26, 28)
 
 [sub_resource type="GDScript" id="GDScript_hhh7j"]
 script/source = "extends ScrollContainer
@@ -62,7 +51,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.74902, 0.470588, 1)
-script = ExtResource("2_vn4r8")
+script = ExtResource("1_uy7ao")
 
 [node name="MenuBackgroundColor" type="ColorRect" parent="UI"]
 anchors_preset = 15
@@ -71,7 +60,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.792157, 0.235294, 0.207843, 1)
-script = ExtResource("2_vn4r8")
+script = ExtResource("1_uy7ao")
 
 [node name="MenuBackground" type="TextureRect" parent="UI"]
 unique_name_in_owner = true
@@ -117,7 +106,6 @@ focus_neighbor_right = NodePath("../Options")
 focus_neighbor_bottom = NodePath("../Options")
 focus_next = NodePath("../Options")
 focus_previous = NodePath("../Quit")
-theme_override_styles/normal = SubResource("StyleBoxTexture_k0q2s")
 text = "Jugar"
 script = ExtResource("5_7ioq7")
 
@@ -173,7 +161,7 @@ region_rect = Rect2(59, 12, 26, 26)
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 default_text = "Pasa el cursor sobre una opción para ver más información."
@@ -210,7 +198,7 @@ layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 default_text = "Selecciona una dificultad"
@@ -287,6 +275,7 @@ anchor_right = 0.72998
 anchor_bottom = 0.576642
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="VideoLabelsContainer" type="VBoxContainer" parent="UI/Settings/Video/VideoOptionsContainer"]
 layout_mode = 2
@@ -298,6 +287,7 @@ size_flags_vertical = 3
 tooltip_text = "El modo pantalla completa permite deshacerse de los bordes y ventanas del sistema operativo"
 mouse_filter = 1
 text = "Pantalla completa"
+vertical_alignment = 1
 
 [node name="Borderless" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
 layout_mode = 2
@@ -305,6 +295,7 @@ size_flags_vertical = 3
 tooltip_text = "El modo sin bordes se deshace solo de los marcos de la ventana del sistema operativo"
 mouse_filter = 1
 text = "Sin bordes"
+vertical_alignment = 1
 
 [node name="Vsync" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
 layout_mode = 2
@@ -312,6 +303,7 @@ size_flags_vertical = 3
 tooltip_text = "Elige un tipo de sinscronización vertical sólo si está disponible"
 mouse_filter = 1
 text = "Sincronización vertical (VSync)"
+vertical_alignment = 1
 
 [node name="VideoInputsContainer" type="VBoxContainer" parent="UI/Settings/Video/VideoOptionsContainer"]
 layout_mode = 2
@@ -320,7 +312,6 @@ size_flags_horizontal = 3
 [node name="Fullscreen" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 3
 tooltip_text = "Activa/Desactiva el modo pantalla completa"
 expand_icon = true
@@ -328,7 +319,6 @@ expand_icon = true
 [node name="Borderless" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 3
 tooltip_text = "Activa/Desactiva el modo sin bordes"
 expand_icon = true
@@ -339,6 +329,7 @@ layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Selecciona el tipo de sincronización vertical"
 alignment = 1
+icon_alignment = 1
 item_count = 4
 selected = 1
 popup/item_0/text = "Desactivado"
@@ -678,11 +669,9 @@ layout_mode = 1
 [connection signal="pressed" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_pressed"]
 [connection signal="pressed" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_pressed"]
 [connection signal="pressed" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_pressed"]
-[connection signal="visibility_changed" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_visibility_changed"]
+[connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_toggled"]
 [connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
-[connection signal="visibility_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_visibility_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
-[connection signal="visibility_changed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/Up" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" method="_on_up_visibility_changed"]
