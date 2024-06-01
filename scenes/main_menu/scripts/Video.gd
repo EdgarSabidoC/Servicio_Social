@@ -1,12 +1,14 @@
 extends TabBar
-@onready var fullscreen = %Fullscreen
+
+@onready var fullscreen: CheckButton = %Fullscreen
 
 func _ready() -> void:
 	# Se obtiene el valor de pantalla completa y se configura el botón
 	# de acuerdo con ello.
 	var screen_type = Persistence.config.get_value("Video", "fullscreen")
+
 	if screen_type == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		%Fullscreen.button_pressed = true
+		fullscreen.button_pressed = true
 	
 	# Se obtiene el valor de modo sin bordes y se configura el botón
 	# de acuerdo con ello.

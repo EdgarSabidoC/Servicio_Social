@@ -31,7 +31,6 @@ PlayerSession="*res://scripts/autoloads/data/PlayerSession.gd"
 
 window/size/viewport_width=1024
 window/size/viewport_height=576
-window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale=0.7
 

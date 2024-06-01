@@ -1,4 +1,3 @@
-@tool
 extends Label
 #*******************************************************************************/
 #--------------------------------Flashing Text--------------------------------*/
@@ -8,7 +7,7 @@ extends Label
 #********************************************************************HELP DOWN */
 
 #-----------------------------Exporting variables-----------------------------*/
-@export var speed: float = 1.5
+@export var speed: float = 2
 @export var numberOfFlashes: int = 0
 @export var delay: float = 0
 @export var fade: bool
