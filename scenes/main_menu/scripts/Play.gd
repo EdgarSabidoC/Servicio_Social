@@ -7,7 +7,7 @@ extends Button
 @onready var menu_background_color = $"../../../MenuBackgroundColor"
 @onready var settings_background_color = $"../../../SettingsBackgroundColor"
 
-const MENU_BUTTONS: Texture2D = preload("res://assets/graphical_assets/menus/buttons/menu_buttons.png")
+const MENU_BUTTONS: Texture2D = preload("res://assets/graphical_assets/user_interface/button/buttons.tga")
 
 func _ready() -> void:
 	grab_focus()
