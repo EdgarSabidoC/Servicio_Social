@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Clock
+
 @onready var label: Label = $CanvasLayer/Panel/Label
 @export var time: float = 0.0
 @onready var minutes: int = 0
