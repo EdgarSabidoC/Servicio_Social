@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://du4oiw4gwst0p"]
 
-[ext_resource type="Script" path="res://cutscenes/level_01/scripts/CutsceneLvl01.gd" id="1_ej2e2"]
+[ext_resource type="Script" path="res://scenes/cutscenes/level_01/scripts/CutsceneLvl01.gd" id="1_ej2e2"]
 [ext_resource type="AudioStream" uid="uid://bdf2nnevcvsd1" path="res://assets/sounds/music/o_sole_mio_soft_piano.ogg" id="2_1enek"]
 
 [node name="CutsceneLvl01" type="Control"]

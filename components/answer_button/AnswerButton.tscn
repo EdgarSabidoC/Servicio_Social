@@ -9,3 +9,5 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Answer"
 script = ExtResource("1_ckq0l")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

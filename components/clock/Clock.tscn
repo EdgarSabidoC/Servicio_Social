@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1konyslocvmf"]
+
+[ext_resource type="Script" path="res://components/clock/Clock.gd" id="1_s1qpn"]
+
+[node name="Clock" type="Node2D"]
+script = ExtResource("1_s1qpn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.761719
+anchor_right = 1.0
+anchor_bottom = 0.111111
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "00:00.000"
+horizontal_alignment = 1
+vertical_alignment = 1

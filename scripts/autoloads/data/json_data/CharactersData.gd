@@ -10,7 +10,7 @@ const NUMBER_OF_CHARACTERS: int = 5
 var difficulty: String = ""
 
 # Se accede al Autoload como: CharactersData.characters
-var characters: Array[CharacterResource]
+var characters: Array[CharacterResource] = []
 
 
 func _ready() -> void:
@@ -32,8 +32,8 @@ func loadCharacters() -> void:
 	var json = readJSON(characters_data_path)
 	var characters_data: Array = json.data
 	
-	for n in NUMBER_OF_CHARACTERS:
-		
+	#if !characters:
+	for n in range(NUMBER_OF_CHARACTERS):
 		# Se instancia el personaje:
 		var character: CharacterResource = CharacterResource.new()
 		
@@ -41,6 +41,11 @@ func loadCharacters() -> void:
 		character.name = characters_data[n]["name"]
 		character.bonus_multiplier = characters_data[n]["bonus_multiplier"]
 		character.defeated = false
+		character.correct_answer = {}
+		character.wrong_answers = []
+		character.intro_text = ""
+		character.outro_text = ""
+		character.problem = ""
 		
 		# Se añade el personaje a la lista de personajes:
 		characters.append(character)
@@ -82,13 +87,13 @@ func loadProblemsData() -> void:
 		# Se asignan los datos al personaje:
 		character.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		character.outro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		character.correct_asnwer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+		character.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
 		var wrong_answers_array: Array[Dictionary] = [
 			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
 			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
 			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
 		]
-		character.wrong_asnwers = wrong_answers_array
+		character.wrong_answers = wrong_answers_array
 		
 		# Se obtienen los datos del personaje de acuerdo a la dificultad:
 		match difficulty:
@@ -135,13 +140,13 @@ func loadProblemsData() -> void:
 		uaychivo.problem = hard_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		uaychivo.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		uaychivo.outro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		uaychivo.correct_asnwer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+		uaychivo.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
 		var wrong_answers_array: Array[Dictionary] = [
 			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
 			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
 			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
 		]
-		uaychivo.wrong_asnwers = wrong_answers_array
+		uaychivo.wrong_answers = wrong_answers_array
 		# Se añade el uaychivo a la lista de personajes:
 		characters.append(uaychivo)
 	
@@ -179,13 +184,13 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	# Se asignan los datos al personaje:
 	character.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 	character.outro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-	character.correct_asnwer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+	character.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
 	var wrong_answers_array: Array[Dictionary] = [
 		problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
 		problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
 		problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
 	]
-	character.wrong_asnwers = wrong_answers_array
+	character.wrong_answers = wrong_answers_array
 	
 	# Se obtienen los datos del personaje de acuerdo a la dificultad:
 	match difficulty:
