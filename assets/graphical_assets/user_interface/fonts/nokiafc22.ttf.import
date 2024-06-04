@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bjxqgobf8p6rt"
-path="res://.godot/imported/nokiafc22.ttf-5ca17294bd0b1fe505a2755f8f52df6c.fontdata"
+path="res://.godot/imported/nokiafc22.ttf-04732aa9a19dff8d90d550a3bf744b17.fontdata"
 
 [deps]
 
-source_file="res://assets/graphical_assets/menus/fonts/nokiafc22.ttf"
-dest_files=["res://.godot/imported/nokiafc22.ttf-5ca17294bd0b1fe505a2755f8f52df6c.fontdata"]
+source_file="res://assets/graphical_assets/user_interface/fonts/nokiafc22.ttf"
+dest_files=["res://.godot/imported/nokiafc22.ttf-04732aa9a19dff8d90d550a3bf744b17.fontdata"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://cv4w4ffaby5el"]
 
-[ext_resource type="FontFile" uid="uid://bjxqgobf8p6rt" path="res://assets/graphical_assets/menus/fonts/nokiafc22.ttf" id="1_qrm2i"]
+[ext_resource type="FontFile" uid="uid://bjxqgobf8p6rt" path="res://assets/graphical_assets/user_interface/fonts/nokiafc22.ttf" id="1_qrm2i"]
 [ext_resource type="Texture2D" uid="uid://cjma5hvf4tsdw" path="res://assets/graphical_assets/user_interface/button/buttons.tga" id="2_mm0cb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e2w0o"]
