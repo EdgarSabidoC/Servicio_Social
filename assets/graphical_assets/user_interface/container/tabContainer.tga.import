@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xixxcpoyv3vr"
-path="res://.godot/imported/Teemo Basic emote animations sprite sheet.png-554c2a25b5e0d084c858931984d89bd9.ctex"
+uid="uid://dna0okslga04p"
+path="res://.godot/imported/tabContainer.tga-6690c2bb204c3c7b4ea1c4636ccc9d6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphical_assets/menus/boxes/Emotes/Teemo Basic emote animations sprite sheet.png"
-dest_files=["res://.godot/imported/Teemo Basic emote animations sprite sheet.png-554c2a25b5e0d084c858931984d89bd9.ctex"]
+source_file="res://assets/graphical_assets/user_interface/container/tabContainer.tga"
+dest_files=["res://.godot/imported/tabContainer.tga-6690c2bb204c3c7b4ea1c4636ccc9d6d.ctex"]
 
 [params]
 

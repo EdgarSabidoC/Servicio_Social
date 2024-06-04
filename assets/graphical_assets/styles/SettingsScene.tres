@@ -1,0 +1,63 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://tkr4bu68wbdu"]
+
+[ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="1_3pd43"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05bdf"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 48.0
+texture_margin_top = 36.0
+texture_margin_right = 48.0
+texture_margin_bottom = 57.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(8, 20, 304, 301)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgpsp"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 20.0
+texture_margin_top = 24.0
+texture_margin_right = 20.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 228, 112, 128)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m2yg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y2kis"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 20.0
+texture_margin_top = 24.0
+texture_margin_right = 20.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(616, 228, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cdqt"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 20.0
+texture_margin_top = 32.0
+texture_margin_right = 20.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(616, 36, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufuek"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 20.0
+texture_margin_top = 24.0
+texture_margin_right = 20.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 36, 112, 128)
+
+[resource]
+TabContainer/styles/panel = SubResource("StyleBoxTexture_05bdf")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_rgpsp")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_8m2yg")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_y2kis")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_7cdqt")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_ufuek")

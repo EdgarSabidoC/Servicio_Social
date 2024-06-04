@@ -1,12 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=27 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/ColorRect.gd" id="1_uy7ao"]
+[ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="3_mou80"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="4_5awxv"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Play.gd" id="5_7ioq7"]
+[ext_resource type="Texture2D" uid="uid://cqboxf3ckfoln" path="res://assets/graphical_assets/user_interface/container/container.tga" id="6_4ujbp"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Options.gd" id="6_6htjl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Quit.gd" id="7_26t7j"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
-[ext_resource type="Texture2D" uid="uid://y66fgqibcfng" path="res://assets/graphical_assets/menus/boxes/box_settings.tga" id="8_hxur4"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/DifficultyMenu.gd" id="9_tu7mx"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Settings.gd" id="10_pvbhm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/EasyBtn.gd" id="10_xbasp"]
@@ -17,6 +18,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ReturnBtn.gd" id="13_0ewxx"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Audio.gd" id="13_0wpcl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionButtonContainer.gd" id="14_2m575"]
+[ext_resource type="Theme" uid="uid://tkr4bu68wbdu" path="res://assets/graphical_assets/styles/SettingsScene.tres" id="14_7nlx3"]
 [ext_resource type="PackedScene" uid="uid://c4x8k1nr1nq2u" path="res://components/action_button/ActionButton.tscn" id="15_gjpx2"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenutTextboxContainer.gd" id="15_kdu1y"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/License.gd" id="16_pabyu"]
@@ -52,6 +54,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(1, 0.74902, 0.470588, 1)
 script = ExtResource("1_uy7ao")
+_time_interval = 0.0
+_fade_time = 0.15
 
 [node name="MenuBackgroundColor" type="ColorRect" parent="UI"]
 anchors_preset = 15
@@ -59,8 +63,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.792157, 0.235294, 0.207843, 1)
+color = Color(0.913725, 0.337255, 0.298039, 1)
 script = ExtResource("1_uy7ao")
+_time_interval = 0.0
+_fade_time = 0.15
 
 [node name="MenuBackground" type="TextureRect" parent="UI"]
 unique_name_in_owner = true
@@ -76,10 +82,13 @@ expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
 anchors_preset = -1
-anchor_left = 0.108887
-anchor_top = 0.309896
+anchor_left = 0.109
+anchor_top = 0.283
 anchor_right = 0.891113
-anchor_bottom = 0.690104
+anchor_bottom = 0.717
+offset_left = -0.115715
+offset_top = 6.99199
+offset_bottom = 7.008
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -89,7 +98,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" type="VBoxContainer" parent="UI/MenuContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 158)
+custom_minimum_size = Vector2(300, 158)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -106,6 +115,8 @@ focus_neighbor_right = NodePath("../Options")
 focus_neighbor_bottom = NodePath("../Options")
 focus_next = NodePath("../Options")
 focus_previous = NodePath("../Quit")
+theme = ExtResource("3_mou80")
+keep_pressed_outside = true
 text = "Jugar"
 script = ExtResource("5_7ioq7")
 
@@ -119,6 +130,8 @@ focus_neighbor_right = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Play")
+theme = ExtResource("3_mou80")
+keep_pressed_outside = true
 text = "Opciones"
 script = ExtResource("6_6htjl")
 
@@ -132,6 +145,8 @@ focus_neighbor_right = NodePath("../Play")
 focus_neighbor_bottom = NodePath("../Play")
 focus_next = NodePath("../Play")
 focus_previous = NodePath("../Options")
+theme = ExtResource("3_mou80")
+keep_pressed_outside = true
 text = "Salir"
 script = ExtResource("7_26t7j")
 
@@ -142,7 +157,7 @@ size_flags_horizontal = 3
 [node name="MenuTextbox" type="VBoxContainer" parent="UI/MenuContainer"]
 unique_name_in_owner = true
 clip_contents = true
-custom_minimum_size = Vector2(300, 250)
+custom_minimum_size = Vector2(450, 250)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -154,8 +169,14 @@ size_flags_vertical = 3
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/MenuContainer/MenuTextbox/MarginContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-texture = ExtResource("8_hxur4")
-region_rect = Rect2(59, 12, 26, 26)
+texture = ExtResource("6_4ujbp")
+region_rect = Rect2(66, 72, 156, 156)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="MenuTextbox" parent="UI/MenuContainer/MenuTextbox/MarginContainer" instance=ExtResource("8_5asj7")]
 custom_minimum_size = Vector2(300, 100)
@@ -166,14 +187,19 @@ theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 default_text = "Pasa el cursor sobre una opción para ver más información."
 
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MenuContainer"]
+layout_mode = 2
+
 [node name="DifficultyMenu" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true
 visible = false
 anchors_preset = -1
 anchor_left = 0.304688
-anchor_top = 0.196181
+anchor_top = 0.0763889
 anchor_right = 0.695313
-anchor_bottom = 0.803819
+anchor_bottom = 0.977431
+offset_top = -20.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -189,8 +215,14 @@ layout_mode = 2
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/DifficultyMenu/MarginContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-texture = ExtResource("8_hxur4")
-region_rect = Rect2(59, 12, 26, 26)
+texture = ExtResource("6_4ujbp")
+region_rect = Rect2(66, 72, 156, 156)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="MenuTextbox" parent="UI/DifficultyMenu/MarginContainer" instance=ExtResource("8_5asj7")]
 custom_minimum_size = Vector2(400, 150)
@@ -205,13 +237,14 @@ default_text = "Selecciona una dificultad"
 alignment = "c"
 
 [node name="Placeholder1" type="BoxContainer" parent="UI/DifficultyMenu"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 
 [node name="EasyBtn" type="Button" parent="UI/DifficultyMenu"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_mou80")
 text = "Fácil"
 script = ExtResource("10_xbasp")
 
@@ -219,6 +252,7 @@ script = ExtResource("10_xbasp")
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_mou80")
 text = "Media"
 script = ExtResource("11_aki4r")
 
@@ -226,11 +260,12 @@ script = ExtResource("11_aki4r")
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_mou80")
 text = "Difícil"
 script = ExtResource("12_pwd64")
 
 [node name="Placeholder2" type="BoxContainer" parent="UI/DifficultyMenu"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -238,6 +273,7 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_mou80")
 text = "Regresar"
 script = ExtResource("13_0ewxx")
 
@@ -247,11 +283,16 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 36.0
+offset_right = -64.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 2
+theme = ExtResource("14_7nlx3")
 theme_override_constants/side_margin = 25
 script = ExtResource("10_pvbhm")
 
