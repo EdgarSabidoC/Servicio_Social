@@ -9,9 +9,10 @@ func _ready() -> void:
 	assert(_move_to)
 	
 	# Se cargan los datos de los personajes (nombre, bonus, defeated y assets) y se añade el nodo en el árbol:
-	var LoadData = load("res://scripts/autoloads/data/json_data/CharactersData.gd").new()
-	LoadData.name = "CharactersData"
-	get_tree().root.add_child.call_deferred(LoadData)
+	#var LoadData = load("res://scripts/autoloads/data/json_data/CharactersData.gd").new()
+	#LoadData.name = "CharactersData"
+	#get_tree().root.add_child.call_deferred(LoadData)
+	pass
 
 
 func _process(_delta: float) -> void:

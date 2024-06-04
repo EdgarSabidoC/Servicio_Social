@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://djd5hvlykjgse"]
+
+[ext_resource type="Script" path="res://components/level/Level.gd" id="1_w5ykt"]
+[ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="2_hsfq3"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_w5ykt")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34082
+anchor_top = 0.300347
+anchor_right = 0.662109
+anchor_bottom = 0.713542
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnswerButton1" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = ""
+
+[node name="AnswerButton2" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = ""
+
+[node name="AnswerButton3" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = ""
+
+[node name="AnswerButton4" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = ""
