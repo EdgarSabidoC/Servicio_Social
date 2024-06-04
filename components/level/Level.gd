@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Level
+
 @onready var answer_button_1: AnswerButton = %AnswerButton1
 @onready var answer_button_2: AnswerButton = %AnswerButton2
 @onready var answer_button_3: AnswerButton = %AnswerButton3

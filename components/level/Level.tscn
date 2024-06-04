@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=4 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://components/level/Level.gd" id="1_w5ykt"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="2_hsfq3"]
+[ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="3_fc0la"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_w5ykt")
@@ -71,3 +72,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ""
+
+[node name="Clock" parent="CanvasLayer" instance=ExtResource("3_fc0la")]
