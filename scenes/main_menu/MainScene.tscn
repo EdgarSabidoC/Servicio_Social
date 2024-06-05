@@ -593,6 +593,8 @@ text = "PAUSA/SALIR"
 
 [node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
+tooltip_text = "Si está activado, permite utilizar el ratón de la computadora."
+mouse_filter = 1
 text = "ACTIVAR MODO RATÓN"
 
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
@@ -641,6 +643,7 @@ action = "ui_cancel"
 
 [node name="MouseMode" type="CheckButton" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer"]
 layout_mode = 2
+tooltip_text = "Si está activado, permite utilizar el ratón de la computadora."
 focus_neighbor_left = NodePath("../Pause")
 focus_neighbor_top = NodePath("../Pause")
 focus_neighbor_right = NodePath("../../../../../BackButton")

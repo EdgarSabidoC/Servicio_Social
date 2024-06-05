@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfdl8blhiygup"]
+
+[ext_resource type="Script" path="res://scenes/input_mode/InputMode.gd" id="1_vk5bi"]
+
+[node name="InputMode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_vk5bi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -38.0
+offset_right = 340.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="Label1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Selecciona un modo de entrada"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="KeyboardMode" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+tooltip_text = "Activa el modo teclado"
+text = "Teclado"
+
+[node name="MouseMode" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+tooltip_text = "Activa el modo ratón"
+text = "Mouse/Ratón"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "El modo de entrada se puede cambiar en el menú de configuración del menú principal"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_pressed"]

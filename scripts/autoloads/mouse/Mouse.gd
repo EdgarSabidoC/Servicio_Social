@@ -2,22 +2,29 @@ extends Node
 
 @onready var mouse_mode_activated: bool = false
 
-func _ready():
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	pass
+@onready var input_actions = {"ui_up": InputMap.action_get_events("ui_up"),\
+								"ui_down": InputMap.action_get_events("ui_down"),\
+								"ui_left": InputMap.action_get_events("ui_left"), \
+								"ui_right": InputMap.action_get_events("ui_right"), \
+								"ui_accept": InputMap.action_get_events("ui_accept"), \
+								"ui_cancel": InputMap.action_get_events("ui_cancel"), \
+								"ui_focus_next": InputMap.action_get_events("ui_focus_next")}
+
 
 func change_mode() -> void:
 	mouse_mode_activated = !mouse_mode_activated
-	if mouse_mode_activated:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	#if Input.is_action_just_pressed("ui_up") or \
-	#Input.is_action_just_pressed("ui_down") or \
-	#Input.is_action_just_pressed("ui_right") or \
-	#Input.is_action_just_pressed("ui_left") or \
-	#Input.is_action_just_pressed("ui_accept") or \
-	#Input.is_action_just_pressed("ui_cancel"):
-		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	#elif event is InputEventMouseMotion:
-		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+# Función que desactiva las acciones:
+func disable_actions() -> void:
+	for action in input_actions.keys():
+		InputMap.action_erase_events(action)
+	print_debug(input_actions)
+
+
+# Función que activa las acciones:
+func enable_actions() -> void:
+	for action in input_actions.keys():
+		for input_event in input_actions[action]:
+			InputMap.action_add_event(action, input_event)
+	print_debug(input_actions)
