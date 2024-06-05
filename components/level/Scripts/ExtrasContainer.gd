@@ -5,6 +5,6 @@ extends VBoxContainer
 @onready var breads = $Breads
 
 func _process(_delta) -> void:
-	if drinks.value == float(CharactersData.characters[0].correct_answer["drinks"]) and \
-	breads.value == float(CharactersData.characters[0].correct_answer["breads"]):
+	if str(drinks.value) == CharactersData.characters[0].correct_answer["drinks"] and \
+	str(breads.value) == CharactersData.characters[0].correct_answer["breads"]:
 		correctAnswer = true

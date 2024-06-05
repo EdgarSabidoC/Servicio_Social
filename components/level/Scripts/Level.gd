@@ -2,6 +2,7 @@ extends Node2D
 
 class_name Level
 
+@onready var character: int = PlayerSession.character
 @onready var answer_button_1: AnswerButton = %AnswerButton1
 @onready var answer_button_2: AnswerButton = %AnswerButton2
 @onready var answer_button_3: AnswerButton = %AnswerButton3
@@ -15,13 +16,13 @@ class_name Level
 
 func _ready() -> void:
 	# Se cargan las respuestas:
-	var correct_answer: Dictionary = CharactersData.characters[0].correct_answer
+	var correct_answer: Dictionary = CharactersData.characters[self.character].correct_answer
 	answers.append(correct_answer)
-	var wrong_answer_1: Dictionary = CharactersData.characters[0].wrong_answers[0]
+	var wrong_answer_1: Dictionary = CharactersData.characters[self.character].wrong_answers[0]
 	answers.append(wrong_answer_1)
-	var wrong_answer_2: Dictionary = CharactersData.characters[0].wrong_answers[1]
+	var wrong_answer_2: Dictionary = CharactersData.characters[self.character].wrong_answers[1]
 	answers.append(wrong_answer_2)
-	var wrong_answer_3: Dictionary = CharactersData.characters[0].wrong_answers[2]
+	var wrong_answer_3: Dictionary = CharactersData.characters[self.character].wrong_answers[2]
 	answers.append(wrong_answer_3)
 
 	# Se cambia la semilla:
@@ -45,13 +46,13 @@ func _ready() -> void:
 # Obtiene el puntaje del nivel:
 func get_score() -> void:
 	# Se valida si se obtuvieron los spuntos correctos:
-	if CharactersData.characters[0].defeated == true and \
+	if CharactersData.characters[character].defeated == true and \
 	PlayerSession.difficulty != "easy" and extras_container.correctAnswer:
 		if clock.minutes >= 1:
 			PlayerSession.score += 10000/clock.minutes
 		else:
 			PlayerSession.score += 10000
-	elif CharactersData.characters[0].defeated == true and PlayerSession.difficulty == "easy":
+	elif CharactersData.characters[character].defeated == true and PlayerSession.difficulty == "easy":
 		if clock.minutes >= 1:
 			PlayerSession.score += 10000/clock.minutes
 		else:
@@ -60,5 +61,6 @@ func get_score() -> void:
 
 # Función que obtiene el score al haber presionado AcceptButton:
 func _on_accept_button_pressed():
+	# Se obtiene el puntaje:
 	get_score()
 	print_debug(PlayerSession.score)

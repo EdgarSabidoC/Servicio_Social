@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cepplku7d7gex"]
 
-[ext_resource type="Script" path="res://scenes/title_screen/TitleScreen.gd" id="1_b267g"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/TitleScreen.gd" id="1_b267g"]
 [ext_resource type="PackedScene" uid="uid://deare6ipirplk" path="res://scenes/main_menu/MainScene.tscn" id="2_ike7s"]
-[ext_resource type="Script" path="res://scenes/title_screen/ColorRect.gd" id="3_m78tg"]
-[ext_resource type="Script" path="res://scenes/title_screen/Label.gd" id="5_446se"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="3_m78tg"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/Label.gd" id="5_446se"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
