@@ -27,6 +27,7 @@ Persistence="*res://scripts/autoloads/data/Persistence.gd"
 MenuBackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/MenuBackgroundMusic.tscn"
 PlayerSession="*res://scripts/autoloads/data/PlayerSession.gd"
 CharactersData="*res://scripts/autoloads/data/json_data/CharactersData.gd"
+Mouse="*res://scripts/autoloads/mouse/Mouse.gd"
 
 [display]
 

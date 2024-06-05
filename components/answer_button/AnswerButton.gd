@@ -2,10 +2,12 @@ extends Button
 
 class_name AnswerButton
 
+
 # Utilizar custom resources para almacenar la respuesta y los assets del botón.
 var defeated: bool = false
 var asset_path: String
 var asset: Texture2D
+
 
 # Inicializa la instancia, funciona como constructor.
 # Se le pasa un Diccionario de respuesta:
@@ -32,8 +34,11 @@ func load_texture(path: String) -> Texture2D:
 		print_debug("Error: No se pudo cargar la textura desde la ruta proporcionada.")
 		return null
 
+
 # Si es una respuesta correcta, se aumenta el score global:
 func _on_pressed() -> void:
 	if defeated:
-		PlayerSession.score += 10000
-	print(defeated)
+		CharactersData.characters[0].defeated = true
+		print_debug(CharactersData.characters[0].defeated)
+		
+		

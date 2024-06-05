@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=5 format=3 uid="uid://djd5hvlykjgse"]
 
-[ext_resource type="Script" path="res://components/level/Level.gd" id="1_w5ykt"]
+[ext_resource type="Script" path="res://components/level/Scripts/Level.gd" id="1_w5ykt"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="2_hsfq3"]
+[ext_resource type="Script" path="res://components/level/Scripts/ExtrasContainer.gd" id="3_5ic7r"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="3_fc0la"]
 
 [node name="Level" type="Node2D"]
+visible = false
 script = ExtResource("1_w5ykt")
 metadata/_edit_use_anchors_ = true
 
@@ -73,4 +75,58 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ""
 
+[node name="ExtrasContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(275, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.699219
+anchor_top = 0.37934
+anchor_right = 0.967773
+anchor_bottom = 0.592882
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 17
+script = ExtResource("3_5ic7r")
+metadata/_edit_use_anchors_ = true
+
+[node name="DrinksLabel" type="Label" parent="CanvasLayer/Control/ExtrasContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Bebidas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Drinks" type="HSlider" parent="CanvasLayer/Control/ExtrasContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 5.0
+tick_count = 6
+ticks_on_borders = true
+
+[node name="BreadsLabel" type="Label" parent="CanvasLayer/Control/ExtrasContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Panes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Breads" type="HSlider" parent="CanvasLayer/Control/ExtrasContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 10.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="AcceptButton" type="Button" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_left = 730.0
+offset_top = 498.0
+offset_right = 1005.0
+offset_bottom = 548.0
+size_flags_vertical = 3
+text = "Aceptar"
+
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("3_fc0la")]
+
+[connection signal="pressed" from="CanvasLayer/Control/AcceptButton" to="." method="_on_accept_button_pressed"]

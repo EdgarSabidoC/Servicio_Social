@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8nf8op0qjia3"]
+
+[ext_resource type="Script" path="res://components/user_input_string/UserInputSring.gd" id="1_ecrdu"]
+
+[node name="UserInputSring" type="LineEdit"]
+custom_minimum_size = Vector2(200, 75)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -37.5
+offset_right = 100.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Nombre del jugador"
+alignment = 1
+expand_to_text_length = true
+clear_button_enabled = true
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+caret_blink = true
+caret_blink_interval = 0.5
+script = ExtResource("1_ecrdu")

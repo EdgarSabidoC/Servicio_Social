@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=27 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/ColorRect.gd" id="1_uy7ao"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="3_mou80"]
@@ -25,7 +25,6 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/LicenseText.gd" id="18_co63x"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/MouseMode.gd" id="22_jayrx"]
 
 [sub_resource type="GDScript" id="GDScript_hhh7j"]
 script/source = "extends ScrollContainer
@@ -82,7 +81,6 @@ size_flags_vertical = 4
 expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.109
 anchor_top = 0.283
@@ -121,6 +119,8 @@ theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Jugar"
 script = ExtResource("5_7ioq7")
+hint = null
+seconds_to_wait = null
 
 [node name="Options" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
@@ -281,6 +281,7 @@ script = ExtResource("13_0ewxx")
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -311,13 +312,10 @@ script = ExtResource("11_c0uvf")
 [node name="VideoOptionsContainer" type="HBoxContainer" parent="UI/Settings/Video"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.264
-anchor_top = 0.188
+anchor_left = 0.27002
+anchor_top = 0.423358
 anchor_right = 0.72998
-anchor_bottom = 0.812
-offset_left = 4.81601
-offset_top = 78.1389
-offset_bottom = -78.1389
+anchor_bottom = 0.576642
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -357,6 +355,7 @@ size_flags_horizontal = 3
 [node name="Fullscreen" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "Activa/Desactiva el modo pantalla completa"
 expand_icon = true
 
@@ -593,12 +592,6 @@ tooltip_text = "Acción para abrir el menú de pausa"
 mouse_filter = 1
 text = "PAUSA/SALIR"
 
-[node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
-layout_mode = 2
-tooltip_text = "Si está activado, permite utilizar el ratón de la computadora."
-mouse_filter = 1
-text = "ACTIVAR MODO RATÓN"
-
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -643,17 +636,6 @@ layout_mode = 2
 text = "Pausa"
 action = "ui_cancel"
 
-[node name="MouseMode" type="CheckButton" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer"]
-layout_mode = 2
-tooltip_text = "Si está activado, permite utilizar el ratón de la computadora."
-focus_neighbor_left = NodePath("../Pause")
-focus_neighbor_top = NodePath("../Pause")
-focus_neighbor_right = NodePath("../../../../../BackButton")
-focus_neighbor_bottom = NodePath("../../../../../BackButton")
-focus_next = NodePath("../../../../../BackButton")
-focus_previous = NodePath("../Pause")
-script = ExtResource("22_jayrx")
-
 [node name="MenuTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -671,11 +653,6 @@ size_flags_horizontal = 3
 
 [node name="BackButton" parent="UI/Settings/Controls" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
-focus_neighbor_left = NodePath("../ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode")
-focus_neighbor_top = NodePath("../ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode")
-focus_neighbor_right = NodePath("..")
-focus_neighbor_bottom = NodePath("..")
-focus_previous = NodePath("../ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode")
 
 [node name="License" type="TabBar" parent="UI/Settings"]
 visible = false
@@ -728,19 +705,8 @@ layout_mode = 1
 layout_mode = 1
 
 [connection signal="focus_entered" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_focus_entered"]
-[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_pressed"]
-[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_focus_entered"]
-[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_pressed"]
-[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_focus_entered"]
-[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_pressed"]
 [connection signal="pressed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_pressed"]
 [connection signal="visibility_changed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_visibility_changed"]
@@ -753,4 +719,3 @@ layout_mode = 1
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
-[connection signal="toggled" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_toggled"]
