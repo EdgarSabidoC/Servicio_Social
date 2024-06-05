@@ -3,7 +3,8 @@ extends Node
 @onready var mouse_mode_activated: bool = false
 
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pass
 
 func change_mode() -> void:
 	mouse_mode_activated = !mouse_mode_activated

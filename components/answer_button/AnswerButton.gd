@@ -38,6 +38,7 @@ func load_texture(path: String) -> Texture2D:
 # Si es una respuesta correcta, se aumenta el score global:
 func _on_pressed() -> void:
 	if defeated:
-		PlayerSession.score += 10000
 		CharactersData.characters[0].defeated = true
 		print_debug(CharactersData.characters[0].defeated)
+		
+		
