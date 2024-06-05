@@ -48,6 +48,8 @@ func _ready() -> void:
 func _on_pressed():
 	Mouse.change_mode()
 	if Mouse.mouse_mode_activated:
+		Mouse.disable_actions()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		up_button.hide()
 		down_button.hide()
 		left_button.hide()
@@ -60,9 +62,10 @@ func _on_pressed():
 		right_label.hide()
 		accept_label.hide()
 		pause_label.hide()
-		Mouse.disable_actions()
 	else:
 		Mouse.enable_actions()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		self.grab_focus()
 		up_button.show()
 		down_button.show()
 		left_button.show()
