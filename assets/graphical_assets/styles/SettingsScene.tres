@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://tkr4bu68wbdu"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://tkr4bu68wbdu"]
 
 [ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="1_3pd43"]
 [ext_resource type="Texture2D" uid="uid://casxayq5hliv4" path="res://assets/graphical_assets/user_interface/button/checkButton.tga" id="1_cim03"]
@@ -40,15 +40,85 @@ region = Rect2(308, 124, 62, 38)
 atlas = ExtResource("2_t4cub")
 region = Rect2(16, 16, 18, 16)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tj81g"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(198, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ayyyb"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(198, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jg4ow"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(98, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r7st7"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(98, 1, 48, 45)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxfw7"]
 texture = ExtResource("2_t4cub")
 texture_margin_left = 8.0
-texture_margin_top = 8.0
+texture_margin_top = 9.0
 texture_margin_right = 8.0
-texture_margin_bottom = 11.0
+texture_margin_bottom = 12.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(48, 0, 48, 45)
+region_rect = Rect2(48, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_782c4"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(48, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ktkd"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(148, 3, 48, 43)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ky0rf"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(148, 3, 48, 43)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05bdf"]
 texture = ExtResource("1_3pd43")
@@ -111,8 +181,17 @@ CheckButton/icons/unchecked = SubResource("AtlasTexture_l0ufq")
 CheckButton/icons/unchecked_disabled = SubResource("AtlasTexture_5pex5")
 CheckButton/icons/unchecked_disabled_mirrored = SubResource("AtlasTexture_qj3iu")
 CheckButton/icons/unchecked_mirrored = SubResource("AtlasTexture_fnjud")
+OptionButton/colors/font_color = Color(0.920995, 0.920995, 0.920995, 1)
 OptionButton/icons/arrow = SubResource("AtlasTexture_jlip7")
+OptionButton/styles/disabled = SubResource("StyleBoxTexture_tj81g")
+OptionButton/styles/disabled_mirrored = SubResource("StyleBoxTexture_ayyyb")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_jg4ow")
+OptionButton/styles/hover_mirrored = SubResource("StyleBoxTexture_r7st7")
 OptionButton/styles/normal = SubResource("StyleBoxTexture_sxfw7")
+OptionButton/styles/normal_mirrored = SubResource("StyleBoxTexture_782c4")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_0ktkd")
+OptionButton/styles/pressed_mirrored = SubResource("StyleBoxTexture_ky0rf")
+TabContainer/colors/font_unselected_color = Color(0.921569, 0.921569, 0.921569, 1)
 TabContainer/styles/panel = SubResource("StyleBoxTexture_05bdf")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_rgpsp")
 TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_8m2yg")
