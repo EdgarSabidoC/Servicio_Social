@@ -12,7 +12,6 @@ func _ready() -> void:
 	#var LoadData = load("res://scripts/autoloads/data/json_data/CharactersData.gd").new()
 	#LoadData.name = "CharactersData"
 	#get_tree().root.add_child.call_deferred(LoadData)
-	pass
 
 
 func _process(_delta: float) -> void:
