@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://deare6ipirplk"]
 
-[ext_resource type="Script" path="res://scenes/title_screen/ColorRect.gd" id="1_uy7ao"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="3_mou80"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="4_5awxv"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/Play.gd" id="5_7ioq7"]
@@ -82,7 +82,6 @@ size_flags_vertical = 4
 expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.109
 anchor_top = 0.283
@@ -281,6 +280,7 @@ script = ExtResource("13_0ewxx")
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
