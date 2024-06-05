@@ -1,6 +1,54 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://tkr4bu68wbdu"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://tkr4bu68wbdu"]
 
 [ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="1_3pd43"]
+[ext_resource type="Texture2D" uid="uid://casxayq5hliv4" path="res://assets/graphical_assets/user_interface/button/checkButton.tga" id="1_cim03"]
+[ext_resource type="Texture2D" uid="uid://d2t71y182r57p" path="res://assets/graphical_assets/user_interface/button/optionButton.tga" id="2_t4cub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psyd6"]
+atlas = ExtResource("1_cim03")
+region = Rect2(20, 28, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0873d"]
+atlas = ExtResource("1_cim03")
+region = Rect2(116, 28, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxjq5"]
+atlas = ExtResource("1_cim03")
+region = Rect2(206, 28, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gtwk"]
+atlas = ExtResource("1_cim03")
+region = Rect2(302, 28, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0ufq"]
+atlas = ExtResource("1_cim03")
+region = Rect2(14, 124, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pex5"]
+atlas = ExtResource("1_cim03")
+region = Rect2(110, 124, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj3iu"]
+atlas = ExtResource("1_cim03")
+region = Rect2(212, 124, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnjud"]
+atlas = ExtResource("1_cim03")
+region = Rect2(308, 124, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlip7"]
+atlas = ExtResource("2_t4cub")
+region = Rect2(16, 16, 18, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxfw7"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 11.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(48, 0, 48, 45)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05bdf"]
 texture = ExtResource("1_3pd43")
@@ -14,9 +62,9 @@ region_rect = Rect2(8, 20, 304, 301)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgpsp"]
 texture = ExtResource("1_3pd43")
-texture_margin_left = 20.0
+texture_margin_left = 24.0
 texture_margin_top = 24.0
-texture_margin_right = 20.0
+texture_margin_right = 24.0
 texture_margin_bottom = 32.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
@@ -26,9 +74,9 @@ region_rect = Rect2(424, 228, 112, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y2kis"]
 texture = ExtResource("1_3pd43")
-texture_margin_left = 20.0
+texture_margin_left = 24.0
 texture_margin_top = 24.0
-texture_margin_right = 20.0
+texture_margin_right = 24.0
 texture_margin_bottom = 32.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
@@ -36,9 +84,9 @@ region_rect = Rect2(616, 228, 112, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cdqt"]
 texture = ExtResource("1_3pd43")
-texture_margin_left = 20.0
+texture_margin_left = 24.0
 texture_margin_top = 32.0
-texture_margin_right = 20.0
+texture_margin_right = 24.0
 texture_margin_bottom = 24.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
@@ -46,15 +94,25 @@ region_rect = Rect2(616, 36, 112, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufuek"]
 texture = ExtResource("1_3pd43")
-texture_margin_left = 20.0
+texture_margin_left = 24.0
 texture_margin_top = 24.0
-texture_margin_right = 20.0
+texture_margin_right = 24.0
 texture_margin_bottom = 32.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(424, 36, 112, 128)
 
 [resource]
+CheckButton/icons/checked = SubResource("AtlasTexture_psyd6")
+CheckButton/icons/checked_disabled = SubResource("AtlasTexture_0873d")
+CheckButton/icons/checked_disabled_mirrored = SubResource("AtlasTexture_cxjq5")
+CheckButton/icons/checked_mirrored = SubResource("AtlasTexture_6gtwk")
+CheckButton/icons/unchecked = SubResource("AtlasTexture_l0ufq")
+CheckButton/icons/unchecked_disabled = SubResource("AtlasTexture_5pex5")
+CheckButton/icons/unchecked_disabled_mirrored = SubResource("AtlasTexture_qj3iu")
+CheckButton/icons/unchecked_mirrored = SubResource("AtlasTexture_fnjud")
+OptionButton/icons/arrow = SubResource("AtlasTexture_jlip7")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_sxfw7")
 TabContainer/styles/panel = SubResource("StyleBoxTexture_05bdf")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_rgpsp")
 TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_8m2yg")
