@@ -12,10 +12,6 @@ var time_to_clear: int = 5 # Variable que controla el tiempo en (segundos) para 
 var keyInputFlag: bool = true
 
 
-func _ready() -> void:
-	set_process_unhandled_key_input(false) 
-
-
 func _process(_delta: float) -> void:
 	# Se verifica si algún botón se presionó y está a la espera de un evento:
 	if up_button.is_processing_unhandled_key_input():

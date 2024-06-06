@@ -45,6 +45,8 @@ func remap_action_to(event: InputEvent) -> void:
 
 # Enciende el proceso de la tecla y cambia el texto:
 func _on_pressed() -> void:
+	# Evita que al presionar enter se propague el evento:
+	get_tree().get_root().set_input_as_handled()
 	set_process_unhandled_key_input(true)
 	text = "Presiona cualquier tecla"
 
@@ -54,4 +56,4 @@ func _on_pressed() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	remap_action_to(event)
 	set_process_unhandled_key_input(false)
-	release_focus()
+	self.grab_focus()
