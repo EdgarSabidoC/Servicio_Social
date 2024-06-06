@@ -19,7 +19,7 @@ func change_mode() -> void:
 func disable_actions() -> void:
 	for action in input_actions.keys():
 		InputMap.action_erase_events(action)
-	print_debug(input_actions)
+	#print_debug(input_actions)
 
 
 # Función que activa las acciones:
@@ -27,4 +27,4 @@ func enable_actions() -> void:
 	for action in input_actions.keys():
 		for input_event in input_actions[action]:
 			InputMap.action_add_event(action, input_event)
-	print_debug(input_actions)
+	#print_debug(input_actions)

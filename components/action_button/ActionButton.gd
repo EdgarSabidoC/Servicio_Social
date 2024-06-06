@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Muestra el texto de la tecla seleccionada:
 func display_key() -> void:
-	text = InputMap.action_get_events(action)[0].as_text()
+	text = Mouse.input_actions[action][0].as_text()
 
 
 # Remapea la tecla borrando el evento previo y añadiendo uno nuevo:

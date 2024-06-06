@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cepplku7d7gex"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/TitleScreen.gd" id="1_b267g"]
-[ext_resource type="PackedScene" uid="uid://deare6ipirplk" path="res://scenes/main_menu/MainScene.tscn" id="2_ike7s"]
+[ext_resource type="PackedScene" uid="uid://bfdl8blhiygup" path="res://scenes/input_mode/InputMode.tscn" id="2_luhec"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="3_m78tg"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/Label.gd" id="5_446se"]
 
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b267g")
-_move_to = ExtResource("2_ike7s")
+_move_to = ExtResource("2_luhec")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
