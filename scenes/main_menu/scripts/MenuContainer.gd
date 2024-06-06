@@ -5,12 +5,12 @@ extends Control
 @onready var quit: Button = $MainMenu/Quit
 @onready var menu_textbox = $MenuTextbox/MarginContainer/MenuTextbox
 
-
-signal main_window_size_changed()
-
 var current_button: Button = null
 var last_size: Vector2i
 var margin_value: int
+
+
+signal main_window_size_changed()
 
 
 func _ready() -> void:
@@ -23,16 +23,6 @@ func _ready() -> void:
 	# Se conecta la señal:
 	#main_window_size_changed.connect(_on_main_window_size_changed)
 	#main_window_size_changed.emit()
-
-
-# Actualiza el mensaje que se imprime en el textbox del menú:
-func update_message() -> void:
-	if current_button != null:
-		# Si hay un botón actualmente:
-		menu_textbox.print_message(current_button.hint)
-	else:
-		# Si no, se limpia el mensaje:
-		menu_textbox.clear_message()
 
 
 # Señal personalizada que se emite cuando se cambia el tamaño de la ventana:

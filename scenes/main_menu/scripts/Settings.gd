@@ -1,6 +1,5 @@
 extends TabContainer
 
-@onready var settings = %Settings
 @onready var video = $Video
 @onready var audio = $Audio
 @onready var controls = $Controls

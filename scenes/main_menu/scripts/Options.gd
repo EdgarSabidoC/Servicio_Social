@@ -25,6 +25,7 @@ func _on_focus_entered():
 	self.add_theme_font_size_override("font_size", 20)
 	menu_textbox.print_message(self.hint)
 
+
 # Al salir de foco del botón:
 func _on_focus_exited():
 	self.add_theme_font_size_override("font_size", 16)
