@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://du4oiw4gwst0p"]
+
+[ext_resource type="Script" path="res://cutscenes/level_01/scripts/CutsceneLvl01.gd" id="1_ej2e2"]
+
+[node name="CutsceneLvl01" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ej2e2")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

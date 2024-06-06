@@ -5,7 +5,7 @@ func _on_pressed():
 	# Prueba para imprimir datos de CharactersData:
 	var cd = get_tree().root.get_node("CharactersData")
 	cd.difficulty = "hard"
-	cd.loadCharacters() # Se cargan los datos.
+	cd.loadProblemsData() # Se cargan los datos.
 	print(cd.characters[0]["name"]) # Ejemplo de impresión del personaje del nivel 1.
 	# Consume el evento:
 	get_viewport().set_input_as_handled()

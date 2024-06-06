@@ -40,5 +40,3 @@ func _on_pressed() -> void:
 	if defeated:
 		CharactersData.characters[0].defeated = true
 		print_debug(CharactersData.characters[0].defeated)
-		
-		
