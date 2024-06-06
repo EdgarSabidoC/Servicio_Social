@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0fx6dc8c8ukb"]
+[gd_scene load_steps=3 format=3 uid="uid://0fx6dc8c8ukb"]
 
 [ext_resource type="Script" path="res://components/back_button/BackButton.gd" id="1_4ro7x"]
+[ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="1_l1ic2"]
 
 [node name="BackButton" type="Button"]
 custom_minimum_size = Vector2(100, 50)
@@ -17,6 +18,7 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_l1ic2")
 text = "Regresar"
 script = ExtResource("1_4ro7x")
 
