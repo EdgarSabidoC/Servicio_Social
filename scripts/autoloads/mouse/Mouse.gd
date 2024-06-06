@@ -1,7 +1,9 @@
 extends Node
 
+# Bandera del modo mouse:
 @onready var mouse_mode_activated: bool = false
 
+# Acciones de entrada:
 @onready var input_actions = {"ui_up": InputMap.action_get_events("ui_up"),\
 								"ui_down": InputMap.action_get_events("ui_down"),\
 								"ui_left": InputMap.action_get_events("ui_left"), \

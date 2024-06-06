@@ -14,13 +14,16 @@ var margin_value: int
 
 
 func _ready() -> void:
+	# Si el modo mouse está desactivado se enfoca el botón Play:
+	if !Mouse.mouse_mode_activated:
+		play.grab_focus()
 	# Se obtiene el tamaño de pantalla actual:
 	#last_size = DisplayServer.window_get_size()
 	
 	# Se conecta la señal:
 	#main_window_size_changed.connect(_on_main_window_size_changed)
 	#main_window_size_changed.emit()
-	pass
+
 
 func _process(_delta) -> void:
 	var new_button: Button = get_hovered_button()

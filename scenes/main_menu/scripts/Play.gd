@@ -9,10 +9,7 @@ extends Button
 
 const MENU_BUTTONS: Texture2D = preload("res://assets/graphical_assets/user_interface/button/buttons.tga")
 
-func _ready() -> void:
-	if !Mouse.mouse_mode_activated:
-		grab_focus()
-	
+
 func _on_pressed() -> void:
 	# Moverse al menú de selección de dificultad:
 	settings_background_color.show()
