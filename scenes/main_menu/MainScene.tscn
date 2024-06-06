@@ -682,6 +682,7 @@ focus_neighbor_left = NodePath("../ControlsOptionsContainer/MarginContainer/HBox
 focus_neighbor_top = NodePath("../ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode")
 focus_neighbor_right = NodePath("..")
 focus_neighbor_bottom = NodePath("..")
+focus_next = NodePath("..")
 focus_previous = NodePath("../ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode")
 
 [node name="License" type="TabBar" parent="UI/Settings"]

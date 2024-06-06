@@ -25,33 +25,6 @@ func _ready() -> void:
 	#main_window_size_changed.emit()
 
 
-func _process(_delta) -> void:
-	var new_button: Button = get_hovered_button()
-	
-	# Se verifica si hubo un cambio en el tamaño de la pantalla:
-	#if last_size != DisplayServer.window_get_size():
-		## Se emite la señal:
-		#main_window_size_changed.emit()
-	
-	# Solo actualiza el mensaje si el botón actual es diferente al anterior:
-	if new_button != current_button:
-		current_button = new_button
-		update_message()
-
-
-# Retorna un Button:
-func get_hovered_button() -> Button:
-	# Lógica para determinar sobre qué botón está el cursor:
-	if play.is_hovered():
-		return play
-	elif options.is_hovered():
-		return options
-	elif quit.is_hovered():
-		return quit
-	else:
-		return null
-
-
 # Actualiza el mensaje que se imprime en el textbox del menú:
 func update_message() -> void:
 	if current_button != null:
