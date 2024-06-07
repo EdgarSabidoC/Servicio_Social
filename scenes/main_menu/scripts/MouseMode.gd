@@ -63,9 +63,9 @@ func _on_pressed():
 		accept_label.hide()
 		pause_label.hide()
 	else:
+		self.grab_focus()
 		Mouse.enable_actions()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		self.grab_focus()
 		up_button.show()
 		down_button.show()
 		left_button.show()

@@ -6,13 +6,11 @@ extends Button
 @onready var text_box_container: Control = %MenuTextbox
 @onready var menu_background_color = $"../../../MenuBackgroundColor"
 @onready var settings_background_color = $"../../../SettingsBackgroundColor"
+@onready var menu_textbox = $"../../MenuTextbox/MarginContainer/MenuTextbox"
 
 const MENU_BUTTONS: Texture2D = preload("res://assets/graphical_assets/user_interface/button/buttons.tga")
 
-func _ready() -> void:
-	if !Mouse.mouse_mode_activated:
-		grab_focus()
-	
+
 func _on_pressed() -> void:
 	# Moverse al menú de selección de dificultad:
 	settings_background_color.show()
@@ -26,6 +24,7 @@ func _on_pressed() -> void:
 func _on_focus_entered():
 	self.add_theme_stylebox_override("focus", get_theme_stylebox("hover", "Button"))
 	self.add_theme_font_size_override("font_size", 20)
+	menu_textbox.print_message(self.hint)
 
 
 # Al salir de foco del botón:
@@ -36,8 +35,10 @@ func _on_focus_exited():
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
 	self.add_theme_font_size_override("font_size", 20)
+	menu_textbox.print_message(self.hint)
 
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
+	menu_textbox.clear_message()

@@ -578,7 +578,7 @@ text = "ACEPTAR"
 [node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "PAUSA"
+text = "PAUSA/SALIR"
 
 [node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2

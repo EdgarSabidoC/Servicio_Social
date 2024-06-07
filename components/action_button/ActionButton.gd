@@ -24,7 +24,7 @@ func remap_action_to(event: InputEvent) -> void:
 	var old_key: InputEventKey = Persistence.config.get_value("Controls", action, InputEventKey)
 	for a in actions:
 		var compare_key: InputEventKey = Persistence.config.get_value("Controls", a, InputEventKey)
-		# Si las acciones son diferentes, pero tienen la misma tecla, se intercambian:
+		# Si las acciones son diferentes, pero tienen la misma tecla, se arroja un error:
 		if a != action && compare_key.keycode == event.keycode:
 			text = old_key.as_text()
 			errorMsg = "No es posible asignar «" + InputMap.action_get_events(a)[0].as_text() + "» debido a que ya se encuentra asignada."
@@ -45,13 +45,18 @@ func remap_action_to(event: InputEvent) -> void:
 
 # Enciende el proceso de la tecla y cambia el texto:
 func _on_pressed() -> void:
+	# Evita que al presionar enter se propague el evento:
+	get_tree().get_root().set_input_as_handled()
+	
+	# Se activa la escucha para el proceso de entrada de teclado:
 	set_process_unhandled_key_input(true)
 	text = "Presiona cualquier tecla"
 
 
 # Para una tecla sin manejo, remapea a un nuevo evento, configura el
-# proceso de tecla a falso y suelta la tecla.
+# proceso de tecla a falso.
 func _unhandled_key_input(event: InputEvent) -> void:
-	remap_action_to(event)
-	set_process_unhandled_key_input(false)
-	release_focus()
+	self.release_focus() # Se quita el enfoque en el botón
+	remap_action_to(event) # Remapea la acción	
+	set_process_unhandled_key_input(false) # Se para de escuchar el evento de teclado.
+	self.grab_focus() # Se enfoca el botón

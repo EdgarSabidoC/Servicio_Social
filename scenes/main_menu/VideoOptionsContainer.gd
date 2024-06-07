@@ -1,4 +1,4 @@
-extends TabBar
+extends HBoxContainer
 
 @onready var fullscreen: CheckButton = %Fullscreen
 
@@ -43,6 +43,3 @@ func _on_vsync_item_selected(index: int) -> void:
 	DisplayServer.window_set_vsync_mode(index)
 	Persistence.config.set_value("Video", "vsync", index)
 	Persistence.save_data()
-
-
-

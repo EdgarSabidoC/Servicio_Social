@@ -1,14 +1,17 @@
 extends Node
 
+# Bandera del modo mouse:
 @onready var mouse_mode_activated: bool = false
 
+# Acciones de entrada:
 @onready var input_actions = {"ui_up": InputMap.action_get_events("ui_up"),\
 								"ui_down": InputMap.action_get_events("ui_down"),\
 								"ui_left": InputMap.action_get_events("ui_left"), \
 								"ui_right": InputMap.action_get_events("ui_right"), \
 								"ui_accept": InputMap.action_get_events("ui_accept"), \
 								"ui_cancel": InputMap.action_get_events("ui_cancel"), \
-								"ui_focus_next": InputMap.action_get_events("ui_focus_next")}
+								"ui_focus_next": InputMap.action_get_events("ui_focus_next"), \
+								"ui_focus_prev": InputMap.action_get_events("ui_focus_prev")}
 
 
 func change_mode() -> void:

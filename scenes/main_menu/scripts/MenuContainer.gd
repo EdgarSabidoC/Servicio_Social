@@ -5,58 +5,24 @@ extends Control
 @onready var quit: Button = $MainMenu/Quit
 @onready var menu_textbox = $MenuTextbox/MarginContainer/MenuTextbox
 
-
-signal main_window_size_changed()
-
 var current_button: Button = null
 var last_size: Vector2i
 var margin_value: int
 
 
+signal main_window_size_changed()
+
+
 func _ready() -> void:
+	# Si el modo mouse está desactivado se enfoca el botón Play:
+	if !Mouse.mouse_mode_activated:
+		play.grab_focus()
 	# Se obtiene el tamaño de pantalla actual:
 	#last_size = DisplayServer.window_get_size()
 	
 	# Se conecta la señal:
 	#main_window_size_changed.connect(_on_main_window_size_changed)
 	#main_window_size_changed.emit()
-	pass
-
-func _process(_delta) -> void:
-	var new_button: Button = get_hovered_button()
-	
-	# Se verifica si hubo un cambio en el tamaño de la pantalla:
-	#if last_size != DisplayServer.window_get_size():
-		## Se emite la señal:
-		#main_window_size_changed.emit()
-	
-	# Solo actualiza el mensaje si el botón actual es diferente al anterior:
-	if new_button != current_button:
-		current_button = new_button
-		update_message()
-
-
-# Retorna un Button:
-func get_hovered_button() -> Button:
-	# Lógica para determinar sobre qué botón está el cursor:
-	if play.is_hovered():
-		return play
-	elif options.is_hovered():
-		return options
-	elif quit.is_hovered():
-		return quit
-	else:
-		return null
-
-
-# Actualiza el mensaje que se imprime en el textbox del menú:
-func update_message() -> void:
-	if current_button != null:
-		# Si hay un botón actualmente:
-		menu_textbox.print_message(current_button.hint)
-	else:
-		# Si no, se limpia el mensaje:
-		menu_textbox.clear_message()
 
 
 # Señal personalizada que se emite cuando se cambia el tamaño de la ventana:
