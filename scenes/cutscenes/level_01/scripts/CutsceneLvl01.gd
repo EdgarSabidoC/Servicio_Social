@@ -2,6 +2,11 @@ extends Control
 
 const LEVEL = preload("res://components/level/Level.tscn")
 
+
+func _ready() -> void:
+	CharactersData.loadProblemsData() # Se cargan los datos.
+
+
 func _process(_delta: float) -> void:
 	if Input.is_key_pressed(KEY_ENTER):
 		# Moverse a la siguiente escena:

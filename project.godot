@@ -28,6 +28,7 @@ MenuBackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/MenuBa
 PlayerSession="*res://scripts/autoloads/data/PlayerSession.gd"
 CharactersData="*res://scripts/autoloads/data/json_data/CharactersData.gd"
 Mouse="*res://scripts/autoloads/mouse/Mouse.gd"
+SceneLoader="*res://scripts/autoloads/scene_loader/SceneLoader.gd"
 
 [display]
 
