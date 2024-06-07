@@ -18,6 +18,7 @@ size_flags_vertical = 6
 script = ExtResource("1_b6wxv")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
