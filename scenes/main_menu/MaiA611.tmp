@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/License.gd" id="16_pabyu"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Controls.gd" id="20_26f8x"]
+[ext_resource type="Script" path="res://scenes/main_menu/Controls.gd" id="20_26f8x"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MouseMode.gd" id="22_jayrx"]
 
 [node name="MainScene" type="Node2D"]
@@ -277,15 +277,16 @@ offset_right = -64.0
 offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("14_7nlx3")
+theme_override_constants/side_margin = 25
 script = ExtResource("10_pvbhm")
 
 [node name="Video" type="TabBar" parent="UI/Settings"]
 layout_mode = 2
-size_flags_horizontal = 0
 tooltip_text = "Opciones de configuración de vídeo"
-focus_mode = 0
+focus_neighbor_bottom = NodePath("VideoOptionsContainer/VideoInputsContainer/Fullscreen")
 script = ExtResource("11_c0uvf")
 
 [node name="VideoOptionsContainer" type="HBoxContainer" parent="UI/Settings/Video"]
@@ -392,7 +393,7 @@ focus_previous = NodePath("../VideoOptionsContainer/VideoInputsContainer/Vsync")
 visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de audio"
-focus_mode = 0
+focus_neighbor_bottom = NodePath("AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master")
 script = ExtResource("13_0wpcl")
 
 [node name="AudioOptionsContainer" type="MarginContainer" parent="UI/Settings/Audio"]
@@ -515,7 +516,7 @@ focus_previous = NodePath("../AudioOptionsContainer/HBoxContainer/AudioInputsCon
 visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de los controles"
-focus_mode = 0
+focus_neighbor_bottom = NodePath("ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/Up")
 script = ExtResource("20_26f8x")
 
 [node name="ControlsOptionsContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
@@ -578,7 +579,7 @@ text = "ACEPTAR"
 [node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "PAUSA"
+text = "PAUSA/SALIR"
 
 [node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
@@ -678,7 +679,6 @@ focus_previous = NodePath("../ControlsOptionsContainer/MarginContainer/HBoxConta
 [node name="License" type="TabBar" parent="UI/Settings"]
 visible = false
 layout_mode = 2
-focus_mode = 0
 script = ExtResource("16_pabyu")
 
 [node name="scrollbar_textbox" parent="UI/Settings/License" instance=ExtResource("19_edlpb")]

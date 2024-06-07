@@ -2,6 +2,7 @@ extends TabBar
 
 @onready var scrollbar_textbox = $scrollbar_textbox
 @onready var settings = %Settings
+@onready var controls: TabBar = $"../Controls"
 
 
 func _ready() -> void:
@@ -16,6 +17,3 @@ func _load_license() -> String:
 	var content: String = file.get_as_text()
 	return content
 
-
-func _on_visibility_changed():
-	scrollbar_textbox.rich_text_label.grab_focus()

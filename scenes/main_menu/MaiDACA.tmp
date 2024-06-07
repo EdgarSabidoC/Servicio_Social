@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/License.gd" id="16_pabyu"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Controls.gd" id="20_26f8x"]
+[ext_resource type="Script" path="res://scenes/main_menu/Controls.gd" id="20_26f8x"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MouseMode.gd" id="22_jayrx"]
 
 [node name="MainScene" type="Node2D"]
@@ -578,7 +578,7 @@ text = "ACEPTAR"
 [node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "PAUSA"
+text = "PAUSA/SALIR"
 
 [node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2

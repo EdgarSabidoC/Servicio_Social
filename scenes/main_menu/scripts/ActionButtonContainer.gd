@@ -35,28 +35,37 @@ func _unhandled_key_input(_event: InputEvent) -> void:
 	if up_button.error:
 		menu_textbox.print_message(up_button.errorMsg)
 		up_button.error = false
+		# Se borra el mensaje después de una cantidad de segundos:
+		menu_textbox.clear_message_after_time(time_to_clear)
 	elif down_button.error:
 		menu_textbox.print_message(down_button.errorMsg)
 		down_button.error = false
+		# Se borra el mensaje después de una cantidad de segundos:
+		menu_textbox.clear_message_after_time(time_to_clear)
 	elif left_button.error:
 		menu_textbox.print_message(left_button.errorMsg)
 		left_button.error = false
+		# Se borra el mensaje después de una cantidad de segundos:
+		menu_textbox.clear_message_after_time(time_to_clear)
 	elif right_button.error:
 		menu_textbox.print_message(right_button.errorMsg)
 		right_button.error = false
+		# Se borra el mensaje después de una cantidad de segundos:
+		menu_textbox.clear_message_after_time(time_to_clear)
 	elif accept_button.error:
 		menu_textbox.print_message(accept_button.errorMsg)
 		accept_button.error = false
+		# Se borra el mensaje después de una cantidad de segundos:
+		menu_textbox.clear_message_after_time(time_to_clear)
 	elif pause_button.error:
 		menu_textbox.print_message(pause_button.errorMsg)
 		pause_button.error = false
-	
+		# Se borra el mensaje después de una cantidad de segundos:
+		menu_textbox.clear_message_after_time(time_to_clear)
+		
 	# Se reactivan los botones una vez se remapeó una tecla:
 	enable_buttons([up_button, down_button, left_button, right_button, accept_button, pause_button, back_button])
 	keyInputFlag = true
-	
-	# Se borra el mensaje después de una cantidad de segundos:
-	menu_textbox.clear_message_after_time(time_to_clear)
 
 
 # Desactiva los botones:

@@ -1,10 +1,13 @@
 extends Control
 
 @export var _move_to: PackedScene
+@onready var keyboard_mode: Button = $VBoxContainer/HBoxContainer/KeyboardMode
 
 
 func _ready() -> void:
 	assert(_move_to)
+	keyboard_mode.grab_focus()
+	
 
 
 # Activa el modo teclado:

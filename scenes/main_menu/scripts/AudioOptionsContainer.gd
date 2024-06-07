@@ -1,4 +1,5 @@
-extends TabBar
+extends MarginContainer
+
 
 @onready var master = %Master
 @onready var settings = %Settings
