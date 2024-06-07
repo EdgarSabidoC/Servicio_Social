@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=6 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://components/level/Scripts/Level.gd" id="1_w5ykt"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="2_hsfq3"]
 [ext_resource type="Script" path="res://components/level/Scripts/ExtrasContainer.gd" id="3_5ic7r"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="3_fc0la"]
+[ext_resource type="Script" path="res://components/level/ScoreLabel.gd" id="5_gsvxo"]
 
 [node name="Level" type="Node2D"]
 visible = false
@@ -128,5 +129,23 @@ size_flags_vertical = 3
 text = "Aceptar"
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("3_fc0la")]
+
+[node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/ScorePanel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_gsvxo")
 
 [connection signal="pressed" from="CanvasLayer/Control/AcceptButton" to="." method="_on_accept_button_pressed"]
