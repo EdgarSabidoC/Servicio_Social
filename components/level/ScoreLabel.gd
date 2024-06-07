@@ -1,4 +1,4 @@
 extends Label
 
 func print_score() -> void:
-	self.text = str(PlayerSession.score)
+	self.text = "%07d" % PlayerSession.score

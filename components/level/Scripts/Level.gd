@@ -19,6 +19,9 @@ func _ready() -> void:
 	# Se imprime el puntaje:
 	score_label.print_score()
 	
+	# Se enfoca el botón 1:
+	answer_button_1.grab_focus()
+	
 	# Se cargan las respuestas:
 	var correct_answer: Dictionary = CharactersData.characters[self.character].correct_answer
 	answers.append(correct_answer)
