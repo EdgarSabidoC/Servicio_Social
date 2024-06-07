@@ -9,12 +9,16 @@ class_name Level
 @onready var answer_button_4: AnswerButton = %AnswerButton4
 @onready var clock = $CanvasLayer/Clock
 @onready var extras_container = $CanvasLayer/Control/ExtrasContainer
+@onready var score_label = $CanvasLayer/ScorePanel/ScoreLabel
 
 @onready var buttons: Array[AnswerButton] = [answer_button_1, answer_button_2, answer_button_3, answer_button_4]
 @onready var answers: Array[Dictionary]
 
 
 func _ready() -> void:
+	# Se imprime el puntaje:
+	score_label.print_score()
+	
 	# Se cargan las respuestas:
 	var correct_answer: Dictionary = CharactersData.characters[self.character].correct_answer
 	answers.append(correct_answer)
@@ -63,4 +67,6 @@ func get_score() -> void:
 func _on_accept_button_pressed():
 	# Se obtiene el puntaje:
 	get_score()
+	# Se imprime el nuevo puntaje:
+	score_label.print_score()
 	print_debug(PlayerSession.score)
