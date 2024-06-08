@@ -12,5 +12,7 @@ func _process(_delta: float) -> void:
 		# Consume el evento:
 		get_viewport().set_input_as_handled()
 		label.speed = 60
+		# Espera un poco para visualizar el efecto del parpadeo de la etiqueta:
+		await get_tree().create_timer(0.5).timeout
 		# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
 		SceneTransition.change_scene(_move_to, "dissolve")
