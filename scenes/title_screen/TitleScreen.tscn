@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/TitleScreen.gd" id="1_b267g"]
 [ext_resource type="PackedScene" uid="uid://bfdl8blhiygup" path="res://scenes/input_mode/InputMode.tscn" id="2_luhec"]
-[ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="3_m78tg"]
+[ext_resource type="PackedScene" uid="uid://57htu382g6qn" path="res://components/title_screen_parallax_background/TitleScreenParallaxBackground.tscn" id="3_jsxwr"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/Label.gd" id="5_446se"]
 
 [node name="TitleScreen" type="Control"]
@@ -15,15 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_b267g")
 _move_to = ExtResource("2_luhec")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("3_m78tg")
+[node name="TitleScreenParallaxBackground" parent="." instance=ExtResource("3_jsxwr")]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -33,9 +25,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -303.0
-offset_top = -11.5
+offset_top = 212.5
 offset_right = 303.0
-offset_bottom = 11.5
+offset_bottom = 235.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
