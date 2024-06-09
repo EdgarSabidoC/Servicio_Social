@@ -238,7 +238,7 @@ custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_mou80")
-text = "Minijuego1"
+text = "Fácil"
 script = ExtResource("10_aydou")
 
 [node name="Minigame2" type="Button" parent="UI/MinigamesMenu"]
@@ -246,7 +246,7 @@ custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_mou80")
-text = "Minijuego2"
+text = "Media"
 script = ExtResource("11_cyuk5")
 
 [node name="Minigame3" type="Button" parent="UI/MinigamesMenu"]
@@ -254,7 +254,7 @@ custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_mou80")
-text = "Minijuego3"
+text = "Difícil"
 script = ExtResource("12_b254f")
 
 [node name="Placeholder2" type="BoxContainer" parent="UI/MinigamesMenu"]
@@ -355,7 +355,6 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Regresar"
 script = ExtResource("13_0ewxx")
-hint = "Regresar al menú de minijuegos"
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
@@ -807,7 +806,6 @@ layout_mode = 1
 [connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_pressed"]
-[connection signal="visibility_changed" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_mouse_entered"]

@@ -17,6 +17,8 @@ func _ready() -> void:
 	# Si el modo mouse está desactivado se enfoca el botón Play:
 	if !Mouse.mouse_mode_activated:
 		play.grab_focus()
+		
+	menu_textbox.print_message(menu_textbox.default_text)
 	# Se obtiene el tamaño de pantalla actual:
 	#last_size = DisplayServer.window_get_size()
 	
