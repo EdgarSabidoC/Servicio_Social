@@ -3,6 +3,7 @@ extends VBoxContainer
 var last_size: Vector2i
 var margin_value: int
 
+@export var hint: String = "Selecciona una dificultad"
 @onready var easy_btn = $EasyBtn
 @onready var medium_btn = $MediumBtn
 @onready var hard_btn = $HardBtn
@@ -19,7 +20,7 @@ func _ready() -> void:
 	# Se conecta la señal:
 	#main_window_size_changed.connect(_on_main_window_size_changed)
 	#main_window_size_changed.emit()
-	pass
+	menu_textbox.default_text = self.hint
 
 
 func _process(_delta) -> void:

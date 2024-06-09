@@ -1,5 +1,6 @@
 extends Button
 
+@export var hint: String = "Regresar al menú principal"
 @onready var difficulty_menu = %DifficultyMenu
 @onready var main_menu = %MainMenu
 @onready var menu_container = $"../../MenuContainer"

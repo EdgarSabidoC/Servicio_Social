@@ -221,7 +221,6 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
-default_text = "Selecciona una dificultad"
 alignment = "c"
 
 [node name="Placeholder1" type="BoxContainer" parent="UI/DifficultyMenu"]
@@ -235,6 +234,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Fácil"
 script = ExtResource("10_xbasp")
+hint = "Ideal para calentar o para los nuevos jugadores"
 
 [node name="MediumBtn" type="Button" parent="UI/DifficultyMenu"]
 custom_minimum_size = Vector2(200, 75)
@@ -662,7 +662,6 @@ script = ExtResource("15_kdu1y")
 [node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/MenuTextboxContainer" instance=ExtResource("8_5asj7")]
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 2
-alignment = "c"
 
 [node name="Placeholder2" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -711,9 +710,21 @@ layout_mode = 1
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_pressed"]
 [connection signal="visibility_changed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_visibility_changed"]
+[connection signal="focus_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_pressed"]
 [connection signal="pressed" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_pressed"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
