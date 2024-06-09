@@ -14,7 +14,6 @@ extends Button
 func _on_pressed():
 	menu_background_color.fade_in() # Realiza un fade in al fondo del menú
 	settings.current_tab = 0 # Se selecciona la TabBar de Video
-	settings.get_current_tab_control().grab_focus() # Se enfoca la TabBar de Video
 	main_menu.show() # Se muestra el menú principal
 	text_box_container.show() # Se muestra el textbox del menú principal
 	if !Mouse.mouse_mode_activated:

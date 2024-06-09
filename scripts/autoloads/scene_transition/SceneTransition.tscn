@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ia2kge7av2c1"]
+[gd_scene load_steps=6 format=3 uid="uid://ia2kge7av2c1"]
 
 [ext_resource type="Script" path="res://scripts/autoloads/scene_transition/SceneTransition.gd" id="1_cmm54"]
+[ext_resource type="Texture2D" uid="uid://b1yayr52bu3uq" path="res://assets/graphical_assets/parallax/sky.tga" id="2_nf3qy"]
 
 [sub_resource type="Animation" id="Animation_3beqy"]
 resource_name = "RESET"
@@ -42,6 +43,7 @@ _data = {
 
 [node name="SceneTransition" type="CanvasLayer"]
 script = ExtResource("1_cmm54")
+textures = Array[Texture2D]([ExtResource("2_nf3qy")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)

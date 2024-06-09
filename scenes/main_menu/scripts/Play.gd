@@ -42,3 +42,4 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
 	menu_textbox.clear_message()
+	

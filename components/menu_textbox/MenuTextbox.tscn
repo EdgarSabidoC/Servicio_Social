@@ -22,3 +22,5 @@ script = ExtResource("1_l1de0")
 [node name="MovingText" parent="." instance=ExtResource("2_nf67f")]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[connection signal="end_of_text" from="MovingText" to="." method="_on_moving_text_end_of_text"]
