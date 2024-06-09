@@ -9,7 +9,7 @@ func change_scene(target_scene: PackedScene, type: String = "dissolve", texture:
 	match type:
 		"dissolve":
 			transition_dissolve(target_scene, texture)
-	
+
 
 # Función que realiza un efecto de fundido (fade_in y fade_out):
 func transition_dissolve(target_scene: PackedScene, texture: int = 0):

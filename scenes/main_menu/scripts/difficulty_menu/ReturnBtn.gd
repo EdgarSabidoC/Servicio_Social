@@ -1,23 +1,23 @@
 extends Button
 
 @export var hint: String = "Regresar al menú principal"
-@onready var difficulty_menu = %DifficultyMenu
-@onready var main_menu = %MainMenu
-@onready var menu_container = $"../../MenuContainer"
+@onready var difficulty_menu: VBoxContainer = %DifficultyMenu
 @onready var settings_background_color = $"../../SettingsBackgroundColor"
 @onready var menu_background_color = $"../../MenuBackgroundColor"
 @onready var menu_textbox_container = %MenuTextbox
-@onready var play = $"../../MenuContainer/MainMenu/Play"
+@onready var minigame_1: Button = $"../../MinigamesMenu/Minigame1"
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
+@onready var minigames_menu: VBoxContainer = %MinigamesMenu
+@onready var margin_container: MarginContainer = $"../../MinigamesMenu/MarginContainer"
 
 
 func _on_pressed() -> void:
-	menu_background_color.fade_in() # Realiza un fade in al fondo del menú
-	main_menu.show() # Se muestra el menú principal
-	menu_textbox_container.show() # Se muestra el textbox del menú principal
-	difficulty_menu.hide() # Se oculta el menú de opciones de configuración
+	menu_background_color.fade_out() # Realiza un fade in al fondo del menú
+	margin_container.show() # Se muestra el contenedor del textbox del menú de minijuegos
+	minigames_menu.show() # Se muestra el menú de minijuegos
+	difficulty_menu.hide() # Se oculta el menú de opciones de dificultad
 	if !Mouse.mouse_mode_activated:
-		play.grab_focus() # Se enfoca el botón play
+		minigame_1.grab_focus() # Se enfoca el botón del primer minijuego
 
 
 # Al estar enfocado el botón:

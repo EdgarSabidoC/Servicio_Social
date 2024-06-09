@@ -1,26 +1,29 @@
 extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
-@export var hint: String = "Ideal para calentar o para los nuevos jugadores"
+@export var hint: String = "Minijuego1"
+@onready var difficulty_menu: VBoxContainer = %DifficultyMenu
+@onready var margin_container: MarginContainer = $"../MarginContainer"
+@onready var settings_background_color: ColorRect = $"../../SettingsBackgroundColor"
+@onready var menu_background_color: ColorRect = $"../../MenuBackgroundColor"
 
 
-func _on_pressed():
+# Al presionar el botón:
+func _on_pressed() -> void:
 	# Consume el evento:
 	get_viewport().set_input_as_handled()
-	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
-	await change_scene()
-
-
-func _on_visibility_changed():
-	if !Mouse.mouse_mode_activated:
-		grab_focus()
+	# Moverse al menú de selección de dificultad:
+	menu_background_color.fade_in()
+	difficulty_menu.show()
+	get_parent().hide() # Oculta el menú principal
+	margin_container.hide()
 	
 
-# Función que cambia de escena
-func change_scene():
-	SceneLoader.load_scene("res://scenes/cutscenes/level_01/CutsceneLvl01.tscn")
-	# Se cambia a la siguiente escena:
-	#get_tree().change_scene_to_file("res://components/loading_screen/LoadingScreen.tscn")
+
+# Cuando se vuelve visible:
+func _on_visibility_changed():
+	if !Mouse.mouse_mode_activated and self.is_visible_in_tree():
+		self.grab_focus()
 
 
 # Al estar enfocado el botón:

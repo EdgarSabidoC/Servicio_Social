@@ -2,18 +2,18 @@ extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
 @export var hint: String = "La manera ideal de jugar"
+@onready var _move_to: String = "res://scenes/cutscenes/level_01/CutsceneLvl01.tscn"
 
 
 func _on_pressed():
-	# Prueba para imprimir datos de CharactersData:
-	var cd = get_tree().root.get_node("CharactersData")
-	cd.difficulty = "medium"
-	cd.loadProblemsData() # Se cargan los datos.
-	print(cd.characters[0]["name"]) # Ejemplo de impresión del personaje del nivel 1.
 	# Consume el evento:
 	get_viewport().set_input_as_handled()
+	
+	# Se asigna la dificultad:
+	PlayerSession.difficulty = "medium"
+	
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
-	await change_scene()
+	SceneLoader.load_scene(_move_to)
 
 
 # Función que cambia de escena

@@ -7,10 +7,6 @@ extends Control
 signal finished()
 
 
-func _ready() -> void:
-	print_message(default_text)
-
-
 # Imprime una cadena que se la pase y la alineación [l: left, c: center, r: right, f: fill]:
 func print_message(string: String, alignment: String = "l") -> void:
 	match alignment:
@@ -22,7 +18,6 @@ func print_message(string: String, alignment: String = "l") -> void:
 			moving_text.text = "[right]%s[/right]" %string
 		"f":
 			moving_text.text = "[fill]%s[/fill]" %string
-	print_debug("Alignment %s" % alignment)
 	moving_text.move_text()
 
 
