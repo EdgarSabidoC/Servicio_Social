@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cepplku7d7gex"]
+[gd_scene load_steps=5 format=3 uid="uid://cepplku7d7gex"]
 
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/TitleScreen.gd" id="1_b267g"]
+[ext_resource type="PackedScene" uid="uid://bfdl8blhiygup" path="res://scenes/input_mode/InputMode.tscn" id="2_2uft2"]
 [ext_resource type="PackedScene" uid="uid://57htu382g6qn" path="res://components/title_screen_parallax_background/TitleScreenParallaxBackground.tscn" id="3_jsxwr"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/Label.gd" id="5_446se"]
 
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b267g")
+_move_to = ExtResource("2_2uft2")
 
 [node name="TitleScreenParallaxBackground" parent="." instance=ExtResource("3_jsxwr")]
 

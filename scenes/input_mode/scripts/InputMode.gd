@@ -14,8 +14,8 @@ func _ready() -> void:
 func _on_keyboard_mode_pressed():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Mouse.enable_actions()
-	# Cambia a la nueva escena:
-	change_scene()
+	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
+	SceneTransition.change_scene(_move_to, "dissolve")
 
 
 # Activa el modo ratón:
@@ -23,10 +23,6 @@ func _on_mouse_mode_pressed():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Mouse.disable_actions()
 	Mouse.change_mode()
-	# Cambia a la nueva escena:
-	change_scene()
-
-
-func change_scene() -> void:
-	# Cambia a la nueva escena
-	get_tree().change_scene_to_packed(_move_to)
+	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
+	SceneTransition.change_scene(_move_to, "dissolve")
+	
