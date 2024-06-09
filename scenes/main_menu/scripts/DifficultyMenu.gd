@@ -8,9 +8,9 @@ var margin_value: int
 @onready var medium_btn = $MediumBtn
 @onready var hard_btn = $HardBtn
 @onready var return_btn = $ReturnBtn
-@onready var menu_textbox = $MarginContainer/MenuTextbox
 @onready var placeholder_1 = $Placeholder1
 @onready var placeholder_2 = $Placeholder2
+@onready var menu_textbox: MarginContainer = $MarginContainer/MenuTextbox
 
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _ready() -> void:
 	# Se conecta la señal:
 	#main_window_size_changed.connect(_on_main_window_size_changed)
 	#main_window_size_changed.emit()
-	menu_textbox.default_text = self.hint
+	pass
 
 
 func _process(_delta) -> void:
@@ -35,8 +35,8 @@ func _process(_delta) -> void:
 # Señal personalizada que se emite cuando se cambia el tamaño de la ventana:
 func _on_main_window_size_changed():
 	var actual_size: Vector2i = DisplayServer.window_get_size()
-	var textbox_font: RichTextLabel = menu_textbox.get_child(0)
-	var textbox_font_size: int
+	#var textbox_font: RichTextLabel = menu_textbox.get_child(0)
+	#var textbox_font_size: int
 	var button_font_size: int
 	var placeholder_size: Vector2i
 	var button_size: Vector2i
@@ -45,14 +45,14 @@ func _on_main_window_size_changed():
 	# Se valida si el último tamaño de la pantalla es más pequeño que el actual:
 	if last_size < actual_size:
 		margin_value = 60
-		textbox_font_size = 28
+		#textbox_font_size = 28
 		button_font_size = 40
 		placeholder_size = Vector2i(0,100)
 		button_size = Vector2i(250, 125)
 		return_btn_size = Vector2i(250, 100)
 	else:
 		margin_value = 55
-		textbox_font_size = 20
+		#textbox_font_size = 20
 		button_font_size = 25
 		placeholder_size = Vector2i(0,50)
 		button_size = Vector2i(200, 75)
@@ -63,10 +63,10 @@ func _on_main_window_size_changed():
 	placeholder_2.custom_minimum_size = placeholder_size
 	
 	# Se sobreescribe el márgen superior del textbox:
-	menu_textbox.add_theme_constant_override("margin_top", margin_value)
+	#menu_textbox.add_theme_constant_override("margin_top", margin_value)
 	
 	# Se sobreescribe el tamaño de la fuente normal del textbox:
-	textbox_font.add_theme_font_size_override("normal_font_size", textbox_font_size)
+	#textbox_font.add_theme_font_size_override("normal_font_size", textbox_font_size)
 	
 	# Se sobreescriben los tamaños de fuente de los botones:
 	easy_btn.add_theme_font_size_override("font_size", button_font_size)

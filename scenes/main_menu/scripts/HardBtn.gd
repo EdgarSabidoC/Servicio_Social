@@ -1,6 +1,7 @@
 extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
+@export var hint: String = "Sólo para los más experimentados y estudiosos"
 
 
 func _on_pressed():
@@ -25,7 +26,7 @@ func change_scene():
 func _on_focus_entered():
 	self.add_theme_stylebox_override("focus", get_theme_stylebox("hover", "Button"))
 	self.add_theme_font_size_override("font_size", 20)
-	menu_textbox.print_message(self.hint)
+	menu_textbox.print_message(self.hint, "c")
 
 
 # Al salir de foco del botón:
@@ -36,10 +37,10 @@ func _on_focus_exited():
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
 	self.add_theme_font_size_override("font_size", 20)
-	menu_textbox.print_message(self.hint)
+	menu_textbox.print_message(self.hint, "c")
 
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
-	menu_textbox.clear_message()
+	menu_textbox.clear_message("c")
