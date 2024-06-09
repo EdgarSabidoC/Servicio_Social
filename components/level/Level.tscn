@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="2_hsfq3"]
 [ext_resource type="Script" path="res://components/level/Scripts/ExtrasContainer.gd" id="3_5ic7r"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="3_fc0la"]
-[ext_resource type="Script" path="res://components/level/Scripts/ScoreLabel.gd" id="5_rb3qk"]
+[ext_resource type="Script" path="res://components/level/Scripts/ScoreLabel.gd" id="5_gsvxo"]
 
 [node name="Level" type="Node2D"]
 visible = false
@@ -53,6 +53,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../AcceptButton")
+focus_neighbor_top = NodePath("../AnswerButton4")
+focus_neighbor_right = NodePath("../AnswerButton2")
+focus_neighbor_bottom = NodePath("../AnswerButton3")
+focus_next = NodePath("../AnswerButton2")
+focus_previous = NodePath("../../AcceptButton")
 text = ""
 
 [node name="AnswerButton2" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
@@ -60,6 +66,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../AnswerButton1")
+focus_neighbor_top = NodePath("../AnswerButton4")
+focus_neighbor_right = NodePath("../../ExtrasContainer/Drinks")
+focus_neighbor_bottom = NodePath("../AnswerButton4")
+focus_next = NodePath("../AnswerButton3")
+focus_previous = NodePath("../AnswerButton1")
 text = ""
 
 [node name="AnswerButton3" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
@@ -67,6 +79,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../ExtrasContainer/Breads")
+focus_neighbor_top = NodePath("../AnswerButton1")
+focus_neighbor_right = NodePath("../AnswerButton4")
+focus_neighbor_bottom = NodePath("../AnswerButton1")
+focus_next = NodePath("../AnswerButton4")
+focus_previous = NodePath("../AnswerButton2")
 text = ""
 
 [node name="AnswerButton4" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
@@ -74,6 +92,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../AnswerButton3")
+focus_neighbor_top = NodePath("../AnswerButton2")
+focus_neighbor_right = NodePath("../../ExtrasContainer/Breads")
+focus_neighbor_bottom = NodePath("../AnswerButton2")
+focus_next = NodePath("../../ExtrasContainer/Drinks")
+focus_previous = NodePath("../AnswerButton3")
 text = ""
 
 [node name="ExtrasContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
@@ -100,6 +124,12 @@ vertical_alignment = 1
 [node name="Drinks" type="HSlider" parent="CanvasLayer/Control/ExtrasContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../GridContainer/AnswerButton2")
+focus_neighbor_top = NodePath("../../AcceptButton")
+focus_neighbor_right = NodePath("../../GridContainer/AnswerButton1")
+focus_neighbor_bottom = NodePath("../Breads")
+focus_next = NodePath("../Breads")
+focus_previous = NodePath("../../GridContainer/AnswerButton4")
 max_value = 5.0
 tick_count = 6
 ticks_on_borders = true
@@ -114,6 +144,12 @@ vertical_alignment = 1
 [node name="Breads" type="HSlider" parent="CanvasLayer/Control/ExtrasContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+focus_neighbor_left = NodePath("../../GridContainer/AnswerButton4")
+focus_neighbor_top = NodePath("../Drinks")
+focus_neighbor_right = NodePath("../../GridContainer/AnswerButton3")
+focus_neighbor_bottom = NodePath("../../AcceptButton")
+focus_next = NodePath("../../AcceptButton")
+focus_previous = NodePath("../Drinks")
 max_value = 10.0
 tick_count = 11
 ticks_on_borders = true
@@ -126,6 +162,12 @@ offset_top = 498.0
 offset_right = 1005.0
 offset_bottom = 548.0
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../GridContainer/AnswerButton4")
+focus_neighbor_top = NodePath("../ExtrasContainer/Breads")
+focus_neighbor_right = NodePath("../GridContainer/AnswerButton1")
+focus_neighbor_bottom = NodePath("../ExtrasContainer/Drinks")
+focus_next = NodePath("../GridContainer/AnswerButton1")
+focus_previous = NodePath("../ExtrasContainer/Breads")
 text = "Aceptar"
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("3_fc0la")]
