@@ -5,6 +5,9 @@ extends Control
 @export var default_text = ""
 @export var alignment = "l"
 
+signal finished()
+
+
 func _ready() -> void:
 	print_message(default_text)
 
@@ -34,3 +37,8 @@ func clear_message() -> void:
 func clear_message_after_time(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout # Espera un determinado tiempo en segundos
 	clear_message()
+
+
+# Se emite una señal cuando termina el texto:
+func _on_moving_text_end_of_text() -> void:
+	finished.emit()

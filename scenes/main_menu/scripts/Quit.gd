@@ -2,10 +2,12 @@ extends Button
 
 @export var hint: String = "Cerrar el juego." 
 @onready var menu_textbox = $"../../MenuTextbox/MarginContainer/MenuTextbox"
+@onready var exit: int = 0
 
 
 # Sale del juego/escena:
 func _on_pressed() -> void:
+	ClosingGame.exit = true
 	get_tree().quit()
 
 
@@ -31,5 +33,6 @@ func _on_mouse_entered():
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
-	self.add_theme_font_size_override("font_size", 16)
-	menu_textbox.clear_message()
+	if !ClosingGame.exit:
+		self.add_theme_font_size_override("font_size", 16)
+		menu_textbox.clear_message()

@@ -1,7 +1,7 @@
 extends Control
 
 @onready var label = $Label
-@export var _move_to: PackedScene = preload("res://scenes/main_menu/MainScene.tscn")
+@export var _move_to: PackedScene
 
 func _ready() -> void:
 	assert(_move_to)

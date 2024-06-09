@@ -3,7 +3,7 @@ extends Control
 @onready var play: Button = $MainMenu/Play
 @onready var options: Button = $MainMenu/Options
 @onready var quit: Button = $MainMenu/Quit
-@onready var menu_textbox = $MenuTextbox/MarginContainer/MenuTextbox
+@onready var menu_textbox: MarginContainer = $MenuTextbox/MarginContainer/MenuTextbox
 
 var current_button: Button = null
 var last_size: Vector2i
