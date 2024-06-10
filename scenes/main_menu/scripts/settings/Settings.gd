@@ -7,7 +7,6 @@ extends TabContainer
 @onready var menu_background_color: ColorRect = $"../MenuBackgroundColor"
 @onready var settings: TabContainer = %Settings
 @onready var text_box_container: VBoxContainer = %MenuTextbox
-@onready var play: Button = $"../MenuContainer/MainMenu/Play"
 @onready var main_menu: VBoxContainer = %MainMenu
 
 #var textureTab0: Texture2D = load("res://icon.svg")

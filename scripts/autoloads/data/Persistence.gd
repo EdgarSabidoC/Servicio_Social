@@ -76,6 +76,7 @@ func load_video_settings() -> void:
 func _default_data() -> void:
 	# Valores predeterminados de las acciones:
 	for action in InputMap.get_actions():
+		print_debug(action)
 		if InputMap.action_get_events(action).size() != 0:
 			config.set_value("Controls", action, InputMap.action_get_events(action)[0])
 	

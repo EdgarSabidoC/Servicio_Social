@@ -6,7 +6,7 @@ class_name ActionButton
 var error: bool = false
 var errorMsg: String = ""
 
-var actions: Array[String] = ["ui_up", "ui_down", "ui_left", "ui_right", "ui_accept", "ui_cancel"]
+var actions: Array[String] = ["ui_up", "ui_down", "ui_left", "ui_right", "ui_accept", "ui_pause"]
 
 func _ready() -> void:
 	set_process_unhandled_key_input(false)

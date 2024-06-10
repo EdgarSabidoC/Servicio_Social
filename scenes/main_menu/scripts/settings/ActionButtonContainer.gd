@@ -33,32 +33,32 @@ func _unhandled_key_input(_event: InputEvent) -> void:
 
 	# Manejo de errores:
 	if up_button.error:
-		menu_textbox.print_message(up_button.errorMsg)
+		menu_textbox.print_message(up_button.errorMsg, "c")
 		up_button.error = false
 		# Se borra el mensaje después de una cantidad de segundos:
 		menu_textbox.clear_message_after_time(time_to_clear)
 	elif down_button.error:
-		menu_textbox.print_message(down_button.errorMsg)
+		menu_textbox.print_message(down_button.errorMsg, "c")
 		down_button.error = false
 		# Se borra el mensaje después de una cantidad de segundos:
 		menu_textbox.clear_message_after_time(time_to_clear)
 	elif left_button.error:
-		menu_textbox.print_message(left_button.errorMsg)
+		menu_textbox.print_message(left_button.errorMsg, "c")
 		left_button.error = false
 		# Se borra el mensaje después de una cantidad de segundos:
 		menu_textbox.clear_message_after_time(time_to_clear)
 	elif right_button.error:
-		menu_textbox.print_message(right_button.errorMsg)
+		menu_textbox.print_message(right_button.errorMsg, "c")
 		right_button.error = false
 		# Se borra el mensaje después de una cantidad de segundos:
 		menu_textbox.clear_message_after_time(time_to_clear)
 	elif accept_button.error:
-		menu_textbox.print_message(accept_button.errorMsg)
+		menu_textbox.print_message(accept_button.errorMsg, "c")
 		accept_button.error = false
 		# Se borra el mensaje después de una cantidad de segundos:
 		menu_textbox.clear_message_after_time(time_to_clear)
 	elif pause_button.error:
-		menu_textbox.print_message(pause_button.errorMsg)
+		menu_textbox.print_message(pause_button.errorMsg, "c")
 		pause_button.error = false
 		# Se borra el mensaje después de una cantidad de segundos:
 		menu_textbox.clear_message_after_time(time_to_clear)

@@ -1,8 +1,8 @@
 extends Control
 
-@onready var play: Button = $MainMenu/Play
-@onready var options: Button = $MainMenu/Options
-@onready var quit: Button = $MainMenu/Quit
+@onready var play_btn: Button = $MainMenu/PlayBtn
+@onready var settings_btn: Button = $MainMenu/SettingsBtn
+@onready var quit_btn: Button = $MainMenu/QuitBtn
 @onready var menu_textbox: MarginContainer = $MenuTextbox/MarginContainer/MenuTextbox
 
 var current_button: Button = null
@@ -16,7 +16,7 @@ signal main_window_size_changed()
 func _ready() -> void:
 	# Si el modo mouse está desactivado se enfoca el botón Play:
 	if !Mouse.mouse_mode_activated:
-		play.grab_focus()
+		play_btn.grab_focus()
 		
 	menu_textbox.print_message(menu_textbox.default_text)
 	# Se obtiene el tamaño de pantalla actual:
@@ -54,9 +54,9 @@ func _on_main_window_size_changed():
 	textbox_font.add_theme_font_size_override("normal_font_size", textbox_font_size)
 	
 	# Se sobreescriben los tamaños de fuente de los botones:
-	play.add_theme_font_size_override("font_size", button_font_size)
-	options.add_theme_font_size_override("font_size", button_font_size)
-	quit.add_theme_font_size_override("font_size", button_font_size)
+	play_btn.add_theme_font_size_override("font_size", button_font_size)
+	settings_btn.add_theme_font_size_override("font_size", button_font_size)
+	quit_btn.add_theme_font_size_override("font_size", button_font_size)
 	
 	# Se actualiza el último tamaño:
 	last_size = DisplayServer.window_get_size()

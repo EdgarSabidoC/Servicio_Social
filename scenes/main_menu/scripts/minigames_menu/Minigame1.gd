@@ -17,7 +17,6 @@ func _on_pressed() -> void:
 	difficulty_menu.show()
 	get_parent().hide() # Oculta el menú principal
 	margin_container.hide()
-	
 
 
 # Cuando se vuelve visible:
