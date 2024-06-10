@@ -7,7 +7,7 @@ extends Button
 @onready var settings_background_color = $"../../SettingsBackgroundColor"
 @onready var menu_background_color = $"../../MenuBackgroundColor"
 @onready var menu_textbox_container = %MenuTextbox
-@onready var play = $"../../MenuContainer/MainMenu/Play"
+@onready var play_btn: Button = $"../../MenuContainer/MainMenu/PlayBtn"
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
 
 
@@ -17,7 +17,7 @@ func _on_pressed() -> void:
 	menu_textbox_container.show() # Se muestra el textbox del menú principal
 	minigames_menu.hide() # Se oculta el menú de opciones de configuración
 	if !Mouse.mouse_mode_activated:
-		play.grab_focus() # Se enfoca el botón play
+		play_btn.grab_focus() # Se enfoca el botón play
 
 
 # Al estar enfocado el botón:

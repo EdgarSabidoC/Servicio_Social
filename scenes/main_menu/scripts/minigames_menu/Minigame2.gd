@@ -7,11 +7,6 @@ extends Button
 @onready var margin_container: MarginContainer = $"../MarginContainer"
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
 # Al presionar el botón:
 func _on_pressed() -> void:
 	# Consume el evento:

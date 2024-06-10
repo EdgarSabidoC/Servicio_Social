@@ -2,15 +2,9 @@ extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
 @export var hint: String = "Minijuego3"
-@export var _move_to: PackedScene
 @onready var difficulty_menu: VBoxContainer = %DifficultyMenu
 @onready var menu_background_color: ColorRect = $"../../MenuBackgroundColor"
 @onready var margin_container: MarginContainer = $"../MarginContainer"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
 
 
 # Al presionar el botón:

@@ -10,6 +10,7 @@ extends Node
 								"ui_right": InputMap.action_get_events("ui_right"), \
 								"ui_accept": InputMap.action_get_events("ui_accept"), \
 								"ui_cancel": InputMap.action_get_events("ui_cancel"), \
+								"ui_pause": InputMap.action_get_events("ui_pause"), \
 								"ui_focus_next": InputMap.action_get_events("ui_focus_next"), \
 								"ui_focus_prev": InputMap.action_get_events("ui_focus_prev")}
 

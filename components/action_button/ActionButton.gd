@@ -5,8 +5,8 @@ class_name ActionButton
 @export var action: String = "ui_up" # Acción predeterminada
 var error: bool = false
 var errorMsg: String = ""
-
-var actions: Array[String] = ["ui_up", "ui_down", "ui_left", "ui_right", "ui_accept", "ui_cancel"]
+@onready var action_icon: ActionIcon = $ActionIcon
+var actions: Array[String] = ["ui_up", "ui_down", "ui_left", "ui_right", "ui_accept", "ui_pause"]
 
 func _ready() -> void:
 	set_process_unhandled_key_input(false)
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Muestra el texto de la tecla seleccionada:
 func display_key() -> void:
-	text = Mouse.input_actions[action][0].as_text()
+	action_icon.action_name = action
 
 
 # Remapea la tecla borrando el evento previo y añadiendo uno nuevo:
@@ -39,7 +39,10 @@ func remap_action_to(event: InputEvent) -> void:
 	InputMap.action_add_event(action, event)
 	Persistence.config.set_value("Controls", action, event)
 	Persistence.save_data()
-	
+	# Se refresca el ícono del botón de acción:
+	action_icon.refresh()
+	# Se muestra el ícono del botón de acción:
+	action_icon.show()
 	text = event.as_text()
 
 
@@ -50,6 +53,7 @@ func _on_pressed() -> void:
 	
 	# Se activa la escucha para el proceso de entrada de teclado:
 	set_process_unhandled_key_input(true)
+	action_icon.hide() # Se oculta el ícono del botón de acción
 	text = "Presiona cualquier tecla"
 
 

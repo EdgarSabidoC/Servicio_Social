@@ -1,4 +1,6 @@
-extends Label
+@tool
+extends RichTextLabel
+class_name RichTextLabelTextFlash
 #*******************************************************************************/
 #--------------------------------Flashing Text--------------------------------*/
 #*******************************************************************************/
@@ -130,7 +132,7 @@ func flashMyText():
 # It will determin how many seconds od delay will be before the flashing happens
 
 #-------------------------------------FADE-------------------------------------*/
-# Makes the text fade instead of turning on off
+# Makes the text fade instead of turning on of
 
 #------------------------------Preview on editor------------------------------*/
 # If you want to preview it on editor just check the preview option

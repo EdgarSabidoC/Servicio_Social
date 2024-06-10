@@ -1,40 +1,41 @@
 [gd_scene load_steps=32 format=3 uid="uid://deare6ipirplk"]
 
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="3_mou80"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="4_5awxv"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Play.gd" id="5_7ioq7"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/PlayBtn.gd" id="5_7ioq7"]
 [ext_resource type="Texture2D" uid="uid://cqboxf3ckfoln" path="res://assets/graphical_assets/user_interface/container/container.tga" id="6_4ujbp"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Options.gd" id="6_6htjl"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Quit.gd" id="7_26t7j"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/SettingsBtn.gd" id="6_6htjl"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/QuitBtn.gd" id="7_26t7j"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/MinigamesMenu.gd" id="9_0pdbe"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/DifficultyMenu.gd" id="9_tu7mx"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/Minigame1.gd" id="10_aydou"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Settings.gd" id="10_pvbhm"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Settings.gd" id="10_pvbhm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/EasyBtn.gd" id="10_xbasp"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/MediumBtn.gd" id="11_aki4r"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Video.gd" id="11_c0uvf"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Video.gd" id="11_c0uvf"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/Minigame2.gd" id="11_cyuk5"]
 [ext_resource type="PackedScene" uid="uid://0fx6dc8c8ukb" path="res://components/back_button/BackButton.tscn" id="12_ax4u8"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/Minigame3.gd" id="12_b254f"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/HardBtn.gd" id="12_pwd64"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/ReturnBtn.gd" id="13_0ewxx"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Audio.gd" id="13_0wpcl"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Audio.gd" id="13_0wpcl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/ReturnBtn.gd" id="13_lq72g"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionButtonContainer.gd" id="14_2m575"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/ActionButtonContainer.gd" id="14_2m575"]
 [ext_resource type="Theme" uid="uid://tkr4bu68wbdu" path="res://assets/graphical_assets/styles/SettingsScene.tres" id="14_7nlx3"]
 [ext_resource type="PackedScene" uid="uid://c4x8k1nr1nq2u" path="res://components/action_button/ActionButton.tscn" id="15_gjpx2"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenutTextboxContainer.gd" id="15_kdu1y"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/License.gd" id="16_pabyu"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/AudioInputsContainer.gd" id="17_cql55"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/License.gd" id="16_pabyu"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/Controls.gd" id="20_26f8x"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MouseMode.gd" id="22_jayrx"]
 
 [node name="MainScene" type="Node2D"]
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("1_5kdpa")
 
 [node name="SettingsBackgroundColor" type="ColorRect" parent="UI"]
 visible = false
@@ -98,46 +99,46 @@ size_flags_vertical = 3
 focus_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Play" type="Button" parent="UI/MenuContainer/MainMenu"]
+[node name="PlayBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../Quit")
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_right = NodePath("../Options")
-focus_neighbor_bottom = NodePath("../Options")
-focus_next = NodePath("../Options")
-focus_previous = NodePath("../Quit")
+focus_neighbor_left = NodePath("../QuitBtn")
+focus_neighbor_top = NodePath("../QuitBtn")
+focus_neighbor_right = NodePath("../SettingsBtn")
+focus_neighbor_bottom = NodePath("../SettingsBtn")
+focus_next = NodePath("../SettingsBtn")
+focus_previous = NodePath("../QuitBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Jugar"
 script = ExtResource("5_7ioq7")
 
-[node name="Options" type="Button" parent="UI/MenuContainer/MainMenu"]
+[node name="SettingsBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../Play")
-focus_neighbor_top = NodePath("../Play")
-focus_neighbor_right = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Quit")
-focus_next = NodePath("../Quit")
-focus_previous = NodePath("../Play")
+focus_neighbor_left = NodePath("../PlayBtn")
+focus_neighbor_top = NodePath("../PlayBtn")
+focus_neighbor_right = NodePath("../QuitBtn")
+focus_neighbor_bottom = NodePath("../QuitBtn")
+focus_next = NodePath("../QuitBtn")
+focus_previous = NodePath("../PlayBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Opciones"
 script = ExtResource("6_6htjl")
 
-[node name="Quit" type="Button" parent="UI/MenuContainer/MainMenu"]
+[node name="QuitBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../Options")
-focus_neighbor_top = NodePath("../Options")
-focus_neighbor_right = NodePath("../Play")
-focus_neighbor_bottom = NodePath("../Play")
-focus_next = NodePath("../Play")
-focus_previous = NodePath("../Options")
+focus_neighbor_left = NodePath("../SettingsBtn")
+focus_neighbor_top = NodePath("../SettingsBtn")
+focus_neighbor_right = NodePath("../PlayBtn")
+focus_neighbor_bottom = NodePath("../PlayBtn")
+focus_next = NodePath("../PlayBtn")
+focus_previous = NodePath("../SettingsBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Salir"
@@ -608,7 +609,6 @@ visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de los controles"
 focus_mode = 0
-script = ExtResource("20_26f8x")
 
 [node name="ControlsOptionsContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
 layout_mode = 1
@@ -690,7 +690,6 @@ focus_neighbor_top = NodePath("../../../../..")
 focus_previous = NodePath("../../../../..")
 mouse_filter = 2
 button_mask = 0
-text = "Arriba"
 
 [node name="Down" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
 custom_minimum_size = Vector2(200, 50)
@@ -698,7 +697,6 @@ layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
 button_mask = 0
-text = "Abajo"
 action = "ui_down"
 
 [node name="Left" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -707,7 +705,6 @@ layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
 button_mask = 0
-text = "Izquierda"
 action = "ui_left"
 
 [node name="Right" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -716,7 +713,6 @@ layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
 button_mask = 0
-text = "Derecha"
 action = "ui_right"
 
 [node name="Accept" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -724,7 +720,6 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
-text = "Aceptar"
 action = "ui_accept"
 
 [node name="Pause" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -732,8 +727,7 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
-text = "Pausa"
-action = "ui_cancel"
+action = "ui_pause"
 
 [node name="MouseMode" type="CheckButton" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer"]
 layout_mode = 2
@@ -787,21 +781,21 @@ offset_bottom = 150.0
 [node name="BackButton" parent="UI/Settings/License" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
 
-[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_focus_entered"]
-[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_mouse_exited"]
-[connection signal="pressed" from="UI/MenuContainer/MainMenu/Play" to="UI/MenuContainer/MainMenu/Play" method="_on_pressed"]
-[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_focus_entered"]
-[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_mouse_exited"]
-[connection signal="pressed" from="UI/MenuContainer/MainMenu/Options" to="UI/MenuContainer/MainMenu/Options" method="_on_pressed"]
-[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_focus_entered"]
-[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_mouse_exited"]
-[connection signal="pressed" from="UI/MenuContainer/MainMenu/Quit" to="UI/MenuContainer/MainMenu/Quit" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_pressed"]
 [connection signal="focus_entered" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_mouse_entered"]
