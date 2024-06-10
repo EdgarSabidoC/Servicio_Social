@@ -1,11 +1,11 @@
 extends VBoxContainer
 
-@onready var up_button: Button = $Up
-@onready var down_button: Button = $Down
-@onready var left_button: Button = $Left
-@onready var right_button: Button = $Right
-@onready var accept_button: Button = $Accept
-@onready var pause_button: Button = $Pause
+@onready var up_button: ActionButton = $Up
+@onready var down_button: ActionButton = $Down
+@onready var left_button: ActionButton = $Left
+@onready var right_button: ActionButton = $Right
+@onready var accept_button: ActionButton = $Accept
+@onready var pause_button: ActionButton = $Pause
 @onready var back_button = $"../../../../BackButton"
 @onready var menu_textbox = $"../MenuTextboxContainer/MenuTextbox" # Textbox para errores.
 var time_to_clear: int = 5 # Variable que controla el tiempo en (segundos) para borrar el mensaje de error del textbox.
@@ -65,11 +65,12 @@ func _unhandled_key_input(_event: InputEvent) -> void:
 		
 	# Se reactivan los botones una vez se remapeó una tecla:
 	enable_buttons([up_button, down_button, left_button, right_button, accept_button, pause_button, back_button])
+	
 	keyInputFlag = true
 
 
 # Desactiva los botones:
-func disable_buttons(buttons: Array) -> void:
+func disable_buttons(buttons: Array[ActionButton]) -> void:
 	if keyInputFlag:
 		for i in buttons.size():
 			buttons[i].disabled = true
@@ -78,6 +79,6 @@ func disable_buttons(buttons: Array) -> void:
 
 
 # Activa los botones:
-func enable_buttons(buttons: Array) -> void:
+func enable_buttons(buttons: Array[ActionButton]) -> void:
 	for i in buttons.size():
 		buttons[i].disabled = false
