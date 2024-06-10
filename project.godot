@@ -44,6 +44,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Servicio_Social"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ActionIcon/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false

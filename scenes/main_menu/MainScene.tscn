@@ -690,7 +690,6 @@ focus_neighbor_top = NodePath("../../../../..")
 focus_previous = NodePath("../../../../..")
 mouse_filter = 2
 button_mask = 0
-text = "Arriba"
 
 [node name="Down" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
 custom_minimum_size = Vector2(200, 50)
@@ -698,7 +697,6 @@ layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
 button_mask = 0
-text = "Abajo"
 action = "ui_down"
 
 [node name="Left" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -707,7 +705,6 @@ layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
 button_mask = 0
-text = "Izquierda"
 action = "ui_left"
 
 [node name="Right" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -716,7 +713,6 @@ layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
 button_mask = 0
-text = "Derecha"
 action = "ui_right"
 
 [node name="Accept" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -724,7 +720,6 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
-text = "Aceptar"
 action = "ui_accept"
 
 [node name="Pause" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
@@ -732,7 +727,6 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
-text = "Pausa"
 action = "ui_pause"
 
 [node name="MouseMode" type="CheckButton" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer"]
