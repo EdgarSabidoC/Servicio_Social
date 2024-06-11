@@ -33,10 +33,3 @@ func load_texture(path: String) -> Texture2D:
 	else:
 		print_debug("Error: No se pudo cargar la textura desde la ruta proporcionada.")
 		return null
-
-
-# Si es una respuesta correcta, se aumenta el score global:
-func _on_pressed() -> void:
-	if defeated:
-		CharactersData.characters[0].defeated = true
-		print_debug(CharactersData.characters[0].defeated)
