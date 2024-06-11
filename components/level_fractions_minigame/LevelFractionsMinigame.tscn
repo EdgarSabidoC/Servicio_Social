@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://djd5hvlykjgse"]
 
-[ext_resource type="Script" path="res://components/level/Scripts/Level.gd" id="1_w5ykt"]
+[ext_resource type="Script" path="res://components/level_fractions_minigame/Scripts/LevelFractionsMinigame.gd" id="1_w5ykt"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="2_hsfq3"]
-[ext_resource type="Script" path="res://components/level/Scripts/ExtrasContainer.gd" id="3_5ic7r"]
+[ext_resource type="Script" path="res://components/level_fractions_minigame/Scripts/ExtrasContainer.gd" id="3_5ic7r"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="3_fc0la"]
-[ext_resource type="Script" path="res://components/level/Scripts/ScoreLabel.gd" id="5_rb3qk"]
+[ext_resource type="Script" path="res://components/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_rb3qk"]
 
 [node name="Level" type="Node2D"]
 visible = false
