@@ -5,7 +5,7 @@ extends Button
 @onready var settings_background_color = $"../../SettingsBackgroundColor"
 @onready var menu_background_color = $"../../MenuBackgroundColor"
 @onready var menu_textbox_container = %MenuTextbox
-@onready var minigame_1: Button = $"../../MinigamesMenu/Minigame1"
+@onready var fractions_minigame: Button = $"../../MinigamesMenu/FractionsMinigame"
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
 @onready var minigames_menu: VBoxContainer = %MinigamesMenu
 @onready var margin_container: MarginContainer = $"../../MinigamesMenu/MarginContainer"
@@ -17,7 +17,7 @@ func _on_pressed() -> void:
 	minigames_menu.show() # Se muestra el menú de minijuegos
 	difficulty_menu.hide() # Se oculta el menú de opciones de dificultad
 	if !Mouse.mouse_mode_activated:
-		minigame_1.grab_focus() # Se enfoca el botón del primer minijuego
+		fractions_minigame.grab_focus() # Se enfoca el botón del primer minijuego
 
 
 # Al estar enfocado el botón:
