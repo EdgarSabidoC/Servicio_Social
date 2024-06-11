@@ -54,6 +54,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ""
+flat = true
 
 [node name="AnswerButton2" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
 unique_name_in_owner = true
@@ -61,6 +62,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ""
+flat = true
 
 [node name="AnswerButton3" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
 unique_name_in_owner = true
@@ -68,6 +70,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ""
+flat = true
 
 [node name="AnswerButton4" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("2_hsfq3")]
 unique_name_in_owner = true
@@ -75,6 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = ""
+flat = true
 
 [node name="ExtrasContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(275, 0)

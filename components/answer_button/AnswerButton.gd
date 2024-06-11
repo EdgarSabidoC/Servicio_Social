@@ -27,7 +27,7 @@ func construct(answer: Dictionary) -> void:
 
 # Función para cargar un Texture2D desde una ruta
 func load_texture(path: String) -> Texture2D:
-	var texture = ResourceLoader.load(path)
+	var texture: Texture2D = ResourceLoader.load(path)
 	if texture is Texture2D:
 		return texture
 	else:

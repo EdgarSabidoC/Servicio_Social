@@ -1,6 +1,7 @@
 @tool
 extends RichTextLabel
 class_name RichTextLabelTextFlash
+
 #*******************************************************************************/
 #--------------------------------Flashing Text--------------------------------*/
 #*******************************************************************************/
@@ -9,12 +10,14 @@ class_name RichTextLabelTextFlash
 #********************************************************************HELP DOWN */
 
 #-----------------------------Exporting variables-----------------------------*/
-@export var speed: float = 2
+@export var speed: float = 5
 @export var numberOfFlashes: int = 0
 @export var delay: float = 0
 @export var fade: bool
 @export var preview: bool = false
 @export var start: bool = false
+
+
 #----------------------------Not Exported variables----------------------------*/
 var time = 0.0
 var timeSin = 0
@@ -26,7 +29,6 @@ var _visible = true
 #--------------------------------Initializing --------------------------------*/
 func _ready():
 	time = 0
-
 
 
 #-----------------------------Making things happen-----------------------------*/
@@ -56,7 +58,7 @@ func _process(delta):
 #-------Start() func initializes the real flash in case it's not looping-------*/
 #------User can call start() and eventually give parameters for the flash------*/
 
-func _start(numberOfFlashess:int = 0, speedd:int = 0, fadee:bool = false):
+func _start(numberOfFlashess:int = 0,speedd:int = 0,fadee:bool = false):
 	if numberOfFlashess == 0 and speedd == 0 and !fadee:
 		time = 0 
 		_visible = true
