@@ -11,7 +11,7 @@ extends Control
 
 func _ready() -> void:
 	assert(_move_to)
-	keyboard_mode.grab_focus()
+	mouse_mode.grab_focus()
 	keyboard_mode.icon =  ResourceLoader.load(keyboard_mode_texture_path)
 	mouse_mode.icon =  ResourceLoader.load(mouse_mode_texture_path)
 	print_debug(mouse_mode.icon)
