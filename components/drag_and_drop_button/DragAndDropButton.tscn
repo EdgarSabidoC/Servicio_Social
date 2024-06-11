@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://6vdeeoqgc4ki"]
+
+[ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="1_o5ktf"]
+[ext_resource type="Script" path="res://components/drag_and_drop_button/Object.gd" id="2_qaxs4"]
+
+[node name="DragAndDropButton" type="Node2D"]
+
+[node name="Object" type="Sprite2D" parent="."]
+texture = ExtResource("1_o5ktf")
+centered = false
+script = ExtResource("2_qaxs4")
+
+[node name="TextureRect" type="TextureRect" parent="Object"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_o5ktf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Object"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Object/Button" to="Object" method="_on_button_button_down"]
+[connection signal="button_up" from="Object/Button" to="Object" method="_on_button_button_up"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://mnspcs2p4p6h"]
+
+[ext_resource type="Script" path="res://components/drag_and_drop_slot/Slot.gd" id="1_dumcg"]
+
+[node name="Slot" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.161133
+anchor_bottom = 0.295139
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_dumcg")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+expand_mode = 1
