@@ -37,13 +37,8 @@ fit_content = true
 script = ExtResource("5_446se")
 speed = 2.0
 fade = true
-accept_width = null
-accept_height = null
-pause_width = null
-pause_height = null
 
 [node name="ActionIcon" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 131.0
 offset_right = 231.0
@@ -51,7 +46,6 @@ offset_bottom = 40.0
 script = ExtResource("5_3g51u")
 
 [node name="ActionIcon2" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 40.0
