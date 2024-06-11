@@ -7,8 +7,8 @@ var margin_value: int
 @onready var medium_btn = $MediumBtn
 @onready var hard_btn = $HardBtn
 @onready var return_btn = $ReturnBtn
-@onready var placeholder_1 = $Placeholder1
-@onready var placeholder_2 = $Placeholder2
+#@onready var placeholder_1 = $Placeholder1
+#@onready var placeholder_2 = $Placeholder2
 @onready var menu_textbox: MarginContainer = $MarginContainer/MenuTextbox
 
 
@@ -37,7 +37,7 @@ func _on_main_window_size_changed():
 	#var textbox_font: RichTextLabel = menu_textbox.get_child(0)
 	#var textbox_font_size: int
 	var button_font_size: int
-	var placeholder_size: Vector2i
+	var _placeholder_size: Vector2i
 	var button_size: Vector2i
 	var return_btn_size: Vector2i
 	
@@ -46,20 +46,20 @@ func _on_main_window_size_changed():
 		margin_value = 60
 		#textbox_font_size = 28
 		button_font_size = 40
-		placeholder_size = Vector2i(0,100)
+		_placeholder_size = Vector2i(0,100)
 		button_size = Vector2i(250, 125)
 		return_btn_size = Vector2i(250, 100)
 	else:
 		margin_value = 55
 		#textbox_font_size = 20
 		button_font_size = 25
-		placeholder_size = Vector2i(0,50)
+		_placeholder_size = Vector2i(0,50)
 		button_size = Vector2i(200, 75)
 		return_btn_size = Vector2i(200, 50)
 	
 	# Se sobreescribe el tamaño vertical de los placeholders:
-	placeholder_1.custom_minimum_size = placeholder_size
-	placeholder_2.custom_minimum_size = placeholder_size
+	#placeholder_1.custom_minimum_size = _placeholder_size
+	#placeholder_2.custom_minimum_size = _placeholder_size
 	
 	# Se sobreescribe el márgen superior del textbox:
 	#menu_textbox.add_theme_constant_override("margin_top", margin_value)
