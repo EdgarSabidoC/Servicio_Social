@@ -54,21 +54,6 @@ layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="KeyboardMode" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-tooltip_text = "Activa el modo teclado"
-theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
-theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
-theme_override_font_sizes/font_size = 18
-text = "Teclado"
-flat = true
-icon_alignment = 1
-vertical_icon_alignment = 2
-
 [node name="MouseMode" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
@@ -80,6 +65,21 @@ theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Mouse/Ratón"
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="KeyboardMode" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Activa el modo teclado"
+theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Teclado"
 flat = true
 icon_alignment = 1
 vertical_icon_alignment = 2
@@ -96,5 +96,5 @@ script = ExtResource("5_emnij")
 speed = 0.5
 fade = true
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_pressed"]

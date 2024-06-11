@@ -241,6 +241,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Fracciones"
 script = ExtResource("10_aydou")
+hint = "Pon a prueba tu conocimiento sobre fracciones"
 
 [node name="Minigame2" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 75)
@@ -320,6 +321,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Fácil"
 script = ExtResource("10_xbasp")
+hint = "La mejor forma de familiarizarte con el juego"
 
 [node name="MediumBtn" type="Button" parent="UI/DifficultyMenu"]
 custom_minimum_size = Vector2(200, 75)
@@ -328,6 +330,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Media"
 script = ExtResource("11_aki4r")
+hint = "Pon a prueba tus conocimientos de fracciones y proporciones"
 
 [node name="HardBtn" type="Button" parent="UI/DifficultyMenu"]
 custom_minimum_size = Vector2(200, 75)
