@@ -1,16 +1,22 @@
 extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
-@export var hint: String = "Ideal para los nuevos jugadores"
-@onready var _move_to: String = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
+@export var hint: String = "Fracciones"
+@onready var difficulty_menu: VBoxContainer = %DifficultyMenu
+@onready var margin_container: MarginContainer = $"../MarginContainer"
+@onready var settings_background_color: ColorRect = $"../../SettingsBackgroundColor"
+@onready var menu_background_color: ColorRect = $"../../MenuBackgroundColor"
 
 
-func _on_pressed():
+# Al presionar el botón:
+func _on_pressed() -> void:
 	# Consume el evento:
 	get_viewport().set_input_as_handled()
-	
-	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
-	SceneLoader.load_scene(_move_to)
+	# Moverse al menú de selección de dificultad:
+	menu_background_color.fade_in()
+	difficulty_menu.show()
+	get_parent().hide() # Oculta el menú principal
+	margin_container.hide()
 
 
 # Cuando se vuelve visible:

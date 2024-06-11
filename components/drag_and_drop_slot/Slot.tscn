@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://mnspcs2p4p6h"]
+[gd_scene load_steps=3 format=3 uid="uid://mnspcs2p4p6h"]
 
 [ext_resource type="Script" path="res://components/drag_and_drop_slot/Slot.gd" id="1_dumcg"]
+[ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="2_n84gj"]
 
 [node name="Slot" type="PanelContainer"]
 anchors_preset = -1
@@ -16,4 +17,5 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+texture = ExtResource("2_n84gj")
 expand_mode = 1

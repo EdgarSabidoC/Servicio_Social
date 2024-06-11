@@ -70,7 +70,7 @@ func _unhandled_key_input(_event: InputEvent) -> void:
 
 
 # Desactiva los botones:
-func disable_buttons(buttons: Array[ActionButton]) -> void:
+func disable_buttons(buttons: Array) -> void:
 	if keyInputFlag:
 		for i in buttons.size():
 			buttons[i].disabled = true
@@ -79,6 +79,6 @@ func disable_buttons(buttons: Array[ActionButton]) -> void:
 
 
 # Activa los botones:
-func enable_buttons(buttons: Array[ActionButton]) -> void:
+func enable_buttons(buttons: Array) -> void:
 	for i in buttons.size():
 		buttons[i].disabled = false

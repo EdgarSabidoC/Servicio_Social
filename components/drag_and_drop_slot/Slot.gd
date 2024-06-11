@@ -18,9 +18,9 @@ func _can_drop_data(_pos, data):
 	return data is TextureRect
  
 func _drop_data(_pos, data):
-	var temp = texture_rect.property
-	texture_rect.property = data.property
-	data.property = temp
+	var temp = texture_rect.texture
+	texture_rect.texture = data.texture
+	data.texture = temp
  
 func get_preview():
 	var preview_texture = TextureRect.new()

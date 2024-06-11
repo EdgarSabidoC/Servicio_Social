@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=34 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/MinigamesMenu.gd" id="9_0pdbe"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/DifficultyMenu.gd" id="9_tu7mx"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/Minigame1.gd" id="10_aydou"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/FractionsMinigame.gd" id="10_aydou"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Settings.gd" id="10_pvbhm"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/EasyBtn.gd" id="10_xbasp"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/MediumBtn.gd" id="11_aki4r"]
@@ -31,6 +31,8 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MouseMode.gd" id="22_jayrx"]
+[ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="32_i2vn0"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -189,12 +191,11 @@ unique_name_in_owner = true
 visible = false
 anchors_preset = -1
 anchor_left = 0.304688
-anchor_top = 0.0763889
+anchor_top = 0.0104169
 anchor_right = 0.695313
-anchor_bottom = 0.977431
-offset_left = -3.05176e-05
-offset_top = -28.9999
-offset_bottom = -11.0001
+anchor_bottom = 0.942709
+offset_top = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -203,7 +204,6 @@ script = ExtResource("9_0pdbe")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MinigamesMenu"]
-clip_contents = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
@@ -231,15 +231,15 @@ theme_override_constants/margin_bottom = 40
 default_text = "Selecciona un minijuego para comenzar a jugar"
 
 [node name="Placeholder1" type="BoxContainer" parent="UI/MinigamesMenu"]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Minigame1" type="Button" parent="UI/MinigamesMenu"]
+[node name="FractionsMinigame" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_mou80")
-text = "Minijuego1"
+text = "Fracciones"
 script = ExtResource("10_aydou")
 
 [node name="Minigame2" type="Button" parent="UI/MinigamesMenu"]
@@ -258,11 +258,6 @@ theme = ExtResource("3_mou80")
 text = "Minijuego3"
 script = ExtResource("12_b254f")
 
-[node name="Placeholder2" type="BoxContainer" parent="UI/MinigamesMenu"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="ReturnBtn" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
@@ -276,11 +271,9 @@ unique_name_in_owner = true
 visible = false
 anchors_preset = -1
 anchor_left = 0.304688
-anchor_top = 0.0763889
+anchor_top = 0.0190972
 anchor_right = 0.695313
-anchor_bottom = 0.977431
-offset_top = -20.0
-offset_bottom = -20.0
+anchor_bottom = 0.920139
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -317,7 +310,7 @@ theme_override_constants/margin_bottom = 40
 default_text = "Selecciona una dificultad"
 
 [node name="Placeholder1" type="BoxContainer" parent="UI/DifficultyMenu"]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="EasyBtn" type="Button" parent="UI/DifficultyMenu"]
@@ -343,11 +336,6 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Difícil"
 script = ExtResource("12_pwd64")
-
-[node name="Placeholder2" type="BoxContainer" parent="UI/DifficultyMenu"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="ReturnBtn" type="Button" parent="UI/DifficultyMenu"]
 custom_minimum_size = Vector2(200, 50)
@@ -781,6 +769,108 @@ offset_bottom = 150.0
 [node name="BackButton" parent="UI/Settings/License" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
 
+[node name="ActionHints" type="HBoxContainer" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.0078125
+anchor_top = 0.925347
+anchor_right = 0.992188
+anchor_bottom = 1.00868
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 90
+alignment = 1
+script = ExtResource("32_l6t77")
+metadata/_edit_use_anchors_ = true
+
+[node name="UpActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Arriba:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon1" type="TextureRect" parent="UI/ActionHints/UpActionHint"]
+layout_mode = 2
+offset_left = 79.0
+offset_top = -10.0
+offset_right = 119.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+
+[node name="DownActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Abajo:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon2" type="TextureRect" parent="UI/ActionHints/DownActionHint"]
+layout_mode = 2
+offset_left = 81.0
+offset_top = -10.0
+offset_right = 121.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+
+[node name="LeftActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Izquierda:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon3" type="TextureRect" parent="UI/ActionHints/LeftActionHint"]
+layout_mode = 2
+offset_left = 101.0
+offset_top = -10.0
+offset_right = 141.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+
+[node name="RightActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Derecha:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon4" type="TextureRect" parent="UI/ActionHints/RightActionHint"]
+layout_mode = 2
+offset_left = 96.0
+offset_top = -10.0
+offset_right = 136.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+
+[node name="AcceptActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Aceptar:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon5" type="TextureRect" parent="UI/ActionHints/AcceptActionHint"]
+layout_mode = 2
+offset_left = 81.0
+offset_top = -10.0
+offset_right = 121.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+joypad_mode = 1
+
+[node name="CancelActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Salir:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon6" type="TextureRect" parent="UI/ActionHints/CancelActionHint"]
+layout_mode = 2
+offset_left = 54.0
+offset_top = -10.0
+offset_right = 94.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+action_name = &"ui_cancel"
+joypad_mode = 1
+
 [connection signal="focus_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_mouse_entered"]
@@ -796,12 +886,12 @@ layout_mode = 1
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_pressed"]
-[connection signal="focus_entered" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_focus_entered"]
-[connection signal="focus_exited" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_mouse_exited"]
-[connection signal="pressed" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_pressed"]
-[connection signal="visibility_changed" from="UI/MinigamesMenu/Minigame1" to="UI/MinigamesMenu/Minigame1" method="_on_visibility_changed"]
+[connection signal="focus_entered" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_pressed"]
+[connection signal="visibility_changed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_mouse_entered"]
