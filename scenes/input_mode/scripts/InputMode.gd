@@ -1,13 +1,20 @@
 extends Control
 
+@onready var label_1: Label = $VBoxContainer/Label1
 @export var _move_to: PackedScene
 @onready var keyboard_mode: Button = $VBoxContainer/HBoxContainer/KeyboardMode
+@onready var mouse_mode: Button = $VBoxContainer/HBoxContainer/MouseMode
+@onready var rich_text_label_text_flash: RichTextLabelTextFlash = $VBoxContainer/RichTextLabelTextFlash
+@onready var keyboard_mode_texture_path: String = "res://addons/ActionIcon/Keyboard/WSAD.png"
+@onready var mouse_mode_texture_path: String = "res://addons/ActionIcon/Mouse/None.png"
 
 
 func _ready() -> void:
 	assert(_move_to)
 	keyboard_mode.grab_focus()
-	
+	keyboard_mode.icon =  ResourceLoader.load(keyboard_mode_texture_path)
+	mouse_mode.icon =  ResourceLoader.load(mouse_mode_texture_path)
+	print_debug(mouse_mode.icon)
 
 
 # Activa el modo teclado:
