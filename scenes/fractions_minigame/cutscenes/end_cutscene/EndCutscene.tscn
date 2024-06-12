@@ -52,7 +52,7 @@ layout_mode = 2
 size_flags_vertical = 8
 bbcode_enabled = true
 script = ExtResource("2_aer1u")
-speed = 1.0
+speed = 3.0
 fade = true
 metadata/_edit_use_anchors_ = true
 

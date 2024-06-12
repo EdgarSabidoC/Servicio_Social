@@ -19,8 +19,9 @@ func clear_player_session() -> void:
 
 
 # Obtiene el siguiente personaje:
-func next_character() -> void:
+func next_character() -> int:
 	self.character += 1
+	return self.character
 
 
 # Función que guarda el puntaje del jugador entre los puntajes más altos:

@@ -100,7 +100,18 @@ func _default_data() -> void:
 	config.set_value("Audio", sfx, 0.25)
 
 	# Se configuran los mejores puntajes:
-	var best_scores: Array = [["EDGAR", "100000"],["CARLOS", "100000"]]
+	var best_scores: Array = [
+		["EDGAR", "999999"],
+		["CARLOS", "999999"],
+		["??????","99999"],
+		["??????","99999"],
+		["??????","99999"],
+		["??????","99999"],
+		["??????","99999"],
+		["??????","99999"],
+		["??????","99999"],
+		["??????","99999"]
+		]
 	self.high_scores = best_scores
 	var best_scores_string: String = JSON.stringify(best_scores)
 	# Test debug:
@@ -159,14 +170,17 @@ func get_high_scores_formatted() -> String:
 		var score: String = score_entry[1]
 
 		# Añadir el número de posición
-		formatted_text += "[color=yellow]" + "%02d"%position + ". [/color]\t"
+		formatted_text += "[color=yellow]" + "%02d"%position + ". [/color]\t\t"
 		
 		# Si el nombre es inferior a 10 chars se añaden espacios vacíos suficientes:
 		while (player_name.length() < 10):
 			player_name = player_name + " "
 		
+		if player_name.length() > 10:
+			player_name.left(10)
+		
 		# Añadir el nombre del jugador con un ancho mínimo de 10 caracteres:
-		formatted_text += "[color=white]" + player_name.left(10) + " [/color]\t"
+		formatted_text += "[color=white]" + player_name + " [/color]\t\t"
 
 		# Añadir el puntaje del jugador con un ancho mínimo de 10 caracteres, relleno con espacios a la izquierda
 		formatted_text += "[color=green]" + "%010d" % score.to_float() + "[/color]\n"

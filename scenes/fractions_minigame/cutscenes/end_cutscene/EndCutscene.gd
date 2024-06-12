@@ -17,11 +17,11 @@ extends Control
 
 func _ready() -> void:
 	# Si se supera el máximo puntaje:
-	if Persistence.is_high_score():
-		user_input_string.show()
-		button.show()
-		accept.action_name = "ui_accept"
-		accept_texture_path = accept._get_keyboard(Mouse.input_actions["ui_accept"][0].keycode).get_path()
+	#if Persistence.is_high_score():
+	user_input_string.show()
+	button.show()
+	accept.action_name = "ui_accept"
+	accept_texture_path = accept._get_keyboard(Mouse.input_actions["ui_accept"][0].keycode).get_path()
 
 
 func _on_button_pressed() -> void:

@@ -77,7 +77,8 @@ func _on_accept_button_pressed():
 	# Se imprime el nuevo puntaje:
 	score_label.print_score()
 	# Se mueve al siguiente personaje:
-	PlayerSession.next_character()
+	if PlayerSession.next_character() == 5 and PlayerSession.difficulty != "easy":
+		PlayerSession.secret_level = true
 	# Se va hacia la cinemática de salida:
 	SceneTransition.change_scene(outro_cutscene)
 
