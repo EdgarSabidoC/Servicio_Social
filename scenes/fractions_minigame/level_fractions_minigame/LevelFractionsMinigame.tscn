@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=7 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
-[ext_resource type="Script" path="res://components/answer_button/AnswerButton.gd" id="2_7w5aa"]
+[ext_resource type="PackedScene" uid="uid://buh0w7i4hw84k" path="res://scenes/fractions_minigame/cutscenes/backgrounds/Scene02.tscn" id="2_uldt8"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ExtrasContainer.gd" id="3_pyfw0"]
+[ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="3_qwcs8"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_qciux"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
 
@@ -13,15 +14,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-metadata/_edit_use_anchors_ = true
+[node name="Scene02" parent="CanvasLayer" instance=ExtResource("2_uldt8")]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -35,10 +28,10 @@ metadata/_edit_use_anchors_ = true
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.34082
-anchor_top = 0.300347
-anchor_right = 0.662109
-anchor_bottom = 0.713542
+anchor_left = 0.190429
+anchor_top = 0.369791
+anchor_right = 0.511718
+anchor_bottom = 0.782986
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -48,30 +41,30 @@ theme_override_constants/v_separation = 20
 columns = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="AnswerButton1" type="Button" parent="CanvasLayer/Control/GridContainer"]
+[node name="AnswerButton1" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-script = ExtResource("2_7w5aa")
+text = ""
 
-[node name="AnswerButton2" type="Button" parent="CanvasLayer/Control/GridContainer"]
+[node name="AnswerButton2" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-script = ExtResource("2_7w5aa")
+text = ""
 
-[node name="AnswerButton3" type="Button" parent="CanvasLayer/Control/GridContainer"]
+[node name="AnswerButton3" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-script = ExtResource("2_7w5aa")
+text = ""
 
-[node name="AnswerButton4" type="Button" parent="CanvasLayer/Control/GridContainer"]
+[node name="AnswerButton4" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-script = ExtResource("2_7w5aa")
+text = ""
 
 [node name="ExtrasContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(275, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.699219
-anchor_top = 0.37934
-anchor_right = 0.967773
-anchor_bottom = 0.592882
+anchor_left = 0.371093
+anchor_top = 0.0338538
+anchor_right = 0.639648
+anchor_bottom = 0.247396
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 17
@@ -109,10 +102,10 @@ ticks_on_borders = true
 [node name="AcceptButton" type="Button" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_left = 730.0
-offset_top = 498.0
-offset_right = 1005.0
-offset_bottom = 548.0
+offset_left = 853.0
+offset_top = 459.0
+offset_right = 1010.0
+offset_bottom = 509.0
 size_flags_vertical = 3
 text = "Aceptar"
 
@@ -120,8 +113,10 @@ text = "Aceptar"
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(200, 50)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 199.0
+offset_bottom = 49.0
 size_flags_horizontal = 3
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/ScorePanel"]

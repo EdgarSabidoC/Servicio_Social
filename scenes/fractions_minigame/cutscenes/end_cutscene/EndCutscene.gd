@@ -13,6 +13,7 @@ extends Control
 @onready var accept: ActionIcon = ActionIcon.new()
 @export var accept_width: float = 0
 @export var accept_height: float = 30
+@onready var changed: bool = false
 
 
 func _ready() -> void:
@@ -40,16 +41,24 @@ func _on_button_pressed() -> void:
 	
 	rich_text_label_text_flash_2.text = "[center]Presiona [img={accept_width}x{accept_height}]{accept}[/img] para continuar[/center]".format({"accept_width": str(accept_width), "accept_height": str(accept_height), "accept": accept_texture_path})
 	
+	# Si están desactivadas las teclas:
+	if Mouse.mouse_mode_activated:
+		Mouse.change_mode()
+		Mouse.enable_actions()
+		changed = true
+	
 	self.exit = true
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	# Test debug
 	print_debug("Entró a Input en EndCutscene con %s" % exit)
-	if self.exit and event.is_action_pressed("ui_accept"):
+	if self.exit and Input.is_action_just_pressed("ui_accept"):
 		# Test debug
 		print_debug("Leyó el input de accept en EndCutscene")
+		
 		# Se reinicia la sesión de jugador:
 		PlayerSession.clear_player_session()
+		
 		# Se realiza el cambio de escena:
 		SceneTransition.change_scene(title_screen_scene)

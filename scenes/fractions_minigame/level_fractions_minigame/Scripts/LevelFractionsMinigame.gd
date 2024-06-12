@@ -17,13 +17,15 @@ var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutsc
 
 
 func _ready() -> void:
+	
+	# Se enfoca el botón 1 si está en modo teclado:
+	if !Mouse.mouse_mode_activated:
+		answer_button_1.grab_focus()
+	
 	character = PlayerSession.character
 	
 	# Se imprime el puntaje:
 	score_label.print_score()
-	
-	# Se enfoca el botón 1:
-	answer_button_1.grab_focus()
 	
 	# Se cargan las respuestas:
 	var correct_answer: Dictionary = CharactersData.characters[self.character].correct_answer
