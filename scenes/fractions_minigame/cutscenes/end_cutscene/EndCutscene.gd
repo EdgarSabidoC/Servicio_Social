@@ -62,3 +62,5 @@ func _input(_event: InputEvent) -> void:
 		
 		# Se realiza el cambio de escena:
 		SceneTransition.change_scene(title_screen_scene)
+		
+		#BackgroundMusic.change_song()

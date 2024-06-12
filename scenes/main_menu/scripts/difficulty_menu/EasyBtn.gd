@@ -6,6 +6,9 @@ extends Button
 
 
 func _on_pressed():
+	# Se para la música global del menú:
+	BackgroundMusic.stop()
+	
 	# Consume el evento:
 	get_viewport().set_input_as_handled()
 	
