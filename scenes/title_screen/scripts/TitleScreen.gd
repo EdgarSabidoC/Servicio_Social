@@ -11,9 +11,9 @@ extends Control
 @onready var accept: ActionIcon = ActionIcon.new()
 @onready var pause: ActionIcon =  ActionIcon.new()
 @export var accept_width: float = 0
-@export var accept_height: float = 65
+@export var accept_height: float = 80
 @export var pause_width: float = 0
-@export var pause_height: float = 90
+@export var pause_height: float = 80
 
 
 func _ready() -> void:

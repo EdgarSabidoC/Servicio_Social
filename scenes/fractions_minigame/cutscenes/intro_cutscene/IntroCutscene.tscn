@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://du4oiw4gwst0p"]
+[gd_scene load_steps=4 format=3 uid="uid://du4oiw4gwst0p"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/intro_cutscene/scripts/IntroCutscene.gd" id="1_mh2mp"]
 [ext_resource type="AudioStream" uid="uid://bdf2nnevcvsd1" path="res://assets/sounds/music/o_sole_mio_soft_piano.ogg" id="2_qqdg8"]
+[ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/Scene01.tscn" id="3_n2iwx"]
 
 [node name="IntroCutscene" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_mh2mp")
+metadata/_edit_use_anchors_ = true
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 0
@@ -16,3 +22,17 @@ autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qqdg8")
+
+[node name="Scene01" parent="." instance=ExtResource("3_n2iwx")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 918.0
+offset_top = 156.0
+offset_right = 1014.0
+offset_bottom = 228.0
+text = "Intro
+Cutscene"
+horizontal_alignment = 1
+vertical_alignment = 1

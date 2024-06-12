@@ -44,7 +44,11 @@ func _on_button_pressed() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	# Test debug
+	print_debug("Entró a Input en EndCutscene con %s" % exit)
 	if self.exit and event.is_action_pressed("ui_accept"):
+		# Test debug
+		print_debug("Leyó el input de accept en EndCutscene")
 		# Se reinicia la sesión de jugador:
 		PlayerSession.clear_player_session()
 		# Se realiza el cambio de escena:
