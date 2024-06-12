@@ -4,45 +4,45 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lv52p"]
 texture = ExtResource("1_5l82u")
-texture_margin_left = 19.0
-texture_margin_top = 19.0
-texture_margin_right = 19.0
-texture_margin_bottom = 22.0
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 10.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(158, 14, 20, 23)
+region_rect = Rect2(948, 84, 120, 124)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twfsn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5ayd"]
 texture = ExtResource("1_5l82u")
-texture_margin_left = 20.0
-texture_margin_top = 28.0
-texture_margin_right = 20.0
-texture_margin_bottom = 28.0
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(236, 44, 104, 104)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujvke"]
-texture = ExtResource("1_5l82u")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
 texture_margin_bottom = 10.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(14, 14, 20, 23)
+region_rect = Rect2(372, 84, 120, 124)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujvke"]
+texture = ExtResource("1_5l82u")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(84, 84, 120, 124)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v83mp"]
 texture = ExtResource("1_5l82u")
-texture_margin_left = 20.0
-texture_margin_top = 28.0
-texture_margin_right = 20.0
-texture_margin_bottom = 28.0
+texture_margin_left = 12.0
+texture_margin_top = 14.0
+texture_margin_right = 12.0
+texture_margin_bottom = 8.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(428, 44, 104, 104)
+region_rect = Rect2(660, 94, 120, 124)
 
 [resource]
 Button/styles/disabled = SubResource("StyleBoxTexture_lv52p")
