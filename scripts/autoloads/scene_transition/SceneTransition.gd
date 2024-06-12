@@ -15,7 +15,7 @@ func change_scene(target_scene: PackedScene, type: String = "dissolve", texture:
 func transition_dissolve(target_scene: PackedScene, texture: int = 0):
 	texture_rect.texture = textures[texture]
 	animation_player_texture.play("dissolve")
-	get_tree().root.set_input_as_handled() # Se consume el input.
+	#get_tree().root.set_input_as_handled() # Se consume el input.
 	
 	# Se realiza el cambio de escena:
 	await animation_player_texture.animation_finished

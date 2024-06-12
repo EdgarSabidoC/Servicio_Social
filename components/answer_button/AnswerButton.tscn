@@ -7,5 +7,7 @@ offset_right = 80.0
 offset_bottom = 31.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 1, 1)
 text = "Answer"
 script = ExtResource("1_ckq0l")

@@ -29,7 +29,7 @@ func load_data() -> void:
 	load_control_settings()
 	load_video_settings()
 	load_audio_settings()
-	#load_scores()
+	load_scores()
 
 
 # Obtiene los datos de audio y cambia la configuración:
@@ -101,16 +101,16 @@ func _default_data() -> void:
 
 	# Se configuran los mejores puntajes:
 	var best_scores: Array = [
-		["EDGAR", "999999"],
-		["CARLOS", "999999"],
-		["??????","99999"],
-		["??????","99999"],
-		["??????","99999"],
-		["??????","99999"],
-		["??????","99999"],
-		["??????","99999"],
-		["??????","99999"],
-		["??????","99999"]
+		["EDGAR", "99999999"],
+		["CARLOS", "99999999"],
+		["??????","99999999"],
+		["??????","99999999"],
+		["??????","99999999"],
+		["??????","99999999"],
+		["??????","99999999"],
+		["??????","99999999"],
+		["??????","99999999"],
+		["??????","99999999"]
 		]
 	self.high_scores = best_scores
 	var best_scores_string: String = JSON.stringify(best_scores)
@@ -183,7 +183,7 @@ func get_high_scores_formatted() -> String:
 		formatted_text += "[color=white]" + player_name + " [/color]\t\t"
 
 		# Añadir el puntaje del jugador con un ancho mínimo de 10 caracteres, relleno con espacios a la izquierda
-		formatted_text += "[color=green]" + "%010d" % score.to_float() + "[/color]\n"
+		formatted_text += "[color=green]" + "%08d" % score.to_float() + "[/color]\n"
 
 		position += 1
 
