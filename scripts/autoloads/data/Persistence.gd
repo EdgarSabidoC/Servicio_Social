@@ -29,7 +29,7 @@ func load_data() -> void:
 	load_control_settings()
 	load_video_settings()
 	load_audio_settings()
-	load_scores()
+	#load_scores()
 
 
 # Obtiene los datos de audio y cambia la configuración:

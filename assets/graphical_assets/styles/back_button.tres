@@ -4,13 +4,13 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lv52p"]
 texture = ExtResource("1_5l82u")
-texture_margin_left = 20.0
-texture_margin_top = 28.0
-texture_margin_right = 20.0
-texture_margin_bottom = 28.0
+texture_margin_left = 19.0
+texture_margin_top = 19.0
+texture_margin_right = 19.0
+texture_margin_bottom = 22.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(620, 44, 104, 104)
+region_rect = Rect2(158, 14, 20, 23)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twfsn"]
 
@@ -26,13 +26,13 @@ region_rect = Rect2(236, 44, 104, 104)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujvke"]
 texture = ExtResource("1_5l82u")
-texture_margin_left = 20.0
-texture_margin_top = 28.0
-texture_margin_right = 20.0
-texture_margin_bottom = 28.0
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(44, 44, 104, 104)
+region_rect = Rect2(14, 14, 20, 23)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v83mp"]
 texture = ExtResource("1_5l82u")
