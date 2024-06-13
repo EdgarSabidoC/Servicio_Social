@@ -39,7 +39,6 @@ window/size/viewport_height=576
 window/size/initial_position_type=0
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="res://assets/graphical_assets/mouse/mouse.png"
 
 [dotnet]
 

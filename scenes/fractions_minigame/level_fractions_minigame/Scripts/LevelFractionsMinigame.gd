@@ -2,12 +2,14 @@ extends Node2D
 
 class_name LevelFractionsMinigame
 
+@onready var score_panel: Panel = $CanvasLayer/ScorePanel
+@onready var pause: Control = $CanvasLayer/Pause
 @onready var character: int
 @onready var answer_button_1: AnswerButton = $CanvasLayer/Control/GridContainer/AnswerButton1
 @onready var answer_button_2: AnswerButton = $CanvasLayer/Control/GridContainer/AnswerButton2
 @onready var answer_button_3: AnswerButton = $CanvasLayer/Control/GridContainer/AnswerButton3
 @onready var answer_button_4: AnswerButton = $CanvasLayer/Control/GridContainer/AnswerButton4
-@onready var clock = $CanvasLayer/Clock
+@onready var clock: Clock = $CanvasLayer/Clock
 @onready var defeated: bool = false
 @onready var extras_container = $CanvasLayer/Control/ExtrasContainer
 @onready var score_label = $CanvasLayer/ScorePanel/ScoreLabel
@@ -17,10 +19,13 @@ var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutsc
 
 
 func _ready() -> void:
-	
 	# Se enfoca el botón 1 si está en modo teclado:
 	if !Mouse.mouse_mode_activated:
 		answer_button_1.grab_focus()
+	
+	# Se activan los controles de pausa:
+	if !pause.is_pausable_scene:
+		pause.is_pausable_scene = true
 	
 	character = PlayerSession.character
 	
@@ -53,6 +58,13 @@ func _ready() -> void:
 			button.construct(answer)
 			button.defeated = true
 		count += 1
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_pause"):
+		if !pause.is_active():
+			clock.stop()
+			pause.show()
 
 
 # Obtiene el puntaje del nivel:
@@ -112,3 +124,9 @@ func _on_answer_button_4_pressed() -> void:
 	# Test debug:
 	print_debug(self.defeated)
 	CharactersData.characters[character].defeated = self.defeated
+
+
+# Si se desactiva el menú de pausa:
+func _on_pause_finished() -> void:
+	clock.continue_clock()
+	pause.hide()

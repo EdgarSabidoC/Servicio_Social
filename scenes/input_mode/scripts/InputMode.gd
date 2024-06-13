@@ -10,6 +10,10 @@ extends Control
 
 
 func _ready() -> void:
+	# Se desactivan los controles de pausa:
+	#if Pause.is_pausable_scene:
+		#Pause.is_pausable_scene = false
+	
 	assert(_move_to)
 	mouse_mode.grab_focus()
 	keyboard_mode.icon =  ResourceLoader.load(keyboard_mode_texture_path)
