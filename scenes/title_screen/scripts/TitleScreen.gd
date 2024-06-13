@@ -17,6 +17,9 @@ extends Control
 
 
 func _ready() -> void:
+	# Se desactiva el mouse:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	assert(_move_to)
 	CharactersData.loadProblemsData() # Se cargan los datos.
 	accept.action_name = "ui_accept"
@@ -33,10 +36,15 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(accept_key) or Input.is_action_just_pressed(pause_key):
+		
 		# Consume el evento:
 		get_viewport().set_input_as_handled()
 		rich_text_label_text_flash.speed = 60
+		
 		# Espera un poco para visualizar el efecto del parpadeo de la etiqueta:
 		await get_tree().create_timer(0.5).timeout
 		# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
 		SceneTransition.change_scene(_move_to, "dissolve")
+		
+		# Se vuelve a activar el mouse:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
