@@ -1,5 +1,6 @@
 extends Control
 
+const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/music/tarantella_napoletana_tremolo.ogg")
 @onready var title_screen_scene: PackedScene = load("res://scenes/title_screen/TitleScreen.tscn")
 @onready var user_input_string: UserInputString = $UserInputString
 @onready var button: Button = $Button
@@ -51,11 +52,7 @@ func _on_button_pressed() -> void:
 
 
 func _input(_event: InputEvent) -> void:
-	# Test debug
-	print_debug("Entró a Input en EndCutscene con %s" % exit)
 	if self.exit and Input.is_action_just_pressed("ui_accept"):
-		# Test debug
-		print_debug("Leyó el input de accept en EndCutscene")
 		
 		# Se reinicia la sesión de jugador:
 		PlayerSession.clear_player_session()
@@ -63,4 +60,5 @@ func _input(_event: InputEvent) -> void:
 		# Se realiza el cambio de escena:
 		SceneTransition.change_scene(title_screen_scene)
 		
-		#BackgroundMusic.change_song()
+		# Se cambia la música a la del menú:
+		BackgroundMusic.change_song(TARANTELLA_NAPOLETANA_TREMOLO)
