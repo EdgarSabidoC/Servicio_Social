@@ -1,23 +1,22 @@
 extends Button
-@onready var settings: TabContainer = %Settings
-@onready var video = $"../../../Settings/Video"
-@onready var text_box_container: Control = %MenuTextbox
-@onready var menu_background = %MenuBackground
-@onready var settings_background_color = $"../../../SettingsBackgroundColor"
-@onready var menu_background_color = $"../../../MenuBackgroundColor"
-@export var hint: String = "Abre el menú de opciones de configuración:\n⚙️ Vídeo\n⚙️ Audio\n⚙️ Controles"
-@onready var menu_textbox = $"../../MenuTextbox/MarginContainer/MenuTextbox"
+
+@onready var menu_textbox: MarginContainer = $"../../MenuTextbox/MarginContainer/MenuTextbox"
+@export var hint: String = "En esta sección encontrarás todo lo necesario para aprender a jugar."
+@onready var settings_background_color: ColorRect = $"../../../SettingsBackgroundColor"
+@onready var menu_background_color: ColorRect = $"../../../MenuBackgroundColor"
+@onready var how_to_play: TabContainer = %HowToPlay
+@onready var text_box_container: VBoxContainer = %MenuTextbox
 
 
 # Muestra el menú de las opciones de configuración y oculta el menú principal:
 func _on_pressed() -> void:
 	settings_background_color.show()
 	menu_background_color.fade_out()
-	settings.show() # Muestra el menú de opciones
+	how_to_play.show() # Muestra el menú de opciones
 	if !Mouse.mouse_mode_activated:
-		settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
+		how_to_play.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
 	get_parent().hide() # Oculta el menú principal
-	text_box_container.hide() # Oculta el textbox del menú principal
+	text_box_container.hide() # Oculta el textbox del menú principal.hide() # Oculta el textbox del menú principal
 
 
 # Al estar enfocado el botón:

@@ -8,14 +8,12 @@ func _process(_delta: float) -> void:
 	if Input.is_key_pressed(KEY_ENTER):
 		# Moverse a la siguiente escena:
 		if PlayerSession.character < 5:
-			print_debug(PlayerSession.character)
 			# Se carga un nuevo nivel:
 			SceneTransition.change_scene(intro_cutscene)
 		elif PlayerSession.secret_level:
 			var secret_cutscene = load("res://scenes/fractions_minigame/cutscenes/secret_level/SecretCutscene.tscn")
 			SceneTransition.change_scene(secret_cutscene) # Se cambia al nivel secreto
 		else:
-			print_debug("Entró al end_cutscene")
-			# Se finaliza el juego:
+			# Se finaliza el juego cambiando a la escena final:
 			SceneTransition.change_scene(end_cutscene)
 		set_process(false)

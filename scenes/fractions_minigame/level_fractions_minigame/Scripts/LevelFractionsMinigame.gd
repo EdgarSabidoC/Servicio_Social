@@ -57,7 +57,8 @@ func _ready() -> void:
 
 # Obtiene el puntaje del nivel:
 func _get_score() -> void:
-	print_debug("El personaje es %s y es %s" % [CharactersData.characters[character].name, CharactersData.characters[character].defeated])
+	# Test debug:
+	#print_debug("El personaje es %s y es %s" % [CharactersData.characters[character].name, CharactersData.characters[character].defeated])
 	# Se valida si se obtuvieron los puntos correctos:
 	if self.defeated and PlayerSession.difficulty != "easy" \
 	and extras_container.correctAnswer:
@@ -87,23 +88,27 @@ func _on_accept_button_pressed():
 
 func _on_answer_button_1_pressed() -> void:
 	self.defeated = answer_button_1.defeated
+	# Test debug:
 	print_debug(self.defeated)
 	CharactersData.characters[character].defeated = self.defeated
 
 
 func _on_answer_button_2_pressed() -> void:
 	self.defeated = answer_button_2.defeated
+	# Test debug:
 	print_debug(self.defeated)
 	CharactersData.characters[character].defeated = self.defeated
 
 
 func _on_answer_button_3_pressed() -> void:
 	self.defeated = answer_button_3.defeated
+	# Test debug:
 	print_debug(self.defeated)
 	CharactersData.characters[character].defeated = self.defeated
 
 
 func _on_answer_button_4_pressed() -> void:
 	self.defeated = answer_button_4.defeated
+	# Test debug:
 	print_debug(self.defeated)
 	CharactersData.characters[character].defeated = self.defeated

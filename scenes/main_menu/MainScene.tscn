@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=39 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqboxf3ckfoln" path="res://assets/graphical_assets/user_interface/container/container.tga" id="6_4ujbp"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/SettingsBtn.gd" id="6_6htjl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/QuitBtn.gd" id="7_26t7j"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlayBtn.gd" id="7_e8xsr"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/MinigamesMenu.gd" id="9_0pdbe"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/DifficultyMenu.gd" id="9_tu7mx"]
@@ -34,6 +35,9 @@
 [ext_resource type="Texture2D" uid="uid://cf1425ryogw6d" path="res://assets/graphical_assets/user_interface/container/controlsContainer.tga" id="32_e3a6j"]
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="32_i2vn0"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlay.gd" id="33_ht8qj"]
+[ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="34_5ico0"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -123,14 +127,29 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../PlayBtn")
 focus_neighbor_top = NodePath("../PlayBtn")
-focus_neighbor_right = NodePath("../QuitBtn")
-focus_neighbor_bottom = NodePath("../QuitBtn")
-focus_next = NodePath("../QuitBtn")
+focus_neighbor_right = NodePath("../HowToPlayBtn")
+focus_neighbor_bottom = NodePath("../HowToPlayBtn")
+focus_next = NodePath("../HowToPlayBtn")
 focus_previous = NodePath("../PlayBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Opciones"
 script = ExtResource("6_6htjl")
+
+[node name="HowToPlayBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../SettingsBtn")
+focus_neighbor_top = NodePath("../SettingsBtn")
+focus_neighbor_right = NodePath("../QuitBtn")
+focus_neighbor_bottom = NodePath("../QuitBtn")
+focus_next = NodePath("../QuitBtn")
+focus_previous = NodePath("../SettingsBtn")
+theme = ExtResource("3_mou80")
+keep_pressed_outside = true
+text = "Cómo jugar"
+script = ExtResource("7_e8xsr")
 
 [node name="QuitBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
@@ -364,6 +383,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 theme = ExtResource("14_7nlx3")
+clip_tabs = false
 script = ExtResource("10_pvbhm")
 
 [node name="Video" type="TabBar" parent="UI/Settings"]
@@ -771,6 +791,67 @@ offset_bottom = 150.0
 [node name="BackButton" parent="UI/Settings/License" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
 
+[node name="HowToPlay" type="TabContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.0849609
+anchor_top = 0.015625
+anchor_right = 0.923828
+anchor_bottom = 0.854167
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = ExtResource("14_7nlx3")
+clip_tabs = false
+script = ExtResource("33_ht8qj")
+metadata/_edit_use_anchors_ = true
+
+[node name="FractionsMinigame" type="TabBar" parent="UI/HowToPlay"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+
+[node name="BackButton" parent="UI/HowToPlay/FractionsMinigame" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+offset_left = -116.0
+offset_top = -68.0
+
+[node name="CoordinatesMinigame" type="TabBar" parent="UI/HowToPlay"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+
+[node name="BackButton" parent="UI/HowToPlay/CoordinatesMinigame" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+
+[node name="SumsMinigame" type="TabBar" parent="UI/HowToPlay"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+
+[node name="BackButton" parent="UI/HowToPlay/SumsMinigame" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+
+[node name="Characters" type="TabBar" parent="UI/HowToPlay"]
+visible = false
+layout_mode = 2
+tab_count = 5
+tab_0/title = ""
+tab_0/icon = ExtResource("34_5ico0")
+tab_1/title = ""
+tab_1/icon = ExtResource("34_5ico0")
+tab_2/title = ""
+tab_2/icon = ExtResource("34_5ico0")
+tab_3/title = ""
+tab_3/icon = ExtResource("34_5ico0")
+tab_4/title = ""
+tab_4/icon = ExtResource("34_5ico0")
+script = ExtResource("35_si0ac")
+
+[node name="BackButton" parent="UI/HowToPlay/Characters" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 anchors_preset = -1
 anchor_top = 0.895833
@@ -897,6 +978,11 @@ joypad_mode = 1
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_pressed"]
 [connection signal="focus_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_entered"]
@@ -951,3 +1037,6 @@ joypad_mode = 1
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
 [connection signal="pressed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_pressed"]
+[connection signal="tab_button_pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_button_pressed"]
+[connection signal="tab_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_changed"]
+[connection signal="tab_selected" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_selected"]
