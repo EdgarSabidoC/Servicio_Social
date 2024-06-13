@@ -20,8 +20,8 @@
 			{"fraction": "1/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			{"fraction": "1/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 		],
-		"main_asset_path": "URL",
-		"secondary_assets_paths": ["URL", "URL", "URL"],
+		"main_asset_path": "res://icon.svg",
+		"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
 			"name": "Tolok",
@@ -43,8 +43,8 @@
 				{"fraction": "2/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "2/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "URL",
-			"secondary_assets_paths": ["URL", "URL", "URL"],
+			"main_asset_path": "res://icon.svg",
+			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
 			"name": "Toh",
@@ -66,8 +66,8 @@
 				{"fraction": "3/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "3/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "URL",
-			"secondary_assets_paths": ["URL", "URL", "URL"],
+			"main_asset_path": "res://icon.svg",
+			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
 			"name": "Keken",
@@ -89,8 +89,8 @@
 				{"fraction": "4/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "4/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "URL",
-			"secondary_assets_paths": ["URL", "URL", "URL"],
+			"main_asset_path": "res://icon.svg",
+			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
 			"name": "Zotz",
@@ -112,8 +112,8 @@
 				{"fraction": "5/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "5/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "URL",
-			"secondary_assets_paths": ["URL", "URL", "URL"],
+			"main_asset_path": "res://icon.svg",
+			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
 			"name": "Uaychivo",
@@ -133,8 +133,8 @@
 				{"fraction": "6/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "6/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "URL",
-			"secondary_assets_paths": ["URL", "URL", "URL"],
+			"main_asset_path": "res://icon.svg",
+			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		}
 	]
 }
