@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=38 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -36,7 +36,6 @@
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="32_i2vn0"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlay.gd" id="33_ht8qj"]
-[ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="34_5ico0"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
 
 [node name="MainScene" type="Node2D"]
@@ -836,21 +835,37 @@ layout_mode = 1
 [node name="Characters" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
+focus_neighbor_bottom = NodePath("BackButton")
+focus_next = NodePath("BackButton")
 tab_count = 5
+clip_tabs = false
+scrolling_enabled = false
+scroll_to_selected = false
 tab_0/title = ""
-tab_0/icon = ExtResource("34_5ico0")
 tab_1/title = ""
-tab_1/icon = ExtResource("34_5ico0")
 tab_2/title = ""
-tab_2/icon = ExtResource("34_5ico0")
 tab_3/title = ""
-tab_3/icon = ExtResource("34_5ico0")
 tab_4/title = ""
-tab_4/icon = ExtResource("34_5ico0")
 script = ExtResource("35_si0ac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HowToPlay/Characters"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/HowToPlay/Characters/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
 
 [node name="BackButton" parent="UI/HowToPlay/Characters" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("..")
+focus_previous = NodePath("..")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 anchors_preset = -1
@@ -1037,6 +1052,7 @@ joypad_mode = 1
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
 [connection signal="pressed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_pressed"]
-[connection signal="tab_button_pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_button_pressed"]
-[connection signal="tab_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_changed"]
+[connection signal="pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_pressed"]
+[connection signal="tab_clicked" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_clicked"]
 [connection signal="tab_selected" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_selected"]
+[connection signal="visibility_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_visibility_changed"]

@@ -26,6 +26,7 @@ func readJSON(json_file_path):
 	if json:
 		return json
 
+
 # *NOTA: Faltan cargar sus assets.
 # Función que carga los personajes con nombre, defeated, bonus y assets:
 func loadCharacters() -> void:
@@ -46,6 +47,7 @@ func loadCharacters() -> void:
 		character.intro_text = ""
 		character.outro_text = ""
 		character.problem = ""
+		character.main_asset_path = characters_data[n]["main_asset_path"]
 		
 		# Se añade el personaje a la lista de personajes:
 		characters.append(character)
@@ -213,3 +215,8 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 
 func clear_difficulty() -> void:
 	self.difficulty = ""
+
+
+# Retorna el asset principal del personaje:
+func get_character_icon(character: CharacterResource) -> Texture2D:
+	return load(character.main_asset_path)

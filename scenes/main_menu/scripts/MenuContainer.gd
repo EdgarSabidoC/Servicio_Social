@@ -14,9 +14,6 @@ signal main_window_size_changed()
 
 
 func _ready() -> void:
-	# Si el modo mouse está desactivado se enfoca el botón Play:
-	if !Mouse.mouse_mode_activated:
-		play_btn.grab_focus()
 		
 	menu_textbox.print_message(menu_textbox.default_text)
 	# Se obtiene el tamaño de pantalla actual:
