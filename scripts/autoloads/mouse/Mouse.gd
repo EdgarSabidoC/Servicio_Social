@@ -6,6 +6,7 @@ extends Node
 # Punteros del mouse:
 @onready var cursor_arrow: CompressedTexture2D = load("res://assets/graphical_assets/mouse/mouse.png")
 
+# Acción de pausa: "ui_pause": InputMap.action_get_events("ui_pause"), \
 
 # Acciones de entrada:
 @onready var input_actions = {"ui_up": InputMap.action_get_events("ui_up"),\
@@ -30,11 +31,13 @@ func change_mode() -> void:
 # Función que desactiva las acciones:
 func disable_actions() -> void:
 	for action in input_actions.keys():
-		InputMap.action_erase_events(action)
+		if action != "ui_pause":
+			InputMap.action_erase_events(action)
 
 
 # Función que activa las acciones:
 func enable_actions() -> void:
 	for action in input_actions.keys():
-		for input_event in input_actions[action]:
-			InputMap.action_add_event(action, input_event)
+		if action != "ui_pause":
+			for input_event in input_actions[action]:
+				InputMap.action_add_event(action, input_event)

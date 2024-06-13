@@ -10,6 +10,13 @@ extends CanvasLayer
 @onready var minigames_menu: VBoxContainer = %MinigamesMenu
 
 
+func _ready() -> void:
+	# Se desactivan los controles de pausa:
+	#if Pause.is_pausable_scene:
+		#Pause.is_pausable_scene = false
+	pass
+	
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if settings.is_visible_in_tree():

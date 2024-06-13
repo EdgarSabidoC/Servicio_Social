@@ -20,6 +20,10 @@ func _ready() -> void:
 	# Se desactiva el mouse:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+	# Se desactivan los controles de pausa:
+	#if Pause.is_pausable_scene:
+		#Pause.is_pausable_scene = false
+	
 	assert(_move_to)
 	CharactersData.loadProblemsData() # Se cargan los datos.
 	accept.action_name = "ui_accept"

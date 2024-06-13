@@ -1,15 +1,16 @@
-extends Node2D
+extends Control
 
 class_name Clock
 
 #@onready var minutes_label: Label = $CanvasLayer/Panel/MinutesLabel
 #@onready var seconds_label: Label = $CanvasLayer/Panel/SecondsLabel
 #@onready var milliseconds_label: Label = $CanvasLayer/Panel/MillisecondsLabel
-@onready var label: Label = $CanvasLayer/Panel/Label
+@onready var label: Label = $Panel/Label
 @export var time: float = 0.0
 @onready var minutes: int = 0
 @onready var seconds: int = 0
 @onready var milliseconds: int = 0
+
 
 func _process(delta: float) -> void:
 	self.time += delta
@@ -30,6 +31,11 @@ func _process(delta: float) -> void:
 # Para el reloj:
 func stop() -> void:
 	set_process(false)
+
+
+# Continúa con el proceso del reloj:
+func continue_clock() -> void:
+	set_process(true)
 
 
 # Configura el color del reloj:
@@ -62,6 +68,14 @@ func set_timer_color() -> void:
 func get_time_formatted() -> void:
 	self.label.text = "%02d:%02d.%02d" % [self.minutes, self.seconds, self.milliseconds]
 
+
+func hide_clock():
+	self.hide()
+
+
+func show_clock():
+	self.show()
+	
 
 # Imprime en las etiquetas el formato del reloj:
 #func get_time_labels() -> void:

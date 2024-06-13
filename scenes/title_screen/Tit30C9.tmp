@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://cepplku7d7gex"]
+
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/TitleScreen.gd" id="1_b267g"]
+[ext_resource type="PackedScene" uid="uid://bfdl8blhiygup" path="res://scenes/input_mode/InputMode.tscn" id="2_2uft2"]
+[ext_resource type="PackedScene" uid="uid://57htu382g6qn" path="res://components/title_screen_parallax_background/TitleScreenParallaxBackground.tscn" id="3_jsxwr"]
+[ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="5_3g51u"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="5_446se"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b267g")
+_move_to = ExtResource("2_2uft2")
+
+[node name="TitleScreenParallaxBackground" parent="." instance=ExtResource("3_jsxwr")]
+position = Vector2(19, -27)
+
+[node name="RichTextLabelTextFlash" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -116.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 0.0235294, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Presiona [img=0x65]res://addons/ActionIcon/Keyboard/Enter.png[/img] o presiona [img=0x90]res://addons/ActionIcon/Keyboard/Space.png[/img] para continuar[/center]"
+fit_content = true
+script = ExtResource("5_446se")
+speed = 2.0
+fade = true
+
+[node name="ActionIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 131.0
+offset_right = 231.0
+offset_bottom = 40.0
+script = ExtResource("5_3g51u")
+
+[node name="ActionIcon2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+script = ExtResource("5_3g51u")

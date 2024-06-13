@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=8 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
+[ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
 [ext_resource type="PackedScene" uid="uid://buh0w7i4hw84k" path="res://scenes/fractions_minigame/cutscenes/backgrounds/Scene02.tscn" id="2_uldt8"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ExtrasContainer.gd" id="3_pyfw0"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="3_qwcs8"]
@@ -8,7 +9,6 @@
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
 
 [node name="LevelFractionsMinigame" type="Node2D"]
-visible = false
 script = ExtResource("1_jhhw6")
 metadata/_edit_use_anchors_ = true
 
@@ -131,8 +131,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_v1hlr")
 
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("2_madr3")]
+show_behind_parent = false
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton1" to="." method="_on_answer_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton4" to="." method="_on_answer_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]
