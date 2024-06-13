@@ -11,11 +11,13 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	# Al iniciar se enfoca el botón Play:
+	if !Mouse.mouse_mode_activated:
+		play_btn.grab_focus()
 	# Se desactivan los controles de pausa:
 	#if Pause.is_pausable_scene:
 		#Pause.is_pausable_scene = false
-	pass
-	
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
