@@ -82,6 +82,7 @@ size_flags_vertical = 4
 expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.109
 anchor_top = 0.283
@@ -793,7 +794,6 @@ layout_mode = 1
 
 [node name="HowToPlay" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = -1
 anchor_left = 0.0849609
 anchor_top = 0.015625
@@ -836,7 +836,10 @@ layout_mode = 1
 [node name="Characters" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
+focus_neighbor_bottom = NodePath("BackButton")
+focus_next = NodePath("BackButton")
 tab_count = 5
+tab_close_display_policy = 1
 tab_0/title = ""
 tab_0/icon = ExtResource("34_5ico0")
 tab_1/title = ""
@@ -849,8 +852,26 @@ tab_4/title = ""
 tab_4/icon = ExtResource("34_5ico0")
 script = ExtResource("35_si0ac")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HowToPlay/Characters"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/HowToPlay/Characters/VBoxContainer"]
+layout_mode = 2
+text = "Hello World!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BackButton" parent="UI/HowToPlay/Characters" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("..")
+focus_previous = NodePath("..")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 anchors_preset = -1
@@ -1037,6 +1058,7 @@ joypad_mode = 1
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
 [connection signal="pressed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_pressed"]
-[connection signal="tab_button_pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_button_pressed"]
+[connection signal="pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_pressed"]
 [connection signal="tab_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_changed"]
+[connection signal="tab_clicked" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_clicked"]
 [connection signal="tab_selected" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_selected"]
