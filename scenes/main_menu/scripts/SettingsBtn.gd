@@ -14,7 +14,8 @@ func _on_pressed() -> void:
 	settings_background_color.show()
 	menu_background_color.fade_out()
 	settings.show() # Muestra el menú de opciones
-	settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
+	if !Mouse.mouse_mode_activated:
+		settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
 	get_parent().hide() # Oculta el menú principal
 	text_box_container.hide() # Oculta el textbox del menú principal
 
