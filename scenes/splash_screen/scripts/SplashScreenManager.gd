@@ -10,6 +10,9 @@ var _splash_screens: Array[SplashScreen] = []
 
 
 func _ready() -> void:
+	# Se oculta el mouse:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
 	assert(_move_to)
 	
 	set_process_input(false)
