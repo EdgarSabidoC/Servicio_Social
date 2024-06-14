@@ -371,6 +371,7 @@ hint = "Regresar al menú de minijuegos"
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -617,6 +618,7 @@ focus_neighbor_top = NodePath("../AudioOptionsContainer/HBoxContainer/AudioInput
 focus_previous = NodePath("../AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX")
 
 [node name="Controls" type="TabBar" parent="UI/Settings"]
+visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de los controles"
 focus_mode = 0
