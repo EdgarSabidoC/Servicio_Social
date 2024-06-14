@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=51 format=3 uid="uid://tkr4bu68wbdu"]
+[gd_resource type="Theme" load_steps=57 format=3 uid="uid://tkr4bu68wbdu"]
 
 [ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="1_3pd43"]
 [ext_resource type="Texture2D" uid="uid://casxayq5hliv4" path="res://assets/graphical_assets/user_interface/button/checkButton.tga" id="1_cim03"]
 [ext_resource type="Texture2D" uid="uid://cl7738f51dwm" path="res://assets/graphical_assets/user_interface/button/slider.tga" id="2_5xoam"]
 [ext_resource type="Texture2D" uid="uid://d2t71y182r57p" path="res://assets/graphical_assets/user_interface/button/optionButton.tga" id="2_t4cub"]
 [ext_resource type="Texture2D" uid="uid://tnpyjpi4k0fi" path="res://assets/graphical_assets/user_interface/menu/popUpMenu.tga" id="3_t4rhq"]
+[ext_resource type="Texture2D" uid="uid://bhh437yu0q4wq" path="res://assets/graphical_assets/user_interface/button/scroll.tga" id="6_4ydgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psyd6"]
 atlas = ExtResource("1_cim03")
@@ -257,9 +258,9 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(424, 228, 112, 128)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m2yg"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygnau"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y2kis"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sk3l7"]
 texture = ExtResource("1_3pd43")
 texture_margin_left = 24.0
 texture_margin_top = 24.0
@@ -288,6 +289,56 @@ texture_margin_bottom = 32.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(424, 36, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ere1a"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 7.0
+texture_margin_top = 15.0
+texture_margin_right = 7.0
+texture_margin_bottom = 19.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(10, 20, 12, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbrh3"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 7.0
+texture_margin_top = 15.0
+texture_margin_right = 7.0
+texture_margin_bottom = 19.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(74, 20, 12, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l615"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 7.0
+texture_margin_top = 15.0
+texture_margin_right = 7.0
+texture_margin_bottom = 19.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(42, 20, 12, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31beh"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 8.0
+texture_margin_top = 20.0
+texture_margin_right = 8.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(106, 20, 12, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_um8rv"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 8.0
+texture_margin_top = 20.0
+texture_margin_right = 8.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(138, 20, 12, 24)
 
 [resource]
 CheckButton/icons/checked = SubResource("AtlasTexture_psyd6")
@@ -337,7 +388,12 @@ PopupMenu/styles/separator = SubResource("StyleBoxLine_fx3dt")
 TabContainer/colors/font_unselected_color = Color(0.921569, 0.921569, 0.921569, 1)
 TabContainer/styles/panel = SubResource("StyleBoxTexture_05bdf")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_rgpsp")
-TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_8m2yg")
-TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_y2kis")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_ygnau")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_sk3l7")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_7cdqt")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_ufuek")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_ere1a")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_cbrh3")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_8l615")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_31beh")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_um8rv")
