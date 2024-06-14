@@ -6,8 +6,6 @@ extends Node
 # Punteros del mouse:
 @onready var cursor_arrow: CompressedTexture2D = load("res://assets/graphical_assets/mouse/mouse.png")
 
-# Acción de pausa: "ui_pause": InputMap.action_get_events("ui_pause"), \
-
 # Acciones de entrada:
 @onready var input_actions = {"ui_up": InputMap.action_get_events("ui_up"),\
 								"ui_down": InputMap.action_get_events("ui_down"),\
