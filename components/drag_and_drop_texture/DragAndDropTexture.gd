@@ -11,6 +11,7 @@ func _process(_delta: float):
 	if self.dragging:
 		self.position = self.get_global_mouse_position() - self.of
 	
+	# Si se llega a quedar en el estado de arrastrar, se puede dar click:
 	if Input.is_action_just_pressed("m1") and self.dragging:
 		self.dragging = false
 		

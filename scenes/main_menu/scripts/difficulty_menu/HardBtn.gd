@@ -2,7 +2,7 @@ extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
 @export var hint: String = "Sólo para los más experimentados y estudiosos"
-@onready var _move_to: String = "res://scenes/cutscenes/level_01/CutsceneLvl01.tscn"
+@onready var _move_to: String = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
 
 
 func _on_pressed():
