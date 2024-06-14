@@ -853,7 +853,6 @@ visible = false
 layout_mode = 2
 focus_neighbor_bottom = NodePath("BackButton")
 focus_next = NodePath("BackButton")
-mouse_filter = 2
 tab_count = 5
 clip_tabs = false
 scrolling_enabled = false

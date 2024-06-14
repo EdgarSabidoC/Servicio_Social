@@ -5,6 +5,7 @@ extends TabBar
 @onready var v_box_container: VBoxContainer = $VBoxContainer
 @onready var pressed_tab: bool = false
 @onready var rich_text_label: RichTextLabel = $VBoxContainer/RichTextLabel
+@onready var characters = CharactersData.characters.duplicate(true)
 
 
 signal pressed
@@ -80,8 +81,8 @@ func _show_hidden_tabs():
 
 # Obtiene la información de los personajes y la despliega en las etiquetas:
 func _get_character_info() -> void:
-	var char_name: String = CharactersData.characters[actual_tab].name
-	var char_multiplier: float = CharactersData.characters[actual_tab].bonus_multiplier
+	var char_name: String = self.characters[actual_tab].name
+	var char_multiplier: float = self.characters[actual_tab].bonus_multiplier
 	rich_text_label.text = "[center]Nombre: %s\n\nMultiplicador: %s[/center]" % [char_name, char_multiplier]
 
 
@@ -93,6 +94,8 @@ func _on_visibility_changed() -> void:
 
 
 func _on_tab_hovered(_tab: int) -> void:
+	# Cada vez que se entre a la pestaña de personajes, estos se reacomodan:
+	self.characters.shuffle()
 	if !Mouse.mouse_mode_activated:
 		# Para evitar que el mouse capturado muestre el tema hovered:
 		self.add_theme_stylebox_override("tab_hovered", self.get_theme_stylebox("tab_unselected"))
