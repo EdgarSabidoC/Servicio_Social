@@ -5,6 +5,7 @@
 
 [node name="DragAndDropTexture" type="TextureRect"]
 custom_minimum_size = Vector2(50, 50)
+mouse_filter = 0
 texture = ExtResource("1_gednf")
 expand_mode = 1
 script = ExtResource("2_ylt5m")
