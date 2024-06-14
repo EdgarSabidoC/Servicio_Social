@@ -6,20 +6,17 @@ extends Button
 
 
 func _on_pressed():
+	# Se para la música global del menú:
+	BackgroundMusic.stop()
+	
+	# Se cargan los datos del personaje:
+	PlayerSession.difficulty = "medium"
+	
 	# Consume el evento:
 	get_viewport().set_input_as_handled()
 	
-	# Se asigna la dificultad:
-	PlayerSession.difficulty = "medium"
-	
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
 	SceneLoader.load_scene(_move_to)
-
-
-# Función que cambia de escena
-func change_scene():
-	# Se cambia a la siguiente escena:
-	get_tree().change_scene_to_file("res://cutscenes/level_01/CutsceneLvl01.tscn")
 
 
 # Al estar enfocado el botón:

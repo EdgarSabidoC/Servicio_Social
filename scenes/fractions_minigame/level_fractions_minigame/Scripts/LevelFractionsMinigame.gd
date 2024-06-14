@@ -75,11 +75,13 @@ func _get_score() -> void:
 	if self.defeated and PlayerSession.difficulty != "easy" \
 	and extras_container.correctAnswer:
 		if clock.minutes >= 1:
+			@warning_ignore("integer_division")
 			PlayerSession.score += 10000/clock.minutes
 		else:
 			PlayerSession.score += 10000
 	elif self.defeated and PlayerSession.difficulty == "easy":
 		if clock.minutes >= 1:
+			@warning_ignore("integer_division")
 			PlayerSession.score += 10000/clock.minutes
 		else:
 			PlayerSession.score += 10000

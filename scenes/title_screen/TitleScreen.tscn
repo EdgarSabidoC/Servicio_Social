@@ -52,3 +52,10 @@ layout_mode = 0
 offset_right = 100.0
 offset_bottom = 40.0
 script = ExtResource("5_3g51u")
+
+[node name="ActionIcon3" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+script = ExtResource("5_3g51u")
