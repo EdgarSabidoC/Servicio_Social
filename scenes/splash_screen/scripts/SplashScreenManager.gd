@@ -30,9 +30,9 @@ func _ready() -> void:
 
 # Lee los inputs que permiten saltar las escenas, llama a _skip():
 func _input(_event: InputEvent) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) \
-	|| Input.is_key_pressed(KEY_SPACE) \
-	|| Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_action_just_pressed("m1") \
+	or Input.is_action_just_pressed("ui_accept") \
+	or Input.is_action_just_pressed("ui_pause"):
 		_skip()
 
 
