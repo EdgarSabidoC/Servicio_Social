@@ -10,10 +10,6 @@ extends Control
 signal finished()
 
 
-func _ready() -> void:
-	self.hide()
-
-
 func show_menu():
 	is_pause_active = true
 	self.show()
@@ -40,3 +36,8 @@ func _on_main_menu_btn_pressed() -> void:
 	is_pause_active = false
 	self.finished.emit()
 	SceneTransition.change_scene(main_menu)
+
+
+func _on_continue_btn_visibility_changed() -> void:
+	if self.is_visible_in_tree() and !Mouse.mouse_mode_activated:
+		continue_btn.grab_focus()
