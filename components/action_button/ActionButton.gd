@@ -18,6 +18,10 @@ func display_key() -> void:
 	action_icon.action_name = action
 
 
+func _display_key_when_error(a) -> String:
+	return action_icon._get_keyboard(Mouse.input_actions[a][0].keycode).get_path()
+
+
 # Remapea la tecla borrando el evento previo y añadiendo uno nuevo:
 func remap_action_to(event: InputEvent) -> void:
 	# Se verifica que la tecla ingresada no esté repetida:
@@ -27,7 +31,13 @@ func remap_action_to(event: InputEvent) -> void:
 		# Si las acciones son diferentes, pero tienen la misma tecla, se arroja un error:
 		if a != action && compare_key.keycode == event.keycode:
 			text = old_key.as_text()
-			errorMsg = "No es posible asignar «" + InputMap.action_get_events(a)[0].as_text() + "» debido a que ya se encuentra asignada."
+			# Se refresca el ícono del botón de acción:
+			action_icon.refresh()
+			# Se muestra el ícono del botón de acción:
+			action_icon.show()
+			# Se obtiene la tecla del error:
+			var error_image: String = _display_key_when_error(a)
+			errorMsg = "No es posible asignar «[img={error_width}x{error_height}]{error_image}[/img]» debido a que ya se encuentra asignada.".format({"error_width": 0, "error_height": 40, "error_image": error_image})
 			error = true
 			return
 	

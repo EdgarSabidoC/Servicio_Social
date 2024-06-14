@@ -1,7 +1,7 @@
 extends Node
 
 @onready var username: String = "Player"
-@onready var score: float = 0
+@onready var score: int = 0
 @onready var multipliers: Array[float]
 @export var difficulty: String = "easy"
 @export var character: int = 0
@@ -26,5 +26,8 @@ func next_character() -> int:
 
 # Función que guarda el puntaje del jugador entre los puntajes más altos:
 func save_score() -> void:
+	# Si el puntaje sobrepasa los 8 dígitos:
+	if self.score > 99999999:
+		self.score = 99999999
 	Persistence.config.set_value("BestScores", "HighScores", self.score)
 	Persistence.save_data()
