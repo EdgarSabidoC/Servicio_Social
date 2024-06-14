@@ -14,7 +14,7 @@ signal main_window_size_changed()
 
 
 func _ready() -> void:
-		
+	# Se imprime el mensaje por defecto en la caja de texto del menú:
 	menu_textbox.print_message(menu_textbox.default_text)
 	# Se obtiene el tamaño de pantalla actual:
 	#last_size = DisplayServer.window_get_size()
