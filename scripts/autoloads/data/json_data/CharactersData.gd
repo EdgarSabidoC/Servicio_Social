@@ -111,9 +111,7 @@ func loadProblemsData() -> void:
 				var easy_problems: Array = characters_data[n]["easy_problems"]
 				easy_problems.shuffle()
 				character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		
-		# Impresión para debug:
-		#print_debug(character.intro_text)
+
 
 	# Se mezcla la lista de personajes:
 	randomize()
@@ -209,9 +207,6 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 			var easy_problems: Array = characters_data[n]["easy_problems"]
 			easy_problems.shuffle()
 			character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-	
-	# Impresión para debug:
-	#print_debug(character.intro_text)
 
 
 func clear_difficulty() -> void:

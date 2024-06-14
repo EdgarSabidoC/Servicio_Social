@@ -19,7 +19,7 @@ func _enter_tree() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	v_box_container.hide()
+	self.v_box_container.hide()
 	var character: CharacterResource
 	var char_icon: Texture2D
 	for tab in tab_count:
@@ -39,29 +39,25 @@ func _on_tab_selected(tab: int) -> void:
 
 
 func _on_tab_clicked(_tab: int) -> void:
-	# Test debug:
-	print_debug("Tab clicked %s" % _tab)
 	self.pressed_tab = !self.pressed_tab
 	if self.pressed_tab:
-		_hide_tabs()
-		_get_character_info()
-		v_box_container.show()
+		self._hide_tabs()
+		self._get_character_info()
+		self.v_box_container.show()
 	else:
-		_show_hidden_tabs()
-		v_box_container.hide()
+		self._show_hidden_tabs()
+		self.v_box_container.hide()
 
 
 func _on_pressed() -> void:
-	# Test debug:
-	print_debug("Tab pressed %s" % actual_tab)
 	self.pressed_tab = !self.pressed_tab
 	if self.pressed_tab:
-		_hide_tabs()
-		_get_character_info()
-		v_box_container.show()
+		self._hide_tabs()
+		self._get_character_info()
+		self.v_box_container.show()
 	else:
-		_show_hidden_tabs()
-		v_box_container.hide()
+		self._show_hidden_tabs()
+		self.v_box_container.hide()
 	
 
 
@@ -69,7 +65,7 @@ func _on_pressed() -> void:
 func _hide_tabs():
 	for tab in self.tab_count:
 		if self.actual_tab != tab:
-			set_tab_hidden(tab, true)
+			self.set_tab_hidden(tab, true)
 
 
 # Muestra todas las tabs ocultas:
@@ -81,21 +77,22 @@ func _show_hidden_tabs():
 
 # Obtiene la información de los personajes y la despliega en las etiquetas:
 func _get_character_info() -> void:
-	var char_name: String = self.characters[actual_tab].name
-	var char_multiplier: float = self.characters[actual_tab].bonus_multiplier
-	rich_text_label.text = "[center]Nombre: %s\n\nMultiplicador: %s[/center]" % [char_name, char_multiplier]
+	var char_name: String = self.characters[self.actual_tab].name
+	var char_multiplier: float = self.characters[self.actual_tab].bonus_multiplier
+	self.rich_text_label.text = "[center]Nombre: %s\n\nMultiplicador: %s[/center]" % [char_name, char_multiplier]
 
 
 func _on_visibility_changed() -> void:
-	if !is_visible_in_tree():
+	if !self.is_visible_in_tree():
 		if self.pressed_tab:
-			_show_hidden_tabs()
-			v_box_container.hide()
-
+			self._show_hidden_tabs()
+			self.v_box_container.hide()
+	else:
+		# Cada vez que se entre a la pestaña de personajes, estos se reacomodan:
+		randomize()
+		self.characters.shuffle()
 
 func _on_tab_hovered(_tab: int) -> void:
-	# Cada vez que se entre a la pestaña de personajes, estos se reacomodan:
-	self.characters.shuffle()
 	if !Mouse.mouse_mode_activated:
 		# Para evitar que el mouse capturado muestre el tema hovered:
 		self.add_theme_stylebox_override("tab_hovered", self.get_theme_stylebox("tab_unselected"))
