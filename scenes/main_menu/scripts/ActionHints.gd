@@ -6,13 +6,16 @@ extends HBoxContainer
 @onready var action_icon_4: ActionIcon = $RightActionHint/ActionIcon4
 @onready var action_icon_5: ActionIcon = $AcceptActionHint/ActionIcon5
 @onready var action_icon_6: ActionIcon = $CancelActionHint/ActionIcon6
+@onready var margin_container: MarginContainer = $"../MarginContainer"
 
 
 func _ready() -> void:
 	if !Mouse.mouse_mode_activated:
 		self.show()
+		margin_container.show()
 	else:
 		self.hide()
+		margin_container.hide()
 	action_icon_1.action_name = "ui_up"
 	action_icon_2.action_name = "ui_down"
 	action_icon_3.action_name = "ui_left"
@@ -30,6 +33,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if !Mouse.mouse_mode_activated:
 		self.show()
+		margin_container.show()
 		action_icon_1.refresh()
 		action_icon_2.refresh()
 		action_icon_3.refresh()
@@ -38,3 +42,4 @@ func _process(_delta: float) -> void:
 		action_icon_6.refresh()
 	else:
 		self.hide()
+		margin_container.hide()

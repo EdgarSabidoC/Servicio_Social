@@ -29,8 +29,6 @@ func is_active() -> bool:
 
 # Señal que es lanzada cuando se presiona el continue_btn:
 func _on_continue_btn_pressed() -> void:
-	# Test debug:
-	print_debug("Se desactivó la pausa")
 	self.hide_menu()	
 	self.finished.emit()
 

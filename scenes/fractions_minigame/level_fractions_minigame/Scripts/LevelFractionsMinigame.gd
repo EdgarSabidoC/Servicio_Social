@@ -132,3 +132,9 @@ func _on_answer_button_4_pressed() -> void:
 func _on_pause_finished() -> void:
 	clock.continue_clock()
 	pause.hide()
+
+
+func _on_pause_btn_pressed() -> void:
+	if !pause.is_active():
+			clock.stop()
+			pause.show()
