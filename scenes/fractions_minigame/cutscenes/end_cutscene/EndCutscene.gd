@@ -20,6 +20,8 @@ const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/
 func _ready() -> void:
 	# Si se supera el máximo puntaje:
 	#if Persistence.is_high_score():
+	if !Mouse.mouse_mode_activated:
+		self.user_input_string.grab_focus()
 	user_input_string.show()
 	button.show()
 	accept.action_name = "ui_accept"

@@ -130,6 +130,8 @@ func _on_answer_button_4_pressed() -> void:
 
 # Si se desactiva el menú de pausa:
 func _on_pause_finished() -> void:
+	if !Mouse.mouse_mode_activated:
+		self.answer_button_1.grab_focus()
 	clock.continue_clock()
 	pause.hide()
 
