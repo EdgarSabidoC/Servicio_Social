@@ -38,9 +38,11 @@ func _process(_delta: float) -> void:
 		var progress_bar = loading_screen_scene_instance.get_node("ProgressBar")
 		progress_bar.value = progress[0]*100
 	elif status == ResourceLoader.THREAD_LOAD_LOADED:
-		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(scene_to_load_path))
+		SceneTransition.change_scene(ResourceLoader.load_threaded_get(scene_to_load_path))
 		loading_screen_scene_instance.queue_free()
 		loading = false
 	else:
 		print_debug("Loading went wrong...")
 		return
+	
+	

@@ -7,7 +7,6 @@ const LOWER_LIMIT: int = 0
 const PROBLEMS_DATA_UPPER_LIMIT: int = 9
 const PROBLEMS_UPPER_LIMIT: int = 4
 const NUMBER_OF_CHARACTERS: int = 5
-var difficulty: String = ""
 
 # Se accede al Autoload como: CharactersData.characters
 var characters: Array[CharacterResource] = []
@@ -60,6 +59,7 @@ func loadCharacters() -> void:
 # Esta función debe ser utilizada después de loadCharacters()
 func loadProblemsData() -> void:
 	var json = readJSON(characters_data_path)
+	var difficulty = PlayerSession.difficulty
 	var characters_data: Array = json.data
 	var n: int
 	for character in characters:
@@ -156,6 +156,7 @@ func loadProblemsData() -> void:
 # Función que carga los datos de problema de un personaje en específico:
 func loadProblemCharacter(character: CharacterResource) -> void:
 	var json = readJSON(characters_data_path)
+	var difficulty = PlayerSession.difficulty
 	var characters_data: Array = json.data
 	var n: int	
 	match character.name:
