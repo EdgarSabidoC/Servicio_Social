@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=39 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MouseMode.gd" id="22_jayrx"]
+[ext_resource type="Theme" uid="uid://d2phcxq048cnk" path="res://assets/graphical_assets/styles/action_button.tres" id="29_4g8su"]
 [ext_resource type="Texture2D" uid="uid://cf1425ryogw6d" path="res://assets/graphical_assets/user_interface/container/controlsContainer.tga" id="32_e3a6j"]
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="32_i2vn0"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
@@ -370,7 +371,6 @@ hint = "Regresar al menú de minijuegos"
 
 [node name="Settings" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -617,7 +617,6 @@ focus_neighbor_top = NodePath("../AudioOptionsContainer/HBoxContainer/AudioInput
 focus_previous = NodePath("../AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX")
 
 [node name="Controls" type="TabBar" parent="UI/Settings"]
-visible = false
 layout_mode = 2
 tooltip_text = "Opciones de configuración de los controles"
 focus_mode = 0
@@ -645,112 +644,132 @@ theme_override_constants/margin_bottom = 50
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ControlsLabelsContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+[node name="ControlsLabelsContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Up" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
+[node name="Up" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "ARRIBA"
 
-[node name="Down" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
+[node name="Down" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "ABAJO"
 
-[node name="Left" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
+[node name="Left" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "IZQUIERDA"
 
-[node name="Right" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
+[node name="Right" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "DERECHA"
 
-[node name="Accept" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
+[node name="Accept" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "ACEPTAR"
 
-[node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
+[node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "PAUSA"
 
-[node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ControlsLabelsContainer"]
+[node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 text = "ACTIVAR MODO RATÓN"
 
-[node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+[node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("14_2m575")
 
-[node name="Up" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
-custom_minimum_size = Vector2(200, 50)
+[node name="Up" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 size_flags_vertical = 7
-focus_neighbor_left = NodePath("../../../../..")
-focus_neighbor_top = NodePath("../../../../..")
-focus_previous = NodePath("../../../../..")
+focus_neighbor_left = NodePath("../../../../../../..")
+focus_neighbor_top = NodePath("../../../../../../..")
+focus_previous = NodePath("../../../../../../..")
 mouse_filter = 2
+theme = ExtResource("29_4g8su")
 button_mask = 0
 
-[node name="Down" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+[node name="Down" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
+theme = ExtResource("29_4g8su")
 button_mask = 0
 action = "ui_down"
 
-[node name="Left" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+[node name="Left" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
+theme = ExtResource("29_4g8su")
 button_mask = 0
 action = "ui_left"
 
-[node name="Right" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+[node name="Right" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 7
 mouse_filter = 2
+theme = ExtResource("29_4g8su")
 button_mask = 0
 action = "ui_right"
 
-[node name="Accept" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+[node name="Accept" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 mouse_filter = 2
+theme = ExtResource("29_4g8su")
 button_mask = 0
 action = "ui_accept"
 
-[node name="Pause" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+[node name="Pause" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 mouse_filter = 2
+theme = ExtResource("29_4g8su")
 button_mask = 0
 action = "ui_pause"
 
-[node name="MouseMode" type="CheckButton" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer"]
+[node name="MouseMode" type="CheckButton" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer"]
 layout_mode = 2
 tooltip_text = "Si está activado, permite utilizar el ratón de la computadora."
 focus_neighbor_left = NodePath("../Pause")
 focus_neighbor_top = NodePath("../Pause")
-focus_neighbor_right = NodePath("../../../../../BackButton")
-focus_neighbor_bottom = NodePath("../../../../../BackButton")
-focus_next = NodePath("../../../../../BackButton")
+focus_neighbor_right = NodePath("../../../../../../../BackButton")
+focus_neighbor_bottom = NodePath("../../../../../../../BackButton")
+focus_next = NodePath("../../../../../../../BackButton")
 focus_previous = NodePath("../Pause")
 script = ExtResource("22_jayrx")
+
+[node name="Placeholder2" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MenuTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -760,11 +779,6 @@ script = ExtResource("15_kdu1y")
 [node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/MenuTextboxContainer" instance=ExtResource("8_5asj7")]
 custom_minimum_size = Vector2(300, 250)
 layout_mode = 2
-
-[node name="Placeholder2" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="BackButton" parent="UI/Settings/Controls" instance=ExtResource("12_ax4u8")]
 layout_mode = 1
@@ -1051,7 +1065,7 @@ joypad_mode = 1
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
-[connection signal="pressed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_pressed"]
+[connection signal="pressed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_pressed"]
 [connection signal="pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_pressed"]
 [connection signal="tab_clicked" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_clicked"]
 [connection signal="tab_selected" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_selected"]

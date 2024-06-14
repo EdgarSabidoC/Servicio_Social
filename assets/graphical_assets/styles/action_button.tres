@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d2phcxq048cnk"]
+
+[ext_resource type="Texture2D" uid="uid://cmj45eixyy3em" path="res://assets/graphical_assets/user_interface/button/actionButton.tga" id="1_x0xeo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7nn43"]
+texture = ExtResource("1_x0xeo")
+texture_margin_left = 16.0
+texture_margin_top = 12.0
+texture_margin_right = 16.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(632, 52, 80, 88)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yegyo"]
+texture = ExtResource("1_x0xeo")
+texture_margin_left = 16.0
+texture_margin_top = 12.0
+texture_margin_right = 16.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(248, 52, 80, 88)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q047v"]
+texture = ExtResource("1_x0xeo")
+texture_margin_left = 16.0
+texture_margin_top = 12.0
+texture_margin_right = 16.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(248, 52, 80, 88)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8lqdt"]
+texture = ExtResource("1_x0xeo")
+texture_margin_left = 16.0
+texture_margin_top = 12.0
+texture_margin_right = 16.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(56, 52, 80, 88)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fseht"]
+texture = ExtResource("1_x0xeo")
+texture_margin_left = 16.0
+texture_margin_top = 12.0
+texture_margin_right = 16.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(440, 52, 80, 88)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_7nn43")
+Button/styles/focus = SubResource("StyleBoxTexture_yegyo")
+Button/styles/hover = SubResource("StyleBoxTexture_q047v")
+Button/styles/normal = SubResource("StyleBoxTexture_8lqdt")
+Button/styles/pressed = SubResource("StyleBoxTexture_fseht")
