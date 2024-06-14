@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ja2ux2ygrksu"]
+[gd_scene load_steps=4 format=3 uid="uid://ja2ux2ygrksu"]
 
 [ext_resource type="Script" path="res://components/pause/Pause.gd" id="1_1kjha"]
 [ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_ik7gs"]
+[ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="3_10e81"]
 
 [node name="Pause" type="Control"]
+visible = false
 show_behind_parent = true
 layout_mode = 3
 anchors_preset = 15
@@ -43,13 +45,16 @@ alignment = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_10e81")
 text = "Continuar"
 
 [node name="MainMenuBtn" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("3_10e81")
 text = "Salir al menú principal"
 
 [connection signal="pressed" from="VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="visibility_changed" from="VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
