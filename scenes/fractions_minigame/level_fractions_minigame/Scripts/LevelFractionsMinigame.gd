@@ -153,12 +153,7 @@ func _on_pause_btn_pressed() -> void:
 			pause.show()
 
 
-# Cuando se llegue a un minuto nuevo:
+# Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:
 func _on_clock_new_minute_reached() -> void:
 	# Se cambia la música:
-	var current_position: float = BackgroundMusic.get_playback_position()
-	BackgroundMusic.stop()
-	# Test debug:
-	print_debug("Entró a _on_clock_new_minute_reached")
-	# Se cambia la música:
-	BackgroundMusic.change_song(FUNICULI_FUNICULA_FASTER, current_position)
+	BackgroundMusic.change_song(FUNICULI_FUNICULA_FASTER)
