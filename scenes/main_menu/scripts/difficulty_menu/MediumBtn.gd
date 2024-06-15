@@ -12,6 +12,9 @@ func _on_pressed():
 	# Se cargan los datos del personaje:
 	PlayerSession.difficulty = "medium"
 	
+	# Se cargan los datos de los problemas de los diferentes personajes:
+	CharactersData.loadProblemsData()
+	
 	# Consume el evento:
 	get_viewport().set_input_as_handled()
 	

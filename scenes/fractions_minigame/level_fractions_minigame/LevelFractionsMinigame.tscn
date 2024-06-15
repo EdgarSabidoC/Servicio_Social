@@ -43,42 +43,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnswerButton1" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../AcceptButton")
-focus_neighbor_top = NodePath("../AnswerButton3")
-focus_neighbor_right = NodePath("../AnswerButton2")
-focus_neighbor_bottom = NodePath("../AnswerButton3")
-focus_next = NodePath("../AnswerButton2")
-focus_previous = NodePath("../../AcceptButton")
 text = ""
 
 [node name="AnswerButton2" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../AnswerButton1")
-focus_neighbor_top = NodePath("../AnswerButton4")
-focus_neighbor_right = NodePath("../../../PauseBtn")
-focus_neighbor_bottom = NodePath("../AnswerButton4")
-focus_next = NodePath("../AnswerButton3")
-focus_previous = NodePath("../AnswerButton1")
 text = ""
 
 [node name="AnswerButton3" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../AcceptButton")
-focus_neighbor_top = NodePath("../AnswerButton1")
-focus_neighbor_right = NodePath("../AnswerButton4")
-focus_neighbor_bottom = NodePath("../AnswerButton1")
-focus_next = NodePath("../AnswerButton4")
-focus_previous = NodePath("../AnswerButton2")
 text = ""
 
 [node name="AnswerButton4" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../AnswerButton3")
-focus_neighbor_top = NodePath("../AnswerButton2")
-focus_neighbor_right = NodePath("../../../PauseBtn")
-focus_neighbor_bottom = NodePath("../AnswerButton2")
-focus_next = NodePath("../../../PauseBtn")
-focus_previous = NodePath("../AnswerButton3")
 text = ""
 
 [node name="ExtrasContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
@@ -131,17 +107,10 @@ offset_top = 459.0
 offset_right = 1010.0
 offset_bottom = 509.0
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../PauseBtn")
-focus_neighbor_top = NodePath("../../PauseBtn")
-focus_neighbor_right = NodePath("../GridContainer/AnswerButton1")
-focus_neighbor_bottom = NodePath("../GridContainer/AnswerButton1")
-focus_next = NodePath("../GridContainer/AnswerButton1")
-focus_previous = NodePath("../../PauseBtn")
 text = "Aceptar"
 
-[node name="Clock" parent="CanvasLayer" instance=ExtResource("4_qciux")]
-
-[node name="PauseBtn" type="Button" parent="CanvasLayer"]
+[node name="PauseBtn" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -153,16 +122,12 @@ offset_right = 327.0
 offset_bottom = 226.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_neighbor_left = NodePath("../Control/GridContainer/AnswerButton4")
-focus_neighbor_top = NodePath("../Control/GridContainer/AnswerButton4")
-focus_neighbor_right = NodePath("../Control/AcceptButton")
-focus_neighbor_bottom = NodePath("../Control/AcceptButton")
-focus_next = NodePath("../Control/AcceptButton")
-focus_previous = NodePath("../Control/GridContainer/AnswerButton4")
 theme_override_font_sizes/font_size = 40
 text = "⏸️"
 flat = true
 icon_alignment = 1
+
+[node name="Clock" parent="CanvasLayer" instance=ExtResource("4_qciux")]
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(200, 50)
@@ -194,5 +159,6 @@ size_flags_vertical = 6
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton4" to="." method="_on_answer_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/AcceptButton" to="." method="_on_accept_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/PauseBtn" to="." method="_on_pause_btn_pressed"]
+[connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]

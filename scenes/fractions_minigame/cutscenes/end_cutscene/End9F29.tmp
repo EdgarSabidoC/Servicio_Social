@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8fc8fs1f0ny3"]
+[gd_scene load_steps=4 format=3 uid="uid://b8fc8fs1f0ny3"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/end_cutscene/EndCutscene.gd" id="1_vvpho"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="2_aer1u"]
-[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_l8cw3"]
 [ext_resource type="PackedScene" uid="uid://b8nf8op0qjia3" path="res://components/user_input_string/UserInputSring.tscn" id="2_ssn6y"]
 
 [node name="EndCutscene" type="Control"]
@@ -13,16 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vvpho")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_l8cw3")
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
@@ -42,8 +31,6 @@ alignment = 1
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_colors/default_color = Color(1, 1, 0.0235294, 1)
-theme_override_colors/font_shadow_color = Color(0.972549, 0, 0, 1)
 bbcode_enabled = true
 text = "
 [center]PUNTAJES MÁS ALTOS[/center]"
@@ -63,29 +50,10 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_colors/default_color = Color(1, 0.654902, 0.0235294, 1)
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
 bbcode_enabled = true
 script = ExtResource("2_aer1u")
 speed = 3.0
 fade = true
-metadata/_edit_use_anchors_ = true
-
-[node name="UserInputLabel" type="Label" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.375
-anchor_top = 0.305556
-anchor_right = 0.625
-anchor_bottom = 0.388889
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.654902, 0.0235294, 1)
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
-text = "Puntaje alto alcanzado"
-horizontal_alignment = 1
-vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="UserInputString" parent="." instance=ExtResource("2_ssn6y")]
@@ -93,7 +61,6 @@ visible = false
 layout_mode = 1
 offset_left = 0.0
 offset_right = 0.0
-placeholder_text = "Ingresa tu nombre"
 
 [node name="Button" type="Button" parent="."]
 visible = false

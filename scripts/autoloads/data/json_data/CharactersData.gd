@@ -7,6 +7,9 @@ const LOWER_LIMIT: int = 0
 const PROBLEMS_DATA_UPPER_LIMIT: int = 9
 const PROBLEMS_UPPER_LIMIT: int = 4
 const NUMBER_OF_CHARACTERS: int = 5
+var easy_data_loaded: bool = false
+var hard_data_loaded: bool = false
+var medium_data_loaded: bool = false
 
 # Se accede al Autoload como: CharactersData.characters
 var characters: Array[CharacterResource] = []
@@ -41,6 +44,7 @@ func loadCharacters() -> void:
 		character.name = characters_data[n]["name"]
 		character.bonus_multiplier = characters_data[n]["bonus_multiplier"]
 		character.defeated = false
+		character.rejected = false
 		character.correct_answer = {}
 		character.wrong_answers = []
 		character.intro_text = ""
@@ -50,14 +54,18 @@ func loadCharacters() -> void:
 		
 		# Se añade el personaje a la lista de personajes:
 		characters.append(character)
-		
-		# Impresión para debug:
-		#print_debug(character.name+" "+str(character.bonus_multiplier))
 
 
 # Función que carga los datos de todos los personajes de manera pseudoaleatoria.
 # Esta función debe ser utilizada después de loadCharacters()
 func loadProblemsData() -> void:
+	
+	if (PlayerSession.difficulty == "easy" and easy_data_loaded) \
+	or (PlayerSession.difficulty == "medium" and medium_data_loaded) \
+	or (PlayerSession.difficulty == "hard" and hard_data_loaded):
+		# Test debug:
+		print_debug("Datos previamente cargados")
+	
 	var json = readJSON(characters_data_path)
 	var difficulty = PlayerSession.difficulty
 	var characters_data: Array = json.data
@@ -102,22 +110,25 @@ func loadProblemsData() -> void:
 			"medium":
 				var medium_problems: Array = characters_data[n]["medium_problems"]
 				medium_problems.shuffle()
-				character.problem = medium_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+				medium_data_loaded = true
+				character.problem = medium_problems[randi_range(LOWER_LIMIT, PROBLEMS_UPPER_LIMIT)]
 			"hard":
 				var hard_problems: Array = characters_data[n]["hard_problems"]
 				hard_problems.shuffle()
-				character.problem = hard_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+				hard_data_loaded = true
+				character.problem = hard_problems[randi_range(LOWER_LIMIT, PROBLEMS_UPPER_LIMIT)]
 			_:
 				var easy_problems: Array = characters_data[n]["easy_problems"]
 				easy_problems.shuffle()
-				character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-
+				easy_data_loaded = true
+				character.problem = easy_problems[randi_range(LOWER_LIMIT, PROBLEMS_UPPER_LIMIT)]
 
 	# Se mezcla la lista de personajes:
 	randomize()
 	characters.shuffle()
 	
 	if difficulty == "hard":
+		print_debug("Cargó al Uaychivo")
 		# Se instancia el personaje Uaychivo:
 		var uaychivo: CharacterResource = CharacterResource.new()
 		# Se cambia la semilla:
@@ -137,6 +148,7 @@ func loadProblemsData() -> void:
 		uaychivo.name = characters_data[NUMBER_OF_CHARACTERS]["name"]
 		uaychivo.bonus_multiplier = characters_data[NUMBER_OF_CHARACTERS]["bonus_multiplier"]
 		uaychivo.defeated = false
+		uaychivo.rejected = false
 		uaychivo.problem = hard_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		uaychivo.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		uaychivo.outro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
@@ -153,6 +165,12 @@ func loadProblemsData() -> void:
 	
 # Función que carga los datos de problema de un personaje en específico:
 func loadProblemCharacter(character: CharacterResource) -> void:
+	if (PlayerSession.difficulty == "easy" and easy_data_loaded) \
+	or (PlayerSession.difficulty == "medium" and medium_data_loaded) \
+	or (PlayerSession.difficulty == "hard" and hard_data_loaded):
+		print_debug("Datos previamente cargados")
+		return
+	
 	var json = readJSON(characters_data_path)
 	var difficulty = PlayerSession.difficulty
 	var characters_data: Array = json.data
@@ -198,21 +216,29 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 		"medium":
 			var medium_problems: Array = characters_data[n]["medium_problems"]
 			medium_problems.shuffle()
+			medium_data_loaded = true
 			character.problem = medium_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		"hard":
 			var hard_problems: Array = characters_data[n]["hard_problems"]
 			hard_problems.shuffle()
+			hard_data_loaded = true
 			character.problem = hard_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		_:
 			var easy_problems: Array = characters_data[n]["easy_problems"]
 			easy_problems.shuffle()
+			easy_data_loaded = true
 			character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 
 
-func clear_difficulty() -> void:
-	self.difficulty = ""
+func clear_data() -> void:
+	for character in characters:
+		character.clear()
 
 
 # Retorna el asset principal del personaje:
 func get_character_icon(character: CharacterResource) -> Texture2D:
 	return load(character.main_asset_path)
+
+
+func is_character_defeated(character: CharacterResource) -> bool:
+	return character.rejected
