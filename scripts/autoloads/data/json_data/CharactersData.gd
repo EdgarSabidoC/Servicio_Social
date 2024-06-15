@@ -54,9 +54,6 @@ func loadCharacters() -> void:
 		
 		# Se añade el personaje a la lista de personajes:
 		characters.append(character)
-		
-		# Impresión para debug:
-		#print_debug(character.name+" "+str(character.bonus_multiplier))
 
 
 # Función que carga los datos de todos los personajes de manera pseudoaleatoria.
@@ -233,15 +230,9 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 			character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 
 
-func clear_characters_data() -> void:
+func clear_data() -> void:
 	for character in characters:
-		character.defeated = false
-		character.rejected = false
-		character.correct_answer = {}
-		character.wrong_answers = []
-		character.intro_text = ""
-		character.outro_text = ""
-		character.problem = ""
+		character.clear()
 
 
 # Retorna el asset principal del personaje:

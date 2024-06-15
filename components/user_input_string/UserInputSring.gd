@@ -18,5 +18,3 @@ func default_user_name() -> void:
 func clear_name() -> void:
 	PlayerSession.name = ""
 
-
-

@@ -1,5 +1,6 @@
 extends Control
 
+const FUNICULI_FUNICULA: AudioStream = preload("res://assets/sounds/music/funiculi_funicula.ogg")
 const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/music/tarantella_napoletana_tremolo.ogg")
 @onready var title_screen_scene: PackedScene = load("res://scenes/title_screen/TitleScreen.tscn")
 @onready var user_input_string: UserInputString = $UserInputString
@@ -20,16 +21,18 @@ const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/
 
 
 func _ready() -> void:
+	# Se cambia la canción:
+	BackgroundMusic.change_song(FUNICULI_FUNICULA)
 	
 	# Si se supera el máximo puntaje:
-	#if Persistence.is_high_score():
-	self.user_input_label.show()
-	self.user_input_string.show()
-	self.button.show()
-	#else:
-		## Si no se supera, sólo se muestran los máximos puntajes:
-		#self._get_high_scores()
-		#self.exit = true
+	if Persistence.is_high_score():
+		self.user_input_label.show()
+		self.user_input_string.show()
+		self.button.show()
+	else:
+		# Si no se supera, sólo se muestran los máximos puntajes:
+		self._get_high_scores()
+		self.exit = true
 	
 	# Botón que aparece para continuar y salir de la pantalla de puntajes altos:
 	if !Mouse.mouse_mode_activated:
@@ -75,12 +78,18 @@ func _on_button_pressed() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if self.exit and (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1")):
+		# Consume el evento:
+		get_viewport().set_input_as_handled()
+		rich_text_label_text_flash_2.speed = 60
+		
+		# Espera un poco para visualizar el efecto del parpadeo de la etiqueta:
+		await get_tree().create_timer(0.5).timeout
 		
 		# Se borra la sesión de jugador:
 		PlayerSession.clear_player_session()
 	
 		# Se borran los datos de los problemas de los personajes:
-		CharactersData.clear_characters_data()
+		CharactersData.clear_data()
 			
 		# Se realiza el cambio de escena:
 		SceneTransition.change_scene(title_screen_scene)

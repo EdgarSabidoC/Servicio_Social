@@ -72,6 +72,7 @@ fade = true
 metadata/_edit_use_anchors_ = true
 
 [node name="UserInputLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.375
@@ -88,12 +89,14 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="UserInputString" parent="." instance=ExtResource("2_ssn6y")]
+visible = false
 layout_mode = 1
 offset_left = 0.0
 offset_right = 0.0
 placeholder_text = "Ingresa tu nombre"
 
 [node name="Button" type="Button" parent="."]
+visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 1
 anchors_preset = -1

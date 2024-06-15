@@ -15,11 +15,11 @@ var secondary_assets_paths: Array[String]
 
 
 # Función que limpia los datos del personaje:
-func clear_character_data() -> void:
-	self.problem = ""
+func clear() -> void:
 	self.defeated = false
 	self.rejected = false
-	self.intro_text = ""
-	self.outro_text = ""
 	self.correct_answer = {}
 	self.wrong_answers = []
+	self.intro_text = ""
+	self.outro_text = ""
+	self.problem = ""
