@@ -238,7 +238,3 @@ func clear_data() -> void:
 # Retorna el asset principal del personaje:
 func get_character_icon(character: CharacterResource) -> Texture2D:
 	return load(character.main_asset_path)
-
-
-func is_character_defeated(character: CharacterResource) -> bool:
-	return character.rejected

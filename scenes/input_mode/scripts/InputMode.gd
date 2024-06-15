@@ -10,10 +10,6 @@ extends Control
 
 
 func _ready() -> void:
-	# Se desactivan los controles de pausa:
-	#if Pause.is_pausable_scene:
-		#Pause.is_pausable_scene = false
-	
 	assert(_move_to)
 	mouse_mode.grab_focus()
 	keyboard_mode.icon =  ResourceLoader.load(keyboard_mode_texture_path)
@@ -22,17 +18,16 @@ func _ready() -> void:
 
 # Activa el modo teclado:
 func _on_keyboard_mode_pressed():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	Mouse.enable_actions()
+	if Mouse.mouse_mode_activated:
+		Mouse.change_mode()
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
 	SceneTransition.change_scene(_move_to, "dissolve")
 
 
 # Activa el modo ratón:
 func _on_mouse_mode_pressed():
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	Mouse.disable_actions()
-	Mouse.change_mode()
+	if !Mouse.mouse_mode_activated:
+		Mouse.change_mode()
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
 	SceneTransition.change_scene(_move_to, "dissolve")
 	
