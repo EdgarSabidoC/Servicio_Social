@@ -160,4 +160,5 @@ size_flags_vertical = 6
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton4" to="." method="_on_answer_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/PauseBtn" to="." method="_on_pause_btn_pressed"]
+[connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]

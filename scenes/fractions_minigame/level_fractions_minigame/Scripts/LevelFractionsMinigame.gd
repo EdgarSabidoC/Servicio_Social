@@ -2,6 +2,11 @@ extends Node2D
 
 class_name LevelFractionsMinigame
 
+# Canciones:
+const FUNICULI_FUNICULA = preload("res://assets/sounds/music/funiculi_funicula.ogg")
+const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
+
+# Variables:
 @onready var score_panel: Panel = $CanvasLayer/ScorePanel
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var character: int
@@ -19,6 +24,9 @@ var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutsc
 
 
 func _ready() -> void:
+	# Se cambia la música:
+	BackgroundMusic.change_song(FUNICULI_FUNICULA)
+	
 	# Se enfoca el botón 1 si está en modo teclado:
 	if !Mouse.mouse_mode_activated:
 		answer_button_1.grab_focus()
@@ -143,3 +151,14 @@ func _on_pause_btn_pressed() -> void:
 	if !pause.is_active():
 			clock.stop()
 			pause.show()
+
+
+# Cuando se llegue a un minuto nuevo:
+func _on_clock_new_minute_reached() -> void:
+	# Se cambia la música:
+	var current_position: float = BackgroundMusic.get_playback_position()
+	BackgroundMusic.stop()
+	# Test debug:
+	print_debug("Entró a _on_clock_new_minute_reached")
+	# Se cambia la música:
+	BackgroundMusic.change_song(FUNICULI_FUNICULA_FASTER, current_position)
