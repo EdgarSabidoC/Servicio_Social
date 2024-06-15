@@ -29,13 +29,17 @@ func _ready() -> void:
 	# Se obtienen las imágenes de las acciones:
 	accept_texture_path = accept._get_keyboard(InputMap.action_get_events("ui_accept")[0].keycode).get_path()
 	pause_texture_path = pause._get_keyboard(InputMap.action_get_events("ui_pause")[0].keycode).get_path()
-	left_click_texture_path = left_click._get_mouse(InputMap.action_get_events("m1")[0].button_index).get_path()
-	rich_text_label_text_flash.text = "[center]Presiona [img={accept_width}x{accept_height}]{accept}[/img], presiona [img={pause_width}x{pause_height}]{pause}[/img] o presiona [img={left_click_width}x{left_click_height}]{left_click}[/img] para continuar[/center]".format({"accept_width": str(accept_width), "accept_height": str(accept_height), "accept": accept_texture_path, "pause_width": str(pause_width), "pause_height": str(pause_height), "pause": pause_texture_path, "left_click_width": str(left_click_width), "left_click_height": str(left_click_height), "left_click": left_click_texture_path})
-	# Se cambia el tamaño de la fuente a 22px:
-	rich_text_label_text_flash.add_theme_font_size_override("normal_font_size", 22)
+	rich_text_label_text_flash.text = "[center]Presiona [img={accept_width}x{accept_height}]{accept}[/img], presiona [img={pause_width}x{pause_height}]{pause}[/img] ".format({"accept_width": str(accept_width), "accept_height": str(accept_height), "accept": accept_texture_path, "pause_width": str(pause_width), "pause_height": str(pause_height), "pause": pause_texture_path})
 	accept.refresh()
 	pause.refresh()
+	left_click.action_name  = "m1"
+	left_click_texture_path = left_click._get_mouse(InputMap.action_get_events("m1")[0].button_index).get_path()
+	rich_text_label_text_flash.text += "o presiona [img={left_click_width}x{left_click_height}]{left_click}[/img] para continuar[/center]".format({"left_click_width": str(left_click_width), "left_click_height": str(left_click_height), "left_click": left_click_texture_path})
 	left_click.refresh()
+	# Se cambia el tamaño de la fuente a 22px:
+	rich_text_label_text_flash.add_theme_font_size_override("normal_font_size", 22)
+	
+	
 
 
 func _process(_delta: float) -> void:

@@ -43,7 +43,7 @@ func _ready() -> void:
 		self.accept.action_name = "ui_accept"
 		self.accept_texture_path = self.accept._get_keyboard(InputMap.action_get_events("ui_accept")[0].keycode).get_path()
 	else:
-		# SI está activado el modo mouse:
+		# Si está activado el modo mouse:
 		self.accept.action_name = "m1"
 		self.accept_texture_path = self.accept._get_mouse(InputMap.action_get_events("m1")[0].button_index).get_path()
 	self.accept.refresh()
@@ -83,7 +83,7 @@ func _input(_event: InputEvent) -> void:
 	if self.exit and (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1")):
 		# Consume el evento:
 		get_viewport().set_input_as_handled()
-		rich_text_label_text_flash_2.speed = 60
+		self.rich_text_label_text_flash_2.speed = 60
 		
 		# Espera un poco para visualizar el efecto del parpadeo de la etiqueta:
 		await get_tree().create_timer(0.5).timeout
@@ -95,7 +95,7 @@ func _input(_event: InputEvent) -> void:
 		CharactersData.clear_data()
 			
 		# Se realiza el cambio de escena:
-		SceneTransition.change_scene(title_screen_scene)
+		SceneTransition.change_scene(self.title_screen_scene)
 		
 		# Se cambia la música a la del menú:
-		BackgroundMusic.change_song(TARANTELLA_NAPOLETANA_TREMOLO)
+		BackgroundMusic.change_song(self.TARANTELLA_NAPOLETANA_TREMOLO)

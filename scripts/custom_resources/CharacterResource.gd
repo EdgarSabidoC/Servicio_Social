@@ -23,3 +23,7 @@ func clear() -> void:
 	self.intro_text = ""
 	self.outro_text = ""
 	self.problem = ""
+
+
+func is_rejected() -> bool:
+	return self.rejected

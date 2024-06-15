@@ -1,7 +1,9 @@
 extends Node
 
 # Bandera del modo mouse:
-@onready var mouse_mode_activated: bool = false
+@onready var mouse_mode_activated: bool = true
+# Bandera de las acciones:
+@onready var actions_enabled: bool = false
 
 # Punteros del mouse:
 @onready var cursor_arrow: CompressedTexture2D = load("res://assets/graphical_assets/mouse/mouse.png")
@@ -22,12 +24,21 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor_arrow, Input.CURSOR_ARROW)
 
 
+# Función que cambia entre el modo teclado y modo mouse:
 func change_mode() -> void:
-	mouse_mode_activated = !mouse_mode_activated
-
+	self.mouse_mode_activated = !self.mouse_mode_activated
+	
+	if !self.mouse_mode_activated:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		self.enable_actions()
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		self.disable_actions()
+	
 
 # Función que desactiva las acciones:
 func disable_actions() -> void:
+	self.actions_enabled = false
 	for action in input_actions.keys():
 		if action != "ui_pause":
 			InputMap.action_erase_events(action)
@@ -35,6 +46,7 @@ func disable_actions() -> void:
 
 # Función que activa las acciones:
 func enable_actions() -> void:
+	self.actions_enabled = true
 	for action in input_actions.keys():
 		if action != "ui_pause":
 			for input_event in input_actions[action]:

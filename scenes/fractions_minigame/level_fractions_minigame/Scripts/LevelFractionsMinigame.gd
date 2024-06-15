@@ -106,10 +106,10 @@ func _on_accept_button_pressed():
 	# Se imprime el nuevo puntaje:
 	score_label.print_score()
 	# Se mueve al siguiente personaje:
-	var next_character: int
-	if !PlayerSession.secret_level:
-		next_character = PlayerSession.next_character()
-	if next_character == 5 and PlayerSession.difficulty == "hard":
+	if PlayerSession.next_character() == 5 and \
+	PlayerSession.difficulty == "hard" and \
+	CharactersData.characters[character].name == "Alux" and \
+	CharactersData.characters[character].is_rejected():
 		PlayerSession.secret_level = true
 	# Se va hacia la cinemática de salida:
 	SceneTransition.change_scene(outro_cutscene)

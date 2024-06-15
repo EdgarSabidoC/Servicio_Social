@@ -23,14 +23,14 @@ func _display_key_when_error(a) -> String:
 
 
 # Remapea la tecla borrando el evento previo y añadiendo uno nuevo:
-func remap_action_to(event: InputEvent) -> void:
+func _remap_action_to(event: InputEvent) -> bool:
+	# Se borra el texto de la tecla:
+	text = ""
 	# Se verifica que la tecla ingresada no esté repetida:
-	var old_key: InputEventKey = Persistence.config.get_value("Controls", action, InputEventKey)
 	for a in actions:
 		var compare_key: InputEventKey = Persistence.config.get_value("Controls", a, InputEventKey)
 		# Si las acciones son diferentes, pero tienen la misma tecla, se arroja un error:
-		if a != action && compare_key.keycode == event.keycode:
-			text = old_key.as_text()
+		if event.keycode == KEY_ESCAPE or (a != action and compare_key.keycode == event.keycode):
 			# Se refresca el ícono del botón de acción:
 			action_icon.refresh()
 			# Se muestra el ícono del botón de acción:
@@ -39,7 +39,7 @@ func remap_action_to(event: InputEvent) -> void:
 			var error_image: String = _display_key_when_error(a)
 			errorMsg = "No es posible asignar «[img={error_width}x{error_height}]{error_image}[/img]» debido a que ya se encuentra asignada.".format({"error_width": 0, "error_height": 40, "error_image": error_image})
 			error = true
-			return
+			return false
 	
 	# Se configura action y event para la sección Controls
 	# y se guarda la información.
@@ -53,8 +53,7 @@ func remap_action_to(event: InputEvent) -> void:
 	action_icon.refresh()
 	# Se muestra el ícono del botón de acción:
 	action_icon.show()
-	text = event.as_text()
-
+	return true
 
 # Enciende el proceso de la tecla y cambia el texto:
 func _on_pressed() -> void:
@@ -71,6 +70,6 @@ func _on_pressed() -> void:
 # proceso de tecla a falso.
 func _unhandled_key_input(event: InputEvent) -> void:
 	self.release_focus() # Se quita el enfoque en el botón
-	remap_action_to(event) # Remapea la acción	
+	_remap_action_to(event) # Remapea la acción	
 	set_process_unhandled_key_input(false) # Se para de escuchar el evento de teclado.
 	self.grab_focus() # Se enfoca el botón
