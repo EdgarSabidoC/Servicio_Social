@@ -21,11 +21,15 @@ const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_fun
 @onready var buttons: Array[AnswerButton] = [answer_button_1, answer_button_2, answer_button_3, answer_button_4]
 @onready var answers: Array[Dictionary]
 var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutscene/OutroCutscene.tscn")
+@onready var current_pitch = 1.0
 
 
 func _ready() -> void:
 	# Se cambia la música:
-	BackgroundMusic.change_song(FUNICULI_FUNICULA)
+	var current_position: float = 0
+	var pitch: float = 1.0
+	var volume: float = 0
+	BackgroundMusic.change_song(FUNICULI_FUNICULA, current_position, pitch, volume)
 	
 	# Se enfoca el botón 1 si está en modo teclado:
 	if !Mouse.mouse_mode_activated:
@@ -155,5 +159,6 @@ func _on_pause_btn_pressed() -> void:
 
 # Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:
 func _on_clock_new_minute_reached() -> void:
-	# Se cambia la música:
-	BackgroundMusic.change_song(FUNICULI_FUNICULA_FASTER)
+	# Se aumenta el pitch_scale de la música por cada minuto de juego:
+	self.current_pitch += 0.1
+	BackgroundMusic.change_pitch(self.current_pitch)
