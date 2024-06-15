@@ -15,18 +15,21 @@ const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/
 @export var accept_width: float = 0
 @export var accept_height: float = 30
 @onready var changed: bool = false
+@onready var user_input_label: Label = $UserInputLabel
+
 
 
 func _ready() -> void:
 	
 	# Si se supera el máximo puntaje:
-	if Persistence.is_high_score():
-		self.user_input_string.show()
-		self.button.show()
-	else:
-		# Si no se supera, sólo se muestran los máximos puntajes:
-		self._get_high_scores()
-		self.exit = true
+	#if Persistence.is_high_score():
+	self.user_input_label.show()
+	self.user_input_string.show()
+	self.button.show()
+	#else:
+		## Si no se supera, sólo se muestran los máximos puntajes:
+		#self._get_high_scores()
+		#self.exit = true
 	
 	# Botón que aparece para continuar y salir de la pantalla de puntajes altos:
 	if !Mouse.mouse_mode_activated:
@@ -37,7 +40,7 @@ func _ready() -> void:
 		# SI está activado el modo mouse:
 		self.accept.action_name = "m1"
 		self.accept_texture_path = self.accept._get_mouse(InputMap.action_get_events("m1")[0].button_index).get_path()
-
+	self.accept.refresh()
 
 # Función que muestra los máximos puntajes:
 func _get_high_scores() -> void:
@@ -51,6 +54,7 @@ func _on_button_pressed() -> void:
 		self.user_input_string.save_user_name() # Se guarda la cadena ingresada
 	else:
 		self.user_input_string.default_user_name() # Se guarda un nombre predeterminado
+	self.user_input_label.hide()
 	self.user_input_string.hide()
 	self.button.hide()
 	
