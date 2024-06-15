@@ -1,6 +1,6 @@
 extends Control
 
-const FUNICULI_FUNICULA: AudioStream = preload("res://assets/sounds/music/funiculi_funicula.ogg")
+const FUNICULI_FUNICULA_FASTER: AudioStream = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
 const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/music/tarantella_napoletana_tremolo.ogg")
 @onready var title_screen_scene: PackedScene = load("res://scenes/title_screen/TitleScreen.tscn")
 @onready var user_input_string: UserInputString = $UserInputString
@@ -22,7 +22,10 @@ const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/
 
 func _ready() -> void:
 	# Se cambia la canción:
-	BackgroundMusic.change_song(FUNICULI_FUNICULA)
+	var current_position: float = 0
+	var pitch: float = 1.0
+	var volume: float = 0
+	BackgroundMusic.change_song(FUNICULI_FUNICULA_FASTER, current_position, pitch, volume)
 	
 	# Si se supera el máximo puntaje:
 	if Persistence.is_high_score():
