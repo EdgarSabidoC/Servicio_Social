@@ -6,6 +6,7 @@ extends Node
 @export var difficulty: String = "easy"
 @export var character: int = 0
 @onready var secret_level: bool = false
+@onready var alux_rejected: bool = false
 
 
 # Limpia las variables de la sesión del juego:

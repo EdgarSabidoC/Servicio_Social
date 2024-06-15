@@ -11,6 +11,8 @@ func _process(_delta: float) -> void:
 			# Se carga un nuevo nivel:
 			SceneTransition.change_scene(intro_cutscene)
 		elif PlayerSession.secret_level:
+			# Se desactiva el nivel secreto:
+			PlayerSession.secret_level = false
 			var secret_cutscene = load("res://scenes/fractions_minigame/cutscenes/secret_level/SecretCutscene.tscn")
 			SceneTransition.change_scene(secret_cutscene) # Se cambia al nivel secreto
 		else:

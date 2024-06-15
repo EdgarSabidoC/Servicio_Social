@@ -18,47 +18,66 @@ const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/
 
 
 func _ready() -> void:
+	
 	# Si se supera el máximo puntaje:
-	#if Persistence.is_high_score():
+	if Persistence.is_high_score():
+		self.user_input_string.show()
+		self.button.show()
+	else:
+		# Si no se supera, sólo se muestran los máximos puntajes:
+		self._get_high_scores()
+		self.exit = true
+	
+	# Botón que aparece para continuar y salir de la pantalla de puntajes altos:
 	if !Mouse.mouse_mode_activated:
 		self.user_input_string.grab_focus()
-	user_input_string.show()
-	button.show()
-	accept.action_name = "ui_accept"
-	accept_texture_path = accept._get_keyboard(Mouse.input_actions["ui_accept"][0].keycode).get_path()
+		self.accept.action_name = "ui_accept"
+		self.accept_texture_path = self.accept._get_keyboard(InputMap.action_get_events("ui_accept")[0].keycode).get_path()
+	else:
+		# SI está activado el modo mouse:
+		self.accept.action_name = "m1"
+		self.accept_texture_path = self.accept._get_mouse(InputMap.action_get_events("m1")[0].button_index).get_path()
+
+
+# Función que muestra los máximos puntajes:
+func _get_high_scores() -> void:
+	self.v_box_container.show() # Se muestra la pantalla de puntajes.
+	self.rich_text_label.text = Persistence.get_high_scores_formatted()
+	self.rich_text_label_text_flash_2.text = "[center]Presiona [img={accept_width}x{accept_height}]{accept}[/img] para continuar[/center]".format({"accept_width": str(accept_width), "accept_height": str(accept_height), "accept": accept_texture_path})
 
 
 func _on_button_pressed() -> void:
-	if user_input_string.text != "":
-		user_input_string.save_user_name() # Se guarda la cadena ingresada
+	if self.user_input_string.text != "":
+		self.user_input_string.save_user_name() # Se guarda la cadena ingresada
 	else:
-		user_input_string.default_user_name() # Se guarda un nombre predeterminado
-	user_input_string.hide()
-	button.hide()
-	# Se actualiza el puntaje:
-	Persistence.update_high_scores()
-	# Se obtiene el formato de los puntajes:
-	rich_text_label.text = Persistence.get_high_scores_formatted()
-	# Se añade a los mejores puntajes
-	v_box_container.show() # Se muestra la pantalla de puntajes.
+		self.user_input_string.default_user_name() # Se guarda un nombre predeterminado
+	self.user_input_string.hide()
+	self.button.hide()
 	
-	rich_text_label_text_flash_2.text = "[center]Presiona [img={accept_width}x{accept_height}]{accept}[/img] para continuar[/center]".format({"accept_width": str(accept_width), "accept_height": str(accept_height), "accept": accept_texture_path})
+	# Se añade a los mejores puntajes
+	Persistence.update_high_scores()
+	
+	# Se obtienen los mejores puntajes
+	self._get_high_scores()
 	
 	# Si están desactivadas las teclas:
 	if Mouse.mouse_mode_activated:
 		Mouse.change_mode()
 		Mouse.enable_actions()
-		changed = true
+		self.changed = true
 	
 	self.exit = true
 
 
 func _input(_event: InputEvent) -> void:
-	if self.exit and Input.is_action_just_pressed("ui_accept"):
+	if self.exit and (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1")):
 		
-		# Se reinicia la sesión de jugador:
+		# Se borra la sesión de jugador:
 		PlayerSession.clear_player_session()
-		
+	
+		# Se borran los datos de los problemas de los personajes:
+		CharactersData.clear_characters_data()
+			
 		# Se realiza el cambio de escena:
 		SceneTransition.change_scene(title_screen_scene)
 		
