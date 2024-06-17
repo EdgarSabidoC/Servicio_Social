@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cey14hi43x1vs"]
+[gd_scene load_steps=5 format=3 uid="uid://cey14hi43x1vs"]
 
 [ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
 [ext_resource type="Texture2D" uid="uid://hfnvg8kpnd7v" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_total.tga" id="2_f1yss"]
+[ext_resource type="PackedScene" uid="uid://biou6ujuxna1m" path="res://components/prices_menu/PricesMenu.tscn" id="3_dhwye"]
+[ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/PricesBtn.gd" id="3_f7bxp"]
 
 [node name="LevelAdditionsMinigame" type="Node2D"]
 
@@ -27,7 +29,7 @@ grow_vertical = 2
 texture = ExtResource("2_f1yss")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="NoteLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.767578
 anchor_top = 0.111111
@@ -150,4 +152,24 @@ anchor_top = 0.0277778
 anchor_right = 0.09375
 anchor_bottom = 0.0833333
 text = "$"
+script = ExtResource("3_f7bxp")
 metadata/_edit_use_anchors_ = true
+
+[node name="PricesMenu" parent="CanvasLayer" instance=ExtResource("3_dhwye")]
+visible = false
+
+[node name="TotalLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.132813
+anchor_top = 0.416667
+anchor_right = 0.195313
+anchor_bottom = 0.451389
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Total: "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/PricesBtn" to="CanvasLayer/PricesBtn" method="_on_pressed"]
