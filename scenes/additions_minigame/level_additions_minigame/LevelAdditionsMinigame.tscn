@@ -1,0 +1,153 @@
+[gd_scene load_steps=3 format=3 uid="uid://cey14hi43x1vs"]
+
+[ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
+[ext_resource type="Texture2D" uid="uid://hfnvg8kpnd7v" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_total.tga" id="2_f1yss"]
+
+[node name="LevelAdditionsMinigame" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BackgroundTexture" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_js6hy")
+metadata/_edit_use_anchors_ = true
+
+[node name="NoteTexture" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5625
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_f1yss")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.767578
+anchor_top = 0.111111
+anchor_right = 0.820313
+anchor_bottom = 0.145833
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "NOTA"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.648438
+anchor_top = 0.222222
+anchor_right = 0.9375
+anchor_bottom = 0.861111
+bbcode_enabled = true
+text = "[center][/center]"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.265625
+anchor_top = 0.513889
+anchor_right = 0.445313
+anchor_bottom = 0.763889
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Button7" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "9"
+
+[node name="Button4" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "6"
+
+[node name="Button1" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "3"
+
+[node name="ButtonDot" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+text = ".
+"
+
+[node name="Button0" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.569444
+anchor_right = 0.207031
+anchor_bottom = 0.763889
+theme_override_constants/separation = 35
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AcceptBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Aceptar"
+
+[node name="ClearBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Borrar"
+
+[node name="PricesBtn" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.0277778
+anchor_right = 0.09375
+anchor_bottom = 0.0833333
+text = "$"
+metadata/_edit_use_anchors_ = true
