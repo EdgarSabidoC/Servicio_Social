@@ -38,9 +38,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Prices" type="RichTextLabel" parent="PricesTexture"]
 layout_mode = 2
-anchor_left = 0.125
+anchor_left = 0.03125
 anchor_top = 0.0357143
-anchor_right = 0.875
+anchor_right = 0.96875
 anchor_bottom = 0.964286
 size_flags_horizontal = 3
 size_flags_vertical = 3
