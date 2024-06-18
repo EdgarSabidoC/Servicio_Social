@@ -21,6 +21,7 @@ extends Node2D
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var prices_menu: Control = $CanvasLayer/PricesMenu
+@onready var current_pitch = 1.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,14 +40,23 @@ func _ready() -> void:
 	#else:
 		#self.accept_btn.grab_focus()
 	self.accept_btn.grab_focus()
-	
+
 
 func _process(_delta: float) -> void:
-	if self.total_label.text.length() > 12:
+	if self.total_label.text.length() > 10:
 		disable_buttons()
 	elif !self.buttons_are_enabled:
 		enable_buttons()
 	
+	if self.total_label.text.begins_with("."):
+		self.total_label.text = "0."
+		print_debug(self.total_label.text)
+	
+	check_input_actions()
+
+
+# Verifica la acción de entrada e imprime la acción correspondiente en total_label:
+func check_input_actions() -> void:
 	if Input.is_action_just_pressed("num_0"):
 		self.total_label.text += "0"
 	elif Input.is_action_just_pressed("num_1"):
@@ -69,27 +79,25 @@ func _process(_delta: float) -> void:
 		self.total_label.text += "9"
 	elif Input.is_action_just_pressed("period"):
 		if !self.total_label.text.contains("."):
-			if self.total_label.text.begins_with("."):
-				print_debug(self.total_label.text)
-			else:
-				self.total_label.text += "."
+			self.total_label.text += "."
 	elif Input.is_action_just_pressed("ui_pause"):
 		if !self.pause.is_active():
 			self.clock.stop()
 			self.pause.show()
-	
 
 
+# Deshabilita los botones:
 func disable_buttons() -> void:
 	self.buttons_are_enabled = false
 	for button in self.buttons:
-		self.button.disabled = true
+		button.disabled = true
 
 
+# Habilita los botones:
 func enable_buttons() -> void:
 	if self.buttons_are_enabled:
 		for button in self.buttons:
-			self.button.disabled = false
+			button.disabled = false
 			self.buttons_are_enabled = true
 
 
