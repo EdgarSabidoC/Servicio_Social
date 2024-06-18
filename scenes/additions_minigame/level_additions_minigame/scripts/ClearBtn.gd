@@ -6,6 +6,7 @@ extends Button
 
 
 func _on_pressed() -> void:
-	ticket_texture.hide()
-	accept_btn.change_active_state()
-	total_label.text = ""
+	self.ticket_texture.hide()
+	if !self.accept_btn.active:
+		self.accept_btn.change_active_state()
+	self.total_label.text = ""

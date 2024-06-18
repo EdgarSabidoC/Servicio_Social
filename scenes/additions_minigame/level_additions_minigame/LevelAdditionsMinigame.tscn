@@ -198,7 +198,7 @@ texture = ExtResource("6_rvsbe")
 script = ExtResource("14_spgbt")
 metadata/_edit_use_anchors_ = true
 
-[node name="TotalLabel" type="Label" parent="CanvasLayer/TicketTexture"]
+[node name="TicketTotalLabel" type="Label" parent="CanvasLayer/TicketTexture"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.314394
@@ -209,11 +209,10 @@ grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Total:"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TotalAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TicketTexture/TotalLabel"]
+[node name="TotalAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TicketTexture/TicketTotalLabel"]
 libraries = {
 "": SubResource("AnimationLibrary_5yar7")
 }
@@ -392,6 +391,8 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/PricesBtn" to="." method="_on_prices_btn_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/TicketTexture" to="CanvasLayer/TicketTexture" method="_on_visibility_changed"]
+[connection signal="animation_finished" from="CanvasLayer/TicketTexture/TicketTotalLabel/TotalAnimationPlayer" to="CanvasLayer/TicketTexture" method="_on_total_animation_player_animation_finished"]
+[connection signal="animation_started" from="CanvasLayer/TicketTexture/TicketTotalLabel/TotalAnimationPlayer" to="CanvasLayer/TicketTexture" method="_on_total_animation_player_animation_started"]
 [connection signal="animation_finished" from="CanvasLayer/TicketTexture/TicketAnimationPlayer" to="CanvasLayer/TicketTexture" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="CanvasLayer/TicketTexture/TicketAnimationPlayer" to="CanvasLayer/TicketTexture" method="_on_animation_player_animation_started"]
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button7" to="." method="_on_button_7_pressed"]

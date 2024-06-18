@@ -1,18 +1,17 @@
 extends Button
 
-@onready var total_label: Label = $"../../TicketTexture/TotalLabel"
-@onready var total_animation_player: AnimationPlayer = $"../../TicketTexture/TotalLabel/TotalAnimationPlayer"
 @onready var ticket_texture: TextureRect = $"../../TicketTexture"
 @onready var ticket_animation_player: AnimationPlayer = $"../../TicketTexture/TicketAnimationPlayer"
+@onready var active: bool = true
+@onready var total_label: Label = $"../../TotalLabel"
 
-@onready var active: bool = false
 
 func _on_pressed() -> void:
-	change_active_state()
 	
-	if self.active:
-		ticket_texture.show()
-		ticket_animation_player.play("default")
+	if self.active and self.total_label.text != "":
+		self.change_active_state()
+		self.ticket_texture.show()
+		self.ticket_animation_player.play("default")
 
 
 func change_active_state(): 

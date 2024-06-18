@@ -1,13 +1,10 @@
 extends TextureRect
 
-@onready var total_label: Label = $TotalLabel
 @onready var total_number_label: Label = $"../TotalNumberLabel"
-@onready var total_animation_player: AnimationPlayer = $TotalLabel/TotalAnimationPlayer
+@onready var total_animation_player: AnimationPlayer = $TicketTotalLabel/TotalAnimationPlayer
 @onready var ticket_animation_player: AnimationPlayer = $TicketAnimationPlayer
-
-
-func _ready() -> void:
-	pass
+@onready var ticket_total_label: Label = $TicketTotalLabel
+@onready var total_label: Label = $"../TotalLabel"
 
 
 func _on_visibility_changed() -> void:
@@ -22,3 +19,13 @@ func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 
 func _on_animation_player_animation_started(_anim_name: StringName) -> void:
 	total_animation_player.play("default")
+
+
+func _on_total_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "default":
+		ticket_total_label.text += "$%s" % total_label.text
+
+
+func _on_total_animation_player_animation_started(anim_name: StringName) -> void:
+	if anim_name == "default":
+		ticket_total_label.text = "Total:\n\n"
