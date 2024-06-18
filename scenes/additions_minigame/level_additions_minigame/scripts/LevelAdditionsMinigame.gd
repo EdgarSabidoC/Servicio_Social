@@ -95,10 +95,10 @@ func disable_buttons() -> void:
 
 # Habilita los botones:
 func enable_buttons() -> void:
-	if self.buttons_are_enabled:
+	if !self.buttons_are_enabled:
 		for button in self.buttons:
 			button.disabled = false
-			self.buttons_are_enabled = true
+		self.buttons_are_enabled = true
 
 
 func _on_button_dot_pressed() -> void:
