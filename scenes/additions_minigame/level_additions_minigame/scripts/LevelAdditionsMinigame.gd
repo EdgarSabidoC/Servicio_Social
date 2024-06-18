@@ -48,15 +48,25 @@ func _process(_delta: float) -> void:
 	elif !self.buttons_are_enabled:
 		enable_buttons()
 	
+	# Se leen las entradas:
+	check_input_actions()
+	
 	if self.total_label.text.begins_with("."):
 		self.total_label.text = "0."
 		print_debug(self.total_label.text)
 	
-	check_input_actions()
+	if Input.is_action_just_pressed("ui_pause"):
+		if !self.pause.is_active():
+			self.clock.stop()
+			self.pause.show()
+	elif Input.is_action_just_pressed("ui_delete"):
+		self.total_label.text = self.total_label.text.left(-1)
 
 
 # Verifica la acción de entrada e imprime la acción correspondiente en total_label:
 func check_input_actions() -> void:
+	if !self.buttons_are_enabled:
+		return
 	if Input.is_action_just_pressed("num_0"):
 		self.total_label.text += "0"
 	elif Input.is_action_just_pressed("num_1"):
@@ -80,10 +90,6 @@ func check_input_actions() -> void:
 	elif Input.is_action_just_pressed("period"):
 		if !self.total_label.text.contains("."):
 			self.total_label.text += "."
-	elif Input.is_action_just_pressed("ui_pause"):
-		if !self.pause.is_active():
-			self.clock.stop()
-			self.pause.show()
 
 
 # Deshabilita los botones:
@@ -95,10 +101,10 @@ func disable_buttons() -> void:
 
 # Habilita los botones:
 func enable_buttons() -> void:
-	if self.buttons_are_enabled:
+	if !self.buttons_are_enabled:
 		for button in self.buttons:
 			button.disabled = false
-			self.buttons_are_enabled = true
+		self.buttons_are_enabled = true
 
 
 func _on_button_dot_pressed() -> void:

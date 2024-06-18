@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bn2qhfrm46lky"]
+
+[ext_resource type="Texture2D" uid="uid://cg16nxnmuou8l" path="res://assets/graphical_assets/user_interface/container/pizzaContainer.tga" id="1_qc5va"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5bf8q"]
+texture = ExtResource("1_qc5va")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(100, 100, 88, 88)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c7xcb"]
+texture = ExtResource("1_qc5va")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(100, 4, 88, 88)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ae87s"]
+texture = ExtResource("1_qc5va")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4, 4, 88, 88)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gqx1s"]
+texture = ExtResource("1_qc5va")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4, 100, 88, 88)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_5bf8q")
+Button/styles/hover = SubResource("StyleBoxTexture_c7xcb")
+Button/styles/normal = SubResource("StyleBoxTexture_ae87s")
+Button/styles/pressed = SubResource("StyleBoxTexture_gqx1s")

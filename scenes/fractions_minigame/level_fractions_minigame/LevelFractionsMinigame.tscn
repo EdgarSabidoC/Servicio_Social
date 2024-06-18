@@ -1,12 +1,34 @@
-[gd_scene load_steps=8 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=12 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
 [ext_resource type="PackedScene" uid="uid://buh0w7i4hw84k" path="res://scenes/fractions_minigame/cutscenes/backgrounds/Scene02.tscn" id="2_uldt8"]
+<<<<<<< HEAD
+[ext_resource type="Theme" uid="uid://bn2qhfrm46lky" path="res://assets/graphical_assets/styles/pizza_selector_LevelFractionsMinigame.tres" id="3_g64t3"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ExtrasContainer.gd" id="3_pyfw0"]
+[ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="3_qwcs8"]
+[ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_qciux"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
+[ext_resource type="Texture2D" uid="uid://cjf2q6il45pp" path="res://assets/graphical_assets/user_interface/button/pauseButton.tga" id="7_nkjmu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8w18o"]
+texture = ExtResource("7_nkjmu")
+texture_margin_left = 12.7026
+texture_margin_top = 14.3242
+texture_margin_right = 11.4864
+texture_margin_bottom = 16.8346
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 28, 40, 44)
+
+[sub_resource type="Theme" id="Theme_ivojg"]
+Button/styles/normal = SubResource("StyleBoxTexture_8w18o")
+=======
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ExtrasContainer.gd" id="3_pyfw0"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="3_qwcs8"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_qciux"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_v1hlr"]
+>>>>>>> 74b18ccba46d908eca0385788dc8e67b8a5a06f7
 
 [node name="LevelFractionsMinigame" type="Node2D"]
 script = ExtResource("1_jhhw6")
@@ -28,14 +50,15 @@ metadata/_edit_use_anchors_ = true
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.190429
+anchor_left = 0.132812
 anchor_top = 0.369791
-anchor_right = 0.511718
+anchor_right = 0.454101
 anchor_bottom = 0.782986
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("3_g64t3")
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 2
@@ -122,9 +145,17 @@ offset_right = 327.0
 offset_bottom = 226.0
 grow_horizontal = 2
 grow_vertical = 2
+<<<<<<< HEAD
+focus_neighbor_left = NodePath("../Control/GridContainer/AnswerButton4")
+focus_neighbor_top = NodePath("../Control/GridContainer/AnswerButton4")
+focus_neighbor_right = NodePath("../Control/AcceptButton")
+focus_neighbor_bottom = NodePath("../Control/AcceptButton")
+focus_next = NodePath("../Control/AcceptButton")
+focus_previous = NodePath("../Control/GridContainer/AnswerButton4")
+theme = SubResource("Theme_ivojg")
+=======
+>>>>>>> 74b18ccba46d908eca0385788dc8e67b8a5a06f7
 theme_override_font_sizes/font_size = 40
-text = "⏸️"
-flat = true
 icon_alignment = 1
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("4_qciux")]

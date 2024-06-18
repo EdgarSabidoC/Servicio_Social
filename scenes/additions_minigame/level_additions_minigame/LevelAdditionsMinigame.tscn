@@ -31,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(120, 272)]
+"values": [Vector2(83, 156)]
 }
 
 [sub_resource type="Animation" id="Animation_y4tdk"]
@@ -169,9 +169,9 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = -1
 anchor_left = 0.015625
 anchor_top = 0.123264
-anchor_right = 0.0820313
+anchor_right = 0.102539
 anchor_bottom = 0.196181
-offset_right = -25.0
+offset_right = -45.9999
 focus_neighbor_left = NodePath("../VBoxContainer/ClearBtn")
 focus_neighbor_top = NodePath("../VBoxContainer/ClearBtn")
 focus_neighbor_right = NodePath("../VBoxContainer/AcceptBtn")
@@ -198,26 +198,25 @@ texture = ExtResource("6_rvsbe")
 script = ExtResource("14_spgbt")
 metadata/_edit_use_anchors_ = true
 
-[node name="TotalLabel" type="Label" parent="CanvasLayer/TicketTexture"]
+[node name="TicketTotalLabel" type="Label" parent="CanvasLayer/TicketTexture"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.314394
 anchor_top = 0.453489
-anchor_right = 0.681818
-anchor_bottom = 0.526163
-offset_left = 120.0
-offset_top = 272.0
-offset_right = 217.0
-offset_bottom = 297.0
+anchor_right = 0.685606
+anchor_bottom = 0.511628
+offset_left = -1.52588e-05
+offset_top = -0.000167847
+offset_right = -1.52588e-05
+offset_bottom = 3.00005
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Total:"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TotalAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TicketTexture/TotalLabel"]
+[node name="TotalAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TicketTexture/TicketTotalLabel"]
 libraries = {
 "": SubResource("AnimationLibrary_5yar7")
 }
@@ -383,8 +382,21 @@ show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
+[node name="SymbolLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.275391
+anchor_top = 0.366319
+anchor_right = 0.293945
+anchor_bottom = 0.407986
+text = "$"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="CanvasLayer/PricesBtn" to="." method="_on_prices_btn_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/TicketTexture" to="CanvasLayer/TicketTexture" method="_on_visibility_changed"]
+[connection signal="animation_finished" from="CanvasLayer/TicketTexture/TicketTotalLabel/TotalAnimationPlayer" to="CanvasLayer/TicketTexture" method="_on_total_animation_player_animation_finished"]
+[connection signal="animation_started" from="CanvasLayer/TicketTexture/TicketTotalLabel/TotalAnimationPlayer" to="CanvasLayer/TicketTexture" method="_on_total_animation_player_animation_started"]
 [connection signal="animation_finished" from="CanvasLayer/TicketTexture/TicketAnimationPlayer" to="CanvasLayer/TicketTexture" method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="CanvasLayer/TicketTexture/TicketAnimationPlayer" to="CanvasLayer/TicketTexture" method="_on_animation_player_animation_started"]
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button7" to="." method="_on_button_7_pressed"]
