@@ -2,6 +2,11 @@ extends Node2D
 
 class_name LevelFractionsMinigame
 
+# Canciones:
+const FUNICULI_FUNICULA = preload("res://assets/sounds/music/funiculi_funicula.ogg")
+const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
+
+# Variables:
 @onready var score_panel: Panel = $CanvasLayer/ScorePanel
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var character: int
@@ -16,9 +21,16 @@ class_name LevelFractionsMinigame
 @onready var buttons: Array[AnswerButton] = [answer_button_1, answer_button_2, answer_button_3, answer_button_4]
 @onready var answers: Array[Dictionary]
 var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutscene/OutroCutscene.tscn")
+@onready var current_pitch = 1.0
 
 
 func _ready() -> void:
+	# Se cambia la música:
+	var current_position: float = 0
+	var pitch: float = 1.0
+	var volume: float = 0
+	BackgroundMusic.change_song(FUNICULI_FUNICULA, current_position, pitch, volume)
+	
 	# Se enfoca el botón 1 si está en modo teclado:
 	if !Mouse.mouse_mode_activated:
 		answer_button_1.grab_focus()
@@ -94,11 +106,11 @@ func _on_accept_button_pressed():
 	# Se imprime el nuevo puntaje:
 	score_label.print_score()
 	# Se mueve al siguiente personaje:
-	# Hay que validar que el nivel secreto solo se ejecute una vez y no se cicle:
-	if !PlayerSession.secret_level and PlayerSession.next_character() == 5 and PlayerSession.difficulty == "hard":
+	if PlayerSession.next_character() == 5 and \
+	PlayerSession.difficulty == "hard" and \
+	CharactersData.characters[character].name == "Alux" and \
+	CharactersData.characters[character].is_rejected():
 		PlayerSession.secret_level = true
-	if PlayerSession.character == 6:
-		PlayerSession.secret_level = false
 	# Se va hacia la cinemática de salida:
 	SceneTransition.change_scene(outro_cutscene)
 
@@ -143,3 +155,10 @@ func _on_pause_btn_pressed() -> void:
 	if !pause.is_active():
 			clock.stop()
 			pause.show()
+
+
+# Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:
+func _on_clock_new_minute_reached() -> void:
+	# Se aumenta el pitch_scale de la música por cada minuto de juego:
+	self.current_pitch += 0.1
+	BackgroundMusic.change_pitch(self.current_pitch)

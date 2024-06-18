@@ -77,6 +77,7 @@ func load_scores() -> void:
 	var best_scores: Variant = config.get_value("BestScores", "HighScores")
 	self.high_scores = str_to_var(best_scores)
 
+
 # Crea la información predeterminada en un archivo de configuración:
 func _default_data() -> void:
 	# Valores predeterminados de las acciones:

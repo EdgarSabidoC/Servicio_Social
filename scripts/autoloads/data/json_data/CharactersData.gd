@@ -44,6 +44,7 @@ func loadCharacters() -> void:
 		character.name = characters_data[n]["name"]
 		character.bonus_multiplier = characters_data[n]["bonus_multiplier"]
 		character.defeated = false
+		character.rejected = false
 		character.correct_answer = {}
 		character.wrong_answers = []
 		character.intro_text = ""
@@ -53,9 +54,6 @@ func loadCharacters() -> void:
 		
 		# Se añade el personaje a la lista de personajes:
 		characters.append(character)
-		
-		# Impresión para debug:
-		#print_debug(character.name+" "+str(character.bonus_multiplier))
 
 
 # Función que carga los datos de todos los personajes de manera pseudoaleatoria.
@@ -65,8 +63,8 @@ func loadProblemsData() -> void:
 	if (PlayerSession.difficulty == "easy" and easy_data_loaded) \
 	or (PlayerSession.difficulty == "medium" and medium_data_loaded) \
 	or (PlayerSession.difficulty == "hard" and hard_data_loaded):
+		# Test debug:
 		print_debug("Datos previamente cargados")
-		return
 	
 	var json = readJSON(characters_data_path)
 	var difficulty = PlayerSession.difficulty
@@ -150,6 +148,7 @@ func loadProblemsData() -> void:
 		uaychivo.name = characters_data[NUMBER_OF_CHARACTERS]["name"]
 		uaychivo.bonus_multiplier = characters_data[NUMBER_OF_CHARACTERS]["bonus_multiplier"]
 		uaychivo.defeated = false
+		uaychivo.rejected = false
 		uaychivo.problem = hard_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		uaychivo.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		uaychivo.outro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
@@ -231,8 +230,9 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 			character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 
 
-func clear_difficulty() -> void:
-	self.difficulty = ""
+func clear_data() -> void:
+	for character in characters:
+		character.clear()
 
 
 # Retorna el asset principal del personaje:
