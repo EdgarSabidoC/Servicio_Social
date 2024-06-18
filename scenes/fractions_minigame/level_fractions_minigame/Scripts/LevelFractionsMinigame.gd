@@ -1,7 +1,5 @@
 extends Node2D
 
-class_name LevelFractionsMinigame
-
 # Canciones:
 const FUNICULI_FUNICULA = preload("res://assets/sounds/music/funiculi_funicula.ogg")
 const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
