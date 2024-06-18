@@ -35,9 +35,35 @@ func _process(_delta: float) -> void:
 		disable_buttons()
 	elif !buttons_are_enabled:
 		enable_buttons()
+	
+	if Input.is_action_just_pressed("num_0"):
+		self.total_label.text += "0"
+	elif Input.is_action_just_pressed("num_1"):
+		self.total_label.text += "1"
+	elif Input.is_action_just_pressed("num_2"):
+		self.total_label.text += "2"
+	elif Input.is_action_just_pressed("num_3"):
+		self.total_label.text += "3"
+	elif Input.is_action_just_pressed("num_4"):
+		self.total_label.text += "4"
+	elif Input.is_action_just_pressed("num_5"):
+		self.total_label.text += "5"
+	elif Input.is_action_just_pressed("num_6"):
+		self.total_label.text += "6"
+	elif Input.is_action_just_pressed("num_7"):
+		self.total_label.text += "7"
+	elif Input.is_action_just_pressed("num_8"):
+		self.total_label.text += "8"
+	elif Input.is_action_just_pressed("num_9"):
+		self.total_label.text += "9"
+	elif Input.is_action_just_pressed("period"):
+		if !self.total_label.text.contains("."):
+			if self.total_label.text.begins_with(".")
+				print_debug(self.total_label.text)
+			else:
+				self.total_label.text += "."
 
-
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	pass
 
 
