@@ -23,7 +23,12 @@ func _on_animation_player_animation_started(_anim_name: StringName) -> void:
 
 func _on_total_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "default":
-		ticket_total_label.text += "$%s" % total_label.text
+		if self.total_label.text.ends_with("."):
+			ticket_total_label.text += "$%s00" % total_label.text
+		elif self.total_label.text.contains("."):
+			ticket_total_label.text += "$%s" % total_label.text
+		else:
+			ticket_total_label.text += "$%s.00" % total_label.text
 
 
 func _on_total_animation_player_animation_started(anim_name: StringName) -> void:
