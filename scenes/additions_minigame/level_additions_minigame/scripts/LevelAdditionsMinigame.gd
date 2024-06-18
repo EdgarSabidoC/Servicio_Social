@@ -84,7 +84,8 @@ func check_input_actions() -> void:
 		if !self.pause.is_active():
 			self.clock.stop()
 			self.pause.show()
-
+	elif Input.is_action_just_pressed("ui_delete"):
+		self.total_label.text = self.total_label.text.left(-1)
 
 # Deshabilita los botones:
 func disable_buttons() -> void:
