@@ -38,6 +38,7 @@ func _on_main_menu_btn_pressed() -> void:
 	is_pause_active = false
 	self.finished.emit()
 	SceneTransition.change_scene(main_menu)
+	PlayerSession.clear_player_session()
 
 
 # Señal que es lanzada cuando se cambia la visibilidad del continue_btn:

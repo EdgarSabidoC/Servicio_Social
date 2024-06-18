@@ -1,8 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://djd5hvlykjgse"]
 
-[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
 [ext_resource type="PackedScene" uid="uid://buh0w7i4hw84k" path="res://scenes/fractions_minigame/cutscenes/backgrounds/Scene02.tscn" id="2_uldt8"]
+<<<<<<< HEAD
 [ext_resource type="Theme" uid="uid://bn2qhfrm46lky" path="res://assets/graphical_assets/styles/pizza_selector_LevelFractionsMinigame.tres" id="3_g64t3"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ExtrasContainer.gd" id="3_pyfw0"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="3_qwcs8"]
@@ -22,6 +23,12 @@ region_rect = Rect2(28, 28, 40, 44)
 
 [sub_resource type="Theme" id="Theme_ivojg"]
 Button/styles/normal = SubResource("StyleBoxTexture_8w18o")
+=======
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ExtrasContainer.gd" id="3_pyfw0"]
+[ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="3_qwcs8"]
+[ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_qciux"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_v1hlr"]
+>>>>>>> 74b18ccba46d908eca0385788dc8e67b8a5a06f7
 
 [node name="LevelFractionsMinigame" type="Node2D"]
 script = ExtResource("1_jhhw6")
@@ -59,42 +66,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnswerButton1" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../AcceptButton")
-focus_neighbor_top = NodePath("../AnswerButton3")
-focus_neighbor_right = NodePath("../AnswerButton2")
-focus_neighbor_bottom = NodePath("../AnswerButton3")
-focus_next = NodePath("../AnswerButton2")
-focus_previous = NodePath("../../AcceptButton")
 text = ""
 
 [node name="AnswerButton2" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../AnswerButton1")
-focus_neighbor_top = NodePath("../AnswerButton4")
-focus_neighbor_right = NodePath("../../../PauseBtn")
-focus_neighbor_bottom = NodePath("../AnswerButton4")
-focus_next = NodePath("../AnswerButton3")
-focus_previous = NodePath("../AnswerButton1")
 text = ""
 
 [node name="AnswerButton3" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../AcceptButton")
-focus_neighbor_top = NodePath("../AnswerButton1")
-focus_neighbor_right = NodePath("../AnswerButton4")
-focus_neighbor_bottom = NodePath("../AnswerButton1")
-focus_next = NodePath("../AnswerButton4")
-focus_previous = NodePath("../AnswerButton2")
 text = ""
 
 [node name="AnswerButton4" parent="CanvasLayer/Control/GridContainer" instance=ExtResource("3_qwcs8")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../AnswerButton3")
-focus_neighbor_top = NodePath("../AnswerButton2")
-focus_neighbor_right = NodePath("../../../PauseBtn")
-focus_neighbor_bottom = NodePath("../AnswerButton2")
-focus_next = NodePath("../../../PauseBtn")
-focus_previous = NodePath("../AnswerButton3")
 text = ""
 
 [node name="ExtrasContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
@@ -147,17 +130,10 @@ offset_top = 459.0
 offset_right = 1010.0
 offset_bottom = 509.0
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../PauseBtn")
-focus_neighbor_top = NodePath("../../PauseBtn")
-focus_neighbor_right = NodePath("../GridContainer/AnswerButton1")
-focus_neighbor_bottom = NodePath("../GridContainer/AnswerButton1")
-focus_next = NodePath("../GridContainer/AnswerButton1")
-focus_previous = NodePath("../../PauseBtn")
 text = "Aceptar"
 
-[node name="Clock" parent="CanvasLayer" instance=ExtResource("4_qciux")]
-
-[node name="PauseBtn" type="Button" parent="CanvasLayer"]
+[node name="PauseBtn" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -169,6 +145,7 @@ offset_right = 327.0
 offset_bottom = 226.0
 grow_horizontal = 2
 grow_vertical = 2
+<<<<<<< HEAD
 focus_neighbor_left = NodePath("../Control/GridContainer/AnswerButton4")
 focus_neighbor_top = NodePath("../Control/GridContainer/AnswerButton4")
 focus_neighbor_right = NodePath("../Control/AcceptButton")
@@ -176,8 +153,12 @@ focus_neighbor_bottom = NodePath("../Control/AcceptButton")
 focus_next = NodePath("../Control/AcceptButton")
 focus_previous = NodePath("../Control/GridContainer/AnswerButton4")
 theme = SubResource("Theme_ivojg")
+=======
+>>>>>>> 74b18ccba46d908eca0385788dc8e67b8a5a06f7
 theme_override_font_sizes/font_size = 40
 icon_alignment = 1
+
+[node name="Clock" parent="CanvasLayer" instance=ExtResource("4_qciux")]
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(200, 50)
@@ -209,5 +190,6 @@ size_flags_vertical = 6
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton4" to="." method="_on_answer_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/AcceptButton" to="." method="_on_accept_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/PauseBtn" to="." method="_on_pause_btn_pressed"]
+[connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]

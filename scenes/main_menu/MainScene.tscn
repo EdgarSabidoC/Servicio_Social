@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=40 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -38,6 +38,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlay.gd" id="33_ht8qj"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
+[ext_resource type="PackedScene" uid="uid://tquacmjw5g4q" path="res://components/exit_menu/ExitMenu.tscn" id="40_idk3m"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -998,6 +999,8 @@ script = ExtResource("32_i2vn0")
 action_name = &"ui_cancel"
 joypad_mode = 1
 
+[node name="ExitMenu" parent="UI" instance=ExtResource("40_idk3m")]
+
 [connection signal="focus_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_mouse_entered"]
@@ -1072,3 +1075,5 @@ joypad_mode = 1
 [connection signal="tab_hovered" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_hovered"]
 [connection signal="tab_selected" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_selected"]
 [connection signal="visibility_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_visibility_changed"]
+[connection signal="no_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_no_pressed"]
+[connection signal="yes_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_yes_pressed"]

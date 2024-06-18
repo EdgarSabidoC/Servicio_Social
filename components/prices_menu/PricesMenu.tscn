@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://biou6ujuxna1m"]
+
+[ext_resource type="Script" path="res://components/prices_menu/PricesMenu.gd" id="1_uobjq"]
+[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_2auha"]
+[ext_resource type="Script" path="res://components/prices_menu/Prices.gd" id="3_x306d"]
+
+[node name="PricesMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uobjq")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2auha")
+metadata/_edit_use_anchors_ = true
+
+[node name="PricesTexture" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.111111
+anchor_right = 0.75
+anchor_bottom = 0.888889
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Prices" type="RichTextLabel" parent="PricesTexture"]
+layout_mode = 2
+anchor_left = 0.03125
+anchor_top = 0.0357143
+anchor_right = 0.96875
+anchor_bottom = 0.964286
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+script = ExtResource("3_x306d")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.867188
+anchor_top = 0.888889
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Regresar"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]

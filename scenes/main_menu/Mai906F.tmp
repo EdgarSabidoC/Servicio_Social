@@ -1,0 +1,1084 @@
+[gd_scene load_steps=40 format=3 uid="uid://deare6ipirplk"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
+[ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="3_mou80"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="4_5awxv"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/PlayBtn.gd" id="5_7ioq7"]
+[ext_resource type="Texture2D" uid="uid://cqboxf3ckfoln" path="res://assets/graphical_assets/user_interface/container/container.tga" id="6_4ujbp"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/SettingsBtn.gd" id="6_6htjl"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/QuitBtn.gd" id="7_26t7j"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlayBtn.gd" id="7_e8xsr"]
+[ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/MinigamesMenu.gd" id="9_0pdbe"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/DifficultyMenu.gd" id="9_tu7mx"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/FractionsMinigame.gd" id="10_aydou"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Settings.gd" id="10_pvbhm"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/EasyBtn.gd" id="10_xbasp"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/MediumBtn.gd" id="11_aki4r"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Video.gd" id="11_c0uvf"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/Minigame2.gd" id="11_cyuk5"]
+[ext_resource type="PackedScene" uid="uid://0fx6dc8c8ukb" path="res://components/back_button/BackButton.tscn" id="12_ax4u8"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/Minigame3.gd" id="12_b254f"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/HardBtn.gd" id="12_pwd64"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/ReturnBtn.gd" id="13_0ewxx"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Audio.gd" id="13_0wpcl"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/ReturnBtn.gd" id="13_lq72g"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/ActionButtonContainer.gd" id="14_2m575"]
+[ext_resource type="Theme" uid="uid://tkr4bu68wbdu" path="res://assets/graphical_assets/styles/SettingsScene.tres" id="14_7nlx3"]
+[ext_resource type="PackedScene" uid="uid://c4x8k1nr1nq2u" path="res://components/action_button/ActionButton.tscn" id="15_gjpx2"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/MenutTextboxContainer.gd" id="15_kdu1y"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/License.gd" id="16_pabyu"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/AudioInputsContainer.gd" id="17_cql55"]
+[ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/MouseMode.gd" id="22_jayrx"]
+[ext_resource type="Theme" uid="uid://d2phcxq048cnk" path="res://assets/graphical_assets/styles/action_button.tres" id="29_4g8su"]
+[ext_resource type="Texture2D" uid="uid://cf1425ryogw6d" path="res://assets/graphical_assets/user_interface/container/controlsContainer.tga" id="32_e3a6j"]
+[ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="32_i2vn0"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlay.gd" id="33_ht8qj"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
+[ext_resource type="PackedScene" uid="uid://tquacmjw5g4q" path="res://components/exit_menu/ExitMenu.tscn" id="40_idk3m"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("1_5kdpa")
+
+[node name="SettingsBackgroundColor" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0.74902, 0.470588, 1)
+script = ExtResource("1_uy7ao")
+_time_interval = 0.0
+_fade_time = 0.15
+
+[node name="MenuBackgroundColor" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.913725, 0.337255, 0.298039, 1)
+script = ExtResource("1_uy7ao")
+_time_interval = 0.0
+_fade_time = 0.15
+
+[node name="MenuBackground" type="TextureRect" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 3
+
+[node name="MenuContainer" type="HBoxContainer" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.109
+anchor_top = 0.283
+anchor_right = 0.891113
+anchor_bottom = 0.717
+offset_left = -0.115715
+offset_top = 6.99199
+offset_bottom = 7.008
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_5awxv")
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenu" type="VBoxContainer" parent="UI/MenuContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 158)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../QuitBtn")
+focus_neighbor_top = NodePath("../QuitBtn")
+focus_neighbor_right = NodePath("../SettingsBtn")
+focus_neighbor_bottom = NodePath("../SettingsBtn")
+focus_next = NodePath("../SettingsBtn")
+focus_previous = NodePath("../QuitBtn")
+theme = ExtResource("3_mou80")
+keep_pressed_outside = true
+text = "Jugar"
+script = ExtResource("5_7ioq7")
+
+[node name="SettingsBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../PlayBtn")
+focus_neighbor_top = NodePath("../PlayBtn")
+focus_neighbor_right = NodePath("../HowToPlayBtn")
+focus_neighbor_bottom = NodePath("../HowToPlayBtn")
+focus_next = NodePath("../HowToPlayBtn")
+focus_previous = NodePath("../PlayBtn")
+theme = ExtResource("3_mou80")
+keep_pressed_outside = true
+text = "Opciones"
+script = ExtResource("6_6htjl")
+
+[node name="HowToPlayBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../SettingsBtn")
+focus_neighbor_top = NodePath("../SettingsBtn")
+focus_neighbor_right = NodePath("../QuitBtn")
+focus_neighbor_bottom = NodePath("../QuitBtn")
+focus_next = NodePath("../QuitBtn")
+focus_previous = NodePath("../SettingsBtn")
+theme = ExtResource("3_mou80")
+keep_pressed_outside = true
+text = "Cómo jugar"
+script = ExtResource("7_e8xsr")
+
+[node name="QuitBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../HowToPlayBtn")
+focus_neighbor_top = NodePath("../HowToPlayBtn")
+focus_neighbor_right = NodePath("../PlayBtn")
+focus_neighbor_bottom = NodePath("../PlayBtn")
+focus_next = NodePath("../PlayBtn")
+focus_previous = NodePath("../HowToPlayBtn")
+theme = ExtResource("3_mou80")
+keep_pressed_outside = true
+text = "Salir"
+script = ExtResource("7_26t7j")
+
+[node name="Placeholder" type="VBoxContainer" parent="UI/MenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuTextbox" type="VBoxContainer" parent="UI/MenuContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(450, 250)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MenuContainer/MenuTextbox"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/MenuContainer/MenuTextbox/MarginContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture = ExtResource("6_4ujbp")
+region_rect = Rect2(66, 72, 156, 156)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MenuTextbox" parent="UI/MenuContainer/MenuTextbox/MarginContainer" instance=ExtResource("8_5asj7")]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+default_text = "Pasa el cursor sobre una opción para ver más información."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MenuContainer"]
+layout_mode = 2
+
+[node name="MinigamesMenu" type="VBoxContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.304688
+anchor_top = 0.0104167
+anchor_right = 0.695313
+anchor_bottom = 0.848958
+offset_top = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("9_0pdbe")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MinigamesMenu"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/MinigamesMenu/MarginContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture = ExtResource("6_4ujbp")
+region_rect = Rect2(66, 72, 156, 156)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MenuTextbox" parent="UI/MinigamesMenu/MarginContainer" instance=ExtResource("8_5asj7")]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+default_text = "Selecciona un minijuego para comenzar a jugar"
+
+[node name="Placeholder1" type="BoxContainer" parent="UI/MinigamesMenu"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="FractionsMinigame" type="Button" parent="UI/MinigamesMenu"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Fracciones"
+script = ExtResource("10_aydou")
+hint = "Pon a prueba tu conocimiento sobre fracciones"
+
+[node name="Minigame2" type="Button" parent="UI/MinigamesMenu"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Minijuego2"
+script = ExtResource("11_cyuk5")
+
+[node name="Minigame3" type="Button" parent="UI/MinigamesMenu"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Minijuego3"
+script = ExtResource("12_b254f")
+
+[node name="ReturnBtn" type="Button" parent="UI/MinigamesMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Regresar"
+script = ExtResource("13_lq72g")
+
+[node name="DifficultyMenu" type="VBoxContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.304688
+anchor_top = 0.0243056
+anchor_right = 0.695313
+anchor_bottom = 0.862847
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("9_tu7mx")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DifficultyMenu"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/DifficultyMenu/MarginContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture = ExtResource("6_4ujbp")
+region_rect = Rect2(66, 72, 156, 156)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MenuTextbox" parent="UI/DifficultyMenu/MarginContainer" instance=ExtResource("8_5asj7")]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+default_text = "Selecciona una dificultad"
+
+[node name="Placeholder1" type="BoxContainer" parent="UI/DifficultyMenu"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="EasyBtn" type="Button" parent="UI/DifficultyMenu"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Fácil"
+script = ExtResource("10_xbasp")
+hint = "La mejor forma de familiarizarte con el juego"
+
+[node name="MediumBtn" type="Button" parent="UI/DifficultyMenu"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Media"
+script = ExtResource("11_aki4r")
+hint = "Pon a prueba tus conocimientos de fracciones y proporciones"
+
+[node name="HardBtn" type="Button" parent="UI/DifficultyMenu"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Difícil"
+script = ExtResource("12_pwd64")
+
+[node name="ReturnBtn" type="Button" parent="UI/DifficultyMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Regresar"
+script = ExtResource("13_0ewxx")
+hint = "Regresar al menú de minijuegos"
+
+[node name="Settings" type="TabContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 87.0
+offset_top = 9.0
+offset_right = -78.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = ExtResource("14_7nlx3")
+clip_tabs = false
+script = ExtResource("10_pvbhm")
+
+[node name="Video" type="TabBar" parent="UI/Settings"]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Opciones de configuración de vídeo"
+focus_mode = 0
+script = ExtResource("11_c0uvf")
+
+[node name="VideoOptionsContainer" type="HBoxContainer" parent="UI/Settings/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.196
+anchor_top = 0.275
+anchor_right = 0.804
+anchor_bottom = 0.725
+offset_left = 56.7
+offset_top = 50.8209
+offset_right = -56.4773
+offset_bottom = -50.8209
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoLabelsContainer" type="VBoxContainer" parent="UI/Settings/Video/VideoOptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fullscreen" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "El modo pantalla completa permite deshacerse de los bordes y ventanas del sistema operativo"
+mouse_filter = 1
+text = "Pantalla completa"
+vertical_alignment = 1
+
+[node name="Borderless" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "El modo sin bordes se deshace solo de los marcos de la ventana del sistema operativo"
+mouse_filter = 1
+text = "Sin bordes"
+vertical_alignment = 1
+
+[node name="Vsync" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Elige un tipo de sinscronización vertical sólo si está disponible"
+mouse_filter = 1
+text = "Sincronización vertical (VSync)"
+vertical_alignment = 1
+
+[node name="VideoInputsContainer" type="VBoxContainer" parent="UI/Settings/Video/VideoOptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fullscreen" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Activa/Desactiva el modo pantalla completa"
+focus_neighbor_right = NodePath("../Borderless")
+focus_neighbor_bottom = NodePath("../Borderless")
+focus_next = NodePath("../Borderless")
+expand_icon = true
+
+[node name="Borderless" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Activa/Desactiva el modo sin bordes"
+focus_neighbor_left = NodePath("../Fullscreen")
+focus_neighbor_top = NodePath("../Fullscreen")
+focus_neighbor_right = NodePath("../Vsync")
+focus_neighbor_bottom = NodePath("../Vsync")
+focus_next = NodePath("../Vsync")
+focus_previous = NodePath("../Fullscreen")
+expand_icon = true
+
+[node name="Vsync" type="OptionButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Selecciona el tipo de sincronización vertical"
+focus_neighbor_left = NodePath("../Borderless")
+focus_neighbor_top = NodePath("../Borderless")
+focus_neighbor_right = NodePath("../../../BackButton")
+focus_neighbor_bottom = NodePath("../../../BackButton")
+focus_next = NodePath("../../../BackButton")
+focus_previous = NodePath("../Borderless")
+alignment = 1
+icon_alignment = 1
+item_count = 4
+selected = 1
+popup/item_0/text = "Desactivado"
+popup/item_0/id = 0
+popup/item_1/text = "Activado"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptative"
+popup/item_2/id = 2
+popup/item_3/text = "Mailbox"
+popup/item_3/id = 3
+
+[node name="BackButton" parent="UI/Settings/Video" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+offset_left = -116.0
+offset_top = -68.0
+focus_neighbor_left = NodePath("../VideoOptionsContainer/VideoInputsContainer/Vsync")
+focus_neighbor_top = NodePath("../VideoOptionsContainer/VideoInputsContainer/Vsync")
+focus_previous = NodePath("../VideoOptionsContainer/VideoInputsContainer/Vsync")
+
+[node name="Audio" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+tooltip_text = "Opciones de configuración de audio"
+focus_mode = 0
+script = ExtResource("13_0wpcl")
+
+[node name="AudioOptionsContainer" type="MarginContainer" parent="UI/Settings/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer"]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioLabelsContainer" type="VBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Master" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioLabelsContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Control del volumen principal del audio"
+mouse_filter = 1
+text = "Master"
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioLabelsContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Control del volumen de la música del juego"
+mouse_filter = 1
+text = "Música"
+vertical_alignment = 1
+
+[node name="SFX" type="Label" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioLabelsContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Control del volumen de los efectos especiales dentro del juego"
+mouse_filter = 1
+text = "Efectos especiales"
+vertical_alignment = 1
+
+[node name="AudioInputsContainer" type="VBoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("17_cql55")
+
+[node name="Master" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Ajusta el nivel del volumen principal"
+focus_neighbor_right = NodePath("../Music")
+focus_neighbor_bottom = NodePath("../Music")
+focus_next = NodePath("../Music")
+max_value = 1.0
+step = 0.05
+tick_count = 11
+
+[node name="Music" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Ajusta el nivel del volumen de la música"
+focus_neighbor_left = NodePath("../Master")
+focus_neighbor_top = NodePath("../Master")
+focus_neighbor_right = NodePath("../SFX")
+focus_neighbor_bottom = NodePath("../SFX")
+focus_next = NodePath("../SFX")
+focus_previous = NodePath("../Master")
+max_value = 1.0
+step = 0.05
+tick_count = 11
+
+[node name="SFX" type="HSlider" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Ajusta el nivel del volumen de los efectos especiales"
+focus_neighbor_left = NodePath("../Music")
+focus_neighbor_top = NodePath("../Music")
+focus_neighbor_right = NodePath("../../../../BackButton")
+focus_neighbor_bottom = NodePath("../../../../BackButton")
+focus_next = NodePath("../../../../BackButton")
+focus_previous = NodePath("../Music")
+max_value = 1.0
+step = 0.05
+tick_count = 11
+
+[node name="BoxContainer2" type="BoxContainer" parent="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackButton" parent="UI/Settings/Audio" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+focus_neighbor_left = NodePath("../AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX")
+focus_neighbor_top = NodePath("../AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX")
+focus_previous = NodePath("../AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX")
+
+[node name="Controls" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+tooltip_text = "Opciones de configuración de los controles"
+focus_mode = 0
+
+[node name="ControlsOptionsContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -175.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Settings/Controls/ControlsOptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlsLabelsContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Up" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "ARRIBA"
+
+[node name="Down" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "ABAJO"
+
+[node name="Left" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "IZQUIERDA"
+
+[node name="Right" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "DERECHA"
+
+[node name="Accept" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "ACEPTAR"
+
+[node name="Pause" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "PAUSA"
+
+[node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
+layout_mode = 2
+text = "ACTIVAR MODO RATÓN"
+
+[node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("14_2m575")
+
+[node name="Up" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_vertical = 7
+focus_neighbor_left = NodePath("../../../../../../..")
+focus_neighbor_top = NodePath("../../../../../../..")
+focus_previous = NodePath("../../../../../../..")
+mouse_filter = 2
+theme = ExtResource("29_4g8su")
+button_mask = 0
+
+[node name="Down" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 7
+mouse_filter = 2
+theme = ExtResource("29_4g8su")
+button_mask = 0
+action = "ui_down"
+
+[node name="Left" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 7
+mouse_filter = 2
+theme = ExtResource("29_4g8su")
+button_mask = 0
+action = "ui_left"
+
+[node name="Right" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 7
+mouse_filter = 2
+theme = ExtResource("29_4g8su")
+button_mask = 0
+action = "ui_right"
+
+[node name="Accept" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("29_4g8su")
+button_mask = 0
+action = "ui_accept"
+
+[node name="Pause" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer" instance=ExtResource("15_gjpx2")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("29_4g8su")
+button_mask = 0
+action = "ui_pause"
+
+[node name="MouseMode" type="CheckButton" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer"]
+layout_mode = 2
+tooltip_text = "Si está activado, permite utilizar el ratón de la computadora."
+focus_neighbor_left = NodePath("../Pause")
+focus_neighbor_top = NodePath("../Pause")
+focus_neighbor_right = NodePath("../../../../../../../BackButton")
+focus_neighbor_bottom = NodePath("../../../../../../../BackButton")
+focus_next = NodePath("../../../../../../../BackButton")
+focus_previous = NodePath("../Pause")
+script = ExtResource("22_jayrx")
+
+[node name="Placeholder2" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuTextboxContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("15_kdu1y")
+
+[node name="MenuTextbox" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/MenuTextboxContainer" instance=ExtResource("8_5asj7")]
+custom_minimum_size = Vector2(280, 250)
+layout_mode = 2
+
+[node name="BackButton" parent="UI/Settings/Controls" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+
+[node name="License" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("16_pabyu")
+
+[node name="scrollbar_textbox" parent="UI/Settings/License" instance=ExtResource("19_edlpb")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 220.0
+offset_bottom = 150.0
+
+[node name="BackButton" parent="UI/Settings/License" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+
+[node name="HowToPlay" type="TabContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.0849609
+anchor_top = 0.015625
+anchor_right = 0.923828
+anchor_bottom = 0.854167
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = ExtResource("14_7nlx3")
+clip_tabs = false
+script = ExtResource("33_ht8qj")
+metadata/_edit_use_anchors_ = true
+
+[node name="FractionsMinigame" type="TabBar" parent="UI/HowToPlay"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+
+[node name="BackButton" parent="UI/HowToPlay/FractionsMinigame" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+offset_left = -116.0
+offset_top = -68.0
+
+[node name="CoordinatesMinigame" type="TabBar" parent="UI/HowToPlay"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+
+[node name="BackButton" parent="UI/HowToPlay/CoordinatesMinigame" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+
+[node name="SumsMinigame" type="TabBar" parent="UI/HowToPlay"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+
+[node name="BackButton" parent="UI/HowToPlay/SumsMinigame" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+
+[node name="Characters" type="TabBar" parent="UI/HowToPlay"]
+visible = false
+layout_mode = 2
+focus_neighbor_bottom = NodePath("BackButton")
+focus_next = NodePath("BackButton")
+tab_count = 5
+clip_tabs = false
+scrolling_enabled = false
+scroll_to_selected = false
+tab_0/title = ""
+tab_1/title = ""
+tab_2/title = ""
+tab_3/title = ""
+tab_4/title = ""
+script = ExtResource("35_si0ac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HowToPlay/Characters"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/HowToPlay/Characters/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="BackButton" parent="UI/HowToPlay/Characters" instance=ExtResource("12_ax4u8")]
+layout_mode = 1
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("..")
+focus_previous = NodePath("..")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = -1
+anchor_top = 0.895833
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("32_e3a6j")
+region_rect = Rect2(0, 72, 288, 162)
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="ActionHints" type="HBoxContainer" parent="UI"]
+anchors_preset = -1
+anchor_top = 0.908
+anchor_right = 1.0
+anchor_bottom = 0.984
+offset_top = -0.00805664
+offset_bottom = 0.216003
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 90
+alignment = 1
+script = ExtResource("32_l6t77")
+metadata/_edit_use_anchors_ = true
+
+[node name="UpActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Arriba:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon1" type="TextureRect" parent="UI/ActionHints/UpActionHint"]
+layout_mode = 2
+offset_left = 79.0
+offset_top = -10.0
+offset_right = 119.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+
+[node name="DownActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Abajo:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon2" type="TextureRect" parent="UI/ActionHints/DownActionHint"]
+layout_mode = 2
+offset_left = 81.0
+offset_top = -10.0
+offset_right = 121.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+
+[node name="LeftActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Izquierda:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon3" type="TextureRect" parent="UI/ActionHints/LeftActionHint"]
+layout_mode = 2
+offset_left = 101.0
+offset_top = -10.0
+offset_right = 141.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+
+[node name="RightActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Derecha:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon4" type="TextureRect" parent="UI/ActionHints/RightActionHint"]
+layout_mode = 2
+offset_left = 96.0
+offset_top = -10.0
+offset_right = 136.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+
+[node name="AcceptActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Aceptar:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon5" type="TextureRect" parent="UI/ActionHints/AcceptActionHint"]
+layout_mode = 2
+offset_left = 81.0
+offset_top = -10.0
+offset_right = 121.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+joypad_mode = 1
+
+[node name="CancelActionHint" type="Label" parent="UI/ActionHints"]
+layout_mode = 2
+text = "Salir:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionIcon6" type="TextureRect" parent="UI/ActionHints/CancelActionHint"]
+layout_mode = 2
+offset_left = 54.0
+offset_top = -10.0
+offset_right = 94.0
+offset_bottom = 30.0
+script = ExtResource("32_i2vn0")
+action_name = &"ui_cancel"
+joypad_mode = 1
+
+[node name="ExitMenu" parent="UI" instance=ExtResource("40_idk3m")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_pressed"]
+[connection signal="visibility_changed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_visibility_changed"]
+[connection signal="focus_entered" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MinigamesMenu/ReturnBtn" to="UI/MinigamesMenu/ReturnBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MinigamesMenu/ReturnBtn" to="UI/MinigamesMenu/ReturnBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MinigamesMenu/ReturnBtn" to="UI/MinigamesMenu/ReturnBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MinigamesMenu/ReturnBtn" to="UI/MinigamesMenu/ReturnBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MinigamesMenu/ReturnBtn" to="UI/MinigamesMenu/ReturnBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_pressed"]
+[connection signal="visibility_changed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_visibility_changed"]
+[connection signal="focus_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/DifficultyMenu/HardBtn" to="UI/DifficultyMenu/HardBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_pressed"]
+[connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_toggled"]
+[connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
+[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_pressed"]
+[connection signal="pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_pressed"]
+[connection signal="tab_clicked" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_clicked"]
+[connection signal="tab_hovered" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_hovered"]
+[connection signal="tab_selected" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_selected"]
+[connection signal="visibility_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_visibility_changed"]
+[connection signal="no_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_no_pressed"]
+[connection signal="yes_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_yes_pressed"]
