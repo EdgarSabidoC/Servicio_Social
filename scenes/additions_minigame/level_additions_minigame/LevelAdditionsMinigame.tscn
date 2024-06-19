@@ -140,6 +140,17 @@ horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="SymbolLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.275391
+anchor_top = 0.366319
+anchor_right = 0.293945
+anchor_bottom = 0.407986
+text = "$"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="NoteLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.767578
@@ -381,17 +392,6 @@ visible = false
 show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
-
-[node name="SymbolLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.275391
-anchor_top = 0.366319
-anchor_right = 0.293945
-anchor_bottom = 0.407986
-text = "$"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/PricesBtn" to="." method="_on_prices_btn_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/TicketTexture" to="CanvasLayer/TicketTexture" method="_on_visibility_changed"]

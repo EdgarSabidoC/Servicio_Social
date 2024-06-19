@@ -272,7 +272,4 @@ script = ExtResource("5_3g51u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(285, 289)
 sprite_frames = SubResource("SpriteFrames_817vo")
-autoplay = "default"
-frame = 49
-frame_progress = 1.0
 centered = false
