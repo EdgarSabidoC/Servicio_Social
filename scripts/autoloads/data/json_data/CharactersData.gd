@@ -74,7 +74,7 @@ func loadProblemsData() -> void:
 		match character.name:
 			"Alux":
 				n = 0
-			"Tolok":
+			"Huolpoch":
 				n = 1
 			"Toh":
 				n = 2
@@ -178,7 +178,7 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	match character.name:
 		"Alux":
 			n = 0
-		"Tolok":
+		"huolpoch":
 			n = 1
 		"Toh":
 			n = 2

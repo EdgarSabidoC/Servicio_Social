@@ -24,7 +24,7 @@
 		"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
-			"name": "Tolok",
+			"name": "Huolpoch",
 			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
