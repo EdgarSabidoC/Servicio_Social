@@ -53,7 +53,6 @@ func _process(_delta: float) -> void:
 	
 	if self.total_label.text.begins_with("."):
 		self.total_label.text = "0."
-		print_debug(self.total_label.text)
 	
 	if Input.is_action_just_pressed("ui_pause"):
 		if !self.pause.is_active():
