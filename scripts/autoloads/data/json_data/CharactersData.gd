@@ -2,7 +2,7 @@ extends Node
 class_name LoadCharacters 
 
 # Rutas de los archivos .json con los datos:
-var characters_data_path: String = "res://assets/graphical_assets/texts/problems/pizzas/characters_data.json"
+var characters_data_path: String = "res://assets/graphical_assets/texts/problems/fractions_minigame/characters_data.json"
 const LOWER_LIMIT: int = 0
 const PROBLEMS_DATA_UPPER_LIMIT: int = 9
 const PROBLEMS_UPPER_LIMIT: int = 4
