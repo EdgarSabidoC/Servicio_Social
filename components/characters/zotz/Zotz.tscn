@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2bnuexwoqr6p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7m4bf"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"anger",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"sad",
+"speed": 30.0
+}]
+
+[node name="Zotz" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7m4bf")
+animation = &"anger"

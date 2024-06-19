@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://di21dycmomhd6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7p2vn"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"anger",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"sad",
+"speed": 30.0
+}]
+
+[node name="Keken" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7p2vn")
+animation = &"sad"
