@@ -695,6 +695,6 @@ animations = [{
 }]
 
 [node name="Alux" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ptlmq")
 autoplay = "default"
-centered = false

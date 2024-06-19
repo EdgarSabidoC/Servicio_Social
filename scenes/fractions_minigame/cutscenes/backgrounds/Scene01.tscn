@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://btf3hylb8368j"]
+[gd_scene load_steps=5 format=3 uid="uid://btf3hylb8368j"]
 
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scripts/Scene01.gd" id="1_qya30"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="1_trfx7"]
 [ext_resource type="Texture2D" uid="uid://bgiwqmg1lcl6n" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_bar.tga" id="1_xxcxx"]
 [ext_resource type="Texture2D" uid="uid://owvucsm3vx78" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_wall.tga" id="2_woga0"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qya30")
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="."]
@@ -32,6 +34,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_woga0")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(819, 303)
+scale = Vector2(2, 2)
 
 [node name="Bar" type="TextureRect" parent="."]
 layout_mode = 1
