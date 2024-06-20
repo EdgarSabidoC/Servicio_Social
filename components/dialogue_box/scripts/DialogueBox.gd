@@ -11,15 +11,19 @@ var current_paragraph: int = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
+# Señal que indica si ya se terminó el párrafo final:
 signal final_paragraph_finished
 
 
 func _ready() -> void:
+	animation_player.play("augment")
+	self.pivot_offset = self.size/2
 	if self.paragraphs[self.current_paragraph] == "":
 		self.current_paragraph += 1
 	self.print_message(self.paragraphs[self.current_paragraph])
 	self.length = len(self.paragraphs)-1
 	print_debug()
+
 
 func _process(_delta: float) -> void:
 	if self.paragraphs[self.current_paragraph] == "":
