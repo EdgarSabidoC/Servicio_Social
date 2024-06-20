@@ -1,7 +1,7 @@
 @tool
 class_name AnimatedTextureRect extends TextureRect
 @export var sprites: SpriteFrames
-@export_enum("default", "sad", "anger") var current_animation: String
+@export_enum("default", "sad", "anger", "entrance") var current_animation: String = "default"
 @export var frame_index: int = 0
 @export_range(0.0, INF, 0.001) var speed_scale: float = 1.0
 @export var auto_play: bool = false
@@ -13,6 +13,9 @@ class_name AnimatedTextureRect extends TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Si no hay sprites, se termina la función:
+	if !self.sprites:
+		return
 	self.fps = self.sprites.get_animation_speed(self.current_animation)
 	self.refresh_rate = self.sprites.get_frame_duration(self.current_animation, self.frame_index)
 	if self.auto_play:
@@ -32,7 +35,7 @@ func _process(delta: float) -> void:
 	if self.frame_delta >= self.refresh_rate/self.fps:
 		self.texture = self.get_next_frame()
 		self.frame_delta = 0
-	
+
 
 # Reproduce la animación:
 func play(animation: String = current_animation) -> void:
@@ -45,8 +48,8 @@ func play(animation: String = current_animation) -> void:
 
 # Obtiene los datos de la animación:
 func get_animation_data(animation: String) -> void:
-	self.fps = self.sprites.get_animation_speed(self.animation)
-	self.refresh_rate = self.sprites.get_frame_duration(self.animation, self.frame_index)
+	self.fps = self.sprites.get_animation_speed(animation)
+	self.refresh_rate = self.sprites.get_frame_duration(animation, self.frame_index)
 
 
 # Obtiene el siguiente frame de la animación:

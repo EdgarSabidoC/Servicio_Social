@@ -1,33 +1,32 @@
 extends Control
 
 const ALUX = preload("res://components/characters/alux/Alux.tscn")
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+const HUOLPOCH = preload("res://components/characters/huolpoch/Huolpoch.tscn")
+const KEKEN = preload("res://components/characters/keken/Keken.tscn")
+const TOH = preload("res://components/characters/toh/Toh.tscn")
+const UAYCHIVO = preload("res://components/characters/uaychivo/Uaychivo.tscn")
+const ZOTZ = preload("res://components/characters/zotz/Zotz.tscn")
 
 
 func _ready() -> void:
-	var character: AnimatedSprite2D
-	#character = ALUX.instantiate()
+	var character: AnimatedTextureRect
 	# Se inicializan los sprites:
 	match CharactersData.characters[PlayerSession.character].name:
 		"Alux":
 			character = ALUX.instantiate()
 		"Toh":
-			character = ALUX.instantiate()
+			character = TOH.instantiate()
 		"Keken":
-			character = ALUX.instantiate()
+			character = KEKEN.instantiate()
 		"Huolpoch":
-			character = ALUX.instantiate()
+			character = HUOLPOCH.instantiate()
 		"Zotz":
-			character = ALUX.instantiate()
+			character = ZOTZ.instantiate()
 		"Uaychivo":
-			character = ALUX.instantiate()
+			character = UAYCHIVO.instantiate()
 		_:
 			# Test debug (eliminar esta condicional):
 			character = ALUX.instantiate()
-	
 	# Se añade el personaje a la escena:
-	self.animated_sprite_2d.sprite_frames = character.sprite_frames
-	self.animated_sprite_2d.animation = character.animation
-	self.animated_sprite_2d.play("default")
-	#self.add_child(character)
-	#self.move_child(character, 2)
+	self.add_child(character)
+	self.move_child(character, 2)
