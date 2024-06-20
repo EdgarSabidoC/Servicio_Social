@@ -6,6 +6,7 @@ const KEKEN = preload("res://components/characters/keken/Keken.tscn")
 const TOH = preload("res://components/characters/toh/Toh.tscn")
 const UAYCHIVO = preload("res://components/characters/uaychivo/Uaychivo.tscn")
 const ZOTZ = preload("res://components/characters/zotz/Zotz.tscn")
+@onready var dialogue_box: Control = $DialogueBox
 
 
 func _ready() -> void:
@@ -30,3 +31,4 @@ func _ready() -> void:
 	# Se añade el personaje a la escena:
 	self.add_child(character)
 	self.move_child(character, 2)
+	self.dialogue_box.show()

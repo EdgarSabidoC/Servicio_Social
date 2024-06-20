@@ -1,64 +1,77 @@
 extends Control
 
-@onready var moving_text = $CanvasLayer/MarginContainer/MovingText
+@onready var moving_text = $MarginContainer/MovingText
 @export var alignment = "f"
-@onready var margin_container = $CanvasLayer/MarginContainer
+@onready var margin_container = $MarginContainer
 var eof: bool = false
-var paragraphs = "[p]Esta es una línea de texto.Esta es otra línea de texto.[/p][p]Segundo párrafo.[/p]".replace("[/p]", "").split("[p]")
-var len: int
-var current_p: int = 0
+var end_of_paragraph: bool = false
+var paragraphs = "[StartParagraph]Esta es una línea de texto. Esta es otra línea de texto, blah, blah, blah.[StartParagraph]Segundo párrafo: blah, blah, blah, blah, blah, blah, blah.".split("[StartParagraph]")
+var length: int
+var current_paragraph: int = 0
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+signal final_paragraph_finished
+
 
 func _ready() -> void:
-	if paragraphs[current_p] == "":
-		current_p += 1
-	print_message(paragraphs[current_p])
-	len = len(paragraphs)-1
+	if self.paragraphs[self.current_paragraph] == "":
+		self.current_paragraph += 1
+	self.print_message(self.paragraphs[self.current_paragraph])
+	self.length = len(self.paragraphs)-1
+	print_debug()
 
 func _process(_delta: float) -> void:
-	if paragraphs[current_p] == "":
-		current_p += 1
-	if Input.is_action_pressed("ui_accept") and !eof:
-		moving_text.seconds = 0.05/4
-	elif Input.is_action_just_pressed("ui_accept") and eof:
+	if self.paragraphs[self.current_paragraph] == "":
+		self.current_paragraph += 1
+	if (Input.is_action_pressed("ui_accept") or Input.is_action_pressed("m1")) and !self.end_of_paragraph:
+		self.moving_text.seconds = 0.05/4
+	elif (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1")) and self.end_of_paragraph:
 		print_debug("Finalizó un párrafo")
-		if current_p < len:
-			current_p += 1
+		if self.current_paragraph < self.length:
+			self.current_paragraph += 1
 			# Se imprime el siguiente párrafo:
-			print_message(paragraphs[current_p])
-		eof = false
+			self.print_message(self.paragraphs[self.current_paragraph])
+		else:
+			self.eof = true
+			self.final_paragraph_finished.emit()
+		self.end_of_paragraph = false
 	else:
-		moving_text.seconds = 0.1/2
+		self.moving_text.seconds = 0.1/2
 
 
 # Imprime una cadena que se la pase y la alineación [l: left, c: center, r: right, f: fill]:
 func print_message(string: String) -> void:
-	match alignment:
+	match self.alignment:
 		"l":
-			moving_text.text = "[left]%s[/left]" %string
+			self.moving_text.text = "[left]%s[/left]" %string
 		"c":	
-			moving_text.text = "[center]%s[/center]" %string
+			self.moving_text.text = "[center]%s[/center]" %string
 		"r":
-			moving_text.text = "[right]%s[/right]" %string
+			self.moving_text.text = "[right]%s[/right]" %string
 		"f":
-			moving_text.text = "[fill]%s[/fill]" %string
-	moving_text.move_text()
+			self.moving_text.text = "[fill]%s[/fill]" %string
+		"j":
+			self.moving_text.text = "[fill]%s[/fill]" %string
+	self.moving_text.move_text()
 
 
 # Limpia el mensaje (imprime una cadena predeterminada):
 func clear_message() -> void:
-	if !moving_text.text.is_empty():
-		moving_text.text = self.text
-		moving_text.move_text()
+	if !self.moving_text.text.is_empty():
+		self.moving_text.text = self.text
+		self.moving_text.move_text()
 
 
-func print_message_by_paragraph(paragraph: String) -> void:
-	match alignment:
-		"l":
-			moving_text.text = "[left]%s[/left]" % paragraph
-		"c":	
-			moving_text.text = "[center]%s[/center]" % paragraph
-		"r":
-			moving_text.text = "[right]%s[/right]" % paragraph
-		"f":
-			moving_text.text = "[fill]%s[/fill]" % paragraph
-	moving_text.move_text()
+func _on_moving_text_end_of_text() -> void:
+	self.end_of_paragraph = true
+
+
+func _on_final_paragraph_finished() -> void:
+	# Se queda esperando una entrada ui_accept o m1:
+	var cont: bool = false
+	while !cont:
+		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1"):
+			print_debug("Párrafo final: Finalizó el texto")
+			cont = true
+			animation_player.play("reduce")
