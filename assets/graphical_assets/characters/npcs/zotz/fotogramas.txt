@@ -1,0 +1,5 @@
+Nombre		Fotogramas	Duración de los fotogramas(ms)
+murcielago	24		70
+in		46		40
+rejected 	33		80
+in		12		80
