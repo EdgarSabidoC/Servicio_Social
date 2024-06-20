@@ -9,10 +9,10 @@ extends Button
 func _on_pressed() -> void:
 	
 	if self.active and self.total_label.text != "":
-		self.change_active_state()
 		self.ticket_texture.show()
 		self.ticket_animation_player.play("default")
 
 
+# Cambia el estado activo del botón aceptar:
 func change_active_state(): 
 	self.active = !self.active

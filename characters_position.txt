@@ -1,0 +1,7 @@
+Sin centrar:
+x: 663
+y: 143
+
+Centrada:
+x: 863
+y: 365

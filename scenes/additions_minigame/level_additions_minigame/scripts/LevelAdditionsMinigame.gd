@@ -22,6 +22,7 @@ extends Node2D
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var prices_menu: Control = $CanvasLayer/PricesMenu
 @onready var current_pitch = 1.0
+@onready var digits_len: int = 6
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,7 +44,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if self.total_label.text.length() > 10:
+	if self.total_label.text.length() > self.digits_len:
 		disable_buttons()
 	elif !self.buttons_are_enabled:
 		enable_buttons()
@@ -53,7 +54,6 @@ func _process(_delta: float) -> void:
 	
 	if self.total_label.text.begins_with("."):
 		self.total_label.text = "0."
-		print_debug(self.total_label.text)
 	
 	if Input.is_action_just_pressed("ui_pause"):
 		if !self.pause.is_active():

@@ -4,6 +4,7 @@ var level_fractions_minigame = load("res://scenes/fractions_minigame/level_fract
 const O_SOLE_MIO_SOFT_PIANO: AudioStream = preload("res://assets/sounds/music/o_sole_mio_soft_piano.ogg")
 @onready var music_starts_at: float = 0.5
 
+
 func _ready() -> void:
 	# Se cambia la canción:
 	BackgroundMusic.change_song(O_SOLE_MIO_SOFT_PIANO, music_starts_at)

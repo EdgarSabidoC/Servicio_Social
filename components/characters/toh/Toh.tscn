@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://biq21scj53lfm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8gpb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"anger",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"sad",
+"speed": 30.0
+}]
+
+[node name="Toh" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_v8gpb")
+animation = &"sad"
