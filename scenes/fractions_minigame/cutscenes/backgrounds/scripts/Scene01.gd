@@ -13,22 +13,22 @@ func _ready() -> void:
 	var character: AnimatedTextureRect
 	# Se inicializan los sprites:
 	match CharactersData.characters[PlayerSession.character].name:
-		"Alux":
-			character = ALUX.instantiate()
-		"Toh":
-			character = TOH.instantiate()
-		"Keken":
-			character = KEKEN.instantiate()
-		"Huolpoch":
-			character = HUOLPOCH.instantiate()
-		"Zotz":
-			character = ZOTZ.instantiate()
-		"Uaychivo":
-			character = UAYCHIVO.instantiate()
+		#"Alux":
+			#character = ALUX.instantiate()
+		#"Toh":
+			#character = TOH.instantiate()
+		#"Keken":
+			#character = KEKEN.instantiate()
+		#"Huolpoch":
+			#character = HUOLPOCH.instantiate()
+		#"Zotz":
+			#character = ZOTZ.instantiate()
+		#"Uaychivo":
+			#character = UAYCHIVO.instantiate()
 		_:
 			# Test debug (eliminar esta condicional):
-			character = ALUX.instantiate()
+			character = ZOTZ.instantiate()
 	# Se añade el personaje a la escena:
 	self.add_child(character)
 	self.move_child(character, 2)
-	self.dialogue_box.show()
+	#self.dialogue_box.show()

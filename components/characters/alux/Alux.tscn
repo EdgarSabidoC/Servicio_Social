@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bqndfeduh013a" path="res://assets/graphical_assets/characters/npcs/alux/alux_sad.tga" id="3_xkr46"]
 [ext_resource type="Script" path="res://components/characters/alux/AnimationPlayer.gd" id="5_cf5ek"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7xwcr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_12fr5"]
 atlas = ExtResource("1_l63rb")
-region = Rect2(0, 2240, 124, 160)
+region = Rect2(0, 640, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gky0u"]
 atlas = ExtResource("1_r7rvp")
@@ -170,10 +170,6 @@ region = Rect2(0, 320, 124, 160)
 atlas = ExtResource("1_l63rb")
 region = Rect2(0, 480, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_12fr5"]
-atlas = ExtResource("1_l63rb")
-region = Rect2(0, 640, 124, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3yi1"]
 atlas = ExtResource("1_l63rb")
 region = Rect2(0, 800, 124, 160)
@@ -209,6 +205,10 @@ region = Rect2(0, 1920, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbxg5"]
 atlas = ExtResource("1_l63rb")
 region = Rect2(0, 2080, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xwcr"]
+atlas = ExtResource("1_l63rb")
+region = Rect2(0, 2240, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0bd7"]
 atlas = ExtResource("1_l63rb")
@@ -727,10 +727,10 @@ scale = Vector2(1.2, 1.2)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-texture = SubResource("AtlasTexture_7xwcr")
+texture = SubResource("AtlasTexture_12fr5")
 script = ExtResource("1_wqef5")
 sprites = SubResource("SpriteFrames_x5hrt")
-frame_index = 14
+frame_index = 4
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true

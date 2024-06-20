@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cdro0r88yq74i" path="res://assets/graphical_assets/characters/npcs/keken/keken_in_final.tga" id="4_8dfhw"]
 [ext_resource type="Texture2D" uid="uid://dx27accb75wpm" path="res://assets/graphical_assets/characters/npcs/keken/keken_sad.tga" id="5_75hc8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yj0tr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_veiq8"]
 atlas = ExtResource("3_kt4a1")
-region = Rect2(0, 320, 124, 160)
+region = Rect2(0, 1600, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wooq1"]
 atlas = ExtResource("2_b0m2i")
@@ -190,6 +190,10 @@ region = Rect2(0, 0, 124, 160)
 atlas = ExtResource("3_kt4a1")
 region = Rect2(0, 160, 124, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj0tr"]
+atlas = ExtResource("3_kt4a1")
+region = Rect2(0, 320, 124, 160)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkapv"]
 atlas = ExtResource("3_kt4a1")
 region = Rect2(0, 480, 124, 160)
@@ -217,10 +221,6 @@ region = Rect2(0, 1280, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_68vjm"]
 atlas = ExtResource("3_kt4a1")
 region = Rect2(0, 1440, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_veiq8"]
-atlas = ExtResource("3_kt4a1")
-region = Rect2(0, 1600, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_643u2"]
 atlas = ExtResource("3_kt4a1")
@@ -993,10 +993,10 @@ offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
-texture = SubResource("AtlasTexture_yj0tr")
+texture = SubResource("AtlasTexture_veiq8")
 script = ExtResource("1_uy7eb")
 sprites = SubResource("SpriteFrames_3opny")
-frame_index = 2
+frame_index = 10
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
