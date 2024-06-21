@@ -730,7 +730,6 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_12fr5")
 script = ExtResource("1_wqef5")
 sprites = SubResource("SpriteFrames_x5hrt")
-frame_index = 4
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true

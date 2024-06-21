@@ -996,7 +996,6 @@ scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_veiq8")
 script = ExtResource("1_uy7eb")
 sprites = SubResource("SpriteFrames_3opny")
-frame_index = 10
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true

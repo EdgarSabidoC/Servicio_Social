@@ -10,12 +10,10 @@ class_name AnimatedTextureRect extends TextureRect
 @onready var fps: float = 30
 @onready var frame_delta: float = 0
 
+signal finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Si no hay sprites, se termina la función:
-	if !self.sprites:
-		return
 	self.fps = self.sprites.get_animation_speed(self.current_animation)
 	self.refresh_rate = self.sprites.get_frame_duration(self.current_animation, self.frame_index)
 	if self.auto_play:
@@ -35,7 +33,7 @@ func _process(delta: float) -> void:
 	if self.frame_delta >= self.refresh_rate/self.fps:
 		self.texture = self.get_next_frame()
 		self.frame_delta = 0
-
+		
 
 # Reproduce la animación:
 func play(animation: String = current_animation) -> void:
@@ -60,10 +58,12 @@ func get_next_frame() -> Texture2D:
 	var frame_count = self.sprites.get_frame_count(self.current_animation)
 	# Se reincia el índice de los frames si se llega a un valor mayor o igual al total de frames:
 	if self.frame_index >= frame_count:
-		self.frame_index = frame_count-1 # Se queda con el último frame.
-		# Se verifica si no se está en un loop:
+		self.frame_index = 0 # Se reinicia
 		if not self.sprites.get_animation_loop(self.current_animation):
+			# Si no se está en un loop:
 			self.playing = false
+			self.frame_index = frame_count-1 # Se queda con el último frame.
+			self.finished.emit()
 	get_animation_data(self.current_animation)
 	
 	# Se retorna la siguiente textura de la animación:
