@@ -12,19 +12,29 @@ class_name Clock
 @onready var milliseconds: int = 0
 @onready var color_changed: bool = false
 @onready var signal_emitted: bool
+@export var countdown: bool = false
 
 
 signal new_minute_reached
 
 
+func _ready() -> void:
+	pass
+
+
 func _process(delta: float) -> void:
-	self.time += delta
+	if !self.countdown:
+		self.time += delta
+	elif self.countdown and self.time > 0:
+		self.time -= delta
+	elif self.countdown and self.time == 0:
+		self.stop()
 	@warning_ignore("narrowing_conversion")
-	self.milliseconds = fmod(time, 1) * 100
+	self.milliseconds = fmod(self.time, 1) * 100
 	@warning_ignore("narrowing_conversion")
-	self.seconds = fmod(time, 60)
+	self.seconds = fmod(self.time, 60)
 	@warning_ignore("narrowing_conversion")
-	self.minutes = fmod(time, 3600) / 60
+	self.minutes = fmod(self.time, 3600) / 60
 	
 	# Si se llega al minuto, se lanza la señal new_minute_reached:
 	if !self.signal_emitted and self.seconds == 59 and self.milliseconds == 99:
@@ -54,45 +64,76 @@ func set_timer_color() -> void:
 	# Se cambia el color a rojo:
 	match self.minutes:
 		1:
-			if !self.color_changed:
+			if !self.color_changed and !self.countdown:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.75))
-		2:
-			if !self.color_changed:
-				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.55))
-		3:
-			if !self.color_changed:
-				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.25))
-		4:
-			if !self.color_changed:
-				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.15))
-		5:
-			if !self.color_changed:
-				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED)
-		6:
-			if !self.color_changed:
-				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.15))
-		7:
-			if !self.color_changed:
-				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.30))
-		8:
-			if !self.color_changed:
-				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.45))
-		9:
-			if !self.color_changed:
-				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.5))
-		10:
-			if !self.color_changed:
+			elif self.countdown:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.75))
+		2:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.55))
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.5))
+		3:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.25))
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.45))
+		4:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.15))
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.30))
+		5:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED)
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.15))
+		6:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.15))
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED)
+		7:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.30))
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.15))
+		8:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.45))
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.25))
+		9:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.5))
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.55))
+		10:
+			if !self.color_changed and !self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.75))
+			elif self.countdown:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.75))
+
 
 # Imprime en una etiqueta el formato del reloj:
 func get_time_formatted() -> void:
