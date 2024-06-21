@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://drlgd1b3cem03"]
+
+[ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/LevelCoordinatesMinigame.gd" id="1_3xota"]
+[ext_resource type="Texture2D" uid="uid://bil6owdldotqv" path="res://assets/graphical_assets/parallax/street.tga" id="1_74bsg"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="3_qyoai"]
+[ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_rjwd5"]
+[ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="4_xtxav"]
+
+[node name="LevelCoordinatesMinigame" type="Node2D"]
+script = ExtResource("1_3xota")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_74bsg")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = -1
+anchor_left = -0.000976563
+anchor_top = -0.00173611
+anchor_right = 0.194336
+anchor_bottom = 0.0850694
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/ScorePanel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_qyoai")
+
+[node name="Clock" parent="CanvasLayer" instance=ExtResource("4_rjwd5")]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("4_xtxav")]
+show_behind_parent = false
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]
