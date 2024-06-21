@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		self.time += delta
 	elif self.countdown and self.time > 0:
 		self.time -= delta
-	elif self.countdown and self.time == 0:
+	elif self.countdown and self.time <= 0:
 		self.countdown_finished.emit()
 		self.stop()
 	@warning_ignore("narrowing_conversion")
@@ -55,7 +55,8 @@ func _process(delta: float) -> void:
 	set_timer_color()
 	
 	# Se imprime el tiempo en la etiqueta ya con formato:
-	get_time_formatted()
+	if self.time >= 0:
+		get_time_formatted()
 
 
 # Para el reloj:
