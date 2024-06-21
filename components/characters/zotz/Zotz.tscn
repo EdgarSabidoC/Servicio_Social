@@ -1,15 +1,14 @@
-[gd_scene load_steps=126 format=3 uid="uid://d2bnuexwoqr6p"]
+[gd_scene load_steps=122 format=3 uid="uid://dna2xokag5i3n"]
 
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="1_f2hof"]
 [ext_resource type="Texture2D" uid="uid://cp3emmwm26dp6" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_anger.tga" id="2_qlhj2"]
 [ext_resource type="Texture2D" uid="uid://bc61yusy1ues7" path="res://assets/graphical_assets/characters/npcs/zotz/zotz.tga" id="3_ag1al"]
 [ext_resource type="Texture2D" uid="uid://cl6iegxceg23t" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_sad.tga" id="4_5wxuo"]
 [ext_resource type="Texture2D" uid="uid://cv8y1xi3kv8ho" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_in.tga" id="5_5hk1a"]
-[ext_resource type="Script" path="res://components/characters/zotz/AnimationPlayer.gd" id="6_vwoe1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wcwsc"]
-atlas = ExtResource("5_5hk1a")
-region = Rect2(0, 3200, 124, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p4dg"]
+atlas = ExtResource("3_ag1al")
+region = Rect2(0, 2720, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ube1"]
 atlas = ExtResource("2_qlhj2")
@@ -127,10 +126,6 @@ region = Rect2(0, 2400, 124, 160)
 atlas = ExtResource("3_ag1al")
 region = Rect2(0, 2560, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5p4dg"]
-atlas = ExtResource("3_ag1al")
-region = Rect2(0, 2720, 124, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gyrm"]
 atlas = ExtResource("3_ag1al")
 region = Rect2(0, 2880, 124, 160)
@@ -234,6 +229,10 @@ region = Rect2(0, 2880, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8piw8"]
 atlas = ExtResource("5_5hk1a")
 region = Rect2(0, 3040, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcwsc"]
+atlas = ExtResource("5_5hk1a")
+region = Rect2(0, 3200, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cr4r"]
 atlas = ExtResource("5_5hk1a")
@@ -594,16 +593,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jw6gi")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_ren80")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lugqi")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_dsscm")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_su48g")
 }, {
 "duration": 1.0,
@@ -835,114 +834,23 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="Animation" id="Animation_prmr4"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:current_animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["entrance"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(735, 1.52588e-05)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(124, 160)]
-}
-
-[sub_resource type="Animation" id="Animation_7r782"]
-resource_name = "entrance"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:current_animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["entrance"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.25, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(735, 0), Vector2(735, 151), Vector2(735, 210), Vector2(735, 282)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(124, 160)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7s7uu"]
-_data = {
-"RESET": SubResource("Animation_prmr4"),
-"entrance": SubResource("Animation_7r782")
-}
-
 [node name="Zotz" type="TextureRect"]
 anchors_preset = -1
-anchor_left = 0.717773
-anchor_right = 0.838867
-anchor_bottom = 0.277778
-offset_left = 735.0
-offset_top = 1.52588e-05
-offset_right = 859.0
-offset_bottom = 160.0
-texture = SubResource("AtlasTexture_wcwsc")
+anchor_left = 0.439453
+anchor_top = 0.36111
+anchor_right = 0.560547
+anchor_bottom = 0.63889
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(62.0001, 80.0007)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = SubResource("AtlasTexture_5p4dg")
+stretch_mode = 2
 script = ExtResource("1_f2hof")
 sprites = SubResource("SpriteFrames_reyp0")
-current_animation = "entrance"
-frame_index = 20
+frame_index = 17
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7s7uu")
-}
-script = ExtResource("6_vwoe1")
-
-[connection signal="finished" from="." to="AnimationPlayer" method="_on_zotz_finished"]

@@ -18,6 +18,7 @@ signal animation_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.pivot_offset = self.size/2
 	self.fps = self.sprites.get_animation_speed(self.current_animation)
 	self.refresh_rate = self.sprites.get_frame_duration(self.current_animation, self.frame_index)
 	if self.auto_play:
@@ -40,7 +41,7 @@ func _process(delta: float) -> void:
 	if self.frame_delta >= self.refresh_rate/self.fps:
 		self.texture = self.get_next_frame()
 		self.frame_delta = 0
-	
+
 
 # Reproduce la animación:
 func play(animation: String = current_animation) -> void:

@@ -10,13 +10,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if self.zotz.current_animation == "entrance" and self.zotz.frame_index == 30:
-		self.play("entrance")
+	if zotz.is_visible_in_tree() and self.zotz.current_animation == "entrance" and self.zotz.frame_index == 30:
+		#self.play("entrance")
+		pass
 
 
 func _on_zotz_finished() -> void:
 	if self.zotz.current_animation == "entrance" and !self.zotz.playing:
-		self.set_process(false)
-		self.zotz.changed = true
-		self.zotz.current_animation = "default"
 		self.zotz.play("default")
+	self.zotz.changed = true

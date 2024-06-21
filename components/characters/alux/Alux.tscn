@@ -1,14 +1,13 @@
-[gd_scene load_steps=106 format=3 uid="uid://bqpat0nvt6xab"]
+[gd_scene load_steps=102 format=3 uid="uid://bqpat0nvt6xab"]
 
 [ext_resource type="Texture2D" uid="uid://wm0l45fxdk02" path="res://assets/graphical_assets/characters/npcs/alux/alux.tga" id="1_l63rb"]
 [ext_resource type="Texture2D" uid="uid://3w1v7f4gukia" path="res://assets/graphical_assets/characters/npcs/alux/alux_anger.tga" id="1_r7rvp"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="1_wqef5"]
 [ext_resource type="Texture2D" uid="uid://bqndfeduh013a" path="res://assets/graphical_assets/characters/npcs/alux/alux_sad.tga" id="3_xkr46"]
-[ext_resource type="Script" path="res://components/characters/alux/AnimationPlayer.gd" id="5_cf5ek"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_12fr5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_37upp"]
 atlas = ExtResource("1_l63rb")
-region = Rect2(0, 640, 124, 160)
+region = Rect2(0, 3360, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gky0u"]
 atlas = ExtResource("1_r7rvp")
@@ -170,6 +169,10 @@ region = Rect2(0, 320, 124, 160)
 atlas = ExtResource("1_l63rb")
 region = Rect2(0, 480, 124, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_12fr5"]
+atlas = ExtResource("1_l63rb")
+region = Rect2(0, 640, 124, 160)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3yi1"]
 atlas = ExtResource("1_l63rb")
 region = Rect2(0, 800, 124, 160)
@@ -233,10 +236,6 @@ region = Rect2(0, 3040, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6sd33"]
 atlas = ExtResource("1_l63rb")
 region = Rect2(0, 3200, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_37upp"]
-atlas = ExtResource("1_l63rb")
-region = Rect2(0, 3360, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38ndb"]
 atlas = ExtResource("3_xkr46")
@@ -577,9 +576,9 @@ animations = [{
 "speed": 12.0
 }, {
 "frames": [],
-"loop": true,
+"loop": false,
 "name": &"entrance",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -701,41 +700,27 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="Animation" id="Animation_gurb1"]
-resource_name = "RESET"
-
-[sub_resource type="Animation" id="Animation_6nean"]
-resource_name = "entrance"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nxg54"]
-_data = {
-"RESET": SubResource("Animation_gurb1"),
-"entrance": SubResource("Animation_6nean")
-}
-
 [node name="Alux" type="TextureRect"]
 anchors_preset = -1
-anchor_left = 0.71875
-anchor_top = 0.416667
-anchor_right = 0.864062
-anchor_bottom = 0.75
-offset_right = -24.8
-offset_bottom = -32.0
+anchor_left = 0.70664
+anchor_top = 0.388889
+anchor_right = 0.851953
+anchor_bottom = 0.722222
+offset_left = 12.4003
+offset_top = 16.0001
+offset_right = -12.4002
+offset_bottom = -16.0001
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(62, 80)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-texture = SubResource("AtlasTexture_12fr5")
+texture = SubResource("AtlasTexture_37upp")
 script = ExtResource("1_wqef5")
 sprites = SubResource("SpriteFrames_x5hrt")
+frame_index = 21
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_nxg54")
-}
-script = ExtResource("5_cf5ek")

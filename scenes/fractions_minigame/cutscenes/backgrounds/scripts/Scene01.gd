@@ -1,39 +1,40 @@
 extends Control
 
-const ALUX = preload("res://components/characters/alux/Alux.tscn")
-const HUOLPOCH = preload("res://components/characters/huolpoch/Huolpoch.tscn")
-const KEKEN = preload("res://components/characters/keken/Keken.tscn")
-const TOH = preload("res://components/characters/toh/Toh.tscn")
-const UAYCHIVO = preload("res://components/characters/uaychivo/Uaychivo.tscn")
-const ZOTZ = preload("res://components/characters/zotz/Zotz.tscn")
+
 @onready var dialogue_box: Control = $DialogueBox
+@onready var alux: AnimatedTextureRect = $Alux
+@onready var zotz: AnimatedTextureRect = $Zotz
+@onready var keken: AnimatedTextureRect = $Keken
 @onready var character: AnimatedTextureRect
 
+@onready var characters: Array[AnimatedTextureRect] = [alux, zotz, keken]
 
 func _ready() -> void:
 	# Se inicializan los sprites:
-	match CharactersData.characters[PlayerSession.character].name:
-		#"Alux":
-			#character = ALUX.instantiate()
+	var c_name = "Keken"
+	#match CharactersData.characters[PlayerSession.character].name:
+	match c_name:
+		"Alux":
+			character = alux
 		#"Toh":
-			#character = TOH.instantiate()
-		#"Keken":
-			#character = KEKEN.instantiate()
+			#character = toh
+		"Keken":
+			character = keken
 		#"Huolpoch":
-			#character = HUOLPOCH.instantiate()
-		#"Zotz":
-			#character = ZOTZ.instantiate()
+			#character = huolpoch
+		"Zotz":
+			print_debug("Entró aquí")
+			character = zotz
 		#"Uaychivo":
-			#character = UAYCHIVO.instantiate()
-		_:
-			# Test debug (eliminar esta condicional):
-			character = ZOTZ.instantiate()
-	# Se escala el personaje:
-	character.scale = Vector2(1.5,1.5)
-	
-	# Se añade el personaje a la escena:
-	self.add_child(character)
-	self.move_child(character, 2)
+			#character = uaychivo
+
+	# Se muestra al personaje seleccionado:
+	character.show()
+
+	# Se eliminan los personajes ocultos:
+	for c in self.characters:
+		if !c.is_visible_in_tree():
+			c.queue_free()
 	
 	# Se conecta la señal de animation changed a la función de start_dialogue_box:
 	character.connect("animation_changed", self.start_dialogue_box)
