@@ -16,4 +16,7 @@ func _process(_delta: float) -> void:
 
 func _on_zotz_finished() -> void:
 	if self.zotz.current_animation == "entrance" and !self.zotz.playing:
+		self.set_process(false)
+		self.zotz.changed = true
+		self.zotz.current_animation = "default"
 		self.zotz.play("default")

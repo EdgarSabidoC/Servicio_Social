@@ -9,8 +9,12 @@ class_name AnimatedTextureRect extends TextureRect
 @onready var refresh_rate: float = 1.0
 @onready var fps: float = 30
 @onready var frame_delta: float = 0
+@onready var changed: bool = false
+
 
 signal finished
+signal animation_changed
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,18 +26,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if self.changed:
+		self.animation_changed.emit()
+		self.changed = false
 	if self.sprites == null or self.playing == false:
 		return
 	elif self.sprites.has_animation(self.current_animation) == false:
 		self.playing = false
-		assert(false, "Animation %s, does not exist" % current_animation)
+		assert(false, "Animation %s, does not exist" % self.current_animation)
 	
 	self.get_animation_data(self.current_animation)
 	self.frame_delta += (self.speed_scale * delta)
 	if self.frame_delta >= self.refresh_rate/self.fps:
 		self.texture = self.get_next_frame()
 		self.frame_delta = 0
-		
+	
 
 # Reproduce la animación:
 func play(animation: String = current_animation) -> void:

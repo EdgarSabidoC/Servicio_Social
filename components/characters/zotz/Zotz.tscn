@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cv8y1xi3kv8ho" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_in.tga" id="5_5hk1a"]
 [ext_resource type="Script" path="res://components/characters/zotz/AnimationPlayer.gd" id="6_vwoe1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5crc1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcwsc"]
 atlas = ExtResource("5_5hk1a")
-region = Rect2(0, 7200, 124, 160)
+region = Rect2(0, 3200, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ube1"]
 atlas = ExtResource("2_qlhj2")
@@ -235,10 +235,6 @@ region = Rect2(0, 2880, 124, 160)
 atlas = ExtResource("5_5hk1a")
 region = Rect2(0, 3040, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wcwsc"]
-atlas = ExtResource("5_5hk1a")
-region = Rect2(0, 3200, 124, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cr4r"]
 atlas = ExtResource("5_5hk1a")
 region = Rect2(0, 3360, 124, 160)
@@ -334,6 +330,10 @@ region = Rect2(0, 6880, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pquy"]
 atlas = ExtResource("5_5hk1a")
 region = Rect2(0, 7040, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5crc1"]
+atlas = ExtResource("5_5hk1a")
+region = Rect2(0, 7200, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0wwh"]
 atlas = ExtResource("4_5wxuo")
@@ -926,16 +926,17 @@ anchors_preset = -1
 anchor_left = 0.717773
 anchor_right = 0.838867
 anchor_bottom = 0.277778
-offset_left = 0.000427246
+offset_left = 735.0
 offset_top = 1.52588e-05
-offset_right = 0.000183105
-offset_bottom = -0.000106812
-texture = SubResource("AtlasTexture_5crc1")
+offset_right = 859.0
+offset_bottom = 160.0
+texture = SubResource("AtlasTexture_wcwsc")
 script = ExtResource("1_f2hof")
 sprites = SubResource("SpriteFrames_reyp0")
 current_animation = "entrance"
-frame_index = 45
+frame_index = 20
 auto_play = true
+playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

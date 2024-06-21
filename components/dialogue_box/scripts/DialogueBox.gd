@@ -10,19 +10,12 @@ var length: int
 var current_paragraph: int = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-
 # Señal que indica si ya se terminó el párrafo final:
 signal final_paragraph_finished
 
 
 func _ready() -> void:
-	animation_player.play("augment")
-	self.pivot_offset = self.size/2
-	if self.paragraphs[self.current_paragraph] == "":
-		self.current_paragraph += 1
-	self.print_message(self.paragraphs[self.current_paragraph])
-	self.length = len(self.paragraphs)-1
-	print_debug()
+	self.hide()
 
 
 func _process(_delta: float) -> void:
@@ -42,6 +35,15 @@ func _process(_delta: float) -> void:
 		self.end_of_paragraph = false
 	else:
 		self.moving_text.seconds = 0.1/2
+
+
+func start() -> void:
+	animation_player.play("augment")
+	self.pivot_offset = self.size/2
+	if self.paragraphs[self.current_paragraph] == "":
+		self.current_paragraph += 1
+	self.print_message(self.paragraphs[self.current_paragraph])
+	self.length = len(self.paragraphs)-1
 
 
 # Imprime una cadena que se la pase y la alineación [l: left, c: center, r: right, f: fill]:
