@@ -16,6 +16,7 @@ class_name Clock
 
 
 signal new_minute_reached
+signal countdown_finished
 
 
 func _ready() -> void:
@@ -29,6 +30,7 @@ func _process(delta: float) -> void:
 		self.time -= delta
 	elif self.countdown and self.time == 0:
 		self.stop()
+		self.countdown_finished.emit()
 	@warning_ignore("narrowing_conversion")
 	self.milliseconds = fmod(self.time, 1) * 100
 	@warning_ignore("narrowing_conversion")
