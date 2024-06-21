@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if self.keken.current_animation == "entrance" and self.keken.frame_index == 10:
+	if self.keken.current_animation == "entrance" and self.keken.frame_index == 9:
 		self.play("entrance")
 
 

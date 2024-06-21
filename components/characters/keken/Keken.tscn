@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cdro0r88yq74i" path="res://assets/graphical_assets/characters/npcs/keken/keken_in_final.tga" id="4_8dfhw"]
 [ext_resource type="Texture2D" uid="uid://dx27accb75wpm" path="res://assets/graphical_assets/characters/npcs/keken/keken_sad.tga" id="5_75hc8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsnyy"]
-atlas = ExtResource("3_kt4a1")
-region = Rect2(0, 2720, 124, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho4jo"]
+atlas = ExtResource("4_8dfhw")
+region = Rect2(0, 4640, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wooq1"]
 atlas = ExtResource("2_b0m2i")
@@ -250,6 +250,10 @@ region = Rect2(0, 2400, 124, 160)
 atlas = ExtResource("3_kt4a1")
 region = Rect2(0, 2560, 124, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsnyy"]
+atlas = ExtResource("3_kt4a1")
+region = Rect2(0, 2720, 124, 160)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_21aa0"]
 atlas = ExtResource("3_kt4a1")
 region = Rect2(0, 2880, 124, 160)
@@ -373,10 +377,6 @@ region = Rect2(0, 4320, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_p6pr6"]
 atlas = ExtResource("4_8dfhw")
 region = Rect2(0, 4480, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ho4jo"]
-atlas = ExtResource("4_8dfhw")
-region = Rect2(0, 4640, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3knx"]
 atlas = ExtResource("5_75hc8")
@@ -844,7 +844,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"entrance",
-"speed": 12.0
+"speed": 25.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -994,11 +994,11 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-pivot_offset = Vector2(62.0002, 80)
-texture = SubResource("AtlasTexture_bsnyy")
+pivot_offset = Vector2(62.0006, 80)
+texture = SubResource("AtlasTexture_ho4jo")
 script = ExtResource("1_uy7eb")
 sprites = SubResource("SpriteFrames_3opny")
-frame_index = 17
+current_animation = "entrance"
+frame_index = 29
 auto_play = true
-playing = true
 metadata/_edit_use_anchors_ = true
