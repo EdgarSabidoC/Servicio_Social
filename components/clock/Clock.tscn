@@ -9,6 +9,9 @@ anchor_right = 1.0
 anchor_bottom = 0.111111
 grow_horizontal = 0
 script = ExtResource("1_s1qpn")
+time = 61.0
+countdown = true
+countdown_pivot_1 = 59
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
