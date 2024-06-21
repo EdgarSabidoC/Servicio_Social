@@ -100,7 +100,6 @@ anchor_bottom = 0.333333
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wb05y")
-alignment = "c"
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]

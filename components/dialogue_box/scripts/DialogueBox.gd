@@ -1,7 +1,8 @@
 extends Control
 
 @onready var moving_text = $MarginContainer/MovingText
-@export var alignment = "f"
+enum AlignmentType {LEFT=0,RIGHT=1,CENTER=2,FILL=3}
+@export var alignment: AlignmentType
 @onready var margin_container = $MarginContainer
 var eof: bool = false
 var end_of_paragraph: bool = false
@@ -49,15 +50,13 @@ func start() -> void:
 # Imprime una cadena que se la pase y la alineación [l: left, c: center, r: right, f: fill]:
 func print_message(string: String) -> void:
 	match self.alignment:
-		"l":
+		self.AlignmentType.LEFT:
 			self.moving_text.text = "[left]%s[/left]" %string
-		"c":	
+		self.AlignmentType.CENTER:	
 			self.moving_text.text = "[center]%s[/center]" %string
-		"r":
+		self.AlignmentType.RIGHT:
 			self.moving_text.text = "[right]%s[/right]" %string
-		"f":
-			self.moving_text.text = "[fill]%s[/fill]" %string
-		"j":
+		self.AlignmentType.FILL:
 			self.moving_text.text = "[fill]%s[/fill]" %string
 	self.moving_text.move_text()
 
