@@ -850,7 +850,6 @@ texture = SubResource("AtlasTexture_5p4dg")
 stretch_mode = 2
 script = ExtResource("1_f2hof")
 sprites = SubResource("SpriteFrames_reyp0")
-frame_index = 17
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true

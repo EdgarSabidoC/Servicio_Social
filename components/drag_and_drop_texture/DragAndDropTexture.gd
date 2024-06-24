@@ -1,4 +1,4 @@
-extends TextureRect
+extends TextureButton
 
 var dragging: bool = false # Indica si se está arrastrando
 var of = Vector2(0,0) # Offset
@@ -29,7 +29,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	#
 	#set_drag_preview(preview)
 
-	return self.texture
+	return self.texture_normal
 
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
@@ -37,5 +37,5 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	self.texture = data
+	self.texture_normal = data
 	self.dragging = false

@@ -3,11 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="1_gednf"]
 [ext_resource type="Script" path="res://components/drag_and_drop_texture/DragAndDropTexture.gd" id="2_ylt5m"]
 
-[node name="DragAndDropTexture" type="TextureRect"]
+[node name="DragAndDropTexture" type="TextureButton"]
 custom_minimum_size = Vector2(50, 50)
-mouse_filter = 0
-texture = ExtResource("1_gednf")
-expand_mode = 1
+texture_normal = ExtResource("1_gednf")
 script = ExtResource("2_ylt5m")
 
 [node name="Panel" type="Panel" parent="."]
