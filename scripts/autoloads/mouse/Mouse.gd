@@ -2,10 +2,11 @@ extends Node
 
 # Bandera del modo mouse:
 @onready var mouse_mode_activated: bool = true
+
 # Bandera de las acciones:
 @onready var actions_enabled: bool = false
 
-# Punteros del mouse:
+# Tipos de cursores del mouse:
 @onready var cursor_arrow: CompressedTexture2D = load("res://assets/graphical_assets/mouse/mouse.png")
 
 # Acciones de entrada:
@@ -21,7 +22,15 @@ extends Node
 
 
 func _ready() -> void:
-	Input.set_custom_mouse_cursor(cursor_arrow, Input.CURSOR_ARROW)
+	# Se configuran los cursores:
+	# Cursor normal:
+	Input.set_custom_mouse_cursor(self.cursor_arrow, Input.CURSOR_ARROW)
+	# Cursor de mano apuntadora:
+	Input.set_custom_mouse_cursor(self.cursor_arrow, Input.CURSOR_POINTING_HAND)
+	# Cursor para arrastrar objetos (no disponible en Windows):
+	Input.set_custom_mouse_cursor(self.cursor_arrow, Input.CURSOR_DRAG)
+	# Cursor que se activa cuando se está arrastrando un objeto:
+	Input.set_custom_mouse_cursor(self.cursor_arrow, Input.CURSOR_CAN_DROP)
 
 
 # Función que cambia entre el modo teclado y modo mouse:
@@ -39,7 +48,7 @@ func change_mode() -> void:
 # Función que desactiva las acciones:
 func disable_actions() -> void:
 	self.actions_enabled = false
-	for action in input_actions.keys():
+	for action in self.input_actions.keys():
 		if action != "ui_pause":
 			InputMap.action_erase_events(action)
 
@@ -47,7 +56,7 @@ func disable_actions() -> void:
 # Función que activa las acciones:
 func enable_actions() -> void:
 	self.actions_enabled = true
-	for action in input_actions.keys():
+	for action in self.input_actions.keys():
 		if action != "ui_pause":
-			for input_event in input_actions[action]:
+			for input_event in self.input_actions[action]:
 				InputMap.action_add_event(action, input_event)
