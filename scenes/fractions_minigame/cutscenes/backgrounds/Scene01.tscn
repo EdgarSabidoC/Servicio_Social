@@ -442,7 +442,7 @@ region = Rect2(0, 5760, 124, 160)
 atlas = ExtResource("13_fahix")
 region = Rect2(0, 5920, 124, 160)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_q0g07"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tngd"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -797,7 +797,6 @@ grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0001, 80.0006)
 texture = SubResource("AtlasTexture_a6ci8")
-frame_index = 22
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 script = ExtResource("11_eey68")
@@ -835,8 +834,7 @@ grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0002, 80)
 texture = SubResource("AtlasTexture_b37bx")
-sprites = SubResource("SpriteFrames_q0g07")
-frame_index = 2
+sprites = SubResource("SpriteFrames_5tngd")
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 libraries = {

@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 
 func _on_button_button_down() -> void:
 	self.dragging = true
-	self.of = self.get_global_mouse_position() - global_position
+	self.of = self.get_global_mouse_position() - self.global_position
 
 
 func _on_button_button_up() -> void:

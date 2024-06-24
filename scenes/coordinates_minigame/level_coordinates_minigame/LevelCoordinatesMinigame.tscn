@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=9 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Texture2D" uid="uid://bil6owdldotqv" path="res://assets/graphical_assets/parallax/street.tga" id="1_74bsg"]
+[ext_resource type="PackedScene" uid="uid://dnw4dvls0ekb8" path="res://components/drag_and_drop_texture/DragAndDropTexture.tscn" id="3_3gr1m"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="3_qyoai"]
+[ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="4_pt4l1"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_rjwd5"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="4_xtxav"]
+[ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/TextureButton.gd" id="5_1wheb"]
 
 [node name="LevelCoordinatesMinigame" type="Node2D"]
 script = ExtResource("1_3xota")
@@ -20,6 +23,28 @@ grow_vertical = 2
 texture = ExtResource("1_74bsg")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DragAndDropTexture" parent="CanvasLayer/GridContainer" instance=ExtResource("3_3gr1m")]
+layout_mode = 2
+texture_normal = ExtResource("4_pt4l1")
+
+[node name="DragAndDropTexture2" parent="CanvasLayer/GridContainer" instance=ExtResource("3_3gr1m")]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/GridContainer"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+script = ExtResource("5_1wheb")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GridContainer/TextureButton"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
