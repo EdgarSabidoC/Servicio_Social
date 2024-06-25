@@ -38,12 +38,17 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	var preview_texture =  AnimatedTextureRect.new()
 	
 	# Se valida si hay sprites y si es modo Preview o Both:
-	if self.sprites and (self.animation_as == AnimationOptions.PREVIEW or self.animation_as == AnimationOptions.BOTH):
-		preview_texture.sprites = self.sprites
-		preview_texture.play()
+	if self.sprites and (self.animation_as == AnimationOptions.PREVIEW or \
+						self.animation_as == AnimationOptions.BOTH):
+		# Se asigna la animación actual a la del preview:
+		preview_texture.current_animation = self.current_animation
+		preview_texture.sprites = self.sprites # Se asignan los sprites al preview
+		preview_texture.play() # Se reproduce la animación
 	else:
 		# Si es modo texture o no hay sprites:
 		preview_texture.texture = self.texture # Se asigna la textura de la vista previa.
+	
+	# Se cambia el tamaño de la textura del preview:
 	preview_texture.expand_mode = EXPAND_IGNORE_SIZE
 	preview_texture.size = self.preview_size
 

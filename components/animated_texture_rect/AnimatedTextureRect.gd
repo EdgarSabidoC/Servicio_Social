@@ -34,6 +34,7 @@ signal animation_changed
 func _ready() -> void:
 	if !sprites:
 		return
+	print_debug(self.current_animation)
 	self.pivot_offset = self.size/2
 	self.fps = self.sprites.get_animation_speed(self.current_animation)
 	self.refresh_rate = self.sprites.get_frame_duration(self.current_animation, self.frame_index)
