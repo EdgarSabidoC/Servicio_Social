@@ -1,23 +1,32 @@
 @tool
 extends TextureRect
 
-## Permite asignar SpriteFrames para animar una textura. Extiende a TextureRect.
+## Allows to assign a SpriteFrame to animate the texture. Extends TextureRect.
 class_name AnimatedTextureRect
 
-
+## Sprites from SpriteFrames
 @export var sprites: SpriteFrames
+## Enums for the allowed animations
 @export_enum("default", "sad", "anger", "entrance") var current_animation: String = "default"
+## Index of the current frame
 @export var frame_index: int = 0
 @export_range(0.0, INF, 0.001) var speed_scale: float = 1.0
+## If true, allows to autoplay
 @export var auto_play: bool = false
+## If true, the animations is currently playing
 @export var playing: bool = false
+## Refresh rate of the animation (float)
 @onready var refresh_rate: float = 1.0
+## FPS of the animation (float)
 @onready var fps: float = 30
+## Delta frame (float)
 @onready var frame_delta: float = 0
+## If true, the sprite have changed
 @onready var changed: bool = false
 
-
+## Signal emitted when the animation finishes
 signal finished
+## Signal emitted when an animation changes
 signal animation_changed
 
 

@@ -1,13 +1,15 @@
 @tool
 extends TextureButton
 
-##  Permite la mecánica de soltar una Texture2D. Extiende a TextureButton.
+##  Allows to drop a Texture2D. Extends TextureButton.
 class_name DropSlot
 
 
-@onready var coordinates_x_y: Vector2i
+## (x,y) coordinates for the element.
+@onready var x_y_coordinates: Vector2i
 
 
+## Dropped signal is emitted when a texture is dropped inside the slot.
 signal dropped
 
 

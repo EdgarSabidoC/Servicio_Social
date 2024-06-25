@@ -1,11 +1,12 @@
 @tool
 extends TextureButton
 
-## Permite la mecánica de arrastrar una Texture2D. Para utilizarse necesita asignarse un Texture2D. Extiende a TextureButton.
+## Allows to drag a Texture2D. Extends TextureButton.
 class_name DragTexture
 
 
-@onready var coordinates_x_y: Vector2i
+## (x,y) coordinates for the element.
+@onready var x_y_coordinates: Vector2i
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:

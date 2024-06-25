@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var clock: Clock = $CanvasLayer/Clock
+@onready var drag_texture: DragTexture = $CanvasLayer/GridContainer/DragTexture
 
 
 func _ready() -> void:
