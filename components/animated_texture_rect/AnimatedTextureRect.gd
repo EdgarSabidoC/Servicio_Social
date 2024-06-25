@@ -32,6 +32,8 @@ signal animation_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if !sprites:
+		return
 	self.pivot_offset = self.size/2
 	self.fps = self.sprites.get_animation_speed(self.current_animation)
 	self.refresh_rate = self.sprites.get_frame_duration(self.current_animation, self.frame_index)

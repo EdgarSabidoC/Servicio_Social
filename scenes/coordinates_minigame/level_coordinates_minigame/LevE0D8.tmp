@@ -197,9 +197,13 @@ grow_vertical = 2
 layout_mode = 2
 texture = ExtResource("4_pt4l1")
 script = ExtResource("3_vh3nc")
+preview_animation = true
 preview_size = Vector2(125, 125)
 sprites = SubResource("SpriteFrames_a0kmi")
+frame_index = 1
 speed_scale = null
+auto_play = true
+playing = true
 
 [node name="DropSlot" type="TextureRect" parent="CanvasLayer/GridContainer"]
 custom_minimum_size = Vector2(125, 125)
