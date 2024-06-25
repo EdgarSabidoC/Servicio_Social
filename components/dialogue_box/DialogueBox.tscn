@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dtbscmdccyexm"]
 
-[ext_resource type="Script" path="res://components/dialogue_box/scripts/DialogueBox.gd" id="1_wb05y"]
+[ext_resource type="Script" path="res://components/dialogue_box/DialogueBox.gd" id="1_wb05y"]
 [ext_resource type="PackedScene" uid="uid://b12ejnmltv8tj" path="res://components/moving_text/MovingText.tscn" id="2_7342d"]
 
 [sub_resource type="Animation" id="Animation_hr1ly"]

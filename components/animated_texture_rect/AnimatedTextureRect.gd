@@ -1,5 +1,10 @@
 @tool
-class_name AnimatedTextureRect extends TextureRect
+extends TextureRect
+
+## Permite asignar SpriteFrames para animar una textura. Extiende a TextureRect.
+class_name AnimatedTextureRect
+
+
 @export var sprites: SpriteFrames
 @export_enum("default", "sad", "anger", "entrance") var current_animation: String = "default"
 @export var frame_index: int = 0
