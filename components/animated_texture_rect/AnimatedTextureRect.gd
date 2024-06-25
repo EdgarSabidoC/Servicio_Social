@@ -7,7 +7,7 @@ class_name AnimatedTextureRect
 ## Sprites from SpriteFrames
 @export var sprites: SpriteFrames
 ## Enums for the allowed animations
-@export_enum("default", "sad", "anger", "entrance") var current_animation: String = "default"
+@export var current_animation: String = "default"
 ## Index of the current frame
 @export var frame_index: int = 0
 @export_range(0.0, INF, 0.001) var speed_scale: float = 1.0
