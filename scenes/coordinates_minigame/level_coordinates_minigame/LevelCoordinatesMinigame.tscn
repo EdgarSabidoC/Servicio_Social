@@ -1,7 +1,8 @@
-[gd_scene load_steps=70 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=71 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Texture2D" uid="uid://bil6owdldotqv" path="res://assets/graphical_assets/parallax/street.tga" id="1_74bsg"]
+[ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/GridContainer.gd" id="3_ftveh"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="3_qyoai"]
 [ext_resource type="Script" path="res://components/drag_texture/DragTexture.gd" id="3_vh3nc"]
 [ext_resource type="Texture2D" uid="uid://wm0l45fxdk02" path="res://assets/graphical_assets/characters/npcs/alux/alux.tga" id="4_c8rpx"]
@@ -443,26 +444,52 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_74bsg")
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 70.0
+[node name="DragTexture" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.4375
+anchor_right = 0.5625
+anchor_bottom = 0.222222
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DragTexture" type="TextureRect" parent="CanvasLayer/GridContainer"]
-layout_mode = 2
 texture = ExtResource("4_pt4l1")
 script = ExtResource("3_vh3nc")
 preview_size = Vector2(125, 125)
 sprites = SubResource("SpriteFrames_a0kmi")
 current_animation = "in"
 speed_scale = null
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 265.0
+offset_top = 179.0
+offset_right = -242.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+script = ExtResource("3_ftveh")
 
 [node name="DropSlot" type="TextureRect" parent="CanvasLayer/GridContainer"]
-custom_minimum_size = Vector2(125, 125)
+custom_minimum_size = Vector2(172, 125)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("5_4b52o")
+coordinates = Vector2i(1, 1)
+
+[node name="DropSlot2" type="TextureRect" parent="CanvasLayer/GridContainer"]
+custom_minimum_size = Vector2(172, 125)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("5_4b52o")
+
+[node name="DropSlot3" type="TextureRect" parent="CanvasLayer/GridContainer"]
+custom_minimum_size = Vector2(172, 125)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 script = ExtResource("5_4b52o")
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
@@ -494,4 +521,7 @@ show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
+[connection signal="texture_dropped" from="CanvasLayer/GridContainer/DropSlot" to="CanvasLayer/GridContainer" method="_on_drop_slot_texture_dropped"]
+[connection signal="texture_dropped" from="CanvasLayer/GridContainer/DropSlot2" to="CanvasLayer/GridContainer" method="_on_drop_slot_texture_dropped"]
+[connection signal="texture_dropped" from="CanvasLayer/GridContainer/DropSlot3" to="CanvasLayer/GridContainer" method="_on_drop_slot_texture_dropped"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]

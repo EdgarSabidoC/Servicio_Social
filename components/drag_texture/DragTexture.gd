@@ -9,7 +9,7 @@ class_name DragTexture
 
 
 ## (x,y) coordinates for the element
-@onready var x_y_coordinates: Vector2i
+@export var coordinates: Vector2i
 
 enum AnimationOptions {## Options to use the Sprites animation as preview, texture or both
 						PREVIEW = 0, ## Preview mode active
@@ -62,3 +62,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	
 	# Se retorna la textura:
 	return self.texture
+
+
+func get_dropped_data(data: Variant) -> void:
+	print_debug(data)
