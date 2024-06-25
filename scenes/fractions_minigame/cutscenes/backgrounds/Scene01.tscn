@@ -16,9 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://3w1v7f4gukia" path="res://assets/graphical_assets/characters/npcs/alux/alux_anger.tga" id="12_5pwov"]
 [ext_resource type="Texture2D" uid="uid://bqndfeduh013a" path="res://assets/graphical_assets/characters/npcs/alux/alux_sad.tga" id="13_fahix"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdpmg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h786c"]
 atlas = ExtResource("5_s12n4")
-region = Rect2(0, 2560, 124, 160)
+region = Rect2(0, 1440, 124, 160)
 
 [sub_resource type="Animation" id="Animation_i5hf8"]
 resource_name = "RESET"
@@ -58,9 +58,9 @@ _data = {
 "entrance": SubResource("Animation_0y0rs")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b37bx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbxg5"]
 atlas = ExtResource("5_ayb6q")
-region = Rect2(0, 320, 124, 160)
+region = Rect2(0, 2080, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gky0u"]
 atlas = ExtResource("12_5pwov")
@@ -214,6 +214,10 @@ region = Rect2(0, 0, 124, 160)
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 160, 124, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b37bx"]
+atlas = ExtResource("5_ayb6q")
+region = Rect2(0, 320, 124, 160)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s47mw"]
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 480, 124, 160)
@@ -253,10 +257,6 @@ region = Rect2(0, 1760, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_drrj0"]
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 1920, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sbxg5"]
-atlas = ExtResource("5_ayb6q")
-region = Rect2(0, 2080, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xwcr"]
 atlas = ExtResource("5_ayb6q")
@@ -796,8 +796,8 @@ anchor_bottom = 0.27778
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0001, 80.0006)
-texture = SubResource("AtlasTexture_rdpmg")
-frame_index = 16
+texture = SubResource("AtlasTexture_h786c")
+frame_index = 9
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 script = ExtResource("11_eey68")
@@ -834,9 +834,9 @@ offset_right = -12.4
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0002, 80)
-texture = SubResource("AtlasTexture_b37bx")
+texture = SubResource("AtlasTexture_sbxg5")
 sprites = SubResource("SpriteFrames_mkayf")
-frame_index = 2
+frame_index = 13
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 libraries = {
