@@ -38,6 +38,7 @@ func _ready() -> void:
 	self.pivot_offset = self.size/2
 	self.fps = self.sprites.get_animation_speed(self.current_animation)
 	self.refresh_rate = self.sprites.get_frame_duration(self.current_animation, self.frame_index)
+	
 	if self.auto_play:
 		self.play()
 

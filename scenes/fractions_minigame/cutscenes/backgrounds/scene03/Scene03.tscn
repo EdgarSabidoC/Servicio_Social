@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://ds63jgyp6jy4t"]
+[gd_scene load_steps=119 format=3 uid="uid://ds63jgyp6jy4t"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/Scene03.gd" id="1_ci4q3"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="2_nxqrt"]
@@ -10,19 +10,57 @@
 [ext_resource type="PackedScene" uid="uid://bqpat0nvt6xab" path="res://components/characters/alux/Alux.tscn" id="7_60w7r"]
 [ext_resource type="Texture2D" uid="uid://wm0l45fxdk02" path="res://assets/graphical_assets/characters/npcs/alux/alux.tga" id="8_2km80"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/KekenAnimationPlayer.gd" id="8_3foh2"]
+[ext_resource type="Texture2D" uid="uid://bb8uqfu7t0tx4" path="res://assets/graphical_assets/characters/npcs/keken/keken.tga" id="8_ebuco"]
 [ext_resource type="Texture2D" uid="uid://3w1v7f4gukia" path="res://assets/graphical_assets/characters/npcs/alux/alux_anger.tga" id="9_5joxc"]
 [ext_resource type="Texture2D" uid="uid://bqndfeduh013a" path="res://assets/graphical_assets/characters/npcs/alux/alux_sad.tga" id="10_sx3rq"]
 [ext_resource type="Texture2D" uid="uid://bgiwqmg1lcl6n" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_bar.tga" id="11_mud11"]
 [ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="12_itseu"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/AluxAnimationPlayer.gd" id="13_3hf66"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h786c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_85iwn"]
 atlas = ExtResource("5_aadfd")
-region = Rect2(0, 1440, 124, 160)
+region = Rect2(0, 1120, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhl4e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_21aa0"]
+resource_local_to_scene = true
+atlas = ExtResource("8_ebuco")
+region = Rect2(0, 2880, 124, 160)
+
+[sub_resource type="Animation" id="Animation_05klf"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(124, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(767, 255)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0dcei"]
+_data = {
+"RESET": SubResource("Animation_05klf")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mkxe"]
 atlas = ExtResource("8_2km80")
-region = Rect2(0, 1760, 124, 160)
+region = Rect2(0, 1120, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gky0u"]
 atlas = ExtResource("9_5joxc")
@@ -196,10 +234,6 @@ region = Rect2(0, 800, 124, 160)
 atlas = ExtResource("8_2km80")
 region = Rect2(0, 960, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0mkxe"]
-atlas = ExtResource("8_2km80")
-region = Rect2(0, 1120, 124, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8xd4"]
 atlas = ExtResource("8_2km80")
 region = Rect2(0, 1280, 124, 160)
@@ -211,6 +245,10 @@ region = Rect2(0, 1440, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbb7l"]
 atlas = ExtResource("8_2km80")
 region = Rect2(0, 1600, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhl4e"]
+atlas = ExtResource("8_2km80")
+region = Rect2(0, 1760, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_drrj0"]
 atlas = ExtResource("8_2km80")
@@ -404,7 +442,7 @@ region = Rect2(0, 5760, 124, 160)
 atlas = ExtResource("10_sx3rq")
 region = Rect2(0, 5920, 124, 160)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gla2h"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mujhg"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -758,24 +796,34 @@ anchor_bottom = 0.27778
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0001, 80.0006)
-texture = SubResource("AtlasTexture_h786c")
-frame_index = 9
+texture = SubResource("AtlasTexture_85iwn")
+frame_index = 7
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 script = ExtResource("6_clnc4")
 
 [node name="Keken" parent="." instance=ExtResource("6_ewaox")]
 layout_mode = 1
-anchor_left = 0.701172
-anchor_top = 0.293403
-anchor_right = 0.943359
-anchor_bottom = 0.848958
-grow_horizontal = 0
-grow_vertical = 0
+anchor_left = 0.688477
+anchor_top = 0.303819
+anchor_right = 0.930664
+anchor_bottom = 0.859375
+offset_left = 767.0
+offset_top = 255.0
+offset_right = 891.0
+offset_bottom = 415.0
 pivot_offset = Vector2(62, 80)
+texture = SubResource("AtlasTexture_21aa0")
+expand_mode = 1
+stretch_mode = 4
 current_animation = "default"
+frame_index = 18
+auto_play = false
 
 [node name="KekenAnimationPlayer" type="AnimationPlayer" parent="Keken"]
+libraries = {
+"": SubResource("AnimationLibrary_0dcei")
+}
 script = ExtResource("8_3foh2")
 
 [node name="Alux" parent="." instance=ExtResource("7_60w7r")]
@@ -790,9 +838,9 @@ offset_right = -12.4
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0002, 80)
-texture = SubResource("AtlasTexture_rhl4e")
-sprites = SubResource("SpriteFrames_gla2h")
-frame_index = 11
+texture = SubResource("AtlasTexture_0mkxe")
+sprites = SubResource("SpriteFrames_mujhg")
+frame_index = 7
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 libraries = {
