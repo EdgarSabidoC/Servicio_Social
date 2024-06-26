@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=17 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
@@ -7,21 +7,56 @@
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ExtrasContainer.gd" id="3_pyfw0"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="3_qwcs8"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_qciux"]
+[ext_resource type="Theme" uid="uid://vbyxsqn67mj" path="res://assets/graphical_assets/styles/slider_ingame.tres" id="5_dolwd"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
 [ext_resource type="Texture2D" uid="uid://cjf2q6il45pp" path="res://assets/graphical_assets/user_interface/button/pauseButton.tga" id="7_nkjmu"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gdgat"]
+texture = ExtResource("7_nkjmu")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(316, 28, 40, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k82hy"]
+texture = ExtResource("7_nkjmu")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(124, 28, 40, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7my0"]
+texture = ExtResource("7_nkjmu")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(124, 28, 40, 44)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8w18o"]
 texture = ExtResource("7_nkjmu")
-texture_margin_left = 12.7026
-texture_margin_top = 14.3242
-texture_margin_right = 11.4864
-texture_margin_bottom = 16.8346
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 8.0
 region_rect = Rect2(28, 28, 40, 44)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ehxgr"]
+texture = ExtResource("7_nkjmu")
+texture_margin_left = 4.0
+texture_margin_top = 8.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(220, 28, 40, 46)
+
 [sub_resource type="Theme" id="Theme_ivojg"]
+Button/styles/disabled = SubResource("StyleBoxTexture_gdgat")
+Button/styles/focus = SubResource("StyleBoxTexture_k82hy")
+Button/styles/hover = SubResource("StyleBoxTexture_i7my0")
 Button/styles/normal = SubResource("StyleBoxTexture_8w18o")
+Button/styles/pressed = SubResource("StyleBoxTexture_ehxgr")
 
 [node name="LevelFractionsMinigame" type="Node2D"]
 script = ExtResource("1_jhhw6")
@@ -77,13 +112,17 @@ text = ""
 custom_minimum_size = Vector2(275, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.336913
-anchor_top = 0.0147566
-anchor_right = 0.605468
-anchor_bottom = 0.228299
+anchor_left = 0.304
+anchor_top = -0.000277778
+anchor_right = 0.621
+anchor_bottom = 0.247
+offset_left = -0.296021
+offset_top = 0.16
+offset_right = 0.0959473
+offset_bottom = -0.272003
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/separation = 17
+theme = ExtResource("5_dolwd")
 script = ExtResource("3_pyfw0")
 metadata/_edit_use_anchors_ = true
 
@@ -140,6 +179,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ivojg")
 theme_override_font_sizes/font_size = 40
+keep_pressed_outside = true
 icon_alignment = 1
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("4_qciux")]
