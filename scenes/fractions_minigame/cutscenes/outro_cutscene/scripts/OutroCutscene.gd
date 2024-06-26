@@ -7,19 +7,23 @@ const O_SOLE_MIO_SOFT_PIANO = preload("res://assets/sounds/music/o_sole_mio_soft
 
 
 func _ready() -> void:
-	BackgroundMusic.change_song(O_SOLE_MIO_SOFT_PIANO, music_starts_at)
+	# Se desactiva el proceso de escucha de entradas:
+	self.set_process_input(false)
+	BackgroundMusic.change_song(self.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
 
 
 func _process(_delta: float) -> void:
 	# Si la canción llega al segundo 44.5 se repite:
 	if BackgroundMusic.get_playback_position() >= 44.5:
-		BackgroundMusic.seek(music_starts_at)
+		BackgroundMusic.seek(self.music_starts_at)
 
-	if Input.is_key_pressed(KEY_ENTER):
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1"):
 		# Moverse a la siguiente escena:
 		if PlayerSession.character < 5:
 			# Se carga un nuevo nivel:
-			SceneTransition.change_scene(intro_cutscene)
+			SceneTransition.change_scene(self.intro_cutscene)
 		elif PlayerSession.secret_level:
 			# Se desactiva el nivel secreto:
 			PlayerSession.secret_level = false
@@ -27,5 +31,10 @@ func _process(_delta: float) -> void:
 			SceneTransition.change_scene(secret_cutscene) # Se cambia al nivel secreto
 		else:
 			# Se finaliza el juego cambiando a la escena final:
-			SceneTransition.change_scene(end_cutscene)
+			SceneTransition.change_scene(self.end_cutscene)
 		set_process(false)
+
+
+func _on_scene_03_finished() -> void:
+	# Se activa el proceso de escucha de entradas:
+	self.set_process_input(true)
