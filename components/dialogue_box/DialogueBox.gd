@@ -10,9 +10,11 @@ var paragraphs = "[StartParagraph]Esta es una línea de texto. Esta es otra lín
 var length: int
 var current_paragraph: int = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var finished: bool = false
 
 # Señal que indica si ya se terminó el párrafo final:
 signal final_paragraph_finished
+signal dialogue_box_closed
 
 
 func _ready() -> void:
@@ -38,8 +40,18 @@ func _process(_delta: float) -> void:
 		self.moving_text.seconds = 0.1/2
 
 
+func _input(event: InputEvent) -> void:
+	if self.finished and (event.is_action_released("ui_accept") or event.is_action_released("m1")):
+		self.animation_player.play("reduce")
+		# Se considera el evento como manejado:
+		get_tree().root.set_input_as_handled()
+		self.accept_event() # Se acepta el evento
+		self.set_process_input(false) # Se deja de escuchar
+		self.dialogue_box_closed.emit() # Se emite la señal de cerrado de la caja de diálogos
+
+
 func start() -> void:
-	animation_player.play("augment")
+	self.animation_player.play("augment")
 	self.pivot_offset = self.size/2
 	if self.paragraphs[self.current_paragraph] == "":
 		self.current_paragraph += 1
@@ -73,10 +85,5 @@ func _on_moving_text_end_of_text() -> void:
 
 
 func _on_final_paragraph_finished() -> void:
-	# Se queda esperando una entrada ui_accept o m1:
-	var cont: bool = false
-	while !cont:
-		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1"):
-			print_debug("Párrafo final: Finalizó el texto")
-			cont = true
-			animation_player.play("reduce")
+	# Se activa la bandera de finalización:
+	self.finished = true
