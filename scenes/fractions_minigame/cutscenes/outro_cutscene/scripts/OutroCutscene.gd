@@ -18,8 +18,8 @@ func _process(_delta: float) -> void:
 		BackgroundMusic.seek(self.music_starts_at)
 
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1"):
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") or event.is_action_pressed("m1"):
 		# Moverse a la siguiente escena:
 		if PlayerSession.character < 5:
 			# Se carga un nuevo nivel:
@@ -37,4 +37,5 @@ func _input(_event: InputEvent) -> void:
 
 func _on_scene_03_finished() -> void:
 	# Se activa el proceso de escucha de entradas:
+	print_debug("Finalizó Scene03")
 	self.set_process_input(true)
