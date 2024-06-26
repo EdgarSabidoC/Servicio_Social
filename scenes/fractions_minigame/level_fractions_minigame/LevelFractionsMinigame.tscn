@@ -158,31 +158,29 @@ ticks_on_borders = true
 [node name="AcceptButton" type="Button" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_left = 846.0
-offset_top = 446.0
-offset_right = 1003.0
-offset_bottom = 514.0
+anchor_left = 0.826172
+anchor_top = 0.774306
+anchor_right = 0.979492
+anchor_bottom = 0.892361
 size_flags_vertical = 3
 theme = ExtResource("7_1bs5h")
 text = "Aceptar"
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseBtn" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 428.0
-offset_top = 84.0
-offset_right = 491.0
-offset_bottom = 142.0
+anchors_preset = -1
+anchor_left = 0.917969
+anchor_top = 0.645833
+anchor_right = 0.979492
+anchor_bottom = 0.746528
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ivojg")
 theme_override_font_sizes/font_size = 40
 keep_pressed_outside = true
 icon_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("4_qciux")]
 
