@@ -31,6 +31,8 @@ func _ready() -> void:
 		#"Uaychivo":
 			#self.character = self.uaychivo
 	
+	self.character.enable_loop("default")
+	
 	# Se muestra al personaje seleccionado:
 	self.character.show()
 	
