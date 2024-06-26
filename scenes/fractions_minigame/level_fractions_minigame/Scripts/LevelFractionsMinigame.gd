@@ -31,37 +31,33 @@ func _ready() -> void:
 	
 	# Se enfoca el botón 1 si está en modo teclado:
 	if !Mouse.mouse_mode_activated:
-		answer_button_1.grab_focus()
+		self.answer_button_1.grab_focus()
 	
-	# Se activan los controles de pausa:
-	if !pause.is_pausable_scene:
-		pause.is_pausable_scene = true
-	
-	character = PlayerSession.character
+	self.character = PlayerSession.character
 	
 	# Se imprime el puntaje:
-	score_label.print_score()
+	self.score_label.print_score()
 	
 	# Se cargan las respuestas:
 	var correct_answer: Dictionary = CharactersData.characters[self.character].correct_answer
-	answers.append(correct_answer)
+	self.answers.append(correct_answer)
 	var wrong_answer_1: Dictionary = CharactersData.characters[self.character].wrong_answers[0]
-	answers.append(wrong_answer_1)
+	self.answers.append(wrong_answer_1)
 	var wrong_answer_2: Dictionary = CharactersData.characters[self.character].wrong_answers[1]
-	answers.append(wrong_answer_2)
+	self.answers.append(wrong_answer_2)
 	var wrong_answer_3: Dictionary = CharactersData.characters[self.character].wrong_answers[2]
-	answers.append(wrong_answer_3)
+	self.answers.append(wrong_answer_3)
 
 	# Se cambia la semilla:
 	randomize()
 	
 	# Se mezcla el arreglo:
-	answers.shuffle()
+	self.answers.shuffle()
 	
 	# A cada botón se le asigna una respuesta:
 	var count: int = 0
-	for answer in answers:
-		var button = buttons[count]
+	for answer in self.answers:
+		var button = self.buttons[count]
 		if answer != correct_answer:
 			button.construct(answer)
 		else:
@@ -72,27 +68,27 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_pause"):
-		if !pause.is_active():
-			clock.stop()
-			pause.show()
+		if !self.pause.is_active():
+			self.clock.stop()
+			self.pause.show()
 
 
 # Obtiene el puntaje del nivel:
 func _get_score() -> void:
 	# Test debug:
-	#print_debug("El personaje es %s y es %s" % [CharactersData.characters[character].name, CharactersData.characters[character].defeated])
+	print_debug("El personaje es %s y es %s" % [CharactersData.characters[character].name, CharactersData.characters[character].defeated])
 	# Se valida si se obtuvieron los puntos correctos:
 	if self.defeated and PlayerSession.difficulty != "easy" \
-	and extras_container.correctAnswer:
-		if clock.minutes >= 1:
+	and self.extras_container.correctAnswer:
+		if self.clock.minutes >= 1:
 			@warning_ignore("integer_division")
-			PlayerSession.score += 10000/clock.minutes
+			PlayerSession.score += 10000/self.clock.minutes
 		else:
 			PlayerSession.score += 10000
 	elif self.defeated and PlayerSession.difficulty == "easy":
-		if clock.minutes >= 1:
+		if self.clock.minutes >= 1:
 			@warning_ignore("integer_division")
-			PlayerSession.score += 10000/clock.minutes
+			PlayerSession.score += 10000/self.clock.minutes
 		else:
 			PlayerSession.score += 10000
 
@@ -100,59 +96,63 @@ func _get_score() -> void:
 # Función que obtiene el score al haber presionado AcceptButton:
 func _on_accept_button_pressed():
 	# Se obtiene el puntaje:
-	_get_score()
+	self._get_score()
 	# Se imprime el nuevo puntaje:
-	score_label.print_score()
+	self.score_label.print_score()
 	# Se mueve al siguiente personaje:
 	if PlayerSession.next_character() == 5 and \
 	PlayerSession.difficulty == "hard" and \
-	CharactersData.characters[character].name == "Alux" and \
-	CharactersData.characters[character].is_rejected():
+	CharactersData.characters[self.character].name == "Alux" and \
+	CharactersData.characters[self.character].is_rejected():
 		PlayerSession.secret_level = true
 	# Se va hacia la cinemática de salida:
-	SceneTransition.change_scene(outro_cutscene)
+	SceneTransition.change_scene(self.outro_cutscene)
 
 
 func _on_answer_button_1_pressed() -> void:
-	self.defeated = answer_button_1.defeated
+	self.defeated = self.answer_button_1.defeated
 	# Test debug:
-	print_debug(self.defeated)
-	CharactersData.characters[character].defeated = self.defeated
+	print_debug("Defeated: %s" %self.defeated)
+	CharactersData.characters[self.character].defeated = self.defeated
+	print_debug("Character %s defeated: %s" %[self.character, CharactersData.characters[self.character].defeated])
 
 
 func _on_answer_button_2_pressed() -> void:
-	self.defeated = answer_button_2.defeated
+	self.defeated = self.answer_button_2.defeated
 	# Test debug:
-	print_debug(self.defeated)
-	CharactersData.characters[character].defeated = self.defeated
+	print_debug("Defeated: %s" %self.defeated)
+	CharactersData.characters[self.character].defeated = self.defeated
+	print_debug("Character %s defeated: %s" %[self.character, CharactersData.characters[self.character].defeated])
 
 
 func _on_answer_button_3_pressed() -> void:
-	self.defeated = answer_button_3.defeated
+	self.defeated = self.answer_button_3.defeated
 	# Test debug:
-	print_debug(self.defeated)
-	CharactersData.characters[character].defeated = self.defeated
+	print_debug("Defeated: %s" %self.defeated)
+	CharactersData.characters[self.character].defeated = self.defeated
+	print_debug("Character %s defeated: %s" %[self.character, CharactersData.characters[self.character].defeated])
 
 
 func _on_answer_button_4_pressed() -> void:
-	self.defeated = answer_button_4.defeated
+	self.defeated = self.answer_button_4.defeated
 	# Test debug:
-	print_debug(self.defeated)
-	CharactersData.characters[character].defeated = self.defeated
+	print_debug("Defeated: %s" %self.defeated)
+	CharactersData.characters[self.character].defeated = self.defeated
+	print_debug("Character %s defeated: %s" %[self.character, CharactersData.characters[self.character].defeated])
 
 
 # Si se desactiva el menú de pausa:
 func _on_pause_finished() -> void:
 	if !Mouse.mouse_mode_activated:
 		self.answer_button_1.grab_focus()
-	clock.continue_clock()
-	pause.hide()
+	self.clock.continue_clock()
+	self.pause.hide()
 
 
 func _on_pause_btn_pressed() -> void:
-	if !pause.is_active():
-			clock.stop()
-			pause.show()
+	if !self.pause.is_active():
+			self.clock.stop()
+			self.pause.show()
 
 
 # Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:
