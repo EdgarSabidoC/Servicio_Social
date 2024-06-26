@@ -13,6 +13,14 @@ func _ready() -> void:
 
 func _on_keken_finished() -> void:
 	self.keken.changed = true
+	
+	# Inicia la animación de salida:
+	if self.keken.current_animation == "angry":
+		print_debug("Entró")
+		#self.play("exit")
+		pass
+		return
+
 	# Una vez termina la animación default, se cambia:
 	if self.current_character.rejected:
 		# Si el personaje fue rechazado:
