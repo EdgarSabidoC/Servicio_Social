@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 
 
 # Reproduce la animación:
-func play(animation: String = current_animation) -> void:
+func play(animation: String = self.current_animation) -> void:
 	self.frame_index = 0
 	self.frame_delta = 0
 	self.current_animation = animation

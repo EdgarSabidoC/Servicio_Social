@@ -25,7 +25,6 @@ func _ready() -> void:
 		#"Huolpoch":
 			#self.character = self.huolpoch
 		"Zotz":
-			print_debug("Entró aquí")
 			self.character = self.zotz
 		#"Uaychivo":
 			#self.character = self.uaychivo
@@ -33,6 +32,7 @@ func _ready() -> void:
 	# Se cambia la animación a la predeterminada y se desactiva el loop de la animación:
 	self.character.current_animation = "default"
 	self.character.disable_loop() # Se desactiva el loop de la animación
+	self.character.play()
 	
 	# Se muestra al personaje seleccionado:
 	self.character.show()
@@ -53,14 +53,8 @@ func start_dialogue_box() -> void:
 	self.character.disconnect("animation_changed", self.start_dialogue_box)
 	# Se activa la caja de diálogo después de la animación de entrada:
 	self.dialogue_box.start()
-	# Se cambia el estado del cambio de animación:
-	self.character.changed = false
 
 
 func _on_dialogue_box_dialogue_box_closed() -> void:
 	# Se emite la señal de finalización de la escena:
 	self.finished.emit()
-	# Se desactiva el loop de la animación:
-	if self.character.current_animation == "angry":
-		self.character.disable_loop("angry")
-		print_debug("Se cambió la animación por %s con %s" %[self.character.current_animation, self.character.sprites.get_animation_loop("angry")])

@@ -13,7 +13,6 @@ func _ready() -> void:
 
 func _on_keken_finished() -> void:
 	self.keken.changed = true
-	
 	# Una vez termina la animación default, se cambia:
 	if self.current_character.rejected:
 		# Si el personaje fue rechazado:
@@ -21,4 +20,7 @@ func _on_keken_finished() -> void:
 	else:
 		# Si no:
 		self.keken.current_animation = "angry"
-	self.keken.play()
+	# Se desactiva el loop de la animación:
+	self.keken.disable_loop()
+	# Se reproduce la animación:
+	self.keken.playing = true

@@ -35,6 +35,7 @@ func _process(_delta: float) -> void:
 		else:
 			self.eof = true
 			self.final_paragraph_finished.emit()
+			print_debug("Finalizó el texto")
 		self.end_of_paragraph = false
 	else:
 		self.moving_text.seconds = 0.1/2
