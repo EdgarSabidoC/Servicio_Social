@@ -38,4 +38,6 @@ func _input(event: InputEvent) -> void:
 func _on_scene_03_finished() -> void:
 	# Se activa el proceso de escucha de entradas:
 	print_debug("Finalizó Scene03")
+	# Se pasa al siguiente personaje:
+	PlayerSession.character += 1
 	self.set_process_input(true)
