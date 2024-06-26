@@ -109,3 +109,13 @@ func pause() -> void:
 func stop() -> void:
 	self.frame_index = 0
 	self.playing = false
+
+
+# Activa el loop de una animación:
+func enable_loop(animation: String = self.current_animation):
+	self.sprites.set_animation_loop(animation, true)
+
+
+# Desactiva el loop de una animación:
+func disable_loop(animation: String = self.current_animation):
+	self.sprites.set_animation_loop(animation, false)

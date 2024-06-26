@@ -53,3 +53,4 @@ func _on_reject_btn_pressed() -> void:
 	self.time = 0
 	# Se cambia a la siguiente escena:
 	self.change_to_next_scene(self.outro_cutscene, "direct")
+	CharactersData.characters[PlayerSession.character].rejected = true

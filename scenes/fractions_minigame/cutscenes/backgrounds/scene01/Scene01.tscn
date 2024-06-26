@@ -1,6 +1,6 @@
 [gd_scene load_steps=118 format=3 uid="uid://btf3hylb8368j"]
 
-[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scripts/Scene01.gd" id="1_qya30"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/Scene01.gd" id="1_qya30"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="1_trfx7"]
 [ext_resource type="Texture2D" uid="uid://bgiwqmg1lcl6n" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_bar.tga" id="1_xxcxx"]
 [ext_resource type="Texture2D" uid="uid://owvucsm3vx78" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_wall.tga" id="2_woga0"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bc61yusy1ues7" path="res://assets/graphical_assets/characters/npcs/zotz/zotz.tga" id="5_s12n4"]
 [ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="5_tojxw"]
 [ext_resource type="PackedScene" uid="uid://bsx68u20y1gcx" path="res://components/characters/keken/Keken.tscn" id="5_xvlf6"]
-[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scripts/AluxAnimationPlayer.gd" id="6_dri6u"]
-[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scripts/KekenAnimationPlayer.gd" id="6_hyu0v"]
-[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scripts/ZotzAnimationPlayer.gd" id="11_eey68"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/AluxAnimationPlayer.gd" id="6_dri6u"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/KekenAnimationPlayer.gd" id="6_hyu0v"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/ZotzAnimationPlayer.gd" id="11_eey68"]
 [ext_resource type="Texture2D" uid="uid://3w1v7f4gukia" path="res://assets/graphical_assets/characters/npcs/alux/alux_anger.tga" id="12_5pwov"]
 [ext_resource type="Texture2D" uid="uid://bqndfeduh013a" path="res://assets/graphical_assets/characters/npcs/alux/alux_sad.tga" id="13_fahix"]
 

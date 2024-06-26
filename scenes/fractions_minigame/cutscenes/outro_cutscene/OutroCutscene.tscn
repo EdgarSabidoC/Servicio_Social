@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcaklj212dlr7"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/outro_cutscene/scripts/OutroCutscene.gd" id="1_ncy03"]
-[ext_resource type="PackedScene" uid="uid://ds63jgyp6jy4t" path="res://scenes/fractions_minigame/cutscenes/backgrounds/Scene03.tscn" id="2_m2i8w"]
+[ext_resource type="PackedScene" uid="uid://ds63jgyp6jy4t" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/Scene03.tscn" id="2_quj2t"]
 
 [node name="OutroCutscene" type="Control"]
 layout_mode = 3
@@ -13,7 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_ncy03")
 metadata/_edit_use_anchors_ = true
 
-[node name="Scene03" parent="." instance=ExtResource("2_m2i8w")]
+[node name="Scene03" parent="." instance=ExtResource("2_quj2t")]
 layout_mode = 1
 
 [node name="Label" type="Label" parent="."]

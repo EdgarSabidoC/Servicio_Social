@@ -27,14 +27,13 @@ func _ready() -> void:
 		#"Huolpoch":
 			#self.character = self.huolpoch
 		"Zotz":
-			print_debug("Entró aquí")
 			self.character = self.zotz
 		#"Uaychivo":
 			#self.character = self.uaychivo
-
+	
 	# Se muestra al personaje seleccionado:
 	self.character.show()
-
+	
 	# Se eliminan los personajes ocultos:
 	for c in self.characters:
 		if !c.is_visible_in_tree():

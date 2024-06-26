@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://du4oiw4gwst0p"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/intro_cutscene/scripts/IntroCutscene.gd" id="1_mh2mp"]
-[ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/Scene01.tscn" id="3_n2iwx"]
+[ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/Scene01.tscn" id="3_n2iwx"]
 
 [node name="IntroCutscene" type="Control"]
 layout_mode = 3

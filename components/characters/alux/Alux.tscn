@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="1_wqef5"]
 [ext_resource type="Texture2D" uid="uid://bqndfeduh013a" path="res://assets/graphical_assets/characters/npcs/alux/alux_sad.tga" id="3_xkr46"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_37upp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sd33"]
 atlas = ExtResource("1_l63rb")
-region = Rect2(0, 3360, 124, 160)
+region = Rect2(0, 3200, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gky0u"]
 atlas = ExtResource("1_r7rvp")
@@ -233,9 +233,9 @@ region = Rect2(0, 2880, 124, 160)
 atlas = ExtResource("1_l63rb")
 region = Rect2(0, 3040, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6sd33"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_37upp"]
 atlas = ExtResource("1_l63rb")
-region = Rect2(0, 3200, 124, 160)
+region = Rect2(0, 3360, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38ndb"]
 atlas = ExtResource("3_xkr46")
@@ -717,9 +717,10 @@ pivot_offset = Vector2(62, 80)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-texture = SubResource("AtlasTexture_37upp")
+texture = SubResource("AtlasTexture_6sd33")
 script = ExtResource("1_wqef5")
 sprites = SubResource("SpriteFrames_x5hrt")
+frame_index = 20
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
