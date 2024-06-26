@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=40 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -31,7 +31,6 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/License.gd" id="16_pabyu"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/AudioInputsContainer.gd" id="17_cql55"]
 [ext_resource type="PackedScene" uid="uid://babm5pn26wmka" path="res://components/scrollbar_textbox/ScrollbarTextbox.tscn" id="19_edlpb"]
-[ext_resource type="Theme" uid="uid://vbyxsqn67mj" path="res://assets/graphical_assets/styles/slider_ingame.tres" id="21_ilcm1"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MouseMode.gd" id="22_jayrx"]
 [ext_resource type="Theme" uid="uid://d2phcxq048cnk" path="res://assets/graphical_assets/styles/action_button.tres" id="29_4g8su"]
 [ext_resource type="Texture2D" uid="uid://cf1425ryogw6d" path="res://assets/graphical_assets/user_interface/container/controlsContainer.tga" id="32_e3a6j"]
@@ -818,7 +817,7 @@ anchor_bottom = 0.854167
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-theme = ExtResource("21_ilcm1")
+theme = ExtResource("14_7nlx3")
 clip_tabs = false
 script = ExtResource("33_ht8qj")
 metadata/_edit_use_anchors_ = true

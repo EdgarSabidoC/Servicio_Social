@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=18 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_qciux"]
 [ext_resource type="Theme" uid="uid://vbyxsqn67mj" path="res://assets/graphical_assets/styles/slider_ingame.tres" id="5_dolwd"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
+[ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="7_1bs5h"]
 [ext_resource type="Texture2D" uid="uid://cjf2q6il45pp" path="res://assets/graphical_assets/user_interface/button/pauseButton.tga" id="7_nkjmu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gdgat"]
@@ -157,11 +158,12 @@ ticks_on_borders = true
 [node name="AcceptButton" type="Button" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_left = 853.0
-offset_top = 459.0
-offset_right = 1010.0
-offset_bottom = 509.0
+offset_left = 846.0
+offset_top = 446.0
+offset_right = 1003.0
+offset_bottom = 514.0
 size_flags_vertical = 3
+theme = ExtResource("7_1bs5h")
 text = "Aceptar"
 
 [node name="PauseBtn" type="Button" parent="CanvasLayer/Control"]
@@ -171,10 +173,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 264.0
-offset_top = 168.0
-offset_right = 327.0
-offset_bottom = 226.0
+offset_left = 428.0
+offset_top = 84.0
+offset_right = 491.0
+offset_bottom = 142.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ivojg")

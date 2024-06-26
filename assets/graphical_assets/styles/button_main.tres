@@ -46,6 +46,7 @@ axis_stretch_vertical = 2
 region_rect = Rect2(428, 228, 104, 112)
 
 [resource]
+Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_qrm2i")
 Button/styles/disabled = SubResource("StyleBoxTexture_e2w0o")
 Button/styles/focus = SubResource("StyleBoxEmpty_c6yp1")
