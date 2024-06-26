@@ -76,7 +76,7 @@ func _process(_delta: float) -> void:
 # Obtiene el puntaje del nivel:
 func _get_score() -> void:
 	# Test debug:
-	#print_debug("El personaje es %s y es %s" % [CharactersData.characters[character].name, CharactersData.characters[character].defeated])
+	print_debug("El personaje es %s y es %s" % [CharactersData.characters[character].name, CharactersData.characters[character].defeated])
 	# Se valida si se obtuvieron los puntos correctos:
 	if self.defeated and PlayerSession.difficulty != "easy" \
 	and self.extras_container.correctAnswer:

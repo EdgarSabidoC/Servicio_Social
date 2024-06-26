@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="12_itseu"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/AluxAnimationPlayer.gd" id="13_3hf66"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a6ci8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdpmg"]
 atlas = ExtResource("5_aadfd")
-region = Rect2(0, 3520, 124, 160)
+region = Rect2(0, 2560, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uapqn"]
 atlas = ExtResource("8_ebuco")
@@ -801,8 +801,8 @@ anchor_bottom = 0.27778
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0001, 80.0006)
-texture = SubResource("AtlasTexture_a6ci8")
-frame_index = 22
+texture = SubResource("AtlasTexture_rdpmg")
+frame_index = 16
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 script = ExtResource("6_clnc4")
