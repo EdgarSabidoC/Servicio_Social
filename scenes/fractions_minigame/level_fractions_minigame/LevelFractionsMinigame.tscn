@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=25 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
@@ -12,6 +12,44 @@
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="7_1bs5h"]
 [ext_resource type="Texture2D" uid="uid://cjf2q6il45pp" path="res://assets/graphical_assets/user_interface/button/pauseButton.tga" id="7_nkjmu"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="12_2gj1l"]
+[ext_resource type="Texture2D" uid="uid://6stagbiufp2n" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/scene_02_furnace.tga" id="12_4d807"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4vv6"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 320, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ahj4"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dnvn"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 160, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av2ji"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 480, 240, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2x5ef"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ahj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dnvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4vv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av2ji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gdgat"]
 texture = ExtResource("7_nkjmu")
@@ -60,8 +98,6 @@ Button/styles/hover = SubResource("StyleBoxTexture_i7my0")
 Button/styles/normal = SubResource("StyleBoxTexture_8w18o")
 Button/styles/pressed = SubResource("StyleBoxTexture_ehxgr")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5b6fm"]
-
 [node name="LevelFractionsMinigame" type="Node2D"]
 script = ExtResource("1_jhhw6")
 metadata/_edit_use_anchors_ = true
@@ -69,6 +105,23 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Scene02" parent="CanvasLayer" instance=ExtResource("2_uldt8")]
+
+[node name="AnimatedTextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.235
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.359985
+pivot_offset = Vector2(20, 20)
+texture = SubResource("AtlasTexture_m4vv6")
+stretch_mode = 4
+script = ExtResource("12_2gj1l")
+sprites = SubResource("SpriteFrames_2x5ef")
+frame_index = 2
+auto_play = true
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedTextureRect"]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -211,15 +264,6 @@ script = ExtResource("5_v1hlr")
 show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
-
-[node name="AnimatedTextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-stretch_mode = 4
-script = ExtResource("12_2gj1l")
-sprites = SubResource("SpriteFrames_5b6fm")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedTextureRect"]
 
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton1" to="." method="_on_answer_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
