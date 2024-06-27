@@ -13,7 +13,7 @@ class_name Clock
 @onready var color_changed: bool = false
 @onready var signal_emitted: bool
 @export var countdown: bool = false
-@export var countdown_pivot_1: int = 58
+@export var countdown_pivot_1: int = 59
 @export var countdown_pivot_2: int = 45
 @export var countdown_pivot_3: int = 30
 @export var countdown_pivot_4: int = 15
@@ -105,7 +105,7 @@ func set_timer_color() -> void:
 			10:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.75))
-	elif !self.color_changed and self.countdown:
+	elif !self.color_changed and self.countdown and self.minutes < 1:
 		# Si es cuenta atrás:
 		match self.seconds:
 			countdown_pivot_1:

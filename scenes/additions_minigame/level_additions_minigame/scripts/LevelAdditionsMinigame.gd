@@ -30,6 +30,14 @@ func _ready() -> void:
 	# Se inicializa el puntaje en 0:
 	PlayerSession.score = 0
 	
+	match PlayerSession.difficulty:
+		"easy":
+			clock.time = 120
+		"medium":
+			clock.time = 90
+		"hard":
+			clock.time = 60
+	
 	# Se imprime el puntaje:
 	self.score_label.print_score()
 	
