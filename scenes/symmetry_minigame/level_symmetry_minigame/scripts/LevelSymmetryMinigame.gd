@@ -2,6 +2,29 @@ extends Node2D
 
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var pause: Control = $CanvasLayer/Pause
+@onready var drop_slot: AnimatedTextureRect = $CanvasLayer/DropSlot
+@onready var drop_slot_2: AnimatedTextureRect = $CanvasLayer/DropSlot2
+@onready var drop_slot_3: AnimatedTextureRect = $CanvasLayer/DropSlot3
+@onready var drop_slot_4: AnimatedTextureRect = $CanvasLayer/DropSlot4
+@onready var drop_slot_list: Array[AnimatedTextureRect] = [drop_slot,drop_slot_2,drop_slot_3,drop_slot_4]
+@onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
+
+
+func _ready() -> void:
+	# Se inicializa el puntaje en 0:
+	PlayerSession.score = 0
+	
+	# Se imprime el puntaje:
+	self.score_label.print_score()
+	
+	# Se configuran los tiempos del reloj:
+	match PlayerSession.difficulty:
+		"easy":
+			self.clock.time = 120
+		"medium":
+			self.clock.time = 90
+		"hard":
+			self.clock.time = 60
 
 
 func _process(_delta: float) -> void:
@@ -23,3 +46,9 @@ func _on_clock_new_minute_reached() -> void:
 	# Se aumenta el pitch_scale de la música por cada minuto de juego:
 	self.current_pitch += 0.1
 	BackgroundMusic.change_pitch(self.current_pitch)
+
+
+func _on_reset_pressed() -> void:
+	for slot in self.drop_slot_list:
+		if slot.texture:
+			slot.clear_texture()
