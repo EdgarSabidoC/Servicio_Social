@@ -1,8 +1,8 @@
-@tool
+#@tool
 extends AnimatedTextureRect
 
 ##  Allows to drop a Texture2D. Extends AnimatedTextureRect.
-class_name DropSlot
+#class_name DropSlot
 
 
 ## (x,y) coordinates for the element.
@@ -11,6 +11,11 @@ class_name DropSlot
 
 ## Dropped signal is emitted when a texture is dropped inside the slot.
 signal texture_dropped(coordinates: Vector2i)
+
+
+func clear_texture() -> void:
+	if self.texture:
+		self.texture = null
 
 
 # Se valida que se pueda soltar una Texture2D:

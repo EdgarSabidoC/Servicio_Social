@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmvnx73aogc7v"]
+[gd_scene load_steps=8 format=3 uid="uid://dmvnx73aogc7v"]
 
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="1_3x5i5"]
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_ff83q"]
 [ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="2_fkw5t"]
 [ext_resource type="Script" path="res://components/drag_texture/DragTexture.gd" id="3_3tq5y"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_3fpxh"]
+[ext_resource type="PackedScene" uid="uid://b64tj8s81irtr" path="res://components/drop_slot/DropSlot.tscn" id="6_f6ux7"]
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
@@ -21,39 +23,133 @@ metadata/_edit_use_anchors_ = true
 
 [node name="IngredientsContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.857422
+anchor_left = 0.879883
 anchor_top = 0.159722
-anchor_right = 0.963867
-anchor_bottom = 0.857639
+anchor_right = 0.938477
+anchor_bottom = 0.819444
 metadata/_edit_use_anchors_ = true
 
 [node name="DragTexture" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 texture = ExtResource("2_fkw5t")
+expand_mode = 1
+stretch_mode = 4
 script = ExtResource("3_3tq5y")
 
 [node name="DragTexture2" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 texture = ExtResource("2_fkw5t")
+expand_mode = 1
+stretch_mode = 4
 script = ExtResource("3_3tq5y")
 
 [node name="DragTexture3" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 texture = ExtResource("2_fkw5t")
+expand_mode = 1
+stretch_mode = 4
 script = ExtResource("3_3tq5y")
 
 [node name="DragTexture4" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 texture = ExtResource("2_fkw5t")
+expand_mode = 1
+stretch_mode = 4
 script = ExtResource("3_3tq5y")
+
+[node name="DragTexture5" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture = ExtResource("2_fkw5t")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("3_3tq5y")
+
+[node name="DragTexture6" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+texture = ExtResource("2_fkw5t")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("3_3tq5y")
+
+[node name="DropSlot" parent="CanvasLayer" instance=ExtResource("6_f6ux7")]
+custom_minimum_size = Vector2(60, 60)
+anchor_left = 0.311523
+anchor_top = 0.40625
+anchor_right = 0.370117
+anchor_bottom = 0.510417
+grow_horizontal = 1
+
+[node name="DropSlot2" parent="CanvasLayer" instance=ExtResource("6_f6ux7")]
+custom_minimum_size = Vector2(60, 60)
+anchor_left = 0.331055
+anchor_top = 0.583333
+anchor_right = 0.389648
+anchor_bottom = 0.6875
+
+[node name="DropSlot3" parent="CanvasLayer" instance=ExtResource("6_f6ux7")]
+custom_minimum_size = Vector2(60, 60)
+anchor_left = 0.53125
+anchor_top = 0.40625
+anchor_right = 0.589844
+anchor_bottom = 0.510417
+grow_horizontal = 0
+
+[node name="DropSlot4" parent="CanvasLayer" instance=ExtResource("6_f6ux7")]
+custom_minimum_size = Vector2(60, 60)
+anchor_left = 0.508789
+anchor_top = 0.583333
+anchor_right = 0.567383
+anchor_bottom = 0.6875
+
+[node name="Reset" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.0224609
+anchor_top = 0.871528
+anchor_right = 0.114258
+anchor_bottom = 0.920139
+offset_right = 3.99977
+offset_bottom = 6.10352e-05
+text = "Deshacer"
+metadata/_edit_use_anchors_ = true
+
+[node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = -1
+anchor_left = -0.000976563
+anchor_top = -0.00173611
+anchor_right = 0.194336
+anchor_bottom = 0.0850694
+offset_bottom = 2.28882e-05
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/ScorePanel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_3fpxh")
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("1_3x5i5")]
 anchor_left = 0.80957
 anchor_top = 0.00520833
 anchor_right = 0.99707
 anchor_bottom = 0.116319
+countdown = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("2_ff83q")]
 
+[connection signal="pressed" from="CanvasLayer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]
