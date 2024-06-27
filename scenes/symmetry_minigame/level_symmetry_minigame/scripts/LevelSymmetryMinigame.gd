@@ -2,11 +2,8 @@ extends Node2D
 
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var pause: Control = $CanvasLayer/Pause
-@onready var drop_slot: AnimatedTextureRect = $CanvasLayer/DropSlot
-@onready var drop_slot_2: AnimatedTextureRect = $CanvasLayer/DropSlot2
-@onready var drop_slot_3: AnimatedTextureRect = $CanvasLayer/DropSlot3
-@onready var drop_slot_4: AnimatedTextureRect = $CanvasLayer/DropSlot4
-@onready var drop_slot_list: Array[AnimatedTextureRect] = [drop_slot,drop_slot_2,drop_slot_3,drop_slot_4]
+@onready var drop_slot_ingredient: TextureRect = $CanvasLayer/DropSlotIngredient
+@onready var drop_slot_list: Array[AnimatedTextureRect] = [drop_slot_ingredient]
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 
 
@@ -51,4 +48,8 @@ func _on_clock_new_minute_reached() -> void:
 func _on_reset_pressed() -> void:
 	for slot in self.drop_slot_list:
 		if slot.texture:
-			slot.clear_texture()
+			slot.clear_data()
+
+
+func _on_drop_slot_ingredient_data_dropped() -> void:
+	print_debug(drop_slot_ingredient.get_data_formatted())

@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_ff83q"]
 [ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="2_fkw5t"]
-[ext_resource type="Script" path="res://components/drag_texture/DragTexture.gd" id="3_3tq5y"]
+[ext_resource type="Script" path="res://components/drag_ingredient/DragIngredient.gd" id="3_5xrv3"]
+[ext_resource type="PackedScene" uid="uid://cq04c345l73g0" path="res://components/drop_slot_ingredient/DropSlotIngredient.tscn" id="4_ttdhp"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_3fpxh"]
-[ext_resource type="PackedScene" uid="uid://b64tj8s81irtr" path="res://components/drop_slot/DropSlot.tscn" id="6_f6ux7"]
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
@@ -29,83 +29,20 @@ anchor_right = 0.938477
 anchor_bottom = 0.819444
 metadata/_edit_use_anchors_ = true
 
-[node name="DragTexture" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-texture = ExtResource("2_fkw5t")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("3_3tq5y")
-
-[node name="DragTexture2" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-texture = ExtResource("2_fkw5t")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("3_3tq5y")
-
-[node name="DragTexture3" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-texture = ExtResource("2_fkw5t")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("3_3tq5y")
-
-[node name="DragTexture4" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-texture = ExtResource("2_fkw5t")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("3_3tq5y")
-
-[node name="DragTexture5" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-texture = ExtResource("2_fkw5t")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("3_3tq5y")
-
-[node name="DragTexture6" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-texture = ExtResource("2_fkw5t")
-expand_mode = 1
-stretch_mode = 4
-script = ExtResource("3_3tq5y")
-
-[node name="DropSlot" parent="CanvasLayer" instance=ExtResource("6_f6ux7")]
+[node name="DragIngredient" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("2_fkw5t")
+expand_mode = 1
+script = ExtResource("3_5xrv3")
+
+[node name="DropSlotIngredient" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 anchor_left = 0.311523
 anchor_top = 0.40625
-anchor_right = 0.370117
-anchor_bottom = 0.510417
-grow_horizontal = 1
-
-[node name="DropSlot2" parent="CanvasLayer" instance=ExtResource("6_f6ux7")]
-custom_minimum_size = Vector2(60, 60)
-anchor_left = 0.331055
-anchor_top = 0.583333
 anchor_right = 0.389648
-anchor_bottom = 0.6875
-
-[node name="DropSlot3" parent="CanvasLayer" instance=ExtResource("6_f6ux7")]
-custom_minimum_size = Vector2(60, 60)
-anchor_left = 0.53125
-anchor_top = 0.40625
-anchor_right = 0.589844
-anchor_bottom = 0.510417
-grow_horizontal = 0
-
-[node name="DropSlot4" parent="CanvasLayer" instance=ExtResource("6_f6ux7")]
-custom_minimum_size = Vector2(60, 60)
-anchor_left = 0.508789
-anchor_top = 0.583333
-anchor_right = 0.567383
-anchor_bottom = 0.6875
+anchor_bottom = 0.545139
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="Reset" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
@@ -150,6 +87,7 @@ countdown = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("2_ff83q")]
 
+[connection signal="data_dropped" from="CanvasLayer/DropSlotIngredient" to="." method="_on_drop_slot_ingredient_data_dropped"]
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]

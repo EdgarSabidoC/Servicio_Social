@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq04c345l73g0"]
+
+[ext_resource type="Script" path="res://components/drop_slot_ingredient/DropSlotIngredient.gd" id="1_18i1v"]
+[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_y0ffl"]
+
+[node name="DropSlotIngredient" type="TextureRect"]
+custom_minimum_size = Vector2(80, 80)
+anchors_preset = -1
+anchor_right = 0.078125
+anchor_bottom = 0.138889
+offset_right = -80.0
+offset_bottom = -80.0
+script = ExtResource("1_18i1v")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_y0ffl")
+expand_mode = 1

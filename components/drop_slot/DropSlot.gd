@@ -1,12 +1,11 @@
 #@tool
 extends AnimatedTextureRect
 
-##  Allows to drop a Texture2D. Extends AnimatedTextureRect.
-#class_name DropSlot
-
-
 ## (x,y) coordinates for the element.
 @export var coordinates: Vector2i
+
+## TextureRect used as background.
+@onready var texture_rect: TextureRect = $TextureRect
 
 
 ## Dropped signal is emitted when a texture is dropped inside the slot.
