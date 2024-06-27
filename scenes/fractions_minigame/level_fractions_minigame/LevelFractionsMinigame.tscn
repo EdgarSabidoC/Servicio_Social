@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=20 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="7_1bs5h"]
 [ext_resource type="Texture2D" uid="uid://cjf2q6il45pp" path="res://assets/graphical_assets/user_interface/button/pauseButton.tga" id="7_nkjmu"]
+[ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="12_2gj1l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gdgat"]
 texture = ExtResource("7_nkjmu")
@@ -58,6 +59,8 @@ Button/styles/focus = SubResource("StyleBoxTexture_k82hy")
 Button/styles/hover = SubResource("StyleBoxTexture_i7my0")
 Button/styles/normal = SubResource("StyleBoxTexture_8w18o")
 Button/styles/pressed = SubResource("StyleBoxTexture_ehxgr")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5b6fm"]
 
 [node name="LevelFractionsMinigame" type="Node2D"]
 script = ExtResource("1_jhhw6")
@@ -208,6 +211,15 @@ script = ExtResource("5_v1hlr")
 show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
+
+[node name="AnimatedTextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 4
+script = ExtResource("12_2gj1l")
+sprites = SubResource("SpriteFrames_5b6fm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedTextureRect"]
 
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton1" to="." method="_on_answer_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
