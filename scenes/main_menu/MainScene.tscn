@@ -211,12 +211,14 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 anchors_preset = -1
-anchor_left = 0.304688
-anchor_top = 0.0104167
-anchor_right = 0.695313
-anchor_bottom = 0.848958
-offset_top = 8.0
-offset_bottom = 8.0
+anchor_left = 0.305
+anchor_top = 0.01
+anchor_right = 0.695
+anchor_bottom = 0.877
+offset_left = -0.319489
+offset_top = 8.24002
+offset_right = 0.320435
+offset_bottom = -8.15219
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -241,22 +243,22 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [node name="MenuTextbox" parent="UI/MinigamesMenu/MarginContainer" instance=ExtResource("8_5asj7")]
-custom_minimum_size = Vector2(400, 150)
+custom_minimum_size = Vector2(400, 130)
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 default_text = "Selecciona un minijuego para comenzar a jugar"
 
 [node name="Placeholder1" type="BoxContainer" parent="UI/MinigamesMenu"]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
 [node name="FractionsMinigame" type="Button" parent="UI/MinigamesMenu"]
-custom_minimum_size = Vector2(200, 75)
+custom_minimum_size = Vector2(200, 65)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_mou80")
@@ -265,7 +267,7 @@ script = ExtResource("10_aydou")
 hint = "Pon a prueba tu conocimiento sobre fracciones"
 
 [node name="Minigame2" type="Button" parent="UI/MinigamesMenu"]
-custom_minimum_size = Vector2(200, 75)
+custom_minimum_size = Vector2(200, 65)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_mou80")
@@ -273,12 +275,22 @@ text = "Minijuego2"
 script = ExtResource("11_cyuk5")
 
 [node name="Minigame3" type="Button" parent="UI/MinigamesMenu"]
-custom_minimum_size = Vector2(200, 75)
+custom_minimum_size = Vector2(200, 65)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Minijuego3"
 script = ExtResource("12_b254f")
+
+[node name="Minigame4" type="Button" parent="UI/MinigamesMenu"]
+custom_minimum_size = Vector2(200, 65)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_mou80")
+text = "Minijuego4
+"
+script = ExtResource("12_b254f")
+hint = "Minijuego4"
 
 [node name="ReturnBtn" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 50)
@@ -1037,6 +1049,11 @@ joypad_mode = 1
 [connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MinigamesMenu/Minigame4" to="UI/MinigamesMenu/Minigame4" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MinigamesMenu/Minigame4" to="UI/MinigamesMenu/Minigame4" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame4" to="UI/MinigamesMenu/Minigame4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MinigamesMenu/Minigame4" to="UI/MinigamesMenu/Minigame4" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MinigamesMenu/Minigame4" to="UI/MinigamesMenu/Minigame4" method="_on_pressed"]
 [connection signal="focus_entered" from="UI/MinigamesMenu/ReturnBtn" to="UI/MinigamesMenu/ReturnBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MinigamesMenu/ReturnBtn" to="UI/MinigamesMenu/ReturnBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MinigamesMenu/ReturnBtn" to="UI/MinigamesMenu/ReturnBtn" method="_on_mouse_entered"]
