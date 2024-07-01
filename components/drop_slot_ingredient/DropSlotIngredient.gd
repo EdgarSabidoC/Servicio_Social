@@ -26,6 +26,10 @@ enum Ingredients {## Options of possible ingredients to use
 signal data_dropped()
 
 
+func _ready() -> void:
+	self.pivot_offset = self.get_minimum_size()/2
+
+
 # Retorna el nombre del ingrediente:
 func get_ingredient_name(name_of_ingredient: Ingredients = self.ingredient_name) -> String:
 	var ingredient: String = ""
@@ -49,6 +53,7 @@ func get_ingredient_name(name_of_ingredient: Ingredients = self.ingredient_name)
 
 func get_data_formatted() -> String:
 	return "%s, %s" % [self.coordinates, self.get_ingredient_name()]
+
 
 # Limpia los datos:
 func clear_data() -> void:

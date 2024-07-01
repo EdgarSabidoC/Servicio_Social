@@ -2,9 +2,13 @@ extends Node2D
 
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var pause: Control = $CanvasLayer/Pause
-@onready var drop_slot_ingredient: TextureRect = $CanvasLayer/DropSlotIngredient
-@onready var drop_slot_list: Array[AnimatedTextureRect] = [drop_slot_ingredient]
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
+
+@onready var drop_slot_ingredient: TextureRect = $CanvasLayer/DropSlotIngredient
+@onready var drop_slot_ingredient_2: TextureRect = $CanvasLayer/DropSlotIngredient2
+@onready var drop_slot_ingredient_3: TextureRect = $CanvasLayer/DropSlotIngredient3
+@onready var drop_slot_ingredient_4: TextureRect = $CanvasLayer/DropSlotIngredient4
+@onready var drop_slot_list: Array[AnimatedTextureRect] = [drop_slot_ingredient]
 
 
 func _ready() -> void:
@@ -53,3 +57,15 @@ func _on_reset_pressed() -> void:
 
 func _on_drop_slot_ingredient_data_dropped() -> void:
 	print_debug(drop_slot_ingredient.get_data_formatted())
+
+
+func _on_drop_slot_ingredient_2_data_dropped() -> void:
+	print_debug(drop_slot_ingredient_2.get_data_formatted())
+
+
+func _on_drop_slot_ingredient_3_data_dropped() -> void:
+	print_debug(drop_slot_ingredient_3.get_data_formatted())
+
+
+func _on_drop_slot_ingredient_4_data_dropped() -> void:
+	print_debug(drop_slot_ingredient_4.get_data_formatted())
