@@ -13,7 +13,15 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(620, 236, 104, 112)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6yp1"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y273o"]
+texture = ExtResource("2_mm0cb")
+texture_margin_left = 36.0
+texture_margin_top = 24.0
+texture_margin_right = 36.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(796, 224, 136, 136)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_47g7i"]
 texture = ExtResource("2_mm0cb")
@@ -49,7 +57,7 @@ region_rect = Rect2(428, 228, 104, 112)
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_qrm2i")
 Button/styles/disabled = SubResource("StyleBoxTexture_e2w0o")
-Button/styles/focus = SubResource("StyleBoxEmpty_c6yp1")
+Button/styles/focus = SubResource("StyleBoxTexture_y273o")
 Button/styles/hover = SubResource("StyleBoxTexture_47g7i")
 Button/styles/normal = SubResource("StyleBoxTexture_uytt6")
 Button/styles/pressed = SubResource("StyleBoxTexture_7fqhf")
