@@ -1,5 +1,8 @@
 extends Node2D
 
+# Suma total máxima en difícil: $4994.28
+
+
 @onready var total_label: Label = $CanvasLayer/TotalLabel
 @onready var button_dot: Button = $CanvasLayer/GridContainer/ButtonDot
 @onready var button_0: Button = $CanvasLayer/GridContainer/Button0
@@ -12,8 +15,9 @@ extends Node2D
 @onready var button_7: Button = $CanvasLayer/GridContainer/Button7
 @onready var button_8: Button = $CanvasLayer/GridContainer/Button8
 @onready var button_9: Button = $CanvasLayer/GridContainer/Button9
+@onready var button_clear: Button = $CanvasLayer/GridContainer/ButtonClear
 @onready var buttons_are_enabled: bool = true
-@onready var buttons: Array[Button] = [button_dot, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9]
+@onready var buttons: Array[Button] = [button_dot, button_clear, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9]
 @onready var accept_btn: Button = $CanvasLayer/VBoxContainer/AcceptBtn
 @onready var clear_btn: Button = $CanvasLayer/VBoxContainer/ClearBtn
 @onready var prices_btn: Button = $CanvasLayer/PricesBtn
@@ -23,47 +27,58 @@ extends Node2D
 @onready var prices_menu: Control = $CanvasLayer/PricesMenu
 @onready var current_pitch = 1.0
 @onready var digits_len: int = 6
+@onready var rich_text_label: RichTextLabel = $CanvasLayer/RichTextLabel
+@onready var total: float = 0
+@onready var prices: Array[float]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Se inicializa el puntaje en 0:
 	PlayerSession.score = 0
-	
+
 	match PlayerSession.difficulty:
 		"easy":
-			clock.time = 120
+			self.clock.time = 120
 		"medium":
-			clock.time = 90
+			self.clock.time = 90
 		"hard":
-			clock.time = 60
-	
+			self.clock.time = 60
+
 	# Se imprime el puntaje:
 	self.score_label.print_score()
-	
+
+	# Se muestra la orden:
+	self.rich_text_label.text = self.generate_order()
+
 	# Se activan los controles de pausa:
 	if !self.pause.is_pausable_scene:
 		self.pause.is_pausable_scene = true
-	#if !Mouse.mouse_mode_activated:
-		#disable_buttons()
-	#else:
-		#self.accept_btn.grab_focus()
-	self.accept_btn.grab_focus()
+	
+	# Se desactivan los botones en el modo teclado:
+	#Mouse.mouse_mode_activated = !Mouse.mouse_mode_activated
+	if !Mouse.mouse_mode_activated:
+		self.buttons_are_enabled = false
+		for button in self.buttons:
+			button.disabled = true
+	
+	self.clock.stop()
 
 
 func _process(_delta: float) -> void:
-	if self.total_label.text.length() > self.digits_len:
-		disable_buttons()
-	elif !self.buttons_are_enabled:
-		enable_buttons()
-	
-	# Se leen las entradas:
-	check_input_actions()
-	
+	if Mouse.mouse_mode_activated and self.total_label.text.length() > self.digits_len:
+		self.disable_buttons()
+	elif Mouse.mouse_mode_activated and !self.buttons_are_enabled:
+		self.enable_buttons()
+		
+	# Se leen las entradas si está en modo teclado:
+	if !Mouse.mouse_mode_activated:
+		self.check_input_actions()
+
 	if self.total_label.text.begins_with("."):
 		self.total_label.text = "0."
 	
-	if Input.is_action_just_pressed("ui_pause"):
+	if Input.is_action_just_pressed("ui_pause") and !prices_menu.is_visible_in_tree():
 		if !self.pause.is_active():
 			self.clock.stop()
 			self.pause.show()
@@ -71,9 +86,109 @@ func _process(_delta: float) -> void:
 		self.total_label.text = self.total_label.text.left(-1)
 
 
+# Genera un diccionario con datos aleatorios en un rango de 0 a 9:
+func generate_order_data() -> Dictionary:
+	return {"sp": randi_range(0,9), "mp": randi_range(0,9), \
+			"bp":  randi_range(0,9), "ss":  randi_range(0,9), \
+			"ms":  randi_range(0,9), "bs":  randi_range(0,9), \
+			"sodas":  randi_range(0,9), "breads": randi_range(0,9)}
+
+
+# Genera una etiqueta dinámica con datos aleatorios:
+func generate_order_label() -> Dictionary:
+	var small_pizza: String = "Pizzas pequeñas: %s\n"
+	var medium_pizza: String = "Pizzas medianas: %s\n"
+	var big_pizza: String = "Pizzas grandes: %s\n\n"
+	var small_slice: String = "Rebanadas pequeñas: %s\n"
+	var medium_slice: String = "Rebanadas medianas: %s\n"
+	var big_slice: String = "Rebanadas grandes: %s\n\n"
+	var sodas: String = "Refrescos: %s\n"
+	var breads: String = "Órdenes de pan: %s\n"
+	
+	# Se generan los datos aleatorios:
+	var data: Dictionary = self.generate_order_data()
+	
+	# Si está en dificultad fácil:
+	for key in data.keys():
+		self.total += data[key] * self.prices_menu.prices[key]
+		match key:
+			"sp":
+				if PlayerSession.difficulty == "easy" and data[key] != 0:
+					data[key] = small_pizza % data[key]
+				elif PlayerSession.difficulty == "medium" or  PlayerSession.difficulty == "hard":
+					data[key] = small_pizza % data[key]
+				else:
+					data[key] = ""
+			"mp":
+				if PlayerSession.difficulty == "easy" and data[key] != 0:
+					data[key] = medium_pizza % data[key]
+				elif PlayerSession.difficulty == "medium" or  PlayerSession.difficulty == "hard":
+					data[key] = medium_pizza % data[key]
+				else:
+					data[key] = ""
+			"bp":
+				if PlayerSession.difficulty == "easy" and data[key] != 0:
+					data[key] = big_pizza % data[key]
+				elif PlayerSession.difficulty == "medium" or  PlayerSession.difficulty == "hard":
+					data[key] = big_pizza % data[key]
+				else:
+					data[key] = ""
+			"ss":
+				if PlayerSession.difficulty == "easy" and data[key] != 0:
+					data[key] = small_slice % data[key]
+				elif PlayerSession.difficulty == "medium" or  PlayerSession.difficulty == "hard":
+					data[key] = small_slice % data[key]
+				else:
+					data[key] = ""
+			"ms":
+				if PlayerSession.difficulty == "easy" and data[key] != 0:
+					data[key] = medium_slice % data[key]
+				elif PlayerSession.difficulty == "medium" or  PlayerSession.difficulty == "hard":
+					data[key] = medium_slice % data[key]
+				else:
+					data[key] = ""
+			"bs":
+				if PlayerSession.difficulty == "easy" and data[key] != 0:
+					data[key] = big_slice % data[key]
+				elif PlayerSession.difficulty == "medium" or  PlayerSession.difficulty == "hard":
+					data[key] = big_slice % data[key]
+				else:
+					data[key] = ""
+			"sodas":
+				if PlayerSession.difficulty == "easy" and data[key] != 0:
+					data[key] = sodas % data[key]
+				elif PlayerSession.difficulty == "medium" or  PlayerSession.difficulty == "hard":
+					data[key] = sodas % data[key]
+				else:
+					data[key] = ""
+			"breads":
+				if PlayerSession.difficulty == "easy" and data[key] != 0:
+					data[key] = breads % data[key]
+				elif PlayerSession.difficulty == "medium" or  PlayerSession.difficulty == "hard":
+					data[key] = breads % data[key]
+				else:
+					data[key] = ""
+	
+	return data
+
+
+func generate_order() -> String:
+	var text_data: Dictionary = self.generate_order_label()
+	return "[left]{sp}{mp}{bp}{ss}{ms}{bs}{sodas}{breads}[/left]".format({"sp": text_data["sp"], \
+																"mp": text_data["mp"], \
+																"bp": text_data["bp"], \
+																"ss": text_data["ss"], \
+																"ms": text_data["ms"], \
+																"bs": text_data["bs"], \
+																"sodas": text_data["sodas"], \
+																"breads": text_data["breads"]})
+
+
 # Verifica la acción de entrada e imprime la acción correspondiente en total_label:
 func check_input_actions() -> void:
-	if !self.buttons_are_enabled:
+	if !self.buttons_are_enabled or self.total_label.text.length() > self.digits_len:
+		# Si los botones de la caja registradora están bloqueados o el largo
+		# de los dígitos superó el límite:
 		return
 	if Input.is_action_just_pressed("num_0"):
 		self.total_label.text += "0"
@@ -166,15 +281,16 @@ func _on_button_clear_pressed() -> void:
 
 func _on_pause_finished() -> void:
 	if !Mouse.mouse_mode_activated:
-		self.answer_button_1.grab_focus()
+		self.accept_btn.grab_focus()
 	self.clock.continue_clock()
 	self.pause.hide()
 
 
 func _on_pause_btn_pressed() -> void:
 	if !self.pause.is_active():
-			self.clock.stop()
-			self.pause.show()
+		self.pause.continue_btn.grab_focus()
+		self.clock.stop()
+		self.pause.show()
 
 
 # Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:
@@ -192,3 +308,19 @@ func _on_prices_btn_pressed() -> void:
 func _on_prices_menu_back_btn_pressed() -> void:
 	self.prices_menu.hide()
 	self.clock.continue_clock()
+
+
+func _on_accept_btn_pressed() -> void:
+	if float(self.total_label.text) == self.total:
+		PlayerSession.score += 10000 # Se actualiza el puntaje
+		self.score_label.print_score() # Se imprime el puntaje
+		print_debug("Son iguales [total: %s, total_label_text: %s]" %[self.total, float(self.total_label.text)])
+
+
+func _on_clock_countdown_finished() -> void:
+	print_debug("Finalizó el tiempo")
+
+
+func _on_prices_menu_visibility_changed() -> void:
+	if self.accept_btn:
+		self.accept_btn.grab_focus()
