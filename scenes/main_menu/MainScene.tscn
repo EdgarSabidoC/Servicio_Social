@@ -441,6 +441,10 @@ mouse_filter = 1
 text = "Sin bordes"
 vertical_alignment = 1
 
+[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
 [node name="Vsync" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -474,6 +478,10 @@ focus_neighbor_bottom = NodePath("../Vsync")
 focus_next = NodePath("../Vsync")
 focus_previous = NodePath("../Fullscreen")
 expand_icon = true
+
+[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
 
 [node name="Vsync" type="OptionButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
 unique_name_in_owner = true
@@ -668,7 +676,7 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 
 [node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -781,7 +789,7 @@ focus_previous = NodePath("../Pause")
 script = ExtResource("22_jayrx")
 
 [node name="Placeholder2" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(5, 0)
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 

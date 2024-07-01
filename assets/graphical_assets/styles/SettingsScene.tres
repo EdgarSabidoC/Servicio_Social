@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=57 format=3 uid="uid://tkr4bu68wbdu"]
+[gd_resource type="Theme" load_steps=60 format=3 uid="uid://tkr4bu68wbdu"]
 
 [ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="1_3pd43"]
 [ext_resource type="Texture2D" uid="uid://casxayq5hliv4" path="res://assets/graphical_assets/user_interface/button/checkButton.tga" id="1_cim03"]
+[ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="2_4eq7f"]
 [ext_resource type="Texture2D" uid="uid://cl7738f51dwm" path="res://assets/graphical_assets/user_interface/button/slider.tga" id="2_5xoam"]
 [ext_resource type="Texture2D" uid="uid://d2t71y182r57p" path="res://assets/graphical_assets/user_interface/button/optionButton.tga" id="2_t4cub"]
 [ext_resource type="Texture2D" uid="uid://tnpyjpi4k0fi" path="res://assets/graphical_assets/user_interface/menu/popUpMenu.tga" id="3_t4rhq"]
@@ -38,6 +39,20 @@ region = Rect2(212, 124, 62, 38)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnjud"]
 atlas = ExtResource("1_cim03")
 region = Rect2(308, 124, 62, 38)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5aoth"]
+texture = ExtResource("2_4eq7f")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_syigw"]
 atlas = ExtResource("2_5xoam")
@@ -108,6 +123,20 @@ texture_margin_bottom = 12.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(198, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cam1f"]
+texture = ExtResource("2_4eq7f")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 20.0
+expand_margin_right = 15.0
+expand_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jg4ow"]
 texture = ExtResource("2_t4cub")
@@ -349,6 +378,7 @@ CheckButton/icons/unchecked = SubResource("AtlasTexture_l0ufq")
 CheckButton/icons/unchecked_disabled = SubResource("AtlasTexture_5pex5")
 CheckButton/icons/unchecked_disabled_mirrored = SubResource("AtlasTexture_qj3iu")
 CheckButton/icons/unchecked_mirrored = SubResource("AtlasTexture_fnjud")
+CheckButton/styles/focus = SubResource("StyleBoxTexture_5aoth")
 HSlider/icons/grabber = SubResource("AtlasTexture_syigw")
 HSlider/icons/grabber_disabled = SubResource("AtlasTexture_linvu")
 HSlider/icons/grabber_highlight = SubResource("AtlasTexture_wc7du")
@@ -360,6 +390,7 @@ OptionButton/colors/font_color = Color(0.920995, 0.920995, 0.920995, 1)
 OptionButton/icons/arrow = SubResource("AtlasTexture_jlip7")
 OptionButton/styles/disabled = SubResource("StyleBoxTexture_tj81g")
 OptionButton/styles/disabled_mirrored = SubResource("StyleBoxTexture_ayyyb")
+OptionButton/styles/focus = SubResource("StyleBoxTexture_cam1f")
 OptionButton/styles/hover = SubResource("StyleBoxTexture_jg4ow")
 OptionButton/styles/hover_mirrored = SubResource("StyleBoxTexture_r7st7")
 OptionButton/styles/normal = SubResource("StyleBoxTexture_sxfw7")
