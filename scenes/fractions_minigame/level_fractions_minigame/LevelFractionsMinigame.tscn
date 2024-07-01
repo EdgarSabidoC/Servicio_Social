@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=26 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
@@ -11,16 +11,17 @@
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="7_1bs5h"]
 [ext_resource type="Texture2D" uid="uid://cjf2q6il45pp" path="res://assets/graphical_assets/user_interface/button/pauseButton.tga" id="7_nkjmu"]
+[ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="11_4n5re"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="12_2gj1l"]
 [ext_resource type="Texture2D" uid="uid://6stagbiufp2n" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/scene_02_furnace.tga" id="12_4d807"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ahj4"]
-atlas = ExtResource("12_4d807")
-region = Rect2(0, 0, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dnvn"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 160, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ahj4"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 0, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m4vv6"]
 atlas = ExtResource("12_4d807")
@@ -59,13 +60,19 @@ texture_margin_right = 4.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(316, 28, 40, 44)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k82hy"]
-texture = ExtResource("7_nkjmu")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 8.0
-region_rect = Rect2(124, 28, 40, 44)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ns8ce"]
+texture = ExtResource("11_4n5re")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7my0"]
 texture = ExtResource("7_nkjmu")
@@ -93,7 +100,7 @@ region_rect = Rect2(220, 28, 40, 46)
 
 [sub_resource type="Theme" id="Theme_ivojg"]
 Button/styles/disabled = SubResource("StyleBoxTexture_gdgat")
-Button/styles/focus = SubResource("StyleBoxTexture_k82hy")
+Button/styles/focus = SubResource("StyleBoxTexture_ns8ce")
 Button/styles/hover = SubResource("StyleBoxTexture_i7my0")
 Button/styles/normal = SubResource("StyleBoxTexture_8w18o")
 Button/styles/pressed = SubResource("StyleBoxTexture_ehxgr")
@@ -113,7 +120,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.359985
 pivot_offset = Vector2(391.5, 288)
-texture = SubResource("AtlasTexture_5ahj4")
+texture = SubResource("AtlasTexture_7dnvn")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")
