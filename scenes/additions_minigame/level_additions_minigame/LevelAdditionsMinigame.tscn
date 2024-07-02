@@ -169,12 +169,6 @@ anchor_top = 0.123264
 anchor_right = 0.102539
 anchor_bottom = 0.196181
 offset_right = -45.9999
-focus_neighbor_left = NodePath("../VBoxContainer/ClearBtn")
-focus_neighbor_top = NodePath("../VBoxContainer/ClearBtn")
-focus_neighbor_right = NodePath("../VBoxContainer/AcceptBtn")
-focus_neighbor_bottom = NodePath("../VBoxContainer/AcceptBtn")
-focus_next = NodePath("../VBoxContainer/AcceptBtn")
-focus_previous = NodePath("../GridContainer/ButtonClear")
 theme_override_colors/font_color = Color(0, 0.427451, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Ver $"
@@ -246,8 +240,6 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../VBoxContainer/AcceptBtn")
-focus_previous = NodePath("../../VBoxContainer/ClearBtn")
 text = "7"
 
 [node name="Button8" type="Button" parent="CanvasLayer/GridContainer"]
@@ -260,13 +252,11 @@ text = "8"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_neighbor_right = NodePath("../Button7")
 text = "9"
 
 [node name="Button4" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../VBoxContainer/AcceptBtn")
 text = "4"
 
 [node name="Button5" type="Button" parent="CanvasLayer/GridContainer"]
@@ -279,14 +269,12 @@ text = "5"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_neighbor_right = NodePath("../Button4")
 text = "6"
 
 [node name="Button1" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../VBoxContainer/AcceptBtn")
 text = "1"
 
 [node name="Button2" type="Button" parent="CanvasLayer/GridContainer"]
@@ -299,12 +287,10 @@ text = "2"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_neighbor_right = NodePath("../Button1")
 text = "3"
 
 [node name="ButtonDot" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../VBoxContainer/AcceptBtn")
 text = ".
 "
 
@@ -314,8 +300,6 @@ text = "0"
 
 [node name="ButtonClear" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-focus_neighbor_right = NodePath("../ButtonDot")
-focus_next = NodePath("../../PricesBtn")
 text = "←"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
@@ -331,23 +315,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AcceptBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../PricesBtn")
-focus_neighbor_top = NodePath("../../PricesBtn")
-focus_neighbor_right = NodePath("../../GridContainer/Button7")
-focus_neighbor_bottom = NodePath("../ClearBtn")
-focus_next = NodePath("../ClearBtn")
-focus_previous = NodePath("../../PricesBtn")
 text = "Aceptar"
 script = ExtResource("3_d5r3h")
 
 [node name="ClearBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../AcceptBtn")
-focus_neighbor_top = NodePath("../AcceptBtn")
-focus_neighbor_right = NodePath("../../GridContainer/Button7")
-focus_neighbor_bottom = NodePath("../../PricesBtn")
-focus_next = NodePath("../../GridContainer/Button7")
-focus_previous = NodePath("../AcceptBtn")
 text = "Borrar"
 script = ExtResource("4_ijd4p")
 
@@ -373,12 +345,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("14_roxb4")
 
+[node name="PauseBtn" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.0195313
+anchor_top = 0.234375
+anchor_right = 0.09375
+anchor_bottom = 0.282986
+text = "Pausar"
+metadata/_edit_use_anchors_ = true
+
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("14_fv58l")]
 anchor_left = 0.320313
 anchor_right = 0.507813
 countdown = true
 
 [node name="PricesMenu" parent="CanvasLayer" instance=ExtResource("3_dhwye")]
+visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("15_kxve5")]
 show_behind_parent = false
@@ -403,6 +385,7 @@ size_flags_vertical = 6
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/AcceptBtn" to="CanvasLayer/VBoxContainer/AcceptBtn" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ClearBtn" to="CanvasLayer/VBoxContainer/ClearBtn" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]
 [connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
 [connection signal="back_btn_pressed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_back_btn_pressed"]

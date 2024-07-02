@@ -41,7 +41,6 @@ func _on_main_menu_btn_pressed() -> void:
 	PlayerSession.clear_player_session()
 
 
-# Señal que es lanzada cuando se cambia la visibilidad del continue_btn:
-func _on_continue_btn_visibility_changed() -> void:
+func _on_visibility_changed() -> void:
 	if self.is_visible_in_tree() and !Mouse.mouse_mode_activated:
 		self.continue_btn.grab_focus()

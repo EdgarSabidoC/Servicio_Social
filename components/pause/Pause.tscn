@@ -55,6 +55,6 @@ size_flags_vertical = 3
 theme = ExtResource("3_10e81")
 text = "Salir al menú principal"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
-[connection signal="visibility_changed" from="VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_visibility_changed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]

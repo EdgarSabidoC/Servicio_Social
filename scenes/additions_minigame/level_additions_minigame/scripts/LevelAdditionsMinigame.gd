@@ -288,7 +288,8 @@ func _on_pause_finished() -> void:
 
 func _on_pause_btn_pressed() -> void:
 	if !self.pause.is_active():
-		self.pause.continue_btn.grab_focus()
+		if !Mouse.mouse_mode_activated:
+			self.pause.continue_btn.grab_focus()
 		self.clock.stop()
 		self.pause.show()
 
@@ -322,5 +323,5 @@ func _on_clock_countdown_finished() -> void:
 
 
 func _on_prices_menu_visibility_changed() -> void:
-	if self.accept_btn:
+	if self.accept_btn and !Mouse.mouse_mode_activated:
 		self.accept_btn.grab_focus()
