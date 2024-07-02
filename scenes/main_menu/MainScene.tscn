@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/EasyBtn.gd" id="10_xbasp"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/MediumBtn.gd" id="11_aki4r"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Video.gd" id="11_c0uvf"]
-[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/Minigame2.gd" id="11_cyuk5"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/AdditionsMinigame.gd" id="11_cyuk5"]
 [ext_resource type="PackedScene" uid="uid://0fx6dc8c8ukb" path="res://components/back_button/BackButton.tscn" id="12_ax4u8"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/Minigame3.gd" id="12_b254f"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/HardBtn.gd" id="12_pwd64"]
@@ -266,12 +266,12 @@ text = "Fracciones"
 script = ExtResource("10_aydou")
 hint = "Pon a prueba tu conocimiento sobre fracciones"
 
-[node name="Minigame2" type="Button" parent="UI/MinigamesMenu"]
+[node name="AdditionsMinigame" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 65)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_mou80")
-text = "Minijuego2"
+text = "Sumas"
 script = ExtResource("11_cyuk5")
 
 [node name="Minigame3" type="Button" parent="UI/MinigamesMenu"]
@@ -1047,11 +1047,11 @@ joypad_mode = 1
 [connection signal="mouse_exited" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_pressed"]
 [connection signal="visibility_changed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_visibility_changed"]
-[connection signal="focus_entered" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_focus_entered"]
-[connection signal="focus_exited" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_mouse_exited"]
-[connection signal="pressed" from="UI/MinigamesMenu/Minigame2" to="UI/MinigamesMenu/Minigame2" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_pressed"]
 [connection signal="focus_entered" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MinigamesMenu/Minigame3" to="UI/MinigamesMenu/Minigame3" method="_on_mouse_entered"]

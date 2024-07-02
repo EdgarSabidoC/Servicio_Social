@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://h7dx1fa7w3ai" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_03.tga" id="7_ld30x"]
 [ext_resource type="Texture2D" uid="uid://bylnt73lhk7v5" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_04.tga" id="8_q61gq"]
 [ext_resource type="Texture2D" uid="uid://clg8smgh0upco" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_05.tga" id="9_vsb0j"]
-[ext_resource type="Theme" uid="uid://rfyxpimynf6u" path="res://assets/graphical_assets/styles/register_button.tres" id="11_joe80"]
+[ext_resource type="Theme" path="res://assets/graphical_assets/styles/register_button.tres" id="11_joe80"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="14_fv58l"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="14_roxb4"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/TicketTexture.gd" id="14_spgbt"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="15_kxve5"]
-[ext_resource type="Theme" uid="uid://ctm2vd4o0iwrw" path="res://assets/graphical_assets/styles/pause_button.tres" id="15_q3hbi"]
+[ext_resource type="Theme" path="res://assets/graphical_assets/styles/pause_button.tres" id="15_q3hbi"]
 
 [sub_resource type="Animation" id="Animation_86tlf"]
 resource_name = "default"
