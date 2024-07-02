@@ -264,7 +264,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Fracciones"
 script = ExtResource("10_aydou")
-hint = "Pon a prueba tu conocimiento sobre fracciones"
+hint = "Pon a prueba tu conocimiento sobre fracciones."
 
 [node name="AdditionsMinigame" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 65)
@@ -273,6 +273,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Sumas"
 script = ExtResource("11_cyuk5")
+hint = "¿Eres capaz de resolver sumas lo suficientemente rápido?"
 
 [node name="Minigame3" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 65)
@@ -363,7 +364,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Media"
 script = ExtResource("11_aki4r")
-hint = "Pon a prueba tus conocimientos de fracciones y proporciones"
+hint = "Pon a prueba tus conocimientos y demuestra que eres capaz"
 
 [node name="HardBtn" type="Button" parent="UI/DifficultyMenu"]
 custom_minimum_size = Vector2(200, 75)

@@ -1,7 +1,7 @@
 extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
-@export var hint: String = "Minijuego2"
+@export_multiline var hint: String = "Minijuego2"
 @onready var difficulty_menu: VBoxContainer = %DifficultyMenu
 @onready var menu_background_color: ColorRect = $"../../MenuBackgroundColor"
 @onready var margin_container: MarginContainer = $"../MarginContainer"

@@ -1,7 +1,7 @@
 extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
-@export var hint: String = "Ideal para los nuevos jugadores"
+@export_multiline var hint: String = "Ideal para los nuevos jugadores"
 @onready var _move_to: String
 
 
