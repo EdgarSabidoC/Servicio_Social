@@ -406,7 +406,7 @@ size_flags_vertical = 6
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button0" to="." method="_on_button_0_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridContainer/ButtonClear" to="." method="_on_button_clear_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/ClearBtn" to="." method="_on_clear_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ClearBtn" to="CanvasLayer/VBoxContainer/ClearBtn" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]
 [connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]

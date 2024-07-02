@@ -31,10 +31,14 @@ extends Node2D
 @onready var total: float = 0
 @onready var prices: Array[float]
 @onready var pause_btn: Button = $CanvasLayer/PauseBtn
+@onready var ticket_texture: TextureRect = $CanvasLayer/TicketTexture
+@onready var ticket_animation_player: AnimationPlayer = $CanvasLayer/TicketTexture/TicketAnimationPlayer
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Mouse.change_mode()
 	# Se inicializa el puntaje en 0:
 	PlayerSession.score = 0
 
@@ -66,11 +70,6 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Mouse.mouse_mode_activated and self.total_label.text.length() > self.digits_len:
-		self.disable_buttons()
-	elif Mouse.mouse_mode_activated and !self.buttons_are_enabled:
-		self.enable_buttons()
-		
 	# Se leen las entradas si está en modo teclado:
 	if !Mouse.mouse_mode_activated:
 		self.check_input_actions()
@@ -79,10 +78,12 @@ func _process(_delta: float) -> void:
 		self.total_label.text = "0."
 	
 	if Input.is_action_just_pressed("ui_pause") and !prices_menu.is_visible_in_tree():
+		# Tecla de pausa:
 		if !self.pause.is_active():
 			self.clock.stop()
 			self.pause.show()
 	elif Input.is_action_just_pressed("ui_delete"):
+		# Tecla de borrado:
 		self.total_label.text = self.total_label.text.left(-1)
 
 
@@ -186,7 +187,7 @@ func generate_order() -> String:
 
 # Verifica la acción de entrada e imprime la acción correspondiente en total_label:
 func check_input_actions() -> void:
-	if !self.buttons_are_enabled or self.total_label.text.length() > self.digits_len:
+	if self.total_label.text.length() > self.digits_len:
 		# Si los botones de la caja registradora están bloqueados o el largo
 		# de los dígitos superó el límite:
 		return
@@ -215,11 +216,12 @@ func check_input_actions() -> void:
 			self.total_label.text += "."
 
 
-# Deshabilita los botones:
-func disable_buttons() -> void:
+# Deshabilita los botones del teclado de la registradora:
+func disable_registry_buttons() -> void:
 	self.buttons_are_enabled = false
 	for button in self.buttons:
 		button.disabled = true
+	print_debug("Entró a disable buttons")
 
 
 # Habilita los botones:
@@ -227,52 +229,64 @@ func enable_buttons() -> void:
 	if !self.buttons_are_enabled:
 		for button in self.buttons:
 			button.disabled = false
+		print_debug("Entró a enable buttons")
 		self.buttons_are_enabled = true
 
 
 func _on_button_dot_pressed() -> void:
-	if !self.total_label.text.contains("."):
-		self.total_label.text += "."
+	if self.total_label.text.length() <= self.digits_len:
+		if !self.total_label.text.contains("."):
+			self.total_label.text += "."
 
 
 func _on_button_0_pressed() -> void:
-	self.total_label.text += "0"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "0"
 
 
 func _on_button_1_pressed() -> void:
-	self.total_label.text += "1"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "1"
 
 
 func _on_button_2_pressed() -> void:
-	self.total_label.text += "2"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "2"
 
 
 func _on_button_3_pressed() -> void:
-	self.total_label.text += "3"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "3"
 
 
 func _on_button_4_pressed() -> void:
-	self.total_label.text += "4"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "4"
 
 
 func _on_button_5_pressed() -> void:
-	self.total_label.text += "5"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "5"
 
 
 func _on_button_6_pressed() -> void:
-	self.total_label.text += "6"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "6"
 
 
 func _on_button_7_pressed() -> void:
-	self.total_label.text += "7"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "7"
 
 
 func _on_button_8_pressed() -> void:
-	self.total_label.text += "8"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "8"
 
 
 func _on_button_9_pressed() -> void:
-	self.total_label.text += "9"
+	if self.total_label.text.length() <= self.digits_len:
+		self.total_label.text += "9"
 
 
 func _on_button_clear_pressed() -> void:
@@ -318,8 +332,16 @@ func _on_accept_btn_pressed() -> void:
 		PlayerSession.score += 10000 # Se actualiza el puntaje
 		self.score_label.print_score() # Se imprime el puntaje
 		print_debug("Son iguales [total: %s, total_label_text: %s]" %[self.total, float(self.total_label.text)])
-		# Se genera una nueva orden si se resolvió correctamente el ejercicio:
-		self.rich_text_label.text = self.generate_order()
+	if !self.accept_btn.disabled and self.total_label.text != "":
+		self.ticket_texture.show() # Se muestra la textura del ticket.
+		self.ticket_animation_player.play("default") # Animación del ticket
+		# Se cambian los estados de los botones de aceptar y borrar:
+		self.accept_btn.change_active_state()
+		self.clear_btn.change_active_state()
+		self.disable_registry_buttons() # Se deshabilita el teclado de la registradora.
+		if !Mouse.mouse_mode_activated:
+			# Se asigna el focus en el modo teclado al botón de borrado:
+			self.clear_btn.grab_focus()
 
 func _on_clock_countdown_finished() -> void:
 	print_debug("Finalizó el tiempo")
@@ -333,3 +355,18 @@ func _on_prices_menu_visibility_changed() -> void:
 func _on_pause_visibility_changed() -> void:
 	if !self.pause.is_visible_in_tree() and !Mouse.mouse_mode_activated:
 		self.accept_btn.grab_focus()
+
+
+func _on_clear_btn_pressed() -> void:
+	self.ticket_texture.hide()
+	if self.accept_btn.disabled:
+		self.accept_btn.change_active_state()
+		self.clear_btn.change_active_state()
+		if Mouse.mouse_mode_activated:
+			# Se activan los botones solo en el modo mouse:
+			self.enable_buttons()
+		else:
+			self.accept_btn.grab_focus()
+	self.total_label.text = ""
+	# Se genera una nueva orden si se resolvió el ejercicio (no tiene que estar correcto):
+	self.rich_text_label.text = self.generate_order()
