@@ -1,7 +1,7 @@
 extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
-@export var hint: String = "La manera ideal de jugar"
+@export_multiline var hint: String = "La manera ideal de jugar"
 @onready var _move_to: String = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
 
 

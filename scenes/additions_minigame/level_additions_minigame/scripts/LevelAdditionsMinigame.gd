@@ -38,7 +38,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Mouse.change_mode()
 	# Se inicializa el puntaje en 0:
 	PlayerSession.score = 0
 

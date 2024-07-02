@@ -7,6 +7,8 @@ extends Node
 @export var character: int = 0
 @onready var secret_level: bool = false
 @onready var alux_rejected: bool = false
+enum Minigames {FRACCTIONS = 0, ADDITIONS = 1, COORDINATES = 2, SYMMETRY = 3}
+@onready var current_minigame: Minigames
 
 
 # Limpia las variables de la sesión del juego:
