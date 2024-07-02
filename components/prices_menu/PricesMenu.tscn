@@ -27,9 +27,9 @@ metadata/_edit_use_anchors_ = true
 [node name="PricesTexture" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25
+anchor_left = 0.151367
 anchor_top = 0.111111
-anchor_right = 0.75
+anchor_right = 0.853516
 anchor_bottom = 0.888889
 grow_horizontal = 2
 grow_vertical = 2

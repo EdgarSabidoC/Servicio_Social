@@ -56,7 +56,6 @@ func _ready() -> void:
 		self.pause.is_pausable_scene = true
 	
 	# Se desactivan los botones en el modo teclado:
-	#Mouse.mouse_mode_activated = !Mouse.mouse_mode_activated
 	if !Mouse.mouse_mode_activated:
 		self.buttons_are_enabled = false
 		for button in self.buttons:
