@@ -318,7 +318,7 @@ func _on_accept_btn_pressed() -> void:
 		PlayerSession.score += 10000 # Se actualiza el puntaje
 		self.score_label.print_score() # Se imprime el puntaje
 		print_debug("Son iguales [total: %s, total_label_text: %s]" %[self.total, float(self.total_label.text)])
-		# Se genera una nueva orden:
+		# Se genera una nueva orden si se resolvió correctamente el ejercicio:
 		self.rich_text_label.text = self.generate_order()
 
 func _on_clock_countdown_finished() -> void:
