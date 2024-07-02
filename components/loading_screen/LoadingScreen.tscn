@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://dti7v84jmc5aw"]
+[gd_scene load_steps=5 format=3 uid="uid://dti7v84jmc5aw"]
+
+[ext_resource type="Script" path="res://components/title_screen_parallax_background/scripts/TitleScreenParallaxBackground.gd" id="1_k35n3"]
+[ext_resource type="Texture2D" uid="uid://dum3ip2q4jxeu" path="res://assets/graphical_assets/parallax/loading_screen_up.tga" id="1_kah4j"]
+[ext_resource type="Texture2D" uid="uid://byf0i32hcekyi" path="res://assets/graphical_assets/parallax/loading_screen_background.tga" id="2_1eogn"]
+[ext_resource type="Texture2D" uid="uid://ccl7hc0o2h8mt" path="res://assets/graphical_assets/parallax/loading_screen_down.tga" id="2_caop3"]
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -9,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,3 +38,30 @@ offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 rounded = true
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_k35n3")
+speed = 50
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/ParallaxBackground"]
+position = Vector2(512, 288)
+scale = Vector2(4.26667, 3.6)
+texture = ExtResource("2_1eogn")
+
+[node name="up" type="ParallaxLayer" parent="Node2D/ParallaxBackground"]
+motion_mirroring = Vector2(1033.92, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/ParallaxBackground/up"]
+position = Vector2(516.923, 56)
+scale = Vector2(4.30769, 4.30769)
+texture = ExtResource("1_kah4j")
+
+[node name="down" type="ParallaxLayer" parent="Node2D/ParallaxBackground"]
+motion_mirroring = Vector2(1033.92, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/ParallaxBackground/down"]
+position = Vector2(516.923, 520)
+scale = Vector2(4.30769, 4.30769)
+texture = ExtResource("2_caop3")

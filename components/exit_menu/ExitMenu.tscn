@@ -56,6 +56,10 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Sí"
 
+[node name="Placeholder1" type="BoxContainer" parent="ExitMenu/OptionsContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
 [node name="NoBtn" type="Button" parent="ExitMenu/OptionsContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
