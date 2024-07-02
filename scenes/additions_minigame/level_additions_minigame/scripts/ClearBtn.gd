@@ -4,9 +4,11 @@ extends Button
 @onready var ticket_texture: TextureRect = $"../../TicketTexture"
 @onready var total_label: Label = $"../../TotalLabel"
 
+func _ready() -> void:
+	# Se deshabilita:
+	self.change_active_state()
 
-func _on_pressed() -> void:
-	self.ticket_texture.hide()
-	if !self.accept_btn.is_active:
-		self.accept_btn.is_active = true
-	self.total_label.text = ""
+
+# Cambia el estado activo del botón aceptar:
+func change_active_state(): 
+	self.disabled = !self.disabled

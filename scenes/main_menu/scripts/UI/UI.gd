@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var settings: TabContainer = %Settings
 @onready var difficulty_menu: VBoxContainer = %DifficultyMenu
 @onready var minigames_menu: VBoxContainer = %MinigamesMenu
+@onready var how_to_play: TabContainer = %HowToPlay
 
 
 func _ready() -> void:
@@ -40,6 +41,8 @@ func _on_exit_menu_yes_pressed() -> void:
 		difficulty_menu.hide()
 	elif minigames_menu.is_visible_in_tree():
 		minigames_menu.hide()
+	elif how_to_play.is_visible_in_tree():
+		how_to_play.hide()
 	else:
 		return
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cey14hi43x1vs"]
+[gd_scene load_steps=20 format=3 uid="uid://cey14hi43x1vs"]
 
 [ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/LevelAdditionsMinigame.gd" id="1_x0vea"]
@@ -12,12 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://h7dx1fa7w3ai" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_03.tga" id="7_ld30x"]
 [ext_resource type="Texture2D" uid="uid://bylnt73lhk7v5" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_04.tga" id="8_q61gq"]
 [ext_resource type="Texture2D" uid="uid://clg8smgh0upco" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_05.tga" id="9_vsb0j"]
-[ext_resource type="Theme" uid="uid://rfyxpimynf6u" path="res://assets/graphical_assets/styles/register_button.tres" id="11_joe80"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="14_fv58l"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="14_roxb4"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/TicketTexture.gd" id="14_spgbt"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="15_kxve5"]
-[ext_resource type="Theme" uid="uid://ctm2vd4o0iwrw" path="res://assets/graphical_assets/styles/pause_button.tres" id="15_q3hbi"]
 
 [sub_resource type="Animation" id="Animation_86tlf"]
 resource_name = "default"
@@ -236,12 +234,11 @@ metadata/_edit_use_anchors_ = true
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.265625
-anchor_top = 0.503472
+anchor_top = 0.513889
 anchor_right = 0.445313
-anchor_bottom = 0.777778
+anchor_bottom = 0.763889
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("11_joe80")
 columns = 3
 metadata/_edit_use_anchors_ = true
 
@@ -318,7 +315,6 @@ anchor_top = 0.569444
 anchor_right = 0.207031
 anchor_bottom = 0.763889
 offset_right = 0.000259399
-theme = ExtResource("11_joe80")
 theme_override_constants/separation = 35
 alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -370,19 +366,16 @@ script = ExtResource("14_roxb4")
 [node name="PauseBtn" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.00585938
-anchor_top = 0.234
-anchor_right = 0.067
-anchor_bottom = 0.335
-offset_top = 0.215988
-offset_right = 0.392006
-offset_bottom = 0.0399933
+anchor_top = 0.234375
+anchor_right = 0.0800781
+anchor_bottom = 0.282986
 focus_neighbor_left = NodePath("../PricesBtn")
 focus_neighbor_top = NodePath("../PricesBtn")
 focus_neighbor_right = NodePath("../VBoxContainer/AcceptBtn")
 focus_neighbor_bottom = NodePath("../VBoxContainer/AcceptBtn")
 focus_next = NodePath("../VBoxContainer/AcceptBtn")
 focus_previous = NodePath("../PricesBtn")
-theme = ExtResource("15_q3hbi")
+text = "Pausar"
 metadata/_edit_use_anchors_ = true
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("14_fv58l")]
@@ -391,7 +384,6 @@ anchor_right = 0.507813
 countdown = true
 
 [node name="PricesMenu" parent="CanvasLayer" instance=ExtResource("3_dhwye")]
-visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("15_kxve5")]
 show_behind_parent = false
@@ -414,7 +406,7 @@ size_flags_vertical = 6
 [connection signal="pressed" from="CanvasLayer/GridContainer/Button0" to="." method="_on_button_0_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridContainer/ButtonClear" to="." method="_on_button_clear_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/ClearBtn" to="." method="_on_clear_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ClearBtn" to="CanvasLayer/VBoxContainer/ClearBtn" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]
 [connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
