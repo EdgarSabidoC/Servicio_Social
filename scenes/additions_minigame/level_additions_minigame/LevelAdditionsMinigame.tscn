@@ -169,6 +169,12 @@ anchor_top = 0.123264
 anchor_right = 0.102539
 anchor_bottom = 0.196181
 offset_right = -45.9999
+focus_neighbor_left = NodePath("../VBoxContainer/ClearBtn")
+focus_neighbor_top = NodePath("../VBoxContainer/ClearBtn")
+focus_neighbor_right = NodePath("../PauseBtn")
+focus_neighbor_bottom = NodePath("../PauseBtn")
+focus_next = NodePath("../PauseBtn")
+focus_previous = NodePath("../VBoxContainer/ClearBtn")
 theme_override_colors/font_color = Color(0, 0.427451, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Ver $"
@@ -315,11 +321,23 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AcceptBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../PauseBtn")
+focus_neighbor_top = NodePath("../../PauseBtn")
+focus_neighbor_right = NodePath("../ClearBtn")
+focus_neighbor_bottom = NodePath("../ClearBtn")
+focus_next = NodePath("../ClearBtn")
+focus_previous = NodePath("../../PauseBtn")
 text = "Aceptar"
 script = ExtResource("3_d5r3h")
 
 [node name="ClearBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../AcceptBtn")
+focus_neighbor_top = NodePath("../AcceptBtn")
+focus_neighbor_right = NodePath("../../PricesBtn")
+focus_neighbor_bottom = NodePath("../../PricesBtn")
+focus_next = NodePath("../../PricesBtn")
+focus_previous = NodePath("../AcceptBtn")
 text = "Borrar"
 script = ExtResource("4_ijd4p")
 
@@ -347,10 +365,16 @@ script = ExtResource("14_roxb4")
 
 [node name="PauseBtn" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.0195313
+anchor_left = 0.00585938
 anchor_top = 0.234375
-anchor_right = 0.09375
+anchor_right = 0.0800781
 anchor_bottom = 0.282986
+focus_neighbor_left = NodePath("../PricesBtn")
+focus_neighbor_top = NodePath("../PricesBtn")
+focus_neighbor_right = NodePath("../VBoxContainer/AcceptBtn")
+focus_neighbor_bottom = NodePath("../VBoxContainer/AcceptBtn")
+focus_next = NodePath("../VBoxContainer/AcceptBtn")
+focus_previous = NodePath("../PricesBtn")
 text = "Pausar"
 metadata/_edit_use_anchors_ = true
 
@@ -360,7 +384,6 @@ anchor_right = 0.507813
 countdown = true
 
 [node name="PricesMenu" parent="CanvasLayer" instance=ExtResource("3_dhwye")]
-visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("15_kxve5")]
 show_behind_parent = false
@@ -391,3 +414,4 @@ size_flags_vertical = 6
 [connection signal="back_btn_pressed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_back_btn_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_visibility_changed"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]
+[connection signal="visibility_changed" from="CanvasLayer/Pause" to="." method="_on_pause_visibility_changed"]

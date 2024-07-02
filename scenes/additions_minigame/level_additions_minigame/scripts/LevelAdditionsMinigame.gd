@@ -30,6 +30,7 @@ extends Node2D
 @onready var rich_text_label: RichTextLabel = $CanvasLayer/RichTextLabel
 @onready var total: float = 0
 @onready var prices: Array[float]
+@onready var pause_btn: Button = $CanvasLayer/PauseBtn
 
 
 # Called when the node enters the scene tree for the first time.
@@ -289,6 +290,8 @@ func _on_pause_btn_pressed() -> void:
 	if !self.pause.is_active():
 		if !Mouse.mouse_mode_activated:
 			self.pause.continue_btn.grab_focus()
+		else:
+			self.pause_btn.release_focus()
 		self.clock.stop()
 		self.pause.show()
 
@@ -315,7 +318,8 @@ func _on_accept_btn_pressed() -> void:
 		PlayerSession.score += 10000 # Se actualiza el puntaje
 		self.score_label.print_score() # Se imprime el puntaje
 		print_debug("Son iguales [total: %s, total_label_text: %s]" %[self.total, float(self.total_label.text)])
-
+		# Se genera una nueva orden:
+		self.rich_text_label.text = self.generate_order()
 
 func _on_clock_countdown_finished() -> void:
 	print_debug("Finalizó el tiempo")
@@ -323,4 +327,9 @@ func _on_clock_countdown_finished() -> void:
 
 func _on_prices_menu_visibility_changed() -> void:
 	if self.accept_btn and !Mouse.mouse_mode_activated:
+		self.accept_btn.grab_focus()
+
+
+func _on_pause_visibility_changed() -> void:
+	if !self.pause.is_visible_in_tree() and !Mouse.mouse_mode_activated:
 		self.accept_btn.grab_focus()
