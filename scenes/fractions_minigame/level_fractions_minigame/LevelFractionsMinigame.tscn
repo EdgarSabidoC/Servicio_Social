@@ -10,7 +10,7 @@
 [ext_resource type="Theme" uid="uid://c08stba64gnub" path="res://assets/graphical_assets/styles/slider_ingame.tres" id="5_dolwd"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="7_1bs5h"]
-[ext_resource type="Theme" uid="uid://ctm2vd4o0iwrw" path="res://assets/graphical_assets/styles/pause_button.tres" id="10_cpg5o"]
+[ext_resource type="Theme" uid="uid://ot4iuwcbdrhy" path="res://assets/graphical_assets/styles/pause_button.tres" id="10_cpg5o"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="12_2gj1l"]
 [ext_resource type="Texture2D" uid="uid://6stagbiufp2n" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/scene_02_furnace.tga" id="12_4d807"]
 
