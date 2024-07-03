@@ -18,9 +18,9 @@ region_rect = Rect2(22, 22, 52, 54)
 [sub_resource type="Theme" id="Theme_ptfef"]
 Panel/styles/panel = SubResource("StyleBoxTexture_octpm")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3wht"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l743i"]
 atlas = ExtResource("3_k14rk")
-region = Rect2(0, 336, 48, 48)
+region = Rect2(0, 240, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl6jo"]
 atlas = ExtResource("3_k14rk")
@@ -42,13 +42,13 @@ region = Rect2(0, 144, 48, 48)
 atlas = ExtResource("3_k14rk")
 region = Rect2(0, 192, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l743i"]
-atlas = ExtResource("3_k14rk")
-region = Rect2(0, 240, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqq2l"]
 atlas = ExtResource("3_k14rk")
 region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wht"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 336, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bn1ne"]
 animations = [{
@@ -131,8 +131,9 @@ offset_top = 0.0319805
 offset_right = 0.0240002
 offset_bottom = -1.98392
 pivot_offset = Vector2(50, 50)
-texture = SubResource("AtlasTexture_x3wht")
+texture = SubResource("AtlasTexture_l743i")
 script = ExtResource("4_o58io")
 sprites = SubResource("SpriteFrames_bn1ne")
+frame_index = 5
 auto_play = true
 playing = true

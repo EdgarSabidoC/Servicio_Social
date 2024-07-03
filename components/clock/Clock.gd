@@ -2,9 +2,7 @@ extends Control
 
 class_name Clock
 
-#@onready var minutes_label: Label = $CanvasLayer/Panel/MinutesLabel
-#@onready var seconds_label: Label = $CanvasLayer/Panel/SecondsLabel
-#@onready var milliseconds_label: Label = $CanvasLayer/Panel/MillisecondsLabel
+
 @onready var label: Label = $Panel/Label
 @export var time: float = 0.0
 @onready var minutes: int = 0
@@ -17,6 +15,7 @@ class_name Clock
 @export var countdown_pivot_2: int = 45
 @export var countdown_pivot_3: int = 30
 @export var countdown_pivot_4: int = 15
+@onready var animated_texture_rect: AnimatedTextureRect = $AnimatedTextureRect
 
 
 signal new_minute_reached
@@ -24,7 +23,8 @@ signal countdown_finished
 
 
 func _ready() -> void:
-	pass
+	# Se inicializa la animación del reloj desde el frame 0:
+	self.animated_texture_rect.frame_index = 0
 
 
 func _process(delta: float) -> void:
@@ -52,21 +52,23 @@ func _process(delta: float) -> void:
 		self.color_changed = false
 	
 	# Se cambia el color según los minutos:
-	set_timer_color()
+	self.set_timer_color()
 	
 	# Se imprime el tiempo en la etiqueta ya con formato:
 	if self.time >= 0:
-		get_time_formatted()
+		self.get_time_formatted()
 
 
 # Para el reloj:
 func stop() -> void:
-	set_process(false)
+	self.animated_texture_rect.pause()
+	self.set_process(false)
 
 
 # Continúa con el proceso del reloj:
 func continue_clock() -> void:
-	set_process(true)
+	self.animated_texture_rect.play()
+	self.set_process(true)
 
 
 # Configura el color del reloj:
@@ -133,10 +135,3 @@ func hide_clock():
 
 func show_clock():
 	self.show()
-	
-
-# Imprime en las etiquetas el formato del reloj:
-#func get_time_labels() -> void:
-	#self.minutes_label.text = "%02d:"%self.minutes
-	#self.seconds_label.text = "%02d."%self.seconds
-	#self.milliseconds_label.text = "%02d."%self.milliseconds
