@@ -1,7 +1,6 @@
 extends Node2D
 
-# Suma total máxima en difícil: $4994.28
-
+# Suma total máxima en difícil: $4994.28. Suponiendo que todos los centavos son 0.99
 
 @onready var total_label: Label = $CanvasLayer/TotalLabel
 @onready var button_dot: Button = $CanvasLayer/GridContainer/ButtonDot
@@ -353,7 +352,6 @@ func _on_accept_btn_pressed() -> void:
 
 
 func _on_clock_countdown_finished() -> void:
-	print_debug("Finalizó el tiempo")
 	# Se muestra la pantalla de puntajes:
 	self.score_screen.show()
 	self.score_screen.print_score()
