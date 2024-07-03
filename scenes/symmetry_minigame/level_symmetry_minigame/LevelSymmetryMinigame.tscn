@@ -22,7 +22,6 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DropSlotIngredient" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
-custom_minimum_size = Vector2(40, 40)
 anchor_left = 0.313477
 anchor_top = 0.434028
 anchor_right = 0.352539
@@ -34,7 +33,6 @@ size_flags_horizontal = 0
 expand_mode = 1
 
 [node name="DropSlotIngredient2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
-custom_minimum_size = Vector2(40, 40)
 anchor_left = 0.246094
 anchor_top = 0.414931
 anchor_right = 0.285156
@@ -46,7 +44,6 @@ size_flags_horizontal = 8
 expand_mode = 1
 
 [node name="DropSlotIngredient3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
-custom_minimum_size = Vector2(40, 40)
 anchor_left = 0.233398
 anchor_top = 0.526042
 anchor_right = 0.272461
@@ -58,7 +55,6 @@ size_flags_horizontal = 0
 expand_mode = 1
 
 [node name="DropSlotIngredient4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
-custom_minimum_size = Vector2(40, 40)
 anchor_left = 0.316406
 anchor_top = 0.567708
 anchor_right = 0.355469

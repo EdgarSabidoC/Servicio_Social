@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_y0ffl"]
 
 [node name="DropSlotIngredient" type="TextureRect"]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(40, 40)
 anchors_preset = -1
-anchor_right = 0.078125
-anchor_bottom = 0.138889
-offset_right = -80.0
-offset_bottom = -80.0
+anchor_right = 0.0390625
+anchor_bottom = 0.0694444
+offset_right = -40.0
+offset_bottom = -39.9999
 script = ExtResource("1_18i1v")
 metadata/_edit_use_anchors_ = true
 
@@ -24,3 +24,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_y0ffl")
 expand_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

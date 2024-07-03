@@ -21,13 +21,22 @@ enum Ingredients {## Options of possible ingredients to use
 ## TextureRect used as background.
 @onready var texture_rect: TextureRect = $TextureRect
 
+@onready var is_hover: bool
+
 
 ## Dropped signal is emitted when data is dropped inside the slot.
 signal data_dropped()
 
 
 func _ready() -> void:
-	self.pivot_offset = self.get_minimum_size()/2
+	self.pivot_offset = self.custom_minimum_size/2
+	print_debug("Pivot offset: %s" %self.pivot_offset)
+
+
+func _input(_event: InputEvent) -> void:
+	# Si se da click derecho se rota 45°:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and self.is_hover:
+		self.rotation_degrees += 45
 
 
 # Retorna el nombre del ingrediente:
@@ -76,3 +85,11 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	self.coordinates = data[1]
 	self.ingredient_name = data[2]
 	self.data_dropped.emit() # Se lanza la señal de que se soltaron los datos.
+
+
+func _on_mouse_entered() -> void:
+	self.is_hover = true
+
+
+func _on_mouse_exited() -> void:
+	self.is_hover = false
