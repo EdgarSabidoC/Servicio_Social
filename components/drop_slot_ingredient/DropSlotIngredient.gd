@@ -34,7 +34,7 @@ func _ready() -> void:
 
 
 func _input(_event: InputEvent) -> void:
-	# Si se da click derecho se rota 45°:
+	# Si se da click derecho sobre el espacio o textura se rota 45°:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and self.is_hover:
 		self.rotation_degrees += 45
 
