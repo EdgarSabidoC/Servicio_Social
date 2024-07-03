@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cey14hi43x1vs"]
+[gd_scene load_steps=26 format=3 uid="uid://cey14hi43x1vs"]
 
 [ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/LevelAdditionsMinigame.gd" id="1_x0vea"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/TicketTexture.gd" id="14_spgbt"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="15_kxve5"]
 [ext_resource type="Theme" uid="uid://ot4iuwcbdrhy" path="res://assets/graphical_assets/styles/pause_button.tres" id="15_q3hbi"]
+[ext_resource type="PackedScene" uid="uid://cv1ytr5mbabfm" path="res://components/score_screen/ScoreScreen.tscn" id="19_lmnq3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vx27f"]
 texture = ExtResource("5_27id0")
@@ -152,14 +153,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="NoteLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.767578
+anchor_left = 0.764648
 anchor_top = 0.111111
-anchor_right = 0.820313
+anchor_right = 0.838867
 anchor_bottom = 0.145833
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "NOTA"
+text = "CUENTA"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -409,6 +410,10 @@ anchor_right = 0.507813
 countdown = true
 
 [node name="PricesMenu" parent="CanvasLayer" instance=ExtResource("3_dhwye")]
+visible = false
+
+[node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("19_lmnq3")]
+visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("15_kxve5")]
 show_behind_parent = false
@@ -437,5 +442,6 @@ size_flags_vertical = 6
 [connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
 [connection signal="back_btn_pressed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_back_btn_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_visibility_changed"]
+[connection signal="restart_game" from="CanvasLayer/ScoreScreen" to="." method="_on_score_screen_restart_game"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]
 [connection signal="visibility_changed" from="CanvasLayer/Pause" to="." method="_on_pause_visibility_changed"]

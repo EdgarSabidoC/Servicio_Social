@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://biou6ujuxna1m"]
 
-[ext_resource type="Script" path="res://components/prices_menu/PricesMenu.gd" id="1_uobjq"]
+[ext_resource type="Script" path="res://components/prices_menu/scripts/PricesMenu.gd" id="1_uobjq"]
 [ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_2auha"]
 [ext_resource type="Texture2D" uid="uid://chuddq310ksn5" path="res://assets/graphical_assets/user_interface/container/priceContainer.tga" id="3_lo1i7"]
-[ext_resource type="Script" path="res://components/prices_menu/Prices.gd" id="3_x306d"]
+[ext_resource type="Script" path="res://components/prices_menu/scripts/Prices.gd" id="3_x306d"]
 [ext_resource type="Texture2D" uid="uid://chapaxhssrkhq" path="res://assets/graphical_assets/user_interface/container/priceContainer_add.tga" id="4_v18qn"]
 [ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="4_x58ud"]
 

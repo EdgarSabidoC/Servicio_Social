@@ -33,21 +33,22 @@ extends Node2D
 @onready var pause_btn: Button = $CanvasLayer/PauseBtn
 @onready var ticket_texture: TextureRect = $CanvasLayer/TicketTexture
 @onready var ticket_animation_player: AnimationPlayer = $CanvasLayer/TicketTexture/TicketAnimationPlayer
-
+@onready var score_screen: Control = $CanvasLayer/ScoreScreen
+@export var time_easy: float = 180
+@export var time_medium: float = 120
+@export var time_hard: float = 90
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Se muestra el menú de precios:
+	self.prices_menu.show()
+	
 	# Se inicializa el puntaje en 0:
 	PlayerSession.score = 0
-
-	match PlayerSession.difficulty:
-		"easy":
-			self.clock.time = 120
-		"medium":
-			self.clock.time = 90
-		"hard":
-			self.clock.time = 60
+	
+	# Se configura el tiempo del reloj:
+	self.set_clock()
 
 	# Se imprime el puntaje:
 	self.score_label.print_score()
@@ -92,6 +93,17 @@ func generate_order_data() -> Dictionary:
 			"bp":  randi_range(0,9), "ss":  randi_range(0,9), \
 			"ms":  randi_range(0,9), "bs":  randi_range(0,9), \
 			"sodas":  randi_range(0,9), "breads": randi_range(0,9)}
+
+
+# Configura el tiempo del reloj según la dificultad:
+func set_clock() -> void:
+	match PlayerSession.difficulty:
+		"easy":
+			self.clock.time = self.time_easy
+		"medium":
+			self.clock.time = self.time_medium
+		"hard":
+			self.clock.time = self.time_hard
 
 
 # Genera una etiqueta dinámica con datos aleatorios:
@@ -339,9 +351,12 @@ func _on_accept_btn_pressed() -> void:
 			# Se asigna el focus en el modo teclado al botón de borrado:
 			self.clear_btn.grab_focus()
 
+
 func _on_clock_countdown_finished() -> void:
 	print_debug("Finalizó el tiempo")
 	# Se muestra la pantalla de puntajes:
+	self.score_screen.show()
+	self.score_screen.print_score()
 	
 
 
@@ -368,3 +383,23 @@ func _on_clear_btn_pressed() -> void:
 	self.total_label.text = ""
 	# Se genera una nueva orden si se resolvió el ejercicio (no tiene que estar correcto):
 	self.rich_text_label.text = self.generate_order()
+
+
+func _on_score_screen_restart_game() -> void:
+	# Se reinicia el reloj:
+	self.set_clock()
+	self.clock.stop()
+	
+	# Se reinicia el puntaje:
+	PlayerSession.score = 0
+	
+	# Se imprime el puntaje:
+	self.score_label.print_score()
+
+	# Se muestra la orden:
+	self.rich_text_label.text = self.generate_order()
+	
+	# Se muestra el menú de precios:
+	if !self.prices_menu.is_visible_in_tree():
+		self.prices_menu.show()
+	
