@@ -6,6 +6,7 @@ extends Button
 
 
 func _on_pressed():
+	# Se selecciona el minijuego:
 	match PlayerSession.current_minigame:
 		PlayerSession.Minigames.FRACCTIONS:
 			self._move_to = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
