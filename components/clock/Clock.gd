@@ -22,11 +22,6 @@ signal new_minute_reached
 signal countdown_finished
 
 
-func _ready() -> void:
-	# Se inicializa la animación del reloj desde el frame 0:
-	self.animated_texture_rect.frame_index = 0
-
-
 func _process(delta: float) -> void:
 	if !self.countdown:
 		self.time += delta

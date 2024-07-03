@@ -220,7 +220,6 @@ func disable_registry_buttons() -> void:
 	self.buttons_are_enabled = false
 	for button in self.buttons:
 		button.disabled = true
-	print_debug("Entró a disable buttons")
 
 
 # Habilita los botones:
@@ -228,7 +227,6 @@ func enable_buttons() -> void:
 	if !self.buttons_are_enabled:
 		for button in self.buttons:
 			button.disabled = false
-		print_debug("Entró a enable buttons")
 		self.buttons_are_enabled = true
 
 
@@ -330,7 +328,6 @@ func _on_accept_btn_pressed() -> void:
 	if float(self.total_label.text) == self.total:
 		PlayerSession.score += 10000 # Se actualiza el puntaje
 		self.score_label.print_score() # Se imprime el puntaje
-		print_debug("Son iguales [total: %s, total_label_text: %s]" %[self.total, float(self.total_label.text)])
 	if !self.accept_btn.disabled and self.total_label.text != "":
 		self.ticket_texture.show() # Se muestra la textura del ticket.
 		self.ticket_animation_player.play("default") # Animación del ticket
@@ -344,6 +341,8 @@ func _on_accept_btn_pressed() -> void:
 
 func _on_clock_countdown_finished() -> void:
 	print_debug("Finalizó el tiempo")
+	# Se muestra la pantalla de puntajes:
+	
 
 
 func _on_prices_menu_visibility_changed() -> void:
