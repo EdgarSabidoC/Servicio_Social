@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cey14hi43x1vs"]
+[gd_scene load_steps=25 format=3 uid="uid://cey14hi43x1vs"]
 
 [ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/LevelAdditionsMinigame.gd" id="1_x0vea"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biou6ujuxna1m" path="res://components/prices_menu/PricesMenu.tscn" id="3_dhwye"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/PricesBtn.gd" id="3_f7bxp"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/ClearBtn.gd" id="4_ijd4p"]
+[ext_resource type="Texture2D" uid="uid://4i84fitq7si1" path="res://assets/graphical_assets/user_interface/button/priceMenuButton.tga" id="5_27id0"]
 [ext_resource type="Texture2D" uid="uid://b007tsssi0gk6" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_06.tga" id="5_nc8wv"]
 [ext_resource type="Texture2D" uid="uid://cyjkjwec34aaj" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_02.tga" id="6_rvsbe"]
 [ext_resource type="Texture2D" uid="uid://h7dx1fa7w3ai" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_bill_03.tga" id="7_ld30x"]
@@ -18,6 +19,17 @@
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/TicketTexture.gd" id="14_spgbt"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="15_kxve5"]
 [ext_resource type="Theme" uid="uid://ot4iuwcbdrhy" path="res://assets/graphical_assets/styles/pause_button.tres" id="15_q3hbi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vx27f"]
+texture = ExtResource("5_27id0")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Theme" id="Theme_owfvi"]
+Button/styles/normal = SubResource("StyleBoxTexture_vx27f")
 
 [sub_resource type="Animation" id="Animation_86tlf"]
 resource_name = "default"
@@ -166,21 +178,24 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PricesBtn" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.015625
-anchor_top = 0.123264
-anchor_right = 0.102539
-anchor_bottom = 0.196181
-offset_right = -45.9999
+anchor_left = 0.006
+anchor_top = 0.109
+anchor_right = 0.068
+anchor_bottom = 0.22
+offset_left = -0.144
+offset_top = 0.215996
+offset_right = 0.367996
+offset_bottom = 0.279991
 focus_neighbor_left = NodePath("../VBoxContainer/ClearBtn")
 focus_neighbor_top = NodePath("../VBoxContainer/ClearBtn")
 focus_neighbor_right = NodePath("../PauseBtn")
 focus_neighbor_bottom = NodePath("../PauseBtn")
 focus_next = NodePath("../PauseBtn")
 focus_previous = NodePath("../VBoxContainer/ClearBtn")
+theme = SubResource("Theme_owfvi")
 theme_override_colors/font_color = Color(0, 0.427451, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Ver $"
-flat = true
+text = "$"
 script = ExtResource("3_f7bxp")
 metadata/_edit_use_anchors_ = true
 
