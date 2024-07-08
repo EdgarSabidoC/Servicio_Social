@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4i84fitq7si1"
-path="res://.godot/imported/priceMenuButton.tga-b3273c18e7453a79495a66d62fbda5ce.ctex"
+uid="uid://da0lf7e1xvkhd"
+path="res://.godot/imported/progressbar.tga-e45c2717f1c7b84e51af8799e847a241.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphical_assets/user_interface/button/priceMenuButton.tga"
-dest_files=["res://.godot/imported/priceMenuButton.tga-b3273c18e7453a79495a66d62fbda5ce.ctex"]
+source_file="res://assets/graphical_assets/user_interface/container/progressbar.tga"
+dest_files=["res://.godot/imported/progressbar.tga-e45c2717f1c7b84e51af8799e847a241.ctex"]
 
 [params]
 
