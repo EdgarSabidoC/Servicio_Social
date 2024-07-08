@@ -455,6 +455,7 @@ anchor_right = 0.507813
 countdown = true
 
 [node name="PricesMenu" parent="CanvasLayer" instance=ExtResource("3_dhwye")]
+visible = false
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("19_lmnq3")]
 visible = false
