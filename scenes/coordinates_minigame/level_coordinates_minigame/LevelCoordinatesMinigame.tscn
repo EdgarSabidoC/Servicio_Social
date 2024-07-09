@@ -1,8 +1,8 @@
 [gd_scene load_steps=71 format=3 uid="uid://drlgd1b3cem03"]
 
-[ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/LevelCoordinatesMinigame.gd" id="1_3xota"]
+[ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Texture2D" uid="uid://bil6owdldotqv" path="res://assets/graphical_assets/parallax/street.tga" id="1_74bsg"]
-[ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/GridContainer.gd" id="3_ftveh"]
+[ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/GridContainer.gd" id="3_ftveh"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="3_qyoai"]
 [ext_resource type="Script" path="res://components/drag_texture/DragTexture.gd" id="3_vh3nc"]
 [ext_resource type="Texture2D" uid="uid://wm0l45fxdk02" path="res://assets/graphical_assets/characters/npcs/alux/alux.tga" id="4_c8rpx"]
@@ -455,7 +455,6 @@ script = ExtResource("3_vh3nc")
 preview_size = Vector2(125, 125)
 sprites = SubResource("SpriteFrames_a0kmi")
 current_animation = "in"
-speed_scale = null
 metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
