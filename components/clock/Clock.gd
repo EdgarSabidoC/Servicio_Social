@@ -21,6 +21,10 @@ class_name Clock
 signal new_minute_reached
 signal countdown_finished
 
+func _ready() -> void:
+	self.animated_texture_rect.frame_index = 0
+	self.animated_texture_rect.play()
+
 
 func _process(delta: float) -> void:
 	if !self.countdown:
