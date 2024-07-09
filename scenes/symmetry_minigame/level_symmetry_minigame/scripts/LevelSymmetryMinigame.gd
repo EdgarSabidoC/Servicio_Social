@@ -4,7 +4,7 @@ extends Node2D
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 
-@onready var drop_slot_ingredient: TextureRect = $CanvasLayer/DropSlotIngredient
+@onready var drop_slot_ingredient: TextureRect = $CanvasLayer/TextureRect/DropSlotIngredient
 @onready var drop_slot_ingredient_2: TextureRect = $CanvasLayer/DropSlotIngredient2
 @onready var drop_slot_ingredient_3: TextureRect = $CanvasLayer/DropSlotIngredient3
 @onready var drop_slot_ingredient_4: TextureRect = $CanvasLayer/DropSlotIngredient4

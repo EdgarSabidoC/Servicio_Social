@@ -6,6 +6,9 @@ extends AnimatedTextureRect
 ## (x,y) coordinates for the element.
 @export var coordinates: Vector2i
 
+## If enabled, a DragIngredient can be dropped inside.
+@export var activate_drop: bool = true
+
 enum Ingredients {## Options of possible ingredients to use
 					NULL = 0,
 					MUSHROOM=1,
@@ -76,6 +79,9 @@ func clear_data() -> void:
 
 # Se valida que se pueda soltar una Texture2D:
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	if !self.activate_drop:
+		# Si no está activo el soltar:
+		return false
 	return data is Array
 
 

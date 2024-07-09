@@ -21,11 +21,20 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="DropSlotIngredient" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
-anchor_left = 0.313477
-anchor_top = 0.434028
-anchor_right = 0.352539
-anchor_bottom = 0.503472
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.470703
+anchor_top = 0.234375
+anchor_right = 0.68457
+anchor_bottom = 0.579861
+metadata/_edit_use_anchors_ = true
+
+[node name="DropSlotIngredient" parent="CanvasLayer/TextureRect" instance=ExtResource("4_ttdhp")]
+layout_mode = 1
+anchor_left = -0.735158
+anchor_top = 0.57789
+anchor_right = -0.552509
+anchor_bottom = 0.778895
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(20, 20)
@@ -42,6 +51,7 @@ offset_bottom = 0.0
 pivot_offset = Vector2(20, 20)
 size_flags_horizontal = 8
 expand_mode = 1
+activate_drop = false
 
 [node name="DropSlotIngredient3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 anchor_left = 0.233398
@@ -174,7 +184,7 @@ countdown = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("2_ff83q")]
 
-[connection signal="data_dropped" from="CanvasLayer/DropSlotIngredient" to="." method="_on_drop_slot_ingredient_data_dropped"]
+[connection signal="data_dropped" from="CanvasLayer/TextureRect/DropSlotIngredient" to="." method="_on_drop_slot_ingredient_data_dropped"]
 [connection signal="data_dropped" from="CanvasLayer/DropSlotIngredient2" to="." method="_on_drop_slot_ingredient_2_data_dropped"]
 [connection signal="data_dropped" from="CanvasLayer/DropSlotIngredient3" to="." method="_on_drop_slot_ingredient_3_data_dropped"]
 [connection signal="data_dropped" from="CanvasLayer/DropSlotIngredient4" to="." method="_on_drop_slot_ingredient_4_data_dropped"]
