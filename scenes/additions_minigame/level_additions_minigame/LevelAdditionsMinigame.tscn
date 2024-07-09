@@ -28,17 +28,31 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_melqi"]
 shader = ExtResource("23_syerh")
-shader_parameter/screen_height = 640.0
-shader_parameter/amplitude = 0.05
-shader_parameter/frequency = 10.0
-shader_parameter/speed = 0.5
-shader_parameter/amplitude_vertical = 1.0
-shader_parameter/frequency_vertical = 1.0
-shader_parameter/speed_vertical = 0.05
-shader_parameter/scroll_direction = Vector2(0, 0)
-shader_parameter/scrolling_speed = 0.08
+shader_parameter/snes_transparency = false
+shader_parameter/gba_transparency = false
+shader_parameter/horizontal_scan_line = false
+shader_parameter/vertical_scan_line = false
 shader_parameter/enable_palette_cycling = true
-shader_parameter/palette_speed = 0.075
+shader_parameter/sprite_scroll_direction = Vector2(0, 5)
+shader_parameter/sprite_scroll_speed = 0.01
+shader_parameter/gba_transparency_scroll_direction = Vector2(0, 0)
+shader_parameter/gba_transparency_scroll_speed = 0.01
+shader_parameter/gba_transparency_value = 0.5
+shader_parameter/horizontal_wave_amplitude = 0.0
+shader_parameter/horizontal_wave_frequency = 0.0
+shader_parameter/horizontal_wave_speed = 1.0
+shader_parameter/vertical_wave_amplitude = 0.0
+shader_parameter/vertical_wave_frequency = 0.0
+shader_parameter/vertical_wave_speed = 1.0
+shader_parameter/horizontal_deform_amplitude = 0.075
+shader_parameter/horizontal_deform_frequency = 2.0
+shader_parameter/horizontal_deform_speed = 0.5
+shader_parameter/vertical_deform_amplitude = 0.5
+shader_parameter/vertical_deform_frequency = 2.0
+shader_parameter/vertical_deform_speed = 0.05
+shader_parameter/width = 1024.0
+shader_parameter/height = 576.0
+shader_parameter/palette_cycling_speed = 0.025
 shader_parameter/palette = ExtResource("3_p26kq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2ysl"]
