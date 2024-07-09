@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cey14hi43x1vs"]
+[gd_scene load_steps=35 format=3 uid="uid://cey14hi43x1vs"]
 
 [ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/LevelAdditionsMinigame.gd" id="1_x0vea"]
@@ -22,6 +22,8 @@
 [ext_resource type="Theme" uid="uid://ot4iuwcbdrhy" path="res://assets/graphical_assets/styles/pause_button.tres" id="15_q3hbi"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="16_3co6t"]
 [ext_resource type="PackedScene" uid="uid://cv1ytr5mbabfm" path="res://components/score_screen/ScoreScreen.tscn" id="19_lmnq3"]
+[ext_resource type="Shader" path="res://assets/graphical_assets/styles/background.gdshader" id="23_syerh"]
+[ext_resource type="Texture2D" uid="uid://d4f7wekmnveng" path="res://assets/graphical_assets/environments/backgrounds/BW/sea02.png" id="24_x6dmu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2ysl"]
 texture = ExtResource("5_emgc5")
@@ -138,6 +140,20 @@ _data = {
 "default": SubResource("Animation_86tlf"),
 "reset": SubResource("Animation_d46tb")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_melqi"]
+shader = ExtResource("23_syerh")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
 
 [node name="LevelAdditionsMinigame" type="Node2D"]
 script = ExtResource("1_x0vea")
@@ -455,7 +471,6 @@ anchor_right = 0.507813
 countdown = true
 
 [node name="PricesMenu" parent="CanvasLayer" instance=ExtResource("3_dhwye")]
-visible = false
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("19_lmnq3")]
 visible = false
@@ -464,6 +479,13 @@ visible = false
 show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_melqi")
+offset_right = 1022.0
+offset_bottom = 578.0
+texture = ExtResource("24_x6dmu")
+stretch_mode = 1
 
 [connection signal="pressed" from="CanvasLayer/PricesBtn" to="." method="_on_prices_btn_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/TicketTexture" to="CanvasLayer/TicketTexture" method="_on_visibility_changed"]
