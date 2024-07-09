@@ -33,7 +33,6 @@ signal data_dropped()
 
 func _ready() -> void:
 	self.pivot_offset = self.custom_minimum_size/2
-	print_debug("Pivot offset: %s" %self.pivot_offset)
 
 
 func _input(_event: InputEvent) -> void:
@@ -65,6 +64,14 @@ func get_ingredient_name(name_of_ingredient: Ingredients = self.ingredient_name)
 
 func get_data_formatted() -> String:
 	return "%s, %s" % [self.coordinates, self.get_ingredient_name()]
+
+
+# Genera de manera aleatoria un ingrediente:
+func generate_rand_ingredient() -> void:
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var i = rng.randi_range(0, 7)
+	self.ingredient_name = Ingredients.values()[i]
 
 
 # Limpia los datos:
