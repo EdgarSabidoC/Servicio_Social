@@ -346,9 +346,8 @@ func _on_accept_btn_pressed() -> void:
 		self.accept_btn.change_active_state()
 		self.clear_btn.change_active_state()
 		self.disable_registry_buttons() # Se deshabilita el teclado de la registradora.
-		if !Mouse.mouse_mode_activated:
-			# Se asigna el focus en el modo teclado al botón de borrado:
-			self.clear_btn.grab_focus()
+		# Se asigna el focus en el modo teclado al botón de borrado:
+		self.clear_btn.grab_focus()
 
 
 func _on_clock_countdown_finished() -> void:
@@ -376,8 +375,7 @@ func _on_clear_btn_pressed() -> void:
 		if Mouse.mouse_mode_activated:
 			# Se activan los botones solo en el modo mouse:
 			self.enable_buttons()
-		else:
-			self.accept_btn.grab_focus()
+		self.accept_btn.grab_focus()
 	self.total_label.text = ""
 	# Se genera una nueva orden si se resolvió el ejercicio (no tiene que estar correcto):
 	self.rich_text_label.text = self.generate_order()

@@ -481,6 +481,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_melqi")
 offset_right = 1022.0
 offset_bottom = 578.0
