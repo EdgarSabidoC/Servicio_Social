@@ -13,6 +13,7 @@ func _on_visibility_changed() -> void:
 		ticket_animation_player.play("reset")
 		ticket_total_label.text = "TOTAL:\n\n"
 
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "default":
 		# Se eliminan los ceros iniciales:
