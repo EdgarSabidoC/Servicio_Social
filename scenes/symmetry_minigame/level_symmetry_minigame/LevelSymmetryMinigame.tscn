@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmvnx73aogc7v"]
+[gd_scene load_steps=13 format=3 uid="uid://dmvnx73aogc7v"]
 
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="1_3x5i5"]
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
@@ -6,7 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="2_fkw5t"]
 [ext_resource type="Script" path="res://components/drag_ingredient/DragIngredient.gd" id="3_5xrv3"]
 [ext_resource type="PackedScene" uid="uid://cq04c345l73g0" path="res://components/drop_slot_ingredient/DropSlotIngredient.tscn" id="4_ttdhp"]
+[ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="5_1p5rh"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_3fpxh"]
+[ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="5_oc05t"]
+[ext_resource type="Texture2D" uid="uid://da5tuelnfn6kn" path="res://assets/graphical_assets/environments/backgrounds/simmetry_minigame/pizza_slices.tga" id="10_iuqmb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxidt"]
+atlas = ExtResource("10_iuqmb")
+region = Rect2(6, 0, 47, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtdi8"]
+atlas = ExtResource("10_iuqmb")
+region = Rect2(76, 0, 47, 64)
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
@@ -124,21 +135,31 @@ ingredient_name = 7
 
 [node name="Reset" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.0224609
-anchor_top = 0.871528
-anchor_right = 0.114258
-anchor_bottom = 0.920139
-offset_right = 3.99977
-offset_bottom = 6.10352e-05
+anchor_left = 0.022
+anchor_top = 0.852
+anchor_right = 0.149
+anchor_bottom = 0.974
+offset_left = 0.47196
+offset_top = 0.248108
+offset_right = 0.423965
+offset_bottom = -0.0239258
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_oc05t")
 text = "Deshacer"
 metadata/_edit_use_anchors_ = true
 
 [node name="PauseBtn" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.0292969
-anchor_top = 0.770833
-anchor_right = 0.103516
-anchor_bottom = 0.819444
+anchor_left = 0.022
+anchor_top = 0.712
+anchor_right = 0.149
+anchor_bottom = 0.833
+offset_left = 0.472023
+offset_top = -0.112183
+offset_right = 0.424026
+offset_bottom = 0.191772
+theme = ExtResource("5_oc05t")
 text = "Pausar"
 metadata/_edit_use_anchors_ = true
 
@@ -151,6 +172,7 @@ anchor_right = 0.194336
 anchor_bottom = 0.0850694
 offset_bottom = 2.28882e-05
 size_flags_horizontal = 3
+theme = ExtResource("5_1p5rh")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/ScorePanel"]
@@ -173,6 +195,19 @@ anchor_bottom = 0.116319
 countdown = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("2_ff83q")]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_top = 72.0
+offset_right = 40.0
+offset_bottom = 112.0
+texture = SubResource("AtlasTexture_dxidt")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+offset_left = 45.0
+offset_top = 72.0
+offset_right = 92.0
+offset_bottom = 136.0
+texture = SubResource("AtlasTexture_rtdi8")
 
 [connection signal="data_dropped" from="CanvasLayer/L1/R1" to="." method="_on_r_1_data_dropped"]
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_on_reset_pressed"]
