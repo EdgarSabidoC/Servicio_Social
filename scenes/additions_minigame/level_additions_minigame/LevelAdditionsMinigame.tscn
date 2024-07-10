@@ -533,7 +533,7 @@ size_flags_vertical = 6
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ClearBtn" to="." method="_on_clear_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]
-[connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
+[connection signal="pivot_changed" from="CanvasLayer/Clock" to="." method="_on_clock_pivot_changed"]
 [connection signal="back_btn_pressed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_back_btn_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_visibility_changed"]
 [connection signal="restart_game" from="CanvasLayer/ScoreScreen" to="." method="_on_score_screen_restart_game"]

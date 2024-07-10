@@ -30,7 +30,7 @@ Mouse="*res://scripts/autoloads/mouse/Mouse.gd"
 SceneLoader="*res://scripts/autoloads/scene_loader/SceneLoader.gd"
 SceneTransition="*res://scripts/autoloads/scene_transition/SceneTransition.tscn"
 ClosingGame="*res://scripts/autoloads/closing_game/ClosingGame.gd"
-BackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/BackgroundMusic.tscn"
+BackgroundMusic="*res://scripts/autoloads/sound/background_music/BackgroundMusic.tscn"
 
 [display]
 

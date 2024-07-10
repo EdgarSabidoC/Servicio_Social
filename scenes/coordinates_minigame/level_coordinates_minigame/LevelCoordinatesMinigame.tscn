@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=70 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Texture2D" uid="uid://bil6owdldotqv" path="res://assets/graphical_assets/parallax/street.tga" id="1_74bsg"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="4_pt4l1"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_rjwd5"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="4_xtxav"]
-[ext_resource type="Script" path="res://components/drop_slot/DropSlot.gd" id="5_4b52o"]
 [ext_resource type="Texture2D" uid="uid://3w1v7f4gukia" path="res://assets/graphical_assets/characters/npcs/alux/alux_anger.tga" id="6_3cadp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt0mj"]
@@ -469,28 +468,6 @@ grow_vertical = 2
 columns = 5
 script = ExtResource("3_ftveh")
 
-[node name="DropSlot" type="TextureRect" parent="CanvasLayer/GridContainer"]
-custom_minimum_size = Vector2(172, 125)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-script = ExtResource("5_4b52o")
-coordinates = Vector2i(1, 1)
-
-[node name="DropSlot2" type="TextureRect" parent="CanvasLayer/GridContainer"]
-custom_minimum_size = Vector2(172, 125)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-script = ExtResource("5_4b52o")
-
-[node name="DropSlot3" type="TextureRect" parent="CanvasLayer/GridContainer"]
-custom_minimum_size = Vector2(172, 125)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-script = ExtResource("5_4b52o")
-
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = -1
@@ -514,13 +491,12 @@ vertical_alignment = 1
 script = ExtResource("3_qyoai")
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("4_rjwd5")]
+countdown = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("4_xtxav")]
 show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[connection signal="texture_dropped" from="CanvasLayer/GridContainer/DropSlot" to="CanvasLayer/GridContainer" method="_on_drop_slot_texture_dropped"]
-[connection signal="texture_dropped" from="CanvasLayer/GridContainer/DropSlot2" to="CanvasLayer/GridContainer" method="_on_drop_slot_texture_dropped"]
-[connection signal="texture_dropped" from="CanvasLayer/GridContainer/DropSlot3" to="CanvasLayer/GridContainer" method="_on_drop_slot_texture_dropped"]
+[connection signal="pivot_changed" from="CanvasLayer/Clock" to="." method="_on_clock_pivot_changed"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]

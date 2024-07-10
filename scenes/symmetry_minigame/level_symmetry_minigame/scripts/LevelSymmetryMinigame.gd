@@ -1,9 +1,5 @@
 extends Node2D
 
-# Canciones:
-const FUNICULI_FUNICULA = preload("res://assets/sounds/music/funiculi_funicula.ogg")
-const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
-
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
@@ -15,12 +11,14 @@ const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_fun
 @export var time_easy: float = 180
 @export var time_medium: float = 120
 @export var time_hard: float = 90
+
 @onready var l_1: TextureRect = $CanvasLayer/L1
 @onready var l_2: TextureRect = $CanvasLayer/L2
 @onready var r_1: TextureRect = $CanvasLayer/R1
 @onready var r_2: TextureRect = $CanvasLayer/R2
 
 @onready var drop_slot_list: Array[AnimatedTextureRect] = [r_1, r_2]
+
 
 func _enter_tree() -> void:
 	# Se configura la música:
@@ -43,9 +41,8 @@ func _process(_delta: float) -> void:
 func set_music() -> void:
 	# Se cambia la música:
 	var current_position: float = 0
-	var pitch: float = 1.0
 	var volume: float = 0
-	BackgroundMusic.change_song(FUNICULI_FUNICULA, current_position, pitch, volume)
+	BackgroundMusic.start_minigame_song(volume, current_position)
 
 
 # Configura el tiempo del reloj:

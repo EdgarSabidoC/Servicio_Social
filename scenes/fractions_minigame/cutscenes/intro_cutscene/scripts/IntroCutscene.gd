@@ -2,7 +2,7 @@ extends Control
 
 var level_fractions_minigame = load("res://scenes/fractions_minigame/level_fractions_minigame/LevelFractionsMinigame.tscn")
 var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutscene/OutroCutscene.tscn")
-const O_SOLE_MIO_SOFT_PIANO: AudioStream = preload("res://assets/sounds/music/o_sole_mio_soft_piano.ogg")
+
 @onready var music_starts_at: float = 0.5
 @onready var scene_01: Control = $Scene01
 @onready var scene_finished: bool = false
@@ -14,7 +14,7 @@ const O_SOLE_MIO_SOFT_PIANO: AudioStream = preload("res://assets/sounds/music/o_
 
 func _ready() -> void:
 	# Se cambia la canción:
-	BackgroundMusic.change_song(self.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
+	BackgroundMusic.change_song(BackgroundMusic.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
 
 
 func _process(_delta: float) -> void:

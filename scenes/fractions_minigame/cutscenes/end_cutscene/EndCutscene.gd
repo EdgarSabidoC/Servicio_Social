@@ -1,7 +1,5 @@
 extends Control
 
-const FUNICULI_FUNICULA_FASTER: AudioStream = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
-const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/music/tarantella_napoletana_tremolo.ogg")
 @onready var title_screen_scene: PackedScene = load("res://scenes/title_screen/TitleScreen.tscn")
 @onready var user_input_string: UserInputString = $UserInputString
 @onready var button: Button = $Button
@@ -13,11 +11,11 @@ const TARANTELLA_NAPOLETANA_TREMOLO: AudioStream = preload("res://assets/sounds/
 @onready var rich_text_label_text_flash_2: RichTextLabelTextFlash = $VBoxContainer/RichTextLabelTextFlash2
 @onready var accept_texture_path: String = "res://addons/ActionIcon/Keyboard/Enter.png"
 @onready var accept: ActionIcon = ActionIcon.new()
-@export var accept_width: float = 0
-@export var accept_height: float = 30
 @onready var changed: bool = false
 @onready var user_input_label: Label = $UserInputLabel
 
+@export var accept_width: float = 0
+@export var accept_height: float = 30
 
 
 func _ready() -> void:
@@ -25,7 +23,7 @@ func _ready() -> void:
 	var current_position: float = 0
 	var pitch: float = 1.0
 	var volume: float = 0
-	BackgroundMusic.change_song(FUNICULI_FUNICULA_FASTER, current_position, pitch, volume)
+	BackgroundMusic.change_song(BackgroundMusic.FUNICULI_FUNICULA_FASTER, current_position, pitch, volume)
 	
 	# Si se supera el máximo puntaje:
 	if Persistence.is_high_score():
@@ -98,4 +96,6 @@ func _input(_event: InputEvent) -> void:
 		SceneTransition.change_scene(self.title_screen_scene)
 		
 		# Se cambia la música a la del menú:
-		BackgroundMusic.change_song(self.TARANTELLA_NAPOLETANA_TREMOLO)
+		var volume: float = 0
+		var current_position: float = 0
+		BackgroundMusic.start_menu_song(volume, current_position)

@@ -1,10 +1,7 @@
 extends Node2D
 
-# Canciones:
-const FUNICULI_FUNICULA = preload("res://assets/sounds/music/funiculi_funicula.ogg")
-const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
-
 # Suma total máxima en difícil: $4994.28. Suponiendo que todos los centavos son 0.99
+
 @onready var total_label: Label = $CanvasLayer/TotalLabel
 @onready var button_dot: Button = $CanvasLayer/GridContainer/ButtonDot
 @onready var button_0: Button = $CanvasLayer/GridContainer/Button0
@@ -36,6 +33,8 @@ const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_fun
 @onready var ticket_texture: TextureRect = $CanvasLayer/TicketTexture
 @onready var ticket_animation_player: AnimationPlayer = $CanvasLayer/TicketTexture/TicketAnimationPlayer
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
+
+# Tiempos del reloj por dificultad:
 @export var time_easy: float = 180
 @export var time_medium: float = 120
 @export var time_hard: float = 90
@@ -73,9 +72,8 @@ func _process(_delta: float) -> void:
 func set_music() -> void:
 	# Se cambia la música:
 	var current_position: float = 0
-	var pitch: float = 1.0
 	var volume: float = 0
-	BackgroundMusic.change_song(FUNICULI_FUNICULA, current_position, pitch, volume)
+	BackgroundMusic.start_minigame_song(volume, current_position)
 
 
 # Configura el juego:
@@ -340,13 +338,6 @@ func _on_pause_btn_pressed() -> void:
 		self.pause.show()
 
 
-# Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:
-func _on_clock_new_minute_reached() -> void:
-	# Se aumenta el pitch_scale de la música por cada minuto de juego:
-	self.current_pitch += 0.1
-	BackgroundMusic.change_pitch(self.current_pitch)
-
-
 func _on_prices_btn_pressed() -> void:
 	self.prices_menu.show()
 	self.clock.stop()
@@ -409,4 +400,10 @@ func _on_score_screen_restart_game() -> void:
 	# Se muestra el menú de precios:
 	if !self.prices_menu.is_visible_in_tree():
 		self.prices_menu.show()
-	
+
+
+# Cuando se llegue a un pivote en cuenta atrás se aumenta la velocidad de la música:
+func _on_clock_pivot_changed() -> void:
+	# Se aumenta el pitch_scale de la música por cada minuto de juego:
+	self.current_pitch += 0.1
+	BackgroundMusic.change_pitch(self.current_pitch)

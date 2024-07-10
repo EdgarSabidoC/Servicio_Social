@@ -5,6 +5,7 @@ extends Control
 @onready var score_label: RichTextLabelTextFlash = $ScoreLabel
 @onready var restart_btn: Button = $RestartBtn
 @onready var return_btn: Button = $ReturnBtn
+
 @onready var main_menu: PackedScene = load("res://scenes/main_menu/MainScene.tscn")
 
 signal restart_game
@@ -18,6 +19,10 @@ func _on_restart_btn_pressed() -> void:
 func _on_return_btn_pressed() -> void:
 	SceneTransition.change_scene(main_menu)
 	PlayerSession.clear_player_session()
+	# Se cambia la música del minijuego a la del menú principal:
+	var volume: float = 0
+	var current_position: float = 0
+	BackgroundMusic.start_menu_song(volume, current_position)
 
 
 func _on_visibility_changed() -> void:

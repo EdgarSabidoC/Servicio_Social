@@ -1,15 +1,15 @@
 extends Control
 
+@onready var music_starts_at: float = 15
+
 var intro_cutscene: PackedScene = load("res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn")
 var end_cutscene: PackedScene = load("res://scenes/fractions_minigame/cutscenes/end_cutscene/EndCutscene.tscn")
-const O_SOLE_MIO_SOFT_PIANO = preload("res://assets/sounds/music/o_sole_mio_soft_piano.ogg")
-@onready var music_starts_at: float = 15
 
 
 func _ready() -> void:
 	# Se desactiva el proceso de escucha de entradas:
 	self.set_process_input(false)
-	BackgroundMusic.change_song(self.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
+	BackgroundMusic.change_song(BackgroundMusic.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
 
 
 func _process(_delta: float) -> void:

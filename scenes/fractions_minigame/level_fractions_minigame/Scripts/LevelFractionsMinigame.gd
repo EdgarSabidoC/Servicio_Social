@@ -1,9 +1,5 @@
 extends Node2D
 
-# Canciones:
-const FUNICULI_FUNICULA = preload("res://assets/sounds/music/funiculi_funicula.ogg")
-const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
-
 # Variables:
 @onready var score_panel: Panel = $CanvasLayer/ScorePanel
 @onready var pause: Control = $CanvasLayer/Pause
@@ -18,8 +14,9 @@ const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_fun
 @onready var score_label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var buttons: Array[AnswerButton] = [answer_button_1, answer_button_2, answer_button_3, answer_button_4]
 @onready var answers: Array[Dictionary]
-var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutscene/OutroCutscene.tscn")
 @onready var current_pitch = 1.0
+
+var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutscene/OutroCutscene.tscn")
 
 
 func _ready() -> void:	
@@ -27,7 +24,7 @@ func _ready() -> void:
 	var current_position: float = 0
 	var pitch: float = 1.0
 	var volume: float = 0
-	BackgroundMusic.change_song(FUNICULI_FUNICULA, current_position, pitch, volume)
+	BackgroundMusic.change_song(BackgroundMusic.FUNICULI_FUNICULA, current_position, pitch, volume)
 	
 	# Se enfoca el botón 1 si está en modo teclado:
 	if !Mouse.mouse_mode_activated:
