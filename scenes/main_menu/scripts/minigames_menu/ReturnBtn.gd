@@ -1,6 +1,6 @@
 extends Button
 
-@export var hint: String = "Regresar al menú principal"
+@export_multiline var hint: String = "Regresar al menú principal"
 @onready var minigames_menu: VBoxContainer = %MinigamesMenu
 @onready var main_menu = %MainMenu
 @onready var menu_container = $"../../MenuContainer"

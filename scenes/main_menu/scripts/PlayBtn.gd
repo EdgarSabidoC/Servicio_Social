@@ -1,6 +1,6 @@
 extends Button
 
-@export var hint: String = "Comienza a jugar."
+@export var hint: String = "Selecciona uno de los minijuegos y comienza a jugar."
 @export var seconds_to_wait = 3
 @onready var difficulty_menu = %DifficultyMenu
 @onready var text_box_container: Control = %MenuTextbox

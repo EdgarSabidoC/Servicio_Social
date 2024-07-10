@@ -1,6 +1,6 @@
 extends Button
 
-@export var hint: String = "Cerrar el juego." 
+@export_multiline var hint: String = "Cerrar el juego." 
 @onready var menu_textbox = $"../../MenuTextbox/MarginContainer/MenuTextbox"
 @onready var exit: int = 0
 

@@ -1,7 +1,7 @@
 extends Button
 
 @onready var menu_textbox: MarginContainer = $"../../MenuTextbox/MarginContainer/MenuTextbox"
-@export var hint: String = "En esta sección encontrarás todo lo necesario para aprender a jugar."
+@export_multiline var hint: String = "En esta sección encontrarás todo lo necesario para aprender a jugar."
 @onready var settings_background_color: ColorRect = $"../../../SettingsBackgroundColor"
 @onready var menu_background_color: ColorRect = $"../../../MenuBackgroundColor"
 @onready var how_to_play: TabContainer = %HowToPlay

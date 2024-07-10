@@ -1,11 +1,12 @@
 extends Button
+
 @onready var settings: TabContainer = %Settings
 @onready var video = $"../../../Settings/Video"
 @onready var text_box_container: Control = %MenuTextbox
 @onready var menu_background = %MenuBackground
 @onready var settings_background_color = $"../../../SettingsBackgroundColor"
 @onready var menu_background_color = $"../../../MenuBackgroundColor"
-@export var hint: String = "Abre el menú de opciones de configuración:\n⚙️ Vídeo\n⚙️ Audio\n⚙️ Controles"
+@export_multiline var hint: String = "Abre el menú de opciones de configuración:\n⚙️ Vídeo\n⚙️ Audio\n⚙️ Controles"
 @onready var menu_textbox = $"../../MenuTextbox/MarginContainer/MenuTextbox"
 
 
