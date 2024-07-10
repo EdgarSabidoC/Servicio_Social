@@ -7,7 +7,7 @@ extends AnimatedTextureRect
 @export var coordinates: Vector2i
 
 ## If enabled, a DragIngredient can be dropped inside.
-@export var activate_drop: bool = true
+@export var enable_drop: bool = true
 
 enum Ingredients {## Options of possible ingredients to use
 					NULL = 0,
@@ -37,7 +37,7 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	# Si se da click derecho sobre el espacio o textura se rota 45°:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and self.is_hover:
+	if self.enable_drop and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and self.is_hover:
 		self.rotation_degrees += 45
 
 
@@ -86,7 +86,7 @@ func clear_data() -> void:
 
 # Se valida que se pueda soltar una Texture2D:
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	if !self.activate_drop:
+	if !self.enable_drop:
 		# Si no está activo el soltar:
 		return false
 	return data is Array
@@ -106,3 +106,7 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	self.is_hover = false
+
+
+func _on_minimum_size_changed() -> void:
+	self.pivot_offset = self.custom_minimum_size/2

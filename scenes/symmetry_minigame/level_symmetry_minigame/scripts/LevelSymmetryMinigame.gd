@@ -4,6 +4,8 @@ extends Node2D
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var pause_btn: Button = $CanvasLayer/PauseBtn
+@onready var ingredients_container: VBoxContainer = $CanvasLayer/IngredientsContainer
+@onready var current_pitch: float = 1.0
 
 @onready var l_1: TextureRect = $CanvasLayer/L1
 @onready var l_2: TextureRect = $CanvasLayer/L2
@@ -15,6 +17,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	# Se configura el juego:
 	self.set_game()
 
 
@@ -25,22 +28,19 @@ func _process(_delta: float) -> void:
 			self.pause.show()
 
 
-func set_game() -> void:
-	# Se inicializa el puntaje en 0:
-	PlayerSession.score = 0
-	
-	# Se imprime el puntaje:
-	self.score_label.print_score()
-	
+# Configura el tiempo del reloj:
+func set_time() -> void:
 	# Se configuran los tiempos del reloj:
 	match PlayerSession.difficulty:
 		"easy":
-			self.clock.time = 120
+			self.clock.time = 240
 		"medium":
-			self.clock.time = 90
+			self.clock.time = 120
 		"hard":
-			self.clock.time = 60
-	
+			self.clock.time = 90
+
+
+func set_ingredients():
 	# Se generan los ingredientes aleatorios:
 	self.l_1.generate_rand_ingredient()
 	self.l_2.generate_rand_ingredient()
@@ -52,18 +52,24 @@ func set_game() -> void:
 	#self.l_8.generate_rand_ingredient()
 
 
+# Configura la partida:
+func set_game() -> void:
+	# Se inicializa el puntaje en 0:
+	PlayerSession.score = 0
+	
+	# Se imprime el puntaje:
+	self.score_label.print_score()
+	
+	# Se configuran el tiempo y los ingredientes:
+	self.set_time()
+	self.set_ingredients()
+
+
 func _on_pause_finished() -> void:
 	if !Mouse.mouse_mode_activated:
 		pass
 	self.clock.continue_clock()
 	self.pause.hide()
-
-
-# Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:
-func _on_clock_new_minute_reached() -> void:
-	# Se aumenta el pitch_scale de la música por cada minuto de juego:
-	self.current_pitch += 0.1
-	BackgroundMusic.change_pitch(self.current_pitch)
 
 
 func _on_reset_pressed() -> void:
@@ -85,3 +91,14 @@ func _on_pause_btn_pressed() -> void:
 			self.pause_btn.release_focus()
 		self.clock.stop()
 		self.pause.show()
+
+
+# Cuando se llegue a un pivote en cuenta atrás se aumenta la velocidad de la música:
+func _on_clock_pivot_changed() -> void:
+	# Se aumenta el pitch_scale de la música por cada minuto de juego:
+	self.current_pitch += 0.1
+	BackgroundMusic.change_pitch(self.current_pitch)
+
+
+func _on_clock_countdown_finished() -> void:
+	BackgroundMusic.stop()

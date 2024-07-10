@@ -18,8 +18,15 @@ class_name Clock
 @onready var animated_texture_rect: AnimatedTextureRect = $AnimatedTextureRect
 
 
+## Launched when a new minute is reached.
 signal new_minute_reached
+
+## Launched when a countdown is over.
 signal countdown_finished
+
+## Launched when a new pivot on countdown is reached.
+signal pivot_changed
+
 
 func _ready() -> void:
 	self.animated_texture_rect.frame_index = 0
@@ -112,15 +119,19 @@ func set_timer_color() -> void:
 			countdown_pivot_1:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.75))
+				self.pivot_changed.emit()
 			countdown_pivot_2:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.55))
+				self.pivot_changed.emit()
 			countdown_pivot_3:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.35))
+				self.pivot_changed.emit()
 			countdown_pivot_4:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED)
+				self.pivot_changed.emit()
 
 
 # Imprime en una etiqueta el formato del reloj:

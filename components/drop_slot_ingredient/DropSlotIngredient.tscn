@@ -8,8 +8,7 @@ custom_minimum_size = Vector2(40, 40)
 anchors_preset = -1
 anchor_right = 0.0390625
 anchor_bottom = 0.0694444
-offset_right = -40.0
-offset_bottom = -39.9999
+offset_bottom = 2.28882e-05
 pivot_offset = Vector2(20, 20)
 expand_mode = 1
 script = ExtResource("1_18i1v")
@@ -27,5 +26,6 @@ mouse_filter = 2
 texture = ExtResource("2_y0ffl")
 expand_mode = 1
 
+[connection signal="minimum_size_changed" from="." to="." method="_on_minimum_size_changed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

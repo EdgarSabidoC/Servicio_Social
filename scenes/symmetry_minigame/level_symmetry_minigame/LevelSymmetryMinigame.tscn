@@ -22,21 +22,22 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(30, 30)
 anchor_left = 0.248047
 anchor_top = 0.354167
-anchor_right = 0.287109
-anchor_bottom = 0.423611
-offset_right = 0.0
-offset_bottom = 0.0
+anchor_right = 0.277344
+anchor_bottom = 0.40625
+offset_right = -10.0
+offset_bottom = -10.0
+pivot_offset = Vector2(15, 15)
 texture = ExtResource("2_fkw5t")
-activate_drop = false
+enable_drop = false
 
 [node name="R1" parent="CanvasLayer/L1" instance=ExtResource("4_ttdhp")]
 layout_mode = 1
 anchor_left = 4.125
-anchor_right = 5.125
-anchor_bottom = 1.0
-offset_right = 0.0
+anchor_right = 5.45833
+anchor_bottom = 1.33333
 offset_bottom = 0.0
 size_flags_horizontal = 0
 
@@ -45,18 +46,15 @@ anchor_left = 0.246094
 anchor_top = 0.541667
 anchor_right = 0.285156
 anchor_bottom = 0.611111
-offset_right = 0.0
 offset_bottom = 0.0
 texture = ExtResource("2_fkw5t")
-activate_drop = false
+enable_drop = false
 
 [node name="R2" parent="CanvasLayer/L2" instance=ExtResource("4_ttdhp")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 anchor_left = 6.25
 anchor_right = 7.25
 anchor_bottom = 1.0
-offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="IngredientsContainer" type="VBoxContainer" parent="CanvasLayer"]
@@ -65,6 +63,7 @@ anchor_left = 0.87793
 anchor_top = 0.152778
 anchor_right = 0.936524
 anchor_bottom = 0.923611
+alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DragIngredient" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
@@ -178,5 +177,6 @@ countdown = true
 [connection signal="data_dropped" from="CanvasLayer/L1/R1" to="." method="_on_r_1_data_dropped"]
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
-[connection signal="new_minute_reached" from="CanvasLayer/Clock" to="." method="_on_clock_new_minute_reached"]
+[connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]
+[connection signal="pivot_changed" from="CanvasLayer/Clock" to="." method="_on_clock_pivot_changed"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]
