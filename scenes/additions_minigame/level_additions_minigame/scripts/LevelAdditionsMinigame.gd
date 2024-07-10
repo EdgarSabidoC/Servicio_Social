@@ -376,7 +376,6 @@ func _on_clock_countdown_finished() -> void:
 	# Se muestra la pantalla de puntajes:
 	self.score_screen.show()
 	self.score_screen.print_score()
-	
 
 
 func _on_prices_menu_visibility_changed() -> void:

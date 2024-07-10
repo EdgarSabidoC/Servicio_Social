@@ -290,7 +290,6 @@ focus_previous = NodePath("../VBoxContainer/ClearBtn")
 theme = SubResource("Theme_owfvi")
 theme_override_colors/font_color = Color(0, 0.427451, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "$"
 script = ExtResource("3_f7bxp")
 metadata/_edit_use_anchors_ = true
 
