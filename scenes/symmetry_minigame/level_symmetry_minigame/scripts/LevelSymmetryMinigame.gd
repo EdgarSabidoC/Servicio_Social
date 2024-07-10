@@ -3,6 +3,7 @@ extends Node2D
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
+@onready var pause_btn: Button = $CanvasLayer/PauseBtn
 
 @onready var l_1: TextureRect = $CanvasLayer/L1
 @onready var l_2: TextureRect = $CanvasLayer/L2
@@ -74,3 +75,13 @@ func _on_reset_pressed() -> void:
 func _on_r_1_data_dropped() -> void:
 	if self.l_1.ingredient_name == self.r_1.ingredient_name:
 		print_debug("Son iguales %s -> %s" %[self.l_1.get_ingredient_name(), self.r_1.get_ingredient_name()])
+
+
+func _on_pause_btn_pressed() -> void:
+	if !self.pause.is_active():
+		if !Mouse.mouse_mode_activated:
+			self.pause.continue_btn.grab_focus()
+		else:
+			self.pause_btn.release_focus()
+		self.clock.stop()
+		self.pause.show()
