@@ -430,7 +430,7 @@ region = Rect2(0, 5760, 124, 160)
 atlas = ExtResource("13_fahix")
 region = Rect2(0, 5920, 124, 160)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_cj3v1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcku5"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -822,7 +822,7 @@ grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0002, 80)
 texture = SubResource("AtlasTexture_e83j6")
-sprites = SubResource("SpriteFrames_cj3v1")
+sprites = SubResource("SpriteFrames_wcku5")
 frame_index = 0
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
