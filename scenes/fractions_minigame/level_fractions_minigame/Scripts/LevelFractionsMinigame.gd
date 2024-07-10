@@ -21,8 +21,8 @@ const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_fun
 var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutscene/OutroCutscene.tscn")
 @onready var current_pitch = 1.0
 
-func _ready() -> void:
-	
+
+func _ready() -> void:	
 	# Se cambia la música:
 	var current_position: float = 0
 	var pitch: float = 1.0
