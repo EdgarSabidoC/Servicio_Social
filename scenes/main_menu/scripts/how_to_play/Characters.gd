@@ -20,13 +20,8 @@ func _enter_tree() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.v_box_container.hide()
-	var character: CharacterResource
-	var char_icon: Texture2D
-	for tab in tab_count:
-		character = CharactersData.characters[tab]
-		char_icon = CharactersData.get_character_icon(character)
-		# Se añaden los íconos a las tabs:
-		self.set_tab_icon(tab, char_icon)
+	# Se configuran las tabs con los íconos e información del personaje:
+	self.set_characters()
 
 
 func _process(_delta: float) -> void:
@@ -70,7 +65,7 @@ func _hide_tabs():
 
 # Muestra todas las tabs ocultas:
 func _show_hidden_tabs():
-	for tab in tab_count:
+	for tab in self.tab_count:
 		if self.is_tab_hidden(tab):
 			self.set_tab_hidden(tab, false)
 
@@ -88,11 +83,24 @@ func _on_visibility_changed() -> void:
 			self._show_hidden_tabs()
 			self.v_box_container.hide()
 	else:
-		# Cada vez que se entre a la pestaña de personajes, estos se reacomodan:
-		randomize()
-		self.characters.shuffle()
+		self.set_characters()
+
 
 func _on_tab_hovered(_tab: int) -> void:
 	if !Mouse.mouse_mode_activated:
 		# Para evitar que el mouse capturado muestre el tema hovered:
 		self.add_theme_stylebox_override("tab_hovered", self.get_theme_stylebox("tab_unselected"))
+
+
+# Configura las tabs con los datos de los personajes:
+func set_characters() -> void:
+	# Se mezclan los personajes:
+	randomize()
+	self.characters.shuffle()
+	var character: CharacterResource
+	var char_icon: Texture2D
+	for tab in self.tab_count:
+		character = self.characters[tab]
+		char_icon = CharactersData.get_character_icon(character)
+		# Se añaden los íconos a las tabs:
+		self.set_tab_icon(tab, char_icon)

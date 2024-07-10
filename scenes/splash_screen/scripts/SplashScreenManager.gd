@@ -7,7 +7,7 @@ extends Control
 var _splash_screens: Array[SplashScreen] = []
 
 @onready var _splash_screen_container: CenterContainer = $SplashScreenContainer
-
+ 
 
 func _ready() -> void:
 	# Se oculta el mouse:

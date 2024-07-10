@@ -7,6 +7,8 @@ extends Node
 @export var character: int = 0
 @onready var secret_level: bool = false
 @onready var alux_rejected: bool = false
+enum Minigames {FRACCTIONS = 0, ADDITIONS = 1, COORDINATES = 2, SYMMETRY = 3}
+@onready var current_minigame: Minigames
 
 
 # Limpia las variables de la sesión del juego:
@@ -21,8 +23,7 @@ func clear_player_session() -> void:
 
 # Obtiene el siguiente personaje:
 func next_character() -> int:
-	self.character += 1
-	return self.character
+	return self.character + 1
 
 
 # Función que guarda el puntaje del jugador entre los puntajes más altos:

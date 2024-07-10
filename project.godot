@@ -30,7 +30,7 @@ Mouse="*res://scripts/autoloads/mouse/Mouse.gd"
 SceneLoader="*res://scripts/autoloads/scene_loader/SceneLoader.gd"
 SceneTransition="*res://scripts/autoloads/scene_transition/SceneTransition.tscn"
 ClosingGame="*res://scripts/autoloads/closing_game/ClosingGame.gd"
-BackgroundMusic="*res://scripts/autoloads/sound/menu_background_music/BackgroundMusic.tscn"
+BackgroundMusic="*res://scripts/autoloads/sound/background_music/BackgroundMusic.tscn"
 
 [display]
 
@@ -39,7 +39,6 @@ window/size/viewport_height=576
 window/size/initial_position_type=0
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="res://assets/graphical_assets/mouse/mouse.png"
 
 [dotnet]
 
@@ -193,6 +192,7 @@ ui_delete={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 2d/snap/snap_2d_transforms_to_pixel=true

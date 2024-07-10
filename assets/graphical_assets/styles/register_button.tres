@@ -1,0 +1,66 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cl220ixbnd62e"]
+
+[ext_resource type="Texture2D" uid="uid://8ujh4owog4ps" path="res://assets/graphical_assets/user_interface/button/button_cash.tga" id="1_soeoi"]
+[ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="2_n6l10"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80rbj"]
+texture = ExtResource("1_soeoi")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 7.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(155, 11, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tunqy"]
+texture = ExtResource("2_n6l10")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rp8lq"]
+texture = ExtResource("1_soeoi")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 7.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(59, 11, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekas3"]
+texture = ExtResource("1_soeoi")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 7.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(11, 11, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_njjko"]
+texture = ExtResource("1_soeoi")
+texture_margin_left = 5.0
+texture_margin_top = 7.0
+texture_margin_right = 5.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(107, 9, 26, 28)
+
+[resource]
+Button/font_sizes/font_size = 15
+Button/styles/disabled = SubResource("StyleBoxTexture_80rbj")
+Button/styles/focus = SubResource("StyleBoxTexture_tunqy")
+Button/styles/hover = SubResource("StyleBoxTexture_rp8lq")
+Button/styles/normal = SubResource("StyleBoxTexture_ekas3")
+Button/styles/pressed = SubResource("StyleBoxTexture_njjko")

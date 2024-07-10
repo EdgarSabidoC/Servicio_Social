@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcwavj3h5my52"]
+
+[ext_resource type="AudioStream" uid="uid://cbvaqf43nsv5r" path="res://assets/sounds/music/tarantella_napoletana_tremolo.ogg" id="1_yjikk"]
+[ext_resource type="Script" path="res://scripts/autoloads/sound/background_music/BackgroundMusic.gd" id="2_18s5d"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_yjikk")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_18s5d")

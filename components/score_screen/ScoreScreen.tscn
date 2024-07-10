@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv1ytr5mbabfm"]
+
+[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="1_qmp1g"]
+[ext_resource type="Script" path="res://components/score_screen/scripts/ScoreScreen.gd" id="1_si3ca"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="2_nognv"]
+[ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="4_kh5ik"]
+
+[node name="ScoreScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_si3ca")
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qmp1g")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.226563
+anchor_top = 0.111111
+anchor_right = 0.771484
+anchor_bottom = 0.215278
+theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 48
+text = "Tu puntaje final es"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.390625
+anchor_top = 0.333333
+anchor_right = 0.609376
+anchor_bottom = 0.416666
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]00000000[/center]"
+script = ExtResource("2_nognv")
+speed = 2.0
+delay = 1.0
+fade = true
+metadata/_edit_use_anchors_ = true
+
+[node name="RestartBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4375
+anchor_top = 0.513889
+anchor_right = 0.560547
+anchor_bottom = 0.631945
+theme = ExtResource("4_kh5ik")
+text = "Reiniciar"
+metadata/_edit_use_anchors_ = true
+
+[node name="ReturnBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351563
+anchor_top = 0.666667
+anchor_right = 0.650391
+anchor_bottom = 0.784723
+theme = ExtResource("4_kh5ik")
+text = "Regresar al menú principal"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="ReturnBtn" to="." method="_on_return_btn_pressed"]

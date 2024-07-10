@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnw4dvls0ekb8"]
+
+[ext_resource type="Script" path="res://components/drag_and_drop_texture/DragAndDropTexture.gd" id="2_ylt5m"]
+
+[node name="DragAndDropTexture" type="TextureButton"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = -1
+anchor_right = 0.125
+anchor_bottom = 0.222222
+offset_right = -128.0
+offset_bottom = -128.0
+script = ExtResource("2_ylt5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

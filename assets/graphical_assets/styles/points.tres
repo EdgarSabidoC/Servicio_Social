@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bf2gebxg2263k"]
+
+[ext_resource type="Texture2D" uid="uid://dpgo7a64q3is4" path="res://assets/graphical_assets/user_interface/container/pointsContainer.tga" id="1_xibgw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_seuvi"]
+texture = ExtResource("1_xibgw")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 28, 40, 44)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_seuvi")

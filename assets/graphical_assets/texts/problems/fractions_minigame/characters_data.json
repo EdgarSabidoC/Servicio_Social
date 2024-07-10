@@ -20,7 +20,7 @@
 			{"fraction": "1/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			{"fraction": "1/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 		],
-		"main_asset_path": "res://icon.svg",
+		"main_asset_path": "res://assets/graphical_assets/characters/icons/alux_icon.tga",
 		"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{

@@ -17,7 +17,8 @@ func _on_pressed() -> void:
 		how_to_play.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
 	get_parent().hide() # Oculta el menú principal
 	text_box_container.hide() # Oculta el textbox del menú principal.hide() # Oculta el textbox del menú principal
-
+	%BackButton.show()
+	
 
 # Al estar enfocado el botón:
 func _on_focus_entered():

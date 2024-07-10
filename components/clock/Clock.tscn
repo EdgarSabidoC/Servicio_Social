@@ -1,12 +1,94 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1konyslocvmf"]
+[gd_scene load_steps=16 format=3 uid="uid://b1konyslocvmf"]
 
 [ext_resource type="Script" path="res://components/clock/Clock.gd" id="1_s1qpn"]
+[ext_resource type="Texture2D" uid="uid://b7fim88g484qt" path="res://assets/graphical_assets/user_interface/container/clockContainer.tga" id="2_mpwi3"]
+[ext_resource type="Texture2D" uid="uid://clpwhijpa38gp" path="res://assets/graphical_assets/user_interface/container/clockContainer_side.tga" id="3_k14rk"]
+[ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="4_o58io"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_octpm"]
+texture = ExtResource("2_mpwi3")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(22, 22, 52, 54)
+
+[sub_resource type="Theme" id="Theme_ptfef"]
+Panel/styles/panel = SubResource("StyleBoxTexture_octpm")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56i3q"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl6jo"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyit6"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdx7q"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w7lc"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l743i"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqq2l"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wht"]
+atlas = ExtResource("3_k14rk")
+region = Rect2(0, 336, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bn1ne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl6jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyit6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdx7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56i3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w7lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l743i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqq2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Clock" type="Control"]
 layout_mode = 3
 anchor_left = 0.8125
 anchor_right = 1.0
 anchor_bottom = 0.111111
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 0
 script = ExtResource("1_s1qpn")
 metadata/_edit_use_anchors_ = true
@@ -20,6 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_ptfef")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Panel"]
@@ -31,7 +114,24 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "00:00.000"
+text = "00:00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.443
+anchor_top = -0.313
+anchor_right = 0.078
+anchor_bottom = 1.281
+offset_left = 0.0559998
+offset_top = 0.0319805
+offset_right = 0.0240002
+offset_bottom = -1.98392
+pivot_offset = Vector2(50, 50)
+texture = SubResource("AtlasTexture_56i3q")
+script = ExtResource("4_o58io")
+sprites = SubResource("SpriteFrames_bn1ne")
+frame_index = 3

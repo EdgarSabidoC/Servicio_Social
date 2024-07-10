@@ -2,9 +2,7 @@ extends Control
 
 class_name Clock
 
-#@onready var minutes_label: Label = $CanvasLayer/Panel/MinutesLabel
-#@onready var seconds_label: Label = $CanvasLayer/Panel/SecondsLabel
-#@onready var milliseconds_label: Label = $CanvasLayer/Panel/MillisecondsLabel
+
 @onready var label: Label = $Panel/Label
 @export var time: float = 0.0
 @onready var minutes: int = 0
@@ -12,91 +10,133 @@ class_name Clock
 @onready var milliseconds: int = 0
 @onready var color_changed: bool = false
 @onready var signal_emitted: bool
+@export var countdown: bool = false
+@export var countdown_pivot_1: int = 59
+@export var countdown_pivot_2: int = 45
+@export var countdown_pivot_3: int = 30
+@export var countdown_pivot_4: int = 15
+@onready var animated_texture_rect: AnimatedTextureRect = $AnimatedTextureRect
 
 
+## Launched when a new minute is reached.
 signal new_minute_reached
+
+## Launched when a countdown is over.
+signal countdown_finished
+
+## Launched when a new pivot on countdown is reached.
+signal pivot_changed
+
+
+func _ready() -> void:
+	self.animated_texture_rect.frame_index = 0
+	self.animated_texture_rect.play()
 
 
 func _process(delta: float) -> void:
-	self.time += delta
+	if !self.countdown:
+		self.time += delta
+	elif self.countdown and self.time > 0:
+		self.time -= delta
+	elif self.countdown and self.time <= 0:
+		self.countdown_finished.emit()
+		self.stop()
 	@warning_ignore("narrowing_conversion")
-	self.milliseconds = fmod(time, 1) * 100
+	self.milliseconds = fmod(self.time, 1) * 100
 	@warning_ignore("narrowing_conversion")
-	self.seconds = fmod(time, 60)
+	self.seconds = fmod(self.time, 60)
 	@warning_ignore("narrowing_conversion")
-	self.minutes = fmod(time, 3600) / 60
+	self.minutes = fmod(self.time, 3600) / 60
 	
 	# Si se llega al minuto, se lanza la señal new_minute_reached:
-	if !self.signal_emitted and self.seconds == 59 and self.milliseconds == 99:
+	if !self.countdown and !self.signal_emitted and self.seconds == 59 and self.milliseconds == 99:
 		self.signal_emitted = true
 		self.color_changed = false
 		self.new_minute_reached.emit()
-		
+	
+	if self.countdown and (fmod(self.seconds, 14) == 0):
+		self.color_changed = false
+	
 	# Se cambia el color según los minutos:
-	set_timer_color()
+	self.set_timer_color()
 	
 	# Se imprime el tiempo en la etiqueta ya con formato:
-	get_time_formatted()
+	if self.time >= 0:
+		self.get_time_formatted()
 
 
 # Para el reloj:
 func stop() -> void:
-	set_process(false)
+	self.animated_texture_rect.pause()
+	self.set_process(false)
 
 
 # Continúa con el proceso del reloj:
 func continue_clock() -> void:
-	set_process(true)
+	self.animated_texture_rect.play()
+	self.set_process(true)
 
 
 # Configura el color del reloj:
 func set_timer_color() -> void:
 	# Se cambia el color a rojo:
-	match self.minutes:
-		1:
-			if !self.color_changed:
+	if !self.color_changed and !self.countdown:
+		# Si no es cuenta atrás:
+		match self.minutes:
+			1:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.75))
-		2:
-			if !self.color_changed:
+			2:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.55))
-		3:
-			if !self.color_changed:
+			3:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.25))
-		4:
-			if !self.color_changed:
+			4:
 				self.color_changed = true
-				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.15))
-		5:
-			if !self.color_changed:
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.15))
+			5:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED)
-		6:
-			if !self.color_changed:
+			6:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.15))
-		7:
-			if !self.color_changed:
+			7:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.30))
-		8:
-			if !self.color_changed:
+			8:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.45))
-		9:
-			if !self.color_changed:
+			9:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.5))
-		10:
-			if !self.color_changed:
+			10:
 				self.color_changed = true
 				self.label.set("theme_override_colors/font_color", Color.RED.darkened(0.75))
+	elif !self.color_changed and self.countdown and self.minutes < 1:
+		# Si es cuenta atrás:
+		match self.seconds:
+			countdown_pivot_1:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.75))
+				self.pivot_changed.emit()
+			countdown_pivot_2:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.55))
+				self.pivot_changed.emit()
+			countdown_pivot_3:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED.lightened(0.35))
+				self.pivot_changed.emit()
+			countdown_pivot_4:
+				self.color_changed = true
+				self.label.set("theme_override_colors/font_color", Color.RED)
+				self.pivot_changed.emit()
+
 
 # Imprime en una etiqueta el formato del reloj:
 func get_time_formatted() -> void:
-	self.label.text = "%02d:%02d.%02d" % [self.minutes, self.seconds, self.milliseconds]
+	self.label.text = "%02d:%02d:%02d" % [self.minutes, self.seconds, self.milliseconds]
 
 
 func hide_clock():
@@ -105,10 +145,3 @@ func hide_clock():
 
 func show_clock():
 	self.show()
-	
-
-# Imprime en las etiquetas el formato del reloj:
-#func get_time_labels() -> void:
-	#self.minutes_label.text = "%02d:"%self.minutes
-	#self.seconds_label.text = "%02d."%self.seconds
-	#self.milliseconds_label.text = "%02d."%self.milliseconds

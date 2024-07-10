@@ -1,11 +1,21 @@
 extends Button
 
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
-@export var hint: String = "Sólo para los más experimentados y estudiosos"
-@onready var _move_to: String = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
+@export_multiline var hint: String = "Sólo para los más experimentados y estudiosos"
+@onready var _move_to: String
 
 
 func _on_pressed():
+	# Se selecciona el minijuego:
+	match PlayerSession.current_minigame:
+		PlayerSession.Minigames.FRACCTIONS:
+			self._move_to = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
+		PlayerSession.Minigames.ADDITIONS:
+			self._move_to = "res://scenes/additions_minigame/level_additions_minigame/LevelAdditionsMinigame.tscn"
+		PlayerSession.Minigames.COORDINATES:
+			self._move_to = "res://scenes/coordinates_minigame/level_coordinates_minigame/LevelCoordinatesMinigame.tscn"
+		PlayerSession.Minigames.SYMMETRY:
+			self._move_to = "res://scenes/symmetry_minigame/level_symmetry_minigame/LevelSymmetryMinigame.tscn"
 	# Se para la música global del menú:
 	BackgroundMusic.stop()
 	

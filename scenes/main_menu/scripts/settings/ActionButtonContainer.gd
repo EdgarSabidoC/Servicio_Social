@@ -6,7 +6,6 @@ extends VBoxContainer
 @onready var right_button: ActionButton = $Right
 @onready var accept_button: ActionButton = $Accept
 @onready var pause_button: ActionButton = $Pause
-@onready var back_button = $"../../../../../../BackButton"
 @onready var menu_textbox = $"./../../../MenuTextboxContainer/MenuTextbox" # Textbox para errores.
 var time_to_clear: int = 5 # Variable que controla el tiempo en (segundos) para borrar el mensaje de error del textbox.
 var keyInputFlag: bool = true
@@ -15,17 +14,17 @@ var keyInputFlag: bool = true
 func _process(_delta: float) -> void:
 	# Se verifica si algún botón se presionó y está a la espera de un evento:
 	if up_button.is_processing_unhandled_key_input():
-		disable_buttons([down_button, left_button, right_button, accept_button, pause_button, back_button])
+		disable_buttons([down_button, left_button, right_button, accept_button, pause_button])
 	elif down_button.is_processing_unhandled_key_input():
-		disable_buttons([up_button, left_button, right_button, accept_button, pause_button, back_button])
+		disable_buttons([up_button, left_button, right_button, accept_button, pause_button])
 	elif left_button.is_processing_unhandled_key_input():
-		disable_buttons([up_button, down_button, right_button, accept_button, pause_button, back_button])
+		disable_buttons([up_button, down_button, right_button, accept_button, pause_button])
 	elif right_button.is_processing_unhandled_key_input():
-		disable_buttons([up_button, down_button, left_button, accept_button, pause_button, back_button])
+		disable_buttons([up_button, down_button, left_button, accept_button, pause_button])
 	elif accept_button.is_processing_unhandled_key_input():
-		disable_buttons([up_button, down_button, left_button, right_button, pause_button, back_button])
+		disable_buttons([up_button, down_button, left_button, right_button, pause_button])
 	elif pause_button.is_processing_unhandled_key_input():
-		disable_buttons([up_button, down_button, left_button, right_button, accept_button, back_button])
+		disable_buttons([up_button, down_button, left_button, right_button, accept_button])
 
 
 func _unhandled_key_input(_event: InputEvent) -> void:
@@ -64,7 +63,7 @@ func _unhandled_key_input(_event: InputEvent) -> void:
 		menu_textbox.clear_message_after_time(time_to_clear)
 		
 	# Se reactivan los botones una vez se remapeó una tecla:
-	enable_buttons([up_button, down_button, left_button, right_button, accept_button, pause_button, back_button])
+	enable_buttons([up_button, down_button, left_button, right_button, accept_button, pause_button])
 	
 	keyInputFlag = true
 

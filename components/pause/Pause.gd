@@ -12,19 +12,19 @@ signal finished()
 
 # Función que muestra el menú de pausa:
 func show_menu():
-	is_pause_active = true
+	self.is_pause_active = true
 	self.show()
 
 
 # Función que oculta el menú de pausa:
 func hide_menu():
-	is_pause_active = false
+	self.is_pause_active = false
 	self.hide()
 
 
 # Retorna si la pausa está activa o no:
 func is_active() -> bool:
-	return is_pause_active
+	return self.is_pause_active
 
 
 # Señal que es lanzada cuando se presiona el continue_btn:
@@ -35,13 +35,18 @@ func _on_continue_btn_pressed() -> void:
 
 # Señal que es lanzada cuando se presiona el main_menu_btn:
 func _on_main_menu_btn_pressed() -> void:
-	is_pause_active = false
+	self.is_pause_active = false
 	self.finished.emit()
 	SceneTransition.change_scene(main_menu)
 	PlayerSession.clear_player_session()
+	# Se cambia la música del minijuego a la del menú principal:
+	var volume: float = 0
+	var current_position: float = 0
+	BackgroundMusic.start_menu_song(volume, current_position)
 
 
-# Señal que es lanzada cuando se cambia la visibilidad del continue_btn:
-func _on_continue_btn_visibility_changed() -> void:
+func _on_visibility_changed() -> void:
 	if self.is_visible_in_tree() and !Mouse.mouse_mode_activated:
-		continue_btn.grab_focus()
+		self.continue_btn.grab_focus()
+	else:
+		self.continue_btn.release_focus()

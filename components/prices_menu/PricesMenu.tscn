@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://biou6ujuxna1m"]
+[gd_scene load_steps=7 format=3 uid="uid://biou6ujuxna1m"]
 
-[ext_resource type="Script" path="res://components/prices_menu/PricesMenu.gd" id="1_uobjq"]
+[ext_resource type="Script" path="res://components/prices_menu/scripts/PricesMenu.gd" id="1_uobjq"]
 [ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_2auha"]
-[ext_resource type="Script" path="res://components/prices_menu/Prices.gd" id="3_x306d"]
+[ext_resource type="Texture2D" uid="uid://chuddq310ksn5" path="res://assets/graphical_assets/user_interface/container/priceContainer.tga" id="3_lo1i7"]
+[ext_resource type="Script" path="res://components/prices_menu/scripts/Prices.gd" id="3_x306d"]
+[ext_resource type="Texture2D" uid="uid://chapaxhssrkhq" path="res://assets/graphical_assets/user_interface/container/priceContainer_add.tga" id="4_v18qn"]
+[ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="4_x58ud"]
 
 [node name="PricesMenu" type="Control"]
 layout_mode = 3
@@ -24,16 +27,38 @@ grow_vertical = 2
 texture = ExtResource("2_2auha")
 metadata/_edit_use_anchors_ = true
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 64.0
+offset_right = 875.0
+offset_bottom = 512.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_lo1i7")
+region_rect = Rect2(16, 16, 96, 96)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+anchor_left = 0.741211
+anchor_top = 0.569444
+anchor_right = 0.829102
+anchor_bottom = 0.829861
+texture = ExtResource("4_v18qn")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
 [node name="PricesTexture" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25
+anchor_left = 0.151367
 anchor_top = 0.111111
-anchor_right = 0.75
+anchor_right = 0.853516
 anchor_bottom = 0.888889
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="Prices" type="RichTextLabel" parent="PricesTexture"]
@@ -52,11 +77,12 @@ metadata/_edit_use_anchors_ = true
 [node name="BackBtn" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.867188
-anchor_top = 0.888889
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "Regresar"
+anchor_left = 0.84961
+anchor_top = 0.859375
+anchor_right = 0.982422
+anchor_bottom = 0.970486
+theme = ExtResource("4_x58ud")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="visibility_changed" from="BackBtn" to="." method="_on_back_btn_visibility_changed"]
