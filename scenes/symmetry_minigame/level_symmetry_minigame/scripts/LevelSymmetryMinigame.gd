@@ -11,13 +11,21 @@ const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_fun
 @onready var ingredients_container: VBoxContainer = $CanvasLayer/IngredientsContainer
 @onready var current_pitch: float = 1.0
 
+# Tiempos del reloj por dificultad:
+@export var time_easy: float = 180
+@export var time_medium: float = 120
+@export var time_hard: float = 90
+
 @onready var l_1: TextureRect = $CanvasLayer/L1
 @onready var l_2: TextureRect = $CanvasLayer/L2
-
 @onready var r_1: TextureRect = $CanvasLayer/L1/R1
 @onready var r_2: TextureRect = $CanvasLayer/L2/R2
 
 @onready var drop_slot_list: Array[AnimatedTextureRect] = [r_1, r_2]
+
+func _enter_tree() -> void:
+	# Se configura la música:
+	self.set_music()
 
 
 func _ready() -> void:
@@ -42,15 +50,14 @@ func set_music() -> void:
 
 
 # Configura el tiempo del reloj:
-func set_time() -> void:
-	# Se configuran los tiempos del reloj:
+func set_clock() -> void:
 	match PlayerSession.difficulty:
 		"easy":
-			self.clock.time = 240
+			self.clock.time = self.time_easy
 		"medium":
-			self.clock.time = 120
+			self.clock.time = self.time_medium
 		"hard":
-			self.clock.time = 90
+			self.clock.time = self.time_hard
 
 
 func set_ingredients():
@@ -66,10 +73,7 @@ func set_ingredients():
 
 
 # Configura la partida:
-func set_game() -> void:
-	# Se configura la música:
-	self.set_music()
-	
+func set_game() -> void:	
 	# Se inicializa el puntaje en 0:
 	PlayerSession.score = 0
 	
@@ -77,7 +81,7 @@ func set_game() -> void:
 	self.score_label.print_score()
 	
 	# Se configuran el tiempo y los ingredientes:
-	self.set_time()
+	self.set_clock()
 	self.set_ingredients()
 
 

@@ -1,7 +1,10 @@
 extends Node2D
 
-# Suma total máxima en difícil: $4994.28. Suponiendo que todos los centavos son 0.99
+# Canciones:
+const FUNICULI_FUNICULA = preload("res://assets/sounds/music/funiculi_funicula.ogg")
+const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
 
+# Suma total máxima en difícil: $4994.28. Suponiendo que todos los centavos son 0.99
 @onready var total_label: Label = $CanvasLayer/TotalLabel
 @onready var button_dot: Button = $CanvasLayer/GridContainer/ButtonDot
 @onready var button_0: Button = $CanvasLayer/GridContainer/Button0
@@ -38,8 +41,45 @@ extends Node2D
 @export var time_hard: float = 90
 
 
+func _enter_tree() -> void:
+	# Se configura la música:
+	self.set_music()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.set_game()
+
+
+func _process(_delta: float) -> void:
+	# Se leen las entradas si está en modo teclado:
+	if !Mouse.mouse_mode_activated:
+		self.check_input_actions()
+
+	if self.total_label.text.begins_with("."):
+		self.total_label.text = "0."
+	
+	if Input.is_action_just_pressed("ui_pause") and !prices_menu.is_visible_in_tree():
+		# Tecla de pausa:
+		if !self.pause.is_active():
+			self.clock.stop()
+			self.pause.show()
+	elif Input.is_action_just_pressed("ui_delete"):
+		# Tecla de borrado:
+		self.total_label.text = self.total_label.text.left(-1)
+
+
+# Configura la música de fondo:
+func set_music() -> void:
+	# Se cambia la música:
+	var current_position: float = 0
+	var pitch: float = 1.0
+	var volume: float = 0
+	BackgroundMusic.change_song(FUNICULI_FUNICULA, current_position, pitch, volume)
+
+
+# Configura el juego:
+func set_game() -> void:
 	# Se muestra el menú de precios:
 	self.prices_menu.show()
 	
@@ -66,24 +106,6 @@ func _ready() -> void:
 			button.disabled = true
 	
 	self.clock.stop()
-
-
-func _process(_delta: float) -> void:
-	# Se leen las entradas si está en modo teclado:
-	if !Mouse.mouse_mode_activated:
-		self.check_input_actions()
-
-	if self.total_label.text.begins_with("."):
-		self.total_label.text = "0."
-	
-	if Input.is_action_just_pressed("ui_pause") and !prices_menu.is_visible_in_tree():
-		# Tecla de pausa:
-		if !self.pause.is_active():
-			self.clock.stop()
-			self.pause.show()
-	elif Input.is_action_just_pressed("ui_delete"):
-		# Tecla de borrado:
-		self.total_label.text = self.total_label.text.left(-1)
 
 
 # Genera un diccionario con datos aleatorios en un rango de 0 a 9:
@@ -382,18 +404,8 @@ func _on_clear_btn_pressed() -> void:
 
 
 func _on_score_screen_restart_game() -> void:
-	# Se reinicia el reloj:
-	self.set_clock()
-	self.clock.stop()
-	
-	# Se reinicia el puntaje:
-	PlayerSession.score = 0
-	
-	# Se imprime el puntaje:
-	self.score_label.print_score()
-
-	# Se muestra la orden:
-	self.rich_text_label.text = self.generate_order()
+	# Se configura el juego/partida:
+	self.set_game()
 	
 	# Se muestra el menú de precios:
 	if !self.prices_menu.is_visible_in_tree():
