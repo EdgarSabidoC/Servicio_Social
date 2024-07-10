@@ -13,6 +13,7 @@ func _on_pressed() -> void:
 	get_viewport().set_input_as_handled()
 	# Moverse al menú de selección de dificultad:
 	menu_background_color.fade_in()
+	PlayerSession.current_minigame = PlayerSession.Minigames.SYMMETRY
 	difficulty_menu.show()
 	get_parent().hide() # Oculta el menú principal
 	margin_container.hide()
