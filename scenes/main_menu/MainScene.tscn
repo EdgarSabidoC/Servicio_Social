@@ -826,14 +826,14 @@ visible = false
 layout_mode = 2
 focus_mode = 0
 
-[node name="SymmetryMinigame" type="TabBar" parent="UI/HowToPlay"]
-visible = false
-layout_mode = 2
-
 [node name="CoordinatesMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
 focus_mode = 0
+
+[node name="SymmetryMinigame" type="TabBar" parent="UI/HowToPlay"]
+visible = false
+layout_mode = 2
 
 [node name="Characters" type="TabBar" parent="UI/HowToPlay"]
 visible = false

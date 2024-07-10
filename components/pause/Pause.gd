@@ -40,7 +40,7 @@ func _on_main_menu_btn_pressed() -> void:
 	SceneTransition.change_scene(main_menu)
 	PlayerSession.clear_player_session()
 	# Se cambia la música del minijuego a la del menú principal:
-	var volume: float = 0
+	var volume: float = -10
 	var current_position: float = 0
 	BackgroundMusic.start_menu_song(volume, current_position)
 
