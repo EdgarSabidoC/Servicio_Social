@@ -1,5 +1,9 @@
 extends Node2D
 
+# Canciones:
+const FUNICULI_FUNICULA = preload("res://assets/sounds/music/funiculi_funicula.ogg")
+const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_funicula_faster.ogg")
+
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
@@ -28,6 +32,15 @@ func _process(_delta: float) -> void:
 			self.pause.show()
 
 
+# Configura la música de fondo:
+func set_music() -> void:
+	# Se cambia la música:
+	var current_position: float = 0
+	var pitch: float = 1.0
+	var volume: float = 0
+	BackgroundMusic.change_song(FUNICULI_FUNICULA, current_position, pitch, volume)
+
+
 # Configura el tiempo del reloj:
 func set_time() -> void:
 	# Se configuran los tiempos del reloj:
@@ -54,6 +67,9 @@ func set_ingredients():
 
 # Configura la partida:
 func set_game() -> void:
+	# Se configura la música:
+	self.set_music()
+	
 	# Se inicializa el puntaje en 0:
 	PlayerSession.score = 0
 	
