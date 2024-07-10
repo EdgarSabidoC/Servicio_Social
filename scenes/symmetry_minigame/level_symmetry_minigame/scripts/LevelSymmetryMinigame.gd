@@ -15,11 +15,10 @@ const FUNICULI_FUNICULA_FASTER = preload("res://assets/sounds/music/funiculi_fun
 @export var time_easy: float = 180
 @export var time_medium: float = 120
 @export var time_hard: float = 90
-
 @onready var l_1: TextureRect = $CanvasLayer/L1
 @onready var l_2: TextureRect = $CanvasLayer/L2
-@onready var r_1: TextureRect = $CanvasLayer/L1/R1
-@onready var r_2: TextureRect = $CanvasLayer/L2/R2
+@onready var r_1: TextureRect = $CanvasLayer/R1
+@onready var r_2: TextureRect = $CanvasLayer/R2
 
 @onready var drop_slot_list: Array[AnimatedTextureRect] = [r_1, r_2]
 

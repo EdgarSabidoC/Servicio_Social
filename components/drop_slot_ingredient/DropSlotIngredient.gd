@@ -37,8 +37,17 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	# Si se da click derecho sobre el espacio o textura se rota 45°:
-	if self.enable_drop and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and self.is_hover:
-		self.rotation_degrees += 45
+	if self.enable_drop and self.is_hover:
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+			self.rotation_degrees += 45
+		elif Input.is_action_just_pressed("ui_right"):
+			self.rotation_degrees += 45
+		elif Input.is_action_just_pressed("ui_left"):
+			self.rotation_degrees -= 45
+		elif Input.is_action_just_pressed("ui_up"):
+			self.rotation_degrees += 90
+		elif Input.is_action_just_pressed("ui_down"):
+			self.rotation_degrees -= 90
 
 
 # Retorna el nombre del ingrediente:
