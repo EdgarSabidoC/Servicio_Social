@@ -7,6 +7,7 @@ extends VBoxContainer
 @onready var accept_button: ActionButton = $Accept
 @onready var pause_button: ActionButton = $Pause
 @onready var menu_textbox = $"./../../../MenuTextboxContainer/MenuTextbox" # Textbox para errores.
+
 var time_to_clear: int = 5 # Variable que controla el tiempo en (segundos) para borrar el mensaje de error del textbox.
 var keyInputFlag: bool = true
 

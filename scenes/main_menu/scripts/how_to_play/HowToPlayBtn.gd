@@ -15,9 +15,10 @@ func _on_pressed() -> void:
 	how_to_play.show() # Muestra el menú de opciones
 	if !Mouse.mouse_mode_activated:
 		how_to_play.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
+	else:
+		%BackButton.show()
 	get_parent().hide() # Oculta el menú principal
 	text_box_container.hide() # Oculta el textbox del menú principal.hide() # Oculta el textbox del menú principal
-	%BackButton.show()
 	
 
 # Al estar enfocado el botón:
