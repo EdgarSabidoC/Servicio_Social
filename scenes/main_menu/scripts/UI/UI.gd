@@ -18,6 +18,7 @@ func _ready() -> void:
 		self.play_btn.grab_focus()
 	self.back_button.hide()
 
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if !self.main_menu.is_visible_in_tree():

@@ -284,6 +284,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Coordenadas"
 script = ExtResource("12_b254f")
+hint = "¿Sabes leer coordenadas y ubicar las posiciones? Demuéstralo"
 
 [node name="SymmetryMinigame" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 65)
@@ -292,6 +293,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Simetría"
 script = ExtResource("15_vsenk")
+hint = "Demuestra que puedes identificar patrones simétricos."
 
 [node name="ReturnBtn" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 50)
