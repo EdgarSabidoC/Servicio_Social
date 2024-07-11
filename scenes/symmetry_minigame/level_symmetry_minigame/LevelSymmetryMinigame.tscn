@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmvnx73aogc7v"]
+[gd_scene load_steps=17 format=3 uid="uid://dmvnx73aogc7v"]
 
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="1_3x5i5"]
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
@@ -27,6 +27,10 @@ region = Rect2(64, 70, 64, 47)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef4bp"]
 atlas = ExtResource("3_touub")
 region = Rect2(133, 64, 47, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys035"]
+atlas = ExtResource("3_touub")
+region = Rect2(204, 64, 47, 64)
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
@@ -83,11 +87,23 @@ offset_bottom = -2.0
 texture = SubResource("AtlasTexture_6bk4k")
 
 [node name="slice 4" type="TextureRect" parent="CanvasLayer"]
-offset_left = 265.0
-offset_top = 335.0
-offset_right = 510.0
-offset_bottom = 668.0
+anchors_preset = -1
+anchor_left = 0.259
+anchor_top = 0.582
+anchor_right = 0.498
+anchor_bottom = 1.16
+offset_left = -0.216003
+offset_top = -0.231995
+offset_right = 0.0479736
+offset_bottom = -0.160034
 texture = SubResource("AtlasTexture_ef4bp")
+
+[node name="slice 5" type="TextureRect" parent="CanvasLayer"]
+offset_left = 499.0
+offset_top = 335.0
+offset_right = 744.0
+offset_bottom = 668.0
+texture = SubResource("AtlasTexture_ys035")
 
 [node name="R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 anchor_left = 0.437
@@ -256,6 +272,7 @@ grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_3fpxh")
+metadata/_edit_use_anchors_ = true
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("1_3x5i5")]
 anchor_left = 0.80957
