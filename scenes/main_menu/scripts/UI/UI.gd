@@ -47,6 +47,7 @@ func _on_exit_menu_yes_pressed() -> void:
 		self.how_to_play.hide()
 	else:
 		return
+	%BackButton.hide()
 
 
 func _on_exit_menu_no_pressed() -> void:

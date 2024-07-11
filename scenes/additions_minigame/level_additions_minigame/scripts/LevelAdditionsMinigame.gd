@@ -364,6 +364,9 @@ func _on_accept_btn_pressed() -> void:
 
 
 func _on_clock_countdown_finished() -> void:
+	# Se reinicia el pitch de la canción:
+	BackgroundMusic.change_pitch(1.0)
+	
 	# Se muestra la pantalla de puntajes:
 	self.score_screen.show()
 	self.score_screen.print_score()

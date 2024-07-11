@@ -96,6 +96,6 @@ func _input(_event: InputEvent) -> void:
 		SceneTransition.change_scene(self.title_screen_scene)
 		
 		# Se cambia la música a la del menú:
-		var volume: float = 0
+		var volume: float = -10
 		var current_position: float = 0
 		BackgroundMusic.start_menu_song(volume, current_position)

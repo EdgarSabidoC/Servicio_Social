@@ -6,6 +6,7 @@ extends Node2D
 @onready var pause_btn: Button = $CanvasLayer/PauseBtn
 @onready var ingredients_container: VBoxContainer = $CanvasLayer/IngredientsContainer
 @onready var current_pitch: float = 1.0
+@onready var score_screen: Control = $CanvasLayer/ScoreScreen
 
 # Tiempos del reloj por dificultad:
 @export var time_easy: float = 180
@@ -117,4 +118,14 @@ func _on_clock_pivot_changed() -> void:
 
 
 func _on_clock_countdown_finished() -> void:
-	BackgroundMusic.stop()
+	# Se reinicia el pitch de la canción:
+	BackgroundMusic.change_pitch(1.0)
+	
+	# Se muestra la pantalla de puntajes:
+	self.score_screen.show()
+	self.score_screen.print_score()
+
+
+func _on_score_screen_restart_game() -> void:
+	# Se configura el juego/partida:
+	self.set_game()
