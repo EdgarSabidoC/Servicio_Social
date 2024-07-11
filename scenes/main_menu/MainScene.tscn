@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=41 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -38,7 +38,6 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlay.gd" id="33_ht8qj"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
-[ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="38_shicy"]
 [ext_resource type="Script" path="res://components/back_button/BackButton.gd" id="39_jh3m0"]
 [ext_resource type="PackedScene" uid="uid://tquacmjw5g4q" path="res://components/exit_menu/ExitMenu.tscn" id="40_idk3m"]
 
@@ -976,11 +975,15 @@ joypad_mode = 1
 unique_name_in_owner = true
 visible = false
 anchors_preset = -1
-anchor_left = 0.780274
-anchor_top = 0.875
-anchor_right = 0.899415
-anchor_bottom = 0.986111
-theme = ExtResource("38_shicy")
+anchor_left = 0.78
+anchor_top = 0.859
+anchor_right = 0.907
+anchor_bottom = 0.977
+offset_left = 0.280518
+offset_top = 0.215973
+offset_right = -7.76709
+offset_bottom = -3.75208
+theme = ExtResource("3_mou80")
 text = "Regresar"
 script = ExtResource("39_jh3m0")
 metadata/_edit_use_anchors_ = true
