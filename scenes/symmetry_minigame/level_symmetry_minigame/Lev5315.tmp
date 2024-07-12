@@ -28,24 +28,27 @@ region = Rect2(64, 70, 64, 47)
 atlas = ExtResource("10_iuqmb")
 region = Rect2(133, 64, 47, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ol6bk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys035"]
 atlas = ExtResource("10_iuqmb")
-region = Rect2(76, 0, 47, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eutkj"]
-atlas = ExtResource("10_iuqmb")
-region = Rect2(128, 9, 64, 47)
+region = Rect2(204, 64, 47, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ot74s"]
 atlas = ExtResource("10_iuqmb")
 region = Rect2(192, 9, 64, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ys035"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_eutkj"]
 atlas = ExtResource("10_iuqmb")
-region = Rect2(204, 64, 47, 64)
+region = Rect2(128, 9, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol6bk"]
+atlas = ExtResource("10_iuqmb")
+region = Rect2(76, 0, 47, 64)
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
+time_easy = null
+time_medium = null
+time_hard = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -57,7 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="S1L" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice1" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 show_behind_parent = true
 clip_contents = true
@@ -72,7 +75,7 @@ offset_right = 7.048
 offset_bottom = -2.15201
 texture = SubResource("AtlasTexture_dxidt")
 
-[node name="S2L" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice2" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 show_behind_parent = true
 light_mask = 3
@@ -89,7 +92,7 @@ offset_right = 7.168
 offset_bottom = -1.76004
 texture = SubResource("AtlasTexture_rtdi8")
 
-[node name="S3L" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice3" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 clip_contents = true
 anchors_preset = -1
@@ -103,7 +106,7 @@ offset_right = 7.168
 offset_bottom = -1.78403
 texture = SubResource("AtlasTexture_6bk4k")
 
-[node name="S4L" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice4" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 clip_contents = true
 anchors_preset = -1
@@ -117,34 +120,21 @@ offset_right = 7.048
 offset_bottom = -1.84802
 texture = SubResource("AtlasTexture_ef4bp")
 
-[node name="S1R" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice5" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 clip_contents = true
 anchors_preset = -1
 anchor_left = 0.489
-anchor_top = 0.007
+anchor_top = 0.503
 anchor_right = 0.694
-anchor_bottom = 0.502
+anchor_bottom = 0.998
 offset_left = 7.26401
-offset_top = -2.032
+offset_top = -1.72803
 offset_right = 7.34399
-offset_bottom = -2.15201
-texture = SubResource("AtlasTexture_ol6bk")
+offset_bottom = -1.84802
+texture = SubResource("AtlasTexture_ys035")
 
-[node name="S2R" type="TextureRect" parent="CanvasLayer"]
-unique_name_in_owner = true
-anchors_preset = -1
-anchor_left = 0.494
-anchor_top = 0.146
-anchor_right = 0.772
-anchor_bottom = 0.51
-offset_left = 7.14401
-offset_top = -2.09601
-offset_right = 7.47198
-offset_bottom = -1.76004
-texture = SubResource("AtlasTexture_eutkj")
-
-[node name="S3R" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice6" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 clip_contents = true
 anchors_preset = -1
@@ -158,19 +148,32 @@ offset_right = 7.47198
 offset_bottom = -1.78403
 texture = SubResource("AtlasTexture_ot74s")
 
-[node name="S4R" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice7" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.494
+anchor_top = 0.146
+anchor_right = 0.772
+anchor_bottom = 0.51
+offset_left = 7.14401
+offset_top = -2.09601
+offset_right = 7.47198
+offset_bottom = -1.76004
+texture = SubResource("AtlasTexture_eutkj")
+
+[node name="Slice8" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 clip_contents = true
 anchors_preset = -1
 anchor_left = 0.489
-anchor_top = 0.503
+anchor_top = 0.007
 anchor_right = 0.694
-anchor_bottom = 0.998
+anchor_bottom = 0.502
 offset_left = 7.26401
-offset_top = -1.72803
+offset_top = -2.032
 offset_right = 7.34399
-offset_bottom = -1.84802
-texture = SubResource("AtlasTexture_ys035")
+offset_bottom = -2.15201
+texture = SubResource("AtlasTexture_ol6bk")
 
 [node name="S1L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -302,8 +305,8 @@ enable_drop = false
 [node name="S2L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 15)
-anchor_left = 0.279211
-anchor_top = 0.329903
+anchor_left = 0.288
+anchor_top = 0.349
 anchor_right = 0.332
 anchor_bottom = 0.446
 offset_left = 41.088
@@ -320,10 +323,10 @@ anchor_left = 0.376
 anchor_top = 0.141
 anchor_right = 0.416563
 anchor_bottom = 0.210333
-offset_left = 17.976
-offset_top = 152.784
-offset_right = 18.4399
-offset_bottom = 152.848
+offset_left = 24.976
+offset_top = 148.784
+offset_right = 25.4399
+offset_bottom = 148.848
 pivot_offset = Vector2(15, 15)
 texture = ExtResource("2_fkw5t")
 enable_drop = false
@@ -396,12 +399,12 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 15)
 anchor_left = 0.288
 anchor_top = 0.349
-anchor_right = 0.319304
-anchor_bottom = 0.419958
-offset_left = 66.088
-offset_top = 100.976
-offset_right = 66.0324
-offset_bottom = 92.1041
+anchor_right = 0.324187
+anchor_bottom = 0.428639
+offset_left = 57.088
+offset_top = 102.976
+offset_right = 57.0324
+offset_bottom = 94.1041
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
@@ -410,20 +413,20 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 15)
 anchor_left = 0.288
 anchor_top = 0.349
-anchor_right = 0.317351
-anchor_bottom = 0.41475
+anchor_right = 0.325164
+anchor_bottom = 0.432111
 offset_left = 114.088
-offset_top = 110.976
+offset_top = 98.976
 offset_right = 114.032
-offset_bottom = 102.104
+offset_bottom = 90.1041
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S3L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 15)
-anchor_left = 0.277258
-anchor_top = 0.328167
+anchor_left = 0.288
+anchor_top = 0.349
 anchor_right = 0.332
 anchor_bottom = 0.446
 offset_left = 32.088
@@ -435,80 +438,85 @@ enable_drop = false
 
 [node name="S4R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(47, 47)
-anchor_left = 0.572266
-anchor_top = 0.736111
-anchor_right = 0.618164
-anchor_bottom = 0.817708
-offset_bottom = 0.0
+offset_left = 589.0
+offset_top = 430.0
+offset_right = 589.0
+offset_bottom = 430.0
 
 [node name="S4R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(62, 62)
-anchor_left = 0.508789
-anchor_top = 0.638889
-anchor_right = 0.569336
-anchor_bottom = 0.746528
-offset_bottom = 0.0
+offset_left = 535.0
+offset_top = 390.0
+offset_right = 535.0
+offset_bottom = 390.0
 
 [node name="S4R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(24, 24)
-anchor_left = 0.507813
-anchor_top = 0.571181
-anchor_right = 0.53125
-anchor_bottom = 0.612847
-offset_bottom = 0.0
+offset_left = 524.0
+offset_top = 341.0
+offset_right = 524.0
+offset_bottom = 341.0
 
 [node name="S4R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(61, 61)
-anchor_left = 0.510742
-anchor_top = 0.791667
-anchor_right = 0.570313
-anchor_bottom = 0.897569
-offset_bottom = 0.0
+offset_left = 525.0
+offset_top = 470.0
+offset_right = 525.0
+offset_bottom = 470.0
 
 [node name="S4L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(47, 47)
-anchor_left = 0.382813
-anchor_top = 0.736111
-anchor_right = 0.428711
-anchor_bottom = 0.817708
-offset_bottom = 0.0
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 94.088
+offset_top = 228.976
+offset_right = 94.0324
+offset_bottom = 220.104
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S4L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-anchor_left = 0.431641
-anchor_top = 0.638889
-anchor_right = 0.492188
-anchor_bottom = 0.746528
-offset_bottom = 0.0
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 144.088
+offset_top = 188.976
+offset_right = 144.032
+offset_bottom = 180.104
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S4L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(15, 15)
-anchor_left = 0.46875
-anchor_top = 0.571181
-anchor_right = 0.492188
-anchor_bottom = 0.614583
-offset_bottom = 0.0
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.311492
+anchor_bottom = 0.407805
+offset_left = 176.088
+offset_top = 139.976
+offset_right = 176.032
+offset_bottom = 131.104
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S4L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(61, 61)
-anchor_left = 0.429688
-anchor_top = 0.791667
-anchor_right = 0.489258
-anchor_bottom = 0.897569
-offset_bottom = 0.0
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 161.088
+offset_top = 268.976
+offset_right = 161.032
+offset_bottom = 260.104
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
