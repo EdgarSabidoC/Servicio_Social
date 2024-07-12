@@ -25,14 +25,10 @@ enum Ingredients {## Options of possible ingredients to use
 ## TextureRect used as background.
 @onready var texture_rect: TextureRect = $TextureRect
 
+# Bandera que indica si se ha colocado de manera correcta el ingrediente:
+@onready var correct: bool = false
+
 @onready var is_hover: bool
-
-# Indica la rebanada a la que pertenece:
-@onready var slice_index: int
-
-# Indica el índice de ingrediente dentro de la rebanda:
-@onready var ingredient_index: int
-
 
 ## Dropped signal is emitted when data is dropped inside the slot.
 signal data_dropped()
@@ -55,11 +51,6 @@ func _input(_event: InputEvent) -> void:
 			self.rotation_degrees += 90
 		elif Input.is_action_just_pressed("ui_down"):
 			self.rotation_degrees -= 90
-
-
-# Genera las coordenadas:
-func set_coordinates() -> void:
-	self.coordinates = Vector2i(self.slice_index, self.ingredient_index)
 
 
 # Retorna el nombre del ingrediente:
@@ -97,6 +88,10 @@ func generate_rand_ingredient() -> int:
 	return self.ingredient_name
 
 
+func is_correct() -> bool:
+	return self.correct
+
+
 # Limpia los datos:
 func clear_data() -> void:
 	if self.texture:
@@ -105,6 +100,8 @@ func clear_data() -> void:
 		self.ingredient_name = self.Ingredients.NULL
 	if self.coordinates:
 		self.coordinates = Vector2i(0,0)
+	if self.correct:
+		self.correct = false
 
 
 # Se valida que se pueda soltar una Texture2D:

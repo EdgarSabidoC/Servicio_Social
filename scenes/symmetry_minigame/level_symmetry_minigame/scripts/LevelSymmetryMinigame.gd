@@ -107,12 +107,12 @@ func set_pizza() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 
-	var slice_keys = left_slice_list.keys()
-	var slices_to_hide = min(rng.randi_range(self.lower_limit, self.upper_limit), slice_keys.size())
+	var slice_keys: Array = left_slice_list.keys()
+	var slices_to_hide: Variant = min(rng.randi_range(self.lower_limit, self.upper_limit), slice_keys.size())
 
 	for _i in range(slices_to_hide):
-		var index = rng.randi_range(0, slice_keys.size() - 1)
-		var key = slice_keys[index]
+		var index: int = rng.randi_range(0, slice_keys.size() - 1)
+		var key: String = slice_keys[index]
 
 		left_slice_list[key][0].hide()
 		right_slice_list[key][0].hide()
@@ -126,12 +126,14 @@ func set_pizza() -> void:
 		slice_keys.remove_at(index)
 
 
-
+# Configura los ingredientes:
 func set_ingredients():
 	# Se generan los ingredientes aleatorios:
 	for list in self.ingredient_list:
 		for ingredient in list:
 			ingredient.generate_rand_ingredient()
+			# Se rota aleatoriamente en intervalos de 45°:
+			ingredient.rotation_degrees = randi_range(0, 7) * 45
 
 
 # Configura la partida:
@@ -151,8 +153,14 @@ func set_game() -> void:
 	self.clock.continue_clock()
 
 
-func check_ingredient() -> void:
-	pass
+func check_ingredient(left_ingredient: AnimatedTextureRect, right_ingredient: AnimatedTextureRect) -> bool:
+	if left_ingredient.rotation_degrees == right_ingredient.rotation_degrees and \
+	left_ingredient.ingredient_name == right_ingredient.ingredient_name and \
+	left_ingredient.coordinates == right_ingredient.coordinates:
+		right_ingredient.correct = true # Se indica que se ha colocado de manera correcta el ingrediente.
+	else:
+		right_ingredient.correct = false # Se indica que es incorrecto el ingrediente.
+	return right_ingredient.is_correct()
 
 
 func _on_pause_finished() -> void:
