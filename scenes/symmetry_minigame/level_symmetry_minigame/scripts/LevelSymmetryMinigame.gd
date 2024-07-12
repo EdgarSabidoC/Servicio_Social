@@ -13,12 +13,24 @@ extends Node2D
 @export var time_medium: float = 120
 @export var time_hard: float = 90
 
-@onready var l_1: TextureRect = $CanvasLayer/L1
-@onready var l_2: TextureRect = $CanvasLayer/L2
-@onready var r_1: TextureRect = $CanvasLayer/R1
-@onready var r_2: TextureRect = $CanvasLayer/R2
+# Lista de rebanadas:
+@onready var slice_list: Array[TextureRect] = [%Slice1, %Slice2, %Slice3, %Slice4]
 
-@onready var drop_slot_list: Array[AnimatedTextureRect] = [r_1, r_2]
+# Lista de ingredientes (lado izquierdo):
+@onready var ingredient_list: Array[AnimatedTextureRect] = [\
+	%S1L1, %S1L2, %S1L3, %S1L4, \
+	%S2L1, %S2L2, %S2L3, \
+	%S3L1, %S3L2, %S3L3, %S3L4, \
+	%S4L1, %S4L2, %S4L3, %S4L4, \
+]
+
+# Lista de ranuras (lado derecho):
+@onready var drop_slot_list: Array[AnimatedTextureRect] = [\
+	%S1R1, %S1R2, %S1R3, %S1R4, \
+	%S2R1, %S2R2, %S2R3, \
+	%S3R1, %S3R2, %S3R3, %S3R4, \
+	%S4R1, %S4R2, %S4R3, %S4R4, \
+]
 
 
 func _enter_tree() -> void:
@@ -59,14 +71,8 @@ func set_clock() -> void:
 
 func set_ingredients():
 	# Se generan los ingredientes aleatorios:
-	self.l_1.generate_rand_ingredient()
-	self.l_2.generate_rand_ingredient()
-	#self.l_3.generate_rand_ingredient()
-	#self.l_4.generate_rand_ingredient()
-	#self.l_5.generate_rand_ingredient()
-	#self.l_6.generate_rand_ingredient()
-	#self.l_7.generate_rand_ingredient()
-	#self.l_8.generate_rand_ingredient()
+	for ingredient in self.ingredient_list:
+		ingredient.generate_rand_ingredient()
 
 
 # Configura la partida:
@@ -85,6 +91,10 @@ func set_game() -> void:
 	self.clock.continue_clock()
 
 
+func check_ingredient() -> void:
+	pass
+
+
 func _on_pause_finished() -> void:
 	if !Mouse.mouse_mode_activated:
 		pass
@@ -96,11 +106,6 @@ func _on_reset_pressed() -> void:
 	for slot in self.drop_slot_list:
 		if slot.texture:
 			slot.clear_data()
-
-
-func _on_r_1_data_dropped() -> void:
-	if self.l_1.ingredient_name == self.r_1.ingredient_name:
-		print_debug("Son iguales %s -> %s" %[self.l_1.get_ingredient_name(), self.r_1.get_ingredient_name()])
 
 
 func _on_pause_btn_pressed() -> void:

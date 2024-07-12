@@ -3,7 +3,7 @@ extends AnimatedTextureRect
 ##  Allows to drop a Texture2D. Extends AnimatedTextureRect.
 
 
-## (x,y) coordinates for the element.
+## (x,y) coordinates for the element. X is for slice index and Y is for ingredient index.
 @export var coordinates: Vector2i
 
 ## If enabled, a DragIngredient can be dropped inside.
@@ -19,12 +19,19 @@ enum Ingredients {## Options of possible ingredients to use
 					HAM=6,
 					FISH=7
 				}
+
 @export var ingredient_name: Ingredients
 
 ## TextureRect used as background.
 @onready var texture_rect: TextureRect = $TextureRect
 
 @onready var is_hover: bool
+
+# Indica la rebanada a la que pertenece:
+@onready var slice_index: int
+
+# Indica el índice de ingrediente dentro de la rebanda:
+@onready var ingredient_index: int
 
 
 ## Dropped signal is emitted when data is dropped inside the slot.
@@ -48,6 +55,11 @@ func _input(_event: InputEvent) -> void:
 			self.rotation_degrees += 90
 		elif Input.is_action_just_pressed("ui_down"):
 			self.rotation_degrees -= 90
+
+
+# Genera las coordenadas:
+func set_coordinates() -> void:
+	self.coordinates = Vector2i(self.slice_index, self.ingredient_index)
 
 
 # Retorna el nombre del ingrediente:
@@ -76,11 +88,13 @@ func get_data_formatted() -> String:
 
 
 # Genera de manera aleatoria un ingrediente:
-func generate_rand_ingredient() -> void:
+func generate_rand_ingredient() -> int:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var i = rng.randi_range(0, 7)
 	self.ingredient_name = Ingredients.values()[i]
+	
+	return self.ingredient_name
 
 
 # Limpia los datos:
