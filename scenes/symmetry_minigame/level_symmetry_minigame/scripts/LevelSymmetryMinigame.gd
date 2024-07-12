@@ -80,6 +80,9 @@ func set_game() -> void:
 	# Se configuran el tiempo y los ingredientes:
 	self.set_clock()
 	self.set_ingredients()
+	
+	# Contiúa el reloj:
+	self.clock.continue_clock()
 
 
 func _on_pause_finished() -> void:

@@ -58,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="slice 1" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice1" type="TextureRect" parent="CanvasLayer"]
 show_behind_parent = true
 clip_contents = true
 anchors_preset = -1
@@ -72,7 +72,7 @@ offset_right = 0.0479736
 offset_bottom = -0.152008
 texture = SubResource("AtlasTexture_dxidt")
 
-[node name="slice 2" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice2" type="TextureRect" parent="CanvasLayer"]
 show_behind_parent = true
 light_mask = 3
 clip_contents = true
@@ -88,7 +88,7 @@ offset_right = 0.167969
 offset_bottom = 0.23996
 texture = SubResource("AtlasTexture_rtdi8")
 
-[node name="slice 3" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice3" type="TextureRect" parent="CanvasLayer"]
 clip_contents = true
 anchors_preset = -1
 anchor_left = 0.215
@@ -101,7 +101,7 @@ offset_right = 0.167969
 offset_bottom = 0.215973
 texture = SubResource("AtlasTexture_6bk4k")
 
-[node name="slice 4" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice4" type="TextureRect" parent="CanvasLayer"]
 clip_contents = true
 anchors_preset = -1
 anchor_left = 0.293
@@ -114,7 +114,7 @@ offset_right = 0.0479736
 offset_bottom = 0.151978
 texture = SubResource("AtlasTexture_ef4bp")
 
-[node name="slice 5" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice5" type="TextureRect" parent="CanvasLayer"]
 clip_contents = true
 anchors_preset = -1
 anchor_left = 0.489
@@ -127,7 +127,7 @@ offset_right = 0.343994
 offset_bottom = 0.151978
 texture = SubResource("AtlasTexture_ys035")
 
-[node name="slice 6" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice6" type="TextureRect" parent="CanvasLayer"]
 clip_contents = true
 anchors_preset = -1
 anchor_left = 0.494
@@ -140,7 +140,7 @@ offset_right = 0.471985
 offset_bottom = 0.215973
 texture = SubResource("AtlasTexture_ot74s")
 
-[node name="slice 7" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice7" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.494
 anchor_top = 0.146
@@ -152,7 +152,7 @@ offset_right = 0.471985
 offset_bottom = 0.23996
 texture = SubResource("AtlasTexture_eutkj")
 
-[node name="slice 8" type="TextureRect" parent="CanvasLayer"]
+[node name="Slice8" type="TextureRect" parent="CanvasLayer"]
 clip_contents = true
 anchors_preset = -1
 anchor_left = 0.489
@@ -165,52 +165,310 @@ offset_right = 0.343994
 offset_bottom = -0.152008
 texture = SubResource("AtlasTexture_ol6bk")
 
-[node name="R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
-anchor_left = 0.44
-anchor_top = 0.299
-anchor_right = 0.479
-anchor_bottom = 0.368
-offset_left = 0.439972
-offset_top = -0.224014
-offset_right = 0.504425
-offset_bottom = 0.0319824
-size_flags_horizontal = 0
-
-[node name="R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
-custom_minimum_size = Vector2(25, 25)
-anchor_left = 0.386
-anchor_top = 0.436
-anchor_right = 0.41
-anchor_bottom = 0.479
-offset_left = -0.264008
-offset_top = -0.136017
-offset_right = 0.159973
-offset_bottom = 0.0959778
-
-[node name="L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+[node name="S1L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 custom_minimum_size = Vector2(30, 30)
 anchor_left = 0.376
 anchor_top = 0.141
 anchor_right = 0.44
 anchor_bottom = 0.252
-offset_left = -0.0240173
-offset_top = -0.216003
-offset_right = 0.43985
-offset_bottom = -0.152069
+offset_left = 38.976
+offset_top = -25.216
+offset_right = 39.4399
+offset_bottom = -25.1521
 pivot_offset = Vector2(15, 15)
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
-[node name="L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+[node name="S1L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.320281
+anchor_bottom = 0.428639
+offset_left = 110.088
+offset_top = -69.024
+offset_right = 110.032
+offset_bottom = -77.8959
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S1L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 custom_minimum_size = Vector2(15, 15)
 anchor_left = 0.288
 anchor_top = 0.349
 anchor_right = 0.332
 anchor_bottom = 0.446
-offset_left = 0.0879822
-offset_top = -0.0240021
-offset_right = 0.0324097
-offset_bottom = -8.89587
+offset_left = 154.088
+offset_top = -28.024
+offset_right = 154.032
+offset_bottom = -36.8959
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S1L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.311492
+anchor_bottom = 0.406069
+offset_left = 73.088
+offset_top = -97.024
+offset_right = 73.0324
+offset_bottom = -105.896
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S1R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+anchor_left = 0.414609
+anchor_top = 0.299
+anchor_right = 0.479
+anchor_bottom = 0.411403
+offset_left = 93.44
+offset_top = -113.224
+offset_right = 93.5045
+offset_bottom = -112.968
+size_flags_horizontal = 0
+
+[node name="S1R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(25, 25)
+anchor_left = 0.386
+anchor_top = 0.436
+anchor_right = 0.41
+anchor_bottom = 0.479
+offset_left = 171.736
+offset_top = -114.136
+offset_right = 172.16
+offset_bottom = -113.904
+
+[node name="S1R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+anchor_left = 0.414609
+anchor_top = 0.299
+anchor_right = 0.453609
+anchor_bottom = 0.368
+offset_left = 92.44
+offset_top = 3.776
+offset_right = 92.5045
+offset_bottom = 4.032
+size_flags_horizontal = 0
+
+[node name="S1R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(25, 25)
+anchor_left = 0.386
+anchor_top = 0.436
+anchor_right = 0.41
+anchor_bottom = 0.479
+offset_left = 217.736
+offset_top = -147.136
+offset_right = 218.16
+offset_bottom = -146.904
+
+[node name="S2L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 14.088
+offset_top = -43.024
+offset_right = 14.0324
+offset_bottom = -51.8959
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S2L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 34.088
+offset_top = 23.976
+offset_right = 34.0324
+offset_bottom = 15.1041
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S2L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(30, 30)
+anchor_left = 0.376
+anchor_top = 0.141
+anchor_right = 0.416563
+anchor_bottom = 0.210333
+offset_left = 17.976
+offset_top = 150.784
+offset_right = 18.4399
+offset_bottom = 150.848
+pivot_offset = Vector2(15, 15)
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S2R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 654.0
+offset_top = 158.0
+offset_right = 654.0
+offset_bottom = 158.0
+
+[node name="S2R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 672.0
+offset_top = 232.0
+offset_right = 672.0
+offset_bottom = 232.0
+
+[node name="S2R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 582.0
+offset_top = 230.0
+offset_right = 582.0
+offset_bottom = 230.0
+
+[node name="S3R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 683.0
+offset_top = 304.0
+offset_right = 683.0
+offset_bottom = 304.0
+
+[node name="S3R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 631.0
+offset_top = 309.0
+offset_right = 631.0
+offset_bottom = 309.0
+
+[node name="S3R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 573.0
+offset_top = 300.0
+offset_right = 573.0
+offset_bottom = 300.0
+
+[node name="S3R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 633.0
+offset_top = 361.0
+offset_right = 633.0
+offset_bottom = 361.0
+
+[node name="S3L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.32614
+anchor_bottom = 0.435583
+offset_left = -9.91199
+offset_top = 97.976
+offset_right = -9.96756
+offset_bottom = 89.1041
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S3L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.324187
+anchor_bottom = 0.428639
+offset_left = 50.088
+offset_top = 104.976
+offset_right = 50.0324
+offset_bottom = 96.1041
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S3L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.325164
+anchor_bottom = 0.432111
+offset_left = 107.088
+offset_top = 100.976
+offset_right = 107.032
+offset_bottom = 92.1041
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S3L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 49.088
+offset_top = 148.976
+offset_right = 49.0324
+offset_bottom = 140.104
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S4R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 582.0
+offset_top = 432.0
+offset_right = 582.0
+offset_bottom = 432.0
+
+[node name="S4R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 528.0
+offset_top = 392.0
+offset_right = 528.0
+offset_bottom = 392.0
+
+[node name="S4R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 517.0
+offset_top = 343.0
+offset_right = 517.0
+offset_bottom = 343.0
+
+[node name="S4R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+offset_left = 518.0
+offset_top = 472.0
+offset_right = 518.0
+offset_bottom = 472.0
+
+[node name="S4L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 87.088
+offset_top = 230.976
+offset_right = 87.0324
+offset_bottom = 222.104
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S4L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 137.088
+offset_top = 190.976
+offset_right = 137.032
+offset_bottom = 182.104
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S4L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.311492
+anchor_bottom = 0.407805
+offset_left = 169.088
+offset_top = 141.976
+offset_right = 169.032
+offset_bottom = 133.104
+texture = ExtResource("2_fkw5t")
+enable_drop = false
+
+[node name="S4L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
+custom_minimum_size = Vector2(15, 15)
+anchor_left = 0.288
+anchor_top = 0.349
+anchor_right = 0.332
+anchor_bottom = 0.446
+offset_left = 154.088
+offset_top = 270.976
+offset_right = 154.032
+offset_bottom = 262.104
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
@@ -346,7 +604,8 @@ visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("2_ff83q")]
 
-[connection signal="data_dropped" from="CanvasLayer/R1" to="." method="_on_r_1_data_dropped"]
+[connection signal="data_dropped" from="CanvasLayer/S1R1" to="." method="_on_r_1_data_dropped"]
+[connection signal="data_dropped" from="CanvasLayer/S1R3" to="." method="_on_r_1_data_dropped"]
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]
