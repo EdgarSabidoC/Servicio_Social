@@ -351,85 +351,89 @@ offset_bottom = 228.0
 
 [node name="S3R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-offset_left = 690.0
-offset_top = 302.0
-offset_right = 690.0
-offset_bottom = 302.0
+custom_minimum_size = Vector2(41, 41)
+anchor_left = 0.666016
+anchor_top = 0.517361
+anchor_right = 0.706055
+anchor_bottom = 0.588542
+offset_bottom = 0.0
+pivot_offset = Vector2(20.5, 20.5)
 
 [node name="S3R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-offset_left = 638.0
-offset_top = 307.0
-offset_right = 638.0
-offset_bottom = 307.0
+custom_minimum_size = Vector2(48, 48)
+anchor_left = 0.587891
+anchor_top = 0.527778
+anchor_right = 0.634766
+anchor_bottom = 0.611111
+offset_bottom = 0.0
+pivot_offset = Vector2(24, 24)
 
 [node name="S3R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-offset_left = 580.0
-offset_top = 298.0
-offset_right = 580.0
-offset_bottom = 298.0
+custom_minimum_size = Vector2(26, 26)
+anchor_left = 0.539063
+anchor_top = 0.510417
+anchor_right = 0.564453
+anchor_bottom = 0.555556
+offset_bottom = 0.0
+pivot_offset = Vector2(13, 13)
 
 [node name="S3R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-offset_left = 661.0
-offset_top = 359.0
-offset_right = 661.0
-offset_bottom = 359.0
+custom_minimum_size = Vector2(59, 59)
+anchor_left = 0.637695
+anchor_top = 0.612847
+anchor_right = 0.695313
+anchor_bottom = 0.715278
+offset_bottom = 0.0
+pivot_offset = Vector2(29.5, 29.5)
 
 [node name="S3L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(15, 15)
-anchor_left = 0.288
-anchor_top = 0.349
-anchor_right = 0.32614
-anchor_bottom = 0.435583
-offset_left = -2.91199
-offset_top = 95.976
-offset_right = -2.96756
-offset_bottom = 87.1041
+custom_minimum_size = Vector2(41, 41)
+anchor_left = 0.295898
+anchor_top = 0.517361
+anchor_right = 0.335938
+anchor_bottom = 0.588542
+offset_bottom = 0.0
+pivot_offset = Vector2(20.5, 20.5)
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S3L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(15, 15)
-anchor_left = 0.288
-anchor_top = 0.349
-anchor_right = 0.319304
-anchor_bottom = 0.419958
-offset_left = 66.088
-offset_top = 100.976
-offset_right = 66.0324
-offset_bottom = 92.1041
+custom_minimum_size = Vector2(48, 48)
+anchor_left = 0.367188
+anchor_top = 0.527778
+anchor_right = 0.414063
+anchor_bottom = 0.611111
+offset_bottom = 0.0
+pivot_offset = Vector2(24, 24)
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S3L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(15, 15)
-anchor_left = 0.288
-anchor_top = 0.349
-anchor_right = 0.317351
-anchor_bottom = 0.41475
-offset_left = 114.088
-offset_top = 110.976
-offset_right = 114.032
-offset_bottom = 102.104
+custom_minimum_size = Vector2(26, 26)
+anchor_left = 0.4375
+anchor_top = 0.510417
+anchor_right = 0.462891
+anchor_bottom = 0.555556
+offset_bottom = 0.0
+pivot_offset = Vector2(13, 13)
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S3L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(15, 15)
-anchor_left = 0.277258
-anchor_top = 0.328167
-anchor_right = 0.332
-anchor_bottom = 0.446
-offset_left = 32.088
-offset_top = 157.976
-offset_right = 32.0324
-offset_bottom = 149.104
+custom_minimum_size = Vector2(59, 59)
+anchor_left = 0.306641
+anchor_top = 0.612847
+anchor_right = 0.364258
+anchor_bottom = 0.715278
+offset_bottom = 0.0
+pivot_offset = Vector2(29.5, 29.5)
 texture = ExtResource("2_fkw5t")
 enable_drop = false
 
