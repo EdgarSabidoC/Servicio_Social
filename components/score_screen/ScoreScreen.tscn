@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://components/score_screen/scripts/ScoreScreen.gd" id="1_si3ca"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="2_nognv"]
 [ext_resource type="Shader" path="res://assets/graphical_assets/styles/background.gdshader" id="3_gjiav"]
-[ext_resource type="Texture2D" uid="uid://1lnkyqo6b5ej" path="res://assets/graphical_assets/environments/backgrounds/Pallette/02.png" id="4_imib6"]
+[ext_resource type="Texture2D" uid="uid://deqo1icojmn6b" path="res://assets/graphical_assets/environments/backgrounds/Pallette/01.png" id="4_isest"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="4_kh5ik"]
 [ext_resource type="Texture2D" uid="uid://m6ow78pjvk2" path="res://assets/graphical_assets/environments/backgrounds/BW/lines01.png" id="5_4x6tr"]
 
@@ -35,7 +35,7 @@ shader_parameter/vertical_deform_speed = 0.5
 shader_parameter/width = 1024.0
 shader_parameter/height = 576.0
 shader_parameter/palette_cycling_speed = 0.005
-shader_parameter/palette = ExtResource("4_imib6")
+shader_parameter/palette = ExtResource("4_isest")
 
 [node name="ScoreScreen" type="Control"]
 layout_mode = 3
@@ -61,11 +61,8 @@ metadata/_edit_use_anchors_ = true
 material = SubResource("ShaderMaterial_r4g8y")
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.052
 anchor_right = 1.0
-anchor_bottom = 0.497
-offset_top = -29.952
-offset_bottom = 289.728
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_4x6tr")
@@ -82,7 +79,7 @@ offset_top = 18.0
 offset_right = 0.000854492
 offset_bottom = 18.0
 theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1.73271e-06, 0.596233, 0.314869, 1)
 theme_override_constants/shadow_offset_x = 8
 theme_override_constants/shadow_offset_y = 8
 theme_override_font_sizes/font_size = 48
