@@ -8,6 +8,10 @@ extends Node2D
 @onready var current_pitch: float = 1.0
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
 
+# Límites del rango de rebanadas que desaparecerán:
+@onready var upper_limit: int
+@onready var lower_limit: int
+
 # Tiempos del reloj por dificultad:
 @export var time_easy: float = 180
 @export var time_medium: float = 120
@@ -52,6 +56,8 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
+	# Se elige la cantidad de rebanadas por dificultad:
+	self.set_slices()
 	# Se configura el juego:
 	self.set_game()
 
@@ -82,26 +88,43 @@ func set_clock() -> void:
 			self.clock.time = self.time_hard
 
 
+# Configura la cantidad de rebanadas que van a desaparecer:
+func set_slices() -> void:
+	match PlayerSession.difficulty:
+		"easy":
+			self.lower_limit = 0
+			self.upper_limit = 1
+		"medium":
+			self.lower_limit = 1
+			self.upper_limit = 2
+		"hard":
+			self.lower_limit = 1
+			self.upper_limit = 3
+
+
 # Configura las rebanadas que se mostrarán:
 func set_pizza() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	
-	# Lista de claves (s1, s2, s3, s4)
+
 	var slice_keys = left_slice_list.keys()
-	
-	# Ocultar hasta un máximo de 3 rebanadas de pizza de manera aleatoria
-	var slices_to_hide = min(randi_range(1,3), slice_keys.size())
-	for slice in range(slices_to_hide):
+	var slices_to_hide = min(rng.randi_range(self.lower_limit, self.upper_limit), slice_keys.size())
+
+	for _i in range(slices_to_hide):
 		var index = rng.randi_range(0, slice_keys.size() - 1)
 		var key = slice_keys[index]
-		left_slice_list[key][0].hide()  # Oculta la rebanada izquierda
-		right_slice_list[key][0].hide() # Oculta la rebanada derecha
+
+		left_slice_list[key][0].hide()
+		right_slice_list[key][0].hide()
+
 		for ingredient in left_slice_list[key][1]:
-			ingredient.hide()  # Oculta los ingredientes de la izquierda
+			ingredient.hide()
+
 		for ingredient in right_slice_list[key][1]:
-			ingredient.hide()  # Oculta las ranuras de la derecha
+			ingredient.hide()
+
 		slice_keys.remove_at(index)
+
 
 
 func set_ingredients():
