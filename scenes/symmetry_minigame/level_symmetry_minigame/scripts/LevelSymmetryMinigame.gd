@@ -60,6 +60,30 @@ func _ready() -> void:
 	self.set_slices()
 	# Se configura el juego:
 	self.set_game()
+	
+	# Se conectan las señales:
+	# Rebanada 1:
+	%S1R1.data_dropped.connect(check_ingredient.bind([%S1L1, %S1R1]))
+	%S1R2.data_dropped.connect(check_ingredient.bind([%S1L2, %S1R2]))
+	%S1R3.data_dropped.connect(check_ingredient.bind([%S1L3, %S1R3]))
+	%S1R4.data_dropped.connect(check_ingredient.bind([%S1L4, %S1R4]))
+	
+	# Rebanada 2:
+	%S2R1.data_dropped.connect(check_ingredient.bind([%S2L1, %S2R1]))
+	%S2R2.data_dropped.connect(check_ingredient.bind([%S2L2, %S2R2]))
+	%S2R3.data_dropped.connect(check_ingredient.bind([%S2L3, %S2R3]))
+	
+	# Rebanada 3:
+	%S3R1.data_dropped.connect(check_ingredient.bind([%S3L1, %S3R1]))
+	%S3R2.data_dropped.connect(check_ingredient.bind([%S3L2, %S3R2]))
+	%S3R3.data_dropped.connect(check_ingredient.bind([%S3L3, %S3R3]))
+	%S3R4.data_dropped.connect(check_ingredient.bind([%S3L4, %S3R4]))
+	
+	# Rebanada 4:
+	%S4R1.data_dropped.connect(check_ingredient.bind([%S4L1, %S4R1]))
+	%S4R2.data_dropped.connect(check_ingredient.bind([%S4L2, %S4R2]))
+	%S4R3.data_dropped.connect(check_ingredient.bind([%S4L3, %S4R3]))
+	%S4R4.data_dropped.connect(check_ingredient.bind([%S4L4, %S4R4]))
 
 
 func _process(_delta: float) -> void:
@@ -67,6 +91,20 @@ func _process(_delta: float) -> void:
 		if !self.pause.is_active():
 			self.clock.stop()
 			self.pause.show()
+	
+	# Se verifica que todas las ranuras estén correctas:
+	if self.all_slots_correct():
+		PlayerSession.score += 10000
+		self.set_pizza()
+
+
+# Verifica si todos las ranuras sean correctas:
+func all_slots_correct() -> bool:
+	for list in drop_slot_list:
+		for slot in list:
+			if !slot.is_correct():
+				return false
+	return true
 
 
 # Configura la música de fondo:
@@ -124,6 +162,9 @@ func set_pizza() -> void:
 			ingredient.hide()
 
 		slice_keys.remove_at(index)
+	
+	# Se configuran los ingredientes:
+	self.set_ingredients()
 
 
 # Configura los ingredientes:
@@ -144,10 +185,9 @@ func set_game() -> void:
 	# Se imprime el puntaje:
 	self.score_label.print_score()
 	
-	# Se configuran el tiempo y los ingredientes:
+	# Se configuran el tiempo y la pizza:
 	self.set_clock()
 	self.set_pizza()
-	self.set_ingredients()
 	
 	# Contiúa el reloj:
 	self.clock.continue_clock()
