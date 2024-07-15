@@ -8,14 +8,55 @@ extends Node2D
 @onready var current_pitch: float = 1.0
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
 
+# Límites del rango de rebanadas que desaparecerán por dificultad:
+## Easy slices lower limit to hide.
+@export var easy_slices_lower_limit: int
+## Easy slices upper limit to hide.
+@export var easy_slices_upper_limit: int
+## Medium slices lower limit to hide.
+@export var medium_slices_lower_limit: int
+## Medium slices upper limit to hide.
+@export var medium_slices_upper_limit: int
+## Hard slices lower limit to hide.
+@export var hard_slices_lower_limit: int
+## Hard slices upper limit to hide.
+@export var hard_slices_upper_limit: int
+
 # Límites del rango de rebanadas que desaparecerán:
-@onready var upper_limit: int
-@onready var lower_limit: int
+@onready var slices_lower_limit: int
+@onready var slices_upper_limit: int
+
+# Límites del rango de ingredientes que desaparecerán por dificultad:
+## Easy ingredients lower limit to hide.
+@export var easy_ingredients_lower_limit: int
+## Easy ingredients upper limit to hide.
+@export var easy_ingredients_upper_limit: int
+## Medium ingredients lower limit to hide.
+@export var medium_ingredients_lower_limit: int
+## Medium ingredients upper limit to hide.
+@export var medium_ingredients_upper_limit: int
+## Hard ingredients lower limit to hide.
+@export var hard_ingredients_lower_limit: int
+## Hard ingredients upper limit to hide.
+@export var hard_ingredients_upper_limit: int
+
+# Límites del rango de ingredientes que desaparecerán en las rebanadas visibles:
+@onready var ingredients_lower_limit: int
+@onready var ingredients_upper_limit: int
 
 # Tiempos del reloj por dificultad:
+## Time for clock on easy difficulty.
 @export var time_easy: float = 180
+## Time for clock on medium difficulty.
 @export var time_medium: float = 120
+## Time for clock on hard difficulty.
 @export var time_hard: float = 90
+
+## Default score.
+@export var default_score: int = 10000
+
+# Lista que contiene las claves de las rebanadas ocultas:
+@onready var hidden_slices: Array[String]
 
 # Lista de ingredientes (lado izquierdo):
 @onready var ingredient_list: Array = [\
@@ -60,30 +101,8 @@ func _ready() -> void:
 	self.set_slices()
 	# Se configura el juego:
 	self.set_game()
-	
 	# Se conectan las señales:
-	# Rebanada 1:
-	%S1R1.data_dropped.connect(check_ingredient.bind([%S1L1, %S1R1]))
-	%S1R2.data_dropped.connect(check_ingredient.bind([%S1L2, %S1R2]))
-	%S1R3.data_dropped.connect(check_ingredient.bind([%S1L3, %S1R3]))
-	%S1R4.data_dropped.connect(check_ingredient.bind([%S1L4, %S1R4]))
-	
-	# Rebanada 2:
-	%S2R1.data_dropped.connect(check_ingredient.bind([%S2L1, %S2R1]))
-	%S2R2.data_dropped.connect(check_ingredient.bind([%S2L2, %S2R2]))
-	%S2R3.data_dropped.connect(check_ingredient.bind([%S2L3, %S2R3]))
-	
-	# Rebanada 3:
-	%S3R1.data_dropped.connect(check_ingredient.bind([%S3L1, %S3R1]))
-	%S3R2.data_dropped.connect(check_ingredient.bind([%S3L2, %S3R2]))
-	%S3R3.data_dropped.connect(check_ingredient.bind([%S3L3, %S3R3]))
-	%S3R4.data_dropped.connect(check_ingredient.bind([%S3L4, %S3R4]))
-	
-	# Rebanada 4:
-	%S4R1.data_dropped.connect(check_ingredient.bind([%S4L1, %S4R1]))
-	%S4R2.data_dropped.connect(check_ingredient.bind([%S4L2, %S4R2]))
-	%S4R3.data_dropped.connect(check_ingredient.bind([%S4L3, %S4R3]))
-	%S4R4.data_dropped.connect(check_ingredient.bind([%S4L4, %S4R4]))
+	self.connect_signals()
 
 
 func _process(_delta: float) -> void:
@@ -94,11 +113,23 @@ func _process(_delta: float) -> void:
 	
 	# Se verifica que todas las ranuras estén correctas:
 	if self.all_slots_correct():
-		PlayerSession.score += 10000
+		# Si es correcto se obtiene puntaje:
+		self.set_score()
+		# Se genera una nueva pizza:
 		self.set_pizza()
 
 
-# Verifica si todos las ranuras sean correctas:
+# Automatiza la conexión de las señales con la función check_ingredient:
+func connect_signals() -> void:
+	for i in range(4):
+		for j in range(len(drop_slot_list[i])):
+			var left_ingredient = ingredient_list[i][j]
+			var right_slot = drop_slot_list[i][j]
+			right_slot.data_dropped.connect(func() -> void:
+				self.check_ingredient(left_ingredient, right_slot))
+
+
+# Verifica si todas las ranuras sean correctas:
 func all_slots_correct() -> bool:
 	for list in drop_slot_list:
 		for slot in list:
@@ -130,38 +161,101 @@ func set_clock() -> void:
 func set_slices() -> void:
 	match PlayerSession.difficulty:
 		"easy":
-			self.lower_limit = 0
-			self.upper_limit = 1
+			self.slices_lower_limit = self.easy_slices_lower_limit
+			self.slices_upper_limit = self.easy_slices_upper_limit
 		"medium":
-			self.lower_limit = 1
-			self.upper_limit = 2
+			self.slices_lower_limit = self.medium_slices_lower_limit
+			self.slices_upper_limit = self.medium_slices_upper_limit
 		"hard":
-			self.lower_limit = 1
-			self.upper_limit = 3
+			self.slices_lower_limit = self.hard_slices_lower_limit
+			self.slices_upper_limit = self.hard_slices_upper_limit
+
+
+# Selecciona un número de ingredientes dentro de un rango según dificultad aleatoriamente:
+func set_hidden_ingredients_number() -> int:
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	
+	match PlayerSession.difficulty:
+		"easy":
+			self.ingredients_lower_limit = self.easy_ingredients_lower_limit
+			self.ingredients_upper_limit = self.easy_ingredients_upper_limit
+		"medium":
+			self.ingredients_lower_limit = self.medium_ingredients_lower_limit
+			self.ingredients_upper_limit = self.medium_ingredients_upper_limit
+		"hard":
+			self.ingredients_lower_limit = self.hard_ingredients_lower_limit
+			self.ingredients_upper_limit = self.hard_ingredients_upper_limit
+	return rng.randi_range(self.ingredients_lower_limit, self.ingredients_upper_limit)
+
+
+# Oculta al azar ingredientes de las rebanadas visibles:
+func hide_random_ingredients() -> void:
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	
+	# Lista de claves de las rebanadas izquierdas:
+	var slice_keys: Array = self.left_slice_list.keys()
+	
+	for index in range(self.left_slice_list.size() - 1):
+		# Se obtiene la clave:
+		var key: String = slice_keys[index]
+		
+		if key in self.hidden_slices:
+			# Si la rebanada está oculta, se brinca a la siguiente clave:
+			continue
+		
+		# Se obtienen las listas de ingredientes izquierdos y derechos:
+		var left_ingredients = self.left_slice_list[key][1]
+		var right_ingredients = self.right_slice_list[key][1]
+		
+		# Se asegura de que no se oculten más ingredientes de los disponibles:
+		var number_of_ingredientes = self.set_hidden_ingredients_number()
+		var ingredients_to_hide: Variant = min(number_of_ingredientes, left_ingredients.size())
+
+		# Se seleccionan y ocultan los ingredientes al azar manteniendo la simetría:
+		for _i in range(ingredients_to_hide):
+			var ingredient_index: int = rng.randi_range(0, left_ingredients.size() - 1)
+			# Se ocultan el ingrediente izquierdo y su contraparte derecha:
+			left_ingredients[ingredient_index].hide()
+			right_ingredients[ingredient_index].hide()
+			
+			# Se remueven los ingredientes ocultos para evitar seleccionarlos nuevamente:
+			left_ingredients.remove_at(ingredient_index)
+			right_ingredients.remove_at(ingredient_index)
 
 
 # Configura las rebanadas que se mostrarán:
 func set_pizza() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-
-	var slice_keys: Array = left_slice_list.keys()
-	var slices_to_hide: Variant = min(rng.randi_range(self.lower_limit, self.upper_limit), slice_keys.size())
+	
+	# Lista de claves de las rebanadas izquierdas:
+	var slice_keys: Array = self.left_slice_list.keys()
+	# Lista de rebanadas que se van a ocultar:
+	var number_of_slices: int = rng.randi_range(self.slices_lower_limit, self.slices_upper_limit)
+	var slices_to_hide: Variant = min(number_of_slices, slice_keys.size())
 
 	for _i in range(slices_to_hide):
 		var index: int = rng.randi_range(0, slice_keys.size() - 1)
 		var key: String = slice_keys[index]
-
+		
+		# Se oculta la rebanada:
 		left_slice_list[key][0].hide()
 		right_slice_list[key][0].hide()
-
+		
+		# Se ocultan los ingredientes de la respectiva rebanada:
 		for ingredient in left_slice_list[key][1]:
 			ingredient.hide()
 
 		for ingredient in right_slice_list[key][1]:
 			ingredient.hide()
-
+		
+		self.hidden_slices.append(key)
 		slice_keys.remove_at(index)
+	
+	# Se ocultan al azar algunos ingredientes de las rebanadas visibles:
+	self.hide_random_ingredients()
 	
 	# Se configuran los ingredientes:
 	self.set_ingredients()
@@ -169,9 +263,9 @@ func set_pizza() -> void:
 
 # Configura los ingredientes:
 func set_ingredients():
-	# Se generan los ingredientes aleatorios:
 	for list in self.ingredient_list:
 		for ingredient in list:
+			# Se generan los ingredientes aleatorios:
 			ingredient.generate_rand_ingredient()
 			# Se rota aleatoriamente en intervalos de 45°:
 			ingredient.rotation_degrees = randi_range(0, 7) * 45
@@ -193,14 +287,25 @@ func set_game() -> void:
 	self.clock.continue_clock()
 
 
+# Reduce el puntaje predeterminado:
+func reduce_default_score() -> void:
+	self.default_score -= 1250
+
+
+# Otorga un puntaje basándose en el tiempo:
+func set_score() -> void:
+	PlayerSession.score += self.default_score
+
+
+# Compara el ingrediente del lado izquierdo con el que se encuentra en la ranura derecha correspondiente:
 func check_ingredient(left_ingredient: AnimatedTextureRect, right_ingredient: AnimatedTextureRect) -> bool:
-	if left_ingredient.rotation_degrees == right_ingredient.rotation_degrees and \
-	left_ingredient.ingredient_name == right_ingredient.ingredient_name and \
-	left_ingredient.coordinates == right_ingredient.coordinates:
-		right_ingredient.correct = true # Se indica que se ha colocado de manera correcta el ingrediente.
-	else:
-		right_ingredient.correct = false # Se indica que es incorrecto el ingrediente.
-	return right_ingredient.is_correct()
+	right_ingredient.correct = (
+		left_ingredient.rotation_degrees == right_ingredient.rotation_degrees and
+		left_ingredient.ingredient_name == right_ingredient.ingredient_name and
+		left_ingredient.coordinates == right_ingredient.coordinates
+		# Si es correcto se convierte en true. En otro caso es false.
+	)
+	return right_ingredient.correct
 
 
 func _on_pause_finished() -> void:
@@ -232,6 +337,9 @@ func _on_clock_pivot_changed() -> void:
 	# Se aumenta el pitch_scale de la música por cada minuto de juego:
 	self.current_pitch += 0.1
 	BackgroundMusic.change_pitch(self.current_pitch)
+	
+	# Se reduce el puntaje por defecto:
+	self.reduce_default_score()
 
 
 func _on_clock_countdown_finished() -> void:
