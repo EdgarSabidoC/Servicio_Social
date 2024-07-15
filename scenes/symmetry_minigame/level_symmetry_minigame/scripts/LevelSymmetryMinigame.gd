@@ -53,7 +53,7 @@ extends Node2D
 @export var time_hard: float = 90
 
 ## Default score.
-@export var default_score: int = 10000
+@onready var default_score: int = 10000
 
 # Lista que contiene las claves de las rebanadas ocultas:
 @onready var hidden_slices: Array[String]
@@ -61,7 +61,7 @@ extends Node2D
 # Lista de ingredientes (lado izquierdo):
 @onready var ingredient_list: Array = [\
 	[%S1L1, %S1L2, %S1L3, %S1L4], \
-	[%S2L1, %S2L2, %S2L3], \
+	[%S2L1, %S2L2, %S2L3, %S2L4], \
 	[%S3L1, %S3L2, %S3L3, %S3L4], \
 	[%S4L1, %S4L2, %S4L3, %S4L4], \
 ]
@@ -69,7 +69,7 @@ extends Node2D
 # Lista de ranuras (lado derecho):
 @onready var drop_slot_list: Array = [\
 	[%S1R1, %S1R2, %S1R3, %S1R4], \
-	[%S2R1, %S2R2, %S2R3], \
+	[%S2R1, %S2R2, %S2R3, %S2R4], \
 	[%S3R1, %S3R2, %S3R3, %S3R4], \
 	[%S4R1, %S4R2, %S4R3, %S4R4], \
 ]
@@ -171,7 +171,7 @@ func set_slices() -> void:
 			self.slices_upper_limit = self.hard_slices_upper_limit
 
 
-# Selecciona un número de ingredientes dentro de un rango según dificultad aleatoriamente:
+# Selecciona un número de ingredientes dentro de un rango según dificultad (aleatoriamente):
 func set_hidden_ingredients_number() -> int:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -275,6 +275,9 @@ func set_ingredients():
 func set_game() -> void:	
 	# Se inicializa el puntaje en 0:
 	PlayerSession.score = 0
+	
+	# Se reinicia el puntaje por predeterminado:
+	self.default_score = 10000
 	
 	# Se imprime el puntaje:
 	self.score_label.print_score()
