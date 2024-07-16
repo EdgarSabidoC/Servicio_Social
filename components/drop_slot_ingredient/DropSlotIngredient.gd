@@ -1,7 +1,5 @@
-extends AnimatedTextureRect
-
 ##  Allows to drop a Texture2D. Extends AnimatedTextureRect.
-
+extends AnimatedTextureRect
 
 ## (x,y) coordinates for the element. X is for slice index and Y is for ingredient index.
 @export var coordinates: Vector2i
