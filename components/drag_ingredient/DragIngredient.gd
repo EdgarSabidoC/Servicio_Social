@@ -1,8 +1,8 @@
 @tool
 extends AnimatedTextureRect
 
-## Allows to drag a Texture2D, preview animation can be set on Sprites from AnimatedTextureRect.
-## Extends AnimatedTextureRect.
+## Allows to drag a Texture2D for an ingredient, preview animation can be set on
+## Sprites from AnimatedTextureRect. Extends AnimatedTextureRect.
 ## AnimatedTextureRect animation has higher precedence than Texture from TextureRect.
 ## Auto play and Playing are disabled by default on Preview mode.
 class_name DragIngredient
