@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=13 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Texture2D" uid="uid://dkk6ypbtxptq1" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_wall.tga" id="2_4sthm"]
+[ext_resource type="Texture2D" uid="uid://chstlhtpdmxsn" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_bar.tga" id="3_8i2uv"]
 [ext_resource type="Texture2D" uid="uid://b1rkk0c7tgbu5" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_table.tga" id="3_gbi4x"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="3_qyoai"]
 [ext_resource type="PackedScene" uid="uid://chsa1ip830ajq" path="res://components/drag_and_drop_texture/DragAndDropTexture.tscn" id="3_tnj4g"]
@@ -28,36 +29,26 @@ color = Color(0.513726, 0.321569, 0.286275, 1)
 [node name="wall" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.029
-anchor_top = -0.054
+anchor_top = -0.104
 anchor_right = 0.971
-anchor_bottom = 0.505
+anchor_bottom = 0.455
 offset_left = 0.303999
-offset_top = -28.896
+offset_top = -0.0960007
 offset_right = -0.304077
-offset_bottom = -28.88
+offset_bottom = -0.0800171
 texture = ExtResource("2_4sthm")
 
-[node name="table" type="TextureRect" parent="CanvasLayer"]
-offset_left = 330.0
-offset_top = 189.0
-offset_right = 539.0
-offset_bottom = 346.0
-texture = ExtResource("3_gbi4x")
-
-[node name="Order" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 80)
-anchor_left = 0.117
-anchor_top = 0.715
-anchor_right = 0.195
-anchor_bottom = 0.854
-offset_left = 0.191994
-offset_top = 0.159973
-offset_right = 0.319992
-offset_bottom = 0.0962219
-pivot_offset = Vector2(40, 40)
-texture = ExtResource("4_pt4l1")
-expand_mode = 1
+[node name="bar" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.248
+anchor_top = 0.722
+anchor_right = 0.971
+anchor_bottom = 0.986
+offset_left = 0.0479889
+offset_top = 0.12796
+offset_right = -0.304077
+offset_bottom = 0.0639648
+texture = ExtResource("3_8i2uv")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -73,6 +64,33 @@ patch_margin_right = 30
 patch_margin_bottom = 30
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
+
+[node name="Order" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+anchor_left = 0.1
+anchor_top = 0.769
+anchor_right = 0.178
+anchor_bottom = 0.908
+offset_left = -0.400002
+offset_top = 0.0559692
+offset_right = -0.272003
+offset_bottom = -0.0078125
+pivot_offset = Vector2(40, 40)
+texture = ExtResource("4_pt4l1")
+expand_mode = 1
+
+[node name="table" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.322
+anchor_top = 0.328
+anchor_right = 0.526
+anchor_bottom = 0.601
+offset_left = 0.271973
+offset_top = 0.071991
+offset_right = 0.375977
+offset_bottom = -0.175995
+texture = ExtResource("3_gbi4x")
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(200, 50)
