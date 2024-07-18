@@ -4,6 +4,7 @@ extends Node2D
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var label: Label = $CanvasLayer/AnimatedTextureRect/Label
+@onready var score_screen: Control = $CanvasLayer/ScoreScreen
 
 # Tiempos del reloj por dificultad:
 ## Time for clock on easy difficulty.
