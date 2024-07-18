@@ -13,6 +13,13 @@ offset_top = 3.0
 offset_bottom = 3.00001
 texture = ExtResource("2_plgl0")
 script = ExtResource("1_om2lx")
+x_lower_limit = -1
+x_upper_limit = 1
+y_lower_limit = -1
+y_upper_limit = 1
+easy_timeout = 7.0
+medium_timeout = 5.0
+hard_timeout = 3.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Pizza" type="TextureRect" parent="."]

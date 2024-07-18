@@ -36,6 +36,13 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 ## Minimun size for background:
 @export var background_custom_minimum_size: Vector2
 
+## Easy difficulty timeout to hide the pizza on the table.
+@export var easy_timeout: float
+## Medium difficulty timeout to hide the pizza on the table.
+@export var medium_timeout: float
+## Hard difficulty timeout to hide the pizza on the table.
+@export var hard_timeout: float
+
 # Coordenadas (X,Y):
 @onready var _coordinates: Vector2i
 @onready var pizza: TextureRect = $Pizza
@@ -43,6 +50,10 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 
 ## Dropped signal is emitted when data (Vector2i of coordinates) is dropped.
 signal data_dropped()
+## Signal is emitted when timer starts.
+signal timer_started()
+## Signal is emitted when timer ends.
+signal timer_ended()
 
 
 func _ready() -> void:
@@ -70,13 +81,28 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	print_debug(data)
 	self.pizza.show()
 	self.data_dropped.emit() # Se lanza la señal de que se soltaron los datos.
+	self.start_timer()
+
+
+# Inicia un timer para una mesa:
+func start_timer() -> void:
+	self.timer_started.emit()
+	var time: float
+	match PlayerSession.difficulty:
+		"easy":
+			time = self.easy_timeout
+		"medium":
+			time = self.medium_timeout
+		"hard":
+			time = self.hard_timeout
+	await get_tree().create_timer(time).timeout
+	self.timer_ended.emit()
 	self.restart()
 
 
 # Oculta de nuevo la pizza:
 func restart() -> void:
 	if self.pizza.is_visible_in_tree():
-		await get_tree().create_timer(5.0).timeout
 		self.pizza.hide()
 
 

@@ -62,58 +62,67 @@ grow_vertical = 2
 color = Color(0.513726, 0.321569, 0.286275, 1)
 
 [node name="Table1" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
 anchor_left = 0.179688
 anchor_top = 0.111111
 anchor_right = 0.384766
 anchor_bottom = 0.378472
 
 [node name="Table2" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
 anchor_left = 0.179688
 anchor_top = 0.444444
 anchor_right = 0.384766
 anchor_bottom = 0.711806
 
 [node name="Table3" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
 anchor_left = 0.179688
 anchor_top = 0.763889
 anchor_right = 0.384766
 anchor_bottom = 1.03125
 
 [node name="Table4" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
 anchor_left = 0.398438
 anchor_top = 0.111111
 anchor_right = 0.603516
 anchor_bottom = 0.378472
 
 [node name="Table5" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
+anchor_left = 0.398438
+anchor_top = 0.447917
+anchor_right = 0.603516
+anchor_bottom = 0.715278
+
+[node name="Table6" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
 anchor_left = 0.398438
 anchor_top = 0.763889
 anchor_right = 0.603516
 anchor_bottom = 1.03125
 
-[node name="Table6" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+[node name="Table7" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
 anchor_left = 0.621094
 anchor_top = 0.111111
 anchor_right = 0.826172
 anchor_bottom = 0.378472
 
-[node name="Table7" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+[node name="Table8" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
 anchor_left = 0.621094
 anchor_top = 0.444444
 anchor_right = 0.826172
 anchor_bottom = 0.711806
 
-[node name="Table8" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+[node name="Table9" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
+unique_name_in_owner = true
 anchor_left = 0.621094
 anchor_top = 0.763889
 anchor_right = 0.826172
 anchor_bottom = 1.03125
-
-[node name="Table9" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
-anchor_left = 0.398438
-anchor_top = 0.447917
-anchor_right = 0.603516
-anchor_bottom = 0.715278
 
 [node name="Robot" parent="CanvasLayer" instance=ExtResource("3_goqxl")]
 unique_name_in_owner = true
@@ -121,6 +130,7 @@ anchor_left = 0.875
 anchor_top = 0.777778
 anchor_right = 0.938477
 anchor_bottom = 0.888889
+pivot_offset = Vector2(32, 32)
 expand_mode = 1
 
 [node name="AnimatedTextureRect" type="TextureRect" parent="CanvasLayer"]

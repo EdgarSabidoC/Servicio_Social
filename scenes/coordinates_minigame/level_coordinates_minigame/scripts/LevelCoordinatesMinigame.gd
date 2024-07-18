@@ -18,6 +18,8 @@ extends Node2D
 # Animación de la zarigüeya:
 @onready var animated_texture_rect: AnimatedTextureRect = $CanvasLayer/AnimatedTextureRect
 
+@onready var current_pitch: float
+
 
 func _enter_tree() -> void:
 	# Se configura la música:

@@ -167,6 +167,7 @@ animations = [{
 }]
 
 [node name="Robot" type="TextureRect"]
+custom_minimum_size = Vector2(64, 64)
 anchors_preset = -1
 anchor_right = 0.125
 anchor_bottom = 0.222222
