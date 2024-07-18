@@ -81,7 +81,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
 theme_override_font_sizes/font_size = 32
-text = "Selecciona un modo de entrada"
+text = "Selecciona un modo de entrada
+para navegar por los menús"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
