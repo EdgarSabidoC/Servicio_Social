@@ -1,7 +1,7 @@
 @tool
 extends AnimatedTextureRect
 
-## Allows to drag and drop an array with a Texture2D and a coordinate (X,Y), 
+## Allows to drop a coordinate (X,Y) [Vector2i], 
 ## preview animation can be set on Sprites from AnimatedTextureRect.
 ## Extends AnimatedTextureRect.
 ## AnimatedTextureRect animation has higher precedence than Texture from TextureRect.
@@ -15,9 +15,6 @@ extends AnimatedTextureRect
 @export var y_lower_limit: int
 ## Upper limit for Y coordinate.
 @export var y_upper_limit: int
-
-## If enabled, a DragTexture can be dropped inside.
-@export var enable_drop: bool = true
 
 enum AnimationOptions {## Options to use the Sprites animation as preview, texture or both
 						PREVIEW = 0, ## Preview mode active
@@ -41,11 +38,10 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 
 # Coordenadas (X,Y):
 @onready var _coordinates: Vector2i
+@onready var pizza: TextureRect = $Pizza
 
-@onready var background_texture_rect: TextureRect = $BackgroundTextureRect
 
-
-## Dropped signal is emitted when data is dropped inside another DragTexture.
+## Dropped signal is emitted when data (Vector2i of coordinates) is dropped.
 signal data_dropped()
 
 
@@ -59,54 +55,29 @@ func _ready() -> void:
 		# Si el modo preview es para la animación:
 		self.auto_play = false
 		self.stop()
-	# Se valida que las coordenadas estén dentro de los límites:
-	self.validate_coordinates()
+	# Se verifica que las coordenadas estén dentro de los límites:
+	self.check_coordinates_limits()
 
 
-func _get_drag_data(_at_position: Vector2) -> Variant:
-	# Textura de la vista previa:
-	var preview_texture =  AnimatedTextureRect.new()
-	
-	# Se valida si hay sprites y si es modo Preview o Both:
-	if self.sprites and (self.animation_as == AnimationOptions.PREVIEW or \
-						self.animation_as == AnimationOptions.BOTH):
-		# Se asigna la animación actual a la del preview:
-		preview_texture.current_animation = self.current_animation
-		preview_texture.sprites = self.sprites # Se asignan los sprites al preview
-		preview_texture.play() # Se reproduce la animación
-	else:
-		# Si es modo texture o no hay sprites:
-		preview_texture.texture = self.texture # Se asigna la textura de la vista previa.
-	
-	# Se cambia el tamaño de la textura del preview:
-	preview_texture.expand_mode = EXPAND_IGNORE_SIZE
-	preview_texture.size = self.preview_size
-
-	# Control para la vista previa:
-	var preview = Control.new()
-	preview.add_child(preview_texture) # Se asigna al control la textura de la vista previa.
-	self.set_drag_preview(preview) # Se asigna el control.
-	
-	# Se asgina la posición de la vista previa para quedar el cursor centrado:
-	preview_texture.position = preview_texture.get_local_mouse_position() - preview_texture.size/2
-	
-	# Se retorna la textura y las coordenadas:
-	return [self.texture, self.get_coordinates()]
-
-
-# Se valida que se pueda soltar un array:
+# Se valida que se pueda soltar un Vector2i [Coordenada(X,Y)]:
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	if !self.enable_drop:
-		# Si no está activo el soltar:
-		return false
-	return data is Array
+	return data is Vector2i and !self.pizza.is_visible_in_tree()
 
 
-# Se obtienen los elementos del arreglo ([0]: Texture2D. [1]: coordenada(X,Y)):
+# Se obtiene una coordenada(X,Y) [Vector2i]:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	self.texture = data[0]
-	self.set_coordinates(data[1])
+	self.set_coordinates(data)
+	print_debug(data)
+	self.pizza.show()
 	self.data_dropped.emit() # Se lanza la señal de que se soltaron los datos.
+	self.restart()
+
+
+# Oculta de nuevo la pizza:
+func restart() -> void:
+	if self.pizza.is_visible_in_tree():
+		await get_tree().create_timer(5.0).timeout
+		self.pizza.hide()
 
 
 # Configura el fondo del nodo:
@@ -116,6 +87,7 @@ func set_background(background_texture: Texture2D = self.background) -> void:
 		if background_texture:
 			self.background_texture_rect.texture = background_texture
 			self.size = background_custom_minimum_size
+
 
 # Asigna un par de coordenadas:
 func set_coordinates(coordinates: Vector2i) -> void:
@@ -127,10 +99,10 @@ func get_coordinates() -> Vector2i:
 	return self._coordinates
 
 
-# Valida que las coordenadas estén dentro de los límites.
+# Verifica que las coordenadas estén dentro de los límites.
 # De manera predeterminada asigna los límites como coordenadas si los límites
 # se salen.
-func validate_coordinates() -> void:
+func check_coordinates_limits() -> void:
 	# Límites superiores:
 	if self._coordinates.x > self.x_upper_limit:
 		self._coordinates.x = self.x_upper_limit
@@ -141,12 +113,3 @@ func validate_coordinates() -> void:
 		self._coordinates.x = self.x_lower_limit
 	if self._coordinates.y < self.y_lower_limit:
 		self._coordinates.y = self.y_lower_limit
-
-
-# Genera un par de coordenadas aleatorias:
-func set_rand_coordinates() -> void:
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()	
-	var x: int = rng.randi_range(self.x_lower_limit, self.x_upper_limit)
-	var y: int = rng.randi_range(self.y_lower_limit, self.y_upper_limit)
-	self.set_coordinates(Vector2i(x,y))
