@@ -132,6 +132,10 @@ anchor_right = 0.938477
 anchor_bottom = 0.888889
 pivot_offset = Vector2(32, 32)
 expand_mode = 1
+x_lower_limit = -1
+x_upper_limit = 1
+y_lower_limit = -1
+y_upper_limit = 1
 
 [node name="AnimatedTextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
