@@ -85,7 +85,7 @@ func set_game() -> void:
 
 # Genera un par de coordenadas aleatorias:
 func set_order_coordinates() -> void:
-	%Order.set_rand_coordinates()
+	%WaiterRobot.set_rand_coordinates()
 
 
 func _on_pause_finished() -> void:
