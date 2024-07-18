@@ -1,8 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=17 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
-[ext_resource type="Texture2D" uid="uid://dkk6ypbtxptq1" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_wall.tga" id="2_4sthm"]
-[ext_resource type="Texture2D" uid="uid://chstlhtpdmxsn" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_bar.tga" id="3_8i2uv"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="3_qyoai"]
 [ext_resource type="PackedScene" uid="uid://chsa1ip830ajq" path="res://components/drag_and_drop_texture/DragAndDropTexture.tscn" id="3_tnj4g"]
 [ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="4_pt4l1"]
@@ -63,30 +61,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.513726, 0.321569, 0.286275, 1)
 
-[node name="Wall" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.029
-anchor_top = -0.104
-anchor_right = 0.971
-anchor_bottom = 0.455
-offset_left = 0.303999
-offset_top = -0.0960007
-offset_right = -0.304077
-offset_bottom = -0.0800171
-texture = ExtResource("2_4sthm")
-
-[node name="Bar" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.248
-anchor_top = 0.722
-anchor_right = 0.971
-anchor_bottom = 0.986
-offset_left = 0.0479889
-offset_top = 0.12796
-offset_right = -0.304077
-offset_bottom = 0.0639648
-texture = ExtResource("3_8i2uv")
-
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,42 +78,35 @@ axis_stretch_vertical = 2
 
 [node name="Table1" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
 custom_minimum_size = Vector2(210, 154)
-anchor_left = 0.279297
-anchor_top = 0.291667
-anchor_right = 0.484375
-anchor_bottom = 0.559028
+anchor_left = 0.179688
+anchor_top = 0.0694444
+anchor_right = 0.384766
+anchor_bottom = 0.336806
 pivot_offset = Vector2(105, 77)
 
 [node name="AnimatedTextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.031
-anchor_top = 0.069
-anchor_right = 0.268
-anchor_bottom = 0.49
-offset_left = 0.255999
-offset_top = 0.255997
-offset_right = -0.432007
-offset_bottom = -0.23999
+anchor_left = 0.03125
+anchor_top = 0.0694444
+anchor_right = 0.155273
+anchor_bottom = 0.324653
 pivot_offset = Vector2(121, 121)
 texture = SubResource("AtlasTexture_5kdpe")
 stretch_mode = 5
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_7qhfs")
 frame_index = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedTextureRect"]
 
 [node name="WaiterRobot" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
-anchor_left = 0.1
-anchor_top = 0.769
-anchor_right = 0.178
-anchor_bottom = 0.908
-offset_left = -0.400002
-offset_top = 0.0559692
-offset_right = -0.272003
-offset_bottom = -0.0078125
+anchor_left = 0.460938
+anchor_top = 0.486111
+anchor_right = 0.539063
+anchor_bottom = 0.625
 pivot_offset = Vector2(40, 40)
 texture = ExtResource("4_pt4l1")
 expand_mode = 1
