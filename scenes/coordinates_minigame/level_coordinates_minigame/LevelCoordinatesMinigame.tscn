@@ -150,6 +150,7 @@ offset_bottom = -0.0078125
 pivot_offset = Vector2(40, 40)
 texture = ExtResource("4_pt4l1")
 expand_mode = 1
+enable_drop = false
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
 custom_minimum_size = Vector2(200, 50)

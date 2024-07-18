@@ -122,7 +122,6 @@ func validate_coordinates() -> void:
 		self._coordinates.x = self.x_lower_limit
 	if self._coordinates.y < self.y_lower_limit:
 		self._coordinates.y = self.y_lower_limit
-	print_debug("Los límites son: %s" %self.get_coordinates())
 
 
 # Genera un par de coordenadas aleatorias:
