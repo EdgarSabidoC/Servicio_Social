@@ -1,3 +1,4 @@
+@tool
 extends AnimatedTextureRect
 
 ## Allows to drag and drop an array with a Texture2D and a coordinate (X,Y), 
@@ -5,8 +6,6 @@ extends AnimatedTextureRect
 ## Extends AnimatedTextureRect.
 ## AnimatedTextureRect animation has higher precedence than Texture from TextureRect.
 ## Auto play and Playing are disabled by default on Preview mode.
-class_name DragAndDropTexture
-
 
 ## Lower limit for X coordinate.
 @export var x_lower_limit: int
@@ -31,9 +30,19 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 ## Size of preview animation or texture
 @export var preview_size: Vector2 = Vector2(50, 50)
 
+## If true, the background texture is hidden (recommended for drag texture).
+@export var hide_background: bool = true
+
+## Background texture.
+@export var background: Texture2D
+
+## Minimun size for background:
+@export var background_custom_minimum_size: Vector2
 
 # Coordenadas (X,Y):
 @onready var _coordinates: Vector2i
+
+@onready var background_texture_rect: TextureRect = $BackgroundTextureRect
 
 
 ## Dropped signal is emitted when data is dropped inside another DragTexture.
@@ -41,6 +50,8 @@ signal data_dropped()
 
 
 func _ready() -> void:
+	self.set_background()
+	self.pivot_offset = self.custom_minimum_size/2
 	if self.animation_as == self.AnimationOptions.BOTH or self.animation_as == self.AnimationOptions.TEXTURE:
 		# Si es modo Texture o Both se reproduce la animación:
 		self.play()
@@ -97,6 +108,14 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	self.set_coordinates(data[1])
 	self.data_dropped.emit() # Se lanza la señal de que se soltaron los datos.
 
+
+# Configura el fondo del nodo:
+func set_background(background_texture: Texture2D = self.background) -> void:
+	if !self.hide_background:
+		self.background_texture_rect.show()
+		if background_texture:
+			self.background_texture_rect.texture = background_texture
+			self.size = background_custom_minimum_size
 
 # Asigna un par de coordenadas:
 func set_coordinates(coordinates: Vector2i) -> void:
