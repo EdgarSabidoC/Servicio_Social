@@ -3,6 +3,7 @@ extends Node2D
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
+@onready var label: Label = $CanvasLayer/AnimatedTextureRect/Label
 
 # Tiempos del reloj por dificultad:
 ## Time for clock on easy difficulty.
@@ -30,6 +31,7 @@ func _ready() -> void:
 	# Se configura el juego/partida:
 	self.set_game()
 	self.animated_texture_rect.play()
+	self.connect_signals()
 
 
 func _process(_delta: float) -> void:
@@ -37,6 +39,26 @@ func _process(_delta: float) -> void:
 		if !self.pause.is_active():
 			self.clock.stop()
 			self.pause.show()
+
+
+func connect_signals() -> void:
+	var tables: Array = [%Table1, %Table2, %Table3, \
+						%Table4, %Table5, %Table6, \
+						%Table7, %Table8, %Table9]
+
+	for table in tables:
+		table.data_dropped.connect(func() -> void: self.check_answer(table))
+		table.timer_ended.connect(func() -> void: self.set_order_coordinates())
+
+
+# Verifica que la respuesta sea correcta:
+func check_answer(table: AnimatedTextureRect) -> void:
+	print_debug("Entró a check_answer")
+	if table.compare_coordinates(%Robot.get_coordinates()):
+		print_debug("Entró a check_answer: true")
+		self.set_score()
+		# Se imprime el puntaje:
+		self.score_label.print_score()
 
 
 # Reduce el puntaje predeterminado:
@@ -91,7 +113,9 @@ func set_game() -> void:
 
 # Genera un par de coordenadas aleatorias:
 func set_order_coordinates() -> void:
+	print_debug("Entró a set_order_coordinates")
 	%Robot.set_rand_coordinates()
+	self.label.text = str(%Robot.get_coordinates())
 
 
 func _on_pause_finished() -> void:

@@ -20,6 +20,7 @@ y_upper_limit = 1
 easy_timeout = 7.0
 medium_timeout = 5.0
 hard_timeout = 3.0
+coordinates = null
 metadata/_edit_use_anchors_ = true
 
 [node name="Pizza" type="TextureRect" parent="."]

@@ -43,8 +43,9 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 ## Hard difficulty timeout to hide the pizza on the table.
 @export var hard_timeout: float
 
-# Coordenadas (X,Y):
-@onready var _coordinates: Vector2i
+## (X,Y) coordinates.
+@export var coordinates: Vector2i = Vector2i(0,0)
+
 @onready var pizza: TextureRect = $Pizza
 
 
@@ -116,13 +117,18 @@ func set_background(background_texture: Texture2D = self.background) -> void:
 
 
 # Asigna un par de coordenadas:
-func set_coordinates(coordinates: Vector2i) -> void:
-	self._coordinates = Vector2i(coordinates.x, coordinates.y)
+func set_coordinates(_coordinates: Vector2i) -> void:
+	self.coordinates = Vector2i(_coordinates.x, _coordinates.y)
 
 
 # Obtiene las coordenadas:
 func get_coordinates() -> Vector2i:
-	return self._coordinates
+	return self.coordinates
+
+
+# Compara las coordenadas que se le pasan con las del nodo:
+func compare_coordinates(coordinates_vector: Vector2i) -> bool:
+	return get_coordinates() == coordinates_vector
 
 
 # Verifica que las coordenadas estén dentro de los límites.
@@ -130,12 +136,12 @@ func get_coordinates() -> Vector2i:
 # se salen.
 func check_coordinates_limits() -> void:
 	# Límites superiores:
-	if self._coordinates.x > self.x_upper_limit:
-		self._coordinates.x = self.x_upper_limit
-	if self._coordinates.y > self.y_upper_limit:
-		self._coordinates.y = self.y_upper_limit
+	if self.coordinates.x > self.x_upper_limit:
+		self.coordinates.x = self.x_upper_limit
+	if self.coordinates.y > self.y_upper_limit:
+		self.coordinates.y = self.y_upper_limit
 	# Límites inferiores:
-	if self._coordinates.x < self.x_lower_limit:
-		self._coordinates.x = self.x_lower_limit
-	if self._coordinates.y < self.y_lower_limit:
-		self._coordinates.y = self.y_lower_limit
+	if self.coordinates.x < self.x_lower_limit:
+		self.coordinates.x = self.x_lower_limit
+	if self.coordinates.y < self.y_lower_limit:
+		self.coordinates.y = self.y_lower_limit
