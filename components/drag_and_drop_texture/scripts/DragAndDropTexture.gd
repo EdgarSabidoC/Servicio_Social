@@ -35,9 +35,6 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 # Coordenadas (X,Y):
 @onready var _coordinates: Vector2i
 
-# Textura de fondo:
-@onready var background_texture_rect: TextureRect = $BackgroundTextureRect
-
 
 ## Dropped signal is emitted when data is dropped inside another DragTexture.
 signal data_dropped()

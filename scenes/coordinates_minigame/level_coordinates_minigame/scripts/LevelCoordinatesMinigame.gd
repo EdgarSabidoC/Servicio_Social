@@ -15,6 +15,9 @@ extends Node2D
 ## Default score.
 @onready var default_score: int = 10000
 
+# Animación de la zarigüeya:
+@onready var animated_texture_rect: AnimatedTextureRect = $CanvasLayer/AnimatedTextureRect
+
 
 func _enter_tree() -> void:
 	# Se configura la música:
@@ -24,6 +27,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	# Se configura el juego/partida:
 	self.set_game()
+	self.animated_texture_rect.play()
 
 
 func _process(_delta: float) -> void:
