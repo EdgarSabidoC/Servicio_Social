@@ -121,9 +121,11 @@ anchor_bottom = 1.0
 offset_left = -6.10352e-05
 offset_top = 0.287964
 offset_right = 0.487976
+pivot_offset = Vector2(32.5, 54)
 texture = SubResource("AtlasTexture_pmlm1")
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_jwl6i")
+frame_index = 5
 auto_play = true
 
 [node name="Table1" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
@@ -164,7 +166,6 @@ anchor_left = 0.398438
 anchor_top = 0.447917
 anchor_right = 0.603516
 anchor_bottom = 0.715278
-coordinates = Vector2i(0, 0)
 
 [node name="Table6" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
 unique_name_in_owner = true
@@ -198,17 +199,6 @@ anchor_right = 0.826172
 anchor_bottom = 1.03125
 coordinates = Vector2i(1, -1)
 
-[node name="Robot" parent="CanvasLayer" instance=ExtResource("3_goqxl")]
-unique_name_in_owner = true
-anchor_left = 0.875
-anchor_top = 0.682
-anchor_right = 0.938477
-anchor_bottom = 0.793
-offset_left = -6.10352e-05
-offset_top = 0.168121
-offset_bottom = 0.232117
-expand_mode = 1
-
 [node name="AnimatedTextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.03125
@@ -233,6 +223,17 @@ anchor_top = 1.06122
 anchor_right = 0.905515
 anchor_bottom = 1.41496
 metadata/_edit_use_anchors_ = true
+
+[node name="Robot" parent="CanvasLayer" instance=ExtResource("3_goqxl")]
+unique_name_in_owner = true
+anchor_left = 0.875
+anchor_top = 0.682
+anchor_right = 0.938477
+anchor_bottom = 0.793
+offset_left = -6.10352e-05
+offset_top = 0.168121
+offset_bottom = 0.232117
+expand_mode = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 visible = false
