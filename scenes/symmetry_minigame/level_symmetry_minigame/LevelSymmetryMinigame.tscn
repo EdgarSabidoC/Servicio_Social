@@ -1,9 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://dmvnx73aogc7v"]
+[gd_scene load_steps=36 format=3 uid="uid://dmvnx73aogc7v"]
 
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="1_3x5i5"]
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_ff83q"]
-[ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="2_fkw5t"]
 [ext_resource type="Script" path="res://components/drag_ingredient/DragIngredient.gd" id="3_5xrv3"]
 [ext_resource type="PackedScene" uid="uid://cq04c345l73g0" path="res://components/drop_slot_ingredient/DropSlotIngredient.tscn" id="4_ttdhp"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="5_1p5rh"]
@@ -241,7 +240,6 @@ anchor_right = 0.484375
 anchor_bottom = 0.211806
 offset_bottom = 0.0
 pivot_offset = Vector2(33, 33)
-texture = ExtResource("2_fkw5t")
 coordinates = Vector2i(1, 1)
 enable_drop = false
 
@@ -254,7 +252,6 @@ anchor_right = 0.4375
 anchor_bottom = 0.289931
 offset_bottom = 0.0
 pivot_offset = Vector2(18.5, 18.5)
-texture = ExtResource("2_fkw5t")
 coordinates = Vector2i(1, 2)
 enable_drop = false
 
@@ -267,7 +264,6 @@ anchor_right = 0.492188
 anchor_bottom = 0.369792
 offset_bottom = 0.0
 pivot_offset = Vector2(22.5, 22.5)
-texture = ExtResource("2_fkw5t")
 coordinates = Vector2i(1, 3)
 enable_drop = false
 
@@ -280,7 +276,6 @@ anchor_right = 0.390625
 anchor_bottom = 0.222222
 offset_bottom = 0.0
 pivot_offset = Vector2(12, 12)
-texture = ExtResource("2_fkw5t")
 coordinates = Vector2i(1, 4)
 enable_drop = false
 
@@ -339,7 +334,6 @@ anchor_right = 0.351563
 anchor_bottom = 0.352431
 offset_bottom = 0.0
 pivot_offset = Vector2(23.5, 23.5)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S2L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -351,7 +345,6 @@ anchor_right = 0.376953
 anchor_bottom = 0.46875
 offset_bottom = 0.0
 pivot_offset = Vector2(29, 29)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S2L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -363,7 +356,6 @@ anchor_right = 0.43457
 anchor_bottom = 0.479167
 offset_bottom = 0.0
 pivot_offset = Vector2(21, 21)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S2L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -375,7 +367,6 @@ anchor_right = 0.464844
 anchor_bottom = 0.479167
 offset_bottom = 0.0
 pivot_offset = Vector2(6, 6)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S2R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -467,7 +458,6 @@ anchor_right = 0.335938
 anchor_bottom = 0.588542
 offset_bottom = 0.0
 pivot_offset = Vector2(20.5, 20.5)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S3L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -479,7 +469,6 @@ anchor_right = 0.414063
 anchor_bottom = 0.611111
 offset_bottom = 0.0
 pivot_offset = Vector2(24, 24)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S3L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -491,7 +480,6 @@ anchor_right = 0.462891
 anchor_bottom = 0.555556
 offset_bottom = 0.0
 pivot_offset = Vector2(13, 13)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S3L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -503,7 +491,6 @@ anchor_right = 0.364258
 anchor_bottom = 0.715278
 offset_bottom = 0.0
 pivot_offset = Vector2(29.5, 29.5)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S4R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -557,7 +544,6 @@ anchor_right = 0.428711
 anchor_bottom = 0.817708
 offset_bottom = 0.0
 pivot_offset = Vector2(23.5, 23.5)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S4L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -569,7 +555,6 @@ anchor_right = 0.492188
 anchor_bottom = 0.746528
 offset_bottom = 0.0
 pivot_offset = Vector2(31, 31)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S4L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -581,7 +566,6 @@ anchor_right = 0.492188
 anchor_bottom = 0.612847
 offset_bottom = 0.0
 pivot_offset = Vector2(12, 12)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="S4L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -593,7 +577,6 @@ anchor_right = 0.489258
 anchor_bottom = 0.897569
 offset_bottom = 0.0
 pivot_offset = Vector2(30.5, 30.5)
-texture = ExtResource("2_fkw5t")
 enable_drop = false
 
 [node name="IngredientsContainer" type="VBoxContainer" parent="CanvasLayer"]

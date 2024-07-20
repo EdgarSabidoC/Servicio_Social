@@ -76,14 +76,34 @@ func get_data_formatted() -> String:
 	return "%s, %s" % [self.coordinates, self.get_ingredient_name()]
 
 
-# Genera de manera aleatoria un ingrediente:
+# Genera de manera aleatoria un ingrediente y carga su textura:
 func generate_rand_ingredient() -> int:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var i = rng.randi_range(0, 7)
+	var i = rng.randi_range(1, 7)
 	self.ingredient_name = Ingredients.values()[i]
-	
+	self._load_ingredient_texture()
 	return self.ingredient_name
+
+
+# Carga la textura de un ingrediente (utilizada en generate_rand_ingredient por defecto):
+func _load_ingredient_texture() -> void:
+	print_debug("Entró con %s"%self.get_ingredient_name())
+	match self.ingredient_name:
+		"Hongo":
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/mushroom.tga")
+		"Pepperoni":
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/pepperoni.tga")
+		"Salami":
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/salami.tga")
+		"Cebolla":
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/onion.tga")
+		"Pimiento verde":
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/green_pepper.tga")
+		"Jamón":
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/ham.tga")
+		"Pescado":
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/fish.tga")
 
 
 func is_correct() -> bool:
@@ -100,6 +120,8 @@ func clear_data() -> void:
 		self.coordinates = Vector2i(0,0)
 	if self.correct:
 		self.correct = false
+	if !self.texture_rect.is_visible_in_tree():
+		self.texture_rect.show()
 
 
 # Se valida que se pueda soltar una Texture2D:
