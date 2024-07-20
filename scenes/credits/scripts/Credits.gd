@@ -81,13 +81,13 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("ui_cancel"):
+	if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("m1"):
 		self.total_time += delta
-	if Input.is_action_just_released("ui_cancel"):
+	if Input.is_action_just_released("ui_cancel") or Input.is_action_just_released("m1"):
 		self.total_time = 0
 		if self.notification_label:
 			self.notification_label.hide()
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("m1"):
 		self.notification_label.show()
 	if self.total_time >= 2:
 		SceneTransition.change_scene(main_menu)
