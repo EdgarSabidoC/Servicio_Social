@@ -65,6 +65,7 @@ var used_animations: Array[String] = []  # Array para seguir las animaciones usa
 
 signal show_next
 
+
 func _ready():
 	# Inicializa el LinkButton como invisible
 	link_button.modulate.a = 0
@@ -77,6 +78,7 @@ func _ready():
 	# Se inicia la animación inicial
 	self.animated_sprite_2d.play("default")
 	self.notification_label.text = "Mantén presionado [img={cancel_width}x{cancel_height}]{cancel}[/img] para salir...".format({"cancel_width": str(self.cancel_width), "cancel_height": str(self.cancel_height), "cancel": self.cancel_texture_path})
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_cancel"):
@@ -112,6 +114,7 @@ func _show_next_credit():
 	
 	current_index += 1
 
+
 func _show_title(text: String):
 	credits_label.text = text
 	credits_label.modulate.a = 0 # Inicialmente transparente
@@ -129,6 +132,7 @@ func _show_title(text: String):
 	# Conecta la señal "finished" del Tween para mostrar el siguiente crédito
 	tween.finished.connect(_on_tween_finished)
 
+
 func _show_body_text(text: String):
 	body_credits_label.text = text
 	body_credits_label.modulate.a = 0 # Inicialmente transparente
@@ -145,6 +149,7 @@ func _show_body_text(text: String):
 
 	# Conecta la señal "finished" del Tween para mostrar el siguiente crédito
 	tween.finished.connect(_on_tween_finished)
+
 
 func _show_developer(developer: String, github_url: String):
 	link_button.text = developer
@@ -166,8 +171,10 @@ func _show_developer(developer: String, github_url: String):
 	tween.finished.connect(func() -> void: link_button.hide())
 	tween.finished.connect(_on_tween_finished)
 
+
 func _on_tween_finished() -> void:
 	emit_signal("show_next")
+
 
 # Función para obtener un string aleatorio del array de animaciones sin repeticiones
 func _get_random_animation() -> String:
@@ -184,6 +191,7 @@ func _get_random_animation() -> String:
 	animations.erase(selected_animation)  # Elimina la animación del array original
 
 	return selected_animation
+
 
 func _change_animation() -> void:
 	self.current_animation = _get_random_animation()
@@ -206,6 +214,7 @@ func _change_animation() -> void:
 		"huolpoch":
 			self.animated_sprite_2d.animation = "huolpoch"
 			self.animated_sprite_2d.position = Vector2(0, 0)
+
 
 func _play_random_animation() -> void:
 	self._change_animation()
