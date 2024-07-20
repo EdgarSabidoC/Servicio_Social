@@ -112,6 +112,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 # La texture se convierte en la textura que se le suelta:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	self.texture_rect.hide()
 	self.texture = data[0]
 	self.coordinates = data[1]
 	self.ingredient_name = data[2]

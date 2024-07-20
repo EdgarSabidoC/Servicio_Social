@@ -34,6 +34,9 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 ## Size of preview animation or texture
 @export var preview_size: Vector2 = Vector2(50, 50)
 
+## Texture when the ingredient is on the pizza.
+@export var texture_on_pizza: Texture2D
+
 
 func _ready() -> void:
 	if self.animation_as == self.AnimationOptions.BOTH or self.animation_as == self.AnimationOptions.TEXTURE:
@@ -73,7 +76,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview_texture.position = preview_texture.get_local_mouse_position() - preview_texture.size/2
 	
 	# Se retorna la textura, las coordenadas y el nombre del ingrediente:
-	return [self.texture, self.coordinates, self.ingredient_name]
+	return [self.texture_on_pizza, self.coordinates, self.ingredient_name]
 
 
 func get_dropped_data(data: Variant) -> void:
