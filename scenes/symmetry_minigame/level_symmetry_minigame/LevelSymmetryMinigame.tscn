@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmvnx73aogc7v"]
+[gd_scene load_steps=30 format=3 uid="uid://dmvnx73aogc7v"]
 
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="1_3x5i5"]
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cq04c345l73g0" path="res://components/drop_slot_ingredient/DropSlotIngredient.tscn" id="4_ttdhp"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="5_1p5rh"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_3fpxh"]
+[ext_resource type="Texture2D" uid="uid://dam4oquv1ql5k" path="res://assets/graphical_assets/environments/pizzas/ingredients.tga" id="5_7ymig"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="5_oc05t"]
 [ext_resource type="Texture2D" uid="uid://da5tuelnfn6kn" path="res://assets/graphical_assets/environments/pizzas/pizza_slices.tga" id="10_iuqmb"]
 [ext_resource type="PackedScene" uid="uid://cv1ytr5mbabfm" path="res://components/score_screen/ScoreScreen.tscn" id="11_cugab"]
@@ -43,6 +44,49 @@ region = Rect2(192, 9, 64, 47)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ys035"]
 atlas = ExtResource("10_iuqmb")
 region = Rect2(204, 64, 47, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qa0b"]
+atlas = ExtResource("5_7ymig")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oj3p"]
+atlas = ExtResource("5_7ymig")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xcm3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oj3p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsf04"]
+atlas = ExtResource("5_7ymig")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmnph"]
+atlas = ExtResource("5_7ymig")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7iyo"]
+atlas = ExtResource("5_7ymig")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou4ed"]
+atlas = ExtResource("5_7ymig")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlcpr"]
+atlas = ExtResource("5_7ymig")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwmkj"]
+atlas = ExtResource("5_7ymig")
+region = Rect2(0, 16, 16, 16)
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
@@ -536,15 +580,16 @@ metadata/_edit_use_anchors_ = true
 [node name="DragIngredient" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("2_fkw5t")
+texture = SubResource("AtlasTexture_4qa0b")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 1
+sprites = SubResource("SpriteFrames_2xcm3")
 
 [node name="DragIngredient2" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("2_fkw5t")
+texture = SubResource("AtlasTexture_xsf04")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 2
@@ -552,7 +597,7 @@ ingredient_name = 2
 [node name="DragIngredient3" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("2_fkw5t")
+texture = SubResource("AtlasTexture_mmnph")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 3
@@ -560,7 +605,7 @@ ingredient_name = 3
 [node name="DragIngredient4" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("2_fkw5t")
+texture = SubResource("AtlasTexture_j7iyo")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 4
@@ -568,7 +613,7 @@ ingredient_name = 4
 [node name="DragIngredient5" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("2_fkw5t")
+texture = SubResource("AtlasTexture_ou4ed")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 5
@@ -576,7 +621,7 @@ ingredient_name = 5
 [node name="DragIngredient6" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("2_fkw5t")
+texture = SubResource("AtlasTexture_xlcpr")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 6
@@ -584,7 +629,7 @@ ingredient_name = 6
 [node name="DragIngredient7" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("2_fkw5t")
+texture = SubResource("AtlasTexture_hwmkj")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 7
