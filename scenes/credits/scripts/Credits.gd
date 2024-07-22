@@ -77,11 +77,15 @@ extends Control
 
 
 signal show_next
+signal finished
 
 
 func _ready():
 	# Inicializa el LinkButton como invisible
 	link_button.modulate.a = 0
+	
+	# Se conecta la señal de finalización:
+	self.finished.connect(_go_to_main_menu)
 
 	# Conecta la señal para mostrar el siguiente crédito
 	self.show_next.connect(_show_next_credit)
@@ -103,14 +107,19 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("m1"):
 		self.notification_label.show()
 	if self.total_time >= 2:
-		SceneTransition.change_scene(main_menu)
-		var volume: float = -10
-		var current_position: float = 0
-		BackgroundMusic.start_menu_song(volume, current_position)
+		self._go_to_main_menu()
+
+
+func _go_to_main_menu() -> void:
+	SceneTransition.change_scene(main_menu)
+	var volume: float = -10
+	var current_position: float = 0
+	BackgroundMusic.start_menu_song(volume, current_position)
 
 
 func _show_next_credit():
 	if current_index >= credits_list.size():
+		finished.emit()
 		return # Termina si no hay más créditos
 
 	var current_item = credits_list[current_index]
