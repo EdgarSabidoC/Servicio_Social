@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dmvnx73aogc7v"]
+[gd_scene load_steps=36 format=3 uid="uid://dmvnx73aogc7v"]
 
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="1_3x5i5"]
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
@@ -11,8 +11,15 @@
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_3fpxh"]
 [ext_resource type="Texture2D" uid="uid://dam4oquv1ql5k" path="res://assets/graphical_assets/environments/pizzas/ingredients.tga" id="5_7ymig"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="5_oc05t"]
+[ext_resource type="Texture2D" uid="uid://yeq0myastlf" path="res://assets/graphical_assets/environments/pizzas/mushroom.tga" id="8_v3opk"]
+[ext_resource type="Texture2D" uid="uid://bchkjr10c67qj" path="res://assets/graphical_assets/environments/pizzas/pepperoni.tga" id="9_big32"]
+[ext_resource type="Texture2D" uid="uid://c2f4bygexiybj" path="res://assets/graphical_assets/environments/pizzas/salami.tga" id="10_duxyl"]
 [ext_resource type="Texture2D" uid="uid://da5tuelnfn6kn" path="res://assets/graphical_assets/environments/pizzas/pizza_slices.tga" id="10_iuqmb"]
 [ext_resource type="PackedScene" uid="uid://cv1ytr5mbabfm" path="res://components/score_screen/ScoreScreen.tscn" id="11_cugab"]
+[ext_resource type="Texture2D" uid="uid://bhgjo6ej5ryly" path="res://assets/graphical_assets/environments/pizzas/onion.tga" id="11_s8r50"]
+[ext_resource type="Texture2D" uid="uid://dprspdl7sl8j5" path="res://assets/graphical_assets/environments/pizzas/green_pepper.tga" id="12_rwtxq"]
+[ext_resource type="Texture2D" uid="uid://c6vinl8qxfbh3" path="res://assets/graphical_assets/environments/pizzas/ham.tga" id="13_b33os"]
+[ext_resource type="Texture2D" uid="uid://cvq4bangn502e" path="res://assets/graphical_assets/environments/pizzas/fish.tga" id="14_alpq1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxidt"]
 atlas = ExtResource("10_iuqmb")
@@ -50,68 +57,29 @@ region = Rect2(204, 64, 47, 64)
 atlas = ExtResource("5_7ymig")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3oj3p"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2xcm3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3oj3p")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsf04"]
 atlas = ExtResource("5_7ymig")
 region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqex0"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmnph"]
 atlas = ExtResource("5_7ymig")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hgqi"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(48, 16, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7iyo"]
 atlas = ExtResource("5_7ymig")
 region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kq7xu"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(64, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ou4ed"]
 atlas = ExtResource("5_7ymig")
 region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ju27"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(80, 16, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlcpr"]
 atlas = ExtResource("5_7ymig")
 region = Rect2(80, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xv27"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(0, 32, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hwmkj"]
 atlas = ExtResource("5_7ymig")
 region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vr6of"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(16, 32, 16, 16)
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
@@ -612,7 +580,7 @@ texture = SubResource("AtlasTexture_4qa0b")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 1
-sprites = SubResource("SpriteFrames_2xcm3")
+texture_on_pizza = ExtResource("8_v3opk")
 
 [node name="DragIngredient2" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -621,7 +589,7 @@ texture = SubResource("AtlasTexture_xsf04")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 2
-texture_on_pizza = SubResource("AtlasTexture_jqex0")
+texture_on_pizza = ExtResource("9_big32")
 
 [node name="DragIngredient3" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -630,7 +598,7 @@ texture = SubResource("AtlasTexture_mmnph")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 3
-texture_on_pizza = SubResource("AtlasTexture_4hgqi")
+texture_on_pizza = ExtResource("10_duxyl")
 
 [node name="DragIngredient4" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -639,7 +607,7 @@ texture = SubResource("AtlasTexture_j7iyo")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 4
-texture_on_pizza = SubResource("AtlasTexture_kq7xu")
+texture_on_pizza = ExtResource("11_s8r50")
 
 [node name="DragIngredient5" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -648,7 +616,7 @@ texture = SubResource("AtlasTexture_ou4ed")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 5
-texture_on_pizza = SubResource("AtlasTexture_2ju27")
+texture_on_pizza = ExtResource("12_rwtxq")
 
 [node name="DragIngredient6" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -657,7 +625,7 @@ texture = SubResource("AtlasTexture_xlcpr")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 6
-texture_on_pizza = SubResource("AtlasTexture_5xv27")
+texture_on_pizza = ExtResource("13_b33os")
 
 [node name="DragIngredient7" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -666,7 +634,7 @@ texture = SubResource("AtlasTexture_hwmkj")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 7
-texture_on_pizza = SubResource("AtlasTexture_vr6of")
+texture_on_pizza = ExtResource("14_alpq1")
 
 [node name="Reset" type="Button" parent="CanvasLayer"]
 anchors_preset = -1

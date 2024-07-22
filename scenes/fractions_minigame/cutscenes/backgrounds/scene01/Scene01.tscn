@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://btf3hylb8368j"]
+[gd_scene load_steps=118 format=3 uid="uid://btf3hylb8368j"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/Scene01.gd" id="1_qya30"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="1_trfx7"]
@@ -12,18 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://bsx68u20y1gcx" path="res://components/characters/keken/Keken.tscn" id="5_xvlf6"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/AluxAnimationPlayer.gd" id="6_dri6u"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/KekenAnimationPlayer.gd" id="6_hyu0v"]
-[ext_resource type="Texture2D" uid="uid://cdro0r88yq74i" path="res://assets/graphical_assets/characters/npcs/keken/keken_in_final.tga" id="8_ska54"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/ZotzAnimationPlayer.gd" id="11_eey68"]
 [ext_resource type="Texture2D" uid="uid://3w1v7f4gukia" path="res://assets/graphical_assets/characters/npcs/alux/alux_anger.tga" id="12_5pwov"]
 [ext_resource type="Texture2D" uid="uid://bqndfeduh013a" path="res://assets/graphical_assets/characters/npcs/alux/alux_sad.tga" id="13_fahix"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nsgbt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jc7x"]
 atlas = ExtResource("5_s12n4")
-region = Rect2(0, 1600, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2ojm"]
-atlas = ExtResource("8_ska54")
-region = Rect2(0, 2720, 124, 160)
+region = Rect2(0, 3040, 124, 160)
 
 [sub_resource type="Animation" id="Animation_1ldb0"]
 length = 0.001
@@ -51,9 +46,9 @@ _data = {
 "entrance": SubResource("Animation_0y0rs")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbb7l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_smo8d"]
 atlas = ExtResource("5_ayb6q")
-region = Rect2(0, 1600, 124, 160)
+region = Rect2(0, 3040, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gky0u"]
 atlas = ExtResource("12_5pwov")
@@ -239,6 +234,10 @@ region = Rect2(0, 1280, 124, 160)
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 1440, 124, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbb7l"]
+atlas = ExtResource("5_ayb6q")
+region = Rect2(0, 1600, 124, 160)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhl4e"]
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 1760, 124, 160)
@@ -270,10 +269,6 @@ region = Rect2(0, 2720, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_538dh"]
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 2880, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_smo8d"]
-atlas = ExtResource("5_ayb6q")
-region = Rect2(0, 3040, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6sd33"]
 atlas = ExtResource("5_ayb6q")
@@ -791,8 +786,8 @@ anchor_bottom = 0.27778
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0001, 80.0006)
-texture = SubResource("AtlasTexture_nsgbt")
-frame_index = 10
+texture = SubResource("AtlasTexture_0jc7x")
+frame_index = 19
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 script = ExtResource("11_eey68")
@@ -804,10 +799,7 @@ anchor_top = 0.303819
 anchor_right = 0.930664
 anchor_bottom = 0.859375
 pivot_offset = Vector2(62, 80.0001)
-texture = SubResource("AtlasTexture_d2ojm")
 stretch_mode = 5
-frame_index = 17
-playing = true
 
 [node name="KekenAnimationPlayer" type="AnimationPlayer" parent="Keken"]
 reset_on_save = false
@@ -828,9 +820,9 @@ offset_right = -12.4
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0002, 80)
-texture = SubResource("AtlasTexture_lbb7l")
+texture = SubResource("AtlasTexture_smo8d")
 sprites = SubResource("SpriteFrames_55a75")
-frame_index = 10
+frame_index = 19
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 libraries = {
