@@ -89,6 +89,7 @@ func generate_rand_ingredient() -> int:
 # Carga la textura de un ingrediente (utilizada en generate_rand_ingredient por defecto):
 func _load_ingredient_texture() -> void:
 	print_debug("Entró con %s"%self.get_ingredient_name())
+	self.texture_rect.hide()
 	match self.ingredient_name:
 		1:
 			self.texture = load("res://assets/graphical_assets/environments/pizzas/mushroom.tga")
