@@ -61,8 +61,8 @@ extends Control
 @export var fade_out_time: float = 1.0
 
 @onready var current_index: int = 0
-@onready var used_animations: Array[String]
-@onready var current_animation: String = "default"
+@onready var used_animations: Array[String] = []
+@onready var current_animation: String
 
 
 signal show_next
@@ -80,9 +80,6 @@ func _ready():
 	# Se inicia la animación inicial
 	self.animated_sprite_2d.play("default")
 	self.notification_label.text = "Mantén presionado [img={cancel_width}x{cancel_height}]{cancel}[/img] para salir...".format({"cancel_width": str(self.cancel_width), "cancel_height": str(self.cancel_height), "cancel": self.cancel_texture_path})
-	
-	# Asegurarse de que used_animations está inicializado correctamente
-	used_animations = []
 
 
 func _process(delta: float) -> void:
@@ -108,15 +105,16 @@ func _show_next_credit():
 	var current_item = credits_list[current_index]
 
 	if current_item == "Edgar":
+		self._play_random_animation()
 		_show_developer("Edgar Sabido Cortés", "https://github.com/EdgarSabidoC")
 	elif current_item == "Carlos":
+		self._play_random_animation()
 		_show_developer("Carlos Antonio Ruiz Domínguez", "https://github.com/carlosruiz01")
 	elif current_item in titles:
 		_show_title(current_item)
 	else:
 		self._play_random_animation()
 		_show_body_text(current_item)
-	
 	current_index += 1
 
 

@@ -2053,6 +2053,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(0, 259)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_7mpeg")
+animation = &"zotz"
 autoplay = "default"
 centered = false
 
