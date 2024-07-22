@@ -12,11 +12,22 @@ extends Control
 @onready var main_menu: PackedScene = load("res://scenes/main_menu/MainScene.tscn")
 
 @onready var animations: Array[String] = [
-	"alux",
-	"zotz",
-	"toh",
-	"huolpoch",
-	"keken"
+	"alux_sad",
+	"alux_angry",
+	"alux_dancing",
+	"zotz_in",
+	"zotz_sad",
+	"zotz_angry",
+	"zotz_dancing",
+	"toh_in",
+	"toh_dancing",
+	"huolpoch_in",
+	"huolpoch_sad",
+	"huolpoch_angry",
+	"huolpoch_dancing",
+	"keken_sad",
+	"keken_angry",
+	"keken_dancing",
 ]
 
 @onready var titles: Array[String] = [
@@ -191,8 +202,6 @@ func _get_random_animation() -> String:
 
 	# Marca la animación como usada
 	print_debug(selected_animation)
-	print_debug(self.used_animations)
-	self.used_animations.append(selected_animation)
 	self.animations.remove_at(random_index)
 
 	return selected_animation
@@ -204,20 +213,53 @@ func _change_animation() -> void:
 		"default":
 			self.animated_sprite_2d.animation = "default"
 			self.animated_sprite_2d.position = Vector2(0, 259)
-		"alux":
-			self.animated_sprite_2d.animation = "alux"
+		"alux_dancing":
+			self.animated_sprite_2d.animation = "alux_dancing"
 			self.animated_sprite_2d.position = Vector2(816, 304)
-		"toh":
-			self.animated_sprite_2d.animation = "toh"
+		"alux_angry":
+			self.animated_sprite_2d.animation = "alux_angry"
+			self.animated_sprite_2d.position = Vector2(816, 304)
+		"alux_sad":
+			self.animated_sprite_2d.animation = "alux_sad"
+			self.animated_sprite_2d.position = Vector2(816, 304)
+		"toh_in":
+			self.animated_sprite_2d.animation = "toh_in"
 			self.animated_sprite_2d.position = Vector2(408, 302)
-		"keken":
-			self.animated_sprite_2d.animation = "keken"
+		"toh_dancing":
+			self.animated_sprite_2d.animation = "toh_dancing"
+			self.animated_sprite_2d.position = Vector2(408, 302)
+		"keken_angry":
+			self.animated_sprite_2d.animation = "keken_angry"
 			self.animated_sprite_2d.position = Vector2(815, 321)
-		"zotz":
-			self.animated_sprite_2d.animation = "zotz"
+		"keken_sad":
+			self.animated_sprite_2d.animation = "keken_sad"
+			self.animated_sprite_2d.position = Vector2(815, 321)
+		"keken_dancing":
+			self.animated_sprite_2d.animation = "keken_dancing"
+			self.animated_sprite_2d.position = Vector2(815, 321)
+		"zotz_in":
+			self.animated_sprite_2d.animation = "zotz_in"
 			self.animated_sprite_2d.position = Vector2(813, 0)
-		"huolpoch":
-			self.animated_sprite_2d.animation = "huolpoch"
+		"zotz_angry":
+			self.animated_sprite_2d.animation = "zotz_angry"
+			self.animated_sprite_2d.position = Vector2(813, 0)
+		"zotz_sad":
+			self.animated_sprite_2d.animation = "zotz_sad"
+			self.animated_sprite_2d.position = Vector2(813, 0)
+		"zotz_dancing":
+			self.animated_sprite_2d.animation = "zotz_dancing"
+			self.animated_sprite_2d.position = Vector2(813, 0)
+		"huolpoch_in":
+			self.animated_sprite_2d.animation = "huolpoch_in"
+			self.animated_sprite_2d.position = Vector2(0, 0)
+		"huolpoch_sad":
+			self.animated_sprite_2d.animation = "huolpoch_sad"
+			self.animated_sprite_2d.position = Vector2(0, 0)
+		"huolpoch_angry":
+			self.animated_sprite_2d.animation = "huolpoch_angry"
+			self.animated_sprite_2d.position = Vector2(0, 0)
+		"huolpoch_dancing":
+			self.animated_sprite_2d.animation = "huolpoch_dancing"
 			self.animated_sprite_2d.position = Vector2(0, 0)
 
 
