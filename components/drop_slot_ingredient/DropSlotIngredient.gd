@@ -90,19 +90,19 @@ func generate_rand_ingredient() -> int:
 func _load_ingredient_texture() -> void:
 	print_debug("Entró con %s"%self.get_ingredient_name())
 	match self.ingredient_name:
-		"Hongo":
+		1:
 			self.texture = load("res://assets/graphical_assets/environments/pizzas/mushroom.tga")
-		"Pepperoni":
+		2:
 			self.texture = load("res://assets/graphical_assets/environments/pizzas/pepperoni.tga")
-		"Salami":
+		3:
 			self.texture = load("res://assets/graphical_assets/environments/pizzas/salami.tga")
-		"Cebolla":
+		4:
 			self.texture = load("res://assets/graphical_assets/environments/pizzas/onion.tga")
-		"Pimiento verde":
+		5:
 			self.texture = load("res://assets/graphical_assets/environments/pizzas/green_pepper.tga")
-		"Jamón":
+		6:
 			self.texture = load("res://assets/graphical_assets/environments/pizzas/ham.tga")
-		"Pescado":
+		7:
 			self.texture = load("res://assets/graphical_assets/environments/pizzas/fish.tga")
 
 
