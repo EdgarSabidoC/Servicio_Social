@@ -60,8 +60,10 @@ extends Control
 @export var display_time: float = 2.0
 @export var fade_out_time: float = 1.0
 
-var current_index: int = 0
-var used_animations: Array[String] = []  # Array para seguir las animaciones usadas
+@onready var current_index: int = 0
+@onready var used_animations: Array[String]
+@onready var current_animation: String = "default"
+
 
 signal show_next
 
@@ -78,6 +80,9 @@ func _ready():
 	# Se inicia la animación inicial
 	self.animated_sprite_2d.play("default")
 	self.notification_label.text = "Mantén presionado [img={cancel_width}x{cancel_height}]{cancel}[/img] para salir...".format({"cancel_width": str(self.cancel_width), "cancel_height": str(self.cancel_height), "cancel": self.cancel_texture_path})
+	
+	# Asegurarse de que used_animations está inicializado correctamente
+	used_animations = []
 
 
 func _process(delta: float) -> void:
@@ -178,17 +183,19 @@ func _on_tween_finished() -> void:
 
 # Función para obtener un string aleatorio del array de animaciones sin repeticiones
 func _get_random_animation() -> String:
-	if animations.size() == 0:
+	if self.animations.size() == 0:
 		return ""  # Retorna un string vacío si el array está vacío
 
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var random_index = rng.randi_range(0, animations.size() - 1)
-	var selected_animation = animations[random_index]
+	var random_index: int = rng.randi_range(0, animations.size() - 1)
+	var selected_animation: String = self.animations[random_index]
 
 	# Marca la animación como usada
-	used_animations.append(selected_animation)
-	animations.erase(selected_animation)  # Elimina la animación del array original
+	print_debug(selected_animation)
+	print_debug(self.used_animations)
+	self.used_animations.append(selected_animation)
+	self.animations.remove_at(random_index)
 
 	return selected_animation
 
