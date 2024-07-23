@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=47 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -37,9 +37,48 @@
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="32_i2vn0"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlay.gd" id="33_ht8qj"]
+[ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="35_6wbnv"]
+[ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="35_dlrx7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
 [ext_resource type="Script" path="res://components/back_button/BackButton.gd" id="39_jh3m0"]
 [ext_resource type="PackedScene" uid="uid://tquacmjw5g4q" path="res://components/exit_menu/ExitMenu.tscn" id="40_idk3m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gx85m"]
+texture = ExtResource("35_6wbnv")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vl48"]
+texture = ExtResource("35_dlrx7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 36, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwjce"]
+texture = ExtResource("35_dlrx7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 36, 112, 128)
+
+[sub_resource type="Theme" id="Theme_ats5d"]
+TabBar/styles/tab_focus = SubResource("StyleBoxTexture_gx85m")
+TabBar/styles/tab_selected = SubResource("StyleBoxTexture_0vl48")
+TabBar/styles/tab_unselected = SubResource("StyleBoxTexture_iwjce")
 
 [node name="MainScene" type="Node2D"]
 
@@ -831,6 +870,7 @@ layout_mode = 2
 [node name="Characters" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_ats5d")
 tab_count = 5
 clip_tabs = false
 scrolling_enabled = false
@@ -984,6 +1024,7 @@ offset_top = 4.21597
 offset_right = 9.23291
 offset_bottom = 0.247925
 theme = ExtResource("3_mou80")
+theme_override_font_sizes/font_size = 18
 text = "Regresar"
 script = ExtResource("39_jh3m0")
 metadata/_edit_use_anchors_ = true
