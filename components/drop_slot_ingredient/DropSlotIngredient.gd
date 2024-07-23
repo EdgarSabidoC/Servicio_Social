@@ -64,6 +64,10 @@ func clamp_rotation(angle: float) -> float:
 	return angle
 
 
+func set_correct(c: bool) -> void:
+	self.correct = c 
+
+
 # Retorna el nombre del ingrediente:
 func get_ingredient_name(name_of_ingredient: Ingredients = self.ingredient_name) -> String:
 	var ingredient: String = ""
@@ -130,13 +134,10 @@ func clear_data() -> void:
 		self.texture = null
 	if self.ingredient_name != self.Ingredients.NULL:
 		self.ingredient_name = self.Ingredients.NULL
-	if self.coordinates:
-		self.coordinates = Vector2i(0,0)
-	if self.correct:
-		self.correct = false
 	if !self.background.is_visible_in_tree():
 		self.background.show()
 	self.rotation_degrees = 0
+	self.correct = false
 
 
 # Se valida que se pueda soltar una Texture2D:

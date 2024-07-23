@@ -29,6 +29,7 @@ signal pivot_changed
 
 
 func _ready() -> void:
+	self.reset_color() # Se asigna el color blanco como inicial.
 	self.animated_texture_rect.frame_index = 0
 	self.animated_texture_rect.play()
 
@@ -137,6 +138,11 @@ func set_timer_color() -> void:
 # Imprime en una etiqueta el formato del reloj:
 func get_time_formatted() -> void:
 	self.label.text = "%02d:%02d:%02d" % [self.minutes, self.seconds, self.milliseconds]
+
+
+func reset_color() -> void:
+	self.color_changed = false
+	self.label.set("theme_override_colors/font_color", Color.WHITE)
 
 
 func hide_clock():

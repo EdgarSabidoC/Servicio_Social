@@ -49,22 +49,23 @@ func _ready() -> void:
 		self._load_ingredient_texture_for_pizza()
 
 
+# Carga la textura del ingrediente cuando estará sobre la pizza (texture_on_pizza):
 func _load_ingredient_texture_for_pizza() -> void:
 	match self.ingredient_name:
 		self.Ingredients.MUSHROOM:
-			self.texture = load("res://assets/graphical_assets/environments/pizzas/mushroom.tga")
+			self.texture_on_pizza = load("res://assets/graphical_assets/environments/pizzas/mushroom.tga")
 		self.Ingredients.PEPPERONI:
-			self.texture = load("res://assets/graphical_assets/environments/pizzas/pepperoni.tga")
+			self.texture_on_pizza = load("res://assets/graphical_assets/environments/pizzas/pepperoni.tga")
 		self.Ingredients.SALAMI:
-			self.texture = load("res://assets/graphical_assets/environments/pizzas/salami.tga")
+			self.texture_on_pizza = load("res://assets/graphical_assets/environments/pizzas/salami.tga")
 		self.Ingredients.ONION:
-			self.texture = load("res://assets/graphical_assets/environments/pizzas/onion.tga")
+			self.texture_on_pizza = load("res://assets/graphical_assets/environments/pizzas/onion.tga")
 		self.Ingredients.GREEN_PEPPER:
-			self.texture = load("res://assets/graphical_assets/environments/pizzas/green_pepper.tga")
+			self.texture_on_pizza = load("res://assets/graphical_assets/environments/pizzas/green_pepper.tga")
 		self.Ingredients.HAM:
-			self.texture = load("res://assets/graphical_assets/environments/pizzas/ham.tga")
+			self.texture_on_pizza = load("res://assets/graphical_assets/environments/pizzas/ham.tga")
 		self.Ingredients.FISH:
-			self.texture = load("res://assets/graphical_assets/environments/pizzas/fish.tga")
+			self.texture_on_pizza = load("res://assets/graphical_assets/environments/pizzas/fish.tga")
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
