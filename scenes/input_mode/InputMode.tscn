@@ -9,7 +9,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3ooj"]
 texture = ExtResource("4_plfe7")
 texture_margin_left = 24.0
-texture_margin_top = 32.0
+texture_margin_top = 44.0
 texture_margin_right = 24.0
 texture_margin_bottom = 40.0
 expand_margin_left = 15.0
@@ -26,7 +26,7 @@ Button/styles/focus = SubResource("StyleBoxTexture_r3ooj")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nt6oq"]
 texture = ExtResource("4_plfe7")
 texture_margin_left = 24.0
-texture_margin_top = 32.0
+texture_margin_top = 44.0
 texture_margin_right = 24.0
 texture_margin_bottom = 40.0
 expand_margin_left = 15.0
