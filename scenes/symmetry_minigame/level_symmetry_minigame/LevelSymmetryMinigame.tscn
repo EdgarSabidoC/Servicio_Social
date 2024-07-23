@@ -68,9 +68,13 @@ hard_ingredients_upper_limit = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1024.0
-offset_bottom = 576.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.92549, 0.905882, 0.843137, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
@@ -678,6 +682,7 @@ text = "Pausar"
 metadata/_edit_use_anchors_ = true
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = -1
 anchor_left = -0.000976563
@@ -703,6 +708,7 @@ script = ExtResource("5_3fpxh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("1_3x5i5")]
+visible = false
 anchor_left = 0.80957
 anchor_top = 0.00520833
 anchor_right = 0.99707

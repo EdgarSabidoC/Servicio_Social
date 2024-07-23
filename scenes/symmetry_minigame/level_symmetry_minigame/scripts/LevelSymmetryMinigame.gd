@@ -7,6 +7,8 @@ extends Node2D
 @onready var ingredients_container: VBoxContainer = $CanvasLayer/IngredientsContainer
 @onready var current_pitch: float = 1.0
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
+@onready var score_panel: Panel = $CanvasLayer/ScorePanel
+
 
 # Límites del rango de rebanadas que desaparecerán por dificultad:
 ## Easy slices lower limit to hide.
@@ -137,7 +139,6 @@ func all_slots_correct() -> void:
 		for slot in list:
 			if slot.is_visible_in_tree() and !slot.is_correct():
 				return
-	print_debug("Es correcto")
 	self._next_round()
 
 
@@ -304,7 +305,6 @@ func set_pizza() -> void:
 	self.set_ingredients()
 
 
-
 # Configura los ingredientes:
 func set_ingredients():
 	for list in self.ingredient_list:
@@ -327,22 +327,24 @@ func clamp_rotation(angle: float) -> float:
 
 # Configura la partida:
 func set_game() -> void:
+	# Se inicializa el puntaje en 0:
+	PlayerSession.score = 0
+	
+	# Se reinicia el puntaje por predeterminado:
+	self.default_score = 10000
+	
+	# Se configuran el tiempo y la pizza:
+	self.set_clock()
 	self.set_pizza()
 	
-	#Si no está en modo práctica:
-	if !PlayerSession.practice_mode:
-		# Se inicializa el puntaje en 0:
-		PlayerSession.score = 0
-		
-		# Se reinicia el puntaje por predeterminado:
-		self.default_score = 10000
-		
+	# Si es el modo práctica no se muestra ni el puntaje ni el reloj:
+	if !PlayerSession.is_practice_mode():
+		self.score_panel.show()
+		self.clock.show()
 		# Se imprime el puntaje:
 		self.score_label.print_score()
 		
-		# Se configuran el tiempo y la pizza:
-		self.set_clock()
-		# Contiúa el reloj:
+		# Contiúa la animación del reloj:
 		self.clock.continue_clock()
 
 
@@ -384,7 +386,6 @@ func compare_angles(left_angle: float, right_angle: float) -> bool:
 		315:
 			if right_angle == int(45):
 				comparison = true
-	print_debug("L_Rotation: %s , R_Rotation: %s, Comparison: %s" %[left_angle, right_angle, comparison])
 	return comparison
 
 
@@ -397,9 +398,6 @@ func check_ingredient(left_ingredient: AnimatedTextureRect, right_ingredient: An
 		left_ingredient.coordinates == right_ingredient.coordinates
 		# Si es correcto se convierte en true. En otro caso es false.
 	)
-	print_debug(right_ingredient.is_correct())
-	print_debug("Left(%s, %s %s)" %[left_ingredient.get_ingredient_name(), left_ingredient.coordinates, left_ingredient.rotation_degrees])
-	print_debug("Right(%s, %s, %s, %s)" %[right_ingredient.correct, right_ingredient.get_ingredient_name(), right_ingredient.coordinates, right_ingredient.rotation_degrees])
 	return right_ingredient.correct
 
 
