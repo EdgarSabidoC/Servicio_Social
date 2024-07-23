@@ -56,7 +56,7 @@ extends Node2D
 @onready var default_score: int = 10000
 
 # Lista que contiene las claves de las rebanadas ocultas:
-@onready var hidden_slices: Array[String]
+@onready var hidden_slices: Array = []
 
 # Lista de ingredientes (lado izquierdo):
 @onready var ingredient_list: Array = [\
@@ -110,13 +110,6 @@ func _process(_delta: float) -> void:
 		if !self.pause.is_active():
 			self.clock.stop()
 			self.pause.show()
-	
-	# Se verifica que todas las ranuras estén correctas:
-	if self.all_slots_correct():
-		# Si es correcto se obtiene puntaje:
-		self.set_score()
-		# Se genera una nueva pizza:
-		self.set_pizza()
 
 
 # Automatiza la conexión de las señales con la función check_ingredient:
@@ -126,16 +119,34 @@ func connect_signals() -> void:
 			var left_ingredient = ingredient_list[i][j]
 			var right_slot = drop_slot_list[i][j]
 			right_slot.data_dropped.connect(func() -> void:
-				self.check_ingredient(left_ingredient, right_slot))
+				_on_data_dropped(left_ingredient, right_slot)
+			)
+			right_slot.rotated.connect(func() -> void:
+				_on_data_dropped(left_ingredient, right_slot)
+			)
 
 
-# Verifica si todas las ranuras sean correctas:
-func all_slots_correct() -> bool:
+func _on_data_dropped(left_ingredient: Variant, right_slot: Variant) -> void:
+	self.check_ingredient(left_ingredient, right_slot)
+	self.all_slots_correct()
+
+
+# Verifica que todas las ranuras sean correctas:
+func all_slots_correct() -> void:
 	for list in drop_slot_list:
 		for slot in list:
-			if !slot.is_correct():
-				return false
-	return true
+			if slot.is_visible_in_tree() and !slot.is_correct():
+				return
+	print_debug("Es correcto")
+	self._next_round()
+
+
+# Genera la siguiente pizza:
+func _next_round() -> void:
+	self._clear_all_data()
+	self.set_score()
+	self.score_label.print_score()
+	self.set_pizza()
 
 
 # Configura la música de fondo:
@@ -189,40 +200,40 @@ func set_hidden_ingredients_number() -> int:
 	return rng.randi_range(self.ingredients_lower_limit, self.ingredients_upper_limit)
 
 
-# Oculta al azar ingredientes de las rebanadas visibles:
+# Oculta al azar ingredientes de las rebanadas visibles
 func hide_random_ingredients() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	
-	# Lista de claves de las rebanadas izquierdas:
+
+	# Lista de claves de las rebanadas izquierdas
 	var slice_keys: Array = self.left_slice_list.keys()
-	
-	for index in range(self.left_slice_list.size() - 1):
-		# Se obtiene la clave:
+
+	for index in range(slice_keys.size()):
 		var key: String = slice_keys[index]
-		
+
 		if key in self.hidden_slices:
-			# Si la rebanada está oculta, se brinca a la siguiente clave:
 			continue
-		
-		# Se obtienen las listas de ingredientes izquierdos y derechos:
+
 		var left_ingredients = self.left_slice_list[key][1]
 		var right_ingredients = self.right_slice_list[key][1]
-		
-		# Se asegura de que no se oculten más ingredientes de los disponibles:
-		var number_of_ingredientes = self.set_hidden_ingredients_number()
-		var ingredients_to_hide: Variant = min(number_of_ingredientes, left_ingredients.size())
 
-		# Se seleccionan y ocultan los ingredientes al azar manteniendo la simetría:
+		var number_of_ingredients = self.set_hidden_ingredients_number()
+		var ingredients_to_hide: int = min(number_of_ingredients, left_ingredients.size())
+
 		for _i in range(ingredients_to_hide):
 			var ingredient_index: int = rng.randi_range(0, left_ingredients.size() - 1)
-			# Se ocultan el ingrediente izquierdo y su contraparte derecha:
 			left_ingredients[ingredient_index].hide()
 			right_ingredients[ingredient_index].hide()
-			
-			# Se remueven los ingredientes ocultos para evitar seleccionarlos nuevamente:
-			left_ingredients.remove_at(ingredient_index)
-			right_ingredients.remove_at(ingredient_index)
+
+			# Registra la clave de la rebanada y los índices de los ingredientes ocultos
+			self.hidden_slices.append({
+				"slice_key": key,
+				"left_ingredient_index": ingredient_index,
+				"right_ingredient_index": ingredient_index
+			})
+
+		self.left_slice_list[key][1] = left_ingredients
+		self.right_slice_list[key][1] = right_ingredients
 
 
 # Configura las rebanadas que se mostrarán:
@@ -267,8 +278,19 @@ func set_ingredients():
 		for ingredient in list:
 			# Se generan los ingredientes aleatorios:
 			ingredient.generate_rand_ingredient()
-			# Se rota aleatoriamente en intervalos de 45°:
-			ingredient.rotation_degrees = randi_range(0, 7) * 45
+			# Se rota aleatoriamente en intervalos de 45° dentro del rango 0 a 315°:
+			var random_rotation = randi_range(0, 7) * 45
+			ingredient.rotation_degrees = self.clamp_rotation(random_rotation)
+
+ 
+# Función para limitar el ángulo a 0-360 grados
+func clamp_rotation(angle: float) -> float:
+	if angle < 0:
+		return fmod(360 + angle, 360)
+	elif angle >= 360:
+		return fmod(angle, 360)
+	return angle
+
 
 
 # Configura la partida:
@@ -300,14 +322,49 @@ func set_score() -> void:
 	PlayerSession.score += self.default_score
 
 
+# Compara dos ángulos exactos teniendo en cuenta que el ángulo del lado derecho está siempre volteado horizontalmente
+func compare_angles(left_angle: float, right_angle: float) -> bool:
+	var comparison: bool = false
+	match int(left_angle):
+		0:
+			if right_angle == int(0):
+				comparison = true
+		45:
+			if right_angle == int(315):
+				comparison = true
+		90:
+			if right_angle == int(270):
+				comparison = true
+		135:
+			if right_angle == int(225):
+				comparison = true
+		180:
+			if right_angle == int(180):
+				comparison = true
+		225:
+			if right_angle == int(135):
+				comparison = true
+		270:
+			if right_angle == int(90):
+				comparison = true
+		315:
+			if right_angle == int(45):
+				comparison = true
+	print_debug("L_Rotation: %s , R_Rotation: %s, Comparison: %s" %[left_angle, right_angle, comparison])
+	return comparison
+
+
 # Compara el ingrediente del lado izquierdo con el que se encuentra en la ranura derecha correspondiente:
 func check_ingredient(left_ingredient: AnimatedTextureRect, right_ingredient: AnimatedTextureRect) -> bool:
+	
 	right_ingredient.correct = (
-		left_ingredient.rotation_degrees == right_ingredient.rotation_degrees and
+		compare_angles(left_ingredient.rotation_degrees, right_ingredient.rotation_degrees) and
 		left_ingredient.ingredient_name == right_ingredient.ingredient_name and
 		left_ingredient.coordinates == right_ingredient.coordinates
 		# Si es correcto se convierte en true. En otro caso es false.
 	)
+	print_debug("Left(%s, %s %s)" %[left_ingredient.get_ingredient_name(), left_ingredient.coordinates, left_ingredient.rotation_degrees])
+	print_debug("Right(%s, %s, %s, %s)" %[right_ingredient.correct, right_ingredient.get_ingredient_name(), right_ingredient.coordinates, right_ingredient.rotation_degrees])
 	return right_ingredient.correct
 
 
@@ -316,6 +373,13 @@ func _on_pause_finished() -> void:
 		pass
 	self.clock.continue_clock()
 	self.pause.hide()
+
+
+func _clear_all_data():
+	for list in self.drop_slot_list:
+		for slot in list:
+			slot.clear_data()
+	self.hidden_slices = []
 
 
 func _on_reset_pressed() -> void:

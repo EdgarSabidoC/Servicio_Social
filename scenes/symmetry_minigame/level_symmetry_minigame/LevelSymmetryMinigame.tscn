@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dmvnx73aogc7v"]
+[gd_scene load_steps=28 format=3 uid="uid://dmvnx73aogc7v"]
 
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="1_3x5i5"]
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cq04c345l73g0" path="res://components/drop_slot_ingredient/DropSlotIngredient.tscn" id="4_ttdhp"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="5_1p5rh"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_3fpxh"]
-[ext_resource type="Texture2D" uid="uid://dam4oquv1ql5k" path="res://assets/graphical_assets/environments/pizzas/ingredients.tga" id="5_7ymig"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="5_oc05t"]
 [ext_resource type="Texture2D" uid="uid://yeq0myastlf" path="res://assets/graphical_assets/environments/pizzas/mushroom.tga" id="8_v3opk"]
 [ext_resource type="Texture2D" uid="uid://bchkjr10c67qj" path="res://assets/graphical_assets/environments/pizzas/pepperoni.tga" id="9_big32"]
@@ -52,34 +51,6 @@ region = Rect2(192, 9, 64, 47)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ys035"]
 atlas = ExtResource("10_iuqmb")
 region = Rect2(204, 64, 47, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4qa0b"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsf04"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mmnph"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7iyo"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ou4ed"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlcpr"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hwmkj"]
-atlas = ExtResource("5_7ymig")
-region = Rect2(0, 16, 16, 16)
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
@@ -225,6 +196,7 @@ anchor_right = 0.484375
 anchor_bottom = 0.211806
 offset_bottom = 0.0
 pivot_offset = Vector2(33, 33)
+flip_h = false
 coordinates = Vector2i(1, 1)
 enable_drop = false
 
@@ -237,6 +209,7 @@ anchor_right = 0.4375
 anchor_bottom = 0.289931
 offset_bottom = 0.0
 pivot_offset = Vector2(18.5, 18.5)
+flip_h = false
 coordinates = Vector2i(1, 2)
 enable_drop = false
 
@@ -249,6 +222,7 @@ anchor_right = 0.492188
 anchor_bottom = 0.369792
 offset_bottom = 0.0
 pivot_offset = Vector2(22.5, 22.5)
+flip_h = false
 coordinates = Vector2i(1, 3)
 enable_drop = false
 
@@ -261,6 +235,7 @@ anchor_right = 0.390625
 anchor_bottom = 0.222222
 offset_bottom = 0.0
 pivot_offset = Vector2(12, 12)
+flip_h = false
 coordinates = Vector2i(1, 4)
 enable_drop = false
 
@@ -319,6 +294,8 @@ anchor_right = 0.351563
 anchor_bottom = 0.352431
 offset_bottom = 0.0
 pivot_offset = Vector2(23.5, 23.5)
+flip_h = false
+coordinates = Vector2i(2, 1)
 enable_drop = false
 
 [node name="S2L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -330,6 +307,8 @@ anchor_right = 0.376953
 anchor_bottom = 0.46875
 offset_bottom = 0.0
 pivot_offset = Vector2(29, 29)
+flip_h = false
+coordinates = Vector2i(2, 2)
 enable_drop = false
 
 [node name="S2L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -341,6 +320,8 @@ anchor_right = 0.43457
 anchor_bottom = 0.479167
 offset_bottom = 0.0
 pivot_offset = Vector2(21, 21)
+flip_h = false
+coordinates = Vector2i(2, 3)
 enable_drop = false
 
 [node name="S2L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -352,6 +333,8 @@ anchor_right = 0.464844
 anchor_bottom = 0.479167
 offset_bottom = 0.0
 pivot_offset = Vector2(6, 6)
+flip_h = false
+coordinates = Vector2i(2, 4)
 enable_drop = false
 
 [node name="S2R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -363,6 +346,7 @@ anchor_right = 0.694336
 anchor_bottom = 0.352431
 offset_bottom = 0.0
 pivot_offset = Vector2(23.5, 23.5)
+coordinates = Vector2i(2, 1)
 
 [node name="S2R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -373,6 +357,7 @@ anchor_right = 0.679688
 anchor_bottom = 0.46875
 offset_bottom = 0.0
 pivot_offset = Vector2(29, 29)
+coordinates = Vector2i(2, 2)
 
 [node name="S2R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -383,6 +368,7 @@ anchor_right = 0.606445
 anchor_bottom = 0.479167
 offset_bottom = 0.0
 pivot_offset = Vector2(21, 21)
+coordinates = Vector2i(2, 3)
 
 [node name="S2R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -393,6 +379,7 @@ anchor_right = 0.546875
 anchor_bottom = 0.479167
 offset_bottom = 0.0
 pivot_offset = Vector2(6, 6)
+coordinates = Vector2i(2, 4)
 
 [node name="S3R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -403,6 +390,7 @@ anchor_right = 0.706055
 anchor_bottom = 0.588542
 offset_bottom = 0.0
 pivot_offset = Vector2(20.5, 20.5)
+coordinates = Vector2i(3, 1)
 
 [node name="S3R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -413,6 +401,7 @@ anchor_right = 0.634766
 anchor_bottom = 0.611111
 offset_bottom = 0.0
 pivot_offset = Vector2(24, 24)
+coordinates = Vector2i(3, 2)
 
 [node name="S3R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -423,6 +412,7 @@ anchor_right = 0.564453
 anchor_bottom = 0.555556
 offset_bottom = 0.0
 pivot_offset = Vector2(13, 13)
+coordinates = Vector2i(3, 3)
 
 [node name="S3R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -433,6 +423,7 @@ anchor_right = 0.695313
 anchor_bottom = 0.715278
 offset_bottom = 0.0
 pivot_offset = Vector2(29.5, 29.5)
+coordinates = Vector2i(3, 4)
 
 [node name="S3L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -443,6 +434,8 @@ anchor_right = 0.335938
 anchor_bottom = 0.588542
 offset_bottom = 0.0
 pivot_offset = Vector2(20.5, 20.5)
+flip_h = false
+coordinates = Vector2i(3, 1)
 enable_drop = false
 
 [node name="S3L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -454,6 +447,8 @@ anchor_right = 0.414063
 anchor_bottom = 0.611111
 offset_bottom = 0.0
 pivot_offset = Vector2(24, 24)
+flip_h = false
+coordinates = Vector2i(3, 2)
 enable_drop = false
 
 [node name="S3L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -465,6 +460,8 @@ anchor_right = 0.462891
 anchor_bottom = 0.555556
 offset_bottom = 0.0
 pivot_offset = Vector2(13, 13)
+flip_h = false
+coordinates = Vector2i(3, 3)
 enable_drop = false
 
 [node name="S3L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -476,6 +473,8 @@ anchor_right = 0.364258
 anchor_bottom = 0.715278
 offset_bottom = 0.0
 pivot_offset = Vector2(29.5, 29.5)
+flip_h = false
+coordinates = Vector2i(3, 4)
 enable_drop = false
 
 [node name="S4R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -489,6 +488,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(23.5, 23.5)
+coordinates = Vector2i(4, 1)
 
 [node name="S4R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -499,6 +499,7 @@ anchor_right = 0.569336
 anchor_bottom = 0.746528
 offset_bottom = 0.0
 pivot_offset = Vector2(31, 31)
+coordinates = Vector2i(4, 2)
 
 [node name="S4R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -509,6 +510,7 @@ anchor_right = 0.53125
 anchor_bottom = 0.612847
 offset_bottom = 0.0
 pivot_offset = Vector2(12, 12)
+coordinates = Vector2i(4, 3)
 
 [node name="S4R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -519,6 +521,7 @@ anchor_right = 0.570313
 anchor_bottom = 0.897569
 offset_bottom = 0.0
 pivot_offset = Vector2(30.5, 30.5)
+coordinates = Vector2i(4, 4)
 
 [node name="S4L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
@@ -529,6 +532,8 @@ anchor_right = 0.428711
 anchor_bottom = 0.817708
 offset_bottom = 0.0
 pivot_offset = Vector2(23.5, 23.5)
+flip_h = false
+coordinates = Vector2i(4, 1)
 enable_drop = false
 
 [node name="S4L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -540,6 +545,8 @@ anchor_right = 0.492188
 anchor_bottom = 0.746528
 offset_bottom = 0.0
 pivot_offset = Vector2(31, 31)
+flip_h = false
+coordinates = Vector2i(4, 2)
 enable_drop = false
 
 [node name="S4L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -551,6 +558,8 @@ anchor_right = 0.492188
 anchor_bottom = 0.612847
 offset_bottom = 0.0
 pivot_offset = Vector2(12, 12)
+flip_h = false
+coordinates = Vector2i(4, 3)
 enable_drop = false
 
 [node name="S4L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
@@ -562,6 +571,8 @@ anchor_right = 0.489258
 anchor_bottom = 0.897569
 offset_bottom = 0.0
 pivot_offset = Vector2(30.5, 30.5)
+flip_h = false
+coordinates = Vector2i(4, 4)
 enable_drop = false
 
 [node name="IngredientsContainer" type="VBoxContainer" parent="CanvasLayer"]
@@ -576,7 +587,7 @@ metadata/_edit_use_anchors_ = true
 [node name="DragIngredient" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_4qa0b")
+texture = ExtResource("8_v3opk")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 1
@@ -585,7 +596,7 @@ texture_on_pizza = ExtResource("8_v3opk")
 [node name="DragIngredient2" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_xsf04")
+texture = ExtResource("9_big32")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 2
@@ -594,7 +605,7 @@ texture_on_pizza = ExtResource("9_big32")
 [node name="DragIngredient3" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_mmnph")
+texture = ExtResource("10_duxyl")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 3
@@ -603,7 +614,7 @@ texture_on_pizza = ExtResource("10_duxyl")
 [node name="DragIngredient4" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_j7iyo")
+texture = ExtResource("11_s8r50")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 4
@@ -612,7 +623,7 @@ texture_on_pizza = ExtResource("11_s8r50")
 [node name="DragIngredient5" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_ou4ed")
+texture = ExtResource("12_rwtxq")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 5
@@ -621,7 +632,7 @@ texture_on_pizza = ExtResource("12_rwtxq")
 [node name="DragIngredient6" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_xlcpr")
+texture = ExtResource("13_b33os")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 6
@@ -630,7 +641,7 @@ texture_on_pizza = ExtResource("13_b33os")
 [node name="DragIngredient7" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_hwmkj")
+texture = ExtResource("14_alpq1")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 7
