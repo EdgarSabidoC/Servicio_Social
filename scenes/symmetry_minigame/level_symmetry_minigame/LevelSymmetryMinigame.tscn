@@ -53,31 +53,31 @@ region = Rect2(192, 9, 64, 47)
 atlas = ExtResource("10_iuqmb")
 region = Rect2(204, 64, 47, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlbv6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1c8n"]
 atlas = ExtResource("6_vn0bs")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_klcim"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ucm7"]
 atlas = ExtResource("6_vn0bs")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqf5q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxf44"]
 atlas = ExtResource("6_vn0bs")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wrk5k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci07t"]
 atlas = ExtResource("6_vn0bs")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_urxia"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ogp3"]
 atlas = ExtResource("6_vn0bs")
 region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i5oi2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7v2x"]
 atlas = ExtResource("6_vn0bs")
 region = Rect2(80, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cewbr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mxrf"]
 atlas = ExtResource("6_vn0bs")
 region = Rect2(0, 16, 16, 16)
 
@@ -620,7 +620,7 @@ metadata/_edit_use_anchors_ = true
 [node name="DragIngredient" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_xlbv6")
+texture = SubResource("AtlasTexture_o1c8n")
 script = ExtResource("3_5xrv3")
 ingredient_name = 1
 texture_on_pizza = ExtResource("8_v3opk")
@@ -628,7 +628,7 @@ texture_on_pizza = ExtResource("8_v3opk")
 [node name="DragIngredient2" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_klcim")
+texture = SubResource("AtlasTexture_0ucm7")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 2
@@ -637,7 +637,7 @@ texture_on_pizza = ExtResource("9_big32")
 [node name="DragIngredient3" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_tqf5q")
+texture = SubResource("AtlasTexture_kxf44")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 3
@@ -646,7 +646,7 @@ texture_on_pizza = ExtResource("10_duxyl")
 [node name="DragIngredient4" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_wrk5k")
+texture = SubResource("AtlasTexture_ci07t")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 4
@@ -655,7 +655,7 @@ texture_on_pizza = ExtResource("11_s8r50")
 [node name="DragIngredient5" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_urxia")
+texture = SubResource("AtlasTexture_7ogp3")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 5
@@ -664,7 +664,7 @@ texture_on_pizza = ExtResource("12_rwtxq")
 [node name="DragIngredient6" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_i5oi2")
+texture = SubResource("AtlasTexture_m7v2x")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 6
@@ -673,7 +673,7 @@ texture_on_pizza = ExtResource("13_b33os")
 [node name="DragIngredient7" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = SubResource("AtlasTexture_cewbr")
+texture = SubResource("AtlasTexture_4mxrf")
 expand_mode = 1
 script = ExtResource("3_5xrv3")
 ingredient_name = 7
