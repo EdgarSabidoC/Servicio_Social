@@ -141,11 +141,38 @@ func all_slots_correct() -> void:
 	self._next_round()
 
 
+# Muestra todas las rebanadas y los ingredientes de ambos lados
+func show_all_slices_and_ingredients() -> void:
+	# Mostrar todas las rebanadas izquierdas
+	for key in self.left_slice_list.keys():
+		var left_slice = self.left_slice_list[key][0]
+		var left_ingredients = self.left_slice_list[key][1]
+		
+		# Mostrar la rebanada y todos sus ingredientes
+		left_slice.show()
+		for ingredient in left_ingredients:
+			ingredient.show()
+	
+	# Mostrar todas las rebanadas derechas
+	for key in self.right_slice_list.keys():
+		var right_slice = self.right_slice_list[key][0]
+		var right_ingredients = self.right_slice_list[key][1]
+		
+		# Mostrar la rebanada y todos sus ingredientes
+		right_slice.show()
+		for ingredient in right_ingredients:
+			ingredient.show()
+
+
 # Genera la siguiente pizza:
 func _next_round() -> void:
 	self._clear_all_data()
 	self.set_score()
 	self.score_label.print_score()
+	
+	# Mostrar todas las rebanadas e ingredientes antes de configurar la nueva pizza
+	self.show_all_slices_and_ingredients()
+	
 	self.set_pizza()
 
 
@@ -200,40 +227,38 @@ func set_hidden_ingredients_number() -> int:
 	return rng.randi_range(self.ingredients_lower_limit, self.ingredients_upper_limit)
 
 
-# Oculta al azar ingredientes de las rebanadas visibles
+# Oculta al azar ingredientes de las rebanadas visibles:
 func hide_random_ingredients() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-
-	# Lista de claves de las rebanadas izquierdas
+	
+	# Lista de claves de las rebanadas izquierdas:
 	var slice_keys: Array = self.left_slice_list.keys()
-
-	for index in range(slice_keys.size()):
-		var key: String = slice_keys[index]
-
+	
+	for key in slice_keys:
 		if key in self.hidden_slices:
+			# Si la rebanada está oculta, se brinca a la siguiente clave:
 			continue
-
+		
+		# Se obtienen las listas de ingredientes izquierdos y derechos:
 		var left_ingredients = self.left_slice_list[key][1]
 		var right_ingredients = self.right_slice_list[key][1]
-
+		
+		# Se asegura de que no se oculten más ingredientes de los disponibles y que el máximo no exceda 3:
 		var number_of_ingredients = self.set_hidden_ingredients_number()
-		var ingredients_to_hide: int = min(number_of_ingredients, left_ingredients.size())
-
-		for _i in range(ingredients_to_hide):
+		var ingredients_to_hide: int = min(number_of_ingredients, min(left_ingredients.size(), 3))
+		
+		# Se seleccionan y ocultan los ingredientes al azar manteniendo la simetría:
+		var indices_to_hide: Array = []
+		while indices_to_hide.size() < ingredients_to_hide:
 			var ingredient_index: int = rng.randi_range(0, left_ingredients.size() - 1)
-			left_ingredients[ingredient_index].hide()
-			right_ingredients[ingredient_index].hide()
-
-			# Registra la clave de la rebanada y los índices de los ingredientes ocultos
-			self.hidden_slices.append({
-				"slice_key": key,
-				"left_ingredient_index": ingredient_index,
-				"right_ingredient_index": ingredient_index
-			})
-
-		self.left_slice_list[key][1] = left_ingredients
-		self.right_slice_list[key][1] = right_ingredients
+			if ingredient_index not in indices_to_hide:
+				indices_to_hide.append(ingredient_index)
+		
+		for index in indices_to_hide:
+			# Se ocultan el ingrediente izquierdo y su contraparte derecha:
+			left_ingredients[index].hide()
+			right_ingredients[index].hide()
 
 
 # Configura las rebanadas que se mostrarán:
@@ -243,14 +268,20 @@ func set_pizza() -> void:
 	
 	# Lista de claves de las rebanadas izquierdas:
 	var slice_keys: Array = self.left_slice_list.keys()
-	# Lista de rebanadas que se van a ocultar:
+	# Número de rebanadas a ocultar basado en los límites de dificultad:
 	var number_of_slices: int = rng.randi_range(self.slices_lower_limit, self.slices_upper_limit)
-	var slices_to_hide: Variant = min(number_of_slices, slice_keys.size())
-
-	for _i in range(slices_to_hide):
+	var slices_to_hide: int = min(number_of_slices, slice_keys.size())
+	
+	# Lista de rebanadas a ocultar
+	var slices_to_hide_list: Array = []
+	
+	while slices_to_hide_list.size() < slices_to_hide:
 		var index: int = rng.randi_range(0, slice_keys.size() - 1)
 		var key: String = slice_keys[index]
-		
+		if key not in slices_to_hide_list:
+			slices_to_hide_list.append(key)
+	
+	for key in slices_to_hide_list:
 		# Se oculta la rebanada:
 		left_slice_list[key][0].hide()
 		right_slice_list[key][0].hide()
@@ -263,13 +294,14 @@ func set_pizza() -> void:
 			ingredient.hide()
 		
 		self.hidden_slices.append(key)
-		slice_keys.remove_at(index)
+		slice_keys.erase(key)
 	
 	# Se ocultan al azar algunos ingredientes de las rebanadas visibles:
 	self.hide_random_ingredients()
 	
 	# Se configuran los ingredientes:
 	self.set_ingredients()
+
 
 
 # Configura los ingredientes:
@@ -290,7 +322,6 @@ func clamp_rotation(angle: float) -> float:
 	elif angle >= 360:
 		return fmod(angle, 360)
 	return angle
-
 
 
 # Configura la partida:
@@ -357,12 +388,13 @@ func compare_angles(left_angle: float, right_angle: float) -> bool:
 # Compara el ingrediente del lado izquierdo con el que se encuentra en la ranura derecha correspondiente:
 func check_ingredient(left_ingredient: AnimatedTextureRect, right_ingredient: AnimatedTextureRect) -> bool:
 	
-	right_ingredient.correct = (
+	right_ingredient.set_correct(
 		compare_angles(left_ingredient.rotation_degrees, right_ingredient.rotation_degrees) and
 		left_ingredient.ingredient_name == right_ingredient.ingredient_name and
 		left_ingredient.coordinates == right_ingredient.coordinates
 		# Si es correcto se convierte en true. En otro caso es false.
 	)
+	print_debug(right_ingredient.is_correct())
 	print_debug("Left(%s, %s %s)" %[left_ingredient.get_ingredient_name(), left_ingredient.coordinates, left_ingredient.rotation_degrees])
 	print_debug("Right(%s, %s, %s, %s)" %[right_ingredient.correct, right_ingredient.get_ingredient_name(), right_ingredient.coordinates, right_ingredient.rotation_degrees])
 	return right_ingredient.correct
