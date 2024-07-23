@@ -129,5 +129,6 @@ x_lower_limit = -1
 x_upper_limit = 1
 y_lower_limit = -1
 y_upper_limit = 1
+preview_size = Vector2(48, 80)
 sprites = SubResource("SpriteFrames_t7xfv")
 metadata/_edit_use_anchors_ = true
