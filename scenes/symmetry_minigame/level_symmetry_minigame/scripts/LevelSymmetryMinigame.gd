@@ -391,7 +391,6 @@ func compare_angles(left_angle: float, right_angle: float) -> bool:
 
 # Compara el ingrediente del lado izquierdo con el que se encuentra en la ranura derecha correspondiente:
 func check_ingredient(left_ingredient: AnimatedTextureRect, right_ingredient: AnimatedTextureRect) -> bool:
-	
 	right_ingredient.set_correct(
 		compare_angles(left_ingredient.rotation_degrees, right_ingredient.rotation_degrees) and
 		left_ingredient.ingredient_name == right_ingredient.ingredient_name and
