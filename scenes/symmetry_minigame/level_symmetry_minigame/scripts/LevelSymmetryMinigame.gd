@@ -186,6 +186,7 @@ func set_music() -> void:
 
 # Configura el tiempo del reloj:
 func set_clock() -> void:
+	self.clock.reset_color()
 	match PlayerSession.difficulty:
 		"easy":
 			self.clock.time = self.time_easy
@@ -452,4 +453,5 @@ func _on_clock_countdown_finished() -> void:
 
 func _on_score_screen_restart_game() -> void:
 	# Se configura el juego/partida:
+	self._clear_all_data()
 	self.set_game()
