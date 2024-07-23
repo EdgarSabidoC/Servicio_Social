@@ -9,6 +9,7 @@ extends Node
 @onready var alux_rejected: bool = false
 enum Minigames {FRACCTIONS = 0, ADDITIONS = 1, COORDINATES = 2, SYMMETRY = 3}
 @onready var current_minigame: Minigames
+@onready var practice_mode: bool = false
 
 
 # Limpia las variables de la sesión del juego:
@@ -33,3 +34,13 @@ func save_score() -> void:
 		self.score = 99999999
 	Persistence.config.set_value("BestScores", "HighScores", self.score)
 	Persistence.save_data()
+
+
+# Función que cambia de estado la bandera de modo práctica:
+func change_practice_mode() -> bool:
+	self.practice_mode = !self.practice_mode
+	return self.practice_mode
+
+
+func is_practice_mode() -> bool:
+	return self.practice_mode

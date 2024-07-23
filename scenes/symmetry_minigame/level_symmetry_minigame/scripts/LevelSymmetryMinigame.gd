@@ -326,22 +326,24 @@ func clamp_rotation(angle: float) -> float:
 
 
 # Configura la partida:
-func set_game() -> void:	
-	# Se inicializa el puntaje en 0:
-	PlayerSession.score = 0
-	
-	# Se reinicia el puntaje por predeterminado:
-	self.default_score = 10000
-	
-	# Se imprime el puntaje:
-	self.score_label.print_score()
-	
-	# Se configuran el tiempo y la pizza:
-	self.set_clock()
+func set_game() -> void:
 	self.set_pizza()
 	
-	# Contiúa el reloj:
-	self.clock.continue_clock()
+	#Si no está en modo práctica:
+	if !PlayerSession.practice_mode:
+		# Se inicializa el puntaje en 0:
+		PlayerSession.score = 0
+		
+		# Se reinicia el puntaje por predeterminado:
+		self.default_score = 10000
+		
+		# Se imprime el puntaje:
+		self.score_label.print_score()
+		
+		# Se configuran el tiempo y la pizza:
+		self.set_clock()
+		# Contiúa el reloj:
+		self.clock.continue_clock()
 
 
 # Reduce el puntaje predeterminado:
