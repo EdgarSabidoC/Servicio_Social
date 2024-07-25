@@ -12,6 +12,10 @@ extends Button
 
 
 func _on_pressed() -> void:
+	if PlayerSession.is_practice_mode():
+		# Si está en el modo práctica, lo desactiva:
+		PlayerSession.change_practice_mode()
+
 	menu_background_color.fade_in() # Realiza un fade in al fondo del menú
 	main_menu.show() # Se muestra el menú principal
 	menu_textbox_container.show() # Se muestra el textbox del menú principal

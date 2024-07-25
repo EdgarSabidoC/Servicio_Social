@@ -1,6 +1,6 @@
 extends Button
 
-@export_multiline var hint: String = "Selecciona uno de los minijuegos y comienza a jugar."
+@export_multiline var hint: String = "Perfecciona tus habilidades o familiarízate con los minijuegos.\n\nEl reloj y el puntaje están desactivados."
 @export var seconds_to_wait = 3
 @onready var difficulty_menu = %DifficultyMenu
 @onready var text_box_container: Control = %MenuTextbox
@@ -9,10 +9,11 @@ extends Button
 @onready var menu_textbox = $"../../MenuTextbox/MarginContainer/MenuTextbox"
 @onready var minigames_menu: VBoxContainer = %MinigamesMenu
 
-const MENU_BUTTONS: Texture2D = preload("res://assets/graphical_assets/user_interface/button/buttons.tga")
-
 
 func _on_pressed() -> void:
+	# Se activa el modo práctica:
+	PlayerSession.change_practice_mode()
+	
 	# Moverse al menú de selección de dificultad:
 	settings_background_color.show()
 	menu_background_color.fade_out()
@@ -43,4 +44,3 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
 	menu_textbox.clear_message()
-	
