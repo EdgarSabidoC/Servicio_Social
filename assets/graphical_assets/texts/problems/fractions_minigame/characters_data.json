@@ -43,7 +43,7 @@
 				{"fraction": "2/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "2/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "res://icon.svg",
+			"main_asset_path": "res://assets/graphical_assets/characters/icons/huolpoch_icon.tga",
 			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
@@ -66,7 +66,7 @@
 				{"fraction": "3/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "3/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "res://icon.svg",
+			"main_asset_path": "res://assets/graphical_assets/characters/icons/toh_icon.tga",
 			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
@@ -89,7 +89,7 @@
 				{"fraction": "4/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "4/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "res://icon.svg",
+			"main_asset_path": "res://assets/graphical_assets/characters/icons/keken_icon.tga",
 			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{
@@ -112,7 +112,7 @@
 				{"fraction": "5/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 				{"fraction": "5/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
 			],
-			"main_asset_path": "res://icon.svg",
+			"main_asset_path": "res://assets/graphical_assets/characters/icons/zotz_icon.tga",
 			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
 		},
 		{

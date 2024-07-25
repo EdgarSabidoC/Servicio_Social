@@ -29,6 +29,7 @@ func _on_pressed():
 	Mouse.change_mode()
 	if Mouse.mouse_mode_activated:
 		_hide_buttons_and_labels()
+		%BackButton.show()
 	else:
 		self.grab_focus()
 		self._show_buttons_and_labels()
