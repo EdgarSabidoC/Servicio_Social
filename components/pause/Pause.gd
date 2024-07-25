@@ -35,7 +35,7 @@ func _on_continue_btn_pressed() -> void:
 
 # Señal que es lanzada cuando se presiona el main_menu_btn:
 func _on_main_menu_btn_pressed() -> void:
-	# Si está activado el modo práctica:
+	# Si está activado el modo práctica se desactiva:
 	if PlayerSession.is_practice_mode():
 		PlayerSession.change_practice_mode()
 	self.is_pause_active = false
