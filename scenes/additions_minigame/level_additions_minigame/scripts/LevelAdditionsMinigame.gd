@@ -33,6 +33,7 @@ extends Node2D
 @onready var ticket_texture: TextureRect = $CanvasLayer/TicketTexture
 @onready var ticket_animation_player: AnimationPlayer = $CanvasLayer/TicketTexture/TicketAnimationPlayer
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
+@onready var score_panel: Panel = $CanvasLayer/ScorePanel
 
 # Tiempos del reloj por dificultad:
 @export var time_easy: float = 180
@@ -47,6 +48,7 @@ func _enter_tree() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerSession.change_practice_mode()
 	self.set_game()
 
 
@@ -81,14 +83,15 @@ func set_game() -> void:
 	# Se muestra el menú de precios:
 	self.prices_menu.show()
 	
-	# Se inicializa el puntaje en 0:
-	PlayerSession.score = 0
-	
 	# Se configura el tiempo del reloj:
 	self.set_clock()
-
-	# Se imprime el puntaje:
-	self.score_label.print_score()
+	
+	if !PlayerSession.is_practice_mode():
+		self.score_panel.show()
+		# Se inicializa el puntaje en 0:
+		PlayerSession.score = 0
+		# Se imprime el puntaje:
+		self.score_label.print_score()
 
 	# Se muestra la orden:
 	self.rich_text_label.text = self.generate_order()
@@ -123,6 +126,8 @@ func set_clock() -> void:
 			self.clock.time = self.time_medium
 		"hard":
 			self.clock.time = self.time_hard
+	if !PlayerSession.is_practice_mode():
+		self.clock.show()
 
 
 # Genera una etiqueta dinámica con datos aleatorios:

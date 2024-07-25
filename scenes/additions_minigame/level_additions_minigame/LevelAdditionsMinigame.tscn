@@ -458,6 +458,7 @@ text = "Borrar"
 script = ExtResource("4_ijd4p")
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = -1
 anchor_left = -0.000976563
@@ -499,6 +500,7 @@ theme = ExtResource("15_q3hbi")
 metadata/_edit_use_anchors_ = true
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("14_fv58l")]
+visible = false
 anchor_left = 0.320313
 anchor_right = 0.507813
 countdown = true
