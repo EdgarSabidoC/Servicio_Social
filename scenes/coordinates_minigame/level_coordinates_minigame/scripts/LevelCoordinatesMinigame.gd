@@ -5,6 +5,7 @@ extends Node2D
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var label: Label = $CanvasLayer/AnimatedTextureRect/Label
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
+@onready var score_panel: Panel = $CanvasLayer/ScorePanel
 
 # Tiempos del reloj por dificultad:
 ## Time for clock on easy difficulty.
@@ -89,18 +90,23 @@ func set_clock() -> void:
 			self.clock.time = self.time_medium
 		"hard":
 			self.clock.time = self.time_hard
+	if !PlayerSession.is_practice_mode():
+		self.clock.show()
 
 
 # Configura la partida:
-func set_game() -> void:	
-	# Se inicializa el puntaje en 0:
-	PlayerSession.score = 0
+func set_game() -> void:
+	if !PlayerSession.is_practice_mode():
+		self.score_panel.show()
+		
+		# Se inicializa el puntaje en 0:
+		PlayerSession.score = 0
+		
+		# Se reinicia el puntaje por predeterminado:
+		self.default_score = 10000
 	
-	# Se reinicia el puntaje por predeterminado:
-	self.default_score = 10000
-	
-	# Se imprime el puntaje:
-	self.score_label.print_score()
+		# Se imprime el puntaje:
+		self.score_label.print_score()
 	
 	# Se genera una coordenada:
 	self.set_order_coordinates()

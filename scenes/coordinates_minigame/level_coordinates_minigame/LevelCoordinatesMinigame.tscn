@@ -252,6 +252,7 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = -1
 anchor_left = -0.000976563
@@ -275,6 +276,7 @@ vertical_alignment = 1
 script = ExtResource("3_qyoai")
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("4_rjwd5")]
+visible = false
 anchor_left = 0.813477
 anchor_right = 1.00098
 offset_left = 0.0
