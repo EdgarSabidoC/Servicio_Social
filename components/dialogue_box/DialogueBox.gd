@@ -14,6 +14,7 @@ var length: int
 var current_paragraph: int = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var finished: bool = false
+@onready var dots_label: Label = $DotsLabel
 
 
 # Señales:
@@ -80,6 +81,8 @@ func load_message(message: String = self.text):
 
 # Imprime una cadena que se la pase y la alineación [l: left, c: center, r: right, f: fill]:
 func print_message(string: String) -> void:
+	if self.dots_label.is_visible_in_tree():
+		self.dots_label.hide()
 	match self.alignment:
 		self.AlignmentType.LEFT:
 			self.moving_text.text = "[left]%s[/left]" %string
@@ -101,9 +104,10 @@ func clear_message() -> void:
 
 func _on_moving_text_end_of_text() -> void:
 	self.end_of_paragraph = true
+	if self.current_paragraph < self.paragraphs.size()-1:
+		self.dots_label.show()
 
 
 func _on_final_paragraph_finished() -> void:
-	# Se activa la bandera de finalización:
 	self.finished = true
 	self.set_process_input(true)
