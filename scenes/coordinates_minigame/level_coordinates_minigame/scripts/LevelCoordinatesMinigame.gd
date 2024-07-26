@@ -20,6 +20,7 @@ extends Node2D
 
 # Animación de la zarigüeya:
 @onready var animated_texture_rect: AnimatedTextureRect = $CanvasLayer/AnimatedTextureRect
+@onready var animation_player: AnimationPlayer = $CanvasLayer/AnimatedTextureRect/AnimationPlayer
 
 @onready var current_pitch: float = 1.0
 
@@ -32,7 +33,6 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	# Se configura el juego/partida:
 	self.set_game()
-	self.animated_texture_rect.play()
 	self.connect_signals()
 
 
@@ -56,6 +56,11 @@ func connect_signals() -> void:
 # Verifica que la respuesta sea correcta:
 func check_answer(table: AnimatedTextureRect) -> void:
 	print_debug("Entró a check_answer")
+	
+	# Inicia la animación para cambiar las coordenadas mostradas
+	self.animation_player.animation_set_next("end_coordinate", "idle_coordinate")
+	self.animation_player.play("end_coordinate")
+	
 	if table.compare_coordinates(%Robot.get_coordinates()):
 		print_debug("Entró a check_answer: true")
 		self.set_score()
@@ -123,6 +128,9 @@ func set_order_coordinates() -> void:
 	print_debug("Entró a set_order_coordinates")
 	%Robot.set_rand_coordinates()
 	self.label.text = str(%Robot.get_coordinates())
+	
+	# Inicia la animación para mostrar las coordenadas asignadas
+	self.animation_player.play("set_coordinate")
 
 
 func _on_pause_finished() -> void:
