@@ -2,7 +2,7 @@ extends Control
 
 # Add text to print:
 @onready var moving_text = $MovingText
-@export var default_text = ""
+@export_multiline var default_text = ""
 
 signal finished()
 
