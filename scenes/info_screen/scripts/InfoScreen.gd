@@ -39,6 +39,5 @@ func _on_dialogue_box_dialogue_box_closed() -> void:
 	self.finished.emit()
 	if !PlayerSession.destroy_info_screen():
 		self.hide()
-		self.continue_btn.hide()
 	else:
 		self.queue_free()
