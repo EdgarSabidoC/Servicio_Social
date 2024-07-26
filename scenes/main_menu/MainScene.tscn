@@ -901,6 +901,7 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 theme = SubResource("Theme_ats5d")
+theme_override_constants/icon_max_width = 140
 tab_count = 5
 clip_tabs = false
 scrolling_enabled = false
