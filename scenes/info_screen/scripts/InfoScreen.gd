@@ -14,7 +14,7 @@ extends Control
 func _ready() -> void:
 	self.animated_sprite_2d.play()
 
-	# Se carga el texto correspóndiente al minijuego:
+	# Se carga el texto correspondiente al minijuego:
 	match PlayerSession.current_minigame:
 		PlayerSession.Minigames.FRACCTIONS:
 			PlayerSession.fractions_info_screen = true
