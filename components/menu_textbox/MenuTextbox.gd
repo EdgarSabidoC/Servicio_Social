@@ -2,13 +2,14 @@ extends Control
 
 # Add text to print:
 @onready var moving_text = $MovingText
-@export_multiline var default_text = ""
+@export_multiline var default_text: String = ""
+
 
 signal finished()
 
 
 # Imprime una cadena que se la pase y la alineación [l: left, c: center, r: right, f: fill]:
-func print_message(string: String, alignment: String = "l") -> void:
+func print_message(string: String = self.default_text, alignment: String = "l") -> void:
 	match alignment:
 		"l":
 			moving_text.text = "[left]%s[/left]" %string

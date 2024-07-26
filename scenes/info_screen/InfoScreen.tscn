@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cm1qbqgxj7c82" path="res://assets/graphical_assets/characters/player/main_character_scene_04.tga" id="1_4y7j1"]
 [ext_resource type="Script" path="res://scenes/info_screen/scripts/InfoScreen.gd" id="1_jryx8"]
-[ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="2_choxh"]
+[ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="3_3460w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l65vc"]
 atlas = ExtResource("1_4y7j1")
@@ -48,6 +48,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jryx8")
+text = "¡Hola, bienvenidos a mi pizzería!"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -59,19 +60,30 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(215, 309)
+position = Vector2(288, 313)
 scale = Vector2(1.6625, 1.76154)
 sprite_frames = SubResource("SpriteFrames_qmc0r")
-frame_progress = 0.334687
+frame_progress = 0.736984
 centered = false
 
-[node name="MenuTextbox" parent="." instance=ExtResource("2_choxh")]
+[node name="ContinueBtn" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.349609
-anchor_top = 0.15625
-anchor_right = 0.754883
-anchor_bottom = 0.677083
-offset_right = 0.0
-offset_bottom = 0.0
+anchor_left = 0.401367
+anchor_top = 0.517361
+anchor_right = 0.50293
+anchor_bottom = 0.565972
+text = "Continuar"
 metadata/_edit_use_anchors_ = true
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_3460w")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.369141
+anchor_top = 0.190972
+anchor_right = 0.735352
+anchor_bottom = 0.642361
+
+[connection signal="pressed" from="ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]

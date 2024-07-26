@@ -6,7 +6,8 @@ enum AlignmentType {LEFT=0,RIGHT=1,CENTER=2,FILL=3}
 @onready var margin_container = $MarginContainer
 var eof: bool = false
 var end_of_paragraph: bool = false
-var paragraphs = "[StartParagraph]Esta es una línea de texto. Esta es otra línea de texto, blah, blah, blah.[StartParagraph]Segundo párrafo: blah, blah, blah, blah, blah, blah, blah.".split("[StartParagraph]")
+@export_multiline var text: String = "[StartParagraph]Esta es una línea de texto. Esta es otra línea de texto, blah, blah, blah.[StartParagraph]Segundo párrafo: blah, blah, blah, blah, blah, blah, blah."
+@onready var paragraphs: PackedStringArray
 var length: int
 var current_paragraph: int = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -18,6 +19,7 @@ signal dialogue_box_closed
 
 
 func _ready() -> void:
+	self.paragraphs = self.text.split("[StartParagraph]")
 	self.hide()
 
 
@@ -43,17 +45,19 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if self.finished and (event.is_action_released("ui_accept") or event.is_action_released("m1")):
-		self.animation_player.play("reduce")
 		# Se considera el evento como manejado:
 		get_tree().root.set_input_as_handled()
 		self.accept_event() # Se acepta el evento
 		self.set_process_input(false) # Se deja de escuchar
+		self.animation_player.play("reduce") # Animación de reducción de la caja de diálogos
 		self.dialogue_box_closed.emit() # Se emite la señal de cerrado de la caja de diálogos
 
 
 func start() -> void:
 	self.animation_player.play("augment")
 	self.pivot_offset = self.size/2
+	if self.paragraphs.size() <= 0:
+		return
 	if self.paragraphs[self.current_paragraph] == "":
 		self.current_paragraph += 1
 	self.print_message(self.paragraphs[self.current_paragraph])
