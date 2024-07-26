@@ -14,6 +14,10 @@ func _on_pressed() -> void:
 	# Moverse al menú de selección de dificultad:
 	self.menu_background_color.fade_in()
 	PlayerSession.current_minigame = PlayerSession.Minigames.ADDITIONS
+	if !PlayerSession.additions_info_screen:
+		print_debug("Entró a InfoScreen con Additions")
+		%InfoScreen.start()
+		await %InfoScreen.finished
 	self.difficulty_menu.show()
 	get_parent().hide() # Oculta el menú principal
 	self.margin_container.hide()

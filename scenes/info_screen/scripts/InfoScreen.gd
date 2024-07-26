@@ -10,10 +10,14 @@ extends Control
 @onready var continue_btn: Button = $ContinueBtn
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	self.animated_sprite_2d.play()
+signal finished
 
+
+# Called when the node enters the scene tree for the first time.
+func start() -> void:
+	self.show()
+	self.animated_sprite_2d.play()
+	
 	# Se carga el texto correspondiente al minijuego:
 	match PlayerSession.current_minigame:
 		PlayerSession.Minigames.FRACCTIONS:
@@ -36,4 +40,9 @@ func _on_dialogue_box_dialogue_box_closed() -> void:
 
 
 func _on_continue_btn_pressed() -> void:
-	self.queue_free() # La escena es destruida.
+	self.finished.emit()
+	if !PlayerSession.destroy_info_screen():
+		self.hide()
+		self.continue_btn.hide()
+	else:
+		self.queue_free()

@@ -48,3 +48,9 @@ func change_practice_mode() -> bool:
 
 func is_practice_mode() -> bool:
 	return self.practice_mode
+
+
+# Indica si se debe de destruir o mostrar la pantalla de información:
+func destroy_info_screen() -> bool:
+	return (fractions_info_screen and additions_info_screen \
+			and coordinates_info_screen and symmetry_info_screen)

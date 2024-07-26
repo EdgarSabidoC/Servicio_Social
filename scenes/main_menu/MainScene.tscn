@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=51 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/AdditionsMinigame.gd" id="11_cyuk5"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/CoordinatesMinigame.gd" id="12_b254f"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/HardBtn.gd" id="12_pwd64"]
+[ext_resource type="PackedScene" uid="uid://mj3ta3rrgamh" path="res://scenes/info_screen/InfoScreen.tscn" id="12_tuiap"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/ReturnBtn.gd" id="13_0ewxx"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Audio.gd" id="13_0wpcl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/ReturnBtn.gd" id="13_lq72g"]
@@ -370,6 +371,9 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Regresar"
 script = ExtResource("13_lq72g")
+
+[node name="InfoScreen" parent="UI" instance=ExtResource("12_tuiap")]
+unique_name_in_owner = true
 
 [node name="DifficultyMenu" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true

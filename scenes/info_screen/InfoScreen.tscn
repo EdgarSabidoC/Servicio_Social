@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://mj3ta3rrgamh"]
+[gd_scene load_steps=11 format=3 uid="uid://mj3ta3rrgamh"]
 
 [ext_resource type="Texture2D" uid="uid://cm1qbqgxj7c82" path="res://assets/graphical_assets/characters/player/main_character_scene_04.tga" id="1_4y7j1"]
 [ext_resource type="Script" path="res://scenes/info_screen/scripts/InfoScreen.gd" id="1_jryx8"]
+[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_vdffa"]
 [ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="3_3460w"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="3_iqyky"]
 
@@ -42,6 +43,7 @@ animations = [{
 }]
 
 [node name="InfoScreen" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,13 +63,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_vdffa")
+expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(288, 313)
 scale = Vector2(1.6625, 1.76154)
 sprite_frames = SubResource("SpriteFrames_qmc0r")
-frame_progress = 0.736984
+frame_progress = 0.320231
 centered = false
 
 [node name="ContinueBtn" type="Button" parent="."]
@@ -92,6 +96,7 @@ anchor_left = 0.369141
 anchor_top = 0.190972
 anchor_right = 0.735352
 anchor_bottom = 0.642361
+alignment = 2
 
 [connection signal="pressed" from="ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]
