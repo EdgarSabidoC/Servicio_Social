@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=74 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="PackedScene" uid="uid://cy74drae0ss82" path="res://components/robot/Robot.tscn" id="3_goqxl"]
@@ -64,9 +64,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qv6ca"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib7cj"]
 atlas = ExtResource("5_r0dx5")
-region = Rect2(0, 5590, 80, 130)
+region = Rect2(0, 1430, 80, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tvuc"]
 atlas = ExtResource("13_tc6v6")
@@ -127,10 +127,6 @@ region = Rect2(0, 1170, 80, 130)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgmb8"]
 atlas = ExtResource("5_r0dx5")
 region = Rect2(0, 1300, 80, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ib7cj"]
-atlas = ExtResource("5_r0dx5")
-region = Rect2(0, 1430, 80, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8o43"]
 atlas = ExtResource("5_r0dx5")
@@ -255,6 +251,10 @@ region = Rect2(0, 5330, 80, 130)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xkcbq"]
 atlas = ExtResource("5_r0dx5")
 region = Rect2(0, 5460, 80, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv6ca"]
+atlas = ExtResource("5_r0dx5")
+region = Rect2(0, 5590, 80, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpuw0"]
 atlas = ExtResource("5_r0dx5")
@@ -422,6 +422,39 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_30qeq"]
+resource_name = "new coordinate"
+length = 5.00001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_ib7cj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_krw5w"]
+_data = {
+"new coordinate": SubResource("Animation_30qeq")
+}
+
 [node name="LevelCoordinatesMinigame" type="Node2D"]
 script = ExtResource("1_3xota")
 
@@ -524,14 +557,15 @@ coordinates = Vector2i(1, -1)
 
 [node name="AnimatedTextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.015625
-anchor_top = 0.0225694
+anchor_left = 0.016
+anchor_top = 0.108
 anchor_right = 0.177734
-anchor_bottom = 0.357639
-offset_top = 49.0
-offset_bottom = 49.0
-pivot_offset = Vector2(63.4998, 73.5001)
-texture = SubResource("AtlasTexture_qv6ca")
+anchor_bottom = 0.443
+offset_left = -0.384001
+offset_top = -0.208
+offset_bottom = -0.168015
+pivot_offset = Vector2(83, 96.5)
+texture = SubResource("AtlasTexture_ib7cj")
 stretch_mode = 5
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_7qhfs")
@@ -539,6 +573,9 @@ frame_index = 47
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedTextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_krw5w")
+}
 
 [node name="Label" type="Label" parent="CanvasLayer/AnimatedTextureRect"]
 layout_mode = 1
