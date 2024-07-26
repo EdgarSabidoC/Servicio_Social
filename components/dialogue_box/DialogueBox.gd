@@ -61,7 +61,6 @@ func _input(event: InputEvent) -> void:
 # Esta función depende del texto cargado previamente. Cargarlo utilizando load_message().
 func start() -> void:
 	self.set_process(true)
-	self.set_process_input(true)
 	self.animation_player.play("augment")
 	self.paragraphs = self.text.split("[StartParagraph]")
 	print_debug(self.text)
@@ -107,3 +106,4 @@ func _on_moving_text_end_of_text() -> void:
 func _on_final_paragraph_finished() -> void:
 	# Se activa la bandera de finalización:
 	self.finished = true
+	self.set_process_input(true)
