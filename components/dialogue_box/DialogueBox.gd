@@ -2,25 +2,29 @@ extends Control
 
 @onready var moving_text = $MarginContainer/MovingText
 enum AlignmentType {LEFT=0,RIGHT=1,CENTER=2,FILL=3}
+## Alignment type for the printed message
 @export var alignment: AlignmentType
 @onready var margin_container = $MarginContainer
 var eof: bool = false
 var end_of_paragraph: bool = false
-@export_multiline var text: String = "[StartParagraph]Esta es una línea de texto. Esta es otra línea de texto, blah, blah, blah.[StartParagraph]Segundo párrafo: blah, blah, blah, blah, blah, blah, blah."
+## Text to print as message in the dialogue box. Use [StartParagraph] to mark where a paragraph starts in a String.
+@export_multiline var text: String = "[StartParagraph] This is a paragraph."
 @onready var paragraphs: PackedStringArray
 var length: int
 var current_paragraph: int = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var finished: bool = false
 
-# Señal que indica si ya se terminó el párrafo final:
+
+# Señales:
+## The signal is emitted when the last paragraph is finished.
 signal final_paragraph_finished
+## The signal is emitted when the dialogue box is closed.
 signal dialogue_box_closed
 
 
 func _ready() -> void:
-	self.paragraphs = self.text.split("[StartParagraph]")
-	self.hide()
+	self.hide() # Se oculta del árbol
 
 
 func _process(_delta: float) -> void:
@@ -53,8 +57,11 @@ func _input(event: InputEvent) -> void:
 		self.dialogue_box_closed.emit() # Se emite la señal de cerrado de la caja de diálogos
 
 
+# Esta función depende del texto cargado previamente. Cargarlo utilizando load_message().
 func start() -> void:
 	self.animation_player.play("augment")
+	self.paragraphs = self.text.split("[StartParagraph]")
+	print_debug(self.text)
 	self.pivot_offset = self.size/2
 	if self.paragraphs.size() <= 0:
 		return
@@ -62,6 +69,11 @@ func start() -> void:
 		self.current_paragraph += 1
 	self.print_message(self.paragraphs[self.current_paragraph])
 	self.length = len(self.paragraphs)-1
+
+
+# Carga el texto (debe ser llamado antes de start).
+func load_message(message: String = self.text):
+	self.text = message
 
 
 # Imprime una cadena que se la pase y la alineación [l: left, c: center, r: right, f: fill]:

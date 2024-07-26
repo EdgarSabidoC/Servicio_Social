@@ -10,6 +10,10 @@ extends Node
 enum Minigames {FRACCTIONS = 0, ADDITIONS = 1, COORDINATES = 2, SYMMETRY = 3}
 @onready var current_minigame: Minigames
 @onready var practice_mode: bool = false
+@onready var fractions_info_screen: bool = false
+@onready var additions_info_screen: bool = false
+@onready var coordinates_info_screen: bool = false
+@onready var symmetry_info_screen: bool = false
 
 
 # Limpia las variables de la sesión del juego:
