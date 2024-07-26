@@ -7,9 +7,9 @@ extends Control
 @export_multiline var additions_text: String = ""
 @export_multiline var coordinates_text: String = ""
 @export_multiline var symmetry_text: String = ""
-@onready var continue_btn: Button = $ContinueBtn
 
 
+## Finished signal is emitted when the info screen finishes.
 signal finished
 
 
@@ -36,10 +36,6 @@ func start() -> void:
 
 
 func _on_dialogue_box_dialogue_box_closed() -> void:
-	self.continue_btn.show()
-
-
-func _on_continue_btn_pressed() -> void:
 	self.finished.emit()
 	if !PlayerSession.destroy_info_screen():
 		self.hide()
