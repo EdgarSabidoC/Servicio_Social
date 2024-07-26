@@ -9,6 +9,9 @@ signal no_pressed
 
 
 func _on_yes_btn_pressed() -> void:
+	if PlayerSession.is_practice_mode():
+		# Si es el modo práctica se desactiva:
+		PlayerSession.change_practice_mode()
 	self.yes_pressed.emit()
 
 
