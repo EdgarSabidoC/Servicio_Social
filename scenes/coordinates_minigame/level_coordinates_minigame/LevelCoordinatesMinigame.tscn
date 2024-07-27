@@ -791,9 +791,9 @@ _data = {
 "set_coordinate": SubResource("Animation_aijqb")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdiv1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxjtg"]
 atlas = ExtResource("9_rgbo7")
-region = Rect2(0, 800, 48, 80)
+region = Rect2(0, 1280, 48, 80)
 
 [node name="LevelCoordinatesMinigame" type="Node2D"]
 script = ExtResource("1_3xota")
@@ -909,7 +909,6 @@ texture = SubResource("AtlasTexture_bjdk2")
 stretch_mode = 5
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_7qhfs")
-frame_index = 75
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedTextureRect"]
@@ -931,18 +930,16 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Robot" parent="CanvasLayer" instance=ExtResource("3_goqxl")]
 unique_name_in_owner = true
-anchor_left = 0.862
-anchor_top = 0.595
+anchor_left = 0.889
+anchor_top = 0.599
 anchor_right = 0.967
-anchor_bottom = 0.78
-offset_left = 0.311951
-offset_top = 0.279968
+anchor_bottom = 0.83
+offset_left = -0.33606
+offset_top = -0.0240173
 offset_right = -0.208069
-offset_bottom = -0.280029
-pivot_offset = Vector2(0, 0)
-texture = SubResource("AtlasTexture_tdiv1")
-stretch_mode = 5
-frame_index = 10
+offset_bottom = -0.0800171
+texture = SubResource("AtlasTexture_uxjtg")
+frame_index = 16
 playing = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]

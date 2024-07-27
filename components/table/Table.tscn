@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://components/table/scripts/Table.gd" id="1_om2lx"]
 [ext_resource type="Texture2D" uid="uid://b1rkk0c7tgbu5" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_table.tga" id="2_plgl0"]
 [ext_resource type="Script" path="res://components/table/scripts/BackgroundTextureRect.gd" id="3_dgpr2"]
-[ext_resource type="Texture2D" uid="uid://xurkig4vty7h" path="res://icon.svg" id="3_qo4om"]
+[ext_resource type="Texture2D" uid="uid://bnlmbr11wobk6" path="res://assets/graphical_assets/environments/pizzas/scene_04_pizza.tga" id="3_exp35"]
 
 [node name="Table" type="TextureRect"]
 anchors_preset = -1
@@ -33,7 +33,7 @@ anchor_right = 0.610065
 anchor_bottom = 0.476563
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_qo4om")
+texture = ExtResource("3_exp35")
 expand_mode = 1
 script = ExtResource("3_dgpr2")
 metadata/_edit_use_anchors_ = true
