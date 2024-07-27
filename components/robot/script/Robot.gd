@@ -59,7 +59,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		# Se asigna la animación actual a la del preview:
 		preview_texture.current_animation = self.current_animation
 		preview_texture.sprites = self.sprites # Se asignan los sprites al preview
-		preview_texture.play() # Se reproduce la animación
+		preview_texture.play("drag") # Se reproduce la animación
 	else:
 		# Si es modo texture o no hay sprites:
 		preview_texture.texture = self.texture # Se asigna la textura de la vista previa.

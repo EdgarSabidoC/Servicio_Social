@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=109 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="PackedScene" uid="uid://cy74drae0ss82" path="res://components/robot/Robot.tscn" id="3_goqxl"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bcheoudihgr1s" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_frame.tga" id="5_onsio"]
 [ext_resource type="Texture2D" uid="uid://dbso1mmo204t6" path="res://assets/graphical_assets/characters/player/main_character_scene_04_request.tga" id="5_r0dx5"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="6_4l6hj"]
+[ext_resource type="Texture2D" uid="uid://cygeue24uwy4k" path="res://assets/graphical_assets/characters/player/robot_scene_04.tga" id="9_rgbo7"]
 [ext_resource type="PackedScene" uid="uid://cv1ytr5mbabfm" path="res://components/score_screen/ScoreScreen.tscn" id="10_ix28s"]
 [ext_resource type="Texture2D" uid="uid://cm1qbqgxj7c82" path="res://assets/graphical_assets/characters/player/main_character_scene_04.tga" id="13_tc6v6"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="14_07qk4"]
@@ -690,6 +691,47 @@ tracks/3/keys = {
 "values": ["default"]
 }
 
+[sub_resource type="Animation" id="Animation_ou2m2"]
+resource_name = "idle_coordinate"
+length = 0.5714
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:current_animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["idle"]
+}
+
 [sub_resource type="Animation" id="Animation_aijqb"]
 resource_name = "new_coordinate"
 length = 5.5
@@ -742,53 +784,16 @@ tracks/3/keys = {
 "values": ["default"]
 }
 
-[sub_resource type="Animation" id="Animation_ou2m2"]
-resource_name = "idle_coordinate"
-length = 0.5714
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:current_animation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["idle"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_krw5w"]
 _data = {
 "end_coordinate": SubResource("Animation_kdnfp"),
 "idle_coordinate": SubResource("Animation_ou2m2"),
 "set_coordinate": SubResource("Animation_aijqb")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdiv1"]
+atlas = ExtResource("9_rgbo7")
+region = Rect2(0, 800, 48, 80)
 
 [node name="LevelCoordinatesMinigame" type="Node2D"]
 script = ExtResource("1_3xota")
@@ -926,14 +931,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Robot" parent="CanvasLayer" instance=ExtResource("3_goqxl")]
 unique_name_in_owner = true
-anchor_left = 0.875
-anchor_top = 0.682
-anchor_right = 0.938477
-anchor_bottom = 0.793
-offset_left = -6.10352e-05
-offset_top = 0.168121
-offset_bottom = 0.232117
-expand_mode = 1
+anchor_left = 0.862
+anchor_top = 0.595
+anchor_right = 0.967
+anchor_bottom = 0.78
+offset_left = 0.311951
+offset_top = 0.279968
+offset_right = -0.208069
+offset_bottom = -0.280029
+pivot_offset = Vector2(0, 0)
+texture = SubResource("AtlasTexture_tdiv1")
+stretch_mode = 5
+frame_index = 10
+playing = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 visible = false
