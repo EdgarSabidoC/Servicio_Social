@@ -128,7 +128,7 @@ func get_coordinates() -> Vector2i:
 
 # Compara las coordenadas que se le pasan con las del nodo:
 func compare_coordinates(coordinates_vector: Vector2i) -> bool:
-	return get_coordinates() == coordinates_vector
+	return self.get_coordinates() == coordinates_vector
 
 
 # Verifica que las coordenadas estén dentro de los límites.

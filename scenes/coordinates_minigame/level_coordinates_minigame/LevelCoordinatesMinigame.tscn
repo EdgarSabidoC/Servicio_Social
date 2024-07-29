@@ -791,9 +791,9 @@ _data = {
 "set_coordinate": SubResource("Animation_aijqb")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uxjtg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_snnnp"]
 atlas = ExtResource("9_rgbo7")
-region = Rect2(0, 1280, 48, 80)
+region = Rect2(0, 2960, 48, 80)
 
 [node name="LevelCoordinatesMinigame" type="Node2D"]
 script = ExtResource("1_3xota")
@@ -938,9 +938,8 @@ offset_left = -0.33606
 offset_top = -0.0240173
 offset_right = -0.208069
 offset_bottom = -0.0800171
-texture = SubResource("AtlasTexture_uxjtg")
-frame_index = 16
-playing = true
+texture = SubResource("AtlasTexture_snnnp")
+frame_index = 37
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 visible = false

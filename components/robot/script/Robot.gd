@@ -29,7 +29,6 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 
 # Coordenadas (X,Y):
 @onready var _coordinates: Vector2i
-@onready var _default_robot_texture: Texture2D = load("res://icon.svg")
 
 
 ## Dropped signal is emitted when data is dropped inside another DragTexture.
@@ -38,7 +37,8 @@ signal data_dropped()
 
 func _ready() -> void:
 	self.pivot_offset = self.custom_minimum_size/2
-	if self.animation_as == self.AnimationOptions.BOTH or self.animation_as == self.AnimationOptions.TEXTURE:
+	if self.animation_as == self.AnimationOptions.BOTH \
+	or self.animation_as == self.AnimationOptions.TEXTURE:
 		# Si es modo Texture o Both se reproduce la animación:
 		self.play()
 	else:
@@ -75,7 +75,11 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	
 	# Se asgina la posición de la vista previa para quedar el cursor centrado:
 	preview_texture.position = preview_texture.get_local_mouse_position() - preview_texture.size/2
-	self.texture = null
+	if self.animation_as == self.AnimationOptions.BOTH or \
+	self.animation_as == self.AnimationOptions.PREVIEW:
+		self.play("reset")
+	else:
+		self.texture = null
 	# Se retorna la textura y las coordenadas:
 	return self.get_coordinates()
 
@@ -117,7 +121,8 @@ func set_rand_coordinates() -> void:
 
 # Reinicia la animación del robot y le devuelve su textura:
 func restart() -> void:
-	self.texture = self._default_robot_texture
+	# Aquí se debe reproducir la animación para hacer que salga de la puerta el robot.
+	self.play("idle")
 
 
 func _notification(what: int) -> void:
@@ -125,7 +130,7 @@ func _notification(what: int) -> void:
 		# Cuando no se suelta en un lugar válido, se reestablece la textura predeterminada del robot:
 		if !get_viewport().gui_is_drag_successful():
 			print_debug("No se soltó correctamente")
-			self.texture = self._default_robot_texture
+			self.play("idle")
 		else:
 			# Si se soltó correctamente, entonces se reinicia la animación de entrada:
 			# AÑADIR CÓDIGO.
