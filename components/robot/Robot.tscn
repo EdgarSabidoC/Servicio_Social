@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://components/robot/script/Robot.gd" id="1_i7oex"]
 [ext_resource type="Texture2D" uid="uid://2rwsiepc347e" path="res://assets/graphical_assets/characters/player/robot_scene_04_drag.tga" id="3_coj4b"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5mxkj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l1tq"]
 atlas = ExtResource("1_687bo")
-region = Rect2(0, 1680, 48, 80)
+region = Rect2(0, 1360, 48, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dlulq"]
 atlas = ExtResource("3_coj4b")
@@ -136,10 +136,6 @@ region = Rect2(0, 1200, 48, 80)
 atlas = ExtResource("1_687bo")
 region = Rect2(0, 1280, 48, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3l1tq"]
-atlas = ExtResource("1_687bo")
-region = Rect2(0, 1360, 48, 80)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_845ta"]
 atlas = ExtResource("1_687bo")
 region = Rect2(0, 1440, 48, 80)
@@ -151,6 +147,10 @@ region = Rect2(0, 1520, 48, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdjdw"]
 atlas = ExtResource("1_687bo")
 region = Rect2(0, 1600, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mxkj"]
+atlas = ExtResource("1_687bo")
+region = Rect2(0, 1680, 48, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vwmr"]
 atlas = ExtResource("1_687bo")
@@ -427,7 +427,7 @@ anchor_right = 0.07825
 anchor_bottom = 0.231014
 offset_right = -0.128002
 offset_bottom = -0.0640106
-texture = SubResource("AtlasTexture_5mxkj")
+texture = SubResource("AtlasTexture_3l1tq")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("1_i7oex")
@@ -439,6 +439,6 @@ animation_as = 2
 preview_size = Vector2(80, 133)
 sprites = SubResource("SpriteFrames_t7xfv")
 current_animation = "idle"
-frame_index = 21
+frame_index = 17
 playing = true
 metadata/_edit_use_anchors_ = true

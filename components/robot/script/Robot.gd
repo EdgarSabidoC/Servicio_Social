@@ -1,4 +1,3 @@
-@tool
 extends AnimatedTextureRect
 
 ## Allows to drag and drop an array with a Texture2D and a coordinate (X,Y), 
@@ -122,6 +121,7 @@ func set_rand_coordinates() -> void:
 # Reinicia la animación del robot y le devuelve su textura:
 func restart() -> void:
 	# Aquí se debe reproducir la animación para hacer que salga de la puerta el robot.
+	# AÑADIR CÓDIGO.
 	self.play("idle")
 
 
@@ -129,9 +129,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_DRAG_END:
 		# Cuando no se suelta en un lugar válido, se reestablece la textura predeterminada del robot:
 		if !get_viewport().gui_is_drag_successful():
-			print_debug("No se soltó correctamente")
 			self.play("idle")
 		else:
 			# Si se soltó correctamente, entonces se reinicia la animación de entrada:
-			# AÑADIR CÓDIGO.
 			self.restart()

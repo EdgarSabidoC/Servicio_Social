@@ -47,22 +47,19 @@ func connect_signals() -> void:
 	var tables: Array = [%Table1, %Table2, %Table3, \
 						%Table4, %Table5, %Table6, \
 						%Table7, %Table8, %Table9]
-
+	
 	for table in tables:
-		table.data_dropped.connect(func() -> void: self.check_answer(table))
+		table.data_dropped.connect(func() -> void: self.check_answer(table, %Robot))
 		table.timer_ended.connect(func() -> void: self.set_order_coordinates())
 
 
 # Verifica que la respuesta sea correcta:
-func check_answer(table: AnimatedTextureRect) -> void:
-	print_debug("Entró a check_answer")
-	
+func check_answer(table: AnimatedTextureRect, robot: AnimatedTextureRect) -> void:
 	# Inicia la animación para cambiar las coordenadas mostradas
 	self.animation_player.animation_set_next("end_coordinate", "idle_coordinate")
 	self.animation_player.play("end_coordinate")
 	
-	if table.compare_coordinates(%Robot.get_coordinates()):
-		print_debug("Entró a check_answer: true")
+	if table.compare_coordinates(robot.get_coordinates()):
 		self.set_score()
 		# Se imprime el puntaje:
 		self.score_label.print_score()
@@ -125,7 +122,6 @@ func set_game() -> void:
 
 # Genera un par de coordenadas aleatorias:
 func set_order_coordinates() -> void:
-	print_debug("Entró a set_order_coordinates")
 	%Robot.set_rand_coordinates()
 	self.label.text = str(%Robot.get_coordinates())
 	

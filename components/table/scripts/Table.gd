@@ -1,4 +1,3 @@
-@tool
 extends AnimatedTextureRect
 
 ## Allows to drop a coordinate (X,Y) [Vector2i], 
@@ -77,9 +76,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 
 # Se obtiene una coordenada(X,Y) [Vector2i]:
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	self.set_coordinates(data)
-	print_debug(data)
+func _drop_data(_at_position: Vector2, _data: Variant) -> void:
 	self.pizza.show()
 	self.data_dropped.emit() # Se lanza la señal de que se soltaron los datos.
 	self.start_timer()
