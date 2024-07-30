@@ -76,9 +76,10 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview_texture.position = preview_texture.get_local_mouse_position() - preview_texture.size/2
 	if self.animation_as == self.AnimationOptions.BOTH or \
 	self.animation_as == self.AnimationOptions.PREVIEW:
-		self.play("reset")
+		self.play("restart")
 	else:
 		self.texture = null
+
 	# Se retorna la textura y las coordenadas:
 	return self.get_coordinates()
 
@@ -122,7 +123,7 @@ func set_rand_coordinates() -> void:
 func restart() -> void:
 	# Aquí se debe reproducir la animación para hacer que salga de la puerta el robot.
 	# AÑADIR CÓDIGO.
-	self.play("idle")
+	self.play("enter")
 
 
 func _notification(what: int) -> void:

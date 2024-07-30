@@ -755,6 +755,11 @@ animations = [{
 "loop": true,
 "name": &"reset",
 "speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"restart",
+"speed": 5.0
 }]
 
 [node name="Robot" type="TextureRect"]
