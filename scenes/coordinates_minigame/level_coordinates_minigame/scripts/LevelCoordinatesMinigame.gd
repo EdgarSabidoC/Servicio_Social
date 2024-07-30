@@ -34,6 +34,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
+	PlayerSession.difficulty = "hard"
 	# Se configura el juego/partida:
 	self.set_game()
 	self.connect_signals()
@@ -71,7 +72,6 @@ func check_answer(table: AnimatedTextureRect, robot: AnimatedTextureRect) -> voi
 # Imprime el puntaje:
 func print_score() -> void:
 	self.score_flash_label.text = "+%s" % self.default_score
-	self.score_flash_label.show()
 	self.score_label_player.play("fade_out")
 	self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
 	self.score_label.print_score()
@@ -106,6 +106,7 @@ func set_clock() -> void:
 			self.clock.time = self.time_hard
 	if !PlayerSession.is_practice_mode():
 		self.clock.show()
+		self.clock.reset_color()
 
 
 # Configura la partida:

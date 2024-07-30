@@ -1,3 +1,4 @@
+@tool
 extends AnimatedTextureRect
 
 ## Allows to drop a coordinate (X,Y) [Vector2i], 
@@ -36,15 +37,15 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 @export var background_custom_minimum_size: Vector2
 
 ## Easy difficulty timeout to hide the pizza on the table.
-@export var easy_timeout: float
+@export var easy_timeout: float = 3
 ## Medium difficulty timeout to hide the pizza on the table.
-@export var medium_timeout: float
+@export var medium_timeout: float  = 1
 ## Hard difficulty timeout to hide the pizza on the table.
-@export var hard_timeout: float
+@export var hard_timeout: float = 0.5
 
 ## (X,Y) coordinates.
 @export var coordinates: Vector2i = Vector2i(0,0)
-
+@onready var has_pizza: bool = false
 @onready var pizza: TextureRect = $Pizza
 
 
@@ -72,11 +73,15 @@ func _ready() -> void:
 
 # Se valida que se pueda soltar un Vector2i [Coordenada(X,Y)]:
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-	return data is Vector2i and !self.pizza.is_visible_in_tree()
+	if not self.has_pizza:
+		return data is Vector2i and !self.pizza.is_visible_in_tree()
+	else:
+		return false
 
 
 # Se obtiene una coordenada(X,Y) [Vector2i]:
 func _drop_data(_at_position: Vector2, _data: Variant) -> void:
+	self.has_pizza = true
 	self.pizza.show()
 	self.data_dropped.emit() # Se lanza la señal de que se soltaron los datos.
 	self.start_timer()
@@ -84,7 +89,6 @@ func _drop_data(_at_position: Vector2, _data: Variant) -> void:
 
 # Inicia un timer para una mesa:
 func start_timer() -> void:
-	self.timer_started.emit()
 	var time: float
 	match PlayerSession.difficulty:
 		"easy":
@@ -93,6 +97,7 @@ func start_timer() -> void:
 			time = self.medium_timeout
 		"hard":
 			time = self.hard_timeout
+	self.timer_started.emit()
 	await get_tree().create_timer(time).timeout
 	self.timer_ended.emit()
 	self.restart()
@@ -100,6 +105,7 @@ func start_timer() -> void:
 
 # Oculta de nuevo la pizza:
 func restart() -> void:
+	self.has_pizza = false
 	if self.pizza.is_visible_in_tree():
 		self.pizza.hide()
 
