@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=113 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="PackedScene" uid="uid://cy74drae0ss82" path="res://components/robot/Robot.tscn" id="3_goqxl"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="6_4l6hj"]
 [ext_resource type="Texture2D" uid="uid://cygeue24uwy4k" path="res://assets/graphical_assets/characters/player/robot_scene_04.tga" id="9_rgbo7"]
 [ext_resource type="PackedScene" uid="uid://cv1ytr5mbabfm" path="res://components/score_screen/ScoreScreen.tscn" id="10_ix28s"]
+[ext_resource type="Theme" uid="uid://ot4iuwcbdrhy" path="res://assets/graphical_assets/styles/pause_button.tres" id="13_hx565"]
 [ext_resource type="Texture2D" uid="uid://cm1qbqgxj7c82" path="res://assets/graphical_assets/characters/player/main_character_scene_04.tga" id="13_tc6v6"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="14_07qk4"]
 
@@ -1020,7 +1021,6 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
-visible = false
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = -1
 anchor_left = -0.000976563
@@ -1063,6 +1063,21 @@ libraries = {
 "": SubResource("AnimationLibrary_gyxyh")
 }
 
+[node name="PauseBtn" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.210938
+anchor_top = 0.00520833
+anchor_right = 0.25
+anchor_bottom = 0.0746528
+focus_neighbor_left = NodePath("../PricesBtn")
+focus_neighbor_top = NodePath("../PricesBtn")
+focus_neighbor_right = NodePath("../VBoxContainer/AcceptBtn")
+focus_neighbor_bottom = NodePath("../VBoxContainer/AcceptBtn")
+focus_next = NodePath("../VBoxContainer/AcceptBtn")
+focus_previous = NodePath("../PricesBtn")
+theme = ExtResource("13_hx565")
+metadata/_edit_use_anchors_ = true
+
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("4_rjwd5")]
 visible = false
 anchor_left = 0.813477
@@ -1079,6 +1094,7 @@ show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
+[connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]
 [connection signal="pivot_changed" from="CanvasLayer/Clock" to="." method="_on_clock_pivot_changed"]
 [connection signal="restart_game" from="CanvasLayer/ScoreScreen" to="." method="_on_score_screen_restart_game"]

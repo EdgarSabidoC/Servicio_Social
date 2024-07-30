@@ -151,8 +151,10 @@ func _on_pause_finished() -> void:
 
 func _on_pause_btn_pressed() -> void:
 	if !self.pause.is_active():
-			self.clock.stop()
-			self.pause.show()
+		if !Mouse.mouse_mode_activated:
+			self.pause.continue_btn.grab_focus()
+		self.clock.stop()
+		self.pause.show()
 
 
 # Cuando se llegue a un pivote en cuenta atrás se aumenta la velocidad de la música:
