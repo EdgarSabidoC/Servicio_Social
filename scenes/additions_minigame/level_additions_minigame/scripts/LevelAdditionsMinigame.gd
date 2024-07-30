@@ -133,8 +133,9 @@ func set_clock() -> void:
 			self.clock.time = self.time_medium
 		"hard":
 			self.clock.time = self.time_hard
-	if !PlayerSession.is_practice_mode():
+	if not PlayerSession.is_practice_mode():
 		self.clock.show()
+		self.clock.reset_color()
 
 
 # Genera una etiqueta dinámica con datos aleatorios:
@@ -391,7 +392,8 @@ func _on_prices_btn_pressed() -> void:
 
 func _on_prices_menu_back_btn_pressed() -> void:
 	self.prices_menu.hide()
-	self.clock.continue_clock()
+	if not PlayerSession.is_practice_mode():
+		self.clock.continue_clock()
 
 
 func _on_accept_btn_pressed() -> void:
