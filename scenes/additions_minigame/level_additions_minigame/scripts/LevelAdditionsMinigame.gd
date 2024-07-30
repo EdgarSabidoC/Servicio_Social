@@ -34,6 +34,9 @@ extends Node2D
 @onready var ticket_animation_player: AnimationPlayer = $CanvasLayer/TicketTexture/TicketAnimationPlayer
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
 @onready var score_panel: Panel = $CanvasLayer/ScorePanel
+@onready var score_flash_label: Label = $CanvasLayer/ScoreFlashLabel
+@onready var score_label_player: AnimationPlayer = $CanvasLayer/ScoreFlashLabel/AnimationPlayer
+
 
 # Tiempos del reloj por dificultad:
 @export var time_easy: float = 180
@@ -48,6 +51,10 @@ func _enter_tree() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerSession.is_practice_mode():
+		self.score_flash_label.position = Vector2(760, 16)
+	else:
+		self.score_flash_label.position = Vector2(56,27)
 	self.set_game()
 
 
@@ -85,12 +92,13 @@ func set_game() -> void:
 	# Se configura el tiempo del reloj:
 	self.set_clock()
 	
-	if !PlayerSession.is_practice_mode():
+	if not PlayerSession.is_practice_mode():
 		self.score_panel.show()
 		# Se inicializa el puntaje en 0:
 		PlayerSession.score = 0
 		# Se imprime el puntaje:
 		self.score_label.print_score()
+		self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
 
 	# Se muestra la orden:
 	self.rich_text_label.text = self.generate_order()
@@ -277,6 +285,13 @@ func print_message():
 	self.score_label_player.play("fade_out")
 
 
+# Imprime el puntaje:
+func print_score() -> void:
+	self.score_flash_label.text = "+10000"
+	self.score_label_player.play("fade_out")
+	self.score_label.print_score()
+
+
 # Deshabilita los botones del teclado de la registradora:
 func disable_registry_buttons() -> void:
 	self.buttons_are_enabled = false
@@ -381,8 +396,13 @@ func _on_prices_menu_back_btn_pressed() -> void:
 
 func _on_accept_btn_pressed() -> void:
 	if float(self.total_label.text) == self.total:
-		PlayerSession.score += 10000 # Se actualiza el puntaje
-		self.score_label.print_score() # Se imprime el puntaje
+		if PlayerSession.is_practice_mode():
+			# Si es el modo práctica:
+			self.print_message()
+		else:
+			PlayerSession.score += 10000 # Se actualiza el puntaje
+			# Se imprime el puntaje:
+			self.print_score()
 	if !self.accept_btn.disabled and self.total_label.text != "":
 		self.ticket_texture.show() # Se muestra la textura del ticket.
 		self.ticket_animation_player.play("default") # Animación del ticket
