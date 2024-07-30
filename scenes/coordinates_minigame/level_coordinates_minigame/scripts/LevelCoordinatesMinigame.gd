@@ -34,6 +34,7 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
+	PlayerSession.difficulty = "hard"
 	# Se configura el juego/partida:
 	self.set_game()
 	self.connect_signals()
@@ -72,7 +73,6 @@ func check_answer(table: AnimatedTextureRect, robot: AnimatedTextureRect) -> voi
 func print_score() -> void:
 	self.score_flash_label.text = "+%s" % self.default_score
 	self.score_label_player.play("fade_out")
-	self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
 	self.score_label.print_score()
 
 
@@ -164,6 +164,16 @@ func _on_clock_pivot_changed() -> void:
 	
 	# Se reduce el puntaje por defecto:
 	self.reduce_default_score()
+	
+	# Se cambian los colores del score_flash_label de acuerdo a default_score:
+	if self.default_score == 10000:
+		self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
+	elif self.default_score == 8750:
+		self.score_flash_label.set("theme_override_colors/font_color", Color.YELLOW)
+	elif self.default_score == 7500:
+		self.score_flash_label.set("theme_override_colors/font_color", Color.CORAL)
+	elif self.default_score <= 6250:
+		self.score_flash_label.set("theme_override_colors/font_color", Color.RED)
 
 
 func _on_clock_countdown_finished() -> void:

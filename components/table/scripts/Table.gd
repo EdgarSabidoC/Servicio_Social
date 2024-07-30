@@ -71,10 +71,10 @@ func _ready() -> void:
 	self.check_coordinates_limits()
 
 
-# Se valida que se pueda soltar un Vector2i [Coordenada(X,Y)]:
-func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+# Se valida que se pueda soltar:
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	if not self.has_pizza:
-		return data is Vector2i and !self.pizza.is_visible_in_tree()
+		return !self.pizza.is_visible_in_tree()
 	else:
 		return false
 

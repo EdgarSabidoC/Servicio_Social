@@ -28,6 +28,7 @@ enum AnimationOptions {## Options to use the Sprites animation as preview, textu
 
 # Coordenadas (X,Y):
 @onready var _coordinates: Vector2i
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 ## Dropped signal is emitted when data is dropped inside another DragTexture.
@@ -46,11 +47,15 @@ func _ready() -> void:
 		self.stop()
 	# Se valida que las coordenadas estén dentro de los límites:
 	self.validate_coordinates()
+	self.animation_player.play("enter")
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	# Textura de la vista previa:
 	var preview_texture =  AnimatedTextureRect.new()
+	
+	# Se oculta el mouse:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	# Se valida si hay sprites y si es modo Preview o Both:
 	if self.sprites and (self.animation_as == AnimationOptions.PREVIEW or \
@@ -81,7 +86,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		self.texture = null
 
 	# Se retorna la textura y las coordenadas:
-	return self.get_coordinates()
+	return self
 
 
 # Asigna un par de coordenadas:
@@ -124,10 +129,12 @@ func restart() -> void:
 	# Aquí se debe reproducir la animación para hacer que salga de la puerta el robot.
 	# AÑADIR CÓDIGO.
 	self.play("enter")
+	self.animation_player.play("enter")
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_DRAG_END:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		# Cuando no se suelta en un lugar válido, se reestablece la textura predeterminada del robot:
 		if !get_viewport().gui_is_drag_successful():
 			self.play("idle")
