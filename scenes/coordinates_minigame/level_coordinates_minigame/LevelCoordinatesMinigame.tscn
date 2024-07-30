@@ -1043,7 +1043,6 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/AnimatedTextureRect"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0903614
@@ -1089,6 +1088,7 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = -1
 anchor_left = -0.000976563

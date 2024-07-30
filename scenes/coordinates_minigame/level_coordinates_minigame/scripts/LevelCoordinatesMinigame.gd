@@ -34,7 +34,6 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	PlayerSession.difficulty = "hard"
 	# Se configura el juego/partida:
 	self.set_game()
 	self.connect_signals()
@@ -64,9 +63,36 @@ func check_answer(table: AnimatedTextureRect, robot: AnimatedTextureRect) -> voi
 	self.animation_player.play("end_coordinate")
 	
 	if table.compare_coordinates(robot.get_coordinates()):
-		self.set_score()
-		# Se imprime el puntaje:
-		self.print_score()
+		if not PlayerSession.is_practice_mode():
+			self.set_score()
+			# Se imprime el puntaje:
+			self.print_score()
+		else:
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			var label_text: int = rng.randi_range(0, 100)
+			if label_text >= 90:
+				self.score_flash_label.text = "¡Excelente!"
+			elif label_text >= 80:
+				self.score_flash_label.text = "¡Muy bien!"
+			elif label_text >= 70:
+				self.score_flash_label.text = "¡Bien hecho!"
+			elif label_text >= 60:
+				self.score_flash_label.text = "¡Eso es!"
+			elif label_text >= 50:
+				self.score_flash_label.text = "¡Sigue así!"
+			elif label_text >= 40:
+				self.score_flash_label.text = "¡Gran trabajo!"
+			elif label_text >= 30:
+				self.score_flash_label.text = "¡Lo lograste!"
+			elif label_text >= 20:
+				self.score_flash_label.text = "¡Perfecto!"
+			elif label_text >= 10:
+				self.score_flash_label.text = "¡Increíble!"
+			else:
+				self.score_flash_label.text = "¡Buen esfuerzo!"
+			self.score_flash_label.set("theme_override_colors/font_color", Color.CHARTREUSE)
+			self.score_label_player.play("fade_out")
 
 
 # Imprime el puntaje:
@@ -103,9 +129,13 @@ func set_clock() -> void:
 			self.clock.time = self.time_medium
 		"hard":
 			self.clock.time = self.time_hard
-	if !PlayerSession.is_practice_mode():
+	if not PlayerSession.is_practice_mode():
 		self.clock.show()
 		self.clock.reset_color()
+		# Contiúa el reloj:
+		self.clock.continue_clock()
+	else:
+		self.clock.stop()
 
 
 # Configura la partida:
@@ -121,15 +151,13 @@ func set_game() -> void:
 	
 		# Se imprime el puntaje:
 		self.score_label.print_score()
-	
+		self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
+
 	# Se genera una coordenada:
 	self.set_order_coordinates()
 	
 	# Se configuran el tiempo y los ingredientes:
 	self.set_clock()
-	
-	# Contiúa el reloj:
-	self.clock.continue_clock()
 
 
 # Genera un par de coordenadas aleatorias:
