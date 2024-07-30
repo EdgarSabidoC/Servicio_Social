@@ -34,7 +34,6 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	PlayerSession.difficulty = "hard"
 	# Se configura el juego/partida:
 	self.set_game()
 	self.connect_signals()
@@ -74,7 +73,7 @@ func print_score() -> void:
 	self.score_flash_label.text = "+%s" % self.default_score
 	self.score_flash_label.show()
 	self.score_label_player.play("fade_out")
-	self.score_flash_label.set("theme_override_colors/font_color", Color.WEB_GREEN)
+	self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
 	self.score_label.print_score()
 
 

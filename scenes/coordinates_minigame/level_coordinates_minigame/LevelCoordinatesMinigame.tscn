@@ -1028,7 +1028,6 @@ anchor_left = 0.0546875
 anchor_top = 0.0555556
 anchor_right = 0.132813
 anchor_bottom = 0.0902778
-text = "+10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
