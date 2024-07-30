@@ -34,7 +34,6 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
-	PlayerSession.difficulty = "hard"
 	# Se configura el juego/partida:
 	self.set_game()
 	self.connect_signals()
