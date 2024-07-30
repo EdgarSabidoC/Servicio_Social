@@ -250,6 +250,33 @@ func check_input_actions() -> void:
 			self.total_label.text += "."
 
 
+# Imprime un mensaje aleatorio:
+func print_message():
+	var label_text: int = RandomNumberGenerator.new().randi_range(0, 100)
+	if label_text >= 90:
+		self.score_flash_label.text = "¡Excelente!"
+	elif label_text >= 80:
+		self.score_flash_label.text = "¡Muy bien!"
+	elif label_text >= 70:
+		self.score_flash_label.text = "¡Bien hecho!"
+	elif label_text >= 60:
+		self.score_flash_label.text = "¡Eso es!"
+	elif label_text >= 50:
+		self.score_flash_label.text = "¡Sigue así!"
+	elif label_text >= 40:
+		self.score_flash_label.text = "¡Gran trabajo!"
+	elif label_text >= 30:
+		self.score_flash_label.text = "¡Lo lograste!"
+	elif label_text >= 20:
+		self.score_flash_label.text = "¡Perfecto!"
+	elif label_text >= 10:
+		self.score_flash_label.text = "¡Increíble!"
+	else:
+		self.score_flash_label.text = "¡Buen esfuerzo!"
+	self.score_flash_label.set("theme_override_colors/font_color", Color.CHARTREUSE)
+	self.score_label_player.play("fade_out")
+
+
 # Deshabilita los botones del teclado de la registradora:
 func disable_registry_buttons() -> void:
 	self.buttons_are_enabled = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=116 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/ColorRect.gd" id="2_80h4x"]
@@ -824,37 +824,21 @@ tracks/1/keys = {
 "update": 1,
 "values": ["enter", "idle"]
 }
-
-[sub_resource type="Animation" id="Animation_dumo1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(910, 490)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:current_animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["idle"]
+"values": [Vector2(80, 133)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gj4mb"]
 _data = {
-"RESET": SubResource("Animation_dumo1"),
 "enter": SubResource("Animation_xu4cm")
 }
 
@@ -1055,15 +1039,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Robot" parent="CanvasLayer" instance=ExtResource("3_goqxl")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 133)
 anchor_left = 0.889
 anchor_top = 0.599
 anchor_right = 0.967
 anchor_bottom = 0.83
 offset_left = -0.33606
-offset_top = 144.976
+offset_top = 211.976
 offset_right = -0.208069
-offset_bottom = 144.92
+offset_bottom = 211.92
 texture = SubResource("AtlasTexture_kek5n")
+current_animation = "enter"
 frame_index = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Robot"]

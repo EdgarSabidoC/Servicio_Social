@@ -74,9 +74,7 @@ func check_answer(table: AnimatedTextureRect, robot: AnimatedTextureRect) -> voi
 
 # Imprime un mensaje aleatorio:
 func print_message():
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var label_text: int = rng.randi_range(0, 100)
+	var label_text: int = RandomNumberGenerator.new().randi_range(0, 100)
 	if label_text >= 90:
 		self.score_flash_label.text = "¡Excelente!"
 	elif label_text >= 80:
