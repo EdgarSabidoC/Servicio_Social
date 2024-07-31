@@ -98,7 +98,7 @@ func set_game() -> void:
 		PlayerSession.score = 0
 		# Se imprime el puntaje:
 		self.score_label.print_score()
-		self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
+		self.score_flash_label.set("theme_override_colors/font_color", Color.DARK_GREEN)
 
 	# Se muestra la orden:
 	self.rich_text_label.text = self.generate_order()
@@ -282,7 +282,7 @@ func print_message():
 		self.score_flash_label.text = "¡Increíble!"
 	else:
 		self.score_flash_label.text = "¡Buen esfuerzo!"
-	self.score_flash_label.set("theme_override_colors/font_color", Color.CHARTREUSE)
+	self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
 	self.score_label_player.play("fade_out")
 
 

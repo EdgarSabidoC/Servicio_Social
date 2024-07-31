@@ -91,7 +91,7 @@ func print_message():
 		self.score_flash_label.text = "¡Increíble!"
 	else:
 		self.score_flash_label.text = "¡Buen esfuerzo!"
-	self.score_flash_label.set("theme_override_colors/font_color", Color.CHARTREUSE)
+	self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
 	self.score_label_player.play("fade_out")
 
 
@@ -151,7 +151,7 @@ func set_game() -> void:
 	
 		# Se imprime el puntaje:
 		self.score_label.print_score()
-		self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
+		self.score_flash_label.set("theme_override_colors/font_color", Color.DARK_GREEN)
 
 	# Se genera una coordenada:
 	self.set_order_coordinates()
@@ -183,9 +183,8 @@ func set_order_coordinates() -> void:
 
 
 func _on_pause_finished() -> void:
-	if !Mouse.mouse_mode_activated:
-		pass
-	self.clock.continue_clock()
+	if not PlayerSession.is_practice_mode():
+		self.clock.continue_clock()
 	self.pause.hide()
 
 
@@ -208,9 +207,9 @@ func _on_clock_pivot_changed() -> void:
 	
 	# Se cambian los colores del score_flash_label de acuerdo a default_score:
 	if self.default_score == 10000:
-		self.score_flash_label.set("theme_override_colors/font_color", Color.GREEN)
+		self.score_flash_label.set("theme_override_colors/font_color", Color.DARK_GREEN)
 	elif self.default_score == 8750:
-		self.score_flash_label.set("theme_override_colors/font_color", Color.YELLOW)
+		self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
 	elif self.default_score == 7500:
 		self.score_flash_label.set("theme_override_colors/font_color", Color.CORAL)
 	elif self.default_score <= 6250:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dmvnx73aogc7v"]
+[gd_scene load_steps=38 format=3 uid="uid://dmvnx73aogc7v"]
 
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="1_3x5i5"]
 [ext_resource type="Script" path="res://scenes/symmetry_minigame/level_symmetry_minigame/scripts/LevelSymmetryMinigame.gd" id="1_owafi"]
@@ -80,6 +80,39 @@ region = Rect2(80, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mxrf"]
 atlas = ExtResource("6_vn0bs")
 region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="Animation" id="Animation_jjkbs"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyxyh"]
+_data = {
+"fade_out": SubResource("Animation_jjkbs")
+}
 
 [node name="LevelSymmetryMinigame" type="Node2D"]
 script = ExtResource("1_owafi")
@@ -735,6 +768,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_3fpxh")
 metadata/_edit_use_anchors_ = true
+
+[node name="ScoreFlashLabel" type="Label" parent="CanvasLayer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.0546875
+anchor_top = 0.0555556
+anchor_right = 0.132813
+anchor_bottom = 0.0902778
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ScoreFlashLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_gyxyh")
+}
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("1_3x5i5")]
 visible = false

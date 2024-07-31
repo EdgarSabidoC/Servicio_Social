@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=103 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/ColorRect.gd" id="2_80h4x"]
@@ -627,36 +627,9 @@ _data = {
 "enter": SubResource("Animation_xu4cm")
 }
 
-[sub_resource type="Animation" id="Animation_ev6p3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_jjkbs"]
 resource_name = "fade_out"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -664,7 +637,7 @@ tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -676,7 +649,7 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -684,7 +657,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gyxyh"]
 _data = {
-"RESET": SubResource("Animation_ev6p3"),
 "fade_out": SubResource("Animation_jjkbs")
 }
 
@@ -883,14 +855,13 @@ vertical_alignment = 1
 script = ExtResource("3_qyoai")
 
 [node name="ScoreFlashLabel" type="Label" parent="CanvasLayer"]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.5)
 anchors_preset = -1
 anchor_left = 0.0546875
 anchor_top = 0.0555556
 anchor_right = 0.132813
 anchor_bottom = 0.0902778
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

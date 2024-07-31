@@ -8,6 +8,8 @@ extends Node2D
 @onready var current_pitch: float = 1.0
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
 @onready var score_panel: Panel = $CanvasLayer/ScorePanel
+@onready var score_flash_label: Label = $CanvasLayer/ScoreFlashLabel
+@onready var score_label_player: AnimationPlayer = $CanvasLayer/ScoreFlashLabel/AnimationPlayer
 
 
 # Límites del rango de rebanadas que desaparecerán por dificultad:
@@ -139,6 +141,8 @@ func all_slots_correct() -> void:
 		for slot in list:
 			if slot.is_visible_in_tree() and !slot.is_correct():
 				return
+	if PlayerSession.is_practice_mode():
+		self.print_message()
 	self._next_round()
 
 
@@ -169,7 +173,7 @@ func show_all_slices_and_ingredients() -> void:
 func _next_round() -> void:
 	self._clear_all_data()
 	self.set_score()
-	self.score_label.print_score()
+	self.print_score()
 	
 	# Mostrar todas las rebanadas e ingredientes antes de configurar la nueva pizza
 	self.show_all_slices_and_ingredients()
@@ -195,6 +199,8 @@ func set_clock() -> void:
 			self.clock.time = self.time_medium
 		"hard":
 			self.clock.time = self.time_hard
+	if PlayerSession.is_practice_mode():
+		self.clock.stop()
 
 
 # Configura la cantidad de rebanadas que van a desaparecer:
@@ -305,6 +311,40 @@ func set_pizza() -> void:
 	self.set_ingredients()
 
 
+# Imprime el puntaje:
+func print_score() -> void:
+	self.score_flash_label.text = "+%s" % self.default_score
+	self.score_label_player.play("fade_out")
+	self.score_label.print_score()
+
+
+# Imprime un mensaje aleatorio:
+func print_message():
+	var label_text: int = RandomNumberGenerator.new().randi_range(0, 100)
+	if label_text >= 90:
+		self.score_flash_label.text = "¡Excelente!"
+	elif label_text >= 80:
+		self.score_flash_label.text = "¡Muy bien!"
+	elif label_text >= 70:
+		self.score_flash_label.text = "¡Bien hecho!"
+	elif label_text >= 60:
+		self.score_flash_label.text = "¡Eso es!"
+	elif label_text >= 50:
+		self.score_flash_label.text = "¡Sigue así!"
+	elif label_text >= 40:
+		self.score_flash_label.text = "¡Gran trabajo!"
+	elif label_text >= 30:
+		self.score_flash_label.text = "¡Lo lograste!"
+	elif label_text >= 20:
+		self.score_flash_label.text = "¡Perfecto!"
+	elif label_text >= 10:
+		self.score_flash_label.text = "¡Increíble!"
+	else:
+		self.score_flash_label.text = "¡Buen esfuerzo!"
+	self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
+	self.score_label_player.play("fade_out")
+
+
 # Configura los ingredientes:
 func set_ingredients():
 	for list in self.ingredient_list:
@@ -335,6 +375,9 @@ func set_game() -> void:
 	
 	# Se configuran el tiempo y la pizza:
 	self.set_clock()
+	
+	# Mostrar todas las rebanadas e ingredientes antes de configurar la nueva pizza
+	self.show_all_slices_and_ingredients()
 	self.set_pizza()
 	
 	# Si es el modo práctica no se muestra ni el puntaje ni el reloj:
@@ -343,6 +386,7 @@ func set_game() -> void:
 		self.clock.show()
 		# Se imprime el puntaje:
 		self.score_label.print_score()
+		self.score_flash_label.set("theme_override_colors/font_color", Color.DARK_GREEN)
 		
 		# Contiúa la animación del reloj:
 		self.clock.continue_clock()
@@ -401,9 +445,8 @@ func check_ingredient(left_ingredient: AnimatedTextureRect, right_ingredient: An
 
 
 func _on_pause_finished() -> void:
-	if !Mouse.mouse_mode_activated:
-		pass
-	self.clock.continue_clock()
+	if not PlayerSession.is_practice_mode():
+		self.clock.continue_clock()
 	self.pause.hide()
 
 
@@ -439,6 +482,16 @@ func _on_clock_pivot_changed() -> void:
 	
 	# Se reduce el puntaje por defecto:
 	self.reduce_default_score()
+	
+	# Se cambian los colores del score_flash_label de acuerdo a default_score:
+	if self.default_score == 10000:
+		self.score_flash_label.set("theme_override_colors/font_color", Color.DARK_GREEN)
+	elif self.default_score == 8750:
+		self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
+	elif self.default_score == 7500:
+		self.score_flash_label.set("theme_override_colors/font_color", Color.ORANGE)
+	elif self.default_score <= 6250:
+		self.score_flash_label.set("theme_override_colors/font_color", Color.RED)
 
 
 func _on_clock_countdown_finished() -> void:
