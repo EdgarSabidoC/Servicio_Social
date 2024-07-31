@@ -68,9 +68,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2eqj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oufa"]
 atlas = ExtResource("5_418cv")
-region = Rect2(0, 390, 80, 130)
+region = Rect2(0, 1300, 80, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tvuc"]
 atlas = ExtResource("13_tc6v6")
@@ -284,6 +284,10 @@ region = Rect2(0, 130, 80, 130)
 atlas = ExtResource("5_418cv")
 region = Rect2(0, 260, 80, 130)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2eqj"]
+atlas = ExtResource("5_418cv")
+region = Rect2(0, 390, 80, 130)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1ktg"]
 atlas = ExtResource("5_418cv")
 region = Rect2(0, 520, 80, 130)
@@ -307,10 +311,6 @@ region = Rect2(0, 1040, 80, 130)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0btk"]
 atlas = ExtResource("5_418cv")
 region = Rect2(0, 1170, 80, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5oufa"]
-atlas = ExtResource("5_418cv")
-region = Rect2(0, 1300, 80, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uuoj2"]
 atlas = ExtResource("5_418cv")
@@ -1002,11 +1002,12 @@ offset_left = -0.384001
 offset_top = -0.208
 offset_bottom = -0.168015
 pivot_offset = Vector2(82.9998, 96.5)
-texture = SubResource("AtlasTexture_c2eqj")
+texture = SubResource("AtlasTexture_5oufa")
 stretch_mode = 5
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_7qhfs")
-frame_index = 53
+frame_index = 60
+playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/AnimatedTextureRect"]
@@ -1033,11 +1034,10 @@ anchor_top = 0.599
 anchor_right = 0.967
 anchor_bottom = 0.83
 offset_left = -0.335999
-offset_top = 211.976
+offset_top = -0.0239868
 offset_right = -0.208008
-offset_bottom = 211.92
+offset_bottom = -0.0799866
 texture = SubResource("AtlasTexture_kek5n")
-current_animation = "enter"
 frame_index = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Robot"]
