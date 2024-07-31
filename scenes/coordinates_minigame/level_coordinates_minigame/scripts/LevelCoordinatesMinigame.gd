@@ -3,12 +3,12 @@ extends Node2D
 @onready var pause: Control = $CanvasLayer/Pause
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
-@onready var label: Label = $CanvasLayer/AnimatedTextureRect/Label
+@onready var label: Label = $CanvasLayer/Opossum/Label
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
 @onready var score_panel: Panel = $CanvasLayer/ScorePanel
 @onready var score_flash_label: Label = $CanvasLayer/ScoreFlashLabel
 @onready var score_label_player: AnimationPlayer = $CanvasLayer/ScoreFlashLabel/AnimationPlayer
-
+@onready var coordinates_cache: Array[Vector2i] = []
 
 # Tiempos del reloj por dificultad:
 ## Time for clock on easy difficulty.
@@ -20,10 +20,6 @@ extends Node2D
 
 ## Default score.
 @onready var default_score: int = 10000
-
-# Animación de la zarigüeya:
-@onready var animated_texture_rect: AnimatedTextureRect = $CanvasLayer/AnimatedTextureRect
-@onready var animation_player: AnimationPlayer = $CanvasLayer/AnimatedTextureRect/AnimationPlayer
 
 @onready var current_pitch: float = 1.0
 
@@ -59,8 +55,8 @@ func connect_signals() -> void:
 # Verifica que la respuesta sea correcta:
 func check_answer(table: AnimatedTextureRect, robot: AnimatedTextureRect) -> void:
 	# Inicia la animación para cambiar las coordenadas mostradas
-	self.animation_player.animation_set_next("end_coordinate", "idle_coordinate")
-	self.animation_player.play("end_coordinate")
+	self.label.hide()
+	%Opossum.play("end_coordinates")
 	
 	if table.compare_coordinates(robot.get_coordinates()):
 		if not PlayerSession.is_practice_mode():
@@ -166,11 +162,24 @@ func set_game() -> void:
 
 # Genera un par de coordenadas aleatorias:
 func set_order_coordinates() -> void:
-	%Robot.set_rand_coordinates()
-	self.label.text = str(%Robot.get_coordinates())
+	%Robot.set_rand_coordinates() # Se genera una coordenada aleatoria.
+	var coordinates: Vector2i = %Robot.get_coordinates() # Coordenadas
 	
+	# Si el caché está lleno se limpia:
+	if self.coordinates_cache.size() == 7:
+		self.coordinates_cache.clear()
+	print_debug(self.coordinates_cache)
+	# Genera nuevas coordenadas hasta que sean diferentes de las que están en el caché:
+	while coordinates in self.coordinates_cache:
+		%Robot.set_rand_coordinates()
+		coordinates = %Robot.get_coordinates()
+	
+	# Agrega las coordenadas al caché
+	self.coordinates_cache.append(coordinates)
+	# Actualiza el texto del label
+	self.label.text = str(coordinates)
 	# Inicia la animación para mostrar las coordenadas asignadas
-	self.animation_player.play("set_coordinate")
+	%Opossum.play("default")
 
 
 func _on_pause_finished() -> void:
@@ -220,3 +229,11 @@ func _on_clock_countdown_finished() -> void:
 func _on_score_screen_restart_game() -> void:
 	# Se configura el juego/partida:
 	self.set_game()
+
+
+func _on_opossum_finished() -> void:
+	match %Opossum.current_animation:
+		"default":
+			self.label.show()
+		"end_coordinates":
+			%Opossum.play("idle")
