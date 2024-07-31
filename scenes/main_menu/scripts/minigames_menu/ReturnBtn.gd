@@ -9,10 +9,12 @@ extends Button
 @onready var menu_textbox_container = %MenuTextbox
 @onready var play_btn: Button = $"../../MenuContainer/MainMenu/PlayBtn"
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
+@onready var fractions_minigame: Button = $"../FractionsMinigame"
 
 
 func _on_pressed() -> void:
 	if PlayerSession.is_practice_mode():
+		self.fractions_minigame.show()
 		# Si está en el modo práctica, lo desactiva:
 		PlayerSession.change_practice_mode()
 
