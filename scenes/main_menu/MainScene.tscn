@@ -197,9 +197,9 @@ hint = "Perfecciona tus habilidades o familiarízate con los minijuegos.
 El reloj y el puntaje están desactivados.
 
 Minijuegos disponibles:
-	* Sumas
-	* Coordenadas
-	* Simetría"
+	◼︎ Sumas
+	◼︎ Coordenadas
+	◼︎ Simetría"
 
 [node name="SettingsBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
