@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cey14hi43x1vs"]
+[gd_scene load_steps=38 format=3 uid="uid://cey14hi43x1vs"]
 
 [ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/LevelAdditionsMinigame.gd" id="1_x0vea"]
@@ -171,36 +171,9 @@ _data = {
 "reset": SubResource("Animation_d46tb")
 }
 
-[sub_resource type="Animation" id="Animation_ev6p3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_jjkbs"]
 resource_name = "fade_out"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -208,7 +181,7 @@ tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -220,7 +193,7 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -228,7 +201,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gyxyh"]
 _data = {
-"RESET": SubResource("Animation_ev6p3"),
 "fade_out": SubResource("Animation_jjkbs")
 }
 
@@ -544,7 +516,6 @@ script = ExtResource("14_roxb4")
 
 [node name="ScoreFlashLabel" type="Label" parent="CanvasLayer"]
 visible = false
-self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_left = 0.742188
 anchor_top = 0.0277778
@@ -620,4 +591,3 @@ size_flags_vertical = 6
 [connection signal="visibility_changed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_visibility_changed"]
 [connection signal="restart_game" from="CanvasLayer/ScoreScreen" to="." method="_on_score_screen_restart_game"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]
-[connection signal="visibility_changed" from="CanvasLayer/Pause" to="." method="_on_pause_visibility_changed"]

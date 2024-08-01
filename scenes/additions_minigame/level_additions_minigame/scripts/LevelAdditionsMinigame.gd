@@ -430,11 +430,6 @@ func _on_prices_menu_visibility_changed() -> void:
 		self.accept_btn.grab_focus()
 
 
-func _on_pause_visibility_changed() -> void:
-	if !self.pause.is_visible_in_tree() and !Mouse.mouse_mode_activated:
-		self.accept_btn.grab_focus()
-
-
 func _on_clear_btn_pressed() -> void:
 	self.ticket_texture.hide()
 	if self.accept_btn.disabled:
