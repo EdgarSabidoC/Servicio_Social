@@ -1,7 +1,7 @@
 extends Control
 
-var level_fractions_minigame = load("res://scenes/fractions_minigame/level_fractions_minigame/LevelFractionsMinigame.tscn")
-var outro_cutscene = load("res://scenes/fractions_minigame/cutscenes/outro_cutscene/OutroCutscene.tscn")
+var level_fractions_minigame: PackedScene = load("res://scenes/fractions_minigame/level_fractions_minigame/LevelFractionsMinigame.tscn")
+var outro_cutscene: PackedScene = load("res://scenes/fractions_minigame/cutscenes/outro_cutscene/OutroCutscene.tscn")
 
 @onready var music_starts_at: float = 0.5
 @onready var scene_01: Control = $Scene01
