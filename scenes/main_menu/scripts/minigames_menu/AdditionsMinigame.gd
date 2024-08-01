@@ -6,6 +6,7 @@ extends Button
 @onready var menu_background_color: ColorRect = $"../../MenuBackgroundColor"
 @onready var margin_container: MarginContainer = $"../MarginContainer"
 @onready var fractions_minigame: Button = $"../FractionsMinigame"
+@onready var settings_background_color: ColorRect = $"../../SettingsBackgroundColor"
 
 
 # Al presionar el botón:
@@ -14,6 +15,7 @@ func _on_pressed() -> void:
 	get_viewport().set_input_as_handled()
 	# Moverse al menú de selección de dificultad:
 	self.menu_background_color.fade_in()
+	self.settings_background_color.fade_out()
 	PlayerSession.current_minigame = PlayerSession.Minigames.ADDITIONS
 	if !PlayerSession.additions_info_screen:
 		print_debug("Entró a InfoScreen con Additions")

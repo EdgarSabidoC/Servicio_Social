@@ -9,15 +9,16 @@ extends Button
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
 @onready var minigames_menu: VBoxContainer = %MinigamesMenu
 @onready var margin_container: MarginContainer = $"../../MinigamesMenu/MarginContainer"
+@onready var additions_minigame: Button = $"../../MinigamesMenu/AdditionsMinigame"
 
 
 func _on_pressed() -> void:
-	self.menu_background_color.fade_out() # Realiza un fade in al fondo del menú
+	# Moverse al menú principal
+	self.settings_background_color.fade_in()
+	self.menu_background_color.fade_out()
 	self.margin_container.show() # Se muestra el contenedor del textbox del menú de minijuegos
 	self.minigames_menu.show() # Se muestra el menú de minijuegos
 	self.difficulty_menu.hide() # Se oculta el menú de opciones de dificultad
-	if !Mouse.mouse_mode_activated:
-		self.fractions_minigame.grab_focus() # Se enfoca el botón del primer minijuego
 
 
 # Al estar enfocado el botón:

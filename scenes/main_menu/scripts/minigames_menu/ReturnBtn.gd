@@ -19,8 +19,9 @@ func _on_pressed() -> void:
 		# Si está en el modo práctica, lo desactiva:
 		PlayerSession.change_practice_mode()
 	
-	# Se muestra el menú principal:
-	self.menu_background_color.fade_in() # Realiza un fade in al fondo del menú
+	# Moverse al menú principal
+	self.menu_background_color.fade_in()
+	self.settings_background_color.fade_out()
 	self.menu_container.show()
 	self.main_menu.show()
 	self.menu_textbox_container.show() # Se muestra el textbox del menú principal
