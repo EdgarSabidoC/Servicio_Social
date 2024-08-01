@@ -29,7 +29,7 @@ func _on_pressed():
 	get_viewport().set_input_as_handled()
 	
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
-	SceneLoader.load_scene(_move_to)
+	SceneLoader.load_scene(self._move_to)
 
 
 # Al estar enfocado el botón:
@@ -47,10 +47,10 @@ func _on_focus_exited():
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
 	self.add_theme_font_size_override("font_size", 24)
-	menu_textbox.print_message(self.hint, "c")
+	self.menu_textbox.print_message(self.hint, "c")
 
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
-	menu_textbox.clear_message("c")
+	self.menu_textbox.clear_message("c")

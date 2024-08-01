@@ -15,11 +15,11 @@ func _ready() -> void:
 
 # Muestra el texto de la tecla seleccionada:
 func display_key() -> void:
-	action_icon.action_name = action
+	self.action_icon.action_name = self.action
 
 
 func _display_key_when_error(a) -> String:
-	return action_icon._get_keyboard(Mouse.input_actions[a][0].keycode).get_path()
+	return self.action_icon._get_keyboard(Mouse.input_actions[a][0].keycode).get_path()
 
 
 # Remapea la tecla borrando el evento previo y añadiendo uno nuevo:
@@ -27,32 +27,32 @@ func _remap_action_to(event: InputEvent) -> bool:
 	# Se borra el texto de la tecla:
 	text = ""
 	# Se verifica que la tecla ingresada no esté repetida:
-	for a in actions:
+	for a in self.actions:
 		var compare_key: InputEventKey = Persistence.config.get_value("Controls", a, InputEventKey)
 		# Si las acciones son diferentes, pero tienen la misma tecla, se arroja un error:
-		if event.keycode == KEY_ESCAPE or (a != action and compare_key.keycode == event.keycode):
+		if event.keycode == KEY_ESCAPE or (a != self.action and compare_key.keycode == event.keycode):
 			# Se refresca el ícono del botón de acción:
-			action_icon.refresh()
+			self.action_icon.refresh()
 			# Se muestra el ícono del botón de acción:
-			action_icon.show()
+			self.action_icon.show()
 			# Se obtiene la tecla del error:
 			var error_image: String = _display_key_when_error(a)
-			errorMsg = "No es posible asignar «[img={error_width}x{error_height}]{error_image}[/img]» debido a que ya se encuentra asignada.".format({"error_width": 0, "error_height": 40, "error_image": error_image})
-			error = true
+			self.errorMsg = "No es posible asignar «[img={error_width}x{error_height}]{error_image}[/img]» debido a que ya se encuentra asignada.".format({"error_width": 0, "error_height": 40, "error_image": error_image})
+			self.error = true
 			return false
 	
 	# Se configura action y event para la sección Controls
 	# y se guarda la información.
-	errorMsg = ""
-	error = false
-	InputMap.action_erase_events(action)
-	InputMap.action_add_event(action, event)
-	Persistence.config.set_value("Controls", action, event)
+	self.errorMsg = ""
+	self.error = false
+	InputMap.action_erase_events(self.action)
+	InputMap.action_add_event(self.action, event)
+	Persistence.config.set_value("Controls", self.action, event)
 	Persistence.save_data()
 	# Se refresca el ícono del botón de acción:
-	action_icon.refresh()
+	self.action_icon.refresh()
 	# Se muestra el ícono del botón de acción:
-	action_icon.show()
+	self.action_icon.show()
 	return true
 
 # Enciende el proceso de la tecla y cambia el texto:
@@ -62,7 +62,7 @@ func _on_pressed() -> void:
 	
 	# Se activa la escucha para el proceso de entrada de teclado:
 	set_process_unhandled_key_input(true)
-	action_icon.hide() # Se oculta el ícono del botón de acción
+	self.action_icon.hide() # Se oculta el ícono del botón de acción
 	text = "Presiona cualquier tecla"
 
 

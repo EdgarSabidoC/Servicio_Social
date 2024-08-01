@@ -49,6 +49,9 @@ func _on_exit_menu_yes_pressed() -> void:
 	if self.settings.is_visible_in_tree():
 		self.settings.hide()
 	elif self.difficulty_menu.is_visible_in_tree():
+		if PlayerSession.is_practice_mode():
+			# Si es el modo práctica se desactiva:
+			PlayerSession.change_practice_mode()
 		self.difficulty_menu.hide()
 	elif self.minigames_menu.is_visible_in_tree():
 		if PlayerSession.is_practice_mode():

@@ -16,18 +16,18 @@ func _on_pressed() -> void:
 	PlayerSession.change_practice_mode()
 	
 	# Moverse al menú de selección de dificultad:
-	settings_background_color.show()
-	menu_background_color.fade_out()
-	minigames_menu.show()
-	menu_container.hide() # Oculta el menú principal
-	text_box_container.hide() # Oculta el textbox del menú principal
+	self.settings_background_color.show()
+	self.menu_background_color.fade_out()
+	self.minigames_menu.show()
+	self.menu_container.hide() # Oculta el menú principal
+	self.text_box_container.hide() # Oculta el textbox del menú principal
 
 
 # Al estar enfocado el botón:
 func _on_focus_entered():
 	self.add_theme_stylebox_override("focus", get_theme_stylebox("hover", "Button"))
 	self.add_theme_font_size_override("font_size", 24)
-	menu_textbox.print_message(self.hint)
+	self.menu_textbox.print_message(self.hint)
 
 
 # Al salir de foco del botón:
@@ -38,10 +38,10 @@ func _on_focus_exited():
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
 	self.add_theme_font_size_override("font_size", 24)
-	menu_textbox.print_message(self.hint)
+	self.menu_textbox.print_message(self.hint)
 
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
-	menu_textbox.clear_message()
+	self.menu_textbox.clear_message()

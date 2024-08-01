@@ -9,7 +9,7 @@ func _ready() -> void:
 	var screen_type = Persistence.config.get_value("Video", "fullscreen")
 
 	if screen_type == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		fullscreen.button_pressed = true
+		self.fullscreen.button_pressed = true
 	
 	# Se obtiene el valor de modo sin bordes y se configura el botón
 	# de acuerdo con ello.

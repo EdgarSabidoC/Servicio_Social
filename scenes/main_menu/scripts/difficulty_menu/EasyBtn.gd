@@ -29,7 +29,7 @@ func _on_pressed():
 	get_viewport().set_input_as_handled()
 	
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
-	SceneLoader.load_scene(_move_to)
+	SceneLoader.load_scene(self._move_to)
 
 
 # Al estar enfocado el botón:

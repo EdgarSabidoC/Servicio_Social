@@ -13,22 +13,23 @@ extends Button
 
 # Muestra el menú de las opciones de configuración y oculta el menú principal:
 func _on_pressed() -> void:
-	settings_background_color.show()
-	menu_background_color.fade_out()
-	settings.show() # Muestra el menú de opciones
+	self.settings_background_color.show()
+	self.settings_background_color.fade_in()
+	self.menu_background_color.fade_out()
+	self.settings.show() # Muestra el menú de opciones
 	if !Mouse.mouse_mode_activated:
-		settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
+		self.settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
 	else:
 		%BackButton.show()
-	menu_container.hide() # Oculta el menú principal
-	text_box_container.hide() # Oculta el textbox del menú principal
+	self.menu_container.hide() # Oculta el menú principal
+	self.text_box_container.hide() # Oculta el textbox del menú principal
 
 
 # Al estar enfocado el botón:
 func _on_focus_entered():
 	self.add_theme_stylebox_override("focus", get_theme_stylebox("hover", "Button"))
 	self.add_theme_font_size_override("font_size", 24)
-	menu_textbox.print_message(self.hint)
+	self.menu_textbox.print_message(self.hint)
 
 
 # Al salir de foco del botón:
@@ -39,10 +40,10 @@ func _on_focus_exited():
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
 	self.add_theme_font_size_override("font_size", 24)
-	menu_textbox.print_message(self.hint)
+	self.menu_textbox.print_message(self.hint)
 
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
-	menu_textbox.clear_message()
+	self.menu_textbox.clear_message()

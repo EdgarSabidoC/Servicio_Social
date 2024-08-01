@@ -8,7 +8,7 @@ extends TabBar
 func _ready() -> void:
 	# Se carga la información desde el archivo:
 	var text: String =  "[center]%s[/center]" % _load_license()
-	scrollbar_textbox.print_text(text)
+	self.scrollbar_textbox.print_text(text)
 
 
 # Carga el archivo de licensia de Godot:

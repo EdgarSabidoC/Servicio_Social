@@ -9,7 +9,7 @@ extends VBoxContainer
 
 
 func _ready() -> void:
-	menu_textbox.print_message(menu_textbox.default_text, "c")
+	self.menu_textbox.print_message(self.menu_textbox.default_text, "c")
 
 
 func _on_visibility_changed() -> void:

@@ -39,10 +39,10 @@ func _on_focus_exited():
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
 	self.add_theme_font_size_override("font_size", 24)
-	menu_textbox.print_message(self.hint, "c")
+	self.menu_textbox.print_message(self.hint, "c")
 
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
-	menu_textbox.clear_message("c")
+	self.menu_textbox.clear_message("c")
