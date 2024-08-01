@@ -49,7 +49,7 @@ func _on_main_menu_btn_pressed() -> void:
 
 
 func _on_visibility_changed() -> void:
-	if self.is_visible_in_tree() and !Mouse.mouse_mode_activated:
+	if self.is_visible_in_tree():
 		self.continue_btn.grab_focus()
 	else:
 		self.continue_btn.release_focus()
