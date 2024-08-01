@@ -1,12 +1,10 @@
 extends Node
 
-@onready var username: String = "Player"
+@onready var username: String = "Jugador"
 @onready var score: int = 0
 @onready var multipliers: Array[float]
 @export var difficulty: String = "easy"
 @export var character: int = 0
-@onready var secret_level: bool = false
-@onready var alux_rejected: bool = false
 enum Minigames {FRACCTIONS = 0, ADDITIONS = 1, COORDINATES = 2, SYMMETRY = 3}
 @onready var current_minigame: Minigames
 @onready var practice_mode: bool = false
@@ -23,7 +21,6 @@ func clear_player_session() -> void:
 	self.difficulty = "easy"
 	self.multipliers = []
 	self.character = 0
-	self.secret_level = false
 
 
 # Obtiene el siguiente personaje:

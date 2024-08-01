@@ -1,47 +1,51 @@
 extends Node
 class_name LoadCharacters 
 
-# Rutas de los archivos .json con los datos:
-var characters_data_path: String = "res://assets/graphical_assets/texts/problems/fractions_minigame/characters_data.json"
 const LOWER_LIMIT: int = 0
 const PROBLEMS_DATA_UPPER_LIMIT: int = 9
 const PROBLEMS_UPPER_LIMIT: int = 4
 const NUMBER_OF_CHARACTERS: int = 5
-var easy_data_loaded: bool = false
-var hard_data_loaded: bool = false
-var medium_data_loaded: bool = false
 
-# Se accede al Autoload como: CharactersData.characters
-var characters: Array[CharacterResource] = []
+# Rutas de los archivos .json con los datos:
+@onready var characters_data_path: String = "res://assets/graphical_assets/texts/problems/fractions_minigame/characters_data.json"
+@onready var easy_data_loaded: bool = false
+@onready var hard_data_loaded: bool = false
+@onready var medium_data_loaded: bool = false
+
+# Se accede a la global como: CharactersData.characters
+@onready var characters: Array[CharacterResource] = []
 
 
 func _ready() -> void:
 	# Se cargan los datos al iniciar:
-	loadCharacters()
+	self.loadCharacters()
 
 
 # Función que lee un archivo JSON y lo retorna:
-func readJSON(json_file_path):
-	var file = FileAccess.open(json_file_path, FileAccess.READ)
-	var content = file.get_as_text()
-	var json = JSON.parse_string(content)
-	if json:
-		return json
+func readJSON(json_file_path: String) -> Variant:
+	var file: FileAccess = FileAccess.open(json_file_path, FileAccess.READ)
+	var content: String = file.get_as_text()
+	return JSON.parse_string(content)
 
 
-# *NOTA: Faltan cargar sus assets.
-# Función que carga los personajes con nombre, defeated, bonus y assets:
+# Función que carga los personajes con name, about, defeated, bonus y assets:
 func loadCharacters() -> void:
-	var json = readJSON(characters_data_path)
+	var json: Variant = readJSON(characters_data_path)
+	
+	if not json:
+		print_debug("Error: El archivo JSON no pudo ser cargado.")
+		return
+	
 	var characters_data: Array = json.data
 	
-	#if !characters:
+	# Se cargan los datos de los primeros 5 personajes (0 a 4).
 	for n in range(NUMBER_OF_CHARACTERS):
 		# Se instancia el personaje:
 		var character: CharacterResource = CharacterResource.new()
 		
 		# Se asignan los datos al personaje:
 		character.name = characters_data[n]["name"]
+		character.about = characters_data[n]["about"]
 		character.bonus_multiplier = characters_data[n]["bonus_multiplier"]
 		character.defeated = false
 		character.rejected = false
@@ -67,7 +71,6 @@ func loadProblemsData() -> void:
 		print_debug("Datos previamente cargados")
 	
 	var json = readJSON(characters_data_path)
-	var difficulty = PlayerSession.difficulty
 	var characters_data: Array = json.data
 	var n: int
 	for character in characters:
@@ -106,7 +109,7 @@ func loadProblemsData() -> void:
 		character.wrong_answers = wrong_answers_array
 		
 		# Se obtienen los datos del personaje de acuerdo a la dificultad:
-		match difficulty:
+		match PlayerSession.difficulty:
 			"medium":
 				var medium_problems: Array = characters_data[n]["medium_problems"]
 				medium_problems.shuffle()
@@ -126,44 +129,10 @@ func loadProblemsData() -> void:
 	# Se mezcla la lista de personajes:
 	randomize()
 	characters.shuffle()
-	
-	if difficulty == "hard":
-		print_debug("Cargó al Uaychivo")
-		# Se instancia el personaje Uaychivo:
-		var uaychivo: CharacterResource = CharacterResource.new()
-		# Se cambia la semilla:
-		randomize()
-		
-		# Se mezclan los arreglos de datos:
-		var hard_problems: Array = characters_data[NUMBER_OF_CHARACTERS]["hard_problems"]
-		var intro_texts: Array = characters_data[NUMBER_OF_CHARACTERS]["intro_texts"]
-		var outro_texts: Array = characters_data[NUMBER_OF_CHARACTERS]["outro_texts"]
-		var problems_data: Array = characters_data[NUMBER_OF_CHARACTERS]["problems_data"]
-		intro_texts.shuffle()
-		outro_texts.shuffle()
-		problems_data.shuffle()
-		hard_problems.shuffle()
-		
-		# Se asignan los datos al personaje:
-		uaychivo.name = characters_data[NUMBER_OF_CHARACTERS]["name"]
-		uaychivo.bonus_multiplier = characters_data[NUMBER_OF_CHARACTERS]["bonus_multiplier"]
-		uaychivo.defeated = false
-		uaychivo.rejected = false
-		uaychivo.problem = hard_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		uaychivo.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		uaychivo.outro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		uaychivo.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
-		var wrong_answers_array: Array[Dictionary] = [
-			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
-		]
-		uaychivo.wrong_answers = wrong_answers_array
-		# Se añade el uaychivo a la lista de personajes:
-		characters.append(uaychivo)
-	
-	
-# Función que carga los datos de problema de un personaje en específico:
+
+
+# Función que carga los datos de problema de un personaje en específico.
+# Esta función debe ser utilizada después de loadCharacters().
 func loadProblemCharacter(character: CharacterResource) -> void:
 	if (PlayerSession.difficulty == "easy" and easy_data_loaded) \
 	or (PlayerSession.difficulty == "medium" and medium_data_loaded) \
@@ -172,7 +141,6 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 		return
 	
 	var json = readJSON(characters_data_path)
-	var difficulty = PlayerSession.difficulty
 	var characters_data: Array = json.data
 	var n: int	
 	match character.name:
@@ -186,8 +154,6 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 			n = 3
 		"Zotz":
 			n = 4
-		"Uaychivo":
-			n = 5
 		
 	# Se cambia la semilla:
 	randomize()
@@ -212,7 +178,7 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	character.wrong_answers = wrong_answers_array
 	
 	# Se obtienen los datos del personaje de acuerdo a la dificultad:
-	match difficulty:
+	match PlayerSession.difficulty:
 		"medium":
 			var medium_problems: Array = characters_data[n]["medium_problems"]
 			medium_problems.shuffle()
@@ -231,7 +197,7 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 
 
 func clear_data() -> void:
-	for character in characters:
+	for character in self.characters:
 		character.clear()
 
 

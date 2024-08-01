@@ -2,6 +2,7 @@ extends Resource
 class_name CharacterResource
 
 var name: String
+var about: String
 var problem: String
 var bonus_multiplier: float
 var defeated: bool
