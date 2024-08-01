@@ -12,6 +12,8 @@ signal finished
 
 
 func _ready() -> void:
+	# Se oculta la caja de diálogos:
+	self.dialogue_box.hide()
 	# Se inicializan los sprites:
 	var c_name = "Keken"
 	#match CharactersData.characters[PlayerSession.character].name:
