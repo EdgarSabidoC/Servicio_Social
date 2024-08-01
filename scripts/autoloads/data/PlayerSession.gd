@@ -39,7 +39,10 @@ func save_score() -> void:
 
 # Función que cambia de estado la bandera de modo práctica:
 func change_practice_mode() -> bool:
-	self.practice_mode = !self.practice_mode
+	if self.practice_mode:
+		self.practice_mode = false
+	else:
+		self.practice_mode = true
 	return self.practice_mode
 
 

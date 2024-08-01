@@ -18,4 +18,5 @@ func _on_visibility_changed() -> void:
 		self.fractions_minigame.hide()
 		self.additions_minigame.grab_focus()
 	elif !Mouse.mouse_mode_activated:
+		self.fractions_minigame.show()
 		self.fractions_minigame.grab_focus()
