@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://6stagbiufp2n" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/scene_02_furnace.tga" id="12_4d807"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="12_cypqq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4vv6"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 320, 240, 160)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ahj4"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 0, 240, 160)
@@ -22,10 +26,6 @@ region = Rect2(0, 0, 240, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dnvn"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 160, 240, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m4vv6"]
-atlas = ExtResource("12_4d807")
-region = Rect2(0, 320, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_av2ji"]
 atlas = ExtResource("12_4d807")
@@ -62,7 +62,7 @@ tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -74,7 +74,7 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -100,10 +100,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.359985
 pivot_offset = Vector2(391.5, 288)
-texture = SubResource("AtlasTexture_5ahj4")
+texture = SubResource("AtlasTexture_m4vv6")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")
+frame_index = 2
 auto_play = true
 playing = true
 

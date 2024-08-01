@@ -50,6 +50,12 @@ func set_game() -> void:
 	self.score_flash_label.set("theme_override_colors/font_color", Color.DARK_GREEN)
 	
 	# Se cargan las respuestas:
+	self.load_answers()
+
+
+# Carga las respuestas en los botones:
+func load_answers() -> void:
+	# Se cargan las respuestas:
 	var correct_answer: Dictionary = CharactersData.characters[self.character].correct_answer
 	self.answers.append(correct_answer)
 	var wrong_answer_1: Dictionary = CharactersData.characters[self.character].wrong_answers[0]
