@@ -6,6 +6,7 @@ extends Button
 @onready var menu_background_color: ColorRect = $"../../../MenuBackgroundColor"
 @onready var how_to_play: TabContainer = %HowToPlay
 @onready var text_box_container: VBoxContainer = %MenuTextbox
+@onready var menu_container: HBoxContainer = $"../.."
 
 
 # Muestra el menú de las opciones de configuración y oculta el menú principal:
@@ -17,7 +18,7 @@ func _on_pressed() -> void:
 		how_to_play.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
 	else:
 		%BackButton.show()
-	get_parent().hide() # Oculta el menú principal
+	menu_container.hide() # Oculta el menú principal
 	text_box_container.hide() # Oculta el textbox del menú principal.hide() # Oculta el textbox del menú principal
 	
 

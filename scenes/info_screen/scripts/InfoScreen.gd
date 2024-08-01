@@ -13,7 +13,6 @@ extends Control
 signal finished
 
 
-# Called when the node enters the scene tree for the first time.
 func start() -> void:
 	self.show()
 	self.animated_sprite_2d.play()

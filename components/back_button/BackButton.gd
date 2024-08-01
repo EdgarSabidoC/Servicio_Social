@@ -11,6 +11,9 @@ class_name BackButton
 @onready var menu_background_color = $"../MenuBackgroundColor"
 @onready var settings_background_color = $"../SettingsBackgroundColor"
 @onready var how_to_play: TabContainer = %HowToPlay
+@onready var menu_container: HBoxContainer = $"../MenuContainer"
+
+
 
 func _ready() -> void:
 	# Se oculta el botón en el modo teclado:
@@ -25,7 +28,9 @@ func on_pressed():
 	if self.settings.is_visible_in_tree():
 		self.menu_background_color.fade_in() # Realiza un fade in al fondo del menú
 		self.settings.current_tab = 0 # Se selecciona la TabBar de Video
-		self.main_menu.show() # Se muestra el menú principal
+		# Se muestra el menú principal:
+		self.menu_container.show()
+		self.main_menu.show()
 		self.text_box_container.show() # Se muestra el textbox del menú principal
 		if !Mouse.mouse_mode_activated:
 			self.play_btn.grab_focus() # Se enfoca el botón play
@@ -34,7 +39,9 @@ func on_pressed():
 	elif self.how_to_play.is_visible_in_tree():
 		self.menu_background_color.fade_in() # Realiza un fade in al fondo del menú
 		self.how_to_play.current_tab = 0 # Se selecciona la TabBar de Video
-		self.main_menu.show() # Se muestra el menú principal
+		# Se muestra el menú principal:
+		self.menu_container.show()
+		self.main_menu.show()
 		self.text_box_container.show() # Se muestra el textbox del menú principal
 		if !Mouse.mouse_mode_activated:
 			self.play_btn.grab_focus() # Se enfoca el botón play

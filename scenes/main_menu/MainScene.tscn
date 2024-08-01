@@ -148,13 +148,12 @@ expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
 anchors_preset = -1
-anchor_left = 0.109
-anchor_top = 0.283
+anchor_left = 0.108887
+anchor_top = 0.203125
 anchor_right = 0.891113
-anchor_bottom = 0.717
-offset_left = -0.115715
-offset_top = 6.99199
-offset_bottom = 7.008
+anchor_bottom = 0.821181
+offset_top = 53.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -175,12 +174,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../QuitBtn")
-focus_neighbor_top = NodePath("../QuitBtn")
-focus_neighbor_right = NodePath("../SettingsBtn")
-focus_neighbor_bottom = NodePath("../SettingsBtn")
-focus_next = NodePath("../SettingsBtn")
-focus_previous = NodePath("../QuitBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Jugar"
@@ -205,12 +198,6 @@ Minijuegos disponibles:
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../PlayBtn")
-focus_neighbor_top = NodePath("../PlayBtn")
-focus_neighbor_right = NodePath("../HowToPlayBtn")
-focus_neighbor_bottom = NodePath("../HowToPlayBtn")
-focus_next = NodePath("../HowToPlayBtn")
-focus_previous = NodePath("../PlayBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Opciones"
@@ -220,12 +207,6 @@ script = ExtResource("6_6htjl")
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../SettingsBtn")
-focus_neighbor_top = NodePath("../SettingsBtn")
-focus_neighbor_right = NodePath("../QuitBtn")
-focus_neighbor_bottom = NodePath("../QuitBtn")
-focus_next = NodePath("../QuitBtn")
-focus_previous = NodePath("../SettingsBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Cómo jugar"
@@ -235,12 +216,6 @@ script = ExtResource("7_e8xsr")
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../HowToPlayBtn")
-focus_neighbor_top = NodePath("../HowToPlayBtn")
-focus_neighbor_right = NodePath("../PlayBtn")
-focus_neighbor_bottom = NodePath("../PlayBtn")
-focus_next = NodePath("../PlayBtn")
-focus_previous = NodePath("../HowToPlayBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Salir"
@@ -379,9 +354,6 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Regresar"
 script = ExtResource("13_lq72g")
-
-[node name="InfoScreen" parent="UI" instance=ExtResource("12_tuiap")]
-unique_name_in_owner = true
 
 [node name="DifficultyMenu" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true
@@ -1073,6 +1045,10 @@ script = ExtResource("39_jh3m0")
 metadata/_edit_use_anchors_ = true
 
 [node name="ExitMenu" parent="UI" instance=ExtResource("40_idk3m")]
+unique_name_in_owner = true
+
+[node name="InfoScreen" parent="UI" instance=ExtResource("12_tuiap")]
+unique_name_in_owner = true
 
 [connection signal="focus_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_exited"]
@@ -1105,7 +1081,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="mouse_entered" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_pressed"]
-[connection signal="visibility_changed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_mouse_entered"]
@@ -1131,7 +1106,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="mouse_entered" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_pressed"]
-[connection signal="visibility_changed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_mouse_entered"]
@@ -1161,3 +1135,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="visibility_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_visibility_changed"]
 [connection signal="no_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_no_pressed"]
 [connection signal="yes_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_yes_pressed"]
+[connection signal="hidden" from="UI/InfoScreen" to="UI" method="_on_info_screen_hidden"]
+[connection signal="visibility_changed" from="UI/InfoScreen" to="UI" method="_on_info_screen_visibility_changed"]

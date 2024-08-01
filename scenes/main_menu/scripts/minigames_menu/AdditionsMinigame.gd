@@ -5,6 +5,7 @@ extends Button
 @onready var difficulty_menu: VBoxContainer = %DifficultyMenu
 @onready var menu_background_color: ColorRect = $"../../MenuBackgroundColor"
 @onready var margin_container: MarginContainer = $"../MarginContainer"
+@onready var fractions_minigame: Button = $"../FractionsMinigame"
 
 
 # Al presionar el botón:

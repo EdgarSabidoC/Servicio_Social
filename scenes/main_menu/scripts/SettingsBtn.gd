@@ -8,6 +8,7 @@ extends Button
 @onready var menu_background_color = $"../../../MenuBackgroundColor"
 @export_multiline var hint: String = "Abre el menú de opciones de configuración:\n⚙️ Vídeo\n⚙️ Audio\n⚙️ Controles"
 @onready var menu_textbox = $"../../MenuTextbox/MarginContainer/MenuTextbox"
+@onready var menu_container: HBoxContainer = $"../.."
 
 
 # Muestra el menú de las opciones de configuración y oculta el menú principal:
@@ -19,7 +20,7 @@ func _on_pressed() -> void:
 		settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
 	else:
 		%BackButton.show()
-	get_parent().hide() # Oculta el menú principal
+	menu_container.hide() # Oculta el menú principal
 	text_box_container.hide() # Oculta el textbox del menú principal
 
 

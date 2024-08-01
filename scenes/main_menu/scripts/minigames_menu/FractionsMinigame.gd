@@ -23,12 +23,6 @@ func _on_pressed() -> void:
 	margin_container.hide()
 
 
-# Cuando se vuelve visible:
-func _on_visibility_changed():
-	if !Mouse.mouse_mode_activated and self.is_visible_in_tree():
-		self.grab_focus()
-
-
 # Al estar enfocado el botón:
 func _on_focus_entered():
 	self.add_theme_stylebox_override("focus", get_theme_stylebox("hover", "Button"))
