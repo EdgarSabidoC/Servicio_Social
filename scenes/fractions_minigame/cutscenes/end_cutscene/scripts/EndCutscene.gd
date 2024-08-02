@@ -23,7 +23,7 @@ func _ready() -> void:
 	var current_position: float = 0
 	var pitch: float = 1.0
 	var volume: float = 0
-	BackgroundMusic.change_song(BackgroundMusic.FUNICULI_FUNICULA_FASTER, current_position, pitch, volume)
+	BackgroundMusic.change_song(BackgroundMusic.Songs.FUNICULI_FUNICULA_FASTER, current_position, pitch, volume)
 	
 	# Si se supera el máximo puntaje:
 	if Persistence.is_high_score():

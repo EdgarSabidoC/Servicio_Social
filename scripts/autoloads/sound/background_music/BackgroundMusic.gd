@@ -20,7 +20,7 @@ const _SONG_PATHS: Dictionary = {
 # Función que cambia la canción:
 func change_song(_song: Songs, _position: float = 0.0, _pitch: float = 1.0, _volume: float = -10.0) -> void:
 	# Se obtiene la canción:
-	var _song_stream: AudioStreamOggVorbis = _SONG_PATHS.get(_song, null)
+	var _song_stream: AudioStreamOggVorbis = self._SONG_PATHS.get(_song, null)
 	# Se verifica que la canción exista:
 	if _song_stream != null:
 		# Se detiene la canción actual
@@ -41,13 +41,13 @@ func change_song(_song: Songs, _position: float = 0.0, _pitch: float = 1.0, _vol
 # Inicia la canción de un minijuego:
 func start_minigame_song(_volume: float = -10.0, _position: float = 0.0) -> void:
 	var _pitch = 1.0
-	self.change_song(Songs.FUNICULI_FUNICULA, _position, _pitch, _volume)
+	self.change_song(self.Songs.FUNICULI_FUNICULA, _position, _pitch, _volume)
 
 
 # Inicia la canción del menú principal:
 func start_menu_song(_volume: float = -10.0, _position: float = 0.0) -> void:
 	var _pitch = 1.0
-	self.change_song(Songs.TARANTELLA_NAPOLETANA_TREMOLO, _position, _pitch, _volume)
+	self.change_song(self.Songs.TARANTELLA_NAPOLETANA_TREMOLO, _position, _pitch, _volume)
 
 
 # Función que cambia el pitch:

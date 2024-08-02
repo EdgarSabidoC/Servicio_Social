@@ -9,7 +9,7 @@ var end_cutscene: PackedScene = load("res://scenes/fractions_minigame/cutscenes/
 func _ready() -> void:
 	# Se desactiva el proceso de escucha de entradas:
 	self.set_process_input(false)
-	BackgroundMusic.change_song(BackgroundMusic.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
+	BackgroundMusic.change_song(BackgroundMusic.Songs.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
 
 
 func _process(_delta: float) -> void:

@@ -23,7 +23,6 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	Mouse.change_mode()
 	# Al iniciar se enfoca el botón Play:
 	if !Mouse.mouse_mode_activated:
 		self.play_btn.grab_focus()
