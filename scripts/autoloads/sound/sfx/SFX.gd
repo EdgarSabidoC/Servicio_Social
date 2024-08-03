@@ -3,7 +3,7 @@ extends AudioStreamPlayer2D
 # Enum para los sonidos del juego:
 enum Sounds {
 	# Pantalla de inicio y otras pantallas donde se tenga que presionar una tecla:
-	SPLASH_SCREEN, SCREEN_PRESS, TITLE_SMACK,
+	SPLASH_SCREEN, SCREEN_PRESS, TITLE_SMACK, SCORE_SCREEN,
 	# Menús:
 	KEY_PRESS, BUTTON_PRESS, BUTTON_REMAP, SLIDER_MOVE, PAUSE_MENU, RESUME_PAUSE,
 	# Textos:
@@ -29,6 +29,7 @@ const _SOUND_PATHS: Dictionary = {
 	#Sounds.SPLASH_SCREEN: preload("res://sounds/splash_screen.wav"),
 	#Sounds.SCREEN_PRESS: preload("res://sounds/screen_press.wav"),
 	#Sounds.TITLE_SMACK: preload("res://sounds/title_smack.wav"),
+	#Sounds.SCORE_SCREEN: preload("res://sounds/score_screen.wav"),
 	#Sounds.KEY_PRESS: preload("res://sounds/key_press.wav"),
 	#Sounds.BUTTON_PRESS: preload("res://sounds/button_press.wav"),
 	#Sounds.BUTTON_REMAP: preload("res://sounds/button_remap.wav"),
