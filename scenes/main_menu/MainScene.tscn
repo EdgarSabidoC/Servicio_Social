@@ -1134,6 +1134,7 @@ unique_name_in_owner = true
 [connection signal="tab_hovered" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_hovered"]
 [connection signal="tab_selected" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_selected"]
 [connection signal="visibility_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="UI/BackButton" to="UI/BackButton" method="_on_mouse_entered"]
 [connection signal="no_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_no_pressed"]
 [connection signal="yes_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_yes_pressed"]
 [connection signal="hidden" from="UI/InfoScreen" to="UI" method="_on_info_screen_hidden"]

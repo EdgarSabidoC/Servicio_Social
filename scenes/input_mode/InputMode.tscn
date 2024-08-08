@@ -135,5 +135,9 @@ script = ExtResource("5_emnij")
 speed = 1.0
 fade = true
 
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_pressed"]

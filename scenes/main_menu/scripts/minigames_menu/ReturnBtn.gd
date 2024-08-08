@@ -32,6 +32,7 @@ func _on_pressed() -> void:
 
 # Al estar enfocado el botón:
 func _on_focus_entered():
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 	self.add_theme_stylebox_override("focus", get_theme_stylebox("hover", "Button"))
 	self.add_theme_font_size_override("font_size", 24)
 	self.menu_textbox.print_message(self.hint, "c")
@@ -44,6 +45,7 @@ func _on_focus_exited():
 
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 	self.add_theme_font_size_override("font_size", 24)
 	self.menu_textbox.print_message(self.hint, "c")
 

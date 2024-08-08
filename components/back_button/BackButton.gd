@@ -47,3 +47,7 @@ func on_pressed():
 			self.play_btn.grab_focus() # Se enfoca el botón play
 		self.how_to_play.hide() # Se oculta el menú de opciones de configuración
 	self.hide()
+
+
+func _on_mouse_entered() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
