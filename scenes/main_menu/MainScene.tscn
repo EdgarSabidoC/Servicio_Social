@@ -1125,6 +1125,7 @@ unique_name_in_owner = true
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_toggled"]
 [connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
+[connection signal="visibility_changed" from="UI/Settings/Audio" to="UI/Settings/Audio" method="_on_visibility_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
