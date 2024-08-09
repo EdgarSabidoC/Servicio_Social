@@ -5,15 +5,15 @@ extends AudioStreamPlayer2D
 # Enum para los sonidos del juego:
 enum Sounds {
 	# Pantalla de inicio y otras pantallas donde se tenga que presionar una tecla:
-	SPLASH_SCREEN, SCREEN_PRESS, TITLE_SMACK, SCORE_SCREEN,
+	SPLASH_SCREEN, SCREEN_PRESS, TITLE_SMACK, SCORE_SCREEN, INFO_SCREEN,
 	# Menús:
-	KEY_PRESS, BUTTON_PRESS, BUTTON_REMAP, SLIDER_MOVE, PAUSE_MENU, RESUME_PAUSE,
+	KEY_PRESS, BUTTON_REMAP, SLIDER_MOVE, PAUSE_MENU, RESUME_PAUSE,
 	# Textos:
-	WRITE_TEXT, NEXT_DIALOGUE, CLOSE_DIALOGUE_BOX,
+	WRITE_TEXT, NEXT_DIALOGUE, OPEN_DIALOGUE_BOX, CLOSE_DIALOGUE_BOX,
 	# Utilidades:
 	SCORE, RIGHT_ANSWER, WRONG_ANSWER,
-	# Minijuego de fracciones (KITCHEN_BELL es para el botón de aceptar al seleccionar la fracción):
-	BUTTON_ACCEPT, BUTTON_REJECT, SHOP_DOORBELL, KITCHEN_BELL,
+	# Minijuego de fracciones (SERVICE_BELL es para el botón de aceptar al seleccionar la fracción):
+	BUTTON_ACCEPT, BUTTON_REJECT, SHOP_DOORBELL, SERVICE_BELL,
 	# Minijuego de sumas:
 	REGISTER_MACHINE, TICKET_PRINT, TAKE_TICKET, REGISTER_BUTTON_PRESS, BILL_SPLAT,
 	# Minijuego de coordendas:
@@ -21,61 +21,60 @@ enum Sounds {
 	# Minijuego de simetría:
 	PIZZA_SPLAT, INGREDIENT_TAKE, INGREDIENT_RELEASE, INGREDIENT_TOP,
 	# Sonidos de los personajes:
-	CHARACTER_TALK, OPOSSUM_TALK, CHARACTER_CRY, OPOSSUM_SOUND,
+	CHARACTER_TALK, CHARACTER_CRY_MALE_1, CHARACTER_CRY_MALE_2, CHARACTER_CRY_FEMALE, OPOSSUM_TALK,
 	ALUX_ENTRANCE, TOH_ENTRANCE, HUOLPOCH_ENTRANCE, KEKEN_ENTRANCE, ZOTZ_ENTRANCE,
-	ALUX_EXIT, TOH_EXIT, HUOLPOCH_EXIT, KEKEN_EXIT, ZOTZ_EXIT
+	CHARACTER_EXIT, CHARACTER_EXIT_FAILURE
 }
 
 
 # Diccionario que asigna los valores del enum a los streams de audio WAV correspondientes
 const _SOUND_PATHS: Dictionary = {
-	#Sounds.SPLASH_SCREEN: preload("res://assets/sounds/sfx/splash_screen.wav"),
+	#Sounds.SPLASH_SCREEN: preload("res://assets/sounds/sfx/SPLASH_SCREEN.wav"),
 	Sounds.SCREEN_PRESS: preload("res://assets/sounds/sfx/SCREEN_PRESS.wav"),
-	#Sounds.TITLE_SMACK: preload("res://assets/sounds/sfx/title_smack.wav"),
-	#Sounds.SCORE_SCREEN: preload("res://assets/sounds/sfx/score_screen.wav"),
+	Sounds.TITLE_SMACK: preload("res://assets/sounds/sfx/TITLE_SMACK.wav"),
+	#Sounds.SCORE_SCREEN: preload("res://assets/sounds/sfx/SCORE_SCREEN.wav"),
+	Sounds.INFO_SCREEN: preload("res://assets/sounds/sfx/INFO_SCREEN.wav"),
 	Sounds.KEY_PRESS: preload("res://assets/sounds/sfx/KEY_PRESS.wav"),
-	#Sounds.BUTTON_PRESS: preload("res://assets/sounds/sfx/button_press.wav"),
-	#Sounds.BUTTON_REMAP: preload("res://assets/sounds/sfx/button_remap.wav"),
-	#Sounds.SLIDER_MOVE: preload("res://assets/sounds/sfx/slider_move.wav"),
-	#Sounds.PAUSE_MENU: preload("res://assets/sounds/sfx/pause_menu.wav"),
-	#Sounds.RESUME_PAUSE: preload("res://assets/sounds/sfx/resume_pause.wav"),
-	#Sounds.WRITE_TEXT: preload("res://assets/sounds/sfx/write_text.wav"),
-	#Sounds.NEXT_DIALOGUE: preload("res://assets/sounds/sfx/next_dialogue.wav"),
-	#Sounds.CLOSE_DIALOGUE_BOX: preload("res://assets/sounds/sfx/close_dialogue_box.wav"),
-	#Sounds.SCORE: preload("res://assets/sounds/sfx/score.wav"),
-	#Sounds.RIGHT_ANSWER: preload("res://assets/sounds/sfx/right_answer.wav"),
-	#Sounds.WRONG_ANSWER: preload("res://assets/sounds/sfx/wrong_answer.wav"),
-	#Sounds.BUTTON_ACCEPT: preload("res://assets/sounds/sfx/button_accept.wav"),
-	#Sounds.BUTTON_REJECT: preload("res://assets/sounds/sfx/button_reject.wav"),
-	#Sounds.SHOP_DOORBELL: preload("res://assets/sounds/sfx/shop_doorbell.wav"),
-	#Sounds.KITCHEN_BELL: preload("res://assets/sounds/sfx/kitchen_bell.wav"),
-	#Sounds.REGISTER_MACHINE: preload("res://assets/sounds/sfx/register_machine.wav"),
+	Sounds.BUTTON_REMAP: preload("res://assets/sounds/sfx/BUTTON_REMAP.wav"),
+	#Sounds.SLIDER_MOVE: preload("res://assets/sounds/sfx/SLIDER_MOVE.wav"),
+	Sounds.PAUSE_MENU: preload("res://assets/sounds/sfx/PAUSE_MENU.wav"),
+	Sounds.RESUME_PAUSE: preload("res://assets/sounds/sfx/RESUME_PAUSE.wav"),
+	#Sounds.WRITE_TEXT: preload("res://assets/sounds/sfx/WRITE_TEXT.wav"),
+	Sounds.NEXT_DIALOGUE: preload("res://assets/sounds/sfx/NEXT_DIALOGUE.wav"),
+	Sounds.OPEN_DIALOGUE_BOX: preload("res://assets/sounds/sfx/OPEN_DIALOGUE_BOX.wav"),
+	Sounds.CLOSE_DIALOGUE_BOX: preload("res://assets/sounds/sfx/CLOSE_DIALOGUE_BOX.wav"),
+	#Sounds.SCORE: preload("res://assets/sounds/sfx/SCORE.wav"),
+	Sounds.RIGHT_ANSWER: preload("res://assets/sounds/sfx/RIGHT_ANSWER.wav"),
+	Sounds.WRONG_ANSWER: preload("res://assets/sounds/sfx/WRONG_ANSWER.wav"),
+	Sounds.BUTTON_ACCEPT: preload("res://assets/sounds/sfx/BUTTON_ACCEPT.wav"),
+	Sounds.BUTTON_REJECT: preload("res://assets/sounds/sfx/BUTTON_REJECT.wav"),
+	Sounds.SHOP_DOORBELL: preload("res://assets/sounds/sfx/SHOP_DOORBELL.wav"),
+	Sounds.SERVICE_BELL: preload("res://assets/sounds/sfx/SERVICE_BELL.wav"),
+	Sounds.REGISTER_MACHINE: preload("res://assets/sounds/sfx/REGISTER_MACHINE.wav"),
 	Sounds.TICKET_PRINT: preload("res://assets/sounds/sfx/TICKET_PRINT.wav"),
-	#Sounds.TAKE_TICKET: preload("res://assets/sounds/sfx/take_ticket.wav"),
-	#Sounds.REGISTER_BUTTON_PRESS: preload("res://assets/sounds/sfx/register_button_press.wav"),
-	#Sounds.BILL_SPLAT: preload("res://assets/sounds/sfx/bill_splat.wav"),
+	#Sounds.TAKE_TICKET: preload("res://assets/sounds/sfx/TAKE_TICKET.wav"),
+	Sounds.REGISTER_BUTTON_PRESS: preload("res://assets/sounds/sfx/REGISTER_BUTTON_PRESS.wav"),
+	#Sounds.BILL_SPLAT: preload("res://assets/sounds/sfx/BILL_SPLAT.wav"),
 	Sounds.ROBOT_ENTRANCE: preload("res://assets/sounds/sfx/ROBOT_ENTRANCE.wav"),
 	Sounds.ROBOT_HOVER: preload("res://assets/sounds/sfx/ROBOT_HOVER.wav"),
-	#Sounds.SERVE_PIZZA: preload("res://assets/sounds/sfx/serve_pizza.wav"),
+	Sounds.SERVE_PIZZA: preload("res://assets/sounds/sfx/SERVE_PIZZA.wav"),
 	Sounds.WRITE_ORDER: preload("res://assets/sounds/sfx/WRITE_ORDER.wav"),
-	#Sounds.PIZZA_SPLAT: preload("res://assets/sounds/sfx/pizza_splat.wav"),
-	#Sounds.INGREDIENT_TAKE: preload("res://assets/sounds/sfx/ingredient_take.wav"),
-	#Sounds.INGREDIENT_RELEASE: preload("res://assets/sounds/sfx/ingredient_release.wav"),
-	#Sounds.INGREDIENT_TOP: preload("res://assets/sounds/sfx/ingredient_top.wav"),
-	#Sounds.CHARACTER_TALK: preload("res://assets/sounds/sfx/character_talk.wav"),
-	#Sounds.OPOSSUM_TALK: preload("res://assets/sounds/sfx/opossum_talk.wav"),
-	#Sounds.CHARACTER_CRY: preload("res://assets/sounds/sfx/character_cry.wav"),
-	#Sounds.OPOSSUM_SOUND: preload("res://assets/sounds/sfx/opossum_sound.wav"),
-	#Sounds.ALUX_ENTRANCE: preload("res://assets/sounds/sfx/alux_entrance.wav"),
-	#Sounds.TOH_ENTRANCE: preload("res://assets/sounds/sfx/toh_entrance.wav"),
-	#Sounds.HUOLPOCH_ENTRANCE: preload("res://assets/sounds/sfx/huolpoch_entrance.wav"),
-	#Sounds.KEKEN_ENTRANCE: preload("res://assets/sounds/sfx/keken_entrance.wav"),
-	#Sounds.ZOTZ_ENTRANCE: preload("res://assets/sounds/sfx/zotz_entrance.wav"),
-	#Sounds.ALUX_EXIT: preload("res://assets/sounds/sfx/alux_exit.wav"),
-	#Sounds.TOH_EXIT: preload("res://assets/sounds/sfx/toh_exit.wav"),
-	#Sounds.HUOLPOCH_EXIT: preload("res://assets/sounds/sfx/huolpoch_exit.wav"),
-	#Sounds.KEKEN_EXIT: preload("res://assets/sounds/sfx/keken_exit.wav"),
-	#Sounds.ZOTZ_EXIT: preload("res://assets/sounds/sfx/zotz_exit.wav")
+	Sounds.PIZZA_SPLAT: preload("res://assets/sounds/sfx/PIZZA_SPLAT.wav"),
+	Sounds.INGREDIENT_TAKE: preload("res://assets/sounds/sfx/INGREDIENT_TAKE.wav"),
+	Sounds.INGREDIENT_RELEASE: preload("res://assets/sounds/sfx/INGREDIENT_RELEASE.wav"),
+	Sounds.INGREDIENT_TOP: preload("res://assets/sounds/sfx/INGREDIENT_TOP.wav"),
+	#Sounds.CHARACTER_TALK: preload("res://assets/sounds/sfx/CHARACTER_TALK.wav"),
+	Sounds.CHARACTER_CRY_MALE_1: preload("res://assets/sounds/sfx/CHARACTER_CRY_MALE_1.wav"),
+	Sounds.CHARACTER_CRY_MALE_2: preload("res://assets/sounds/sfx/CHARACTER_CRY_MALE_2.wav"),
+	Sounds.CHARACTER_CRY_FEMALE: preload("res://assets/sounds/sfx/CHARACTER_CRY_FEMALE.wav"),
+	#Sounds.OPOSSUM_TALK: preload("res://assets/sounds/sfx/OPOSSUM_TALK.wav"),
+	Sounds.ALUX_ENTRANCE: preload("res://assets/sounds/sfx/ALUX_ENTRANCE.wav"),
+	Sounds.TOH_ENTRANCE: preload("res://assets/sounds/sfx/TOH_ENTRANCE.wav"),
+	#Sounds.HUOLPOCH_ENTRANCE: preload("res://assets/sounds/sfx/HUOLPOCH_ENTRANCE.wav"),
+	Sounds.KEKEN_ENTRANCE: preload("res://assets/sounds/sfx/KEKEN_ENTRANCE.wav"),
+	Sounds.ZOTZ_ENTRANCE: preload("res://assets/sounds/sfx/ZOTZ_ENTRANCE.wav"),
+	Sounds.CHARACTER_EXIT: preload("res://assets/sounds/sfx/CHARACTER_EXIT.wav"),
+	Sounds.CHARACTER_EXIT_FAILURE: preload("res://assets/sounds/sfx/CHARACTER_EXIT_FAILURE.wav"),
 }
 
 

@@ -14,6 +14,7 @@ signal finished
 
 
 func start() -> void:
+	Sfx.play_sound(Sfx.Sounds.INFO_SCREEN)
 	self.show()
 	self.animated_sprite_2d.play()
 	
