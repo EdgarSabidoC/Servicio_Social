@@ -20,7 +20,8 @@ func _on_visibility_changed() -> void:
 		if PlayerSession.is_practice_mode():
 			# Si es modo práctica, se oculta el botón del minijuego de fracciones:
 			self.fractions_minigame.hide()
-			self.additions_minigame.grab_focus()
+			if !Mouse.mouse_mode_activated:
+				self.additions_minigame.grab_focus()
 			await get_viewport().gui_focus_changed
 		elif !Mouse.mouse_mode_activated:
 			self.fractions_minigame.show()

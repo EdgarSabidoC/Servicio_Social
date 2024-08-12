@@ -24,6 +24,8 @@ extends Control
 func _ready() -> void:
 	assert(_move_to)
 	
+	BackgroundMusic.play()
+	
 	accept.action_name = "ui_accept"
 	pause.action_name = "ui_pause"
 	# Se obtienen las imágenes de las acciones:
