@@ -75,7 +75,7 @@ func _on_exit_menu_no_pressed() -> void:
 			self.fractions_minigame.grab_focus()
 		else:
 			self.additions_minigame.grab_focus()
-	if self.difficulty_menu.is_visible_in_tree():
+	if self.difficulty_menu.is_visible_in_tree() and not Mouse.mouse_mode_activated:
 		self.easy_btn.grab_focus()
 	elif self.settings.is_visible_in_tree():
 		self.settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
@@ -93,7 +93,7 @@ func _on_info_screen_visibility_changed() -> void:
 
 
 func _on_info_screen_hidden() -> void:
-	if self.difficulty_menu.is_visible_in_tree():
+	if self.difficulty_menu.is_visible_in_tree() and not Mouse.mouse_mode_activated:
 		# El botón easy_btn obtiene el focus:
 		self.easy_btn.grab_focus()
 	# Se reactiva el botón de cancelar:
