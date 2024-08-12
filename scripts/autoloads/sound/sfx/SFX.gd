@@ -39,7 +39,7 @@ const _SOUND_PATHS: Dictionary = {
 	#Sounds.SLIDER_MOVE: preload("res://assets/sounds/sfx/SLIDER_MOVE.wav"),
 	Sounds.PAUSE_MENU: preload("res://assets/sounds/sfx/PAUSE_MENU.wav"),
 	Sounds.RESUME_PAUSE: preload("res://assets/sounds/sfx/RESUME_PAUSE.wav"),
-	#Sounds.WRITE_TEXT: preload("res://assets/sounds/sfx/WRITE_TEXT.wav"),
+	Sounds.WRITE_TEXT: preload("res://assets/sounds/sfx/WRITE_TEXT.wav"),
 	Sounds.NEXT_DIALOGUE: preload("res://assets/sounds/sfx/NEXT_DIALOGUE.wav"),
 	Sounds.OPEN_DIALOGUE_BOX: preload("res://assets/sounds/sfx/OPEN_DIALOGUE_BOX.wav"),
 	Sounds.CLOSE_DIALOGUE_BOX: preload("res://assets/sounds/sfx/CLOSE_DIALOGUE_BOX.wav"),

@@ -146,6 +146,7 @@ size_flags_vertical = 1
 fit_content = true
 scroll_active = false
 tab_size = 2
+sound = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
