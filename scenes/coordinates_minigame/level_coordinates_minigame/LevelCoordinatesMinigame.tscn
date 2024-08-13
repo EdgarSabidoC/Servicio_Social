@@ -677,18 +677,16 @@ script = ExtResource("2_80h4x")
 [node name="AnimatedTextureRect2" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.875
-anchor_top = 0.812
-anchor_right = 0.938
+anchor_top = 0.8125
+anchor_right = 0.938477
 anchor_bottom = 1.0
-offset_left = -6.10352e-05
-offset_top = 0.287964
-offset_right = 0.487976
-pivot_offset = Vector2(32.5, 54)
+pivot_offset = Vector2(32.5002, 54)
 texture = SubResource("AtlasTexture_pmlm1")
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_jwl6i")
 frame_index = 5
 auto_play = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Table1" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
 unique_name_in_owner = true
@@ -795,14 +793,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Robot" parent="CanvasLayer" instance=ExtResource("3_goqxl")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 133)
-anchor_left = 0.889
-anchor_top = 0.599
-anchor_right = 0.967
-anchor_bottom = 0.83
-offset_left = -0.335999
-offset_top = 211.976
-offset_right = -0.208008
-offset_bottom = 211.92
+anchor_left = 0.888672
+anchor_top = 0.967014
+anchor_right = 0.966797
+anchor_bottom = 1.19792
+offset_right = 0.0
+offset_bottom = 0.0
 texture = SubResource("AtlasTexture_kek5n")
 current_animation = "enter"
 frame_index = 13
