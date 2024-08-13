@@ -71,9 +71,9 @@ func _on_exit_menu_yes_pressed() -> void:
 
 func _on_exit_menu_no_pressed() -> void:
 	if self.minigames_menu.is_visible_in_tree():
-		if not PlayerSession.is_practice_mode():
+		if not PlayerSession.is_practice_mode() and not Mouse.mouse_mode_activated:
 			self.fractions_minigame.grab_focus()
-		else:
+		elif not Mouse.mouse_mode_activated:
 			self.additions_minigame.grab_focus()
 	if self.difficulty_menu.is_visible_in_tree() and not Mouse.mouse_mode_activated:
 		self.easy_btn.grab_focus()

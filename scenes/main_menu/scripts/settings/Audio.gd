@@ -31,6 +31,7 @@ func update_label(label: String, value: float) -> void:
 # Para la señal Master: cambia el volumen para el index 0.
 func _on_master_value_changed(value: float) -> void:
 	if self.master_label:
+		Sfx.play_sound(Sfx.Sounds.SLIDER_MOVE)
 		self.update_label("Master", value)
 	set_volume(0, value)
 
@@ -38,6 +39,7 @@ func _on_master_value_changed(value: float) -> void:
 # Para la señal Music: cambia el volumen para el index 1.
 func _on_music_value_changed(value: float) -> void:
 	if self.music_label:
+		Sfx.play_sound(Sfx.Sounds.SLIDER_MOVE)
 		self.update_label("Música", value)
 	set_volume(1, value)
 
@@ -45,6 +47,7 @@ func _on_music_value_changed(value: float) -> void:
 # Para la señal SFX: cambia el volumen para el index 2.
 func _on_sfx_value_changed(value: float) -> void:
 	if self.sfx_label:
+		Sfx.play_sound(Sfx.Sounds.SLIDER_MOVE)
 		self.update_label("Efectos especiales", value)
 	set_volume(2, value)
 
@@ -61,6 +64,31 @@ func set_volume(idx: int, value: float) -> void:
 
 func _on_visibility_changed() -> void:
 	if self.is_visible_in_tree():
+		Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
 		self.update_label("Master", self.master.value)
 		self.update_label("Música", self.music.value)
 		self.update_label("Efectos especiales", self.sfx.value)
+
+
+func _on_master_focus_entered() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+
+
+func _on_music_focus_entered() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+
+
+func _on_sfx_focus_entered() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+
+
+func _on_master_mouse_entered() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+
+
+func _on_music_mouse_entered() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+
+
+func _on_sfx_mouse_entered() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)

@@ -67,3 +67,11 @@ func _show_buttons_and_labels():
 	self.right_label.show()
 	self.accept_label.show()
 	self.pause_label.show()
+
+
+func _on_focus_entered() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+
+
+func _on_toggled(_toggled_on: bool) -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)

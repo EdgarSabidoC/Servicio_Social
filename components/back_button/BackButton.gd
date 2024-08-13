@@ -25,6 +25,7 @@ func _ready() -> void:
 
 # Oculta el menú de opciones y muestra el menú principal:
 func on_pressed():
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 12)
 	if self.settings.is_visible_in_tree():
 		self.menu_background_color.fade_in() # Realiza un fade in al fondo del menú
 		self.settings.current_tab = 0 # Se selecciona la TabBar de Video

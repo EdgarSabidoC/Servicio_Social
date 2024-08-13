@@ -53,10 +53,14 @@ func _remap_action_to(event: InputEvent) -> bool:
 	self.action_icon.refresh()
 	# Se muestra el ícono del botón de acción:
 	self.action_icon.show()
+	
+	Sfx.play_sound(Sfx.Sounds.BUTTON_REMAP)
+	
 	return true
 
 # Enciende el proceso de la tecla y cambia el texto:
 func _on_pressed() -> void:
+	self.release_focus() # Se quita el enfoque en el botón
 	# Evita que al presionar enter se propague el evento:
 	get_tree().get_root().set_input_as_handled()
 	
@@ -69,7 +73,12 @@ func _on_pressed() -> void:
 # Para una tecla sin manejo, remapea a un nuevo evento, configura el
 # proceso de tecla a falso.
 func _unhandled_key_input(event: InputEvent) -> void:
-	self.release_focus() # Se quita el enfoque en el botón
 	_remap_action_to(event) # Remapea la acción	
 	set_process_unhandled_key_input(false) # Se para de escuchar el evento de teclado.
+	await get_tree().create_timer(0.5).timeout
 	self.grab_focus() # Se enfoca el botón
+
+
+func _on_focus_entered() -> void:
+	if not get_viewport().is_processing_unhandled_input():
+		Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
