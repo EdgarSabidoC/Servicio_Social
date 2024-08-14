@@ -29,8 +29,9 @@ func _process(_delta: float) -> void:
 		self.tab_bar_has_focus = false
 
 
+# Reproduce un sonido cuando el TabBar tiene el focus:
 func _on_tab_bar_focus() -> void:
-	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 
 
 # Para cambiar el fondo del TabContainer se tiene que agregar un nuevo StyleboxTexture
