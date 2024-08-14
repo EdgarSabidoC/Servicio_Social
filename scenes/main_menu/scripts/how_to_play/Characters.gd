@@ -34,6 +34,7 @@ func _on_tab_selected(tab: int) -> void:
 
 
 func _on_tab_clicked(_tab: int) -> void:
+	Sfx.play_sound(Sfx.Sounds.SPLASH_SCREEN)
 	self.pressed_tab = !self.pressed_tab
 	if self.pressed_tab:
 		self._hide_tabs()
@@ -45,6 +46,7 @@ func _on_tab_clicked(_tab: int) -> void:
 
 
 func _on_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.SPLASH_SCREEN)
 	self.pressed_tab = !self.pressed_tab
 	if self.pressed_tab:
 		self._hide_tabs()
@@ -83,6 +85,7 @@ func _on_visibility_changed() -> void:
 			self._show_hidden_tabs()
 			self.v_box_container.hide()
 	else:
+		Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 		self.set_characters()
 
 
