@@ -304,6 +304,7 @@ func print_message():
 
 # Imprime el puntaje:
 func print_score() -> void:
+	Sfx.play_sound(Sfx.Sounds.SCORE)
 	self.score_flash_label.text = "+10000"
 	self.score_label_player.play("fade_out")
 	self.score_label.print_score()

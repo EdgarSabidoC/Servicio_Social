@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_pause"):
 		if !self.pause.is_active():
 			self.clock.stop()
-			self.pause.show()
+			self.pause.show_menu()
 
 
 func connect_signals() -> void:
@@ -97,6 +97,7 @@ func print_message():
 
 # Imprime el puntaje:
 func print_score() -> void:
+	Sfx.play_sound(Sfx.Sounds.SCORE)
 	self.score_flash_label.text = "+%s" % self.default_score
 	self.score_label_player.play("fade_out")
 	self.score_label.print_score()
@@ -180,6 +181,8 @@ func set_order_coordinates() -> void:
 	self.label.text = str(coordinates)
 	# Inicia la animación para mostrar las coordenadas asignadas
 	%Opossum.play("default")
+	await get_tree().create_timer(1).timeout
+	Sfx.play_sound(Sfx.Sounds.WRITE_ORDER, 15)
 
 
 func _on_pause_finished() -> void:
@@ -193,7 +196,7 @@ func _on_pause_btn_pressed() -> void:
 		if !Mouse.mouse_mode_activated:
 			self.pause.continue_btn.grab_focus()
 		self.clock.stop()
-		self.pause.show()
+		self.pause.show_menu()
 
 
 # Cuando se llegue a un pivote en cuenta atrás se aumenta la velocidad de la música:
