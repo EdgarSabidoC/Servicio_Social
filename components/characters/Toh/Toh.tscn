@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdug6yjyj81et"]
+
+[ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="1_71tph"]
+
+[node name="Toh" type="TextureRect"]
+script = ExtResource("1_71tph")
