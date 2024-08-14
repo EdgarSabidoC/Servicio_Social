@@ -235,28 +235,44 @@ func check_input_actions() -> void:
 		# de los dígitos superó el límite:
 		return
 	if Input.is_action_just_pressed("num_0"):
+		self._register_sound()
 		self.total_label.text += "0"
 	elif Input.is_action_just_pressed("num_1"):
+		self._register_sound()
 		self.total_label.text += "1"
 	elif Input.is_action_just_pressed("num_2"):
+		self._register_sound()
 		self.total_label.text += "2"
 	elif Input.is_action_just_pressed("num_3"):
+		self._register_sound()
 		self.total_label.text += "3"
 	elif Input.is_action_just_pressed("num_4"):
+		self._register_sound()
 		self.total_label.text += "4"
 	elif Input.is_action_just_pressed("num_5"):
+		self._register_sound()
 		self.total_label.text += "5"
 	elif Input.is_action_just_pressed("num_6"):
+		self._register_sound()
 		self.total_label.text += "6"
 	elif Input.is_action_just_pressed("num_7"):
+		self._register_sound()
 		self.total_label.text += "7"
 	elif Input.is_action_just_pressed("num_8"):
+		self._register_sound()
 		self.total_label.text += "8"
 	elif Input.is_action_just_pressed("num_9"):
+		self._register_sound()
 		self.total_label.text += "9"
 	elif Input.is_action_just_pressed("period"):
 		if !self.total_label.text.contains("."):
+			self._register_sound()
 			self.total_label.text += "."
+
+
+# Reproduce un sonido de las teclas de la registradora:
+func _register_sound() -> void:
+	Sfx.play_sound(Sfx.Sounds.REGISTER_BUTTON_PRESS)
 
 
 # Imprime un mensaje aleatorio:
@@ -311,60 +327,72 @@ func enable_buttons() -> void:
 func _on_button_dot_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
 		if !self.total_label.text.contains("."):
+			self._register_sound()
 			self.total_label.text += "."
 
 
 func _on_button_0_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "0"
 
 
 func _on_button_1_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "1"
 
 
 func _on_button_2_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "2"
 
 
 func _on_button_3_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "3"
 
 
 func _on_button_4_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "4"
 
 
 func _on_button_5_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "5"
 
 
 func _on_button_6_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "6"
 
 
 func _on_button_7_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "7"
 
 
 func _on_button_8_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "8"
 
 
 func _on_button_9_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "9"
 
 
 func _on_button_clear_pressed() -> void:
+	self._register_sound()
 	self.total_label.text = self.total_label.text.left(-1)
 
 
@@ -406,6 +434,7 @@ func _on_accept_btn_pressed() -> void:
 			# Se imprime el puntaje:
 			self.print_score()
 	if !self.accept_btn.disabled and self.total_label.text != "":
+		Sfx.play_sound(Sfx.Sounds.TICKET_PRINT)
 		self.ticket_texture.show() # Se muestra la textura del ticket.
 		self.ticket_animation_player.play("default") # Animación del ticket
 		# Se cambian los estados de los botones de aceptar y borrar:
@@ -431,6 +460,7 @@ func _on_prices_menu_visibility_changed() -> void:
 
 
 func _on_clear_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.TAKE_TICKET)
 	self.ticket_texture.hide()
 	if self.accept_btn.disabled:
 		self.accept_btn.change_active_state()

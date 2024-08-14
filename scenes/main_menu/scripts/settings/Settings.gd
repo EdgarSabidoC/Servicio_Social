@@ -41,16 +41,16 @@ func _on_tab_bar_focus() -> void:
 
 
 func _on_video_visibility_changed() -> void:
-	if self.video.is_visible_in_tree():
+	if self.video and self.video.is_visible_in_tree():
 		self._on_tab_bar_focus()
 
 
 func _on_controls_visibility_changed() -> void:
-	if self.controls.is_visible_in_tree():
+	if self.controls and self.controls.is_visible_in_tree():
 		self._on_tab_bar_focus()
 
 
 func _on_license_visibility_changed() -> void:
-	if self.license.is_visible_in_tree():
+	if self.license and self.license.is_visible_in_tree():
 		self._on_tab_bar_focus()
 
