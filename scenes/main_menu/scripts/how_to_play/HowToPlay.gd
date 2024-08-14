@@ -36,20 +36,20 @@ func _on_tab_bar_focus() -> void:
 
 
 func _on_fractions_minigame_visibility_changed() -> void:
-	if self.fractions_minigame.is_visible_in_tree():
+	if self.fractions_minigame and self.fractions_minigame.is_visible_in_tree():
 		self._on_tab_bar_focus()
 
 
 func _on_additions_minigame_visibility_changed() -> void:
-	if self.additions_minigame.is_visible_in_tree():
+	if self.additions_minigame and self.additions_minigame.is_visible_in_tree():
 		self._on_tab_bar_focus()
 
 
 func _on_coordinates_minigame_visibility_changed() -> void:
-	if self.coordinates_minigame.is_visible_in_tree():
+	if self.coordinates_minigame and self.coordinates_minigame.is_visible_in_tree():
 		self._on_tab_bar_focus()
 
 
 func _on_symmetry_minigame_visibility_changed() -> void:
-	if self.symmetry_minigame.is_visible_in_tree():
+	if self.symmetry_minigame and self.symmetry_minigame.is_visible_in_tree():
 		self._on_tab_bar_focus()
