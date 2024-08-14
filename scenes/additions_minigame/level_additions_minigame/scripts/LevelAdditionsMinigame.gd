@@ -70,7 +70,7 @@ func _process(_delta: float) -> void:
 		# Tecla de pausa:
 		if !self.pause.is_active():
 			self.clock.stop()
-			self.pause.show()
+			self.pause.show_menu()
 	elif Input.is_action_just_pressed("ui_delete"):
 		# Tecla de borrado:
 		self.total_label.text = self.total_label.text.left(-1)
@@ -410,7 +410,7 @@ func _on_pause_btn_pressed() -> void:
 		else:
 			self.pause_btn.release_focus()
 		self.clock.stop()
-		self.pause.show()
+		self.pause.show_menu()
 
 
 func _on_prices_btn_pressed() -> void:
@@ -434,6 +434,8 @@ func _on_accept_btn_pressed() -> void:
 			# Se imprime el puntaje:
 			self.print_score()
 	if !self.accept_btn.disabled and self.total_label.text != "":
+		Sfx.play_sound(Sfx.Sounds.REGISTER_MACHINE, 15)
+		await get_tree().create_timer(0.5).timeout
 		Sfx.play_sound(Sfx.Sounds.TICKET_PRINT)
 		self.ticket_texture.show() # Se muestra la textura del ticket.
 		self.ticket_animation_player.play("default") # Animación del ticket
