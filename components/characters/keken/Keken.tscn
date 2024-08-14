@@ -999,6 +999,6 @@ texture = SubResource("AtlasTexture_ho4jo")
 script = ExtResource("1_uy7eb")
 sprites = SubResource("SpriteFrames_3opny")
 current_animation = "entrance"
-frame_index = 29
 auto_play = true
+playing = true
 metadata/_edit_use_anchors_ = true

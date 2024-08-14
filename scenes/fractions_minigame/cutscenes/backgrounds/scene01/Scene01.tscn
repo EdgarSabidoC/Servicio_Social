@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://btf3hylb8368j"]
+[gd_scene load_steps=133 format=3 uid="uid://btf3hylb8368j"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/Scene01.gd" id="1_qya30"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="1_trfx7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://siqf324mp6kw" path="res://assets/graphical_assets/characters/npcs/extras/car.tga" id="3_he3bh"]
 [ext_resource type="PackedScene" uid="uid://dna2xokag5i3n" path="res://components/characters/zotz/Zotz.tscn" id="4_cdegh"]
 [ext_resource type="PackedScene" uid="uid://bqpat0nvt6xab" path="res://components/characters/alux/Alux.tscn" id="4_xa0lw"]
+[ext_resource type="Texture2D" uid="uid://bdb2gsvbc4teh" path="res://assets/graphical_assets/characters/npcs/extras/background_people.tga" id="5_27uat"]
 [ext_resource type="Texture2D" uid="uid://wm0l45fxdk02" path="res://assets/graphical_assets/characters/npcs/alux/alux.tga" id="5_ayb6q"]
 [ext_resource type="Texture2D" uid="uid://bc61yusy1ues7" path="res://assets/graphical_assets/characters/npcs/zotz/zotz.tga" id="5_s12n4"]
 [ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="5_tojxw"]
@@ -18,13 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://bqndfeduh013a" path="res://assets/graphical_assets/characters/npcs/alux/alux_sad.tga" id="13_fahix"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="16_lwaoq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_77knl"]
-atlas = ExtResource("3_he3bh")
-region = Rect2(0, 160, 176, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_komxm"]
 atlas = ExtResource("3_he3bh")
 region = Rect2(0, 0, 176, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77knl"]
+atlas = ExtResource("3_he3bh")
+region = Rect2(0, 160, 176, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2loey"]
 atlas = ExtResource("3_he3bh")
@@ -69,9 +70,59 @@ _data = {
 "move_forward": SubResource("Animation_30xg3")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpvac"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s024f"]
+atlas = ExtResource("5_27uat")
+region = Rect2(0, 0, 64, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
+atlas = ExtResource("5_27uat")
+region = Rect2(0, 144, 64, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqe4s"]
+atlas = ExtResource("5_27uat")
+region = Rect2(0, 288, 64, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_18c83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s024f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sbjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqe4s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ymuk3"]
+resource_name = "Moving_forward"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1024, 100), Vector2(-600, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckxxj"]
+_data = {
+"Moving_forward": SubResource("Animation_ymuk3")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se0xc"]
 atlas = ExtResource("5_s12n4")
-region = Rect2(0, 2080, 124, 160)
+region = Rect2(0, 0, 124, 160)
 
 [sub_resource type="Animation" id="Animation_1ldb0"]
 length = 0.001
@@ -99,9 +150,9 @@ _data = {
 "entrance": SubResource("Animation_0y0rs")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n0bd7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_drrj0"]
 atlas = ExtResource("5_ayb6q")
-region = Rect2(0, 2400, 124, 160)
+region = Rect2(0, 1920, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gky0u"]
 atlas = ExtResource("12_5pwov")
@@ -295,10 +346,6 @@ region = Rect2(0, 1600, 124, 160)
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 1760, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_drrj0"]
-atlas = ExtResource("5_ayb6q")
-region = Rect2(0, 1920, 124, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbxg5"]
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 2080, 124, 160)
@@ -306,6 +353,10 @@ region = Rect2(0, 2080, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xwcr"]
 atlas = ExtResource("5_ayb6q")
 region = Rect2(0, 2240, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0bd7"]
+atlas = ExtResource("5_ayb6q")
+region = Rect2(0, 2400, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e83j6"]
 atlas = ExtResource("5_ayb6q")
@@ -483,7 +534,7 @@ region = Rect2(0, 5760, 124, 160)
 atlas = ExtResource("13_fahix")
 region = Rect2(0, 5920, 124, 160)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4o6ox"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3y2r"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -819,28 +870,52 @@ grow_vertical = 2
 texture = ExtResource("1_trfx7")
 metadata/_edit_use_anchors_ = true
 
-[node name="car_background" type="TextureRect" parent="."]
+[node name="Background_Car" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.586
 anchor_right = -0.024
 anchor_bottom = 1.0
-offset_left = 2100.06
-offset_right = 2100.04
-pivot_offset = Vector2(20, 20)
-texture = SubResource("AtlasTexture_77knl")
+offset_left = 0.0640259
+offset_right = 0.0440178
+pivot_offset = Vector2(287.734, 288)
+texture = SubResource("AtlasTexture_komxm")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_kdyk4")
-frame_index = 1
 auto_play = true
+playing = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="car_background"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_Car"]
 libraries = {
 "": SubResource("AnimationLibrary_xesf0")
 }
 autoplay = "move_forward"
+
+[node name="Background_People" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.174
+anchor_right = 1.372
+anchor_bottom = 0.835
+offset_top = -0.223999
+offset_right = 0.0727539
+offset_bottom = 0.039978
+pivot_offset = Vector2(190.5, 190.5)
+texture = SubResource("AtlasTexture_s024f")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("16_lwaoq")
+sprites = SubResource("SpriteFrames_18c83")
+auto_play = true
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_People"]
+libraries = {
+"": SubResource("AnimationLibrary_ckxxj")
+}
 
 [node name="Wall" type="TextureRect" parent="."]
 layout_mode = 1
@@ -862,8 +937,7 @@ anchor_bottom = 0.27778
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0001, 80.0006)
-texture = SubResource("AtlasTexture_lpvac")
-frame_index = 13
+texture = SubResource("AtlasTexture_se0xc")
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 script = ExtResource("11_eey68")
@@ -877,7 +951,7 @@ anchor_bottom = 0.859375
 offset_left = 61.9996
 offset_top = -165.0
 offset_bottom = -325.0
-pivot_offset = Vector2(62, 80.0001)
+pivot_offset = Vector2(62.4999, 80.0001)
 stretch_mode = 5
 
 [node name="KekenAnimationPlayer" type="AnimationPlayer" parent="Keken"]
@@ -899,9 +973,9 @@ offset_right = -12.4
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0002, 80)
-texture = SubResource("AtlasTexture_n0bd7")
-sprites = SubResource("SpriteFrames_4o6ox")
-frame_index = 15
+texture = SubResource("AtlasTexture_drrj0")
+sprites = SubResource("SpriteFrames_k3y2r")
+frame_index = 12
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 libraries = {
