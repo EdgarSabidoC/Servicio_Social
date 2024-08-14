@@ -12,6 +12,7 @@ signal finished()
 
 # Función que muestra el menú de pausa:
 func show_menu():
+	Sfx.play_sound(Sfx.Sounds.PAUSE_MENU)
 	self.is_pause_active = true
 	self.show()
 
@@ -29,12 +30,15 @@ func is_active() -> bool:
 
 # Señal que es lanzada cuando se presiona el continue_btn:
 func _on_continue_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.RESUME_PAUSE, 5)
 	self.hide_menu()	
 	self.finished.emit()
 
 
 # Señal que es lanzada cuando se presiona el main_menu_btn:
 func _on_main_menu_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.BUTTON_ACCEPT)
+	await get_tree().create_timer(0.5).timeout
 	# Si está activado el modo práctica se desactiva:
 	if PlayerSession.is_practice_mode():
 		PlayerSession.change_practice_mode()

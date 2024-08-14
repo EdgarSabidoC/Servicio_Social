@@ -47,10 +47,12 @@ func _ready() -> void:
 		self.stop()
 	# Se valida que las coordenadas estén dentro de los límites:
 	self.validate_coordinates()
+	Sfx.play_sound(Sfx.Sounds.ROBOT_ENTRANCE, -10)
 	self.animation_player.play("enter")
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
+	Sfx.play_sound(Sfx.Sounds.ROBOT_HOVER, -5)
 	# Textura de la vista previa:
 	var preview_texture =  AnimatedTextureRect.new()
 	
@@ -126,8 +128,8 @@ func set_rand_coordinates() -> void:
 
 # Reinicia la animación del robot y le devuelve su textura:
 func restart() -> void:
-	# Aquí se debe reproducir la animación para hacer que salga de la puerta el robot.
-	# AÑADIR CÓDIGO.
+	await get_tree().create_timer(1).timeout
+	Sfx.play_sound(Sfx.Sounds.ROBOT_ENTRANCE, -10)
 	self.play("enter")
 	self.animation_player.play("enter")
 
@@ -137,6 +139,7 @@ func _notification(what: int) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		# Cuando no se suelta en un lugar válido, se reestablece la textura predeterminada del robot:
 		if !get_viewport().gui_is_drag_successful():
+			Sfx.stop()
 			self.play("idle")
 		else:
 			# Si se soltó correctamente, entonces se reinicia la animación de entrada:
