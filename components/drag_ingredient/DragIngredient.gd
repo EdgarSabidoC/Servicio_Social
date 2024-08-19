@@ -69,6 +69,12 @@ func _load_ingredient_texture_for_pizza() -> void:
 
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
+	# Se oculta el mouse:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	# Se reproduce el sonido:
+	Sfx.play_sound(Sfx.Sounds.INGREDIENT_TAKE)
+	
 	# Textura de la vista previa:
 	var preview_texture =  AnimatedTextureRect.new()
 	
@@ -100,3 +106,12 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 
 func get_dropped_data(data: Variant) -> void:
 	print_debug(data)
+
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_DRAG_END:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		# Cuando no se suelta en un lugar válido, se reestablece la textura predeterminada del robot:
+		if !get_viewport().gui_is_drag_successful():
+			Sfx.play_sound(Sfx.Sounds.INGREDIENT_RELEASE)
