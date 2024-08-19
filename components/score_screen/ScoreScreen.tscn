@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://components/score_screen/scripts/ScoreScreen.gd" id="1_si3ca"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="2_nognv"]
 [ext_resource type="Shader" path="res://assets/graphical_assets/styles/background.gdshader" id="3_gjiav"]
-[ext_resource type="Texture2D" uid="uid://deqo1icojmn6b" path="res://assets/graphical_assets/environments/backgrounds/Pallette/01.png" id="4_isest"]
+[ext_resource type="Texture2D" uid="uid://d0rks0rtd03xr" path="res://assets/graphical_assets/environments/backgrounds/Pallette/04.png" id="4_gxnjt"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="4_kh5ik"]
 [ext_resource type="Texture2D" uid="uid://m6ow78pjvk2" path="res://assets/graphical_assets/environments/backgrounds/BW/lines01.png" id="5_4x6tr"]
 
@@ -22,20 +22,20 @@ shader_parameter/gba_transparency_scroll_speed = 0.01
 shader_parameter/gba_transparency_value = 0.5
 shader_parameter/horizontal_wave_amplitude = 2.0
 shader_parameter/horizontal_wave_frequency = 2.0
-shader_parameter/horizontal_wave_speed = 0.5
+shader_parameter/horizontal_wave_speed = 0.1
 shader_parameter/vertical_wave_amplitude = 0.5
 shader_parameter/vertical_wave_frequency = 1.0
-shader_parameter/vertical_wave_speed = 0.5
+shader_parameter/vertical_wave_speed = 0.1
 shader_parameter/horizontal_deform_amplitude = 0.2
 shader_parameter/horizontal_deform_frequency = 2.0
-shader_parameter/horizontal_deform_speed = 0.5
+shader_parameter/horizontal_deform_speed = 0.1
 shader_parameter/vertical_deform_amplitude = 0.4
 shader_parameter/vertical_deform_frequency = 2.0
-shader_parameter/vertical_deform_speed = 0.5
+shader_parameter/vertical_deform_speed = 0.1
 shader_parameter/width = 1024.0
 shader_parameter/height = 576.0
-shader_parameter/palette_cycling_speed = 0.005
-shader_parameter/palette = ExtResource("4_isest")
+shader_parameter/palette_cycling_speed = 0.001
+shader_parameter/palette = ExtResource("4_gxnjt")
 
 [node name="ScoreScreen" type="Control"]
 layout_mode = 3
@@ -72,12 +72,9 @@ stretch_mode = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.226563
-anchor_top = 0.111111
-anchor_right = 0.771484
-anchor_bottom = 0.215278
-offset_top = 18.0
-offset_right = 0.000854492
-offset_bottom = 18.0
+anchor_top = 0.142361
+anchor_right = 0.771485
+anchor_bottom = 0.246528
 theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
 theme_override_colors/font_shadow_color = Color(1.73271e-06, 0.596233, 0.314869, 1)
 theme_override_constants/shadow_offset_x = 8
@@ -86,17 +83,16 @@ theme_override_font_sizes/font_size = 48
 text = "Tu puntaje final es"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.390625
-anchor_top = 0.333333
+anchor_top = 0.364583
 anchor_right = 0.609376
-anchor_bottom = 0.416666
-offset_top = 18.0
-offset_bottom = 18.0
-theme_override_colors/default_color = Color(0, 1, 0, 1)
+anchor_bottom = 0.447916
+theme_override_colors/default_color = Color(0, 0.862745, 0, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 3
@@ -107,6 +103,7 @@ script = ExtResource("2_nognv")
 speed = 2.0
 delay = 1.0
 fade = true
+metadata/_edit_use_anchors_ = true
 
 [node name="RestartBtn" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 50)
