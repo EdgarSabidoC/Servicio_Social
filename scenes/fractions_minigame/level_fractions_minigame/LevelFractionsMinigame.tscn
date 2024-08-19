@@ -20,21 +20,21 @@
 [ext_resource type="Texture2D" uid="uid://cvinaewo3wkdk" path="res://assets/graphical_assets/characters/icons/huolpoch_icon.tga" id="17_m1bib"]
 [ext_resource type="Texture2D" uid="uid://ba5ecdey055s5" path="res://assets/graphical_assets/characters/icons/keken_icon.tga" id="18_xp0px"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_av2ji"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dnvn"]
 atlas = ExtResource("12_4d807")
-region = Rect2(0, 480, 240, 160)
+region = Rect2(0, 160, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ahj4"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 0, 240, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7dnvn"]
-atlas = ExtResource("12_4d807")
-region = Rect2(0, 160, 240, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m4vv6"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 320, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av2ji"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 480, 240, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2x5ef"]
 resource_local_to_scene = true
@@ -105,11 +105,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.359985
 pivot_offset = Vector2(391.5, 288)
-texture = SubResource("AtlasTexture_av2ji")
+texture = SubResource("AtlasTexture_7dnvn")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")
-frame_index = 3
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -273,7 +273,7 @@ libraries = {
 "": SubResource("AnimationLibrary_gyxyh")
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="IconsContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.0166016
 anchor_top = 0.131944
@@ -282,35 +282,40 @@ anchor_bottom = 0.201389
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AluxIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="AluxIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("14_hsxpv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TohIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="TohIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("15_vh67f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ZotzIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="ZotzIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("16_w1h7d")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HuolpochIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="HuolpochIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("17_m1bib")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="KekenIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="KekenIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("18_xp0px")
