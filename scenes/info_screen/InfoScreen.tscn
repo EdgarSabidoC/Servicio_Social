@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://mj3ta3rrgamh"]
+
+[ext_resource type="Texture2D" uid="uid://cm1qbqgxj7c82" path="res://assets/graphical_assets/characters/player/main_character_scene_04.tga" id="1_4y7j1"]
+[ext_resource type="Script" path="res://scenes/info_screen/scripts/InfoScreen.gd" id="1_jryx8"]
+[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_vdffa"]
+[ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="3_3460w"]
+[ext_resource type="Texture2D" uid="uid://c1ex1uodpa5ci" path="res://assets/graphical_assets/characters/player/main_character_tutorial.tga" id="4_5q265"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l65vc"]
+atlas = ExtResource("1_4y7j1")
+region = Rect2(0, 0, 80, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnan5"]
+atlas = ExtResource("1_4y7j1")
+region = Rect2(0, 130, 80, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22cre"]
+atlas = ExtResource("1_4y7j1")
+region = Rect2(0, 260, 80, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soye8"]
+atlas = ExtResource("1_4y7j1")
+region = Rect2(0, 390, 80, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sm3t"]
+atlas = ExtResource("4_5q265")
+region = Rect2(0, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkcwe"]
+atlas = ExtResource("4_5q265")
+region = Rect2(0, 100, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j342"]
+atlas = ExtResource("4_5q265")
+region = Rect2(0, 200, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv0xf"]
+atlas = ExtResource("4_5q265")
+region = Rect2(0, 300, 200, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmc0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l65vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnan5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22cre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soye8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sm3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkcwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j342")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv0xf")
+}],
+"loop": true,
+"name": &"explanation",
+"speed": 10.0
+}]
+
+[node name="InfoScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jryx8")
+fractions_text = "[StartParagraph]Este es el texto para el minijuego de fracciones."
+additions_text = "[StartParagraph]Este es el texto para el minijuego de sumas."
+coordinates_text = "[StartParagraph]Este es el texto para el minijuego de coordenadas."
+symmetry_text = "[StartParagraph]Este es el texto para el minijuego de simetría."
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vdffa")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.38419e-07, 34)
+scale = Vector2(5.12616, 5.43154)
+sprite_frames = SubResource("SpriteFrames_qmc0r")
+animation = &"explanation"
+centered = false
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_3460w")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.516602
+anchor_top = 0.133681
+anchor_right = 0.882813
+anchor_bottom = 0.58507
+alignment = 2
+
+[connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]

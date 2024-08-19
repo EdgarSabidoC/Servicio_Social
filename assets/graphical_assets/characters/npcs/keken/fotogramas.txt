@@ -1,0 +1,5 @@
+Nombre	Fotogramas	Duración de los fotogramas(ms)
+cerdo	20		80
+wrong	43		80
+rejected 43		80
+in	30		35

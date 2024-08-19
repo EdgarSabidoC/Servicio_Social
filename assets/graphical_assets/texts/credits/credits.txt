@@ -1,0 +1,48 @@
+|-----------------------[title]-----------------------|
+
+DESARROLLADO POR
+Edgar Sabido Cortés y Carlos Antonio Ruiz Domínguez
+PARA EL PROYECTO
+\"Juega, aprende y diviértete con Linux\"
+
+RESPONSABLE DEL PROYECTO
+M. en T. María del Carmen Zozaya Ayuso
+
+|------------------------MÚSICA-----------------------|
+
+\"Tarantella napoletana\"
+Composición tradicional napolitana
+Versión por:
+Edgar Sabido Cortés
+
+
+\"Funiculì, funiculà\"
+Composición original por:
+Luigi Denza
+Letra original por:
+Peppino Turco
+Año de composición:
+1880
+Versión por:
+Edgar Sabido Cortés
+
+
+\"’O sole mio\"
+Composición original por:
+	Eduardo di Capua
+Letra original por:
+	Giovanni Capurro
+Año de composición:
+	1898
+Versión por:
+	Edgar Sabido Cortés
+
+|-------------------------GODOT-----------------------|
+
+
+
+|-----------------------------------------------------|
+
+AGRADECIMIENTOS ESPECIALES A
+FACULTAD DE MATEMÁTICAS DE LA
+UNIVERSIDAD AUTÓNOMA DE YUCATÁN

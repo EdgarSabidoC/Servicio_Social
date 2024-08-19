@@ -7,20 +7,14 @@ extends Control
 var _splash_screens: Array[SplashScreen] = []
 
 @onready var _splash_screen_container: CenterContainer = $SplashScreenContainer
-
+@onready var _first_splash_screen: bool = true
+ 
 
 func _ready() -> void:
+	# Se oculta el mouse:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
 	assert(_move_to)
-	
-	#Se cargan los valores de Audio del archivo de configuración:
-	var master = Persistence.config.get_value("Audio", "0")
-	AudioServer.set_bus_volume_db(0, linear_to_db(master))
-	
-	var music = Persistence.config.get_value("Audio", "1")
-	AudioServer.set_bus_volume_db(1, linear_to_db(music))
-	
-	var sfx = Persistence.config.get_value("Audio", "2")
-	AudioServer.set_bus_volume_db(0, linear_to_db(sfx))
 	
 	set_process_input(false)
 
@@ -37,9 +31,9 @@ func _ready() -> void:
 
 # Lee los inputs que permiten saltar las escenas, llama a _skip():
 func _input(_event: InputEvent) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) \
-	|| Input.is_key_pressed(KEY_SPACE) \
-	|| Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_action_just_pressed("m1") \
+	or Input.is_action_just_pressed("ui_accept") \
+	or Input.is_action_just_pressed("ui_pause"):
 		_skip()
 
 
@@ -47,6 +41,9 @@ func _start_splash_screen() -> void:
 	if _splash_screens.size() == 0:
 		get_tree().change_scene_to_packed(_move_to)
 	else:
+		if _first_splash_screen:
+			Sfx.play_sound(Sfx.Sounds.SPLASH_SCREEN)
+			_first_splash_screen = false
 		var splash_screen: SplashScreen = _splash_screens.pop_front()
 		splash_screen.start()
 		splash_screen.connect("finished", _start_splash_screen)

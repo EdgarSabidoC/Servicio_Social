@@ -1,0 +1,225 @@
+[gd_scene load_steps=20 format=3 uid="uid://du4oiw4gwst0p"]
+
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/intro_cutscene/scripts/IntroCutscene.gd" id="1_mh2mp"]
+[ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/Scene01.tscn" id="3_n2iwx"]
+[ext_resource type="Texture2D" uid="uid://cjma5hvf4tsdw" path="res://assets/graphical_assets/user_interface/button/buttons.tga" id="3_rwoer"]
+[ext_resource type="Texture2D" uid="uid://cg16nxnmuou8l" path="res://assets/graphical_assets/user_interface/container/pizzaContainer.tga" id="4_5ag7h"]
+[ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="4_gjk83"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw07n"]
+texture = ExtResource("3_rwoer")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 36.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(620, 428, 104, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvx1j"]
+texture = ExtResource("4_gjk83")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c44bl"]
+texture = ExtResource("3_rwoer")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 36.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(236, 428, 104, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ymj75"]
+texture = ExtResource("3_rwoer")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 36.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(44, 428, 104, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3b7rq"]
+texture = ExtResource("3_rwoer")
+texture_margin_left = 28.0
+texture_margin_top = 36.0
+texture_margin_right = 28.0
+texture_margin_bottom = 28.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(428, 420, 104, 112)
+
+[sub_resource type="Theme" id="Theme_b74ik"]
+Button/styles/disabled = SubResource("StyleBoxTexture_aw07n")
+Button/styles/focus = SubResource("StyleBoxTexture_qvx1j")
+Button/styles/hover = SubResource("StyleBoxTexture_c44bl")
+Button/styles/normal = SubResource("StyleBoxTexture_ymj75")
+Button/styles/pressed = SubResource("StyleBoxTexture_3b7rq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppiao"]
+texture = ExtResource("3_rwoer")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 36.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(620, 44, 104, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3q0uq"]
+texture = ExtResource("4_gjk83")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsksl"]
+texture = ExtResource("3_rwoer")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 36.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(236, 44, 104, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_arnot"]
+texture = ExtResource("3_rwoer")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 36.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(44, 44, 104, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71h7a"]
+texture = ExtResource("3_rwoer")
+texture_margin_left = 28.0
+texture_margin_top = 36.0
+texture_margin_right = 28.0
+texture_margin_bottom = 28.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(428, 36, 104, 112)
+
+[sub_resource type="Theme" id="Theme_8shwp"]
+Button/styles/disabled = SubResource("StyleBoxTexture_ppiao")
+Button/styles/focus = SubResource("StyleBoxTexture_3q0uq")
+Button/styles/hover = SubResource("StyleBoxTexture_hsksl")
+Button/styles/normal = SubResource("StyleBoxTexture_arnot")
+Button/styles/pressed = SubResource("StyleBoxTexture_71h7a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpegd"]
+texture = ExtResource("4_5ag7h")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4, 100, 88, 88)
+
+[sub_resource type="Theme" id="Theme_7g2ov"]
+Panel/styles/panel = SubResource("StyleBoxTexture_vpegd")
+
+[node name="IntroCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_mh2mp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Scene01" parent="." instance=ExtResource("3_n2iwx")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.896484
+anchor_top = 0.270833
+anchor_right = 0.990234
+anchor_bottom = 0.395833
+text = "Intro
+Cutscene"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionButtonsContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.451172
+anchor_top = 0.555556
+anchor_right = 0.742187
+anchor_bottom = 0.70139
+metadata/_edit_use_anchors_ = true
+
+[node name="AcceptBtn" type="Button" parent="OptionButtonsContainer"]
+layout_mode = 2
+theme = SubResource("Theme_b74ik")
+text = "Aceptar"
+
+[node name="Placeholder1" type="BoxContainer" parent="OptionButtonsContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="RejectBtn" type="Button" parent="OptionButtonsContainer"]
+layout_mode = 2
+theme = SubResource("Theme_8shwp")
+text = "Rechazar"
+
+[node name="OptionsLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.455078
+anchor_top = 0.194444
+anchor_right = 0.756836
+anchor_bottom = 0.440972
+text = "¿Deseas aceptar o rechazar el pedido?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="OptionsLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0323625
+anchor_right = 1.03236
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7g2ov")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="finished" from="Scene01" to="." method="_on_scene_01_finished"]
+[connection signal="pressed" from="OptionButtonsContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]
+[connection signal="pressed" from="OptionButtonsContainer/RejectBtn" to="." method="_on_reject_btn_pressed"]

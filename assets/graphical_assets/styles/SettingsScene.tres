@@ -1,0 +1,430 @@
+[gd_resource type="Theme" load_steps=60 format=3 uid="uid://tkr4bu68wbdu"]
+
+[ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="1_3pd43"]
+[ext_resource type="Texture2D" uid="uid://casxayq5hliv4" path="res://assets/graphical_assets/user_interface/button/checkButton.tga" id="1_cim03"]
+[ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="2_4eq7f"]
+[ext_resource type="Texture2D" uid="uid://cl7738f51dwm" path="res://assets/graphical_assets/user_interface/button/slider.tga" id="2_5xoam"]
+[ext_resource type="Texture2D" uid="uid://d2t71y182r57p" path="res://assets/graphical_assets/user_interface/button/optionButton.tga" id="2_t4cub"]
+[ext_resource type="Texture2D" uid="uid://tnpyjpi4k0fi" path="res://assets/graphical_assets/user_interface/menu/popUpMenu.tga" id="3_t4rhq"]
+[ext_resource type="Texture2D" uid="uid://bhh437yu0q4wq" path="res://assets/graphical_assets/user_interface/button/scroll.tga" id="6_4ydgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psyd6"]
+atlas = ExtResource("1_cim03")
+region = Rect2(20, 28, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0873d"]
+atlas = ExtResource("1_cim03")
+region = Rect2(116, 28, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxjq5"]
+atlas = ExtResource("1_cim03")
+region = Rect2(206, 28, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gtwk"]
+atlas = ExtResource("1_cim03")
+region = Rect2(302, 28, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0ufq"]
+atlas = ExtResource("1_cim03")
+region = Rect2(14, 124, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pex5"]
+atlas = ExtResource("1_cim03")
+region = Rect2(110, 124, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj3iu"]
+atlas = ExtResource("1_cim03")
+region = Rect2(212, 124, 62, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnjud"]
+atlas = ExtResource("1_cim03")
+region = Rect2(308, 124, 62, 38)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5aoth"]
+texture = ExtResource("2_4eq7f")
+texture_margin_left = 24.0
+texture_margin_top = 44.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syigw"]
+atlas = ExtResource("2_5xoam")
+region = Rect2(2, 10, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_linvu"]
+atlas = ExtResource("2_5xoam")
+region = Rect2(66, 10, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc7du"]
+atlas = ExtResource("2_5xoam")
+region = Rect2(34, 10, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isv7l"]
+atlas = ExtResource("2_5xoam")
+region = Rect2(112, 22, 4, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2c4pr"]
+texture = ExtResource("2_5xoam")
+texture_margin_left = 10.0
+texture_margin_top = 16.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(8, 132, 112, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjthe"]
+texture = ExtResource("2_5xoam")
+texture_margin_left = 10.0
+texture_margin_top = 16.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(8, 132, 112, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro1j4"]
+texture = ExtResource("2_5xoam")
+texture_margin_left = 10.0
+texture_margin_top = 16.0
+texture_margin_right = 10.0
+texture_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(8, 68, 112, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlip7"]
+atlas = ExtResource("2_t4cub")
+region = Rect2(16, 16, 18, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tj81g"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(198, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ayyyb"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(198, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cam1f"]
+texture = ExtResource("2_4eq7f")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 20.0
+expand_margin_right = 15.0
+expand_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jg4ow"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(98, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r7st7"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(98, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxfw7"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(48, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_782c4"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(48, 1, 48, 45)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ktkd"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(148, 3, 48, 43)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ky0rf"]
+texture = ExtResource("2_t4cub")
+texture_margin_left = 8.0
+texture_margin_top = 9.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(148, 3, 48, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x6h0"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(97, 1, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ec4m"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(113, 1, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fffi"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(129, 1, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uri4j"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(97, 17, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c204e"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(113, 17, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12id2"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(129, 17, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgbdw"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(137, 33, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poix6"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(129, 33, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq3db"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(97, 33, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kdg7"]
+atlas = ExtResource("3_t4rhq")
+region = Rect2(113, 33, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yem8"]
+texture = ExtResource("3_t4rhq")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 3.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(54, 7, 36, 30)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_btxwg"]
+color = Color(0.980392, 0.980392, 0.980392, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_o8hck"]
+color = Color(0.980392, 0.980392, 0.980392, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lih38"]
+texture = ExtResource("3_t4rhq")
+texture_margin_left = 6.0
+texture_margin_top = 8.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(2, 3, 44, 40)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fx3dt"]
+color = Color(0.980392, 0.980392, 0.980392, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_05bdf"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 48.0
+texture_margin_top = 36.0
+texture_margin_right = 48.0
+texture_margin_bottom = 57.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(8, 20, 304, 301)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgpsp"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 228, 112, 128)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygnau"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sk3l7"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(616, 228, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cdqt"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 24.0
+texture_margin_top = 32.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(616, 36, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufuek"]
+texture = ExtResource("1_3pd43")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 36, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ere1a"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 7.0
+texture_margin_top = 15.0
+texture_margin_right = 7.0
+texture_margin_bottom = 19.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(10, 20, 12, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbrh3"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 7.0
+texture_margin_top = 15.0
+texture_margin_right = 7.0
+texture_margin_bottom = 19.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(74, 20, 12, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l615"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 7.0
+texture_margin_top = 15.0
+texture_margin_right = 7.0
+texture_margin_bottom = 19.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(42, 20, 12, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31beh"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 8.0
+texture_margin_top = 20.0
+texture_margin_right = 8.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(106, 20, 12, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_um8rv"]
+texture = ExtResource("6_4ydgy")
+texture_margin_left = 8.0
+texture_margin_top = 20.0
+texture_margin_right = 8.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(138, 20, 12, 24)
+
+[resource]
+CheckButton/icons/checked = SubResource("AtlasTexture_psyd6")
+CheckButton/icons/checked_disabled = SubResource("AtlasTexture_0873d")
+CheckButton/icons/checked_disabled_mirrored = SubResource("AtlasTexture_cxjq5")
+CheckButton/icons/checked_mirrored = SubResource("AtlasTexture_6gtwk")
+CheckButton/icons/unchecked = SubResource("AtlasTexture_l0ufq")
+CheckButton/icons/unchecked_disabled = SubResource("AtlasTexture_5pex5")
+CheckButton/icons/unchecked_disabled_mirrored = SubResource("AtlasTexture_qj3iu")
+CheckButton/icons/unchecked_mirrored = SubResource("AtlasTexture_fnjud")
+CheckButton/styles/focus = SubResource("StyleBoxTexture_5aoth")
+HSlider/icons/grabber = SubResource("AtlasTexture_syigw")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_linvu")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_wc7du")
+HSlider/icons/tick = SubResource("AtlasTexture_isv7l")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_2c4pr")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_mjthe")
+HSlider/styles/slider = SubResource("StyleBoxTexture_ro1j4")
+OptionButton/colors/font_color = Color(0.920995, 0.920995, 0.920995, 1)
+OptionButton/icons/arrow = SubResource("AtlasTexture_jlip7")
+OptionButton/styles/disabled = SubResource("StyleBoxTexture_tj81g")
+OptionButton/styles/disabled_mirrored = SubResource("StyleBoxTexture_ayyyb")
+OptionButton/styles/focus = SubResource("StyleBoxTexture_cam1f")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_jg4ow")
+OptionButton/styles/hover_mirrored = SubResource("StyleBoxTexture_r7st7")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_sxfw7")
+OptionButton/styles/normal_mirrored = SubResource("StyleBoxTexture_782c4")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_0ktkd")
+OptionButton/styles/pressed_mirrored = SubResource("StyleBoxTexture_ky0rf")
+PopupMenu/colors/font_color = Color(0.921569, 0.921569, 0.921569, 1)
+PopupMenu/colors/font_hover_color = Color(0.980392, 0.980392, 0.980392, 1)
+PopupMenu/colors/font_separator_color = Color(0.982343, 0.982342, 0.982342, 1)
+PopupMenu/font_sizes/font_separator_size = 18
+PopupMenu/icons/checked = SubResource("AtlasTexture_8x6h0")
+PopupMenu/icons/checked_disabled = SubResource("AtlasTexture_5ec4m")
+PopupMenu/icons/radio_checked = SubResource("AtlasTexture_2fffi")
+PopupMenu/icons/radio_checked_disabled = SubResource("AtlasTexture_uri4j")
+PopupMenu/icons/radio_unchecked = SubResource("AtlasTexture_c204e")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("AtlasTexture_12id2")
+PopupMenu/icons/submenu = SubResource("AtlasTexture_dgbdw")
+PopupMenu/icons/submenu_mirrored = SubResource("AtlasTexture_poix6")
+PopupMenu/icons/unchecked = SubResource("AtlasTexture_jq3db")
+PopupMenu/icons/unchecked_disabled = SubResource("AtlasTexture_8kdg7")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_5yem8")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxLine_btxwg")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_o8hck")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_lih38")
+PopupMenu/styles/separator = SubResource("StyleBoxLine_fx3dt")
+TabContainer/colors/font_unselected_color = Color(0.921569, 0.921569, 0.921569, 1)
+TabContainer/styles/panel = SubResource("StyleBoxTexture_05bdf")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_rgpsp")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_ygnau")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_sk3l7")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_7cdqt")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_ufuek")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_ere1a")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_cbrh3")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_8l615")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_31beh")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_um8rv")

@@ -1,0 +1,143 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfdl8blhiygup"]
+
+[ext_resource type="Script" path="res://scenes/input_mode/scripts/InputMode.gd" id="1_vk5bi"]
+[ext_resource type="PackedScene" uid="uid://deare6ipirplk" path="res://scenes/main_menu/MainScene.tscn" id="2_kr0rc"]
+[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="3_7b4b5"]
+[ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="4_plfe7"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="5_emnij"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3ooj"]
+texture = ExtResource("4_plfe7")
+texture_margin_left = 24.0
+texture_margin_top = 44.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="Theme" id="Theme_cdtle"]
+Button/styles/focus = SubResource("StyleBoxTexture_r3ooj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nt6oq"]
+texture = ExtResource("4_plfe7")
+texture_margin_left = 24.0
+texture_margin_top = 44.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="Theme" id="Theme_6qufn"]
+Button/styles/focus = SubResource("StyleBoxTexture_nt6oq")
+
+[node name="InputMode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_vk5bi")
+_move_to = ExtResource("2_kr0rc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7b4b5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -224.0
+offset_right = 340.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Label1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
+theme_override_font_sizes/font_size = 32
+text = "Selecciona un modo de entrada
+para navegar por los menús"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MouseMode" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Activa el modo ratón"
+theme = SubResource("Theme_cdtle")
+theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Mouse/Ratón"
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="KeyboardMode" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Activa el modo teclado"
+theme = SubResource("Theme_6qufn")
+theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Teclado"
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="RichTextLabelTextFlash" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 0.0235294, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]El modo de entrada se puede cambiar en el menú de configuración del menú principal.[/center]"
+fit_content = true
+script = ExtResource("5_emnij")
+speed = 1.0
+fade = true
+
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_pressed"]
