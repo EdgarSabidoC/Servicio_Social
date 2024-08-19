@@ -68,6 +68,13 @@ grow_vertical = 2
 texture = ExtResource("5_4x6tr")
 stretch_mode = 1
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1_qmp1g")
+metadata/_edit_use_anchors_ = true
+
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
