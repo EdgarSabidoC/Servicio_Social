@@ -239,7 +239,6 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_kdyk4")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -265,7 +264,6 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -292,7 +290,6 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -320,7 +317,6 @@ stretch_mode = 5
 flip_h = true
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -351,7 +347,6 @@ grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(74.2481, 96.3085)
 texture = SubResource("AtlasTexture_kvwo0")
-frame_index = 11
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 script = ExtResource("11_eey68")
@@ -387,7 +382,6 @@ grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0002, 90)
 texture = SubResource("AtlasTexture_fjmqs")
-frame_index = 19
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 libraries = {
@@ -404,8 +398,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(89.5002, 124)
 texture = SubResource("AtlasTexture_t2f75")
-frame_index = 1
-playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Huolpoch"]
@@ -421,8 +413,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(103.5, 133.5)
 texture = SubResource("AtlasTexture_limas")
-frame_index = 19
-playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Toh"]
