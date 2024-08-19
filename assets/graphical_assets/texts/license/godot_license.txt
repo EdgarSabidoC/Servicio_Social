@@ -1,9 +1,9 @@
-        --------VERSIÓN EN ESPAÑOL--------
+		--------VERSIÓN EN ESPAÑOL--------
 
 	Este juego utiliza el motor de juegos Godot Engine 4.2, disponible bajo el siguiente licenciamiento:
-    
+	
 	Copyright (c) 2014-presente contribuidores de Godot Engine. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
-    
+	
 	Se otorga permiso, de forma gratuita, a cualquier persona que obtenga una copia de este software y los archivos de 
 	documentación asociados (el "Software"), para tratar con el Software sin restricción, incluyendo sin limitación los 
 	derechos de uso, copia, modificación, fusión, publicación, distribuir, sublicenciar y/o vender copias del Software, 
@@ -18,12 +18,12 @@
 	
 	-- Godot Engine:
 	<[url]https://godotengine.org[/url]>
-    	-- Licencia de Godot Engine:
+		-- Licencia de Godot Engine:
 	<[url]https://godotengine.org/license/[/url]>
 	-- Autores:
 	<[url]https://github.com/godotengine/godot/blob/master/AUTHORS.md[/url]>
 
-        --------ENGLISH VERSION--------
+		--------ENGLISH VERSION--------
 
 	This game uses Godot Engine 4.2, available under the following license:
 
@@ -43,7 +43,7 @@
 	
 	-- Godot Engine:
 	<[url]https://godotengine.org[/url]>
-    	-- Godot Engine License:
+		-- Godot Engine License:
 	<[url]https://godotengine.org/license/[/url]>
 	-- Authors:
 	<[url]https://github.com/godotengine/godot/blob/master/AUTHORS.md[/url]>

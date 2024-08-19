@@ -7,6 +7,7 @@ extends Control
 var _splash_screens: Array[SplashScreen] = []
 
 @onready var _splash_screen_container: CenterContainer = $SplashScreenContainer
+@onready var _first_splash_screen: bool = true
  
 
 func _ready() -> void:
@@ -40,6 +41,9 @@ func _start_splash_screen() -> void:
 	if _splash_screens.size() == 0:
 		get_tree().change_scene_to_packed(_move_to)
 	else:
+		if _first_splash_screen:
+			Sfx.play_sound(Sfx.Sounds.SPLASH_SCREEN)
+			_first_splash_screen = false
 		var splash_screen: SplashScreen = _splash_screens.pop_front()
 		splash_screen.start()
 		splash_screen.connect("finished", _start_splash_screen)

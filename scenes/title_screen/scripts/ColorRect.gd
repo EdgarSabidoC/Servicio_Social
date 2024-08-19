@@ -11,10 +11,10 @@ func fade_in() -> void:
 	self.modulate.a = 0
 	self.show()
 	var tween: Tween = create_tween()
-	tween.connect("finished", _finish)
+	tween.connect("finished", self._finish)
 	tween.tween_property(self, "modulate:a", 0, 0)
-	tween.tween_interval(_time_interval)
-	tween.tween_property(self, "modulate:a", 1, _fade_time)
+	tween.tween_interval(self._time_interval)
+	tween.tween_property(self, "modulate:a", 1, self._fade_time)
 
 
 # Hace un fade out al fondo:
@@ -22,10 +22,10 @@ func fade_out() -> void:
 	modulate.a = 0
 	self.show()
 	var tween: Tween = create_tween()
-	tween.connect("finished", _finish)
+	tween.connect("finished", self._finish)
 	tween.tween_property(self, "modulate:a", 1, 0)
-	tween.tween_interval(_time_interval)
-	tween.tween_property(self, "modulate:a", 0, _fade_time)
+	tween.tween_interval(self._time_interval)
+	tween.tween_property(self, "modulate:a", 0, self._fade_time)
 
 
 # Emite la señal "finished"

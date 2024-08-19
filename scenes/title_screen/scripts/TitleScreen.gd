@@ -24,6 +24,8 @@ extends Control
 func _ready() -> void:
 	assert(_move_to)
 	
+	BackgroundMusic.play()
+	
 	accept.action_name = "ui_accept"
 	pause.action_name = "ui_pause"
 	# Se obtienen las imágenes de las acciones:
@@ -44,7 +46,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(accept_key) or Input.is_action_just_pressed(pause_key) or Input.is_action_just_pressed("m1"):
-		
+		Sfx.play_sound(Sfx.Sounds.SCREEN_PRESS)
 		# Consume el evento:
 		get_viewport().set_input_as_handled()
 		rich_text_label_text_flash.speed = 60

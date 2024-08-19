@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cey14hi43x1vs"]
+[gd_scene load_steps=38 format=3 uid="uid://cey14hi43x1vs"]
 
 [ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/LevelAdditionsMinigame.gd" id="1_x0vea"]
@@ -171,6 +171,39 @@ _data = {
 "reset": SubResource("Animation_d46tb")
 }
 
+[sub_resource type="Animation" id="Animation_jjkbs"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyxyh"]
+_data = {
+"fade_out": SubResource("Animation_jjkbs")
+}
+
 [node name="LevelAdditionsMinigame" type="Node2D"]
 script = ExtResource("1_x0vea")
 
@@ -302,7 +335,7 @@ anchor_right = 0.350586
 anchor_bottom = 0.815972
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_ld30x")
+texture = ExtResource("5_nc8wv")
 script = ExtResource("14_spgbt")
 metadata/_edit_use_anchors_ = true
 
@@ -314,9 +347,9 @@ anchor_top = 0.48294
 anchor_right = 0.687023
 anchor_bottom = 0.614173
 offset_left = 3.8147e-05
-offset_top = -3.05176e-05
+offset_top = -136.0
 offset_right = 3.05176e-05
-offset_bottom = -1.52588e-05
+offset_bottom = -136.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -458,6 +491,7 @@ text = "Borrar"
 script = ExtResource("4_ijd4p")
 
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = -1
 anchor_left = -0.000976563
@@ -480,6 +514,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("14_roxb4")
 
+[node name="ScoreFlashLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.742188
+anchor_top = 0.0277778
+anchor_right = 0.859375
+anchor_bottom = 0.0833333
+theme_override_font_sizes/font_size = 16
+text = "¡Bien hecho!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ScoreFlashLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_gyxyh")
+}
+
 [node name="PauseBtn" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.00585938
@@ -499,6 +551,7 @@ theme = ExtResource("15_q3hbi")
 metadata/_edit_use_anchors_ = true
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("14_fv58l")]
+visible = false
 anchor_left = 0.320313
 anchor_right = 0.507813
 countdown = true
@@ -538,4 +591,3 @@ size_flags_vertical = 6
 [connection signal="visibility_changed" from="CanvasLayer/PricesMenu" to="." method="_on_prices_menu_visibility_changed"]
 [connection signal="restart_game" from="CanvasLayer/ScoreScreen" to="." method="_on_score_screen_restart_game"]
 [connection signal="finished" from="CanvasLayer/Pause" to="." method="_on_pause_finished"]
-[connection signal="visibility_changed" from="CanvasLayer/Pause" to="." method="_on_pause_visibility_changed"]

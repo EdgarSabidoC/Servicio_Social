@@ -9,7 +9,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3ooj"]
 texture = ExtResource("4_plfe7")
 texture_margin_left = 24.0
-texture_margin_top = 32.0
+texture_margin_top = 44.0
 texture_margin_right = 24.0
 texture_margin_bottom = 40.0
 expand_margin_left = 15.0
@@ -26,7 +26,7 @@ Button/styles/focus = SubResource("StyleBoxTexture_r3ooj")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nt6oq"]
 texture = ExtResource("4_plfe7")
 texture_margin_left = 24.0
-texture_margin_top = 32.0
+texture_margin_top = 44.0
 texture_margin_right = 24.0
 texture_margin_bottom = 40.0
 expand_margin_left = 15.0
@@ -81,7 +81,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 0.0235294, 1)
 theme_override_font_sizes/font_size = 32
-text = "Selecciona un modo de entrada"
+text = "Selecciona un modo de entrada
+para navegar por los menús"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -128,11 +129,15 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 0.0235294, 1)
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "[center]El modo de entrada se puede cambiar en el menú de configuración del menú principal[/center]"
+text = "[center]El modo de entrada se puede cambiar en el menú de configuración del menú principal.[/center]"
 fit_content = true
 script = ExtResource("5_emnij")
 speed = 1.0
 fade = true
 
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MouseMode" to="." method="_on_mouse_mode_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/KeyboardMode" to="." method="_on_keyboard_mode_pressed"]

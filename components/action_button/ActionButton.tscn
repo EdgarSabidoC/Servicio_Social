@@ -18,4 +18,5 @@ grow_vertical = 2
 script = ExtResource("2_svpwe")
 joypad_mode = 1
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

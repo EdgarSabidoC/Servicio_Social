@@ -1,6 +1,6 @@
 extends Button
 
-@export var hint: String = "Regresar al menú principal"
+@export_multiline var hint: String = "Regresar al menú principal"
 @onready var minigames_menu: VBoxContainer = %MinigamesMenu
 @onready var main_menu = %MainMenu
 @onready var menu_container = $"../../MenuContainer"
@@ -9,22 +9,33 @@ extends Button
 @onready var menu_textbox_container = %MenuTextbox
 @onready var play_btn: Button = $"../../MenuContainer/MainMenu/PlayBtn"
 @onready var menu_textbox: MarginContainer = $"../MarginContainer/MenuTextbox"
+@onready var fractions_minigame: Button = $"../FractionsMinigame"
+
 
 
 func _on_pressed() -> void:
-	menu_background_color.fade_in() # Realiza un fade in al fondo del menú
-	main_menu.show() # Se muestra el menú principal
-	menu_textbox_container.show() # Se muestra el textbox del menú principal
-	minigames_menu.hide() # Se oculta el menú de opciones de configuración
+	if PlayerSession.is_practice_mode():
+		self.fractions_minigame.show()
+		# Si está en el modo práctica, lo desactiva:
+		PlayerSession.change_practice_mode()
+	
+	# Moverse al menú principal
+	self.menu_background_color.fade_in()
+	self.settings_background_color.fade_out()
+	self.menu_container.show()
+	self.main_menu.show()
+	self.menu_textbox_container.show() # Se muestra el textbox del menú principal
+	self.minigames_menu.hide() # Se oculta el menú de opciones de configuración
 	if !Mouse.mouse_mode_activated:
-		play_btn.grab_focus() # Se enfoca el botón play
+		self.play_btn.grab_focus() # Se enfoca el botón play
 
 
 # Al estar enfocado el botón:
 func _on_focus_entered():
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 	self.add_theme_stylebox_override("focus", get_theme_stylebox("hover", "Button"))
 	self.add_theme_font_size_override("font_size", 24)
-	menu_textbox.print_message(self.hint, "c")
+	self.menu_textbox.print_message(self.hint, "c")
 
 
 # Al salir de foco del botón:
@@ -34,11 +45,12 @@ func _on_focus_exited():
 
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 	self.add_theme_font_size_override("font_size", 24)
-	menu_textbox.print_message(self.hint, "c")
+	self.menu_textbox.print_message(self.hint, "c")
 
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
-	menu_textbox.clear_message("c")
+	self.menu_textbox.clear_message("c")

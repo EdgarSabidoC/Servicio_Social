@@ -33,6 +33,10 @@ extends Node2D
 @onready var ticket_texture: TextureRect = $CanvasLayer/TicketTexture
 @onready var ticket_animation_player: AnimationPlayer = $CanvasLayer/TicketTexture/TicketAnimationPlayer
 @onready var score_screen: Control = $CanvasLayer/ScoreScreen
+@onready var score_panel: Panel = $CanvasLayer/ScorePanel
+@onready var score_flash_label: Label = $CanvasLayer/ScoreFlashLabel
+@onready var score_label_player: AnimationPlayer = $CanvasLayer/ScoreFlashLabel/AnimationPlayer
+
 
 # Tiempos del reloj por dificultad:
 @export var time_easy: float = 180
@@ -47,6 +51,10 @@ func _enter_tree() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerSession.is_practice_mode():
+		self.score_flash_label.position = Vector2(760, 16)
+	else:
+		self.score_flash_label.position = Vector2(56,27)
 	self.set_game()
 
 
@@ -62,7 +70,7 @@ func _process(_delta: float) -> void:
 		# Tecla de pausa:
 		if !self.pause.is_active():
 			self.clock.stop()
-			self.pause.show()
+			self.pause.show_menu()
 	elif Input.is_action_just_pressed("ui_delete"):
 		# Tecla de borrado:
 		self.total_label.text = self.total_label.text.left(-1)
@@ -81,14 +89,16 @@ func set_game() -> void:
 	# Se muestra el menú de precios:
 	self.prices_menu.show()
 	
-	# Se inicializa el puntaje en 0:
-	PlayerSession.score = 0
-	
 	# Se configura el tiempo del reloj:
 	self.set_clock()
-
-	# Se imprime el puntaje:
-	self.score_label.print_score()
+	
+	if not PlayerSession.is_practice_mode():
+		self.score_panel.show()
+		# Se inicializa el puntaje en 0:
+		PlayerSession.score = 0
+		# Se imprime el puntaje:
+		self.score_label.print_score()
+		self.score_flash_label.set("theme_override_colors/font_color", Color.DARK_GREEN)
 
 	# Se muestra la orden:
 	self.rich_text_label.text = self.generate_order()
@@ -123,6 +133,9 @@ func set_clock() -> void:
 			self.clock.time = self.time_medium
 		"hard":
 			self.clock.time = self.time_hard
+	if not PlayerSession.is_practice_mode():
+		self.clock.show()
+		self.clock.reset_color()
 
 
 # Genera una etiqueta dinámica con datos aleatorios:
@@ -222,28 +235,79 @@ func check_input_actions() -> void:
 		# de los dígitos superó el límite:
 		return
 	if Input.is_action_just_pressed("num_0"):
+		self._register_sound()
 		self.total_label.text += "0"
 	elif Input.is_action_just_pressed("num_1"):
+		self._register_sound()
 		self.total_label.text += "1"
 	elif Input.is_action_just_pressed("num_2"):
+		self._register_sound()
 		self.total_label.text += "2"
 	elif Input.is_action_just_pressed("num_3"):
+		self._register_sound()
 		self.total_label.text += "3"
 	elif Input.is_action_just_pressed("num_4"):
+		self._register_sound()
 		self.total_label.text += "4"
 	elif Input.is_action_just_pressed("num_5"):
+		self._register_sound()
 		self.total_label.text += "5"
 	elif Input.is_action_just_pressed("num_6"):
+		self._register_sound()
 		self.total_label.text += "6"
 	elif Input.is_action_just_pressed("num_7"):
+		self._register_sound()
 		self.total_label.text += "7"
 	elif Input.is_action_just_pressed("num_8"):
+		self._register_sound()
 		self.total_label.text += "8"
 	elif Input.is_action_just_pressed("num_9"):
+		self._register_sound()
 		self.total_label.text += "9"
 	elif Input.is_action_just_pressed("period"):
 		if !self.total_label.text.contains("."):
+			self._register_sound()
 			self.total_label.text += "."
+
+
+# Reproduce un sonido de las teclas de la registradora:
+func _register_sound() -> void:
+	Sfx.play_sound(Sfx.Sounds.REGISTER_BUTTON_PRESS)
+
+
+# Imprime un mensaje aleatorio:
+func print_message():
+	var label_text: int = RandomNumberGenerator.new().randi_range(0, 100)
+	if label_text >= 90:
+		self.score_flash_label.text = "¡Excelente!"
+	elif label_text >= 80:
+		self.score_flash_label.text = "¡Muy bien!"
+	elif label_text >= 70:
+		self.score_flash_label.text = "¡Bien hecho!"
+	elif label_text >= 60:
+		self.score_flash_label.text = "¡Eso es!"
+	elif label_text >= 50:
+		self.score_flash_label.text = "¡Sigue así!"
+	elif label_text >= 40:
+		self.score_flash_label.text = "¡Gran trabajo!"
+	elif label_text >= 30:
+		self.score_flash_label.text = "¡Lo lograste!"
+	elif label_text >= 20:
+		self.score_flash_label.text = "¡Perfecto!"
+	elif label_text >= 10:
+		self.score_flash_label.text = "¡Increíble!"
+	else:
+		self.score_flash_label.text = "¡Buen esfuerzo!"
+	self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
+	self.score_label_player.play("fade_out")
+
+
+# Imprime el puntaje:
+func print_score() -> void:
+	Sfx.play_sound(Sfx.Sounds.SCORE)
+	self.score_flash_label.text = "+10000"
+	self.score_label_player.play("fade_out")
+	self.score_label.print_score()
 
 
 # Deshabilita los botones del teclado de la registradora:
@@ -264,60 +328,72 @@ func enable_buttons() -> void:
 func _on_button_dot_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
 		if !self.total_label.text.contains("."):
+			self._register_sound()
 			self.total_label.text += "."
 
 
 func _on_button_0_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "0"
 
 
 func _on_button_1_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "1"
 
 
 func _on_button_2_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "2"
 
 
 func _on_button_3_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "3"
 
 
 func _on_button_4_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "4"
 
 
 func _on_button_5_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "5"
 
 
 func _on_button_6_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "6"
 
 
 func _on_button_7_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "7"
 
 
 func _on_button_8_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "8"
 
 
 func _on_button_9_pressed() -> void:
 	if self.total_label.text.length() <= self.digits_len:
+		self._register_sound()
 		self.total_label.text += "9"
 
 
 func _on_button_clear_pressed() -> void:
+	self._register_sound()
 	self.total_label.text = self.total_label.text.left(-1)
 
 
@@ -335,7 +411,7 @@ func _on_pause_btn_pressed() -> void:
 		else:
 			self.pause_btn.release_focus()
 		self.clock.stop()
-		self.pause.show()
+		self.pause.show_menu()
 
 
 func _on_prices_btn_pressed() -> void:
@@ -345,14 +421,23 @@ func _on_prices_btn_pressed() -> void:
 
 func _on_prices_menu_back_btn_pressed() -> void:
 	self.prices_menu.hide()
-	self.clock.continue_clock()
+	if not PlayerSession.is_practice_mode():
+		self.clock.continue_clock()
 
 
 func _on_accept_btn_pressed() -> void:
 	if float(self.total_label.text) == self.total:
-		PlayerSession.score += 10000 # Se actualiza el puntaje
-		self.score_label.print_score() # Se imprime el puntaje
+		if PlayerSession.is_practice_mode():
+			# Si es el modo práctica:
+			self.print_message()
+		else:
+			PlayerSession.score += 10000 # Se actualiza el puntaje
+			# Se imprime el puntaje:
+			self.print_score()
 	if !self.accept_btn.disabled and self.total_label.text != "":
+		Sfx.play_sound(Sfx.Sounds.REGISTER_MACHINE, 15)
+		await get_tree().create_timer(0.5).timeout
+		Sfx.play_sound(Sfx.Sounds.TICKET_PRINT)
 		self.ticket_texture.show() # Se muestra la textura del ticket.
 		self.ticket_animation_player.play("default") # Animación del ticket
 		# Se cambian los estados de los botones de aceptar y borrar:
@@ -364,6 +449,9 @@ func _on_accept_btn_pressed() -> void:
 
 
 func _on_clock_countdown_finished() -> void:
+	# Se reinicia el pitch de la canción:
+	BackgroundMusic.change_pitch(1.0)
+	
 	# Se muestra la pantalla de puntajes:
 	self.score_screen.show()
 	self.score_screen.print_score()
@@ -374,12 +462,8 @@ func _on_prices_menu_visibility_changed() -> void:
 		self.accept_btn.grab_focus()
 
 
-func _on_pause_visibility_changed() -> void:
-	if !self.pause.is_visible_in_tree() and !Mouse.mouse_mode_activated:
-		self.accept_btn.grab_focus()
-
-
 func _on_clear_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.TAKE_TICKET)
 	self.ticket_texture.hide()
 	if self.accept_btn.disabled:
 		self.accept_btn.change_active_state()

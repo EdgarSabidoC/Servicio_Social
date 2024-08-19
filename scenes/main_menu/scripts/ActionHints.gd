@@ -12,34 +12,34 @@ extends HBoxContainer
 func _ready() -> void:
 	if !Mouse.mouse_mode_activated:
 		self.show()
-		margin_container.show()
+		self.margin_container.show()
 	else:
 		self.hide()
-		margin_container.hide()
-	action_icon_1.action_name = "ui_up"
-	action_icon_2.action_name = "ui_down"
-	action_icon_3.action_name = "ui_left"
-	action_icon_4.action_name = "ui_right"
-	action_icon_5.action_name = "ui_accept"
-	action_icon_6.action_name = "ui_cancel"
-	action_icon_1.refresh()
-	action_icon_2.refresh()
-	action_icon_3.refresh()
-	action_icon_4.refresh()
-	action_icon_5.refresh()
-	action_icon_6.refresh()
+		self.margin_container.hide()
+	self.action_icon_1.action_name = "ui_up"
+	self.action_icon_2.action_name = "ui_down"
+	self.action_icon_3.action_name = "ui_left"
+	self.action_icon_4.action_name = "ui_right"
+	self.action_icon_5.action_name = "ui_accept"
+	self.action_icon_6.action_name = "ui_cancel"
+	self.action_icon_1.refresh()
+	self.action_icon_2.refresh()
+	self.action_icon_3.refresh()
+	self.action_icon_4.refresh()
+	self.action_icon_5.refresh()
+	self.action_icon_6.refresh()
 
 
 func _process(_delta: float) -> void:
 	if !Mouse.mouse_mode_activated:
 		self.show()
-		margin_container.show()
-		action_icon_1.refresh()
-		action_icon_2.refresh()
-		action_icon_3.refresh()
-		action_icon_4.refresh()
-		action_icon_5.refresh()
-		action_icon_6.refresh()
+		self.margin_container.show()
+		self.action_icon_1.refresh()
+		self.action_icon_2.refresh()
+		self.action_icon_3.refresh()
+		self.action_icon_4.refresh()
+		self.action_icon_5.refresh()
+		self.action_icon_6.refresh()
 	else:
 		self.hide()
-		margin_container.hide()
+		self.margin_container.hide()

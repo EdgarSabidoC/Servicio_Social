@@ -1,6 +1,7 @@
 extends RichTextLabel
 
 @export var seconds: float = 0.1/2
+@export var sound: bool = false
 
 signal end_of_text()
 
@@ -15,6 +16,8 @@ func move_text() -> void:
 	# Se van mostrando los chars de la propiedad text:
 	for i in self.get_parsed_text():
 		self.visible_characters += 1 # Se mueve al siguiente char visible
+		if self.sound:
+			Sfx.play_sound(Sfx.Sounds.WRITE_TEXT)
 		await get_tree().create_timer(seconds).timeout # Espera un determinado tiempo entre chars
 	
 	if self.text != "":

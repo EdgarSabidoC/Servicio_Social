@@ -12,6 +12,8 @@ signal finished
 
 
 func _ready() -> void:
+	# Se oculta la caja de diálogos:
+	self.dialogue_box.hide()
 	# Se inicializan los sprites:
 	var c_name = "Keken"
 	#match CharactersData.characters[PlayerSession.character].name:
@@ -26,8 +28,6 @@ func _ready() -> void:
 			#self.character = self.huolpoch
 		"Zotz":
 			self.character = self.zotz
-		#"Uaychivo":
-			#self.character = self.uaychivo
 	
 	# Se cambia la animación a la predeterminada y se desactiva el loop de la animación:
 	self.character.current_animation = "default"

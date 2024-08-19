@@ -29,17 +29,12 @@ func _on_pressed():
 	get_viewport().set_input_as_handled()
 	
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
-	SceneLoader.load_scene(_move_to)
-
-
-# Cuando se vuelve visible:
-func _on_visibility_changed():
-	if !Mouse.mouse_mode_activated and self.is_visible_in_tree():
-		self.grab_focus()
+	SceneLoader.load_scene(self._move_to)
 
 
 # Al estar enfocado el botón:
 func _on_focus_entered():
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 	self.add_theme_stylebox_override("focus", get_theme_stylebox("hover", "Button"))
 	self.add_theme_font_size_override("font_size", 24)
 	self.menu_textbox.print_message(self.hint, "c")
@@ -52,6 +47,7 @@ func _on_focus_exited():
 
 # Al entrar el mouse al botón:
 func _on_mouse_entered():
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 	self.add_theme_font_size_override("font_size", 24)
 	self.menu_textbox.print_message(self.hint, "c")
 

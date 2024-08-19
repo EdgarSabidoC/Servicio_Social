@@ -53,6 +53,18 @@ func disable_actions() -> void:
 			InputMap.action_erase_events(action)
 
 
+# Desactiva una accción en específico:
+func disable_action(action: String) -> void:
+	if action in self.input_actions.keys():
+		InputMap.action_erase_events(action)
+
+
+# Activa una acción en específico:
+func enable_action(action: String) -> void:
+	for input_event in self.input_actions[action]:
+		InputMap.action_add_event(action, input_event)
+
+
 # Función que activa las acciones:
 func enable_actions() -> void:
 	self.actions_enabled = true

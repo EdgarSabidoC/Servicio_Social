@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdegmsoq85tny"]
+
+[ext_resource type="Script" path="res://scripts/autoloads/sound/sfx/SFX.gd" id="1_umcex"]
+
+[node name="Sfx" type="AudioStreamPlayer2D"]
+bus = &"SFX"
+script = ExtResource("1_umcex")

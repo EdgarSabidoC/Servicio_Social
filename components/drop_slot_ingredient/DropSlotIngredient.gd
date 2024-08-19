@@ -1,9 +1,7 @@
+##  Allows to drop a Texture2D. Extends AnimatedTextureRect.
 extends AnimatedTextureRect
 
-##  Allows to drop a Texture2D. Extends AnimatedTextureRect.
-
-
-## (x,y) coordinates for the element.
+## (x,y) coordinates for the element. X is for slice index and Y is for ingredient index.
 @export var coordinates: Vector2i
 
 ## If enabled, a DragIngredient can be dropped inside.
@@ -19,35 +17,55 @@ enum Ingredients {## Options of possible ingredients to use
 					HAM=6,
 					FISH=7
 				}
+
 @export var ingredient_name: Ingredients
 
 ## TextureRect used as background.
-@onready var texture_rect: TextureRect = $TextureRect
+@onready var background: TextureRect = $Background
+
+# Bandera que indica si se ha colocado de manera correcta el ingrediente:
+@onready var correct: bool = false
 
 @onready var is_hover: bool
 
-
 ## Dropped signal is emitted when data is dropped inside the slot.
 signal data_dropped()
-
+signal rotated()
 
 func _ready() -> void:
 	self.pivot_offset = self.custom_minimum_size/2
 
 
 func _input(_event: InputEvent) -> void:
-	# Si se da click derecho sobre el espacio o textura se rota 45°:
 	if self.enable_drop and self.is_hover:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-			self.rotation_degrees += 45
+			self.rotation_degrees = clamp_rotation(self.rotation_degrees + 45)
+			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 		elif Input.is_action_just_pressed("ui_right"):
-			self.rotation_degrees += 45
+			self.rotation_degrees = clamp_rotation(self.rotation_degrees + 45)
+			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 		elif Input.is_action_just_pressed("ui_left"):
-			self.rotation_degrees -= 45
+			self.rotation_degrees = clamp_rotation(self.rotation_degrees - 45)
+			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 		elif Input.is_action_just_pressed("ui_up"):
-			self.rotation_degrees += 90
+			self.rotation_degrees = clamp_rotation(self.rotation_degrees + 90)
+			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 		elif Input.is_action_just_pressed("ui_down"):
-			self.rotation_degrees -= 90
+			self.rotation_degrees = clamp_rotation(self.rotation_degrees - 90)
+			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
+
+
+# Función para limitar el ángulo a 0-360 grados
+func clamp_rotation(angle: float) -> float:
+	if angle < 0:
+		return fmod(360 + angle, 360)
+	elif angle >= 360:
+		return fmod(angle, 360)
+	return angle
+
+
+func set_correct(c: bool) -> void:
+	self.correct = c 
 
 
 # Retorna el nombre del ingrediente:
@@ -75,12 +93,39 @@ func get_data_formatted() -> String:
 	return "%s, %s" % [self.coordinates, self.get_ingredient_name()]
 
 
-# Genera de manera aleatoria un ingrediente:
-func generate_rand_ingredient() -> void:
+# Genera de manera aleatoria un ingrediente y carga su textura:
+func generate_rand_ingredient() -> int:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var i = rng.randi_range(0, 7)
+	var i = rng.randi_range(1, 7)
 	self.ingredient_name = Ingredients.values()[i]
+	self._load_ingredient_texture()
+	return self.ingredient_name
+
+
+# Carga la textura de un ingrediente (utilizada en generate_rand_ingredient por defecto):
+func _load_ingredient_texture() -> void:
+	#print_debug("Entró con %s"%self.get_ingredient_name())
+	self.background.hide()
+	match self.ingredient_name:
+		self.Ingredients.MUSHROOM:
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/mushroom.tga")
+		self.Ingredients.PEPPERONI:
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/pepperoni.tga")
+		self.Ingredients.SALAMI:
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/salami.tga")
+		self.Ingredients.ONION:
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/onion.tga")
+		self.Ingredients.GREEN_PEPPER:
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/green_pepper.tga")
+		self.Ingredients.HAM:
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/ham.tga")
+		self.Ingredients.FISH:
+			self.texture = load("res://assets/graphical_assets/environments/pizzas/fish.tga")
+
+
+func is_correct() -> bool:
+	return self.correct
 
 
 # Limpia los datos:
@@ -89,8 +134,10 @@ func clear_data() -> void:
 		self.texture = null
 	if self.ingredient_name != self.Ingredients.NULL:
 		self.ingredient_name = self.Ingredients.NULL
-	if self.coordinates:
-		self.coordinates = Vector2i(0,0)
+	if !self.background.is_visible_in_tree():
+		self.background.show()
+	self.rotation_degrees = 0
+	self.correct = false
 
 
 # Se valida que se pueda soltar una Texture2D:
@@ -103,9 +150,10 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 # La texture se convierte en la textura que se le suelta:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	self.background.hide()
+	#print_debug("Entró a _drop_data con (%s, %s)" %[data[0], data[1]])
 	self.texture = data[0]
-	self.coordinates = data[1]
-	self.ingredient_name = data[2]
+	self.ingredient_name = data[1]
 	self.data_dropped.emit() # Se lanza la señal de que se soltaron los datos.
 
 

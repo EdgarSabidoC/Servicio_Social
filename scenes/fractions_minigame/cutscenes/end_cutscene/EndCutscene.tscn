@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8fc8fs1f0ny3"]
 
-[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/end_cutscene/EndCutscene.gd" id="1_vvpho"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/end_cutscene/scripts/EndCutscene.gd" id="1_vvpho"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="2_aer1u"]
 [ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_l8cw3"]
 [ext_resource type="PackedScene" uid="uid://b8nf8op0qjia3" path="res://components/user_input_string/UserInputSring.tscn" id="2_ssn6y"]

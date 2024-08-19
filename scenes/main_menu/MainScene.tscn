@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=51 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/PlayBtn.gd" id="5_7ioq7"]
 [ext_resource type="Texture2D" uid="uid://cqboxf3ckfoln" path="res://assets/graphical_assets/user_interface/container/container.tga" id="6_4ujbp"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/SettingsBtn.gd" id="6_6htjl"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/PracticeBtn.gd" id="6_snp3r"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/QuitBtn.gd" id="7_26t7j"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlayBtn.gd" id="7_e8xsr"]
 [ext_resource type="PackedScene" uid="uid://cho5axinwlg15" path="res://components/menu_textbox/MenuTextbox.tscn" id="8_5asj7"]
@@ -20,6 +21,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/AdditionsMinigame.gd" id="11_cyuk5"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/CoordinatesMinigame.gd" id="12_b254f"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/HardBtn.gd" id="12_pwd64"]
+[ext_resource type="PackedScene" uid="uid://mj3ta3rrgamh" path="res://scenes/info_screen/InfoScreen.tscn" id="12_tuiap"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/ReturnBtn.gd" id="13_0ewxx"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Audio.gd" id="13_0wpcl"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/ReturnBtn.gd" id="13_lq72g"]
@@ -37,10 +39,70 @@
 [ext_resource type="Script" path="res://addons/ActionIcon/ActionIcon.gd" id="32_i2vn0"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/ActionHints.gd" id="32_l6t77"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/HowToPlay.gd" id="33_ht8qj"]
+[ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="35_6wbnv"]
+[ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="35_dlrx7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
-[ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="38_shicy"]
 [ext_resource type="Script" path="res://components/back_button/BackButton.gd" id="39_jh3m0"]
 [ext_resource type="PackedScene" uid="uid://tquacmjw5g4q" path="res://components/exit_menu/ExitMenu.tscn" id="40_idk3m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_un0bj"]
+texture = ExtResource("35_dlrx7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 228, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gx85m"]
+texture = ExtResource("35_6wbnv")
+texture_margin_left = 24.0
+texture_margin_top = 44.0
+texture_margin_right = 24.0
+texture_margin_bottom = 40.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63fvj"]
+texture = ExtResource("35_dlrx7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(616, 228, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vl48"]
+texture = ExtResource("35_dlrx7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 36, 112, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwjce"]
+texture = ExtResource("35_dlrx7")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(424, 36, 112, 128)
+
+[sub_resource type="Theme" id="Theme_ats5d"]
+TabBar/styles/tab_disabled = SubResource("StyleBoxTexture_un0bj")
+TabBar/styles/tab_focus = SubResource("StyleBoxTexture_gx85m")
+TabBar/styles/tab_hovered = SubResource("StyleBoxTexture_63fvj")
+TabBar/styles/tab_selected = SubResource("StyleBoxTexture_0vl48")
+TabBar/styles/tab_unselected = SubResource("StyleBoxTexture_iwjce")
 
 [node name="MainScene" type="Node2D"]
 
@@ -86,13 +148,12 @@ expand_mode = 3
 
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
 anchors_preset = -1
-anchor_left = 0.109
-anchor_top = 0.283
+anchor_left = 0.108887
+anchor_top = 0.203125
 anchor_right = 0.891113
-anchor_bottom = 0.717
-offset_left = -0.115715
-offset_top = 6.99199
-offset_bottom = 7.008
+anchor_bottom = 0.821181
+offset_top = 53.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -113,27 +174,30 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../QuitBtn")
-focus_neighbor_top = NodePath("../QuitBtn")
-focus_neighbor_right = NodePath("../SettingsBtn")
-focus_neighbor_bottom = NodePath("../SettingsBtn")
-focus_next = NodePath("../SettingsBtn")
-focus_previous = NodePath("../QuitBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Jugar"
 script = ExtResource("5_7ioq7")
 
+[node name="PracticeBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_mou80")
+text = "Modo práctica"
+script = ExtResource("6_snp3r")
+hint = "Perfecciona tus habilidades o familiarízate con los minijuegos.
+
+El reloj y el puntaje están desactivados.
+
+Minijuegos disponibles:
+	◼︎ Sumas
+	◼︎ Coordenadas
+	◼︎ Simetría"
+
 [node name="SettingsBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../PlayBtn")
-focus_neighbor_top = NodePath("../PlayBtn")
-focus_neighbor_right = NodePath("../HowToPlayBtn")
-focus_neighbor_bottom = NodePath("../HowToPlayBtn")
-focus_next = NodePath("../HowToPlayBtn")
-focus_previous = NodePath("../PlayBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Opciones"
@@ -143,12 +207,6 @@ script = ExtResource("6_6htjl")
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../SettingsBtn")
-focus_neighbor_top = NodePath("../SettingsBtn")
-focus_neighbor_right = NodePath("../QuitBtn")
-focus_neighbor_bottom = NodePath("../QuitBtn")
-focus_next = NodePath("../QuitBtn")
-focus_previous = NodePath("../SettingsBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Cómo jugar"
@@ -158,12 +216,6 @@ script = ExtResource("7_e8xsr")
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../HowToPlayBtn")
-focus_neighbor_top = NodePath("../HowToPlayBtn")
-focus_neighbor_right = NodePath("../PlayBtn")
-focus_neighbor_bottom = NodePath("../PlayBtn")
-focus_next = NodePath("../PlayBtn")
-focus_previous = NodePath("../HowToPlayBtn")
 theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Salir"
@@ -284,7 +336,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_mou80")
 text = "Coordenadas"
 script = ExtResource("12_b254f")
-hint = "¿Sabes leer coordenadas y ubicar las posiciones? Demuéstralo"
+hint = "¿Sabes leer coordenadas y ubicar las posiciones? Pruébalo."
 
 [node name="SymmetryMinigame" type="Button" parent="UI/MinigamesMenu"]
 custom_minimum_size = Vector2(200, 65)
@@ -710,9 +762,6 @@ script = ExtResource("14_2m575")
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 size_flags_vertical = 7
-focus_neighbor_left = NodePath("../../../../../../..")
-focus_neighbor_top = NodePath("../../../../../../..")
-focus_previous = NodePath("../../../../../../..")
 mouse_filter = 2
 theme = ExtResource("29_4g8su")
 button_mask = 0
@@ -763,9 +812,6 @@ action = "ui_pause"
 [node name="MouseMode" type="CheckButton" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer"]
 layout_mode = 2
 tooltip_text = "Si está activado, permite utilizar el ratón de la computadora."
-focus_neighbor_left = NodePath("../Pause")
-focus_neighbor_top = NodePath("../Pause")
-focus_previous = NodePath("../Pause")
 script = ExtResource("22_jayrx")
 
 [node name="Placeholder2" type="BoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
@@ -826,18 +872,20 @@ visible = false
 layout_mode = 2
 focus_mode = 0
 
-[node name="SymmetryMinigame" type="TabBar" parent="UI/HowToPlay"]
-visible = false
-layout_mode = 2
-
 [node name="CoordinatesMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
 focus_mode = 0
 
+[node name="SymmetryMinigame" type="TabBar" parent="UI/HowToPlay"]
+visible = false
+layout_mode = 2
+
 [node name="Characters" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_ats5d")
+theme_override_constants/icon_max_width = 140
 tab_count = 5
 clip_tabs = false
 scrolling_enabled = false
@@ -982,22 +1030,36 @@ joypad_mode = 1
 unique_name_in_owner = true
 visible = false
 anchors_preset = -1
-anchor_left = 0.742188
-anchor_top = 0.625
-anchor_right = 0.861328
-anchor_bottom = 0.736111
-theme = ExtResource("38_shicy")
+anchor_left = 0.0876167
+anchor_top = 0.859
+anchor_right = 0.914812
+anchor_bottom = 0.983945
+offset_left = -2.71948
+offset_top = 4.21597
+offset_right = 9.23291
+offset_bottom = 0.247925
+theme = ExtResource("3_mou80")
+theme_override_font_sizes/font_size = 18
 text = "Regresar"
 script = ExtResource("39_jh3m0")
 metadata/_edit_use_anchors_ = true
 
 [node name="ExitMenu" parent="UI" instance=ExtResource("40_idk3m")]
+unique_name_in_owner = true
+
+[node name="InfoScreen" parent="UI" instance=ExtResource("12_tuiap")]
+unique_name_in_owner = true
 
 [connection signal="focus_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/PlayBtn" to="UI/MenuContainer/MainMenu/PlayBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/PracticeBtn" to="UI/MenuContainer/MainMenu/PracticeBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/PracticeBtn" to="UI/MenuContainer/MainMenu/PracticeBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/PracticeBtn" to="UI/MenuContainer/MainMenu/PracticeBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/PracticeBtn" to="UI/MenuContainer/MainMenu/PracticeBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/PracticeBtn" to="UI/MenuContainer/MainMenu/PracticeBtn" method="_on_pressed"]
 [connection signal="focus_entered" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/SettingsBtn" to="UI/MenuContainer/MainMenu/SettingsBtn" method="_on_mouse_entered"]
@@ -1013,12 +1075,12 @@ metadata/_edit_use_anchors_ = true
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_pressed"]
+[connection signal="visibility_changed" from="UI/MinigamesMenu" to="UI/MinigamesMenu" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_pressed"]
-[connection signal="visibility_changed" from="UI/MinigamesMenu/FractionsMinigame" to="UI/MinigamesMenu/FractionsMinigame" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MinigamesMenu/AdditionsMinigame" to="UI/MinigamesMenu/AdditionsMinigame" method="_on_mouse_entered"]
@@ -1044,7 +1106,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="mouse_entered" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_pressed"]
-[connection signal="visibility_changed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_mouse_entered"]
@@ -1060,17 +1121,40 @@ metadata/_edit_use_anchors_ = true
 [connection signal="mouse_entered" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_pressed"]
+[connection signal="visibility_changed" from="UI/Settings/Video" to="UI/Settings" method="_on_video_visibility_changed"]
+[connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_focus_entered"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
+[connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_focus_entered"]
 [connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_toggled"]
+[connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_focus_entered"]
+[connection signal="item_focused" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_focused"]
 [connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
+[connection signal="visibility_changed" from="UI/Settings/Audio" to="UI/Settings/Audio" method="_on_visibility_changed"]
+[connection signal="focus_entered" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_focus_entered"]
+[connection signal="mouse_entered" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_mouse_entered"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
+[connection signal="focus_entered" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_focus_entered"]
+[connection signal="mouse_entered" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_mouse_entered"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
+[connection signal="focus_entered" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_focus_entered"]
+[connection signal="mouse_entered" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_mouse_entered"]
 [connection signal="value_changed" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
+[connection signal="visibility_changed" from="UI/Settings/Controls" to="UI/Settings" method="_on_controls_visibility_changed"]
+[connection signal="focus_entered" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_focus_entered"]
 [connection signal="pressed" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_pressed"]
+[connection signal="toggled" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_toggled"]
+[connection signal="visibility_changed" from="UI/Settings/License" to="UI/Settings" method="_on_license_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/FractionsMinigame" to="UI/HowToPlay" method="_on_fractions_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/AdditionsMinigame" to="UI/HowToPlay" method="_on_additions_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/CoordinatesMinigame" to="UI/HowToPlay" method="_on_coordinates_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/SymmetryMinigame" to="UI/HowToPlay" method="_on_symmetry_minigame_visibility_changed"]
 [connection signal="pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_pressed"]
 [connection signal="tab_clicked" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_clicked"]
 [connection signal="tab_hovered" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_hovered"]
 [connection signal="tab_selected" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_selected"]
 [connection signal="visibility_changed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="UI/BackButton" to="UI/BackButton" method="_on_mouse_entered"]
 [connection signal="no_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_no_pressed"]
 [connection signal="yes_pressed" from="UI/ExitMenu" to="UI" method="_on_exit_menu_yes_pressed"]
+[connection signal="hidden" from="UI/InfoScreen" to="UI" method="_on_info_screen_hidden"]
+[connection signal="visibility_changed" from="UI/InfoScreen" to="UI" method="_on_info_screen_visibility_changed"]

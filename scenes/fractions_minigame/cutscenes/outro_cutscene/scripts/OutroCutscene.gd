@@ -9,7 +9,7 @@ var end_cutscene: PackedScene = load("res://scenes/fractions_minigame/cutscenes/
 func _ready() -> void:
 	# Se desactiva el proceso de escucha de entradas:
 	self.set_process_input(false)
-	BackgroundMusic.change_song(BackgroundMusic.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
+	BackgroundMusic.change_song(BackgroundMusic.Songs.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
 
 
 func _process(_delta: float) -> void:
@@ -24,11 +24,6 @@ func _input(event: InputEvent) -> void:
 		if PlayerSession.character < 5:
 			# Se carga un nuevo nivel:
 			SceneTransition.change_scene(self.intro_cutscene)
-		elif PlayerSession.secret_level:
-			# Se desactiva el nivel secreto:
-			PlayerSession.secret_level = false
-			var secret_cutscene = load("res://scenes/fractions_minigame/cutscenes/secret_level/SecretCutscene.tscn")
-			SceneTransition.change_scene(secret_cutscene) # Se cambia al nivel secreto
 		else:
 			# Se finaliza el juego cambiando a la escena final:
 			SceneTransition.change_scene(self.end_cutscene)

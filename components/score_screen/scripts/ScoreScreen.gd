@@ -8,7 +8,9 @@ extends Control
 
 @onready var main_menu: PackedScene = load("res://scenes/main_menu/MainScene.tscn")
 
+
 signal restart_game
+
 
 func _on_restart_btn_pressed() -> void:
 	self.hide()
@@ -17,10 +19,13 @@ func _on_restart_btn_pressed() -> void:
 
 
 func _on_return_btn_pressed() -> void:
+	# Si está activado el modo práctica se desactiva:
+	if PlayerSession.is_practice_mode():
+		PlayerSession.change_practice_mode()
 	SceneTransition.change_scene(main_menu)
 	PlayerSession.clear_player_session()
 	# Se cambia la música del minijuego a la del menú principal:
-	var volume: float = 0
+	var volume: float = -10
 	var current_position: float = 0
 	BackgroundMusic.start_menu_song(volume, current_position)
 
