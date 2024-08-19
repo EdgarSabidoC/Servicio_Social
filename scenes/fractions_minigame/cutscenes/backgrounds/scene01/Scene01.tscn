@@ -159,9 +159,9 @@ _data = {
 "Moving_forward_3": SubResource("Animation_i8gwe")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1v0lq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvwo0"]
 atlas = ExtResource("5_s12n4")
-region = Rect2(0, 1920, 124, 160)
+region = Rect2(0, 1760, 124, 160)
 
 [sub_resource type="Animation" id="Animation_1ldb0"]
 length = 0.001
@@ -189,19 +189,19 @@ _data = {
 "entrance": SubResource("Animation_0y0rs")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xihx8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjmqs"]
 atlas = ExtResource("5_ayb6q")
-region = Rect2(0, 3240, 124, 180)
+region = Rect2(0, 3420, 124, 180)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i6qvb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t51ex"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2f75"]
 atlas = ExtResource("17_m80jb")
-region = Rect2(0, 1600, 124, 160)
+region = Rect2(0, 160, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o428i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_limas"]
 atlas = ExtResource("19_fkecg")
-region = Rect2(0, 2880, 124, 160)
+region = Rect2(0, 3040, 124, 160)
 
 [node name="Scene01" type="Control"]
 layout_mode = 3
@@ -350,8 +350,8 @@ anchor_bottom = 0.390627
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(74.2481, 96.3085)
-texture = SubResource("AtlasTexture_1v0lq")
-frame_index = 12
+texture = SubResource("AtlasTexture_kvwo0")
+frame_index = 11
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 script = ExtResource("11_eey68")
@@ -386,8 +386,8 @@ offset_right = -12.4
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(62.0002, 90)
-texture = SubResource("AtlasTexture_xihx8")
-frame_index = 18
+texture = SubResource("AtlasTexture_fjmqs")
+frame_index = 19
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 libraries = {
@@ -403,8 +403,8 @@ anchor_bottom = 0.430556
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(89.5002, 124)
-texture = SubResource("AtlasTexture_t51ex")
-frame_index = 10
+texture = SubResource("AtlasTexture_t2f75")
+frame_index = 1
 playing = true
 metadata/_edit_use_anchors_ = true
 
@@ -420,8 +420,8 @@ anchor_bottom = 0.489583
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(103.5, 133.5)
-texture = SubResource("AtlasTexture_o428i")
-frame_index = 18
+texture = SubResource("AtlasTexture_limas")
+frame_index = 19
 playing = true
 metadata/_edit_use_anchors_ = true
 
