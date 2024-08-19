@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://camaabknl00ss"
-path="res://.godot/imported/toh_wrong.tga-9b9cd13a8a66f1b3f9dec95e08078226.ctex"
+uid="uid://dtdfrx6vh6po5"
+path="res://.godot/imported/toh_anger.tga-6147e9a364203f50d0c42909186f5d36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphical_assets/characters/npcs/toh/toh_wrong.tga"
-dest_files=["res://.godot/imported/toh_wrong.tga-9b9cd13a8a66f1b3f9dec95e08078226.ctex"]
+source_file="res://assets/graphical_assets/characters/npcs/toh/toh_anger.tga"
+dest_files=["res://.godot/imported/toh_anger.tga-6147e9a364203f50d0c42909186f5d36.ctex"]
 
 [params]
 

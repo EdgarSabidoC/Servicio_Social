@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://bsx68u20y1gcx"]
+[gd_scene load_steps=145 format=3 uid="uid://bsx68u20y1gcx"]
 
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="1_uy7eb"]
 [ext_resource type="Texture2D" uid="uid://dox4ofslmqas8" path="res://assets/graphical_assets/characters/npcs/keken/keken_anger.tga" id="2_b0m2i"]
@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cdro0r88yq74i" path="res://assets/graphical_assets/characters/npcs/keken/keken_in_final.tga" id="4_8dfhw"]
 [ext_resource type="Texture2D" uid="uid://dx27accb75wpm" path="res://assets/graphical_assets/characters/npcs/keken/keken_sad.tga" id="5_75hc8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ho4jo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt4v1"]
 atlas = ExtResource("4_8dfhw")
-region = Rect2(0, 4640, 124, 160)
+region = Rect2(0, 5580, 124, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y485l"]
 atlas = ExtResource("2_b0m2i")
@@ -385,10 +385,6 @@ region = Rect2(0, 5220, 124, 180)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3hu6n"]
 atlas = ExtResource("4_8dfhw")
 region = Rect2(0, 5400, 124, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xt4v1"]
-atlas = ExtResource("4_8dfhw")
-region = Rect2(0, 5580, 124, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2a7kq"]
 atlas = ExtResource("5_75hc8")
@@ -1013,10 +1009,12 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(62.0006, 80)
-texture = SubResource("AtlasTexture_ho4jo")
+texture = SubResource("AtlasTexture_xt4v1")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("1_uy7eb")
 sprites = SubResource("SpriteFrames_3opny")
 current_animation = "entrance"
+frame_index = 31
 auto_play = true
-playing = true
 metadata/_edit_use_anchors_ = true
