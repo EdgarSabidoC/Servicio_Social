@@ -6,7 +6,7 @@
 		"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 		"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 		"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-		"bonus_multiplier": 5.0,
+		"bonus_multiplier": 10,
 		"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 		"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 		"problems_data": [
@@ -30,7 +30,7 @@
 			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"bonus_multiplier": 1.5,
+			"bonus_multiplier": 4,
 			"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 			"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 			"problems_data": [
@@ -54,7 +54,7 @@
 			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"bonus_multiplier": 1.75,
+			"bonus_multiplier": 3,
 			"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 			"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 			"problems_data": [
@@ -78,7 +78,7 @@
 			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"bonus_multiplier": 1.25,
+			"bonus_multiplier": 2,
 			"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 			"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 			"problems_data": [
@@ -102,7 +102,7 @@
 			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
 			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"bonus_multiplier": 1.75,
+			"bonus_multiplier": 5,
 			"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 			"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
 			"problems_data": [

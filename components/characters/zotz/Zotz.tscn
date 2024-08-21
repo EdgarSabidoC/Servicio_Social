@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cl6iegxceg23t" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_sad.tga" id="4_5wxuo"]
 [ext_resource type="Texture2D" uid="uid://cv8y1xi3kv8ho" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_in.tga" id="5_5hk1a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5p4dg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab1yf"]
 atlas = ExtResource("3_ag1al")
-region = Rect2(0, 2720, 124, 160)
+region = Rect2(0, 800, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ube1"]
 atlas = ExtResource("2_qlhj2")
@@ -78,10 +78,6 @@ region = Rect2(0, 480, 124, 160)
 atlas = ExtResource("3_ag1al")
 region = Rect2(0, 640, 124, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ab1yf"]
-atlas = ExtResource("3_ag1al")
-region = Rect2(0, 800, 124, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8b8md"]
 atlas = ExtResource("3_ag1al")
 region = Rect2(0, 960, 124, 160)
@@ -125,6 +121,10 @@ region = Rect2(0, 2400, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdpmg"]
 atlas = ExtResource("3_ag1al")
 region = Rect2(0, 2560, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p4dg"]
+atlas = ExtResource("3_ag1al")
+region = Rect2(0, 2720, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gyrm"]
 atlas = ExtResource("3_ag1al")
@@ -836,18 +836,23 @@ animations = [{
 
 [node name="Zotz" type="TextureRect"]
 anchors_preset = -1
-anchor_left = 0.439453
-anchor_top = 0.36111
-anchor_right = 0.560547
-anchor_bottom = 0.63889
+anchor_left = 0.427
+anchor_top = 0.333
+anchor_right = 0.573
+anchor_bottom = 0.667
+offset_left = 12.7519
+offset_top = 16.1914
+offset_right = -12.7521
+offset_bottom = -16.1927
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
-pivot_offset = Vector2(62.0001, 80.0007)
+pivot_offset = Vector2(62, 79.9999)
 size_flags_horizontal = 6
 size_flags_vertical = 6
-texture = SubResource("AtlasTexture_5p4dg")
-stretch_mode = 2
+texture = SubResource("AtlasTexture_ab1yf")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("1_f2hof")
 sprites = SubResource("SpriteFrames_reyp0")
 auto_play = true

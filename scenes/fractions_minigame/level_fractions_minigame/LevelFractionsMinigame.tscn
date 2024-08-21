@@ -273,7 +273,7 @@ libraries = {
 "": SubResource("AnimationLibrary_gyxyh")
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="IconsContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.0166016
 anchor_top = 0.131944
@@ -282,35 +282,40 @@ anchor_bottom = 0.201389
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AluxIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="AluxIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("14_hsxpv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TohIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="TohIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("15_vh67f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ZotzIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="ZotzIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("16_w1h7d")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HuolpochIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="HuolpochIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("17_m1bib")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="KekenIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="KekenIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("18_xp0px")

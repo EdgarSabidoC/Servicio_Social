@@ -28,8 +28,6 @@ func _ready() -> void:
 			#self.character = self.huolpoch
 		"Zotz":
 			self.character = self.zotz
-		#"Uaychivo":
-			#self.character = self.uaychivo
 	
 	# Se cambia la animación a la predeterminada y se desactiva el loop de la animación:
 	self.character.current_animation = "default"
