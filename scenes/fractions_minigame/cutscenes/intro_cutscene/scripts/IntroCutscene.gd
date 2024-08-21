@@ -44,11 +44,13 @@ func _on_scene_01_finished() -> void:
 	
 
 func _on_accept_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.BUTTON_ACCEPT)
 	# Se cambia a la siguiente escena:
 	self.change_to_next_scene(self.level_fractions_minigame)
 
 
 func _on_reject_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.BUTTON_REJECT)
 	# Se cambia el tiempo:
 	self.time = 0
 	# Se cambia a la siguiente escena:

@@ -1,11 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://cey14hi43x1vs"]
+[gd_scene load_steps=37 format=3 uid="uid://cey14hi43x1vs"]
 
 [ext_resource type="Texture2D" uid="uid://d32qags7aougo" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_background.tga" id="1_js6hy"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/LevelAdditionsMinigame.gd" id="1_x0vea"]
 [ext_resource type="Texture2D" uid="uid://hfnvg8kpnd7v" path="res://assets/graphical_assets/environments/backgrounds/additions_minigame/scene_03_total.tga" id="2_f1yss"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/AcceptBtn.gd" id="3_d5r3h"]
 [ext_resource type="PackedScene" uid="uid://biou6ujuxna1m" path="res://components/prices_menu/PricesMenu.tscn" id="3_dhwye"]
-[ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/PricesBtn.gd" id="3_f7bxp"]
 [ext_resource type="Texture2D" uid="uid://bj1bky35uonyo" path="res://assets/graphical_assets/environments/backgrounds/Pallette/03.png" id="3_p26kq"]
 [ext_resource type="Script" path="res://scenes/additions_minigame/level_additions_minigame/scripts/ClearBtn.gd" id="4_ijd4p"]
 [ext_resource type="Texture2D" uid="uid://dwfqhflrj7xyo" path="res://assets/graphical_assets/environments/backgrounds/BW/Circles05.png" id="4_jnbfd"]
@@ -323,7 +322,6 @@ focus_previous = NodePath("../VBoxContainer/ClearBtn")
 theme = SubResource("Theme_owfvi")
 theme_override_colors/font_color = Color(0, 0.427451, 0, 1)
 theme_override_font_sizes/font_size = 24
-script = ExtResource("3_f7bxp")
 metadata/_edit_use_anchors_ = true
 
 [node name="TicketTexture" type="TextureRect" parent="CanvasLayer"]

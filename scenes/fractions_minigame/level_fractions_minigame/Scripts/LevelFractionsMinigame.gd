@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_pause"):
 		if !self.pause.is_active():
 			self.clock.stop()
-			self.pause.show()
+			self.pause.show_menu()
 
 
 # Muestra los íconos de los personajes derrotados:
@@ -180,6 +180,7 @@ func change_score_color() -> void:
 # Imprime el puntaje:
 func print_score() -> void:
 	self.change_score_color()
+	Sfx.play_sound(Sfx.Sounds.SCORE)
 	
 	# Se imprime el puntaje nuevo:
 	self.score_flash_label.text = "+%s" % (self.default_score*CharactersData.characters[self.character].bonus_multiplier)
@@ -277,7 +278,7 @@ func _on_pause_finished() -> void:
 func _on_pause_btn_pressed() -> void:
 	if !self.pause.is_active():
 			self.clock.stop()
-			self.pause.show()
+			self.pause.show_menu()
 
 
 # Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:

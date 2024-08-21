@@ -298,6 +298,8 @@ func print_message():
 		self.score_flash_label.text = "¡Increíble!"
 	else:
 		self.score_flash_label.text = "¡Buen esfuerzo!"
+	
+	Sfx.play_sound(Sfx.Sounds.SCORE)
 	self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
 	self.score_label_player.play("fade_out")
 
@@ -415,6 +417,7 @@ func _on_pause_btn_pressed() -> void:
 
 
 func _on_prices_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.INFO_SCREEN, 15)
 	self.prices_menu.show()
 	self.clock.stop()
 
@@ -436,7 +439,7 @@ func _on_accept_btn_pressed() -> void:
 			self.print_score()
 	if !self.accept_btn.disabled and self.total_label.text != "":
 		Sfx.play_sound(Sfx.Sounds.REGISTER_MACHINE, 15)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.8).timeout
 		Sfx.play_sound(Sfx.Sounds.TICKET_PRINT)
 		self.ticket_texture.show() # Se muestra la textura del ticket.
 		self.ticket_animation_player.play("default") # Animación del ticket

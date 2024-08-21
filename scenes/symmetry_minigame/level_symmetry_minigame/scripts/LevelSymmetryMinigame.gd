@@ -113,7 +113,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_pause"):
 		if !self.pause.is_active():
 			self.clock.stop()
-			self.pause.show()
+			self.pause.show_menu()
 
 
 # Automatiza la conexión de las señales con la función check_ingredient:
@@ -172,8 +172,13 @@ func show_all_slices_and_ingredients() -> void:
 # Genera la siguiente pizza:
 func _next_round() -> void:
 	self._clear_all_data()
-	self.set_score()
-	self.print_score()
+	if not PlayerSession.is_practice_mode():
+		self.set_score()
+		# Se imprime el puntaje:
+		self.print_score()
+	else:
+		# Se imprime el mensaje aleatorio:
+		self.print_message()
 	
 	# Mostrar todas las rebanadas e ingredientes antes de configurar la nueva pizza
 	self.show_all_slices_and_ingredients()
@@ -313,6 +318,7 @@ func set_pizza() -> void:
 
 # Imprime el puntaje:
 func print_score() -> void:
+	Sfx.play_sound(Sfx.Sounds.SCORE)
 	self.score_flash_label.text = "+%s" % self.default_score
 	self.score_label_player.play("fade_out")
 	self.score_label.print_score()
@@ -341,6 +347,8 @@ func print_message():
 		self.score_flash_label.text = "¡Increíble!"
 	else:
 		self.score_flash_label.text = "¡Buen esfuerzo!"
+	
+	Sfx.play_sound(Sfx.Sounds.SCORE)
 	self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
 	self.score_label_player.play("fade_out")
 
@@ -471,7 +479,7 @@ func _on_pause_btn_pressed() -> void:
 		else:
 			self.pause_btn.release_focus()
 		self.clock.stop()
-		self.pause.show()
+		self.pause.show_menu()
 
 
 # Cuando se llegue a un pivote en cuenta atrás se aumenta la velocidad de la música:
