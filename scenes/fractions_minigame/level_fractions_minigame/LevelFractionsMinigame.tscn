@@ -109,7 +109,10 @@ texture = SubResource("AtlasTexture_7dnvn")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")
+<<<<<<< HEAD
 frame_index = 1
+=======
+>>>>>>> de0e65e1a83662a4b8d315edad8f18f1e31b7654
 auto_play = true
 playing = true
 

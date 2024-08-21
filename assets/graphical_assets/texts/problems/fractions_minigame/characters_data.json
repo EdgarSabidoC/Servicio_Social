@@ -1,124 +1,544 @@
 {
 	"data": [
 		{
-		"name": "Alux",
-		"about": "",
-		"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-		"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-		"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-		"bonus_multiplier": 10,
-		"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
-		"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
-		"problems_data": [
-			{"fraction": "1/1", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/2", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/3", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/4", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/5", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/6", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/7", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/8", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-			{"fraction": "1/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-		],
-		"main_asset_path": "res://assets/graphical_assets/characters/icons/alux_icon.tga",
-		"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
+			"name": "Alux",
+			"about": "",
+			"easy_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"medium_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"hard_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"bonus_multiplier": 10,
+			"intro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
+			"outro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
+			"problems_data": [
+				{
+					"fraction": "1/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"main_asset_path": "res://assets/graphical_assets/characters/icons/alux_icon.tga",
+			"secondary_assets_paths": [
+				"res://icon.svg",
+				"res://icon.svg",
+				"res://icon.svg"
+			],
 		},
 		{
 			"name": "Huolpoch",
 			"about": "",
-			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
+			"easy_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"medium_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"hard_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
 			"bonus_multiplier": 4,
-			"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
-			"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
+			"intro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
+			"outro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
 			"problems_data": [
-				{"fraction": "2/1", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/2", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/3", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/4", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/5", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/6", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/7", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/8", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "2/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/huolpoch_icon.tga",
-			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
+			"secondary_assets_paths": [
+				"res://icon.svg",
+				"res://icon.svg",
+				"res://icon.svg"
+			],
 		},
 		{
 			"name": "Toh",
 			"about": "",
-			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
+			"easy_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"medium_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"hard_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
 			"bonus_multiplier": 3,
-			"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
-			"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
+			"intro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
+			"outro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
 			"problems_data": [
-				{"fraction": "3/1", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/2", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/3", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/4", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/5", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/6", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/7", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/8", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "3/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
+				{
+					"fraction": "3/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/toh_icon.tga",
-			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
+			"secondary_assets_paths": [
+				"res://icon.svg",
+				"res://icon.svg",
+				"res://icon.svg"
+			],
 		},
 		{
 			"name": "Keken",
 			"about": "",
-			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
+			"easy_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"medium_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"hard_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
 			"bonus_multiplier": 2,
-			"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
-			"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
+			"intro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
+			"outro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
 			"problems_data": [
-				{"fraction": "4/1", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/2", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/3", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/4", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/5", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/6", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/7", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/8", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "4/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
+				{
+					"fraction": "4/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/keken_icon.tga",
-			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
+			"secondary_assets_paths": [
+				"res://icon.svg",
+				"res://icon.svg",
+				"res://icon.svg"
+			],
 		},
 		{
 			"name": "Zotz",
 			"about": "",
-			"easy_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"medium_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
-			"hard_problems": ["Problem1", "Problem2", "Problem3", "Problem4", "Problem5"],
+			"easy_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"medium_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
+			"hard_problems": [
+				"Problem1",
+				"Problem2",
+				"Problem3",
+				"Problem4",
+				"Problem5"
+			],
 			"bonus_multiplier": 5,
-			"intro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
-			"outro_texts": ["Text1", "Text2", "Text3", "Text4", "Text5"],
+			"intro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
+			"outro_texts": [
+				"Text1",
+				"Text2",
+				"Text3",
+				"Text4",
+				"Text5"
+			],
 			"problems_data": [
-				{"fraction": "5/1", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/2", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/3", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/4", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/5", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/6", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/7", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/8", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/9", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
-				{"fraction": "5/10", "drinks": "3", "breads": "1", "imagePath": "res://icon.svg"},
+				{
+					"fraction": "5/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/zotz_icon.tga",
-			"secondary_assets_paths": ["res://icon.svg", "res://icon.svg", "res://icon.svg"],
+			"secondary_assets_paths": [
+				"res://icon.svg",
+				"res://icon.svg",
+				"res://icon.svg"
+			],
 		}
 	]
 }
