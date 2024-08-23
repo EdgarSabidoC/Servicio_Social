@@ -32,6 +32,7 @@ func _ready() -> void:
 		self.button.show()
 	else:
 		# Si no se supera, sólo se muestran los máximos puntajes:
+		Sfx.play_sound(Sfx.Sounds.SCORE_SCREEN)
 		self._get_high_scores()
 		self.exit = true
 	
@@ -54,6 +55,8 @@ func _get_high_scores() -> void:
 
 
 func _on_button_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.BUTTON_ACCEPT)
+	await get_tree().create_timer(0.5).timeout
 	if self.user_input_string.text != "":
 		self.user_input_string.save_user_name() # Se guarda la cadena ingresada
 	else:
@@ -64,6 +67,8 @@ func _on_button_pressed() -> void:
 	
 	# Se añade a los mejores puntajes
 	Persistence.update_high_scores()
+	
+	Sfx.play_sound(Sfx.Sounds.SCORE_SCREEN)
 	
 	# Se obtienen los mejores puntajes
 	self._get_high_scores()
@@ -79,6 +84,7 @@ func _on_button_pressed() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if self.exit and (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("m1")):
+		Sfx.play_sound(Sfx.Sounds.BUTTON_ACCEPT)
 		# Consume el evento:
 		get_viewport().set_input_as_handled()
 		self.rich_text_label_text_flash_2.speed = 60
