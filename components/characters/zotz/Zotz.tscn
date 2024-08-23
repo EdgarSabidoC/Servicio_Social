@@ -727,7 +727,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"entrance",
-"speed": 12.0
+"speed": 22.0
 }, {
 "frames": [{
 "duration": 1.0,
