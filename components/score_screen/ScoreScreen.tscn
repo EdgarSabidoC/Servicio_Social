@@ -38,6 +38,7 @@ shader_parameter/palette_cycling_speed = 0.001
 shader_parameter/palette = ExtResource("4_gxnjt")
 
 [node name="ScoreScreen" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
