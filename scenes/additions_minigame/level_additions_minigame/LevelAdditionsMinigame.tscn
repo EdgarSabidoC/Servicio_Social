@@ -558,7 +558,6 @@ countdown = true
 visible = false
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("19_lmnq3")]
-visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("15_kxve5")]
 show_behind_parent = false
