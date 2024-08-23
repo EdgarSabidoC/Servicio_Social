@@ -429,6 +429,9 @@ func _on_prices_menu_back_btn_pressed() -> void:
 
 
 func _on_accept_btn_pressed() -> void:
+	# Se cambian los estados de los botones de aceptar y borrar:
+	self.accept_btn.change_active_state()
+	self.clear_btn.change_active_state()
 	if float(self.total_label.text) == self.total:
 		if PlayerSession.is_practice_mode():
 			# Si es el modo práctica:
@@ -437,15 +440,12 @@ func _on_accept_btn_pressed() -> void:
 			PlayerSession.score += 10000 # Se actualiza el puntaje
 			# Se imprime el puntaje:
 			self.print_score()
-	if !self.accept_btn.disabled and self.total_label.text != "":
+	if self.accept_btn.disabled and self.total_label.text != "":
 		Sfx.play_sound(Sfx.Sounds.REGISTER_MACHINE, 15)
 		await get_tree().create_timer(0.8).timeout
 		Sfx.play_sound(Sfx.Sounds.TICKET_PRINT)
 		self.ticket_texture.show() # Se muestra la textura del ticket.
 		self.ticket_animation_player.play("default") # Animación del ticket
-		# Se cambian los estados de los botones de aceptar y borrar:
-		self.accept_btn.change_active_state()
-		self.clear_btn.change_active_state()
 		self.disable_registry_buttons() # Se deshabilita el teclado de la registradora.
 		# Se asigna el focus en el modo teclado al botón de borrado:
 		self.clear_btn.grab_focus()
