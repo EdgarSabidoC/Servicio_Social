@@ -15,17 +15,17 @@ func _ready() -> void:
 	# Se oculta la caja de diálogos:
 	self.dialogue_box.hide()
 	# Se inicializan los sprites:
-	var c_name = "Keken"
-	#match CharactersData.characters[PlayerSession.character].name:
+	#var c_name = "Keken"
+	var c_name: String = CharactersData.characters[PlayerSession.character].name
 	match c_name:
 		"Alux":
 			self.character = self.alux
-		#"Toh":
-			#self.character = self.toh
+		"Toh":
+			self.character = self.toh
 		"Keken":
 			self.character = self.keken
-		#"Huolpoch":
-			#self.character = self.huolpoch
+		"Huolpoch":
+			self.character = self.huolpoch
 		"Zotz":
 			self.character = self.zotz
 	
