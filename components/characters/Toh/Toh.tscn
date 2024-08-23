@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dtdfrx6vh6po5" path="res://assets/graphical_assets/characters/npcs/toh/toh_anger.tga" id="3_6diah"]
 [ext_resource type="Texture2D" uid="uid://jddndg7aaabv" path="res://assets/graphical_assets/characters/npcs/toh/toh_in.tga" id="4_bbr2p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cr1ng"]
-atlas = ExtResource("1_0c8rq")
-region = Rect2(0, 480, 124, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ukv0"]
+atlas = ExtResource("4_bbr2p")
+region = Rect2(0, 8160, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m326g"]
 atlas = ExtResource("3_6diah")
@@ -144,6 +144,10 @@ region = Rect2(0, 160, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2il2"]
 atlas = ExtResource("1_0c8rq")
 region = Rect2(0, 320, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr1ng"]
+atlas = ExtResource("1_0c8rq")
+region = Rect2(0, 480, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6x6ax"]
 atlas = ExtResource("1_0c8rq")
@@ -420,10 +424,6 @@ region = Rect2(0, 7840, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ht3t"]
 atlas = ExtResource("4_bbr2p")
 region = Rect2(0, 8000, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ukv0"]
-atlas = ExtResource("4_bbr2p")
-region = Rect2(0, 8160, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_go1s6"]
 atlas = ExtResource("4_bbr2p")
@@ -847,10 +847,12 @@ anchor_bottom = 0.278
 offset_right = 0.095993
 offset_bottom = -0.128021
 pivot_offset = Vector2(62, 80)
-texture = SubResource("AtlasTexture_cr1ng")
+texture = SubResource("AtlasTexture_4ukv0")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("1_71tph")
 sprites = SubResource("SpriteFrames_2dsog")
+current_animation = "entrance"
+frame_index = 51
 auto_play = true
 playing = true
