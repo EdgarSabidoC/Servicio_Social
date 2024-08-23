@@ -856,5 +856,5 @@ stretch_mode = 5
 script = ExtResource("1_f2hof")
 sprites = SubResource("SpriteFrames_reyp0")
 current_animation = "entrance"
+frame_index = 45
 auto_play = true
-metadata/_edit_use_anchors_ = true

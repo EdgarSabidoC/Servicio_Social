@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://btf3hylb8368j"]
+[gd_scene load_steps=51 format=3 uid="uid://btf3hylb8368j"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/Scene01.gd" id="1_qya30"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="1_trfx7"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bsx68u20y1gcx" path="res://components/characters/keken/Keken.tscn" id="5_xvlf6"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/AluxAnimationPlayer.gd" id="6_dri6u"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/KekenAnimationPlayer.gd" id="6_hyu0v"]
+[ext_resource type="Texture2D" uid="uid://cv8y1xi3kv8ho" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_in.tga" id="8_6fg7k"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/ZotzAnimationPlayer.gd" id="11_eey68"]
 [ext_resource type="Texture2D" uid="uid://dag8o15dre1gw" path="res://assets/graphical_assets/characters/npcs/alux/alux_in.tga" id="12_tce61"]
 [ext_resource type="Texture2D" uid="uid://du01gx28ege1t" path="res://assets/graphical_assets/characters/npcs/huolpoch/serpiente_in.tga" id="15_6gote"]
@@ -22,17 +23,17 @@
 [ext_resource type="PackedScene" uid="uid://cdug6yjyj81et" path="res://components/characters/Toh/Toh.tscn" id="18_7x8ee"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/TohAnimationPlayer.gd" id="19_othhx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_77knl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2loey"]
 atlas = ExtResource("3_he3bh")
-region = Rect2(0, 160, 176, 160)
+region = Rect2(0, 320, 176, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_komxm"]
 atlas = ExtResource("3_he3bh")
 region = Rect2(0, 0, 176, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2loey"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_77knl"]
 atlas = ExtResource("3_he3bh")
-region = Rect2(0, 320, 176, 160)
+region = Rect2(0, 160, 176, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kdyk4"]
 animations = [{
@@ -73,13 +74,13 @@ _data = {
 "move_forward": SubResource("Animation_30xg3")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
-atlas = ExtResource("5_27uat")
-region = Rect2(0, 144, 64, 144)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_s024f"]
 atlas = ExtResource("5_27uat")
 region = Rect2(0, 0, 64, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
+atlas = ExtResource("5_27uat")
+region = Rect2(0, 144, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqe4s"]
 atlas = ExtResource("5_27uat")
@@ -160,9 +161,13 @@ _data = {
 "Moving_forward_3": SubResource("Animation_i8gwe")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lugqi"]
+atlas = ExtResource("8_6fg7k")
+region = Rect2(0, 480, 124, 160)
+
 [sub_resource type="Animation" id="Animation_adogd"]
 resource_name = "entrance"
-length = 2.4
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -170,10 +175,10 @@ tracks/0/path = NodePath(".:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.72, 2.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.0, 260.0]
+"values": [0.0, 260.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0aq6x"]
@@ -215,9 +220,9 @@ _data = {
 "entrance": SubResource("Animation_nleg1")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7wwl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qhd5"]
 atlas = ExtResource("15_6gote")
-region = Rect2(0, 4000, 124, 160)
+region = Rect2(0, 4640, 124, 160)
 
 [sub_resource type="Animation" id="Animation_g07pi"]
 resource_name = "entrance"
@@ -227,9 +232,9 @@ _data = {
 "entrance": SubResource("Animation_g07pi")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wg7w0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwefk"]
 atlas = ExtResource("17_gisk5")
-region = Rect2(0, 5120, 124, 160)
+region = Rect2(0, 5280, 124, 160)
 
 [sub_resource type="Animation" id="Animation_r62bj"]
 resource_name = "entrance"
@@ -270,12 +275,12 @@ anchor_bottom = 1.0
 offset_left = 0.0640259
 offset_right = 0.0440178
 pivot_offset = Vector2(287.734, 288)
-texture = SubResource("AtlasTexture_77knl")
+texture = SubResource("AtlasTexture_2loey")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_kdyk4")
-frame_index = 1
+frame_index = 2
 auto_play = true
 playing = true
 
@@ -296,12 +301,11 @@ offset_top = -0.223999
 offset_right = 0.072998
 offset_bottom = 0.039978
 pivot_offset = Vector2(190.5, 190.5)
-texture = SubResource("AtlasTexture_4sbjl")
+texture = SubResource("AtlasTexture_s024f")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -323,12 +327,11 @@ offset_top = -0.224007
 offset_right = -0.0300293
 offset_bottom = 0.0399475
 pivot_offset = Vector2(190.501, 190.5)
-texture = SubResource("AtlasTexture_4sbjl")
+texture = SubResource("AtlasTexture_s024f")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -350,13 +353,12 @@ offset_top = -0.224007
 offset_right = 0.456978
 offset_bottom = 0.0399475
 pivot_offset = Vector2(190.5, 190.5)
-texture = SubResource("AtlasTexture_4sbjl")
+texture = SubResource("AtlasTexture_s024f")
 expand_mode = 1
 stretch_mode = 5
 flip_h = true
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -377,7 +379,6 @@ texture = ExtResource("2_woga0")
 metadata/_edit_use_anchors_ = true
 
 [node name="Zotz" parent="." instance=ExtResource("4_cdegh")]
-visible = false
 layout_mode = 1
 anchor_left = 0.734522
 anchor_top = 0.417948
@@ -386,11 +387,12 @@ anchor_bottom = 0.819234
 offset_left = 14.8496
 offset_top = -240.738
 offset_right = -14.8496
-offset_bottom = -279.262
+offset_bottom = -279.26
 grow_horizontal = 1
 grow_vertical = 1
-pivot_offset = Vector2(74.2481, 96.3085)
-frame_index = 45
+pivot_offset = Vector2(74.2481, 96.3084)
+texture = SubResource("AtlasTexture_lugqi")
+playing = false
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 reset_on_save = false
@@ -408,7 +410,7 @@ anchor_right = 0.930664
 anchor_bottom = 0.859375
 offset_left = 61.9996
 offset_top = 80.0003
-offset_bottom = -79.9995
+offset_bottom = -79.9993
 pivot_offset = Vector2(62.4999, 80.0002)
 frame_index = 31
 playing = false
@@ -433,7 +435,7 @@ offset_right = -14.6
 offset_bottom = -21.2
 grow_horizontal = 1
 grow_vertical = 1
-pivot_offset = Vector2(67.5, 98)
+pivot_offset = Vector2(67.4999, 97.9999)
 texture = SubResource("AtlasTexture_10xlc")
 frame_index = 0
 
@@ -454,8 +456,8 @@ anchor_bottom = 0.847223
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(89.5002, 124)
-texture = SubResource("AtlasTexture_j7wwl")
-frame_index = 25
+texture = SubResource("AtlasTexture_6qhd5")
+frame_index = 29
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Huolpoch"]
@@ -475,8 +477,8 @@ anchor_bottom = 0.880208
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(103.5, 133.5)
-texture = SubResource("AtlasTexture_wg7w0")
-frame_index = 32
+texture = SubResource("AtlasTexture_rwefk")
+frame_index = 33
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Toh"]
