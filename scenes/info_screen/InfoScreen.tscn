@@ -84,10 +84,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jryx8")
-fractions_text = "[StartParagraph]Este es el texto para el minijuego de fracciones."
-additions_text = "[StartParagraph]Este es el texto para el minijuego de sumas."
-coordinates_text = "[StartParagraph]Este es el texto para el minijuego de coordenadas."
-symmetry_text = "[StartParagraph]Este es el texto para el minijuego de simetría."
+fractions_text = "[StartParagraph]El juego consiste en encontrar la fracción de pizza correspondiente al problema.
+
+En dificultades media y difícil también es necesario hallar la proporción correcta de bebidas y órdenes de pan.
+[StartParagraph]Completa las órdenes en el menor tiempo para conseguir más puntos."
+additions_text = "[StartParagraph]El juego consiste en realizar la suma correcta presentada en la nota de venta e ingresar solo el resultado en la caja registradora.[StartParagraph]Puedes usar el teclado para ingresar o eliminar los números y punto.
+
+También puedes presionar los botones de la registradora con el click izquierdo del mouse."
+coordinates_text = "[StartParagraph]El juego consiste en repartir las pizzas en la mesa con la coordenada correspondiente.
+[StartParagraph]Da click izquierdo y mientras lo mantienes presionado arrastra al ayudante robot con el mouse hasta la respectiva mesa y luego suelta el click izquierdo para dejar caer la pizza."
+symmetry_text = "[StartParagraph]El juego consiste en colocar los ingredientes correspondientes en el lado derecho y girarlos para hacer que la pizza quede simétrica con respecto al eje Y.[StartParagraph]Utiliza el click izquierdo sobre la tabla de ingredientes del lado derecho, manténlo presionado y arrastra los ingredientes sobre los espacios con el mouse, luego suelta el click izquierdo para colocarlo.[StartParagraph]Haz que giren los ingredientes utilizando los botones de navegación mientras tienes el puntero del ratón/mouse encima del ingrediente o utiliza el click derecho del mouse."
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
