@@ -98,6 +98,8 @@ extends Node2D
 func _enter_tree() -> void:
 	# Se configura la música:
 	self.set_music()
+	# Se hace visible el mouse
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _ready() -> void:
@@ -515,3 +517,9 @@ func _on_score_screen_restart_game() -> void:
 	# Se configura el juego/partida:
 	self._clear_all_data()
 	self.set_game()
+
+
+func _on_tree_exiting() -> void:
+	# A salir se verifica el modo de entrada:
+	if not Mouse.mouse_mode_activated:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

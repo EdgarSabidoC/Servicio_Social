@@ -241,3 +241,14 @@ func _on_opossum_finished() -> void:
 			self.label.show()
 		"end_coordinates":
 			%Opossum.play("idle")
+
+
+func _on_tree_entered() -> void:
+	# Se activa el mouse independientemente del modo de entrada:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func _on_tree_exiting() -> void:
+	# Al salir se verifica el modo de entrada:
+	if not Mouse.mouse_mode_activated:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

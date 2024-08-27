@@ -797,10 +797,10 @@ offset_right = 0.0
 countdown = true
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("11_cugab")]
-visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("2_ff83q")]
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]

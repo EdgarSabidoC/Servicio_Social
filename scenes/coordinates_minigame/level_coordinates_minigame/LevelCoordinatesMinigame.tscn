@@ -898,13 +898,14 @@ offset_right = 0.0
 countdown = true
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("10_ix28s")]
-visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("4_xtxav")]
 show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="finished" from="CanvasLayer/Opossum" to="." method="_on_opossum_finished"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]

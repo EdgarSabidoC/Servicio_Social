@@ -33,13 +33,15 @@ extends Node2D
 
 
 func _enter_tree() -> void:
+	# Se configura la música:
 	self.set_music()
-
+	# Se activa el mouse independientemente del modo de entrada:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 
 func _ready() -> void:	
 	# Se enfoca el botón 1 si está en modo teclado:
-	if !Mouse.mouse_mode_activated:
-		self.answer_button_1.grab_focus()
+	self.answer_button_1.grab_focus()
 	
 	# Se configura el juego/partida:
 	self.set_game()
@@ -269,8 +271,7 @@ func _on_answer_button_4_pressed() -> void:
 
 # Si se desactiva el menú de pausa:
 func _on_pause_finished() -> void:
-	if !Mouse.mouse_mode_activated:
-		self.answer_button_1.grab_focus()
+	self.answer_button_1.grab_focus()
 	self.clock.continue_clock()
 	self.pause.hide()
 

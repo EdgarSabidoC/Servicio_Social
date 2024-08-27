@@ -38,9 +38,7 @@ func _on_scene_01_finished() -> void:
 	self.options_label.show()
 	self.option_buttons_container.show()
 	
-	# Se configura el modo teclado:
-	if !Mouse.mouse_mode_activated:
-		self.accept_btn.grab_focus()
+	self.accept_btn.grab_focus()
 	
 
 func _on_accept_btn_pressed() -> void:
