@@ -59,10 +59,6 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	# Se leen las entradas si está en modo teclado:
-	if !Mouse.mouse_mode_activated:
-		self.check_input_actions()
-
 	if self.total_label.text.begins_with("."):
 		self.total_label.text = "0."
 	
@@ -73,7 +69,13 @@ func _process(_delta: float) -> void:
 			self.pause.show_menu()
 	elif Input.is_action_just_pressed("ui_delete"):
 		# Tecla de borrado:
+		Sfx.play_sound(Sfx.Sounds.REGISTER_BUTTON_PRESS)
 		self.total_label.text = self.total_label.text.left(-1)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		# Se leen las entradas si está en modo teclado:
+		self.check_input_actions()
 
 
 # Configura la música de fondo:
@@ -106,12 +108,6 @@ func set_game() -> void:
 	# Se activan los controles de pausa:
 	if !self.pause.is_pausable_scene:
 		self.pause.is_pausable_scene = true
-	
-	# Se desactivan los botones en el modo teclado:
-	if !Mouse.mouse_mode_activated:
-		self.buttons_are_enabled = false
-		for button in self.buttons:
-			button.disabled = true
 	
 	self.clock.stop()
 
@@ -236,38 +232,38 @@ func check_input_actions() -> void:
 		return
 	if Input.is_action_just_pressed("num_0"):
 		self._register_sound()
-		self.total_label.text += "0"
+		self.button_0.pressed.emit()
 	elif Input.is_action_just_pressed("num_1"):
 		self._register_sound()
-		self.total_label.text += "1"
+		self.button_1.pressed.emit()
 	elif Input.is_action_just_pressed("num_2"):
 		self._register_sound()
-		self.total_label.text += "2"
+		self.button_2.pressed.emit()
 	elif Input.is_action_just_pressed("num_3"):
 		self._register_sound()
-		self.total_label.text += "3"
+		self.button_3.pressed.emit()
 	elif Input.is_action_just_pressed("num_4"):
 		self._register_sound()
-		self.total_label.text += "4"
+		self.button_4.pressed.emit()
 	elif Input.is_action_just_pressed("num_5"):
 		self._register_sound()
-		self.total_label.text += "5"
+		self.button_5.pressed.emit()
 	elif Input.is_action_just_pressed("num_6"):
 		self._register_sound()
-		self.total_label.text += "6"
+		self.button_6.pressed.emit()
 	elif Input.is_action_just_pressed("num_7"):
 		self._register_sound()
-		self.total_label.text += "7"
+		self.button_7.pressed.emit()
 	elif Input.is_action_just_pressed("num_8"):
 		self._register_sound()
-		self.total_label.text += "8"
+		self.button_8.pressed.emit()
 	elif Input.is_action_just_pressed("num_9"):
 		self._register_sound()
-		self.total_label.text += "9"
+		self.button_9.pressed.emit()
 	elif Input.is_action_just_pressed("period"):
 		if !self.total_label.text.contains("."):
 			self._register_sound()
-			self.total_label.text += "."
+			self.button_dot.pressed.emit()
 
 
 # Reproduce un sonido de las teclas de la registradora:
@@ -400,18 +396,14 @@ func _on_button_clear_pressed() -> void:
 
 
 func _on_pause_finished() -> void:
-	if !Mouse.mouse_mode_activated:
-		self.accept_btn.grab_focus()
+	self.accept_btn.grab_focus()
 	self.clock.continue_clock()
 	self.pause.hide()
 
 
 func _on_pause_btn_pressed() -> void:
 	if !self.pause.is_active():
-		if !Mouse.mouse_mode_activated:
-			self.pause.continue_btn.grab_focus()
-		else:
-			self.pause_btn.release_focus()
+		self.pause.continue_btn.grab_focus()
 		self.clock.stop()
 		self.pause.show_menu()
 
@@ -429,6 +421,8 @@ func _on_prices_menu_back_btn_pressed() -> void:
 
 
 func _on_accept_btn_pressed() -> void:
+	# Se desactivan los botones de la registradora:
+	self.disable_registry_buttons() # Se deshabilita el teclado de la registradora.
 	# Se cambian los estados de los botones de aceptar y borrar:
 	self.accept_btn.change_active_state()
 	self.clear_btn.change_active_state()
@@ -446,7 +440,6 @@ func _on_accept_btn_pressed() -> void:
 		Sfx.play_sound(Sfx.Sounds.TICKET_PRINT)
 		self.ticket_texture.show() # Se muestra la textura del ticket.
 		self.ticket_animation_player.play("default") # Animación del ticket
-		self.disable_registry_buttons() # Se deshabilita el teclado de la registradora.
 		# Se asigna el focus en el modo teclado al botón de borrado:
 		self.clear_btn.grab_focus()
 
@@ -461,23 +454,20 @@ func _on_clock_countdown_finished() -> void:
 
 
 func _on_prices_menu_visibility_changed() -> void:
-	if self.accept_btn and !Mouse.mouse_mode_activated:
+	if self.accept_btn:
 		self.accept_btn.grab_focus()
 
 
 func _on_clear_btn_pressed() -> void:
 	Sfx.play_sound(Sfx.Sounds.TAKE_TICKET)
 	self.ticket_texture.hide()
-	if self.accept_btn.disabled:
-		self.accept_btn.change_active_state()
-		self.clear_btn.change_active_state()
-		if Mouse.mouse_mode_activated:
-			# Se activan los botones solo en el modo mouse:
-			self.enable_buttons()
-		self.accept_btn.grab_focus()
+	self.accept_btn.change_active_state()
+	self.clear_btn.change_active_state()
+	self.accept_btn.grab_focus()
 	self.total_label.text = ""
 	# Se genera una nueva orden si se resolvió el ejercicio (no tiene que estar correcto):
 	self.rich_text_label.text = self.generate_order()
+	self.enable_buttons() # Se reactivan los botones.
 
 
 func _on_score_screen_restart_game() -> void:

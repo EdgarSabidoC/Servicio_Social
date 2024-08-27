@@ -56,3 +56,8 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
 	self.menu_textbox.clear_message("c")
+
+
+func _on_visibility_changed() -> void:
+	if is_visible_in_tree() and not Mouse.mouse_mode_activated:
+		self.grab_focus()
