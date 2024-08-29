@@ -1,7 +1,7 @@
 extends Node
 
 # Bandera del modo mouse:
-@onready var mouse_mode_activated: bool = true
+@onready var mouse_mode_activated: bool = false
 
 # Bandera de las acciones:
 @onready var actions_enabled: bool = false
