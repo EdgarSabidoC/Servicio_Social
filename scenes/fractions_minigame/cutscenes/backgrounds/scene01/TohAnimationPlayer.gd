@@ -15,6 +15,6 @@ func _process(_delta: float) -> void:
 
 
 func _on_toh_finished() -> void:
-	if self.toh.current_animation == "entrance" and !self.huolpoch.playing:
+	if self.toh.current_animation == "entrance" and !self.toh.playing:
 		self.toh.play("default")
 	self.toh.changed = true
