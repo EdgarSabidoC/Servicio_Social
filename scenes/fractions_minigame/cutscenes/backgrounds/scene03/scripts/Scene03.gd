@@ -4,8 +4,10 @@ extends Control
 @onready var alux: AnimatedTextureRect = $Alux
 @onready var zotz: AnimatedTextureRect = $Zotz
 @onready var keken: AnimatedTextureRect = $Keken
+@onready var toh: AnimatedTextureRect = $Toh
+@onready var huolpoch: AnimatedTextureRect = $Huolpoch
 @onready var character: AnimatedTextureRect
-@onready var characters: Array[AnimatedTextureRect] = [alux, zotz, keken]
+@onready var characters: Array[AnimatedTextureRect] = [alux, zotz, keken, toh, huolpoch]
 
 # Señal que se emite cuando finaliza la escena:
 signal finished

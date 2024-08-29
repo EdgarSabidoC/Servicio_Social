@@ -691,7 +691,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4yppi")
 }],
 "loop": false,
-"name": &"angry",
+"name": &"anger",
 "speed": 12.0
 }, {
 "frames": [{
