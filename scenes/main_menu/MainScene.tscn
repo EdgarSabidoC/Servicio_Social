@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=58 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -44,8 +44,12 @@
 [ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="35_6wbnv"]
 [ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="35_dlrx7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/FractionsMinigame.gd" id="38_51gsa"]
 [ext_resource type="Script" path="res://components/back_button/BackButton.gd" id="39_jh3m0"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/AdditionsMinigame.gd" id="39_kdg1f"]
 [ext_resource type="PackedScene" uid="uid://tquacmjw5g4q" path="res://components/exit_menu/ExitMenu.tscn" id="40_idk3m"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/CoordinatesMinigame.gd" id="40_m51n7"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/SymmetryMinigame.gd" id="41_533qr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a8oh5"]
 shader = ExtResource("3_5t3fv")
@@ -872,7 +876,7 @@ layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_pabyu")
 
-[node name="scrollbar_textbox" parent="UI/Settings/License" instance=ExtResource("19_edlpb")]
+[node name="ScrollbarTextbox" parent="UI/Settings/License" instance=ExtResource("19_edlpb")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -904,20 +908,36 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
+script = ExtResource("38_51gsa")
+
+[node name="ScrollbarTextbox" parent="UI/HowToPlay/FractionsMinigame" instance=ExtResource("19_edlpb")]
+layout_mode = 1
 
 [node name="AdditionsMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
 focus_mode = 0
+script = ExtResource("39_kdg1f")
+
+[node name="ScrollbarTextbox" parent="UI/HowToPlay/AdditionsMinigame" instance=ExtResource("19_edlpb")]
+layout_mode = 1
 
 [node name="CoordinatesMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
 focus_mode = 0
+script = ExtResource("40_m51n7")
+
+[node name="ScrollbarTextbox" parent="UI/HowToPlay/CoordinatesMinigame" instance=ExtResource("19_edlpb")]
+layout_mode = 1
 
 [node name="SymmetryMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
+script = ExtResource("41_533qr")
+
+[node name="ScrollbarTextbox" parent="UI/HowToPlay/SymmetryMinigame" instance=ExtResource("19_edlpb")]
+layout_mode = 1
 
 [node name="Characters" type="TabBar" parent="UI/HowToPlay"]
 visible = false
