@@ -25,7 +25,7 @@ func _on_alux_finished() -> void:
 		self.alux.disable_loop()
 	else:
 		# Si no:
-		self.alux.current_animation = "angry"
+		self.alux.current_animation = "anger"
 		# Se desactiva el loop de la animación:
 		self.alux.disable_loop()
 	# Se desconecta la señal:

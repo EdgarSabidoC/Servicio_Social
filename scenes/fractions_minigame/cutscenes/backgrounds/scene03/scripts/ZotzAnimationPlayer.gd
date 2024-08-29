@@ -25,7 +25,7 @@ func _on_zotz_finished() -> void:
 		self.zotz.disable_loop()
 	else:
 		# Si no:
-		self.zotz.current_animation = "angry"
+		self.zotz.current_animation = "anger"
 		# Se desactiva el loop de la animación:
 		self.zotz.disable_loop()
 	# Se desconecta la señal:

@@ -25,7 +25,7 @@ func _on_huolpoch_finished() -> void:
 		self.huolpoch.disable_loop()
 	else:
 		# Si no:
-		self.huolpoch.current_animation = "angry"
+		self.huolpoch.current_animation = "anger"
 		# Se desactiva el loop de la animación:
 		self.huolpoch.disable_loop()
 	# Se desconecta la señal:

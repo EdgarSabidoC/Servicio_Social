@@ -25,7 +25,7 @@ func _on_toh_finished() -> void:
 		self.toh.disable_loop()
 	else:
 		# Si no:
-		self.toh.current_animation = "angry"
+		self.toh.current_animation = "anger"
 		# Se desactiva el loop de la animación:
 		self.toh.disable_loop()
 	# Se desconecta la señal:
