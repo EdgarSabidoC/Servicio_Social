@@ -892,10 +892,12 @@ offset_bottom = 150.0
 unique_name_in_owner = true
 visible = false
 anchors_preset = -1
-anchor_left = 0.0849609
+anchor_left = -0.0483399
 anchor_top = 0.015625
-anchor_right = 0.923828
+anchor_right = 1.05713
 anchor_bottom = 0.854167
+offset_left = 136.5
+offset_right = -136.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -905,13 +907,20 @@ script = ExtResource("33_ht8qj")
 metadata/_edit_use_anchors_ = true
 
 [node name="FractionsMinigame" type="TabBar" parent="UI/HowToPlay"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
 script = ExtResource("38_51gsa")
 
 [node name="ScrollbarTextbox" parent="UI/HowToPlay/FractionsMinigame" instance=ExtResource("19_edlpb")]
+custom_minimum_size = Vector2(1036, 314)
 layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AdditionsMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
@@ -920,7 +929,13 @@ focus_mode = 0
 script = ExtResource("39_kdg1f")
 
 [node name="ScrollbarTextbox" parent="UI/HowToPlay/AdditionsMinigame" instance=ExtResource("19_edlpb")]
+custom_minimum_size = Vector2(1036, 314)
 layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CoordinatesMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
@@ -929,7 +944,13 @@ focus_mode = 0
 script = ExtResource("40_m51n7")
 
 [node name="ScrollbarTextbox" parent="UI/HowToPlay/CoordinatesMinigame" instance=ExtResource("19_edlpb")]
+custom_minimum_size = Vector2(1036, 314)
 layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="SymmetryMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
@@ -937,7 +958,13 @@ layout_mode = 2
 script = ExtResource("41_533qr")
 
 [node name="ScrollbarTextbox" parent="UI/HowToPlay/SymmetryMinigame" instance=ExtResource("19_edlpb")]
+custom_minimum_size = Vector2(1036, 314)
 layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Characters" type="TabBar" parent="UI/HowToPlay"]
 visible = false
@@ -1204,9 +1231,13 @@ unique_name_in_owner = true
 [connection signal="toggled" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_toggled"]
 [connection signal="visibility_changed" from="UI/Settings/License" to="UI/Settings" method="_on_license_visibility_changed"]
 [connection signal="visibility_changed" from="UI/HowToPlay/FractionsMinigame" to="UI/HowToPlay" method="_on_fractions_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/FractionsMinigame" to="UI/HowToPlay/FractionsMinigame" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="UI/HowToPlay/AdditionsMinigame" to="UI/HowToPlay" method="_on_additions_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/AdditionsMinigame" to="UI/HowToPlay/AdditionsMinigame" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="UI/HowToPlay/CoordinatesMinigame" to="UI/HowToPlay" method="_on_coordinates_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/CoordinatesMinigame" to="UI/HowToPlay/CoordinatesMinigame" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="UI/HowToPlay/SymmetryMinigame" to="UI/HowToPlay" method="_on_symmetry_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/SymmetryMinigame" to="UI/HowToPlay/SymmetryMinigame" method="_on_visibility_changed"]
 [connection signal="pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_pressed"]
 [connection signal="tab_clicked" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_clicked"]
 [connection signal="tab_hovered" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_hovered"]

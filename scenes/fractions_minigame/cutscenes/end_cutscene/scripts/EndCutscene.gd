@@ -1,6 +1,6 @@
 extends Control
 
-@onready var title_screen_scene: PackedScene = load("res://scenes/title_screen/TitleScreen.tscn")
+@onready var main_menu_scene: PackedScene = load("res://scenes/main_menu/MainScene.tscn")
 @onready var user_input_string: UserInputString = $UserInputString
 @onready var button: Button = $Button
 @onready var player: Dictionary
@@ -99,7 +99,7 @@ func _input(_event: InputEvent) -> void:
 		CharactersData.clear_data()
 			
 		# Se realiza el cambio de escena:
-		SceneTransition.change_scene(self.title_screen_scene)
+		SceneTransition.change_scene(self.main_menu_scene)
 		
 		# Se cambia la música a la del menú:
 		var volume: float = -10

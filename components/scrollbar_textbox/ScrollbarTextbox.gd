@@ -2,4 +2,5 @@ extends Control
 @onready var rich_text_label = $ScrollContainer/MarginContainer/RichTextLabel
 
 func print_text(text: String) -> void:
-	self.rich_text_label.text = text
+	if rich_text_label:
+		self.rich_text_label.text = text
