@@ -907,7 +907,6 @@ script = ExtResource("33_ht8qj")
 metadata/_edit_use_anchors_ = true
 
 [node name="FractionsMinigame" type="TabBar" parent="UI/HowToPlay"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0

@@ -41,12 +41,12 @@ func load_data() -> void:
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	right_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_RIGHT).get_path()
 	# Se carga la información desde el archivo:
-	up_image_path = "[center]«[img={up_width}x{up_height}]{up_image}[/img]» ".format({"up_width": 0, "up_height": 40, "up_image": up_image_path})
-	down_image_path = "«[img={down_width}x{down_height}]{down_image}[/img]» ".format({"down_width": 0, "down_height": 40, "down_image": down_image_path})
-	left_image_path = "«[img={left_width}x{left_height}]{left_image}[/img]» ".format({"left_width": 0, "left_height": 40, "left_image": left_image_path})
-	right_image_path = "«[img={right_width}x{right_height}]{right_image}[/img]»[/center]".format({"right_width": 0, "right_height": 40, "right_image": right_image_path})
-	left_click_image_path = "«[img={left_click_width}x{left_click_height}]{left_click_image}[/img]» ".format({"left_click_width": 0, "left_click_height": 40, "left_click_image": left_click_image_path})
-	right_click_image_path = "«[img={right_click_width}x{right_click_height}]{right_click_image}[/img]» ".format({"right_click_width": 0, "right_click_height": 40, "right_click_image": right_click_image_path})
+	up_image_path = "Arriba: «[img={up_width}x{up_height}]{up_image}[/img]»\n".format({"up_width": 0, "up_height": 40, "up_image": up_image_path})
+	down_image_path = "Abajo: «[img={down_width}x{down_height}]{down_image}[/img]»\n".format({"down_width": 0, "down_height": 40, "down_image": down_image_path})
+	left_image_path = "Izquierda: «[img={left_width}x{left_height}]{left_image}[/img]»\n".format({"left_width": 0, "left_height": 40, "left_image": left_image_path})
+	right_image_path = "Derecha: «[img={right_width}x{right_height}]{right_image}[/img]»\n".format({"right_width": 0, "right_height": 40, "right_image": right_image_path})
+	left_click_image_path = "Click izquierdo: «[img={left_click_width}x{left_click_height}]{left_click_image}[/img]»\n".format({"left_click_width": 0, "left_click_height": 40, "left_click_image": left_click_image_path})
+	right_click_image_path = "Click derecho: «[img={right_click_width}x{right_click_height}]{right_click_image}[/img]»\n".format({"right_click_width": 0, "right_click_height": 40, "right_click_image": right_click_image_path})
 
 
 func clear_data() -> void:
