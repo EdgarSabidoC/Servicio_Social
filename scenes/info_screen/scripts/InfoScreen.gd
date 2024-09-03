@@ -5,10 +5,11 @@ extends Control
 @onready var dialogue_box: Control = $DialogueBox
 
 @onready var fractions_text: String = "[StartParagraph]El juego consiste en encontrar la fracción de pizza correspondiente al problema.\n
-En dificultades media y difícil también es necesario hallar la proporción correcta de bebidas y órdenes de pan.
+En dificultades media y difícil también es necesario hallar la proporción correcta de bebidas y órdenes de pan.\n
+[StartParagraph] Selecciona las opciones correctas utilizando [LEFTCLICK] y luego presiona el botón [ACEPTAR].
 [StartParagraph]Completa las órdenes en el menor tiempo para conseguir más puntos."
 @onready var additions_text: String = "[StartParagraph]El juego consiste en realizar la suma correcta presentada en la nota de venta e ingresar solo el resultado en la caja registradora.[StartParagraph]Puedes usar el teclado para ingresar o eliminar los números y punto.\n
-También puedes presionar los botones de la registradora con el click izquierdo del mouse."
+También puedes presionar los botones de la registradora con [LEFTCLICK]."
 @onready var coordinates_text: String = "[StartParagraph]El juego consiste en repartir las pizzas en la mesa con la coordenada correspondiente.
 [StartParagraph]Presiona [LEFTCLICK] y mientras lo mantienes arrastra al ayudante robot con el mouse hasta la respectiva mesa y luego suelta [LEFTCLICK] para dejar caer la pizza."
 @onready var symmetry_text: String = "[StartParagraph]El juego consiste en colocar los ingredientes correspondientes en el lado derecho y girarlos para hacer que la pizza quede simétrica con respecto al eje Y.[StartParagraph]Utiliza [LEFTCLICK] sobre la tabla de ingredientes del lado derecho, manténlo presionado y arrastra los ingredientes sobre los espacios con el mouse, luego suelta [LEFTCLICK] para colocarlo.[StartParagraph]Haz que giren los ingredientes utilizando los botones de navegación [UP], [DOWN], [LEFT], [RIGHT] mientras tienes el puntero del ratón/mouse encima del ingrediente o utiliza [RIGHTCLICK]."
@@ -74,9 +75,11 @@ func start() -> void:
 	# Se carga el texto correspondiente al minijuego:
 	match PlayerSession.current_minigame:
 		PlayerSession.Minigames.FRACCTIONS:
+			self.fractions_text = self.fractions_text.replace("[LEFTCLICK]", left_click_image_path)
 			PlayerSession.fractions_info_screen = true
 			self.dialogue_box.load_message(self.fractions_text)
 		PlayerSession.Minigames.ADDITIONS:
+			self.additions_text = self.additions_text.replace("[LEFTCLICK]", left_click_image_path)
 			if PlayerSession.is_practice_mode():
 				self.additions_text += "[StartParagraph]En el modo práctica no se adquieren puntos.\n\n[b]Modo contrareloj desactivado.[/b]"
 			else: 
@@ -109,7 +112,7 @@ func start() -> void:
 
 func _on_dialogue_box_dialogue_box_closed() -> void:
 	self.finished.emit()
-	if !PlayerSession.destroy_info_screen():
+	if not PlayerSession.destroy_info_screen():
 		self.hide()
 	else:
 		self.queue_free()
