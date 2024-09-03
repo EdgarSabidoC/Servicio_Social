@@ -32,7 +32,7 @@ func load_data() -> void:
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	# Se carga la información:
 	# Teclado:
-	_str = "Teclas de navegación:\n" 
+	_str = "[font_size=22]Teclas de navegación:[/font_size]\n" 
 	up_image_path = "Arriba: [img={up_width}x{up_height}]{up_image}[/img]\n".format({"up_width": 0, "up_height": 40, "up_image": up_image_path})
 	down_image_path = "Abajo: [img={down_width}x{down_height}]{down_image}[/img]\n".format({"down_width": 0, "down_height": 40, "down_image": down_image_path})
 	left_image_path = "Izquierda: [img={left_width}x{left_height}]{left_image}[/img]\n".format({"left_width": 0, "left_height": 40, "left_image": left_image_path})
@@ -43,7 +43,7 @@ func load_data() -> void:
 	_str += "\n\nMenú de pausa: "
 	_str += pause_image_path
 	# Clicks del mouse:
-	_str += "\n\nAcciones del mouse:\n"
+	_str += "\n\n[font_size=22]Acciones del mouse:[/font_size]\n"
 	left_click_image_path = "Seleccionar: [img={left_click_width}x{left_click_height}]{left_click_image}[/img]\n".format({"left_click_width": 0, "left_click_height": 60, "left_click_image": left_click_image_path})
 	_str += left_click_image_path
 
