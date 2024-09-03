@@ -402,8 +402,6 @@ offset_left = 61.9996
 offset_top = 80.0003
 offset_bottom = -79.9993
 pivot_offset = Vector2(62.4999, 80.0003)
-frame_index = 0
-playing = true
 
 [node name="KekenAnimationPlayer" type="AnimationPlayer" parent="Keken"]
 reset_on_save = false
@@ -469,7 +467,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(103.5, 133.5)
 texture = SubResource("AtlasTexture_71fso")
-frame_index = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Toh"]

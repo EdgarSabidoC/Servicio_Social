@@ -1071,5 +1071,5 @@ stretch_mode = 5
 script = ExtResource("1_71tph")
 sprites = SubResource("SpriteFrames_2dsog")
 current_animation = "entrance"
-frame_index = 62
 auto_play = true
+playing = true
