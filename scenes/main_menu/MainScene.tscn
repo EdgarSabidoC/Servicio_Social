@@ -913,8 +913,12 @@ focus_mode = 0
 script = ExtResource("38_51gsa")
 
 [node name="ScrollbarTextbox" parent="UI/HowToPlay/FractionsMinigame" instance=ExtResource("19_edlpb")]
-custom_minimum_size = Vector2(1036, 314)
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0289575
+anchor_top = 0.0987261
+anchor_right = 0.971042
+anchor_bottom = 0.894904
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
@@ -928,8 +932,12 @@ focus_mode = 0
 script = ExtResource("39_kdg1f")
 
 [node name="ScrollbarTextbox" parent="UI/HowToPlay/AdditionsMinigame" instance=ExtResource("19_edlpb")]
-custom_minimum_size = Vector2(1036, 314)
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0289575
+anchor_top = 0.0987261
+anchor_right = 0.971042
+anchor_bottom = 0.894904
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
@@ -943,8 +951,12 @@ focus_mode = 0
 script = ExtResource("40_m51n7")
 
 [node name="ScrollbarTextbox" parent="UI/HowToPlay/CoordinatesMinigame" instance=ExtResource("19_edlpb")]
-custom_minimum_size = Vector2(1036, 314)
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0289575
+anchor_top = 0.0987261
+anchor_right = 0.971042
+anchor_bottom = 0.894904
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
@@ -957,8 +969,12 @@ layout_mode = 2
 script = ExtResource("41_533qr")
 
 [node name="ScrollbarTextbox" parent="UI/HowToPlay/SymmetryMinigame" instance=ExtResource("19_edlpb")]
-custom_minimum_size = Vector2(1036, 314)
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0289575
+anchor_top = 0.0987261
+anchor_right = 0.971042
+anchor_bottom = 0.894904
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
