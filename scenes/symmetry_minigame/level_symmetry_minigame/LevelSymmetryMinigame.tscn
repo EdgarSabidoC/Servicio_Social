@@ -331,9 +331,9 @@ coordinates = Vector2i(1, 2)
 [node name="S1R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(45, 45)
-anchor_left = 0.507813
+anchor_left = 0.50879
 anchor_top = 0.291667
-anchor_right = 0.551758
+anchor_right = 0.552735
 anchor_bottom = 0.369792
 offset_bottom = 0.0
 pivot_offset = Vector2(22.5, 22.5)
@@ -797,10 +797,10 @@ offset_right = 0.0
 countdown = true
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("11_cugab")]
-visible = false
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("2_ff83q")]
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="pressed" from="CanvasLayer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]

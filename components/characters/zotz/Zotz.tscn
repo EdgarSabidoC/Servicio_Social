@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cl6iegxceg23t" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_sad.tga" id="4_5wxuo"]
 [ext_resource type="Texture2D" uid="uid://cv8y1xi3kv8ho" path="res://assets/graphical_assets/characters/npcs/zotz/zotz_in.tga" id="5_5hk1a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ab1yf"]
-atlas = ExtResource("3_ag1al")
-region = Rect2(0, 800, 124, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5crc1"]
+atlas = ExtResource("5_5hk1a")
+region = Rect2(0, 7200, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ube1"]
 atlas = ExtResource("2_qlhj2")
@@ -77,6 +77,10 @@ region = Rect2(0, 480, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u375r"]
 atlas = ExtResource("3_ag1al")
 region = Rect2(0, 640, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab1yf"]
+atlas = ExtResource("3_ag1al")
+region = Rect2(0, 800, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8b8md"]
 atlas = ExtResource("3_ag1al")
@@ -329,10 +333,6 @@ region = Rect2(0, 6880, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pquy"]
 atlas = ExtResource("5_5hk1a")
 region = Rect2(0, 7040, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5crc1"]
-atlas = ExtResource("5_5hk1a")
-region = Rect2(0, 7200, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0wwh"]
 atlas = ExtResource("4_5wxuo")
@@ -727,7 +727,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"entrance",
-"speed": 12.0
+"speed": 22.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -847,15 +847,14 @@ offset_bottom = -16.1927
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
-pivot_offset = Vector2(62.0001, 80.0007)
+pivot_offset = Vector2(62, 79.9999)
 size_flags_horizontal = 6
 size_flags_vertical = 6
-texture = SubResource("AtlasTexture_ab1yf")
+texture = SubResource("AtlasTexture_5crc1")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("1_f2hof")
 sprites = SubResource("SpriteFrames_reyp0")
-frame_index = 5
+current_animation = "entrance"
+frame_index = 45
 auto_play = true
-playing = true
-metadata/_edit_use_anchors_ = true

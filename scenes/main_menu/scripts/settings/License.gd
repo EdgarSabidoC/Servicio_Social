@@ -1,6 +1,6 @@
 extends TabBar
 
-@onready var scrollbar_textbox = $scrollbar_textbox
+@onready var scrollbar_textbox = $ScrollbarTextbox
 @onready var settings = %Settings
 @onready var controls: TabBar = $"../Controls"
 
@@ -14,6 +14,8 @@ func _ready() -> void:
 # Carga el archivo de licensia de Godot:
 func _load_license() -> String:
 	var file: FileAccess = FileAccess.open("res://assets/graphical_assets/texts/license/godot_license.txt", FileAccess.READ)
+	if not file:
+		return ""
 	var content: String = file.get_as_text()
 	return content
 

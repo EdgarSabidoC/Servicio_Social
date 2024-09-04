@@ -5,9 +5,11 @@ extends Control
 @onready var alux: AnimatedTextureRect = $Alux
 @onready var zotz: AnimatedTextureRect = $Zotz
 @onready var keken: AnimatedTextureRect = $Keken
+@onready var huolpoch: AnimatedTextureRect = $Huolpoch
+@onready var toh: AnimatedTextureRect = $Toh
 @onready var character: AnimatedTextureRect
 
-@onready var characters: Array[AnimatedTextureRect] = [alux, zotz, keken]
+@onready var characters: Array[AnimatedTextureRect] = [alux, zotz, keken, toh, huolpoch]
 
 # Señal que se emite cuando finaliza la escena:
 signal finished
@@ -17,21 +19,19 @@ func _ready() -> void:
 	# Se oculta la caja de diálogos:
 	self.dialogue_box.hide()
 	# Se inicializan los sprites:
-	var c_name = "Keken"
-	#match CharactersData.characters[PlayerSession.character].name:
+	#var c_name = "Keken"
+	var c_name: String = CharactersData.characters[PlayerSession.character].name
 	match c_name:
 		"Alux":
 			self.character = self.alux
-		#"Toh":
-			#self.character = self.toh
+		"Toh":
+			self.character = self.toh
 		"Keken":
 			self.character = self.keken
-		#"Huolpoch":
-			#self.character = self.huolpoch
+		"Huolpoch":
+			self.character = self.huolpoch
 		"Zotz":
 			self.character = self.zotz
-		#"Uaychivo":
-			#self.character = self.uaychivo
 	
 	self.character.enable_loop("default")
 	

@@ -25,7 +25,7 @@ func _on_keken_finished() -> void:
 		self.keken.disable_loop()
 	else:
 		# Si no:
-		self.keken.current_animation = "angry"
+		self.keken.current_animation = "anger"
 		# Se desactiva el loop de la animación:
 		self.keken.disable_loop()
 	# Se desconecta la señal:

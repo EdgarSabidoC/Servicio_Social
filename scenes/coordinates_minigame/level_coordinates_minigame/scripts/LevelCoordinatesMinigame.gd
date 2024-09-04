@@ -91,6 +91,8 @@ func print_message():
 		self.score_flash_label.text = "¡Increíble!"
 	else:
 		self.score_flash_label.text = "¡Buen esfuerzo!"
+	
+	Sfx.play_sound(Sfx.Sounds.SCORE)
 	self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
 	self.score_label_player.play("fade_out")
 
@@ -239,3 +241,14 @@ func _on_opossum_finished() -> void:
 			self.label.show()
 		"end_coordinates":
 			%Opossum.play("idle")
+
+
+func _on_tree_entered() -> void:
+	# Se activa el mouse independientemente del modo de entrada:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func _on_tree_exiting() -> void:
+	# Al salir se verifica el modo de entrada:
+	if not Mouse.mouse_mode_activated:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

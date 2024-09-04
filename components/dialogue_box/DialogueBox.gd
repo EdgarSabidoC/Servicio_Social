@@ -8,7 +8,7 @@ enum AlignmentType {LEFT=0,RIGHT=1,CENTER=2,FILL=3}
 var eof: bool = false
 var end_of_paragraph: bool = false
 ## Text to print as message in the dialogue box. Use [StartParagraph] to mark where a paragraph starts in a String.
-@export_multiline var text: String = "[StartParagraph] This is a paragraph.[StartParagraph] This is the second paragraph."
+@export_multiline var text: String = "[StartParagraph]This is a paragraph.[StartParagraph]This is the second paragraph."
 @onready var paragraphs: PackedStringArray = []
 var length: int
 var current_paragraph: int = 0
@@ -41,6 +41,7 @@ func _process(_delta: float) -> void:
 			# Se imprime el siguiente párrafo:
 			self.print_message(self.paragraphs[self.current_paragraph])
 		else:
+			self.current_paragraph = 0
 			self.eof = true
 			self.final_paragraph_finished.emit()
 			print_debug("Finalizó el texto")
@@ -76,6 +77,7 @@ func start() -> void:
 
 # Carga el texto (debe ser llamado antes de start).
 func load_message(message: String = self.text):
+	print_debug("Loaded message: ", message)
 	self.text = message
 
 

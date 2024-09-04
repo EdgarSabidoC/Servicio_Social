@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://du01gx28ege1t" path="res://assets/graphical_assets/characters/npcs/huolpoch/serpiente_in.tga" id="3_vipdm"]
 [ext_resource type="Texture2D" uid="uid://cde1emcoqrw6" path="res://assets/graphical_assets/characters/npcs/huolpoch/serpiente_rejected.tga" id="5_u44yn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oxi4e"]
-atlas = ExtResource("1_neeg1")
-region = Rect2(0, 1120, 124, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3u3q"]
+atlas = ExtResource("3_vipdm")
+region = Rect2(0, 6080, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oydkh"]
 atlas = ExtResource("3_2vs3a")
@@ -145,6 +145,10 @@ region = Rect2(0, 800, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lq5h0"]
 atlas = ExtResource("1_neeg1")
 region = Rect2(0, 960, 124, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxi4e"]
+atlas = ExtResource("1_neeg1")
+region = Rect2(0, 1120, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6c12"]
 atlas = ExtResource("1_neeg1")
@@ -317,10 +321,6 @@ region = Rect2(0, 5760, 124, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2j7r"]
 atlas = ExtResource("3_vipdm")
 region = Rect2(0, 5920, 124, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3u3q"]
-atlas = ExtResource("3_vipdm")
-region = Rect2(0, 6080, 124, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7k78"]
 atlas = ExtResource("5_u44yn")
@@ -752,7 +752,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d3u3q")
 }],
-"loop": true,
+"loop": false,
 "name": &"entrance",
 "speed": 10.0
 }, {
@@ -903,9 +903,12 @@ anchor_right = 0.121
 anchor_bottom = 0.312
 offset_right = 0.095993
 offset_bottom = 0.287994
-texture = SubResource("AtlasTexture_oxi4e")
+pivot_offset = Vector2(62, 90)
+texture = SubResource("AtlasTexture_d3u3q")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("1_l7o2c")
 sprites = SubResource("SpriteFrames_3c7ji")
+current_animation = "entrance"
+frame_index = 38
 auto_play = true

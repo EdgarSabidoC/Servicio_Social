@@ -38,17 +38,17 @@ func _on_scene_01_finished() -> void:
 	self.options_label.show()
 	self.option_buttons_container.show()
 	
-	# Se configura el modo teclado:
-	if !Mouse.mouse_mode_activated:
-		self.accept_btn.grab_focus()
+	self.accept_btn.grab_focus()
 	
 
 func _on_accept_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.BUTTON_ACCEPT)
 	# Se cambia a la siguiente escena:
 	self.change_to_next_scene(self.level_fractions_minigame)
 
 
 func _on_reject_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.BUTTON_REJECT)
 	# Se cambia el tiempo:
 	self.time = 0
 	# Se cambia a la siguiente escena:

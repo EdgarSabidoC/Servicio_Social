@@ -33,13 +33,15 @@ extends Node2D
 
 
 func _enter_tree() -> void:
+	# Se configura la música:
 	self.set_music()
-
+	# Se activa el mouse independientemente del modo de entrada:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 
 func _ready() -> void:	
 	# Se enfoca el botón 1 si está en modo teclado:
-	if !Mouse.mouse_mode_activated:
-		self.answer_button_1.grab_focus()
+	self.answer_button_1.grab_focus()
 	
 	# Se configura el juego/partida:
 	self.set_game()
@@ -49,7 +51,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_pause"):
 		if !self.pause.is_active():
 			self.clock.stop()
-			self.pause.show()
+			self.pause.show_menu()
 
 
 # Muestra los íconos de los personajes derrotados:
@@ -180,6 +182,7 @@ func change_score_color() -> void:
 # Imprime el puntaje:
 func print_score() -> void:
 	self.change_score_color()
+	Sfx.play_sound(Sfx.Sounds.SCORE)
 	
 	# Se imprime el puntaje nuevo:
 	self.score_flash_label.text = "+%s" % (self.default_score*CharactersData.characters[self.character].bonus_multiplier)
@@ -268,8 +271,7 @@ func _on_answer_button_4_pressed() -> void:
 
 # Si se desactiva el menú de pausa:
 func _on_pause_finished() -> void:
-	if !Mouse.mouse_mode_activated:
-		self.answer_button_1.grab_focus()
+	self.answer_button_1.grab_focus()
 	self.clock.continue_clock()
 	self.pause.hide()
 
@@ -277,7 +279,7 @@ func _on_pause_finished() -> void:
 func _on_pause_btn_pressed() -> void:
 	if !self.pause.is_active():
 			self.clock.stop()
-			self.pause.show()
+			self.pause.show_menu()
 
 
 # Cuando se llegue a un minuto nuevo se aumenta la velocidad de la música:
