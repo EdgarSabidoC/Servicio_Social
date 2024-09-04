@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq04c345l73g0"]
 
 [ext_resource type="Script" path="res://components/drop_slot_ingredient/DropSlotIngredient.gd" id="1_18i1v"]
-[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_y0ffl"]
+[ext_resource type="Texture2D" uid="uid://uxxqljof5511" path="res://assets/graphical_assets/environments/pizzas/color_pizza.tga" id="2_q6j0v"]
 
 [node name="DropSlotIngredient" type="TextureRect"]
 custom_minimum_size = Vector2(40, 40)
@@ -24,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_y0ffl")
+texture = ExtResource("2_q6j0v")
 expand_mode = 1
 
 [connection signal="minimum_size_changed" from="." to="." method="_on_minimum_size_changed"]
