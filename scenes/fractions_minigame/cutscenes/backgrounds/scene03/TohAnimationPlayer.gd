@@ -32,8 +32,8 @@ func _on_toh_finished() -> void:
 	self.toh.disconnect("finished", self._on_toh_finished)
 	# Se reproduce la animación:
 	self.toh.playing = true
+	self.play("exit")
 
 
 func start_exit() -> void:
-	self.play("exit")
 	self.dialogue_box.disconnect("dialogue_box_closed", self.start_exit)
