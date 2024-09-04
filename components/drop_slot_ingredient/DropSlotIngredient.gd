@@ -39,18 +39,23 @@ func _ready() -> void:
 func _input(_event: InputEvent) -> void:
 	if self.enable_drop and self.is_hover:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+			Sfx.play_sound(Sfx.Sounds.INGREDIENT_TOP)
 			self.rotation_degrees = clamp_rotation(self.rotation_degrees + 45)
 			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 		elif Input.is_action_just_pressed("ui_right"):
+			Sfx.play_sound(Sfx.Sounds.INGREDIENT_TOP)
 			self.rotation_degrees = clamp_rotation(self.rotation_degrees + 45)
 			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 		elif Input.is_action_just_pressed("ui_left"):
+			Sfx.play_sound(Sfx.Sounds.INGREDIENT_TOP)
 			self.rotation_degrees = clamp_rotation(self.rotation_degrees - 45)
 			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 		elif Input.is_action_just_pressed("ui_up"):
+			Sfx.play_sound(Sfx.Sounds.INGREDIENT_TOP)
 			self.rotation_degrees = clamp_rotation(self.rotation_degrees + 90)
 			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 		elif Input.is_action_just_pressed("ui_down"):
+			Sfx.play_sound(Sfx.Sounds.INGREDIENT_TOP)
 			self.rotation_degrees = clamp_rotation(self.rotation_degrees - 90)
 			self.rotated.emit() # Se lanza la señal de que se soltaron los datos.
 
@@ -150,6 +155,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 # La texture se convierte en la textura que se le suelta:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	Sfx.play_sound(Sfx.Sounds.INGREDIENT_TOP)
 	self.background.hide()
 	#print_debug("Entró a _drop_data con (%s, %s)" %[data[0], data[1]])
 	self.texture = data[0]

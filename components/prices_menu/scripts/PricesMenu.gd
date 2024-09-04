@@ -18,6 +18,7 @@ func _ready() -> void:
 
 
 func _on_back_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.BUTTON_ACCEPT)
 	self.hide()
 	back_btn_pressed.emit()
 

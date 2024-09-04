@@ -1,9 +1,11 @@
-[gd_scene load_steps=51 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=58 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
+[ext_resource type="Shader" path="res://assets/graphical_assets/styles/background.gdshader" id="3_5t3fv"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="3_mou80"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/MenuContainer.gd" id="4_5awxv"]
+[ext_resource type="Texture2D" uid="uid://dmjh3ddhhxa8s" path="res://assets/graphical_assets/environments/backgrounds/BW/squares03.png" id="4_xuey8"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/PlayBtn.gd" id="5_7ioq7"]
 [ext_resource type="Texture2D" uid="uid://cqboxf3ckfoln" path="res://assets/graphical_assets/user_interface/container/container.tga" id="6_4ujbp"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/SettingsBtn.gd" id="6_6htjl"]
@@ -42,8 +44,40 @@
 [ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="35_6wbnv"]
 [ext_resource type="Texture2D" uid="uid://dna0okslga04p" path="res://assets/graphical_assets/user_interface/container/tabContainer.tga" id="35_dlrx7"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/Characters.gd" id="35_si0ac"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/FractionsMinigame.gd" id="38_51gsa"]
 [ext_resource type="Script" path="res://components/back_button/BackButton.gd" id="39_jh3m0"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/AdditionsMinigame.gd" id="39_kdg1f"]
 [ext_resource type="PackedScene" uid="uid://tquacmjw5g4q" path="res://components/exit_menu/ExitMenu.tscn" id="40_idk3m"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/CoordinatesMinigame.gd" id="40_m51n7"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/how_to_play/SymmetryMinigame.gd" id="41_533qr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a8oh5"]
+shader = ExtResource("3_5t3fv")
+shader_parameter/snes_transparency = false
+shader_parameter/gba_transparency = true
+shader_parameter/horizontal_scan_line = false
+shader_parameter/vertical_scan_line = false
+shader_parameter/enable_palette_cycling = true
+shader_parameter/sprite_scroll_direction = Vector2(0, 0)
+shader_parameter/sprite_scroll_speed = 0.01
+shader_parameter/gba_transparency_scroll_direction = Vector2(0, 0)
+shader_parameter/gba_transparency_scroll_speed = 0.01
+shader_parameter/gba_transparency_value = 0.5
+shader_parameter/horizontal_wave_amplitude = 1.0
+shader_parameter/horizontal_wave_frequency = 1.0
+shader_parameter/horizontal_wave_speed = 0.05
+shader_parameter/vertical_wave_amplitude = 1.0
+shader_parameter/vertical_wave_frequency = 2.0
+shader_parameter/vertical_wave_speed = 0.05
+shader_parameter/horizontal_deform_amplitude = 1.0
+shader_parameter/horizontal_deform_frequency = 1.0
+shader_parameter/horizontal_deform_speed = 0.05
+shader_parameter/vertical_deform_amplitude = 2.0
+shader_parameter/vertical_deform_frequency = 1.0
+shader_parameter/vertical_deform_speed = 0.05
+shader_parameter/width = 1024.0
+shader_parameter/height = 576.0
+shader_parameter/palette_cycling_speed = 0.1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_un0bj"]
 texture = ExtResource("35_dlrx7")
@@ -123,13 +157,21 @@ script = ExtResource("1_uy7ao")
 _time_interval = 0.0
 _fade_time = 0.15
 
+[node name="TextureRect" type="TextureRect" parent="UI"]
+material = SubResource("ShaderMaterial_a8oh5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_xuey8")
+metadata/_edit_use_anchors_ = true
+
 [node name="MenuBackgroundColor" type="ColorRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.913725, 0.337255, 0.298039, 1)
+color = Color(0.913725, 0.337255, 0.298039, 0.862745)
 script = ExtResource("1_uy7ao")
 _time_interval = 0.0
 _fade_time = 0.15
@@ -834,7 +876,7 @@ layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_pabyu")
 
-[node name="scrollbar_textbox" parent="UI/Settings/License" instance=ExtResource("19_edlpb")]
+[node name="ScrollbarTextbox" parent="UI/Settings/License" instance=ExtResource("19_edlpb")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -850,10 +892,12 @@ offset_bottom = 150.0
 unique_name_in_owner = true
 visible = false
 anchors_preset = -1
-anchor_left = 0.0849609
+anchor_left = -0.0483399
 anchor_top = 0.015625
-anchor_right = 0.923828
+anchor_right = 1.05713
 anchor_bottom = 0.854167
+offset_left = 136.5
+offset_right = -136.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -866,20 +910,76 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
+script = ExtResource("38_51gsa")
+
+[node name="ScrollbarTextbox" parent="UI/HowToPlay/FractionsMinigame" instance=ExtResource("19_edlpb")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0289575
+anchor_top = 0.0987261
+anchor_right = 0.971042
+anchor_bottom = 0.894904
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AdditionsMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
 focus_mode = 0
+script = ExtResource("39_kdg1f")
+
+[node name="ScrollbarTextbox" parent="UI/HowToPlay/AdditionsMinigame" instance=ExtResource("19_edlpb")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0289575
+anchor_top = 0.0987261
+anchor_right = 0.971042
+anchor_bottom = 0.894904
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CoordinatesMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
 focus_mode = 0
+script = ExtResource("40_m51n7")
+
+[node name="ScrollbarTextbox" parent="UI/HowToPlay/CoordinatesMinigame" instance=ExtResource("19_edlpb")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0289575
+anchor_top = 0.0987261
+anchor_right = 0.971042
+anchor_bottom = 0.894904
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="SymmetryMinigame" type="TabBar" parent="UI/HowToPlay"]
 visible = false
 layout_mode = 2
+script = ExtResource("41_533qr")
+
+[node name="ScrollbarTextbox" parent="UI/HowToPlay/SymmetryMinigame" instance=ExtResource("19_edlpb")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0289575
+anchor_top = 0.0987261
+anchor_right = 0.971042
+anchor_bottom = 0.894904
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Characters" type="TabBar" parent="UI/HowToPlay"]
 visible = false
@@ -1106,6 +1206,7 @@ unique_name_in_owner = true
 [connection signal="mouse_entered" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_pressed"]
+[connection signal="visibility_changed" from="UI/DifficultyMenu/EasyBtn" to="UI/DifficultyMenu/EasyBtn" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/DifficultyMenu/MediumBtn" to="UI/DifficultyMenu/MediumBtn" method="_on_mouse_entered"]
@@ -1145,9 +1246,13 @@ unique_name_in_owner = true
 [connection signal="toggled" from="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" to="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ActionButtonContainer/MouseMode" method="_on_toggled"]
 [connection signal="visibility_changed" from="UI/Settings/License" to="UI/Settings" method="_on_license_visibility_changed"]
 [connection signal="visibility_changed" from="UI/HowToPlay/FractionsMinigame" to="UI/HowToPlay" method="_on_fractions_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/FractionsMinigame" to="UI/HowToPlay/FractionsMinigame" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="UI/HowToPlay/AdditionsMinigame" to="UI/HowToPlay" method="_on_additions_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/AdditionsMinigame" to="UI/HowToPlay/AdditionsMinigame" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="UI/HowToPlay/CoordinatesMinigame" to="UI/HowToPlay" method="_on_coordinates_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/CoordinatesMinigame" to="UI/HowToPlay/CoordinatesMinigame" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="UI/HowToPlay/SymmetryMinigame" to="UI/HowToPlay" method="_on_symmetry_minigame_visibility_changed"]
+[connection signal="visibility_changed" from="UI/HowToPlay/SymmetryMinigame" to="UI/HowToPlay/SymmetryMinigame" method="_on_visibility_changed"]
 [connection signal="pressed" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_pressed"]
 [connection signal="tab_clicked" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_clicked"]
 [connection signal="tab_hovered" from="UI/HowToPlay/Characters" to="UI/HowToPlay/Characters" method="_on_tab_hovered"]

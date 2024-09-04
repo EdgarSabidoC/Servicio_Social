@@ -13,12 +13,14 @@ signal restart_game
 
 
 func _on_restart_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.BUTTON_ACCEPT)
 	self.hide()
 	self.score_label.text = "[center]00000000[/center]"
 	self.restart_game.emit()
 
 
 func _on_return_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.SCREEN_PRESS)
 	# Si está activado el modo práctica se desactiva:
 	if PlayerSession.is_practice_mode():
 		PlayerSession.change_practice_mode()
@@ -37,4 +39,5 @@ func _on_visibility_changed() -> void:
 
 # Imprime el puntaje final en la etiqueta ScoreLabel:
 func print_score(score: int = PlayerSession.score) -> void:
+	Sfx.play_sound(Sfx.Sounds.SCORE_SCREEN)
 	self.score_label.text = "[center]%08d[/center]" % score
