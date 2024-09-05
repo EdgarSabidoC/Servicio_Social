@@ -58,10 +58,11 @@ func load_data() -> void:
 	# Se carga la información:
 	_str += "[font_size=28]Objetivo[/font_size]
 ¡El momento ha llegado! Después de que nuestros queridos clientes han llenado sus panzas con nuestras deliciosas pizzas llega el momento de cobrarles, pero lamentablemente la caja registradora está fallando y sólo te permite ingresar el monto total de la cuenta. Realiza la sumas y multiplicaciones para hallar el total de la cuenta de cada cliente e ingrésalo en la caja registradora. ¡Te sugerimos tener a mano una libreta donde puedas apuntar los precios y realizar tus operaciones! Si lo necesitas puedes checar la lista de precios en todo momento.
+Los controles se encuentran al final de las instrucciones.
 
 
 [font_size=28]Modo contrarreloj[/font_size]
-En este modo de juego, debes cobrar cada cuenta lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
+En este modo de juego debes cobrar cada cuenta lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
 
 
 [font_size=28]Modo práctica[/font_size]

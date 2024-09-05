@@ -36,7 +36,7 @@ func load_data() -> void:
 
 
 [font_size=28]Modo contrarreloj[/font_size]
-En este modo de juego, debes armar cada pizza lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
+En este modo de juego debes armar cada pizza lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
 
 
 [font_size=28]Modo práctica[/font_size]

@@ -19,10 +19,11 @@ func load_data() -> void:
 	# Se carga la información:
 	_str += "[font_size=28]Objetivo[/font_size]
 ¡Las pizzas se enfrían! Ayuda al mesero robot a entregar las pizzas en las mesas con la coordenada correspondiente. Presta atención al chef, pues él te indicará la coordenada.
+Puedes encontrar los controles al final de estas instrucciones.
 
 
 [font_size=28]Modo contrarreloj[/font_size]
-En este modo de juego, debes resolver cada problema lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
+En este modo de juego debes entregar cada pizza lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
 
 
 [font_size=28]Modo práctica[/font_size]

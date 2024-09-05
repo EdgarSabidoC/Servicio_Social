@@ -33,6 +33,7 @@ func load_data() -> void:
 	
 	_str += "[font_size=28]Objetivo[/font_size]
 ¡El cliente siempre tiene la razón! Los diferentes amigos y clientes de nuestra querida amiga zarigüeya entrarán y te ordenarán sus pizzas favoritas. Presta atención a los detalles, pues te pedirán fracciones o números de rebanadas, así como la cantidad de bebidas y órdenes de pan. No querrás decepcionarlos, así que selecciona las opciones correctas.
+Puedes checar los controles al final de las instrucciones.
 
 
 [font_size=28]Contrarreloj[/font_size]
