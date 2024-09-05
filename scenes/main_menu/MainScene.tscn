@@ -522,39 +522,22 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Fullscreen" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
+[node name="ScreenTypeContainer" type="HBoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-tooltip_text = "El modo pantalla completa permite deshacerse de los bordes y ventanas del sistema operativo"
-mouse_filter = 1
-text = "Pantalla completa"
-vertical_alignment = 1
 
-[node name="Borderless" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
+[node name="BorderlessLabel" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "El modo sin bordes se deshace solo de los marcos de la ventana del sistema operativo"
 mouse_filter = 1
-text = "Sin bordes"
+text = "Ventana sin bordes"
 vertical_alignment = 1
 
-[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
-custom_minimum_size = Vector2(0, 20)
+[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer"]
+custom_minimum_size = Vector2(15, 5)
 layout_mode = 2
 
-[node name="Vsync" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-tooltip_text = "Elige un tipo de sinscronización vertical sólo si está disponible"
-mouse_filter = 1
-text = "Sincronización vertical (VSync)"
-vertical_alignment = 1
-
-[node name="VideoInputsContainer" type="VBoxContainer" parent="UI/Settings/Video/VideoOptionsContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Fullscreen" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
+[node name="Fullscreen" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Activa/Desactiva el modo pantalla completa"
@@ -563,31 +546,60 @@ focus_neighbor_bottom = NodePath("../Borderless")
 focus_next = NodePath("../Borderless")
 expand_icon = true
 
-[node name="Borderless" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
+[node name="Placeholder2" type="BoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer"]
+custom_minimum_size = Vector2(15, 5)
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "El modo pantalla completa permite deshacerse de los bordes y ventanas del sistema operativo"
+mouse_filter = 1
+text = "Pantalla completa"
+vertical_alignment = 1
+
+[node name="Borderless" type="CheckButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Activa/Desactiva el modo sin bordes"
 focus_neighbor_left = NodePath("../Fullscreen")
 focus_neighbor_top = NodePath("../Fullscreen")
-focus_neighbor_right = NodePath("../Vsync")
-focus_neighbor_bottom = NodePath("../Vsync")
-focus_next = NodePath("../Vsync")
+focus_neighbor_right = NodePath("../../VSyncContainer/Vsync")
+focus_neighbor_bottom = NodePath("../../VSyncContainer/Vsync")
+focus_next = NodePath("../../VSyncContainer/Vsync")
 focus_previous = NodePath("../Fullscreen")
 expand_icon = true
 
-[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
+[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="VSyncContainer" type="HBoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VsyncLabel" type="Label" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Elige un tipo de sinscronización vertical sólo si está disponible"
+mouse_filter = 1
+text = "Sincronización vertical (VSync)"
+vertical_alignment = 1
+
+[node name="Placeholder1" type="BoxContainer" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer"]
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
-[node name="Vsync" type="OptionButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer"]
+[node name="Vsync" type="OptionButton" parent="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Selecciona el tipo de sincronización vertical"
-focus_neighbor_left = NodePath("../Borderless")
-focus_neighbor_top = NodePath("../Borderless")
-focus_previous = NodePath("../Borderless")
+focus_neighbor_left = NodePath("../../ScreenTypeContainer/Borderless")
+focus_neighbor_top = NodePath("../../ScreenTypeContainer/Borderless")
+focus_previous = NodePath("../../ScreenTypeContainer/Borderless")
 alignment = 1
 icon_alignment = 1
 item_count = 4
@@ -1223,13 +1235,11 @@ unique_name_in_owner = true
 [connection signal="mouse_exited" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_pressed"]
 [connection signal="visibility_changed" from="UI/Settings/Video" to="UI/Settings" method="_on_video_visibility_changed"]
-[connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_focus_entered"]
-[connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
-[connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_focus_entered"]
-[connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Borderless" to="UI/Settings/Video" method="_on_borderless_toggled"]
-[connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_focus_entered"]
-[connection signal="item_focused" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_focused"]
-[connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoInputsContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
+[connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_focus_entered"]
+[connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
+[connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_focus_entered"]
+[connection signal="item_focused" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_focused"]
+[connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]
 [connection signal="visibility_changed" from="UI/Settings/Audio" to="UI/Settings/Audio" method="_on_visibility_changed"]
 [connection signal="focus_entered" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_focus_entered"]
 [connection signal="mouse_entered" from="UI/Settings/Audio/AudioOptionsContainer/HBoxContainer/AudioInputsContainer/Master" to="UI/Settings/Audio" method="_on_master_mouse_entered"]

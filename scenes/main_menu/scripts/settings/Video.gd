@@ -1,6 +1,11 @@
 extends TabBar
 
+@onready var borderless_label: Label = $VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer/BorderlessLabel
 @onready var fullscreen: CheckButton = %Fullscreen
+@onready var fullscreen_label: Label = $VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer/FullscreenLabel
+
+@onready var vsync_label: Label = $VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/VsyncLabel
+@onready var vsync: OptionButton = %Vsync
 
 
 func _ready() -> void:
@@ -15,7 +20,7 @@ func _ready() -> void:
 	# de acuerdo con ello.
 	var borderless_type = Persistence.config.get_value("Video", "borderless")
 	if borderless_type:
-		%Borderless.button_pressed = true
+		%Fullscreen.button_pressed = false
 	
 	# Se obtiene el valor de Vsync y se configura el botón
 	# de acuerdo con ello.
@@ -29,15 +34,12 @@ func _on_fullscreen_toggled(toggled_on):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
+		# Modo sin bordes:
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, not toggled_on)
+		Persistence.config.set_value("Video", "borderless", not toggled_on)
+		# Modo ventana:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
-	Persistence.save_data()
-
-
-func _on_borderless_toggled(toggled_on: bool) -> void:
-	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
-	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, toggled_on)
-	Persistence.config.set_value("Video", "borderless", toggled_on)
 	Persistence.save_data()
 
 
