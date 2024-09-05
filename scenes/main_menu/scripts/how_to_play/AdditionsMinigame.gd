@@ -56,28 +56,29 @@ func load_data() -> void:
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	
 	# Se carga la información:
-	_str = "[font_size=28]Modo contrarreloj[/font_size]
-En este modo de juego, debes resolver cada problema lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
+	_str += "[font_size=28]Objetivo[/font_size]
+¡El momento ha llegado! Después de que nuestros queridos clientes han llenado sus panzas con nuestras deliciosas pizzas llega el momento de cobrarles, pero lamentablemente la caja registradora está fallando y sólo te permite ingresar el monto total de la cuenta. Realiza la sumas y multiplicaciones para hallar el total de la cuenta de cada cliente e ingrésalo en la caja registradora. ¡Te sugerimos tener a mano una libreta donde puedas apuntar los precios y realizar tus operaciones! Si lo necesitas puedes checar la lista de precios en todo momento.
+
+
+[font_size=28]Modo contrarreloj[/font_size]
+En este modo de juego, debes cobrar cada cuenta lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
 
 
 [font_size=28]Modo práctica[/font_size]
-En el modo de práctica, no hay puntos ni límite de tiempo. Este modo es ideal para que puedas practicar las sumas y multiplicaciones sin preocuparte por cometer errores. Tienes todo el tiempo para asegurarte de que estás aprendiendo bien cómo sumar y multiplicar.
+En el modo de práctica, no hay puntos ni límite de tiempo. Este modo es ideal para que puedas practicar las sumas y multiplicaciones sin preocuparte por cometer errores. Tienes todo el tiempo que necesites para asegurarte de que estás aprendiendo bien cómo sumar y multiplicar.
 
 
 [font_size=28]Dificultades[/font_size]
-No temas en intentar mayores dificultades, pues mientras más grande es el desafío, mejores son las recompensas.
+No temas intentar mayores dificultades, pues mientras más grande es el desafío, mejores son las recompensas.
 
 [font_size=22]Dificultad fácil[/font_size]
-Límite de tiempo: minutos
-El objetivo es resolver las sumas y multiplicaciones para hallar el total de las cuentas, cada vez que resuelvas una correctamente una nueva le seguirá, continúa hasta que ya no quede tiempo.
+Límite de tiempo: 3 minutos
 
 [font_size=22]Dificultad media[/font_size]
-Límite de tiempo: minutos
-El objetivo es resolver las sumas y multiplicaciones para hallar el total de las cuentas, cada vez que resuelvas una correctamente una nueva le seguirá, continúa hasta que ya no quede tiempo.
+Límite de tiempo: 4 minutos
 
 [font_size=22]Dificultad difícil[/font_size]
-Límite de tiempo: minutos
-El objetivo es resolver las sumas y multiplicaciones para hallar el total de las cuentas, cada vez que resuelvas una correctamente una nueva le seguirá, continúa hasta que ya no quede tiempo.
+Límite de tiempo: 5 minutos
 
 
 [font_size=28]Controles\n\n[/font_size]"

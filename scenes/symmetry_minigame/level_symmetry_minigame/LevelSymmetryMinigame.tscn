@@ -126,6 +126,9 @@ easy_ingredients_upper_limit = 3
 medium_ingredients_lower_limit = 1
 medium_ingredients_upper_limit = 2
 hard_ingredients_upper_limit = 1
+time_easy = 90.0
+time_medium = 150.0
+time_hard = 180.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

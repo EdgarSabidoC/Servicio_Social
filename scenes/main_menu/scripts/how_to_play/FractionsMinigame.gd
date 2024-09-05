@@ -31,12 +31,16 @@ func load_data() -> void:
 	# Mouse:
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	
-	_str = "[font_size=28]Modo contrarreloj[/font_size]
-En este modo de juego, debes resolver cada problema lo más rápido posible. No hay límite de tiempo, pero debes estar atento porque mientras más tiempo tardes en resolver cada problema, menos puntos obtendrás.
+	_str += "[font_size=28]Objetivo[/font_size]
+¡El cliente siempre tiene la razón! Los diferentes amigos y clientes de nuestra querida amiga zarigüeya entrarán y te ordenarán sus pizzas favoritas. Presta atención a los detalles, pues te pedirán fracciones o números de rebanadas, así como la cantidad de bebidas y órdenes de pan. No querrás decepcionarlos, así que selecciona las opciones correctas.
+
+
+[font_size=28]Contrarreloj[/font_size]
+En este modo de juego debes resolver cada problema lo más rápido posible. No hay límite de tiempo, pero debes estar atento porque mientras más tiempo tardes en resolver cada problema, menos puntos obtendrás.
 
 
 [font_size=28]Multiplicadores de personaje[/font_size]
-Gana los multiplicadores de personaje para ganar un bonus sobre los puntos que obtienes. Para ello es necesario aceptar la orden del respectivo personaje y resolver correctamente el problema que te plantea.
+Gana los multiplicadores de personaje para ganar un bonus sobre los puntos que obtienes. Para ello es necesario aceptar la orden del respectivo personaje y vender la orden correcta.
 
 
 [font_size=28]Dificultades[/font_size]

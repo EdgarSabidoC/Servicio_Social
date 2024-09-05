@@ -31,6 +31,32 @@ func load_data() -> void:
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	right_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_RIGHT).get_path()
 	# Se carga la información:
+	_str += "[font_size=28]Objetivo[/font_size]
+¡Arma la pizza! Debes lograr armar la pizza de tal forma que ambos lados sean simétricos (simetría con respecto al eje Y). Imagina como si doblaras la pizza por la mitad de forma vertical, cada ingrediente del lado izquierdo debe de coincidir con su respectivo ingrediente del lado derecho. Puedes rotar los ingredientes ya colocados utilizando las teclas de navegación o el click derecho del mouse (ver sección Controles al final de las instrucciones).
+
+
+[font_size=28]Modo contrarreloj[/font_size]
+En este modo de juego, debes armar cada pizza lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
+
+
+[font_size=28]Modo práctica[/font_size]
+La puntuación y el reloj están desactivados. Este modo es ideal para practicar. Tienes todo el tiempo que necesites para asegurarte de que estás comprendiendo el funcionamiento de la simetría sobre el eje Y.
+
+
+[font_size=28]Dificultades[/font_size]
+Obtén mayor puntuación base subiendo la dificultad del juego. Prueba todas las dificultades e intenta cada vez ser más rápido.
+
+[font_size=22]Dificultad fácil[/font_size]
+Límite de tiempo: 1 minuto 30 segundos
+
+[font_size=22]Dificultad media[/font_size]
+Límite de tiempo: 2 minutos 30 segundos
+
+[font_size=22]Dificultad difícil[/font_size]
+Límite de tiempo: 3 minutos
+
+
+[font_size=28]Controles\n\n[/font_size]"
 	# Teclado:
 	_str += "[font_size=22]Teclas de navegación:[/font_size]\n" 
 	up_image_path = "Giro completo hacia la derecha: [img={up_width}x{up_height}]{up_image}[/img]\n".format({"up_width": 0, "up_height": 40, "up_image": up_image_path})

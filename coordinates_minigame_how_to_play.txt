@@ -1,0 +1,26 @@
+[font_size=28]Objetivo[/font_size]
+¡Las pizzas se enfrían! Ayuda al mesero robot a entregar las pizzas en las mesas con la coordenada correspondiente. Presta atención al chef, pues él te indicará la coordenada.
+
+
+[font_size=28]Modo contrarreloj[/font_size]
+En este modo de juego, debes resolver cada problema lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
+
+
+[font_size=28]Modo práctica[/font_size]
+En el modo de práctica, no hay puntos ni límite de tiempo. Este modo es ideal para practicar. Tienes todo el tiempo que necesites para asegurarte de que estás aprendiendo bien el sistema de coordenadas.
+
+
+[font_size=28]Dificultades[/font_size]
+A mayor dificultad, mayor puntuación base. Intenta todas las dificultades para dominar el juego.
+
+[font_size=22]Dificultad fácil[/font_size]
+Límite de tiempo: 3 minutos
+
+[font_size=22]Dificultad media[/font_size]
+Límite de tiempo: 2 minutos
+
+[font_size=22]Dificultad difícil[/font_size]
+Límite de tiempo: 1 minuto 30 segundos
+
+
+[font_size=28]Controles\n\n[/font_size]
