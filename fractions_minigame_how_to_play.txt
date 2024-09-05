@@ -1,0 +1,24 @@
+[font_size=24]Contrarreloj[/font_size]
+En este modo de juego, debes resolver cada problema lo más rápido posible. No hay límite de tiempo, pero debes estar atento porque mientras más tiempo tardes en resolver cada problema, menos puntos obtendrás.
+
+
+[font_size=24]Multiplicadores de personaje[/font_size]
+Gana los multiplicadores de personaje para ganar un bonus sobre los puntos que obtienes. Para ello es necesario aceptar la orden del respectivo personaje y resolver correctamente el problema que te plantea.
+
+
+[font_size=24]Dificultades[/font_size]
+A mayor dificultad, mayores serán las oportunidades de obtener puntajes más altos, así que no tengas miedo de probar cada una de ellas.
+
+[font_size=22]Dificultad fácil[/font_size]
+El objetivo es encontrar la fracción de pizza correcta que corresponde al problema que se te presenta. Los problemas se pueden presentar directamente como fracciones.
+
+[font_size=22]Dificultad media[/font_size]
+El objetivo es encontrar la fracción de pizza correcta que corresponde al problema que se te presenta. Los problemas se pueden presentar directamente como fracciones, además tienes que hallar la proporción correcta de panes con respecto a las bebidas.
+
+[font_size=22]Dificultad difícil[/font_size]
+El objetivo es encontrar la fracción de pizza correcta que corresponde al problema que se te presenta. Los problemas se pueden presentar directamente como fracciones o cantidad de rebanadas, además tienes que hallar la proporción correcta de panes con respecto a las bebidas.
+
+
+[font_size=24]Controles\n\n[/font_size]
+
+

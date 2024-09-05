@@ -81,17 +81,17 @@ func start() -> void:
 		PlayerSession.Minigames.ADDITIONS:
 			self.additions_text = self.additions_text.replace("[LEFTCLICK]", left_click_image_path)
 			if PlayerSession.is_practice_mode():
-				self.additions_text += "[StartParagraph]En el modo práctica no se adquieren puntos.\n\n[b]Modo contrareloj desactivado.[/b]"
+				self.additions_text += "[StartParagraph]En el modo práctica no se adquieren puntos.\n\n[b]Modo contrarreloj desactivado.[/b]"
 			else: 
-				self.additions_text += "[StartParagraph][b]Contrareloj activado:[/b] Mientras más tiempo pase, menos puntos obtendrás, así que sé lo más rápido que puedas."
+				self.additions_text += "[StartParagraph][b]Contrarreloj activado:[/b] Mientras más tiempo pase, menos puntos obtendrás, así que sé lo más rápido que puedas."
 			PlayerSession.additions_info_screen = true
 			self.dialogue_box.load_message(self.additions_text)
 		PlayerSession.Minigames.COORDINATES:
 			self.coordinates_text = self.coordinates_text.replace("[LEFTCLICK]", left_click_image_path)
 			if PlayerSession.is_practice_mode():
-				self.coordinates_text += "[StartParagraph]En el modo práctica no se adquieren puntos.\n\n[b]Modo contrareloj desactivado.[/b]"
+				self.coordinates_text += "[StartParagraph]En el modo práctica no se adquieren puntos.\n\n[b]Modo contrarreloj desactivado.[/b]"
 			else: 
-				self.coordinates_text += "[StartParagraph][b]Contrareloj activado:[/b] Mientras más tiempo pase, menos puntos obtendrás, así que sé lo más rápido que puedas."
+				self.coordinates_text += "[StartParagraph][b]Contrarreloj activado:[/b] Mientras más tiempo pase, menos puntos obtendrás, así que sé lo más rápido que puedas."
 			PlayerSession.coordinates_info_screen = true
 			self.dialogue_box.load_message(self.coordinates_text)
 		PlayerSession.Minigames.SYMMETRY:
@@ -102,9 +102,9 @@ func start() -> void:
 			self.symmetry_text = self.symmetry_text.replace("[LEFTCLICK]", left_click_image_path)
 			self.symmetry_text = self.symmetry_text.replace("[RIGHTCLICK]", right_click_image_path)
 			if PlayerSession.is_practice_mode():
-				self.symmetry_text += "[StartParagraph]En el modo práctica no se adquieren puntos.\n\n[b]Modo contrareloj desactivado.[/b]"
+				self.symmetry_text += "[StartParagraph]En el modo práctica no se adquieren puntos.\n\n[b]Modo contrrareloj desactivado.[/b]"
 			else: 
-				self.symmetry_text += "[StartParagraph][b]Contrareloj activado:[/b] Mientras más tiempo pase, menos puntos obtendrás, así que sé lo más rápido que puedas."
+				self.symmetry_text += "[StartParagraph][b]Contrarreloj activado:[/b] Mientras más tiempo pase, menos puntos obtendrás, así que sé lo más rápido que puedas."
 			PlayerSession.symmetry_info_screen = true
 			self.dialogue_box.load_message(self.symmetry_text)
 	self.dialogue_box.start()
