@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=105 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/ColorRect.gd" id="2_80h4x"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_rjwd5"]
 [ext_resource type="Texture2D" uid="uid://dulwas4a83juq" path="res://assets/graphical_assets/characters/player/door_scene_04.tga" id="4_xt2ru"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="4_xtxav"]
+[ext_resource type="Texture2D" uid="uid://dqmio2aqbditx" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_floor_coor.tga" id="5_8ghr4"]
 [ext_resource type="Texture2D" uid="uid://ci340lo4qqdij" path="res://assets/graphical_assets/characters/player/main_character_scene_04_request_end.tga" id="5_418cv"]
+[ext_resource type="Texture2D" uid="uid://dkk6ypbtxptq1" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_wall.tga" id="5_bsc3k"]
 [ext_resource type="Texture2D" uid="uid://bcheoudihgr1s" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_frame.tga" id="5_onsio"]
 [ext_resource type="Texture2D" uid="uid://dbso1mmo204t6" path="res://assets/graphical_assets/characters/player/main_character_scene_04_request.tga" id="5_r0dx5"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="6_4l6hj"]
@@ -689,6 +691,33 @@ frame_index = 5
 auto_play = true
 metadata/_edit_use_anchors_ = true
 
+[node name="Wall" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = -0.0920139
+anchor_right = 1.0
+anchor_bottom = 0.0798611
+texture = ExtResource("5_bsc3k")
+region_rect = Rect2(0, 30, 480, 111)
+patch_margin_left = 32
+patch_margin_top = 10
+patch_margin_right = 280
+patch_margin_bottom = 13
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Floor" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.176
+anchor_top = 0.146
+anchor_right = 0.851
+anchor_bottom = 1.03
+offset_left = -0.224014
+offset_top = -0.0960083
+offset_right = -0.424011
+offset_bottom = -0.280029
+texture = ExtResource("5_8ghr4")
+
 [node name="Table1" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
 unique_name_in_owner = true
 anchor_left = 0.179688
@@ -903,6 +932,57 @@ countdown = true
 show_behind_parent = false
 size_flags_horizontal = 4
 size_flags_vertical = 6
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.264648
+anchor_top = 0.0503472
+anchor_right = 0.297852
+anchor_bottom = 0.107639
+text = "-1"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit2" type="TextEdit" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.484375
+anchor_top = 0.0486111
+anchor_right = 0.517578
+anchor_bottom = 0.105903
+text = "0"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit3" type="TextEdit" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.706055
+anchor_top = 0.0451389
+anchor_right = 0.739258
+anchor_bottom = 0.102431
+text = "1"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+metadata/_edit_use_anchors_ = true
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
