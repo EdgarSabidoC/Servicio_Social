@@ -17,7 +17,7 @@ func _on_pressed() -> void:
 	self.menu_background_color.fade_in()
 	self.settings_background_color.fade_out()
 	PlayerSession.current_minigame = PlayerSession.Minigames.ADDITIONS
-	if !PlayerSession.additions_info_screen:
+	if not PlayerSession.additions_info_screen and not PlayerSession.debug_mode:
 		print_debug("Entró a InfoScreen con Additions")
 		%InfoScreen.start()
 		await %InfoScreen.finished
