@@ -43,13 +43,13 @@
 				{
 					"fraction": "1/1",
 					"drinks": "3",
-					"breads": "1",
+					"breads": "2",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "1/2",
-					"drinks": "3",
-					"breads": "1",
+					"drinks": "5",
+					"breads": "10",
 					"imagePath": "res://icon.svg"
 				},
 				{

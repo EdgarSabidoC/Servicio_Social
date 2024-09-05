@@ -10,8 +10,8 @@ extends Node2D
 @onready var answer_button_4: AnswerButton = $CanvasLayer/Control/GridContainer/AnswerButton4
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var defeated: bool = false
+@onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var extras_container = $CanvasLayer/Control/ExtrasContainer
-@onready var score_label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var buttons: Array[AnswerButton] = [answer_button_1, answer_button_2, answer_button_3, answer_button_4]
 @onready var answers: Array[Dictionary]
 @onready var current_pitch = 1.0
