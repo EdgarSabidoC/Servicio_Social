@@ -13,15 +13,19 @@ func _ready() -> void:
 	# Se obtiene el valor de pantalla completa y se configura el botón
 	# de acuerdo con ello.
 	var screen_type = Persistence.config.get_value("Video", "fullscreen")
-
+	
 	if screen_type == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		print_debug("Fullscreen mode")
+		self.is_fullscreen = true
 		self.fullscreen.button_pressed = true
 	
 	# Se obtiene el valor de modo sin bordes y se configura el botón
 	# de acuerdo con ello.
 	var borderless_type = Persistence.config.get_value("Video", "borderless")
-	if borderless_type:
+	if borderless_type and not is_fullscreen:
+		print_debug("Modo borderless")
 		%Fullscreen.button_pressed = false
+		self.is_fullscreen = false
 	
 	# Se obtiene el valor de Vsync y se configura el botón
 	# de acuerdo con ello.
@@ -68,4 +72,3 @@ func _on_fullscreen_pressed() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
 	Persistence.save_data()
-		
