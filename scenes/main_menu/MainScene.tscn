@@ -1236,7 +1236,7 @@ unique_name_in_owner = true
 [connection signal="pressed" from="UI/DifficultyMenu/ReturnBtn" to="UI/DifficultyMenu/ReturnBtn" method="_on_pressed"]
 [connection signal="visibility_changed" from="UI/Settings/Video" to="UI/Settings" method="_on_video_visibility_changed"]
 [connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_focus_entered"]
-[connection signal="toggled" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/ScreenTypeContainer/Fullscreen" to="UI/Settings/Video" method="_on_fullscreen_pressed"]
 [connection signal="focus_entered" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_focus_entered"]
 [connection signal="item_focused" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_focused"]
 [connection signal="item_selected" from="UI/Settings/Video/VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/Vsync" to="UI/Settings/Video" method="_on_vsync_item_selected"]

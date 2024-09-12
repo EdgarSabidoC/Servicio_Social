@@ -6,6 +6,7 @@ extends TabBar
 
 @onready var vsync_label: Label = $VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/VsyncLabel
 @onready var vsync: OptionButton = %Vsync
+@onready var is_fullscreen: bool = false
 
 
 func _ready() -> void:
@@ -26,21 +27,6 @@ func _ready() -> void:
 	# de acuerdo con ello.
 	var vsync_index = Persistence.config.get_value("Video", "vsync")
 	%Vsync.selected = vsync_index
-
-
-func _on_fullscreen_toggled(toggled_on):
-	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
-	if toggled_on:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		# Modo sin bordes:
-		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, not toggled_on)
-		Persistence.config.set_value("Video", "borderless", not toggled_on)
-		# Modo ventana:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
-	Persistence.save_data()
 
 
 func _on_vsync_item_selected(index: int) -> void:
@@ -64,3 +50,22 @@ func _on_borderless_focus_entered() -> void:
 
 func _on_vsync_focus_entered() -> void:
 	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+
+
+func _on_fullscreen_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.KEY_PRESS)
+	is_fullscreen = not is_fullscreen
+	if is_fullscreen:
+		print_debug("Entró a modo fullscreen: ", is_fullscreen)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		print_debug("Entró a modo windowed borderless: ", is_fullscreen)
+		# Modo sin bordes:
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, is_fullscreen)
+		Persistence.config.set_value("Video", "borderless", is_fullscreen)
+		# Modo ventana:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
+	Persistence.save_data()
+		
