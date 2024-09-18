@@ -15,7 +15,6 @@ const NUMBER_OF_CHARACTERS: int = 5
 # Se accede a la global como: CharactersData.characters
 @onready var characters: Array[CharacterResource] = []
 
-
 func _ready() -> void:
 	# Se cargan los datos al iniciar:
 	self.loadCharacters()
@@ -63,7 +62,6 @@ func loadCharacters() -> void:
 # Función que carga los datos de todos los personajes de manera pseudoaleatoria.
 # Esta función debe ser utilizada después de loadCharacters()
 func loadProblemsData() -> void:
-	
 	if (PlayerSession.difficulty == "easy" and easy_data_loaded) \
 	or (PlayerSession.difficulty == "medium" and medium_data_loaded) \
 	or (PlayerSession.difficulty == "hard" and hard_data_loaded):
