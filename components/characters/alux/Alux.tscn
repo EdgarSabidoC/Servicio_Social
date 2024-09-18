@@ -730,4 +730,5 @@ script = ExtResource("1_wqef5")
 sprites = SubResource("SpriteFrames_x5hrt")
 current_animation = "entrance"
 auto_play = true
+playing = true
 metadata/_edit_use_anchors_ = true
