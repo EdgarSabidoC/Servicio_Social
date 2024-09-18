@@ -102,11 +102,6 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/alux_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		},
 		{
 			"name": "Huolpoch",
@@ -210,11 +205,6 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/huolpoch_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		},
 		{
 			"name": "Toh",
@@ -318,11 +308,6 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/toh_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		},
 		{
 			"name": "Keken",
@@ -426,11 +411,6 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/keken_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		},
 		{
 			"name": "Zotz",
@@ -534,11 +514,6 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/zotz_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		}
 	]
 }
