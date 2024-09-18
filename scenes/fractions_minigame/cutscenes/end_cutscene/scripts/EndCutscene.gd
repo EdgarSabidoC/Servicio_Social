@@ -9,13 +9,17 @@ extends Control
 @onready var rich_text_label_text_flash: RichTextLabelTextFlash = $VBoxContainer/RichTextLabelTextFlash
 @onready var rich_text_label: RichTextLabel = $VBoxContainer/RichTextLabel
 @onready var rich_text_label_text_flash_2: RichTextLabelTextFlash = $VBoxContainer/RichTextLabelTextFlash2
-@onready var accept_texture_path: String = "res://addons/ActionIcon/Keyboard/Enter.png"
-@onready var accept: ActionIcon = ActionIcon.new()
+@onready var accept_texture_path: String
+@onready var m1_texture_path: String
+@onready var action_icon: ActionIcon
 @onready var changed: bool = false
 @onready var user_input_label: Label = $UserInputLabel
 
-@export var accept_width: float = 0
-@export var accept_height: float = 30
+@export var accept_width: float = 60
+@export var accept_height: float = 50
+
+@export var m1_width: float = 0
+@export var m1_height: float = 50
 
 
 func _ready() -> void:
@@ -25,33 +29,31 @@ func _ready() -> void:
 	var volume: float = 0
 	BackgroundMusic.change_song(BackgroundMusic.Songs.FUNICULI_FUNICULA_FASTER, current_position, pitch, volume)
 	
+	# Botones que aparecen para continuar y salir de la pantalla de puntajes altos:
+	action_icon = ActionIcon.new()
+	self.action_icon.action_name = "ui_accept"
+	self.accept_texture_path = self.action_icon._get_keyboard(Mouse.input_actions[action_icon.action_name][0].keycode).get_path()
+	self.action_icon.action_name = "m1"
+	self.m1_texture_path = self.action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
+	
 	# Si se supera el máximo puntaje:
 	if Persistence.is_high_score():
 		self.user_input_label.show()
 		self.user_input_string.show()
+		self.user_input_string.grab_focus()
 		self.button.show()
 	else:
 		# Si no se supera, sólo se muestran los máximos puntajes:
 		Sfx.play_sound(Sfx.Sounds.SCORE_SCREEN)
 		self._get_high_scores()
 		self.exit = true
-	
-	# Botón que aparece para continuar y salir de la pantalla de puntajes altos:
-	if !Mouse.mouse_mode_activated:
-		self.user_input_string.grab_focus()
-		self.accept.action_name = "ui_accept"
-		self.accept_texture_path = self.accept._get_keyboard(InputMap.action_get_events("ui_accept")[0].keycode).get_path()
-	else:
-		# Si está activado el modo mouse:
-		self.accept.action_name = "m1"
-		self.accept_texture_path = self.accept._get_mouse(InputMap.action_get_events("m1")[0].button_index).get_path()
-	self.accept.refresh()
+
 
 # Función que muestra los máximos puntajes:
 func _get_high_scores() -> void:
 	self.v_box_container.show() # Se muestra la pantalla de puntajes.
 	self.rich_text_label.text = Persistence.get_high_scores_formatted()
-	self.rich_text_label_text_flash_2.text = "[center]Presiona [img={accept_width}x{accept_height}]{accept}[/img] para continuar[/center]".format({"accept_width": str(accept_width), "accept_height": str(accept_height), "accept": accept_texture_path})
+	self.rich_text_label_text_flash_2.text = "[center]Presiona [img={accept_width}x{accept_height}]{accept}[/img] o [img={m1_width}x{m1_height}]{m1}[/img] para continuar[/center]".format({"accept_width": str(accept_width), "accept_height": str(accept_height), "accept": accept_texture_path, "m1_width": str(m1_width), "m1_height": str(m1_height), "m1": m1_texture_path})
 
 
 func _on_button_pressed() -> void:
