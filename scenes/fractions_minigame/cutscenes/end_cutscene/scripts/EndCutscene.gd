@@ -75,12 +75,6 @@ func _on_button_pressed() -> void:
 	# Se obtienen los mejores puntajes
 	self._get_high_scores()
 	
-	# Si están desactivadas las teclas:
-	if Mouse.mouse_mode_activated:
-		Mouse.change_mode()
-		Mouse.enable_actions()
-		self.changed = true
-	
 	self.exit = true
 
 
@@ -90,6 +84,9 @@ func _input(_event: InputEvent) -> void:
 		# Consume el evento:
 		get_viewport().set_input_as_handled()
 		self.rich_text_label_text_flash_2.speed = 60
+		
+		if not Mouse.mouse_mode_activated:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
 		# Espera un poco para visualizar el efecto del parpadeo de la etiqueta:
 		await get_tree().create_timer(0.5).timeout
