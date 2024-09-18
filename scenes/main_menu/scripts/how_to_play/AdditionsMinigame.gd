@@ -27,7 +27,8 @@ extends TabBar
 func load_data() -> void:
 	# Se crea el ActionIcon:
 	action_icon = ActionIcon.new()
-	# Se asginan las acciones a los ActionIcon:
+	
+	# Se obtienen las rutas de las imágenes:
 	# Teclado numérico:
 	key_0_image_path = action_icon._get_keyboard(KEY_0).get_path()
 	key_1_image_path = action_icon._get_keyboard(KEY_1).get_path()
@@ -56,7 +57,7 @@ func load_data() -> void:
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	
 	# Se carga la información:
-	_str += "[font_size=28]Objetivo[/font_size]
+	_str = "[font_size=28]Objetivo[/font_size]
 ¡El momento ha llegado! Después de que nuestros queridos clientes han llenado sus panzas con nuestras deliciosas pizzas llega el momento de cobrarles, pero lamentablemente la caja registradora está fallando y sólo te permite ingresar el monto total de la cuenta. Realiza la sumas y multiplicaciones para hallar el total de la cuenta de cada cliente e ingrésalo en la caja registradora. ¡Te sugerimos tener a mano una libreta donde puedas apuntar los precios y realizar tus operaciones! Si lo necesitas puedes checar la lista de precios en todo momento.
 Los controles se encuentran al final de las instrucciones.
 

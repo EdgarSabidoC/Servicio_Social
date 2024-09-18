@@ -10,14 +10,15 @@ extends TabBar
 func load_data() -> void:
 	# Se crea el ActionIcon:
 	action_icon = ActionIcon.new()
-	# Se asginan las acciones a los ActionIcon:
+	
+	# Se obtienen las rutas de las imágenes:
 	# Teclado:
 	action_icon.action_name = "ui_pause"
 	pause_image_path = action_icon._get_keyboard(Mouse.input_actions[action_icon.action_name][0].keycode).get_path()
 	# Mouse:
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	# Se carga la información:
-	_str += "[font_size=28]Objetivo[/font_size]
+	_str = "[font_size=28]Objetivo[/font_size]
 ¡Las pizzas se enfrían! Ayuda al mesero robot a entregar las pizzas en las mesas con la coordenada correspondiente. Presta atención al chef, pues él te indicará la coordenada.
 Puedes encontrar los controles al final de estas instrucciones.
 

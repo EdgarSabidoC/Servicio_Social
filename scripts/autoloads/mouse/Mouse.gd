@@ -36,6 +36,20 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(self.cursor_arrow, Input.CURSOR_CAN_DROP)
 
 
+func refresh_input_actions():
+	input_actions = {
+		"ui_up": InputMap.action_get_events("ui_up"),\
+		"ui_down": InputMap.action_get_events("ui_down"),\
+		"ui_left": InputMap.action_get_events("ui_left"), \
+		"ui_right": InputMap.action_get_events("ui_right"), \
+		"ui_accept": InputMap.action_get_events("ui_accept"), \
+		"ui_cancel": InputMap.action_get_events("ui_cancel"), \
+		"ui_pause": InputMap.action_get_events("ui_pause"), \
+		"ui_focus_next": InputMap.action_get_events("ui_focus_next"), \
+		"ui_focus_prev": InputMap.action_get_events("ui_focus_prev")
+	}
+
+
 # Función que cambia entre el modo teclado y modo mouse:
 func change_mode() -> void:
 	if not self.mouse_mode_activated:

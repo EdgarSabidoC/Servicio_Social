@@ -253,6 +253,7 @@ theme = ExtResource("3_mou80")
 keep_pressed_outside = true
 text = "Cómo jugar"
 script = ExtResource("7_e8xsr")
+hint = "En esta sección encontrarás la ayuda necesaria para aprender a jugar."
 
 [node name="QuitBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
