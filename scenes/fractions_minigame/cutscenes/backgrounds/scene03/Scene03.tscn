@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ds63jgyp6jy4t"]
+[gd_scene load_steps=30 format=3 uid="uid://ds63jgyp6jy4t"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/Scene03.gd" id="1_ci4q3"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="2_nxqrt"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bqpat0nvt6xab" path="res://components/characters/alux/Alux.tscn" id="7_60w7r"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/KekenAnimationPlayer.gd" id="8_3foh2"]
 [ext_resource type="Texture2D" uid="uid://bb8uqfu7t0tx4" path="res://assets/graphical_assets/characters/npcs/keken/keken.tga" id="8_ebuco"]
-[ext_resource type="Texture2D" uid="uid://3w1v7f4gukia" path="res://assets/graphical_assets/characters/npcs/alux/alux_anger.tga" id="11_4extg"]
 [ext_resource type="Texture2D" uid="uid://bgiwqmg1lcl6n" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_bar.tga" id="11_mud11"]
 [ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="12_itseu"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/AluxAnimationPlayer.gd" id="13_3hf66"]
@@ -63,10 +62,6 @@ tracks/0/keys = {
 _data = {
 "exit": SubResource("Animation_6pu6l")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_huf3k"]
-atlas = ExtResource("11_4extg")
-region = Rect2(0, 4860, 124, 180)
 
 [sub_resource type="Animation" id="Animation_aankm"]
 resource_name = "exit"
@@ -168,6 +163,7 @@ offset_bottom = -25.7617
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(74.2476, 96.3098)
+frame_index = 45
 metadata/_edit_use_anchors_ = true
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
@@ -213,8 +209,8 @@ offset_bottom = -25.6
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(67.4999, 98.0002)
-texture = SubResource("AtlasTexture_huf3k")
 auto_play = false
+playing = false
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 libraries = {
