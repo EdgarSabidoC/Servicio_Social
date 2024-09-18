@@ -20,12 +20,12 @@ func _on_toh_finished() -> void:
 		self.toh.enable_loop()
 	elif self.current_character.rejected:
 		# Si el personaje fue rechazado:
-		self.toh.current_animation = "sad"
+		self.toh.play("sad")
 		# Se desactiva el loop de la animación:
 		self.toh.disable_loop()
 	else:
 		# Si no:
-		self.toh.current_animation = "anger"
+		self.toh.play("anger")
 		# Se desactiva el loop de la animación:
 		self.toh.disable_loop()
 	# Se desconecta la señal:
