@@ -15,7 +15,8 @@ extends TabBar
 func load_data() -> void:
 	# Se crea el ActionIcon:
 	action_icon = ActionIcon.new()
-	# Se asginan las acciones a los ActionIcon:
+	
+	# Se obtienen las rutas de las imágenes:
 	# Teclado:
 	action_icon.action_name = "ui_up"
 	up_image_path = action_icon._get_keyboard(Mouse.input_actions[action_icon.action_name][0].keycode).get_path()
@@ -31,7 +32,7 @@ func load_data() -> void:
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	right_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_RIGHT).get_path()
 	# Se carga la información:
-	_str += "[font_size=28]Objetivo[/font_size]
+	_str = "[font_size=28]Objetivo[/font_size]
 ¡Arma la pizza! Debes lograr armar la pizza de tal forma que ambos lados sean simétricos (simetría con respecto al eje Y). Imagina como si doblaras la pizza por la mitad de forma vertical, cada ingrediente del lado izquierdo debe de coincidir con su respectivo ingrediente del lado derecho. Puedes rotar los ingredientes ya colocados utilizando las teclas de navegación o el click derecho del mouse (ver sección Controles al final de las instrucciones).
 
 

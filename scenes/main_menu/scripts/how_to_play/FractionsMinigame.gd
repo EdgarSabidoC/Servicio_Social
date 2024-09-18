@@ -1,7 +1,8 @@
 extends TabBar
 
 @onready var _str: String = ""
-@onready var action_icon: ActionIcon
+@onready var action_icon: ActionIcon 
+
 # Navegación:
 @onready var up_image_path: String
 @onready var down_image_path: String
@@ -15,23 +16,28 @@ extends TabBar
 
 func load_data() -> void:
 	# Se crea el ActionIcon:
-	action_icon = ActionIcon.new()
-	# Se asginan las acciones a los ActionIcon:
-	# Teclado:
-	action_icon.action_name = "ui_up"
+	self.action_icon = ActionIcon.new()
+	
+	# Se obtienen las rutas de las imágenes:
+	self.action_icon.action_name = "ui_up"
 	up_image_path = action_icon._get_keyboard(Mouse.input_actions[action_icon.action_name][0].keycode).get_path()
-	action_icon.action_name = "ui_down"
+	
+	self.action_icon.action_name = "ui_down"
 	down_image_path = action_icon._get_keyboard(Mouse.input_actions[action_icon.action_name][0].keycode).get_path()
-	action_icon.action_name = "ui_left"
+	
+	self.action_icon.action_name = "ui_left"
 	left_image_path = action_icon._get_keyboard(Mouse.input_actions[action_icon.action_name][0].keycode).get_path()
-	action_icon.action_name = "ui_right"
+	
+	self.action_icon.action_name = "ui_right"
 	right_image_path = action_icon._get_keyboard(Mouse.input_actions[action_icon.action_name][0].keycode).get_path()
-	action_icon.action_name = "ui_pause"
+	
+	self.action_icon.action_name = "ui_pause"
 	pause_image_path = action_icon._get_keyboard(Mouse.input_actions[action_icon.action_name][0].keycode).get_path()
 	# Mouse:
+	self.action_icon.action_name = "m1"
 	left_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_LEFT).get_path()
 	
-	_str += "[font_size=28]Objetivo[/font_size]
+	_str = "[font_size=28]Objetivo[/font_size]
 ¡El cliente siempre tiene la razón! Los diferentes amigos y clientes de nuestra querida amiga zarigüeya entrarán y te ordenarán sus pizzas favoritas. Presta atención a los detalles, pues te pedirán fracciones o números de rebanadas, así como la cantidad de bebidas y órdenes de pan. No querrás decepcionarlos, así que selecciona las opciones correctas.
 Puedes checar los controles al final de las instrucciones.
 
@@ -89,8 +95,8 @@ func clear_data() -> void:
 
 
 func _on_visibility_changed() -> void:
-	if is_visible():
-		load_data()
-		$ScrollbarTextbox.print_text(_str)
+	if not is_visible():
+		clear_data()
 		return
-	clear_data()
+	load_data()
+	$ScrollbarTextbox.print_text(_str)
