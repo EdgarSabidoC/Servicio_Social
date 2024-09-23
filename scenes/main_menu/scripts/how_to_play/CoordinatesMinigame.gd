@@ -28,7 +28,7 @@ En este modo de juego debes entregar cada pizza lo más rápido posible. ¡Tiene
 
 
 [font_size=28]Modo práctica[/font_size]
-En el modo de práctica, no hay puntos ni límite de tiempo. Este modo es ideal para practicar. Tienes todo el tiempo que necesites para asegurarte de que estás aprendiendo bien el sistema de coordenadas.
+En el modo de práctica, no hay puntos ni límite de tiempo. Este modo es ideal para practicar. Tienes todo el tiempo que necesites para asegurarte de que estás aprendiendo bien el sistema de coordenadas. Presta atención a los mensajes, ellos te indicarán si has resuelto correctamente los problemas.
 
 
 [font_size=28]Dificultades[/font_size]

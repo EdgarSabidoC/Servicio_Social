@@ -41,7 +41,7 @@ En este modo de juego debes armar cada pizza lo más rápido posible. ¡Tienes l
 
 
 [font_size=28]Modo práctica[/font_size]
-La puntuación y el reloj están desactivados. Este modo es ideal para practicar. Tienes todo el tiempo que necesites para asegurarte de que estás comprendiendo el funcionamiento de la simetría sobre el eje Y.
+La puntuación y el reloj están desactivados. Este modo es ideal para practicar. Tienes todo el tiempo que necesites para asegurarte de que estás comprendiendo el funcionamiento de la simetría sobre el eje Y. Presta atención a los mensajes, ellos te indicarán si has resuelto correctamente los problemas.
 
 
 [font_size=28]Dificultades[/font_size]
