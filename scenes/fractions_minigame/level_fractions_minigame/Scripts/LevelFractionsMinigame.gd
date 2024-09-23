@@ -57,7 +57,7 @@ func _process(_delta: float) -> void:
 # Muestra los íconos de los personajes derrotados:
 func show_icons() -> void:
 	for _character in CharactersData.characters:
-		if not _character.defeated:
+		if not _character.defeated or _character.name == CharactersData.characters[self.character].name:
 			# Si el personaje no ha sido derrotado se pasa al siguiente:
 			continue
 		# Se activa el ícono del personaje derrotado:
@@ -84,8 +84,8 @@ func set_bonus() -> void:
 			self.default_score = 15000
 	
 	for _character in CharactersData.characters:
-			if _character.defeated:
-				self.bonus_multiplier *= _character.bonus_multiplier
+		if _character.defeated:
+			self.bonus_multiplier *= _character.bonus_multiplier
 	self.default_score *= self.bonus_multiplier
 
 
