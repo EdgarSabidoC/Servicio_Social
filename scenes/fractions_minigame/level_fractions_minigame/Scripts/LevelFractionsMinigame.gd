@@ -226,6 +226,9 @@ func _on_accept_button_pressed():
 
 
 func _on_answer_button_1_pressed() -> void:
+	answer_button_2.button_pressed = false
+	answer_button_3.button_pressed = false
+	answer_button_4.button_pressed = false
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_1.defeated
 	elif self.answer_button_1.defeated and self.extras_container.correctAnswer:
@@ -237,6 +240,9 @@ func _on_answer_button_1_pressed() -> void:
 
 
 func _on_answer_button_2_pressed() -> void:
+	answer_button_1.button_pressed = false
+	answer_button_3.button_pressed = false
+	answer_button_4.button_pressed = false
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_2.defeated
 	elif self.answer_button_2.defeated and self.extras_container.correctAnswer:
@@ -248,6 +254,9 @@ func _on_answer_button_2_pressed() -> void:
 
 
 func _on_answer_button_3_pressed() -> void:
+	answer_button_1.button_pressed = false
+	answer_button_2.button_pressed = false
+	answer_button_4.button_pressed = false
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_3.defeated
 	elif self.answer_button_3.defeated and self.extras_container.correctAnswer:
@@ -259,6 +268,9 @@ func _on_answer_button_3_pressed() -> void:
 
 
 func _on_answer_button_4_pressed() -> void:
+	answer_button_1.button_pressed = false
+	answer_button_2.button_pressed = false
+	answer_button_3.button_pressed = false
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_4.defeated
 	elif self.answer_button_4.defeated and self.extras_container.correctAnswer:
