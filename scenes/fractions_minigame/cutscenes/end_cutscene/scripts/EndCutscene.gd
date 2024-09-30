@@ -87,6 +87,8 @@ func _input(_event: InputEvent) -> void:
 		
 		if not Mouse.mouse_mode_activated:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			Mouse.disable_actions()
 		
 		# Espera un poco para visualizar el efecto del parpadeo de la etiqueta:
 		await get_tree().create_timer(0.5).timeout

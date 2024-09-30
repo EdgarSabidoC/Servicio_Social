@@ -67,7 +67,7 @@ En este modo de juego debes cobrar cada cuenta lo más rápido posible. ¡Tienes
 
 
 [font_size=28]Modo práctica[/font_size]
-En el modo de práctica, no hay puntos ni límite de tiempo. Este modo es ideal para que puedas practicar las sumas y multiplicaciones sin preocuparte por cometer errores. Tienes todo el tiempo que necesites para asegurarte de que estás aprendiendo bien cómo sumar y multiplicar.
+En el modo de práctica, no hay puntos ni límite de tiempo. Este modo es ideal para que puedas practicar las sumas y multiplicaciones sin preocuparte por cometer errores. Tienes todo el tiempo que necesites para asegurarte de que estás aprendiendo bien cómo sumar y multiplicar. Presta atención a los mensajes, ellos te indicarán si has resuelto correctamente los problemas.
 
 
 [font_size=28]Dificultades[/font_size]
