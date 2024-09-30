@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ds63jgyp6jy4t"]
+[gd_scene load_steps=39 format=3 uid="uid://ds63jgyp6jy4t"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/Scene03.gd" id="1_ci4q3"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="2_nxqrt"]
@@ -16,7 +16,59 @@
 [ext_resource type="PackedScene" uid="uid://pwr76yb2kbx2" path="res://components/characters/Huolpoch/Huolpoch.tscn" id="14_2f1e4"]
 [ext_resource type="Texture2D" uid="uid://du01gx28ege1t" path="res://assets/graphical_assets/characters/npcs/huolpoch/serpiente_in.tga" id="14_ma4sx"]
 [ext_resource type="PackedScene" uid="uid://cdug6yjyj81et" path="res://components/characters/Toh/Toh.tscn" id="15_2jonq"]
+[ext_resource type="Texture2D" uid="uid://dukje3b261m7v" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_neon.tga" id="16_n27ff"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/TohAnimationPlayer.gd" id="16_n63hu"]
+[ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="17_xf006"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ihn"]
+atlas = ExtResource("16_n27ff")
+region = Rect2(0, 340, 48, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
+atlas = ExtResource("16_n27ff")
+region = Rect2(0, 0, 48, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me6hc"]
+atlas = ExtResource("16_n27ff")
+region = Rect2(0, 68, 48, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7044d"]
+atlas = ExtResource("16_n27ff")
+region = Rect2(0, 136, 48, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuto4"]
+atlas = ExtResource("16_n27ff")
+region = Rect2(0, 204, 48, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fmt8"]
+atlas = ExtResource("16_n27ff")
+region = Rect2(0, 272, 48, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p07of"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrubn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me6hc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7044d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuto4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fmt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0ihn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="Animation" id="Animation_fbsg8"]
 resource_name = "exit"
@@ -149,6 +201,26 @@ grow_vertical = 2
 texture = ExtResource("3_hm6f1")
 metadata/_edit_use_anchors_ = true
 
+[node name="Neon_Sign" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.879883
+anchor_top = 0.0920139
+anchor_right = 1.06445
+anchor_bottom = 0.557292
+offset_left = -1.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = 2.0
+pivot_offset = Vector2(94.5, 134)
+texture = SubResource("AtlasTexture_a0ihn")
+script = ExtResource("17_xf006")
+sprites = SubResource("SpriteFrames_p07of")
+frame_index = 5
+auto_play = true
+playing = true
+metadata/_edit_use_anchors_ = true
+
 [node name="Zotz" parent="." instance=ExtResource("4_2qxph")]
 visible = false
 layout_mode = 1
@@ -186,7 +258,6 @@ offset_bottom = -79.9994
 pivot_offset = Vector2(61.9996, 80.0003)
 texture = SubResource("AtlasTexture_ms8q3")
 auto_play = false
-playing = false
 
 [node name="KekenAnimationPlayer" type="AnimationPlayer" parent="Keken"]
 reset_on_save = false

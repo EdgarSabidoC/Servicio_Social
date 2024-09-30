@@ -903,6 +903,7 @@ offset_bottom = 150.0
 
 [node name="HowToPlay" type="TabContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = -1
 anchor_left = -0.0483399
 anchor_top = 0.015625

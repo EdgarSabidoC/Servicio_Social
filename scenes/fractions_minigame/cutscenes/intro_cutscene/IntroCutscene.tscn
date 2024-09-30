@@ -157,6 +157,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 anchor_left = 0.896484
 anchor_top = 0.270833
