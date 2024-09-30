@@ -212,11 +212,10 @@ offset_left = -1.0
 offset_top = 2.0
 offset_right = -1.0
 offset_bottom = 2.0
-pivot_offset = Vector2(94.5, 134)
+pivot_offset = Vector2(94.4983, 134)
 texture = SubResource("AtlasTexture_a0ihn")
 script = ExtResource("17_xf006")
 sprites = SubResource("SpriteFrames_p07of")
-frame_index = 5
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
@@ -235,7 +234,7 @@ offset_bottom = -25.7617
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(74.2476, 96.3098)
-frame_index = 45
+playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
