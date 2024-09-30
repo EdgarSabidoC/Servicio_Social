@@ -2,7 +2,7 @@
 	"data": [
 		{
 			"name": "Alux",
-			"about": "Del maya alux (duendecillo).\nSe trata de un duendecillo que ha agarrado una extraña obsesión con la pizza recientemente, es alegre, pero a veces puede ser algo engreído, y si las cosas salen mal ¡Ten cuidado! O sufrirás las terribles consecuencias de su ira.",
+			"about": "Del maya alux (duendecillo).\n\nSe trata de un duendecillo que ha agarrado una extraña obsesión con la pizza recientemente, es alegre, pero a veces puede ser algo engreído, y si las cosas salen mal ¡Ten cuidado! O sufrirás las terribles consecuencias de su ira.",
 			"easy_problems": [
 				"{fraction}",
 				"{fraction}",
@@ -105,7 +105,7 @@
 		},
 		{
 			"name": "Huolpoch",
-			"about": "Del maya huolpoch (cantil yucateco o cuatro narices).\nNuestro querido amigo, a diferencia de sus parientes más cercanos, se trata de una víbora bastante gentil y amable, así que no te dejes llevar por su cara inexpresiva. Aunque las cosas vayan mal, Huolpoch no se enojará, tal vez sea porque trabaja medio tiempo en atención a clientes o porque parece venir de una raza extraterreste de más allá de las estrellas, trátala bien y podrás contar con un amigo de por vida.",
+			"about": "Del maya huolpoch (cantil yucateco o cuatro narices).\n\nNuestro querido amigo, a diferencia de sus parientes más cercanos, se trata de una víbora bastante gentil y amable, así que no te dejes llevar por su cara inexpresiva. Aunque las cosas vayan mal, Huolpoch no se enojará, tal vez sea porque trabaja medio tiempo en atención a clientes o porque parece venir de una raza extraterreste de más allá de las estrellas, trátala bien y podrás contar con un amigo de por vida.",
 			"easy_problems": [
 				"{fraction}",
 				"{fraction}",
@@ -208,7 +208,7 @@
 		},
 		{
 			"name": "Toh",
-			"about": "Del maya Toh (momoto ceja turquesa o pájaro reloj).\nAtrás quedaron sus glorias pasadas, en algún momento fue el favorito de los dioses del Mayab, hoy es un lunes más. La personalidad de nuestro intrépido amigo refleja el reconocimiento que alguna vez tuvo, pero quizás es incapaz de dejar ir esos momentos tan añorados de fama. Bastante amable, pero si las cosas andan mal no dudará en gritar y exigir lo que por derecho le corresponde.",
+			"about": "Del maya Toh (momoto ceja turquesa o pájaro reloj).\n\nAtrás quedaron sus glorias pasadas, en algún momento fue el favorito de los dioses del Mayab, hoy es un lunes más. La personalidad de nuestro intrépido amigo refleja el reconocimiento que alguna vez tuvo, pero quizás es incapaz de dejar ir esos momentos tan añorados de fama. Bastante amable, pero si las cosas andan mal no dudará en gritar y exigir lo que por derecho le corresponde.",
 			"easy_problems": [
 				"{fraction}",
 				"{fraction}",
@@ -311,7 +311,7 @@
 		},
 		{
 			"name": "Keken",
-			"about": "Del maya K’éek’en (cerdo, puerco o cochino).\nHeredero de la acaudalada familia \"Tocineta\" que por generaciones ha amasado una gran fortuna con el servicio de taxis. Ya sea por ser miembro del sindicato de taxistas o por ser un nepobaby, Keken tiene un temperamento bastante irritable e incluso puede ser algo berrinchudo, pero es uno de tus mejores clientes y siempre tratará de llegar a la hora de apertura para degustar su pizza del día.",
+			"about": "Del maya K’éek’en (cerdo, puerco o cochino).\n\nHeredero de la acaudalada familia \"Tocineta\" que por generaciones ha amasado una gran fortuna con el servicio de taxis. Ya sea por ser miembro del sindicato de taxistas o por ser un nepobaby, Keken tiene un temperamento bastante irritable e incluso puede ser algo berrinchudo, pero es uno de tus mejores clientes y siempre tratará de llegar a la hora de apertura para degustar su pizza del día.",
 			"easy_problems": [
 				"{fraction}",
 				"{fraction}",
@@ -414,7 +414,7 @@
 		},
 		{
 			"name": "Zotz",
-			"about": "Del maya Soots' (murciélago).\nZotz es bastante retraída, incluso para los estándares de un murciélago. Ella mantendrá la serenidad y la paz a fin de evitar el mayor contacto social posible, así que no temas, pues no suele manifestar muchas emociones.",
+			"about": "Del maya Soots' (murciélago).\n\nZotz es bastante retraída, incluso para los estándares de un murciélago. Ella mantendrá la serenidad y la paz a fin de evitar el mayor contacto social posible, así que no temas, pues no suele manifestar muchas emociones.",
 			"easy_problems": [
 				"{fraction}",
 				"{fraction}",
