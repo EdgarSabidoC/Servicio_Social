@@ -2,27 +2,27 @@
 	"data": [
 		{
 			"name": "Alux",
-			"about": "",
+			"about": "Del maya alux (duendecillo).\n",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 10,
 			"intro_texts": [
@@ -105,27 +105,27 @@
 		},
 		{
 			"name": "Huolpoch",
-			"about": "",
+			"about": "Del maya huolpoch (cantil o cuatro narices).\nNuestro querido amigo, a diferencia de sus parientes más cercanos, se trata de una víbora bastante gentil y amable, así que no te dejes llevar por su cara inexpresiva. Aunque las cosas vayan mal, Huolpoch no se enojará, tal vez sea porque trabaja medio tiempo en atención a clientes o porque parece venir de una raza extraterreste de más allá de las estrellas, trátala bien y podrás contar con un amigo de por vida.",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 4,
 			"intro_texts": [
@@ -208,27 +208,27 @@
 		},
 		{
 			"name": "Toh",
-			"about": "",
+			"about": "Del maya Toh (momoto ceja turquesa o pájaro reloj)",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 3,
 			"intro_texts": [
@@ -311,27 +311,27 @@
 		},
 		{
 			"name": "Keken",
-			"about": "",
+			"about": "Del maya K’éek’en (cerdo, puerco o cochino)",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 2,
 			"intro_texts": [
@@ -414,27 +414,27 @@
 		},
 		{
 			"name": "Zotz",
-			"about": "",
+			"about": "Del maya Soots' (murciélago)",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 5,
 			"intro_texts": [

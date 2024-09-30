@@ -76,7 +76,8 @@ func _show_hidden_tabs():
 func _get_character_info() -> void:
 	var char_name: String = self.characters[self.actual_tab].name
 	var char_multiplier: float = self.characters[self.actual_tab].bonus_multiplier
-	self.rich_text_label.text = "[center]Nombre: %s\n\nMultiplicador: %s[/center]" % [char_name, char_multiplier]
+	var char_about: String = self.characters[self.actual_tab].about
+	self.rich_text_label.text = "[center]Nombre: %s\n\nMultiplicador: %s\n\nAcerca de:\n%s[/center]" % [char_name, char_multiplier, char_about]
 
 
 func _on_visibility_changed() -> void:
