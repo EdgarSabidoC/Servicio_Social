@@ -653,6 +653,7 @@ layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Control del volumen principal del audio"
 mouse_filter = 1
+theme_override_font_sizes/font_size = 24
 text = "Master"
 vertical_alignment = 1
 
@@ -662,6 +663,7 @@ layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Control del volumen de la música del juego"
 mouse_filter = 1
+theme_override_font_sizes/font_size = 24
 text = "Música"
 vertical_alignment = 1
 
@@ -671,6 +673,7 @@ layout_mode = 2
 size_flags_vertical = 3
 tooltip_text = "Control del volumen de los efectos especiales dentro del juego"
 mouse_filter = 1
+theme_override_font_sizes/font_size = 24
 text = "Efectos especiales"
 vertical_alignment = 1
 
@@ -807,6 +810,7 @@ text = "PAUSA"
 [node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 text = "ACTIVAR MODO RATÓN"
+vertical_alignment = 1
 
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
