@@ -17,7 +17,6 @@ func _ready() -> void:
 	# Se oculta la caja de diálogos:
 	self.dialogue_box.hide()
 	# Se inicializan los sprites:
-	#var c_name = "Keken"
 	var c_name: String = CharactersData.characters[PlayerSession.character].name
 	match c_name:
 		"Alux":
@@ -53,6 +52,13 @@ func _ready() -> void:
 func start_dialogue_box() -> void:
 	# Se desconecta la señal:
 	self.character.disconnect("animation_changed", self.start_dialogue_box)
+	# Se carga el texto:
+	if CharactersData.characters[PlayerSession.character].is_rejected():
+		self.dialogue_box.load_message(CharactersData.characters[PlayerSession.character].outro_sad_text)
+	elif CharactersData.characters[PlayerSession.character].defeated:
+		self.dialogue_box.load_message(CharactersData.characters[PlayerSession.character].outro_happy_text)
+	elif not CharactersData.characters[PlayerSession.character].defeated:
+		self.dialogue_box.load_message(CharactersData.characters[PlayerSession.character].outro_angry_text)
 	# Se activa la caja de diálogo después de la animación de entrada:
 	self.dialogue_box.start()
 

@@ -20,9 +20,9 @@
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/TohAnimationPlayer.gd" id="16_n63hu"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="17_xf006"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0ihn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fmt8"]
 atlas = ExtResource("16_n27ff")
-region = Rect2(0, 340, 48, 68)
+region = Rect2(0, 272, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
 atlas = ExtResource("16_n27ff")
@@ -40,9 +40,9 @@ region = Rect2(0, 136, 48, 68)
 atlas = ExtResource("16_n27ff")
 region = Rect2(0, 204, 48, 68)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8fmt8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ihn"]
 atlas = ExtResource("16_n27ff")
-region = Rect2(0, 272, 48, 68)
+region = Rect2(0, 340, 48, 68)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p07of"]
 animations = [{
@@ -213,9 +213,10 @@ offset_top = 2.0
 offset_right = -1.0
 offset_bottom = 2.0
 pivot_offset = Vector2(94.4983, 134)
-texture = SubResource("AtlasTexture_a0ihn")
+texture = SubResource("AtlasTexture_8fmt8")
 script = ExtResource("17_xf006")
 sprites = SubResource("SpriteFrames_p07of")
+frame_index = 4
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
@@ -234,7 +235,7 @@ offset_bottom = -25.7617
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(74.2476, 96.3098)
-playing = true
+frame_index = 45
 metadata/_edit_use_anchors_ = true
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
@@ -296,8 +297,10 @@ anchor_left = 0.749023
 anchor_top = 0.416667
 anchor_right = 0.923828
 anchor_bottom = 0.847222
-offset_right = 0.0
-offset_bottom = 9.15527e-05
+offset_left = 0.000427246
+offset_top = -0.000198364
+offset_right = 0.000427246
+offset_bottom = -9.15527e-05
 pivot_offset = Vector2(89.5002, 124)
 texture = SubResource("AtlasTexture_6ms6m")
 frame_index = 0
