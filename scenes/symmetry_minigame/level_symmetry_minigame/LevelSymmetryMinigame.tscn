@@ -258,6 +258,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="S1L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(66, 66)
 anchor_left = 0.419922
 anchor_top = 0.0972222
@@ -271,6 +272,7 @@ enable_drop = false
 
 [node name="S1L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(37, 37)
 anchor_left = 0.401367
 anchor_top = 0.225694
@@ -284,6 +286,7 @@ enable_drop = false
 
 [node name="S1L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(45, 45)
 anchor_left = 0.448242
 anchor_top = 0.291667
@@ -297,6 +300,7 @@ enable_drop = false
 
 [node name="S1L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(24, 24)
 anchor_left = 0.367188
 anchor_top = 0.180556
@@ -310,6 +314,7 @@ enable_drop = false
 
 [node name="S1R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(66, 66)
 anchor_left = 0.515625
 anchor_top = 0.0972222
@@ -322,6 +327,7 @@ coordinates = Vector2i(1, 1)
 
 [node name="S1R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(37, 37)
 anchor_left = 0.5625
 anchor_top = 0.225694
@@ -333,6 +339,7 @@ coordinates = Vector2i(1, 2)
 
 [node name="S1R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(45, 45)
 anchor_left = 0.50879
 anchor_top = 0.291667
@@ -345,6 +352,7 @@ coordinates = Vector2i(1, 3)
 
 [node name="S1R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(24, 24)
 anchor_left = 0.609375
 anchor_top = 0.180556
@@ -356,6 +364,7 @@ coordinates = Vector2i(1, 4)
 
 [node name="S2L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(47, 47)
 anchor_left = 0.305664
 anchor_top = 0.270833
@@ -369,6 +378,7 @@ enable_drop = false
 
 [node name="S2L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(58, 58)
 anchor_left = 0.320313
 anchor_top = 0.368056
@@ -382,6 +392,7 @@ enable_drop = false
 
 [node name="S2L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(42, 42)
 anchor_left = 0.393555
 anchor_top = 0.40625
@@ -395,6 +406,7 @@ enable_drop = false
 
 [node name="S2L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(22, 22)
 anchor_left = 0.447266
 anchor_top = 0.453125
@@ -408,6 +420,7 @@ enable_drop = false
 
 [node name="S2R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(47, 47)
 anchor_left = 0.648438
 anchor_top = 0.270833
@@ -419,6 +432,7 @@ coordinates = Vector2i(2, 1)
 
 [node name="S2R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(58, 58)
 anchor_left = 0.623047
 anchor_top = 0.368056
@@ -430,6 +444,7 @@ coordinates = Vector2i(2, 2)
 
 [node name="S2R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(42, 42)
 anchor_left = 0.56543
 anchor_top = 0.40625
@@ -441,6 +456,7 @@ coordinates = Vector2i(2, 3)
 
 [node name="S2R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(22, 22)
 anchor_left = 0.532227
 anchor_top = 0.453125
@@ -452,6 +468,7 @@ coordinates = Vector2i(2, 4)
 
 [node name="S3R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(41, 41)
 anchor_left = 0.666016
 anchor_top = 0.517361
@@ -463,6 +480,7 @@ coordinates = Vector2i(3, 1)
 
 [node name="S3R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(48, 48)
 anchor_left = 0.587891
 anchor_top = 0.527778
@@ -474,6 +492,7 @@ coordinates = Vector2i(3, 2)
 
 [node name="S3R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(26, 26)
 anchor_left = 0.539063
 anchor_top = 0.510417
@@ -485,6 +504,7 @@ coordinates = Vector2i(3, 3)
 
 [node name="S3R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(59, 59)
 anchor_left = 0.637695
 anchor_top = 0.612847
@@ -496,6 +516,7 @@ coordinates = Vector2i(3, 4)
 
 [node name="S3L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(41, 41)
 anchor_left = 0.295898
 anchor_top = 0.517361
@@ -509,6 +530,7 @@ enable_drop = false
 
 [node name="S3L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(48, 48)
 anchor_left = 0.367188
 anchor_top = 0.527778
@@ -522,6 +544,7 @@ enable_drop = false
 
 [node name="S3L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(26, 26)
 anchor_left = 0.4375
 anchor_top = 0.510417
@@ -535,6 +558,7 @@ enable_drop = false
 
 [node name="S3L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(59, 59)
 anchor_left = 0.306641
 anchor_top = 0.612847
@@ -548,6 +572,7 @@ enable_drop = false
 
 [node name="S4R1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(47, 47)
 anchor_left = 0.572266
 anchor_top = 0.736111
@@ -561,6 +586,7 @@ coordinates = Vector2i(4, 1)
 
 [node name="S4R2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(62, 62)
 anchor_left = 0.508789
 anchor_top = 0.638889
@@ -572,6 +598,7 @@ coordinates = Vector2i(4, 2)
 
 [node name="S4R3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(24, 24)
 anchor_left = 0.507813
 anchor_top = 0.571181
@@ -583,6 +610,7 @@ coordinates = Vector2i(4, 3)
 
 [node name="S4R4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(61, 61)
 anchor_left = 0.510742
 anchor_top = 0.791667
@@ -594,6 +622,7 @@ coordinates = Vector2i(4, 4)
 
 [node name="S4L1" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(47, 47)
 anchor_left = 0.382813
 anchor_top = 0.736111
@@ -607,6 +636,7 @@ enable_drop = false
 
 [node name="S4L2" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(62, 62)
 anchor_left = 0.431641
 anchor_top = 0.638889
@@ -620,6 +650,7 @@ enable_drop = false
 
 [node name="S4L3" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(24, 24)
 anchor_left = 0.46875
 anchor_top = 0.571181
@@ -633,6 +664,7 @@ enable_drop = false
 
 [node name="S4L4" parent="CanvasLayer" instance=ExtResource("4_ttdhp")]
 unique_name_in_owner = true
+texture_repeat = 1
 custom_minimum_size = Vector2(61, 61)
 anchor_left = 0.429688
 anchor_top = 0.791667
@@ -654,6 +686,7 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DragIngredient" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+texture_repeat = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture = SubResource("AtlasTexture_o1c8n")
@@ -662,6 +695,7 @@ ingredient_name = 1
 texture_on_pizza = ExtResource("8_v3opk")
 
 [node name="DragIngredient2" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+texture_repeat = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture = SubResource("AtlasTexture_0ucm7")
@@ -671,6 +705,7 @@ ingredient_name = 2
 texture_on_pizza = ExtResource("9_big32")
 
 [node name="DragIngredient3" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+texture_repeat = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture = SubResource("AtlasTexture_kxf44")
@@ -680,6 +715,7 @@ ingredient_name = 3
 texture_on_pizza = ExtResource("10_duxyl")
 
 [node name="DragIngredient4" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+texture_repeat = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture = SubResource("AtlasTexture_ci07t")
@@ -689,6 +725,7 @@ ingredient_name = 4
 texture_on_pizza = ExtResource("11_s8r50")
 
 [node name="DragIngredient5" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+texture_repeat = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture = SubResource("AtlasTexture_7ogp3")
@@ -698,6 +735,7 @@ ingredient_name = 5
 texture_on_pizza = ExtResource("12_rwtxq")
 
 [node name="DragIngredient6" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+texture_repeat = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture = SubResource("AtlasTexture_m7v2x")
@@ -707,6 +745,7 @@ ingredient_name = 6
 texture_on_pizza = ExtResource("13_b33os")
 
 [node name="DragIngredient7" type="TextureRect" parent="CanvasLayer/IngredientsContainer"]
+texture_repeat = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 texture = SubResource("AtlasTexture_4mxrf")
