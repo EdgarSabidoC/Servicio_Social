@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://buh0w7i4hw84k"]
 
-[ext_resource type="Texture2D" uid="uid://bxt8bq21l11dn" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/scene_02_kitchen.tga" id="1_3klin"]
+[ext_resource type="Texture2D" uid="uid://bxt8bq21l11dn" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/scene_02_kitchen.tga" id="1_efc2u"]
 
 [node name="Scene02" type="Control"]
 layout_mode = 3
@@ -17,5 +17,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_3klin")
+texture = ExtResource("1_efc2u")
 metadata/_edit_use_anchors_ = true

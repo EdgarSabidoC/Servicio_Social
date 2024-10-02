@@ -103,9 +103,9 @@ func loadProblemsData() -> void:
 		
 		# Se asignan los datos al personaje:
 		character.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		character.outro_happy_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		character.outro_angry_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		character.outro_sad_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+		character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+		character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+		character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		character.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
 		var wrong_answers_array: Array[Dictionary] = [
 			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
