@@ -51,7 +51,9 @@ func loadCharacters() -> void:
 		character.correct_answer = {}
 		character.wrong_answers = []
 		character.intro_text = ""
-		character.outro_text = ""
+		character.outro_happy_text = ""
+		character.outro_angry_text = ""
+		character.outro_sad_text = ""
 		character.problem = ""
 		character.main_asset_path = characters_data[n]["main_asset_path"]
 		
@@ -89,15 +91,21 @@ func loadProblemsData() -> void:
 		
 		# Se mezclan los arreglos de datos:
 		var intro_texts: Array = characters_data[n]["intro_texts"]
-		var outro_texts: Array = characters_data[n]["outro_texts"]
+		var outro_happy_texts: Array = characters_data[n]["outro_happy_texts"]
+		var outro_angry_texts: Array = characters_data[n]["outro_angry_texts"]
+		var outro_sad_texts: Array = characters_data[n]["outro_sad_texts"]
 		var problems_data: Array = characters_data[n]["problems_data"]
 		intro_texts.shuffle()
-		outro_texts.shuffle()
+		outro_happy_texts.shuffle()
+		outro_angry_texts.shuffle()
+		outro_sad_texts.shuffle()
 		problems_data.shuffle()
 		
 		# Se asignan los datos al personaje:
 		character.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		character.outro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+		character.outro_happy_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+		character.outro_angry_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+		character.outro_sad_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		character.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
 		var wrong_answers_array: Array[Dictionary] = [
 			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
@@ -158,15 +166,21 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	
 	# Se mezclan los arreglos de datos:
 	var intro_texts: Array = characters_data[n]["intro_texts"]
-	var outro_texts: Array = characters_data[n]["outro_texts"]
+	var outro_happy_texts: Array = characters_data[n]["outro_happy_texts"]
+	var outro_angry_texts: Array = characters_data[n]["outro_angry_texts"]
+	var outro_sad_texts: Array = characters_data[n]["outro_sad_texts"]
 	var problems_data: Array = characters_data[n]["problems_data"]
 	intro_texts.shuffle()
-	outro_texts.shuffle()
+	outro_happy_texts.shuffle()
+	outro_angry_texts.shuffle()
+	outro_sad_texts.shuffle()
 	problems_data.shuffle()
 	
 	# Se asignan los datos al personaje:
 	character.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-	character.outro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+	character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+	character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+	character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 	character.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
 	var wrong_answers_array: Array[Dictionary] = [
 		problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
