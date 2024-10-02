@@ -77,7 +77,7 @@ func _get_character_info() -> void:
 	var char_name: String = self.characters[self.actual_tab].name
 	var char_multiplier: float = self.characters[self.actual_tab].bonus_multiplier
 	var char_about: String = self.characters[self.actual_tab].about
-	self.rich_text_label.text = "[center][font_size=22]Nombre:[/font_size] %s\n\n[font_size=22]Multiplicador:[/font_size] %s\n\n[font_size=22]Acerca de:[/font_size]\n%s[/center]" % [char_name, char_multiplier, char_about]
+	self.rich_text_label.text = "[center][font_size=24]Nombre:[/font_size] %s\n\n[font_size=24]Multiplicador:[/font_size] %s\n\n[font_size=24]Acerca de:[/font_size]\n%s[/center]" % [char_name, char_multiplier, char_about]
 
 
 func _on_visibility_changed() -> void:
