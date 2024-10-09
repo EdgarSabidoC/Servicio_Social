@@ -10,9 +10,13 @@ var outro_cutscene: PackedScene = load("res://scenes/fractions_minigame/cutscene
 @onready var options_label: Label = $OptionsLabel
 @onready var time: float = 1
 @onready var accept_btn: Button = $OptionButtonsContainer/AcceptBtn
+@onready var dialogue_box: Control = $DialogueBox
+@onready var oppossum_message: String = ""
 
 
 func _ready() -> void:
+	# Se oculta el cuadro de diálogo:
+	self.dialogue_box.hide()
 	if Mouse.mouse_mode_activated:
 		Mouse.enable_actions() # Se habilitan las teclas
 	# Se cambia la canción:
@@ -39,14 +43,16 @@ func _on_scene_01_finished() -> void:
 	# Se muestran las opciones:
 	self.options_label.show()
 	self.option_buttons_container.show()
-	
 	self.accept_btn.grab_focus()
 	
 
 func _on_accept_btn_pressed() -> void:
+	# Se carga el mensaje de aceptación del pedido:
+	self.get_rand_dialogue()
 	Sfx.play_sound(Sfx.Sounds.BUTTON_ACCEPT)
-	# Se cambia a la siguiente escena:
-	self.change_to_next_scene(self.level_fractions_minigame)
+	self.option_buttons_container.hide()
+	self.options_label.hide()
+	self.dialogue_box.start()
 
 
 func _on_reject_btn_pressed() -> void:
@@ -56,3 +62,22 @@ func _on_reject_btn_pressed() -> void:
 	# Se cambia a la siguiente escena:
 	self.change_to_next_scene(self.outro_cutscene, "direct")
 	CharactersData.characters[PlayerSession.character].rejected = true
+
+
+func _on_dialogue_box_dialogue_box_closed() -> void:
+	# Se cambia a la siguiente escena:
+	self.change_to_next_scene(self.level_fractions_minigame)
+
+
+func get_rand_dialogue() -> void:
+	# Diálogos genéricos para cuando se acepta la orden
+	var accept_dialogues: Array[String] = [
+		"¡Claro! En un momento estará lista su orden...",
+		"¡Por su puesto! Me pongo manos a la masa...",
+		"¡Muy bien! Le avisaré cuando su orden esté lista...",
+		"¡Excelente elección! En un momento más estará lista su orden, tome asiento, por favor.",
+		"¡Entendido! Enseguida estará su orden lista..."
+	]
+
+	self.oppossum_message = accept_dialogues[randi_range(0, accept_dialogues.size()-1)]
+	self.dialogue_box.load_message(self.oppossum_message)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://du4oiw4gwst0p"]
+[gd_scene load_steps=21 format=3 uid="uid://du4oiw4gwst0p"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/intro_cutscene/scripts/IntroCutscene.gd" id="1_mh2mp"]
 [ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/Scene01.tscn" id="3_n2iwx"]
 [ext_resource type="Texture2D" uid="uid://cjma5hvf4tsdw" path="res://assets/graphical_assets/user_interface/button/buttons.tga" id="3_rwoer"]
 [ext_resource type="Texture2D" uid="uid://cg16nxnmuou8l" path="res://assets/graphical_assets/user_interface/container/pizzaContainer.tga" id="4_5ag7h"]
 [ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="4_gjk83"]
+[ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="6_3qxic"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw07n"]
 texture = ExtResource("3_rwoer")
@@ -221,6 +222,17 @@ grow_vertical = 2
 theme = SubResource("Theme_7g2ov")
 metadata/_edit_use_anchors_ = true
 
+[node name="DialogueBox" parent="." instance=ExtResource("6_3qxic")]
+layout_mode = 1
+anchor_left = 0.109375
+anchor_top = 0.276042
+anchor_right = 0.333008
+anchor_bottom = 0.486111
+offset_left = 4.0
+offset_right = 1.0
+offset_bottom = 2.0
+
 [connection signal="finished" from="Scene01" to="." method="_on_scene_01_finished"]
 [connection signal="pressed" from="OptionButtonsContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]
 [connection signal="pressed" from="OptionButtonsContainer/RejectBtn" to="." method="_on_reject_btn_pressed"]
+[connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]
