@@ -810,7 +810,6 @@ text = "PAUSA"
 [node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 text = "ACTIVAR MODO RATÓN"
-vertical_alignment = 1
 
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2

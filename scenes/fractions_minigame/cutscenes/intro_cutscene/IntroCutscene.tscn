@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://du4oiw4gwst0p"]
+[gd_scene load_steps=23 format=3 uid="uid://du4oiw4gwst0p"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/intro_cutscene/scripts/IntroCutscene.gd" id="1_mh2mp"]
 [ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/Scene01.tscn" id="3_n2iwx"]
@@ -142,6 +142,19 @@ region_rect = Rect2(4, 100, 88, 88)
 [sub_resource type="Theme" id="Theme_7g2ov"]
 Panel/styles/panel = SubResource("StyleBoxTexture_vpegd")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1604m"]
+texture = ExtResource("4_5ag7h")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4, 4, 88, 88)
+
+[sub_resource type="Theme" id="Theme_b4r53"]
+Panel/styles/panel = SubResource("StyleBoxTexture_1604m")
+
 [node name="IntroCutscene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -228,6 +241,7 @@ anchor_left = 0.0625
 anchor_top = 0.255208
 anchor_right = 0.333984
 anchor_bottom = 0.501736
+theme = SubResource("Theme_b4r53")
 alignment = 2
 
 [connection signal="finished" from="Scene01" to="." method="_on_scene_01_finished"]

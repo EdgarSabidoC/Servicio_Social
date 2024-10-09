@@ -364,7 +364,7 @@ anchor_bottom = 0.501736
 alignment = 2
 
 [node name="RichTextLabelTextFlash" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0.890657)
+modulate = Color(1, 1, 1, -0.759605)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -375,7 +375,7 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/default_color = Color(1, 1, 0.0235294, 1)
-theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[center]Presiona [img=0x65]res://addons/ActionIcon/Keyboard/Enter.png[/img] o presiona [img=0x50]res://addons/ActionIcon/Mouse/Left.png[/img] para continuar[/center]"
 fit_content = true

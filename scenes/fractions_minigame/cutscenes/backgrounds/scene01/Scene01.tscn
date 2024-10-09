@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://btf3hylb8368j"]
+[gd_scene load_steps=54 format=3 uid="uid://btf3hylb8368j"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/Scene01.gd" id="1_qya30"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="1_trfx7"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dukje3b261m7v" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_neon.tga" id="17_m6vla"]
 [ext_resource type="PackedScene" uid="uid://cdug6yjyj81et" path="res://components/characters/Toh/Toh.tscn" id="18_7x8ee"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/TohAnimationPlayer.gd" id="19_othhx"]
+[ext_resource type="Texture2D" uid="uid://cg16nxnmuou8l" path="res://assets/graphical_assets/user_interface/container/pizzaContainer.tga" id="20_npn4p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_komxm"]
 atlas = ExtResource("3_he3bh")
@@ -71,17 +72,17 @@ _data = {
 "move_forward": SubResource("Animation_30xg3")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqe4s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
 atlas = ExtResource("5_27uat")
-region = Rect2(0, 288, 64, 144)
+region = Rect2(0, 144, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s024f"]
 atlas = ExtResource("5_27uat")
 region = Rect2(0, 0, 64, 144)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqe4s"]
 atlas = ExtResource("5_27uat")
-region = Rect2(0, 144, 64, 144)
+region = Rect2(0, 288, 64, 144)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_18c83"]
 animations = [{
@@ -275,6 +276,19 @@ _data = {
 "entrance": SubResource("Animation_r62bj")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bssgm"]
+texture = ExtResource("20_npn4p")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4, 4, 88, 88)
+
+[sub_resource type="Theme" id="Theme_u2nhe"]
+Panel/styles/panel = SubResource("StyleBoxTexture_bssgm")
+
 [node name="Scene01" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -331,12 +345,12 @@ offset_top = -0.223999
 offset_right = 0.072998
 offset_bottom = 0.039978
 pivot_offset = Vector2(190.5, 190.5)
-texture = SubResource("AtlasTexture_gqe4s")
+texture = SubResource("AtlasTexture_4sbjl")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 2
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -358,12 +372,12 @@ offset_top = -0.224007
 offset_right = -0.0300293
 offset_bottom = 0.0399475
 pivot_offset = Vector2(190.501, 190.5)
-texture = SubResource("AtlasTexture_gqe4s")
+texture = SubResource("AtlasTexture_4sbjl")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 2
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -385,13 +399,13 @@ offset_top = -0.224007
 offset_right = 0.456978
 offset_bottom = 0.0399475
 pivot_offset = Vector2(190.5, 190.5)
-texture = SubResource("AtlasTexture_gqe4s")
+texture = SubResource("AtlasTexture_4sbjl")
 expand_mode = 1
 stretch_mode = 5
 flip_h = true
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 2
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -559,6 +573,7 @@ anchor_left = 0.0625
 anchor_top = 0.255208
 anchor_right = 0.333984
 anchor_bottom = 0.501736
+theme = SubResource("Theme_u2nhe")
 alignment = 2
 
 [connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]
