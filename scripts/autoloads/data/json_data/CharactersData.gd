@@ -120,17 +120,23 @@ func loadProblemsData() -> void:
 				var medium_problems: Array = characters_data[n]["medium_problems"]
 				medium_problems.shuffle()
 				medium_data_loaded = true
-				character.problem = medium_problems[randi_range(LOWER_LIMIT, PROBLEMS_UPPER_LIMIT)]
+				character.problem = medium_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+				character.problem = character.problem.format({"fraction": character.correct_answer["fraction"], "drinks":  character.correct_answer["drinks"], "breads": character.correct_answer["breads"]})
+				print_debug(character.problem)
 			"hard":
 				var hard_problems: Array = characters_data[n]["hard_problems"]
 				hard_problems.shuffle()
 				hard_data_loaded = true
-				character.problem = hard_problems[randi_range(LOWER_LIMIT, PROBLEMS_UPPER_LIMIT)]
+				character.problem = hard_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+				print_debug(character.problem)
+				character.problem = character.problem.format({"fraction": character.correct_answer["fraction"], "drinks":  character.correct_answer["drinks"], "breads": character.correct_answer["breads"]})
 			_:
 				var easy_problems: Array = characters_data[n]["easy_problems"]
 				easy_problems.shuffle()
 				easy_data_loaded = true
-				character.problem = easy_problems[randi_range(LOWER_LIMIT, PROBLEMS_UPPER_LIMIT)]
+				character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+				print_debug(character.problem)
+				character.problem = character.problem.format({"fraction": character.correct_answer["fraction"]})
 
 	# Se mezcla la lista de personajes:
 	randomize()
@@ -196,17 +202,22 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 			medium_problems.shuffle()
 			medium_data_loaded = true
 			character.problem = medium_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+			character.problem = character.problem.format({"fraction": character.correct_answer["fraction"], "drinks":  character.correct_answer["drinks"], "breads": character.correct_answer["breads"]})
+			print_debug(character.problem)
 		"hard":
 			var hard_problems: Array = characters_data[n]["hard_problems"]
 			hard_problems.shuffle()
 			hard_data_loaded = true
 			character.problem = hard_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
+			print_debug(character.problem)
+			character.problem = character.problem.format({"fraction": character.correct_answer["fraction"], "drinks":  character.correct_answer["drinks"], "breads": character.correct_answer["breads"]})
 		_:
 			var easy_problems: Array = characters_data[n]["easy_problems"]
 			easy_problems.shuffle()
 			easy_data_loaded = true
 			character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-
+			print_debug(character.problem)
+			character.problem = character.problem.format({"fraction": character.correct_answer["fraction"]})
 
 func clear_data() -> void:
 	for character in self.characters:

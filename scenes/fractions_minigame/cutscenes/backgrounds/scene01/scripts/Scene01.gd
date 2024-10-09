@@ -55,7 +55,9 @@ func start_dialogue_box() -> void:
 	# Se carga el texto de bienvenida:
 	self.get_rand_dialogue()
 	# Se carga el texto de entrada:
-	self.dialogue_box.load_message(CharactersData.characters[PlayerSession.character].intro_text)
+	var character_message: String = CharactersData.characters[PlayerSession.character].intro_text
+	character_message += "[StartParagraph]{data}".format({"data": CharactersData.characters[PlayerSession.character].get_problem()})
+	self.dialogue_box.load_message(character_message)
 	# Se activa la caja de diálogo después de la animación de entrada:
 	self.dialogue_box_2.start()
 
