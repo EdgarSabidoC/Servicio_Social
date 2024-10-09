@@ -4,7 +4,7 @@
 			"name": "Alux",
 			"about": "Del maya alux (duendecillo).\n\nSe trata de un duendecillo que ha agarrado una extraña obsesión con la pizza recientemente, es alegre, pero a veces puede ser algo engreído, y si las cosas salen mal ¡Ten cuidado! O sufrirás las terribles consecuencias de su ira.",
 			"easy_problems": [
-				"{fraction}",
+				"Quisiera ordenar {fraction} rebanadas de pizza",
 				"{fraction}",
 				"{fraction}",
 				"{fraction}",

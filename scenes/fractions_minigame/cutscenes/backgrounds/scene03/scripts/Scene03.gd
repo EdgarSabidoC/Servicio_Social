@@ -8,12 +8,15 @@ extends Control
 @onready var huolpoch: AnimatedTextureRect = $Huolpoch
 @onready var character: AnimatedTextureRect
 @onready var characters: Array[AnimatedTextureRect] = [alux, zotz, keken, toh, huolpoch]
+@onready var rich_text_label_text_flash: RichTextLabelTextFlash = $RichTextLabelTextFlash
 
 # Señal que se emite cuando finaliza la escena:
 signal finished
 
 
 func _ready() -> void:
+	# Se oculta el mensaje para continuar:
+	self.rich_text_label_text_flash.visible = false
 	# Se oculta la caja de diálogos:
 	self.dialogue_box.hide()
 	# Se inicializan los sprites:
@@ -64,5 +67,7 @@ func start_dialogue_box() -> void:
 
 
 func _on_dialogue_box_dialogue_box_closed() -> void:
+	# Se hace visible el mensaje para continuar:
+	self.rich_text_label_text_flash.visible = true
 	# Se emite la señal de finalización de la escena:
 	self.finished.emit()
