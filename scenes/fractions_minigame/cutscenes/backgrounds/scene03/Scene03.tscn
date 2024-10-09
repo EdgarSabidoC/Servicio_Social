@@ -21,6 +21,10 @@
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="17_xf006"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="20_om44d"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fmt8"]
+atlas = ExtResource("16_n27ff")
+region = Rect2(0, 272, 48, 68)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
 atlas = ExtResource("16_n27ff")
 region = Rect2(0, 0, 48, 68)
@@ -36,10 +40,6 @@ region = Rect2(0, 136, 48, 68)
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuto4"]
 atlas = ExtResource("16_n27ff")
 region = Rect2(0, 204, 48, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8fmt8"]
-atlas = ExtResource("16_n27ff")
-region = Rect2(0, 272, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0ihn"]
 atlas = ExtResource("16_n27ff")
@@ -214,9 +214,10 @@ offset_top = 2.0
 offset_right = -1.0
 offset_bottom = 2.0
 pivot_offset = Vector2(94.4983, 134)
-texture = SubResource("AtlasTexture_wrubn")
+texture = SubResource("AtlasTexture_8fmt8")
 script = ExtResource("17_xf006")
 sprites = SubResource("SpriteFrames_p07of")
+frame_index = 4
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
@@ -363,7 +364,7 @@ anchor_bottom = 0.501736
 alignment = 2
 
 [node name="RichTextLabelTextFlash" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, -0.991576)
+modulate = Color(1, 1, 1, 0.890657)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

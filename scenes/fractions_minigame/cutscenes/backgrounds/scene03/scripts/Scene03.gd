@@ -69,22 +69,11 @@ func start_dialogue_box() -> void:
 	elif not CharactersData.characters[PlayerSession.character].defeated:
 		get_rand_dialogue("wrong")
 		self.dialogue_box.load_message(CharactersData.characters[PlayerSession.character].outro_angry_text)
-	# Se carga el diálogo de la Zarigüeya:
-	self.dialogue_box_2.load_message(self.oppossum_message)
 	# Se activa la caja de diálogo después de la animación de entrada:
 	self.dialogue_box_2.start()
 
 
 func get_rand_dialogue(type: String) -> void:
-	# Diálogos de introducción genéricos
-	var intro_dialogues: Array[String] = [
-		"¡Hola! ¿Cómo estás? ¿Qué vas a pedir hoy?",
-		"Bienvenido/a, ¿en qué puedo ayudarte?",
-		"Hola, parece que tienes hambre, ¿qué te gustaría comer?",
-		"Hola, siempre es un gusto verte. ¿Qué te apetece hoy?",
-		"Hola, estoy listo/a para tomar tu orden. ¿Qué será hoy?"
-	]
-	
 	# Diálogos genéricos para cuando la orden está bien
 	var correct_dialogues: Array[String] = [
 		"¡Qué bien! Me alegra que te guste.",
@@ -106,22 +95,21 @@ func get_rand_dialogue(type: String) -> void:
 	# Diálogos genéricos para cuando la orden es rechazada
 	var rejected_dialogues: Array[String] = [
 		"Me temo que por el momento no puedo atenderle ¡Lo siento mucho!.",
-		"¡Vaya! Parece que en este momento no podemos antenderle ¡Lo sentimos mucho!",
-		"Lo sentimos, pero me temo que aún no está listo el horno, vuelva más tarde, por favor.",
+		"¡Vaya! Parece que ya se nos han acabado los ingredientes ¡Lo sentimos mucho!",
+		"Lo sentimos, pero aún no está listo el horno, vuelva más tarde, por favor.",
 		"Lo sentimos, me temo que no podemos tomarle la orden en este momento.",
-		"Una disculpa, pero aún no abrimos, vuelva más tarde."
+		"Una disculpa, pero no podemos tomar esa orden."
 	]
 	
 	match type:
-		"intro":
-			self.oppossum_message = intro_dialogues[randi_range(0, intro_dialogues.size()-1)]
 		"correct":
 			self.oppossum_message = correct_dialogues[randi_range(0, correct_dialogues.size()-1)]
 		"wrong":
 			self.oppossum_message = wrong_dialogues[randi_range(0, wrong_dialogues.size()-1)]
 		"rejected":
 			self.oppossum_message = rejected_dialogues[randi_range(0, rejected_dialogues.size()-1)]
-
+	# Se carga el diálogo de la Zarigüeya:
+	self.dialogue_box_2.load_message(self.oppossum_message)
 
 func _on_dialogue_box_dialogue_box_closed() -> void:
 	# Se hace visible el mensaje para continuar:

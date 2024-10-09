@@ -71,13 +71,13 @@ _data = {
 "move_forward": SubResource("Animation_30xg3")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
-atlas = ExtResource("5_27uat")
-region = Rect2(0, 144, 64, 144)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_s024f"]
 atlas = ExtResource("5_27uat")
 region = Rect2(0, 0, 64, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
+atlas = ExtResource("5_27uat")
+region = Rect2(0, 144, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqe4s"]
 atlas = ExtResource("5_27uat")
@@ -158,13 +158,13 @@ _data = {
 "Moving_forward_3": SubResource("Animation_i8gwe")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_me6hc"]
-atlas = ExtResource("17_m6vla")
-region = Rect2(0, 68, 48, 68)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
 atlas = ExtResource("17_m6vla")
 region = Rect2(0, 0, 48, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me6hc"]
+atlas = ExtResource("17_m6vla")
+region = Rect2(0, 68, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7044d"]
 atlas = ExtResource("17_m6vla")
@@ -332,12 +332,11 @@ offset_top = -0.223999
 offset_right = 0.072998
 offset_bottom = 0.039978
 pivot_offset = Vector2(190.5, 190.5)
-texture = SubResource("AtlasTexture_4sbjl")
+texture = SubResource("AtlasTexture_s024f")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -359,12 +358,11 @@ offset_top = -0.224007
 offset_right = -0.0300293
 offset_bottom = 0.0399475
 pivot_offset = Vector2(190.501, 190.5)
-texture = SubResource("AtlasTexture_4sbjl")
+texture = SubResource("AtlasTexture_s024f")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -386,13 +384,12 @@ offset_top = -0.224007
 offset_right = 0.456978
 offset_bottom = 0.0399475
 pivot_offset = Vector2(190.5, 190.5)
-texture = SubResource("AtlasTexture_4sbjl")
+texture = SubResource("AtlasTexture_s024f")
 expand_mode = 1
 stretch_mode = 5
 flip_h = true
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 1
 auto_play = true
 playing = true
 
@@ -423,10 +420,9 @@ offset_top = 2.0
 offset_right = -1.0
 offset_bottom = 2.0
 pivot_offset = Vector2(94.4983, 134)
-texture = SubResource("AtlasTexture_me6hc")
+texture = SubResource("AtlasTexture_wrubn")
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_02adc")
-frame_index = 1
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
