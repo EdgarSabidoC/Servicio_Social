@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
-[ext_resource type="PackedScene" uid="uid://buh0w7i4hw84k" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/Scene02.tscn" id="2_uldt8"]
+[ext_resource type="PackedScene" uid="uid://buh0w7i4hw84k" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene02/Scene02.tscn" id="2_uldt8"]
 [ext_resource type="Theme" uid="uid://dct4hrodf4bx6" path="res://assets/graphical_assets/styles/pizza_selector_LevelFractionsMinigame.tres" id="3_g64t3"]
-[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ExtrasContainer.gd" id="3_pyfw0"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ExtrasContainer.gd" id="3_pyfw0"]
 [ext_resource type="PackedScene" uid="uid://dqyxgq2yrley3" path="res://components/answer_button/AnswerButton.tscn" id="3_qwcs8"]
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_qciux"]
 [ext_resource type="Theme" uid="uid://c08stba64gnub" path="res://assets/graphical_assets/styles/slider_ingame.tres" id="5_dolwd"]
-[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/Scripts/ScoreLabel.gd" id="5_v1hlr"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/ScoreLabel.gd" id="5_v1hlr"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="7_1bs5h"]
 [ext_resource type="Theme" uid="uid://ot4iuwcbdrhy" path="res://assets/graphical_assets/styles/pause_button.tres" id="10_cpg5o"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="12_2gj1l"]
@@ -20,10 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://cvinaewo3wkdk" path="res://assets/graphical_assets/characters/icons/huolpoch_icon.tga" id="17_m1bib"]
 [ext_resource type="Texture2D" uid="uid://ba5ecdey055s5" path="res://assets/graphical_assets/characters/icons/keken_icon.tga" id="18_xp0px"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m4vv6"]
-atlas = ExtResource("12_4d807")
-region = Rect2(0, 320, 240, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ahj4"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 0, 240, 160)
@@ -31,6 +27,10 @@ region = Rect2(0, 0, 240, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dnvn"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 160, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4vv6"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 320, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_av2ji"]
 atlas = ExtResource("12_4d807")
@@ -105,7 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.359985
 pivot_offset = Vector2(391.5, 288)
-texture = SubResource("AtlasTexture_m4vv6")
+texture = SubResource("AtlasTexture_5ahj4")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")

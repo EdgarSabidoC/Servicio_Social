@@ -80,7 +80,7 @@ func _on_exit_menu_no_pressed() -> void:
 	elif self.settings.is_visible_in_tree():
 		self.settings.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
 	elif self.how_to_play.is_visible_in_tree():
-		self.how_to_play.get_tab_bar().grab_focus() # Enfoca la TabBar de Video
+		self.how_to_play.get_tab_bar().grab_focus() # Enfoca la TabBar de Cómo Jugar
 	self.exit_menu.hide()
 
 

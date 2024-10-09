@@ -11,6 +11,8 @@ var _splash_screens: Array[SplashScreen] = []
  
 
 func _ready() -> void:
+	# Se centra la ventana del juego:
+	get_window().move_to_center()
 	# Se oculta el mouse:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	

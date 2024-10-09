@@ -20,12 +20,12 @@ func _on_keken_finished() -> void:
 		self.keken.enable_loop()
 	elif self.current_character.rejected:
 		# Si el personaje fue rechazado:
-		self.keken.current_animation = "sad"
+		self.keken.play("sad")
 		# Se desactiva el loop de la animación:
 		self.keken.disable_loop()
 	else:
 		# Si no:
-		self.keken.current_animation = "anger"
+		self.keken.play("anger")
 		# Se desactiva el loop de la animación:
 		self.keken.disable_loop()
 	# Se desconecta la señal:

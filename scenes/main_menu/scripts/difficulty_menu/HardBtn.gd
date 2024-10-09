@@ -10,6 +10,7 @@ func _on_pressed():
 	match PlayerSession.current_minigame:
 		PlayerSession.Minigames.FRACCTIONS:
 			self._move_to = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
+			CharactersData.loadProblemsData() # Se cargan los datos de los problemas de los diferentes personajes
 		PlayerSession.Minigames.ADDITIONS:
 			self._move_to = "res://scenes/additions_minigame/level_additions_minigame/LevelAdditionsMinigame.tscn"
 		PlayerSession.Minigames.COORDINATES:
@@ -21,9 +22,6 @@ func _on_pressed():
 	
 	# Se cargan los datos del personaje:
 	PlayerSession.difficulty = "hard"
-	
-	# Se cargan los datos de los problemas de los diferentes personajes:
-	CharactersData.loadProblemsData()
 	
 	# Consume el evento:
 	get_viewport().set_input_as_handled()

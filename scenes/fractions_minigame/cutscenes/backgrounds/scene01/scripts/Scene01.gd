@@ -49,6 +49,8 @@ func _ready() -> void:
 
 # Inicia la caja de diálogos:
 func start_dialogue_box() -> void:
+	# Se carga el texto de entrada:
+	self.dialogue_box.load_message(CharactersData.characters[PlayerSession.character].intro_text)
 	# Se activa la caja de diálogo después de la animación de entrada:
 	self.dialogue_box.start()
 

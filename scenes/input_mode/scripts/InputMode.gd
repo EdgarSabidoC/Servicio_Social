@@ -19,8 +19,8 @@ func _ready() -> void:
 # Activa el modo teclado:
 func _on_keyboard_mode_pressed():
 	Sfx.play_sound(Sfx.Sounds.SCREEN_PRESS, 10)
-	if Mouse.mouse_mode_activated:
-		Mouse.change_mode()
+	Mouse.mouse_mode_activated = true # Se cambia el estado del modo mouse
+	Mouse.change_mode() # Se cambia el modo de entrada
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
 	SceneTransition.change_scene(_move_to, "dissolve")
 
@@ -28,8 +28,7 @@ func _on_keyboard_mode_pressed():
 # Activa el modo ratón:
 func _on_mouse_mode_pressed():
 	Sfx.play_sound(Sfx.Sounds.SCREEN_PRESS)
-	if !Mouse.mouse_mode_activated:
-		Mouse.change_mode()
+	Mouse.change_mode()
 	# Comienza la animación de desvanecimiento y cambia de escena al final de la animación:
 	SceneTransition.change_scene(_move_to, "dissolve")
 

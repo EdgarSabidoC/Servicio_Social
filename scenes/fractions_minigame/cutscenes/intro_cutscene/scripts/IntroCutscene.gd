@@ -13,6 +13,8 @@ var outro_cutscene: PackedScene = load("res://scenes/fractions_minigame/cutscene
 
 
 func _ready() -> void:
+	if Mouse.mouse_mode_activated:
+		Mouse.enable_actions() # Se habilitan las teclas
 	# Se cambia la canción:
 	BackgroundMusic.change_song(BackgroundMusic.Songs.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
 

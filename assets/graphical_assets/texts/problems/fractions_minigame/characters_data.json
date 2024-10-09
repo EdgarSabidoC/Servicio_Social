@@ -2,54 +2,68 @@
 	"data": [
 		{
 			"name": "Alux",
-			"about": "",
+			"about": "Del maya alux (duendecillo).\n\nSe trata de un duendecillo que ha agarrado una extraña obsesión con la pizza recientemente, es alegre, pero a veces puede ser algo engreído, y si las cosas salen mal ¡Ten cuidado! O sufrirás las terribles consecuencias de su ira.",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 10,
 			"intro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+				"¡Hola, humano! He oído que haces buenas pizzas, pero seguro no tan buenas como las mías, ¿me sorprenderás?",
+				"¡Ah! La pizza, mi nuevo vicio. Si me haces una digna, tal vez no te juegue una travesura.",
+				"Hoy me desperté con un antojo terrible de pizza. ¡Hazme una que no olvide o te lo haré pagar!",
+				"La última pizza que probé me dejó muy decepcionado... Espero que puedas hacerlo mejor o podrías arrepentirte.",
+				"¡Humanito! No es fácil complacer a un alux, pero tal vez tengas suerte... o tal vez no."
+			  ],
+			"outro_happy_texts": [
+				"¡Vaya, me has sorprendido! ¡Esta pizza es digna de un alux! Te has ganado mi favor... por ahora.",
+				"¡Ja! No creí que pudieras hacerlo tan bien. ¡La pizza está perfecta!",
+				"Mmm... ¡esto está delicioso! Hoy no sufrirás mis bromas, ¡bien hecho!",
+				"Te has ganado el respeto de un alux, ¡y eso no es poca cosa! Gran pizza.",
+				"¡Bien hecho, humano! Esta pizza es más de lo que esperaba."
 			],
-			"outro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+			"outro_angry_texts": [
+				"¡¿Qué es esto?! ¡Ni siquiera un perro comería esto! ¡Prepárate para mis trucos!",
+				"¡Qué desastre! Te lo advertí, humano... ¡No me hagas perder más tiempo con tus fallos!",
+				"¡Estaba de buen humor, pero esto lo arruinó todo! ¡Tendrás mala suerte por días!",
+				"¡No puedo creer que hayas hecho algo tan horrible! ¡Ya verás las consecuencias!",
+				"¡Qué decepción! ¡Pensé que podrías hacer algo mejor! Prepárate para lo que viene..."
+			],
+			"outro_sad_texts": [
+				"Mmm... no era lo que esperaba. Estoy decepcionado, ¡podrías haberlo hecho mejor!",
+				"No sé si es lo peor, pero definitivamente no es lo mejor. Estoy triste... muy triste.",
+				"Me parece que no te esforzaste lo suficiente... ¡estoy un poco decepcionado!",
+				"Esta pizza no me hace feliz, pero tampoco es horrible... sólo esperaba algo más.",
+				"Parece que no me entiendes... esto no es lo que quería. Qué lástima."
 			],
 			"problems_data": [
 				{
 					"fraction": "1/1",
 					"drinks": "3",
-					"breads": "1",
+					"breads": "2",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "1/2",
-					"drinks": "3",
-					"breads": "1",
+					"drinks": "5",
+					"breads": "10",
 					"imagePath": "res://icon.svg"
 				},
 				{
@@ -102,50 +116,59 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/alux_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		},
 		{
 			"name": "Huolpoch",
-			"about": "",
+			"about": "Del maya huolpoch (cantil yucateco o cuatro narices).\n\nNuestro querido amigo, a diferencia de sus parientes más cercanos, se trata de una víbora bastante gentil y amable, así que no te dejes llevar por su cara inexpresiva. Aunque las cosas vayan mal, Huolpoch no se enojará, tal vez sea porque trabaja medio tiempo en atención a clientes o porque parece venir de una raza extraterreste de más allá de las estrellas, trátala bien y podrás contar con un amigo de por vida.",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 4,
 			"intro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+				"¡Ssssaludos! Vine a pedir una pizza que sea tan deliciosa como peligrosa.",
+				"¡Hola, pequeño! Soy la serpiente más hambrienta que verás hoy. ¿Me haces una pizza?",
+				"¡Qué bien que te encontré! Necesito una pizza que me llene toda esta cola larga.",
+				"¡Hola! Sssstoy buscando algo que me haga deslizar de alegría, ¿una pizza tal vez?",
+				"¡Sssse acerca la hora de comer! ¿Me prepararías algo sssuper delicioso?"
 			],
-			"outro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+			"outro_happy_texts": [
+				"¡Wow, esto es realmente delicioso! Has hecho un gran trabajo, amigo.",
+				"¡Increíble! Esta pizza es digna de un extraterrestre como yo. ¡Gracias por esto!",
+				"¡Mmm! No puedo dejar de comer. ¡Has superado todas mis expectativas!",
+				"¡Fantástico! Has demostrado tu talento en la cocina. ¡Quiero más!",
+				"¡Esto es perfecto! Estoy muy feliz con tu creación, ¡gracias!"
+			],
+			"outro_angry_texts": [
+				"Hmm... esto no es lo que esperaba, pero no te preocupes, todos tenemos días malos.",
+				"No es exactamente lo mejor, pero estoy seguro de que podrás hacerlo mejor la próxima vez.",
+				"Esto no está mal, solo un poco raro. No te preocupes, siempre podemos mejorar.",
+				"Bueno, no estoy enojado. Solo un poco decepcionado... ¡pero la próxima vez será mejor!",
+				"Es interesante, pero creo que necesitamos un poco más de práctica juntos."
+			],
+			"outro_sad_texts": [
+				"Oh, no era lo que esperaba. No te preocupes, podemos seguir intentándolo la próxima vez.",
+				"Esta pizza no fue del todo mi favorita, pero no me molesta. ¡Sigamos adelante!",
+				"Hmm, creo que necesito un poco más de tiempo para acostumbrarme a esto. No es tan malo.",
+				"No me hizo feliz, pero eso está bien. Siempre hay una próxima vez.",
+				"No fue lo que tenía en mente, pero no te preocupes, ¡seremos amigos de todos modos!"
 			],
 			"problems_data": [
 				{
@@ -210,50 +233,59 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/huolpoch_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		},
 		{
 			"name": "Toh",
-			"about": "",
+			"about": "Del maya Toh (momoto ceja turquesa o pájaro reloj).\n\nAtrás quedaron sus glorias pasadas, en algún momento fue el favorito de los dioses del Mayab, hoy es un lunes más. La personalidad de nuestro intrépido amigo refleja el reconocimiento que alguna vez tuvo, pero quizás es incapaz de dejar ir esos momentos tan añorados de fama. Bastante amable, pero si las cosas andan mal no dudará en gritar y exigir lo que por derecho le corresponde.",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 3,
 			"intro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+				"¡Tic tac, tic tac! El tiempo es perfecto para una pizza deliciosa.",
+				"¡Cuidado! El tiempo corre, y mi estómago ruge como un reloj.",
+				"¡Hola! Soy el pájaro Toh, y vine a marcar la hora de mi pizza.",
+				"¡Qué suerte encontrarte! ¡Es hora de ordenar mi pizza perfecta!",
+				"¡Tic tac! El reloj dice que es hora de comer, ¿me preparas una pizza?"
 			],
-			"outro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+			"outro_happy_texts": [
+				"¡Increíble! Has logrado que este día se sienta como un día de gloria. ¡Gracias!",
+				"¡Esto es maravilloso! Has revivido mis viejos recuerdos de los días de fama con esta pizza.",
+				"¡Deliciosa! Has demostrado que aún hay talento en el mundo. ¡Estoy muy feliz!",
+				"¡Fantástico! Has elevado mi espíritu con esta comida. ¡Quiero más!",
+				"¡Esto es lo mejor! Has hecho que este día común sea extraordinario. ¡Bravo!"
+			],
+			"outro_angry_texts": [
+				"Hmm... esto no es lo que esperaba. Espero que la próxima vez sea mejor.",
+				"No estoy del todo satisfecho. Quizás deberíamos intentarlo de nuevo con más cuidado.",
+				"Esto está lejos de mis recuerdos gloriosos, pero no te preocupes, siempre hay una próxima vez.",
+				"Es un poco decepcionante, pero aún así lo aprecio. ¡Mejor suerte para la próxima!",
+				"No puedo gritar esta vez, pero definitivamente necesitas mejorar tu receta."
+			],
+			"outro_sad_texts": [
+				"Oh no, esto no fue lo que esperaba. Espero que la próxima la atención sea diferente.",
+				"Hmm, esto no cumple con mis expectativas sobre el servicio al cliente. Pero no te preocupes, ¡Lo intentaremos la próxima vez!",
+				"La próxima vez la atención será mejor, ¿verdad?",
+				"Bueno, esto no es lo que tenía en mente. Pero seguimos siendo amigos, ¡no hay problema!",
+				"No tengo tiempo para tristezas ni rencores. ¡La próxima vez espero que aceptes mi orden!"
 			],
 			"problems_data": [
 				{
@@ -318,50 +350,59 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/toh_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		},
 		{
 			"name": "Keken",
-			"about": "",
+			"about": "Del maya K’éek’en (cerdo, puerco o cochino).\n\nHeredero de la acaudalada familia \"Tocineta\" que por generaciones ha amasado una gran fortuna con el servicio de taxis. Ya sea por ser miembro del sindicato de taxistas o por ser un nepobaby, Keken tiene un temperamento bastante irritable e incluso puede ser algo berrinchudo, pero es uno de tus mejores clientes y siempre tratará de llegar a la hora de apertura para degustar su pizza del día.",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 2,
 			"intro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+				"¡Hola, amiguito! Soy el cerdo más hambriento de esta pizzería, ¡y ya estoy listo para ordenar!",
+				"¡Qué emoción verte! ¡He escuchado que haces las mejores pizzas de todo Yucatán!",
+				"¡Oink oink! ¡Aquí estoy, listo para mi pizza favorita! ¿Me ayudas?",
+				"¡Qué hambre tengo! No hay nada que un buen pedazo de pizza no pueda resolver.",
+				"¡Huele delicioso por aquí! ¡Vamos a hacer algo sabroso juntos!"
 			],
-			"outro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+			"outro_happy_texts": [
+				"¡Excelente trabajo! Esta pizza es digna de un miembro de la familia Tocineta. ¡Gracias!",
+				"¡Deliciosa! Has superado mis expectativas. ¡Me has hecho feliz!",
+				"¡Increíble! Has logrado hacer la pizza perfecta. ¡No puedo esperar para volver!",
+				"¡Eso es lo que esperaba! Esta pizza está a la altura de mis estándares. Me vendría bien un chef como tú en mi mansión. ¡Bravo!",
+				"¡Fantástico! Has hecho de mi día algo especial. ¡Volveré pronto!"
+			],
+			"outro_angry_texts": [
+				"Hmm... esto no es lo que pedí. Espero que la próxima vez sea mejor.",
+				"No puedo creer que me hayas dado esto. ¡Vamos, hazlo bien la próxima vez!",
+				"Es un poco decepcionante, pero aún así lo aprecio. ¡Intentémoslo otra vez!",
+				"No estoy satisfecho con esta pizza. Espero que no se repita en el futuro.",
+				"No es lo que esperaba. Necesitamos mejorar en nuestra próxima comida."
+			],
+			"outro_sad_texts": [
+				"¿Qué? ¿No me vas a atender? ¡Esto es inaceptable!",
+				"Oh, no. ¡Tienes que ayudarme! No puedo quedarme sin pizza.",
+				"¿Cómo que no? No puedo creer que rechaces mis deseos. ¡Esto no está bien!",
+				"Esto no puede estar pasando. ¡Dame lo que quiero, por favor!",
+				"No acepto un 'no' como respuesta. ¡Vamos, necesito mi pizza!"
 			],
 			"problems_data": [
 				{
@@ -426,50 +467,59 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/keken_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		},
 		{
 			"name": "Zotz",
-			"about": "",
+			"about": "Del maya Soots' (murciélago).\n\nZotz es bastante retraída, incluso para los estándares de un murciélago. Ella mantendrá la serenidad y la paz a fin de evitar el mayor contacto social posible, así que no temas, pues no suele manifestar muchas emociones.",
 			"easy_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}",
+				"{fraction}"
 			],
 			"medium_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"hard_problems": [
-				"Problem1",
-				"Problem2",
-				"Problem3",
-				"Problem4",
-				"Problem5"
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}",
+				"{fraction} {drinks} {breads}"
 			],
 			"bonus_multiplier": 5,
 			"intro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+				"Hola, no quiero incomodarte. Solo vine a pedir mi pizza y disfrutar de mi momento.",
+				"Hola... no suelo hablar mucho, pero necesito mi pizza del día. Espero que esté bien.",
+				"¡Qué lugar tan acogedor para pedir una pizza!...¿Me podrías ayudar con mi antojo?",
+				"... ... ...",
+				"... ... Disculpa si no soy muy habladora... pero estoy aquí por una pizza..."
 			],
-			"outro_texts": [
-				"Text1",
-				"Text2",
-				"Text3",
-				"Text4",
-				"Text5"
+			"outro_happy_texts": [
+				"Gracias. Esta pizza es perfecta. Me siento en paz ahora.",
+				"Es justo lo que necesitaba. Gracias por entender mi deseo.",
+				"Estoy muy satisfecha con mi pizza. Volveré cuando quiera más.",
+				"Esta pizza me hace sentir tranquila. Gracias por tu buen servicio.",
+				"Has hecho un gran trabajo. Me alegra haber venido."
+			],
+			"outro_angry_texts": [
+				"Esto no es lo que pedí... espero que la próxima vez sea mejor.",
+				"Siento que esto no cumple con mis expectativas. Intentemos de nuevo.",
+				"No es exactamente lo que quería. Ojalá la próxima sea mejor.",
+				"Esto no me satisface. Aprecio el esfuerzo, pero necesito algo diferente.",
+				"No estoy del todo contenta con esto. Espero que lo hagas mejor la próxima vez."
+			],
+			"outro_sad_texts": [
+				"... ... ...",
+				"No esperaba ser rechazada así... Bueno, tal vez en otro momento...",
+				"Está bien... Puedo esperar... Solo espero que sea pronto...",
+				"No puedo forzarte a ayudarme... Solo lamento no poder ordenar mi pizza...",
+				"Entiendo que no puedas ayudarme... Espero que la próxima vez sea diferente."
 			],
 			"problems_data": [
 				{
@@ -534,11 +584,6 @@
 				},
 			],
 			"main_asset_path": "res://assets/graphical_assets/characters/icons/zotz_icon.tga",
-			"secondary_assets_paths": [
-				"res://icon.svg",
-				"res://icon.svg",
-				"res://icon.svg"
-			],
 		}
 	]
 }

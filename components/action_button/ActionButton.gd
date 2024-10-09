@@ -49,6 +49,7 @@ func _remap_action_to(event: InputEvent) -> bool:
 	InputMap.action_add_event(self.action, event)
 	Persistence.config.set_value("Controls", self.action, event)
 	Persistence.save_data()
+	Mouse.refresh_input_actions()
 	# Se refresca el ícono del botón de acción:
 	self.action_icon.refresh()
 	# Se muestra el ícono del botón de acción:

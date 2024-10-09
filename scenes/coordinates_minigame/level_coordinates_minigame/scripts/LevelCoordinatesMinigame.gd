@@ -9,6 +9,7 @@ extends Node2D
 @onready var score_flash_label: Label = $CanvasLayer/ScoreFlashLabel
 @onready var score_label_player: AnimationPlayer = $CanvasLayer/ScoreFlashLabel/AnimationPlayer
 @onready var coordinates_cache: Array[Vector2i] = []
+@onready var opossum: AnimatedTextureRect = %Opossum
 
 # Tiempos del reloj por dificultad:
 ## Time for clock on easy difficulty.
@@ -33,6 +34,8 @@ func _ready() -> void:
 	# Se configura el juego/partida:
 	self.set_game()
 	self.connect_signals()
+	# Se conecta la señal de finalización de la zarigüeya:
+	opossum.finished.connect(_on_opossum_finished)
 
 
 func _process(_delta: float) -> void:
@@ -235,14 +238,6 @@ func _on_score_screen_restart_game() -> void:
 	self.set_game()
 
 
-func _on_opossum_finished() -> void:
-	match %Opossum.current_animation:
-		"default":
-			self.label.show()
-		"end_coordinates":
-			%Opossum.play("idle")
-
-
 func _on_tree_entered() -> void:
 	# Se activa el mouse independientemente del modo de entrada:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -252,3 +247,11 @@ func _on_tree_exiting() -> void:
 	# Al salir se verifica el modo de entrada:
 	if not Mouse.mouse_mode_activated:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _on_opossum_finished() -> void:
+	match %Opossum.current_animation:
+		"default":
+			self.label.show()
+		"end_coordinates":
+			%Opossum.play("idle")
