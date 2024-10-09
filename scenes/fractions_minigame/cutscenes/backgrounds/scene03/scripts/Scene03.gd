@@ -124,13 +124,13 @@ func get_rand_dialogue(type: String) -> void:
 
 
 func _on_dialogue_box_dialogue_box_closed() -> void:
+	# Se hace visible el mensaje para continuar:
+	self.rich_text_label_text_flash.visible = true
 	# Se emite la señal de finalización de la escena:
 	self.finished.emit()
 
 
 func _on_dialogue_box_2_dialogue_box_closed() -> void:
-	# Se hace visible el mensaje para continuar:
-	self.rich_text_label_text_flash.visible = true
 	# Se activa el otro cuadro de diálogo:
 	self.dialogue_box.start()
 	

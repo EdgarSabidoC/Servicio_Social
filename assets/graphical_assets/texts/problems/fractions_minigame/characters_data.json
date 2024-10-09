@@ -30,12 +30,12 @@
 				"¡Ah! La pizza, mi nuevo vicio. Si me haces una digna, tal vez no te juegue una travesura.",
 				"Hoy me desperté con un antojo terrible de pizza. ¡Hazme una que no olvide o te lo haré pagar!",
 				"La última pizza que probé me dejó muy decepcionado... Espero que puedas hacerlo mejor o podrías arrepentirte.",
-				"¡Humanito! No es fácil complacer a un alux, pero tal vez tengas suerte... o tal vez no."
+				"¡Humanito! No es fácil complacer a un alux, pero tal vez tengas suerte... O tal vez no."
 			  ],
 			"outro_happy_texts": [
-				"¡Vaya, me has sorprendido! ¡Esta pizza es digna de un alux! Te has ganado mi favor... por ahora.",
+				"¡Vaya, me has sorprendido! ¡Esta pizza es digna de un alux! Te has ganado mi favor... Por ahora.",
 				"¡Ja! No creí que pudieras hacerlo tan bien. ¡La pizza está perfecta!",
-				"Mmm... ¡esto está delicioso! Hoy no sufrirás mis bromas, ¡bien hecho!",
+				"Mmm... ¡Esto está delicioso! Hoy no sufrirás mis bromas, ¡bien hecho!",
 				"Te has ganado el respeto de un alux, ¡y eso no es poca cosa! Gran pizza.",
 				"¡Bien hecho, humano! Esta pizza es más de lo que esperaba."
 			],
@@ -47,11 +47,11 @@
 				"¡Qué decepción! ¡Pensé que podrías hacer algo mejor! Prepárate para lo que viene..."
 			],
 			"outro_sad_texts": [
-				"Mmm... no era lo que esperaba. Estoy decepcionado, ¡podrías haberlo hecho mejor!",
-				"No sé si es lo peor, pero definitivamente no es lo mejor. Estoy triste... muy triste.",
-				"Me parece que no te esforzaste lo suficiente... ¡estoy un poco decepcionado!",
-				"Esta pizza no me hace feliz, pero tampoco es horrible... sólo esperaba algo más.",
-				"Parece que no me entiendes... esto no es lo que quería. Qué lástima."
+				"Mmm... No era lo que esperaba. Estoy decepcionado, ¡podrías haberlo hecho mejor!",
+				"No sé si es lo peor, pero definitivamente no es lo mejor. Estoy triste... Muy triste.",
+				"Me parece que no te esforzaste lo suficiente... ¡Estoy un poco decepcionado!",
+				"Esta pizza no me hace feliz, pero tampoco es horrible... Sólo esperaba algo más.",
+				"Parece que no me entiendes... Esto no es lo que quería. Qué lástima."
 			],
 			"problems_data": [
 				{
@@ -160,7 +160,7 @@
 				"Hmm... esto no es lo que esperaba, pero no te preocupes, todos tenemos días malos.",
 				"No es exactamente lo mejor, pero estoy seguro de que podrás hacerlo mejor la próxima vez.",
 				"Esto no está mal, solo un poco raro. No te preocupes, siempre podemos mejorar.",
-				"Bueno, no estoy enojado. Solo un poco decepcionado... ¡pero la próxima vez será mejor!",
+				"Bueno, no estoy enojado. Solo un poco decepcionado... ¡Pero la próxima vez será mejor!",
 				"Es interesante, pero creo que necesitamos un poco más de práctica juntos."
 			],
 			"outro_sad_texts": [
@@ -274,7 +274,7 @@
 				"¡Esto es lo mejor! Has hecho que este día común sea extraordinario. ¡Bravo!"
 			],
 			"outro_angry_texts": [
-				"Hmm... esto no es lo que esperaba. Espero que la próxima vez sea mejor.",
+				"Hmm... Esto no es lo que esperaba. Espero que la próxima vez sea mejor.",
 				"No estoy del todo satisfecho. Quizás deberíamos intentarlo de nuevo con más cuidado.",
 				"Esto está lejos de mis recuerdos gloriosos, pero no te preocupes, siempre hay una próxima vez.",
 				"Es un poco decepcionante, pero aún así lo aprecio. ¡Mejor suerte para la próxima!",
@@ -391,7 +391,7 @@
 				"¡Fantástico! Has hecho de mi día algo especial. ¡Volveré pronto!"
 			],
 			"outro_angry_texts": [
-				"Hmm... esto no es lo que pedí. Espero que la próxima vez sea mejor.",
+				"Hmm... Esto no es lo que pedí. Espero que la próxima vez sea mejor.",
 				"No puedo creer que me hayas dado esto. ¡Vamos, hazlo bien la próxima vez!",
 				"Es un poco decepcionante, pero aún así lo aprecio. ¡Intentémoslo otra vez!",
 				"No estoy satisfecho con esta pizza. Espero que no se repita en el futuro.",
@@ -495,10 +495,10 @@
 			"bonus_multiplier": 5,
 			"intro_texts": [
 				"Hola, no quiero incomodarte. Solo vine a pedir mi pizza y disfrutar de mi momento.",
-				"Hola... no suelo hablar mucho, pero necesito mi pizza del día. Espero que esté bien.",
-				"¡Qué lugar tan acogedor para pedir una pizza!...¿Me podrías ayudar con mi antojo?",
+				"Hola... No suelo hablar mucho, pero necesito mi pizza del día. Espero que esté bien.",
+				"¡Qué lugar tan acogedor para pedir una pizza!... ¿Me podrías ayudar con mi antojo?",
 				"... ... ...",
-				"... ... Disculpa si no soy muy habladora... pero estoy aquí por una pizza..."
+				"... ... Disculpa si no soy muy habladora... Pero estoy aquí por una pizza..."
 			],
 			"outro_happy_texts": [
 				"Gracias. Esta pizza es perfecta. Me siento en paz ahora.",
@@ -508,7 +508,7 @@
 				"Has hecho un gran trabajo. Me alegra haber venido."
 			],
 			"outro_angry_texts": [
-				"Esto no es lo que pedí... espero que la próxima vez sea mejor.",
+				"Esto no es lo que pedí... Espero que la próxima vez sea mejor.",
 				"Siento que esto no cumple con mis expectativas. Intentemos de nuevo.",
 				"No es exactamente lo que quería. Ojalá la próxima sea mejor.",
 				"Esto no me satisface. Aprecio el esfuerzo, pero necesito algo diferente.",

@@ -224,13 +224,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DialogueBox" parent="." instance=ExtResource("6_3qxic")]
 layout_mode = 1
-anchor_left = 0.109375
-anchor_top = 0.276042
-anchor_right = 0.333008
-anchor_bottom = 0.486111
-offset_left = 4.0
-offset_right = 1.0
-offset_bottom = 2.0
+anchor_left = 0.0625
+anchor_top = 0.255208
+anchor_right = 0.333984
+anchor_bottom = 0.501736
+alignment = 2
 
 [connection signal="finished" from="Scene01" to="." method="_on_scene_01_finished"]
 [connection signal="pressed" from="OptionButtonsContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]

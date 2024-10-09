@@ -75,7 +75,7 @@ func get_rand_dialogue() -> void:
 		"¡Claro! En un momento estará lista su orden...",
 		"¡Por su puesto! Me pongo manos a la masa...",
 		"¡Muy bien! Le avisaré cuando su orden esté lista...",
-		"¡Excelente elección! En un momento más estará lista su orden, tome asiento, por favor.",
+		"¡Excelente elección! Nosotros le avisamos, tome asiento, por favor.",
 		"¡Entendido! Enseguida estará su orden lista..."
 	]
 

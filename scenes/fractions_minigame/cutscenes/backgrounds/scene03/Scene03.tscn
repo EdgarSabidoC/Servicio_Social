@@ -352,20 +352,18 @@ anchor_left = 0.445313
 anchor_top = 0.194444
 anchor_right = 0.748047
 anchor_bottom = 0.444444
+alignment = 2
 
 [node name="DialogueBox2" parent="." instance=ExtResource("12_itseu")]
 layout_mode = 1
-anchor_left = 0.140625
-anchor_top = 0.263889
-anchor_right = 0.398438
-anchor_bottom = 0.527778
-offset_left = -28.0
-offset_top = 7.0
-offset_right = -66.0
-offset_bottom = -22.0
+anchor_left = 0.0625
+anchor_top = 0.255208
+anchor_right = 0.333984
+anchor_bottom = 0.501736
+alignment = 2
 
 [node name="RichTextLabelTextFlash" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, -0.515573)
+modulate = Color(1, 1, 1, -0.991576)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

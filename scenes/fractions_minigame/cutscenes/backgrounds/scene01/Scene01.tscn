@@ -20,13 +20,13 @@
 [ext_resource type="PackedScene" uid="uid://cdug6yjyj81et" path="res://components/characters/Toh/Toh.tscn" id="18_7x8ee"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/TohAnimationPlayer.gd" id="19_othhx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_komxm"]
-atlas = ExtResource("3_he3bh")
-region = Rect2(0, 0, 176, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_77knl"]
 atlas = ExtResource("3_he3bh")
 region = Rect2(0, 160, 176, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_komxm"]
+atlas = ExtResource("3_he3bh")
+region = Rect2(0, 0, 176, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2loey"]
 atlas = ExtResource("3_he3bh")
@@ -71,17 +71,17 @@ _data = {
 "move_forward": SubResource("Animation_30xg3")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqe4s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
 atlas = ExtResource("5_27uat")
-region = Rect2(0, 288, 64, 144)
+region = Rect2(0, 144, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s024f"]
 atlas = ExtResource("5_27uat")
 region = Rect2(0, 0, 64, 144)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4sbjl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqe4s"]
 atlas = ExtResource("5_27uat")
-region = Rect2(0, 144, 64, 144)
+region = Rect2(0, 288, 64, 144)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_18c83"]
 animations = [{
@@ -158,13 +158,13 @@ _data = {
 "Moving_forward_3": SubResource("Animation_i8gwe")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
-atlas = ExtResource("17_m6vla")
-region = Rect2(0, 0, 48, 68)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_me6hc"]
 atlas = ExtResource("17_m6vla")
 region = Rect2(0, 68, 48, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
+atlas = ExtResource("17_m6vla")
+region = Rect2(0, 0, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7044d"]
 atlas = ExtResource("17_m6vla")
@@ -306,11 +306,12 @@ anchor_bottom = 1.0
 offset_left = 0.0640259
 offset_right = 0.0440178
 pivot_offset = Vector2(287.734, 288)
-texture = SubResource("AtlasTexture_komxm")
+texture = SubResource("AtlasTexture_77knl")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_kdyk4")
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -331,12 +332,12 @@ offset_top = -0.223999
 offset_right = 0.072998
 offset_bottom = 0.039978
 pivot_offset = Vector2(190.5, 190.5)
-texture = SubResource("AtlasTexture_gqe4s")
+texture = SubResource("AtlasTexture_4sbjl")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 2
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -358,12 +359,12 @@ offset_top = -0.224007
 offset_right = -0.0300293
 offset_bottom = 0.0399475
 pivot_offset = Vector2(190.501, 190.5)
-texture = SubResource("AtlasTexture_gqe4s")
+texture = SubResource("AtlasTexture_4sbjl")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 2
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -385,13 +386,13 @@ offset_top = -0.224007
 offset_right = 0.456978
 offset_bottom = 0.0399475
 pivot_offset = Vector2(190.5, 190.5)
-texture = SubResource("AtlasTexture_gqe4s")
+texture = SubResource("AtlasTexture_4sbjl")
 expand_mode = 1
 stretch_mode = 5
 flip_h = true
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_18c83")
-frame_index = 2
+frame_index = 1
 auto_play = true
 playing = true
 
@@ -422,9 +423,10 @@ offset_top = 2.0
 offset_right = -1.0
 offset_bottom = 2.0
 pivot_offset = Vector2(94.4983, 134)
-texture = SubResource("AtlasTexture_wrubn")
+texture = SubResource("AtlasTexture_me6hc")
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_02adc")
+frame_index = 1
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
@@ -550,13 +552,15 @@ anchor_left = 0.445313
 anchor_top = 0.194444
 anchor_right = 0.748047
 anchor_bottom = 0.444444
+alignment = 2
 
 [node name="DialogueBox2" parent="." instance=ExtResource("5_tojxw")]
 layout_mode = 1
-anchor_left = 0.113281
-anchor_top = 0.276042
+anchor_left = 0.0625
+anchor_top = 0.255208
 anchor_right = 0.333984
-anchor_bottom = 0.489583
+anchor_bottom = 0.501736
+alignment = 2
 
 [connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]
 [connection signal="dialogue_box_closed" from="DialogueBox2" to="." method="_on_dialogue_box_2_dialogue_box_closed"]
