@@ -21,6 +21,9 @@ func _ready() -> void:
 	self.dialogue_box.hide()
 	if Mouse.mouse_mode_activated:
 		Mouse.enable_actions() # Se habilitan las teclas
+	else:
+		# Se activa el mouse independientemente del modo de entrada:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	# Se cambia la canción:
 	BackgroundMusic.change_song(BackgroundMusic.Songs.O_SOLE_MIO_SOFT_PIANO, self.music_starts_at)
 
