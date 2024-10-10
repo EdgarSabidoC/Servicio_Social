@@ -12,6 +12,8 @@ var outro_cutscene: PackedScene = load("res://scenes/fractions_minigame/cutscene
 @onready var accept_btn: Button = $OptionButtonsContainer/AcceptBtn
 @onready var dialogue_box: Control = $DialogueBox
 @onready var oppossum_message: String = ""
+@onready var pizza_sizes_btn: Button = $PizzaSizesBtn
+@onready var pizza_sizes_info_menu: Control = $PizzaSizesInfoMenu
 
 
 func _ready() -> void:
@@ -81,3 +83,21 @@ func get_rand_dialogue() -> void:
 
 	self.oppossum_message = accept_dialogues[randi_range(0, accept_dialogues.size()-1)]
 	self.dialogue_box.load_message(self.oppossum_message)
+
+
+func _on_pizza_sizes_info_menu_back_btn_pressed() -> void:
+	self.pizza_sizes_info_menu.hide()
+
+
+func _on_pizza_sizes_info_menu_visibility_changed() -> void:
+	if self.pizza_sizes_info_menu.is_visible_in_tree():
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
+	if self.accept_btn:
+		self.accept_btn.grab_focus()
+
+
+func _on_pizza_sizes_btn_pressed() -> void:
+	Sfx.play_sound(Sfx.Sounds.INFO_SCREEN, 15)
+	self.pizza_sizes_info_menu.show()

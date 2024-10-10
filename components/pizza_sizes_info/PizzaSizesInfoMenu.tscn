@@ -1,21 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://biou6ujuxna1m"]
+[gd_scene load_steps=7 format=3 uid="uid://dvxevt6jgtg4s"]
 
-[ext_resource type="Script" path="res://components/prices_menu/scripts/PricesMenu.gd" id="1_uobjq"]
-[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="2_2auha"]
-[ext_resource type="Texture2D" uid="uid://chuddq310ksn5" path="res://assets/graphical_assets/user_interface/container/priceContainer.tga" id="3_lo1i7"]
-[ext_resource type="Script" path="res://components/prices_menu/scripts/Prices.gd" id="3_x306d"]
-[ext_resource type="Texture2D" uid="uid://chapaxhssrkhq" path="res://assets/graphical_assets/user_interface/container/priceContainer_add.tga" id="4_v18qn"]
-[ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="4_x58ud"]
+[ext_resource type="Script" path="res://components/pizza_sizes_info/scripts/PizzaSizesInfoMenu.gd" id="1_7hur2"]
+[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="1_yhvtn"]
+[ext_resource type="Texture2D" uid="uid://chuddq310ksn5" path="res://assets/graphical_assets/user_interface/container/priceContainer.tga" id="2_khtsj"]
+[ext_resource type="Texture2D" uid="uid://chapaxhssrkhq" path="res://assets/graphical_assets/user_interface/container/priceContainer_add.tga" id="3_2nsvi"]
+[ext_resource type="Script" path="res://components/pizza_sizes_info/scripts/Sizes.gd" id="4_dq6ns"]
+[ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="5_06bqp"]
 
-[node name="PricesMenu" type="Control"]
+[node name="PizzaSizesInfoMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uobjq")
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_7hur2")
 
 [node name="BackgroundTexture" type="TextureRect" parent="."]
 layout_mode = 1
@@ -24,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2auha")
+texture = ExtResource("1_yhvtn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -35,20 +34,21 @@ offset_bottom = 512.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_lo1i7")
+texture = ExtResource("2_khtsj")
 region_rect = Rect2(16, 16, 96, 96)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.741211
 anchor_top = 0.569444
 anchor_right = 0.829102
 anchor_bottom = 0.829861
-texture = ExtResource("4_v18qn")
+texture = ExtResource("3_2nsvi")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="PricesTexture" type="ColorRect" parent="."]
+[node name="SizesTexture" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.151367
@@ -60,7 +60,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="Prices" type="RichTextLabel" parent="PricesTexture"]
+[node name="Sizes" type="RichTextLabel" parent="SizesTexture"]
 layout_mode = 2
 anchor_left = 0.03125
 anchor_top = 0.0357143
@@ -70,7 +70,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
-script = ExtResource("3_x306d")
+script = ExtResource("4_dq6ns")
 metadata/_edit_use_anchors_ = true
 
 [node name="BackBtn" type="Button" parent="."]
@@ -80,7 +80,8 @@ anchor_left = 0.84961
 anchor_top = 0.859375
 anchor_right = 0.982422
 anchor_bottom = 0.970486
-theme = ExtResource("4_x58ud")
+theme = ExtResource("5_06bqp")
+text = "Regresar"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
