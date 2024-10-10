@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=108 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/ColorRect.gd" id="2_80h4x"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bcheoudihgr1s" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_frame.tga" id="5_onsio"]
 [ext_resource type="Texture2D" uid="uid://dbso1mmo204t6" path="res://assets/graphical_assets/characters/player/main_character_scene_04_request.tga" id="5_r0dx5"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="6_4l6hj"]
+[ext_resource type="Texture2D" uid="uid://wj7brkjo5805" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_o4_soda.tga" id="8_yl6bo"]
 [ext_resource type="Texture2D" uid="uid://cygeue24uwy4k" path="res://assets/graphical_assets/characters/player/robot_scene_04.tga" id="9_rgbo7"]
 [ext_resource type="PackedScene" uid="uid://cv1ytr5mbabfm" path="res://components/score_screen/ScoreScreen.tscn" id="10_ix28s"]
 [ext_resource type="Texture2D" uid="uid://cm1qbqgxj7c82" path="res://assets/graphical_assets/characters/player/main_character_scene_04.tga" id="13_tc6v6"]
@@ -845,6 +846,15 @@ anchor_top = 0.138889
 anchor_right = 0.125977
 anchor_bottom = 0.385417
 texture = ExtResource("21_y6um3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Soda" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.861328
+anchor_right = 1.06348
+anchor_bottom = 0.663194
+texture = ExtResource("8_yl6bo")
+stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="Table1" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
