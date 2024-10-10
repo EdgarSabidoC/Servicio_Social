@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://du4oiw4gwst0p"]
+[gd_scene load_steps=24 format=3 uid="uid://du4oiw4gwst0p"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/intro_cutscene/scripts/IntroCutscene.gd" id="1_mh2mp"]
 [ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/Scene01.tscn" id="3_n2iwx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cg16nxnmuou8l" path="res://assets/graphical_assets/user_interface/container/pizzaContainer.tga" id="4_5ag7h"]
 [ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="4_gjk83"]
 [ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="6_3qxic"]
+[ext_resource type="PackedScene" uid="uid://dvxevt6jgtg4s" path="res://components/pizza_sizes_info/PizzaSizesInfoMenu.tscn" id="7_68bye"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw07n"]
 texture = ExtResource("3_rwoer")
@@ -168,6 +169,7 @@ script = ExtResource("1_mh2mp")
 metadata/_edit_use_anchors_ = true
 
 [node name="Scene01" parent="." instance=ExtResource("3_n2iwx")]
+process_mode = 1
 layout_mode = 1
 
 [node name="Label" type="Label" parent="."]
@@ -181,6 +183,15 @@ text = "Intro
 Cutscene"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PizzaSizesBtn" type="Button" parent="."]
+layout_mode = 0
+anchor_right = 0.0957031
+anchor_bottom = 0.0486111
+offset_right = -90.0
+offset_bottom = -20.0
+text = "Tamaños"
 metadata/_edit_use_anchors_ = true
 
 [node name="OptionButtonsContainer" type="HBoxContainer" parent="."]
@@ -244,7 +255,15 @@ anchor_bottom = 0.501736
 theme = SubResource("Theme_b4r53")
 alignment = 2
 
+[node name="PizzaSizesInfoMenu" parent="." instance=ExtResource("7_68bye")]
+process_mode = 3
+visible = false
+layout_mode = 1
+
 [connection signal="finished" from="Scene01" to="." method="_on_scene_01_finished"]
+[connection signal="pressed" from="PizzaSizesBtn" to="." method="_on_pizza_sizes_btn_pressed"]
 [connection signal="pressed" from="OptionButtonsContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]
 [connection signal="pressed" from="OptionButtonsContainer/RejectBtn" to="." method="_on_reject_btn_pressed"]
 [connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]
+[connection signal="back_btn_pressed" from="PizzaSizesInfoMenu" to="." method="_on_pizza_sizes_info_menu_back_btn_pressed"]
+[connection signal="visibility_changed" from="PizzaSizesInfoMenu" to="." method="_on_pizza_sizes_info_menu_visibility_changed"]
