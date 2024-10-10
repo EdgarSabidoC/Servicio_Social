@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=107 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/ColorRect.gd" id="2_80h4x"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="14_07qk4"]
 [ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="16_ioskb"]
 [ext_resource type="Theme" uid="uid://74os7ymbjql" path="res://assets/graphical_assets/styles/coordinate_label.tres" id="20_kfko6"]
+[ext_resource type="Texture2D" uid="uid://b10lk6v0t8of2" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_o4_plant.tga" id="21_y6um3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmlm1"]
 atlas = ExtResource("4_xt2ru")
@@ -797,8 +798,8 @@ pivot_offset = Vector2(32.5002, 54)
 texture = SubResource("AtlasTexture_pmlm1")
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_jwl6i")
+frame_index = 5
 auto_play = true
-playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Wall" type="NinePatchRect" parent="CanvasLayer"]
@@ -827,6 +828,24 @@ offset_top = -0.0960083
 offset_right = -0.424011
 offset_bottom = -0.280029
 texture = ExtResource("5_8ghr4")
+
+[node name="Plant1" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.0585938
+anchor_top = 0.633681
+anchor_right = 0.125977
+anchor_bottom = 0.880208
+texture = ExtResource("21_y6um3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Plant2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.0585938
+anchor_top = 0.138889
+anchor_right = 0.125977
+anchor_bottom = 0.385417
+texture = ExtResource("21_y6um3")
+metadata/_edit_use_anchors_ = true
 
 [node name="Table1" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
 unique_name_in_owner = true
@@ -914,8 +933,8 @@ texture = SubResource("AtlasTexture_prdtn")
 stretch_mode = 5
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_7qhfs")
+frame_index = 45
 auto_play = true
-playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Opossum"]
