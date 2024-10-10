@@ -20,6 +20,7 @@ extends CanvasLayer
 @onready var menu_container: HBoxContainer = $MenuContainer
 @onready var fractions_minigame: Button = $MinigamesMenu/FractionsMinigame
 @onready var additions_minigame: Button = $MinigamesMenu/AdditionsMinigame
+@onready var credits_btn: Button = $MenuContainer/MainMenu/CreditsBtn
 
 
 func _ready() -> void:

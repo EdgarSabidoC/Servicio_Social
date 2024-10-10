@@ -28,10 +28,10 @@ func _on_focus_exited():
 func _on_mouse_entered():
 	Sfx.play_sound(Sfx.Sounds.KEY_PRESS, 10)
 	self.add_theme_font_size_override("font_size", 24)
-	self.menu_textbox.print_message(self.hint, "l")
+	self.menu_textbox.print_message(self.hint)
 
 
 # Al salir el mouse del botón:
 func _on_mouse_exited():
 	self.add_theme_font_size_override("font_size", 16)
-	self.menu_textbox.clear_message("l")
+	self.menu_textbox.clear_message()

@@ -24,6 +24,8 @@ func print_message(string: String = self.default_text, alignment: String = "l") 
 
 # Limpia el mensaje (imprime una cadena predeterminada):
 func clear_message(alignment: String = "l") -> void:
+	if self.moving_text == null or not self.moving_text:
+		return
 	if !self.moving_text.text.is_empty():
 		self.moving_text.text = self.default_text
 		self.print_message(self.moving_text.text, alignment)
