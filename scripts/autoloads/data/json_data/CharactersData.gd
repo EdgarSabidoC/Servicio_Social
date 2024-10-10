@@ -94,29 +94,29 @@ func loadProblemsData() -> void:
 		var outro_happy_texts: Array = characters_data[n]["outro_happy_texts"]
 		var outro_angry_texts: Array = characters_data[n]["outro_angry_texts"]
 		var outro_sad_texts: Array = characters_data[n]["outro_sad_texts"]
-		var problems_data: Array = characters_data[n]["problems_data"]
 		intro_texts.shuffle()
 		outro_happy_texts.shuffle()
 		outro_angry_texts.shuffle()
 		outro_sad_texts.shuffle()
-		problems_data.shuffle()
 		
 		# Se asignan los datos al personaje:
 		character.intro_text = intro_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 		character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-		character.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
-		var wrong_answers_array: Array[Dictionary] = [
-			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-			problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
-		]
-		character.wrong_answers = wrong_answers_array
 		
 		# Se obtienen los datos del personaje de acuerdo a la dificultad:
 		match PlayerSession.difficulty:
 			"medium":
+				var medium_problems_data: Array = characters_data[n]["medium_problems_data"]
+				medium_problems_data.shuffle()
+				character.correct_answer = medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+				var wrong_answers_array: Array[Dictionary] = [
+					medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
+					medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
+					medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+				]
+				character.wrong_answers = wrong_answers_array
 				var medium_problems: Array = characters_data[n]["medium_problems"]
 				medium_problems.shuffle()
 				medium_data_loaded = true
@@ -124,6 +124,15 @@ func loadProblemsData() -> void:
 				character.problem = character.problem.format({"fraction": character.correct_answer["fraction"], "drinks":  character.correct_answer["drinks"], "breads": character.correct_answer["breads"]})
 				print_debug(character.problem)
 			"hard":
+				var hard_problems_data: Array = characters_data[n]["hard_problems_data"]
+				hard_problems_data.shuffle()
+				character.correct_answer = hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+				var wrong_answers_array: Array[Dictionary] = [
+					hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
+					hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
+					hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+				]
+				character.wrong_answers = wrong_answers_array
 				var hard_problems: Array = characters_data[n]["hard_problems"]
 				hard_problems.shuffle()
 				hard_data_loaded = true
@@ -131,6 +140,15 @@ func loadProblemsData() -> void:
 				print_debug(character.problem)
 				character.problem = character.problem.format({"fraction": character.correct_answer["fraction"], "drinks":  character.correct_answer["drinks"], "breads": character.correct_answer["breads"]})
 			_:
+				var easy_problems_data: Array = characters_data[n]["easy_problems_data"]
+				easy_problems_data.shuffle()
+				character.correct_answer = easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+				var wrong_answers_array: Array[Dictionary] = [
+					easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
+					easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
+					easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+				]
+				character.wrong_answers = wrong_answers_array
 				var easy_problems: Array = characters_data[n]["easy_problems"]
 				easy_problems.shuffle()
 				easy_data_loaded = true
@@ -187,17 +205,19 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 	character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 	character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
-	character.correct_answer = problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
-	var wrong_answers_array: Array[Dictionary] = [
-		problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-		problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-		problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
-	]
-	character.wrong_answers = wrong_answers_array
 	
 	# Se obtienen los datos del personaje de acuerdo a la dificultad:
 	match PlayerSession.difficulty:
 		"medium":
+			var medium_problems_data: Array = characters_data[n]["medium_problems_data"]
+			medium_problems_data.shuffle()
+			character.correct_answer = medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+			var wrong_answers_array: Array[Dictionary] = [
+				medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
+				medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
+				medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+			]
+			character.wrong_answers = wrong_answers_array
 			var medium_problems: Array = characters_data[n]["medium_problems"]
 			medium_problems.shuffle()
 			medium_data_loaded = true
@@ -205,6 +225,15 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 			character.problem = character.problem.format({"fraction": character.correct_answer["fraction"], "drinks":  character.correct_answer["drinks"], "breads": character.correct_answer["breads"]})
 			print_debug(character.problem)
 		"hard":
+			var hard_problems_data: Array = characters_data[n]["hard_problems_data"]
+			hard_problems_data.shuffle()
+			character.correct_answer = hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+			var wrong_answers_array: Array[Dictionary] = [
+				hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
+				hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
+				hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+			]
+			character.wrong_answers = wrong_answers_array
 			var hard_problems: Array = characters_data[n]["hard_problems"]
 			hard_problems.shuffle()
 			hard_data_loaded = true
@@ -212,12 +241,22 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 			print_debug(character.problem)
 			character.problem = character.problem.format({"fraction": character.correct_answer["fraction"], "drinks":  character.correct_answer["drinks"], "breads": character.correct_answer["breads"]})
 		_:
+			var easy_problems_data: Array = characters_data[n]["easy_problems_data"]
+			easy_problems_data.shuffle()
+			character.correct_answer = easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+			var wrong_answers_array: Array[Dictionary] = [
+				easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
+				easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
+				easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+			]
+			character.wrong_answers = wrong_answers_array
 			var easy_problems: Array = characters_data[n]["easy_problems"]
 			easy_problems.shuffle()
 			easy_data_loaded = true
 			character.problem = easy_problems[randi_range(LOWER_LIMIT,PROBLEMS_UPPER_LIMIT)]
 			print_debug(character.problem)
 			character.problem = character.problem.format({"fraction": character.correct_answer["fraction"]})
+
 
 func clear_data() -> void:
 	for character in self.characters:

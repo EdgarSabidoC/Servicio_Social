@@ -159,10 +159,6 @@ _data = {
 "Moving_forward_3": SubResource("Animation_i8gwe")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7044d"]
-atlas = ExtResource("17_m6vla")
-region = Rect2(0, 136, 48, 68)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
 atlas = ExtResource("17_m6vla")
 region = Rect2(0, 0, 48, 68)
@@ -170,6 +166,10 @@ region = Rect2(0, 0, 48, 68)
 [sub_resource type="AtlasTexture" id="AtlasTexture_me6hc"]
 atlas = ExtResource("17_m6vla")
 region = Rect2(0, 68, 48, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuto4"]
+atlas = ExtResource("17_m6vla")
+region = Rect2(0, 136, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuto4"]
 atlas = ExtResource("17_m6vla")
@@ -437,10 +437,9 @@ offset_top = 2.0
 offset_right = -1.0
 offset_bottom = 2.0
 pivot_offset = Vector2(94.4983, 134)
-texture = SubResource("AtlasTexture_7044d")
+texture = SubResource("AtlasTexture_wrubn")
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_02adc")
-frame_index = 2
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true

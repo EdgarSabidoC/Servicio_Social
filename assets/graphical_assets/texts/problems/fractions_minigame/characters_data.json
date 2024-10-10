@@ -11,18 +11,18 @@
 				"{fraction}"
 			],
 			"medium_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}"
 			],
 			"hard_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}"
 			],
 			"bonus_multiplier": 10,
 			"intro_texts": [
@@ -53,63 +53,187 @@
 				"Esta pizza no me hace feliz, pero tampoco es horrible... Sólo esperaba algo más.",
 				"Parece que no me entiendes... Esto no es lo que quería. Qué lástima."
 			],
-			"problems_data": [
+			"easy_problems_data": [
 				{
-					"fraction": "1/6 de pizza",
-					"drinks": "3",
-					"breads": "2",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/6 de pizza",
-					"drinks": "5",
-					"breads": "10",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "3/6 de pizza",
+					"fraction": "2/1",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/6 de pizza",
+					"fraction": "2/2",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/6 de pizza",
+					"fraction": "2/3",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "6/6 de pizza",
+					"fraction": "2/4",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "1/3 de pizza",
+					"fraction": "2/5",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "1/2 de pizza",
+					"fraction": "2/6",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/3 de pizza",
+					"fraction": "2/7",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "1 pizza",
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"medium_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"hard_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
@@ -128,18 +252,18 @@
 				"{fraction}"
 			],
 			"medium_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}"
 			],
 			"hard_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}",
+				"{fraction}, {drinks} y {breads}"
 			],
 			"bonus_multiplier": 4,
 			"intro_texts": [
@@ -170,7 +294,131 @@
 				"No me hizo feliz, pero eso está bien. Siempre hay una próxima vez.",
 				"No fue lo que tenía en mente, pero no te preocupes, ¡seremos amigos de todos modos!"
 			],
-			"problems_data": [
+			"easy_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"medium_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"hard_problems_data": [
 				{
 					"fraction": "2/1",
 					"drinks": "3",
@@ -287,63 +535,187 @@
 				"Bueno, esto no es lo que tenía en mente. Pero seguimos siendo amigos, ¡no hay problema!",
 				"No tengo tiempo para tristezas ni rencores. ¡La próxima vez espero que aceptes mi orden!"
 			],
-			"problems_data": [
+			"easy_problems_data": [
 				{
-					"fraction": "3/1",
+					"fraction": "2/1",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/2",
+					"fraction": "2/2",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/3",
+					"fraction": "2/3",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/4",
+					"fraction": "2/4",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/5",
+					"fraction": "2/5",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/6",
+					"fraction": "2/6",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/7",
+					"fraction": "2/7",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/8",
+					"fraction": "2/8",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/9",
+					"fraction": "2/9",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "3/10",
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"medium_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"hard_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
@@ -404,63 +776,187 @@
 				"Esto no puede estar pasando. ¡Dame lo que quiero, por favor!",
 				"No acepto un 'no' como respuesta. ¡Vamos, necesito mi pizza!"
 			],
-			"problems_data": [
+			"easy_problems_data": [
 				{
-					"fraction": "4/1",
+					"fraction": "2/1",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/2",
+					"fraction": "2/2",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/3",
+					"fraction": "2/3",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/4",
+					"fraction": "2/4",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/5",
+					"fraction": "2/5",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/6",
+					"fraction": "2/6",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/7",
+					"fraction": "2/7",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/8",
+					"fraction": "2/8",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/9",
+					"fraction": "2/9",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "4/10",
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"medium_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"hard_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
@@ -521,63 +1017,187 @@
 				"No puedo forzarte a ayudarme... Solo lamento no poder ordenar mi pizza...",
 				"Entiendo que no puedas ayudarme... Espero que la próxima vez sea diferente."
 			],
-			"problems_data": [
+			"easy_problems_data": [
 				{
-					"fraction": "5/1",
+					"fraction": "2/1",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/2",
+					"fraction": "2/2",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/3",
+					"fraction": "2/3",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/4",
+					"fraction": "2/4",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/5",
+					"fraction": "2/5",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/6",
+					"fraction": "2/6",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/7",
+					"fraction": "2/7",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/8",
+					"fraction": "2/8",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/9",
+					"fraction": "2/9",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/10",
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"medium_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+			],
+			"hard_problems_data": [
+				{
+					"fraction": "2/1",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/2",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/3",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/4",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/5",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/6",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/7",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/8",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/9",
+					"drinks": "3",
+					"breads": "1",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "2/10",
 					"drinks": "3",
 					"breads": "1",
 					"imagePath": "res://icon.svg"
