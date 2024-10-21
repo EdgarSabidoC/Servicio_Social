@@ -159,9 +159,9 @@ _data = {
 "Moving_forward_3": SubResource("Animation_i8gwe")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7044d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuto4"]
 atlas = ExtResource("17_m6vla")
-region = Rect2(0, 136, 48, 68)
+region = Rect2(0, 204, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
 atlas = ExtResource("17_m6vla")
@@ -171,9 +171,9 @@ region = Rect2(0, 0, 48, 68)
 atlas = ExtResource("17_m6vla")
 region = Rect2(0, 68, 48, 68)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iuto4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7044d"]
 atlas = ExtResource("17_m6vla")
-region = Rect2(0, 204, 48, 68)
+region = Rect2(0, 136, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fmt8"]
 atlas = ExtResource("17_m6vla")
@@ -433,9 +433,10 @@ offset_top = 2.0
 offset_right = -1.0
 offset_bottom = 2.0
 pivot_offset = Vector2(94.4983, 134)
-texture = SubResource("AtlasTexture_7044d")
+texture = SubResource("AtlasTexture_iuto4")
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_02adc")
+frame_index = 3
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
@@ -454,7 +455,7 @@ offset_bottom = -279.26
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(74.2481, 96.3094)
-playing = true
+frame_index = 45
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
 reset_on_save = false
@@ -474,8 +475,6 @@ offset_left = 61.9996
 offset_top = 80.0003
 offset_bottom = -79.9993
 pivot_offset = Vector2(62.4999, 80.0003)
-frame_index = 0
-playing = true
 
 [node name="KekenAnimationPlayer" type="AnimationPlayer" parent="Keken"]
 reset_on_save = false
@@ -498,6 +497,7 @@ offset_bottom = -21.2
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(67.4999, 97.9999)
+playing = false
 
 [node name="AluxAnimationPlayer" type="AnimationPlayer" parent="Alux"]
 reset_on_save = false
@@ -516,8 +516,6 @@ anchor_bottom = 0.847223
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(89.5002, 124)
-frame_index = 0
-playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Huolpoch"]
@@ -537,6 +535,8 @@ anchor_bottom = 0.880208
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(103.5, 133.5)
+frame_index = 62
+playing = false
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Toh"]

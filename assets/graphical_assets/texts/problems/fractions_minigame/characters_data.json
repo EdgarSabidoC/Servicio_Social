@@ -3,27 +3,6 @@
 		{
 			"name": "Alux",
 			"about": "Del maya alux (duendecillo).\n\nSe trata de un duendecillo que ha agarrado una extraña obsesión con la pizza recientemente, es alegre, pero a veces puede ser algo engreído, y si las cosas salen mal ¡Ten cuidado! O sufrirás las terribles consecuencias de su ira.",
-			"easy_problems": [
-				"Quisiera ordenar {fraction} rebanadas de pizza",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}"
-			],
-			"medium_problems": [
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}"
-			],
-			"hard_problems": [
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}"
-			],
 			"bonus_multiplier": 10,
 			"intro_texts": [
 				"¡Hola, humano! He oído que haces buenas pizzas, pero seguro no tan buenas como las mías, ¿me sorprenderás?",
@@ -56,62 +35,42 @@
 			"easy_problems_data": [
 				{
 					"fraction": "2/1",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/2",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/3",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/4",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/5",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/6",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/7",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/8",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/9",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/10",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 			],
@@ -244,27 +203,6 @@
 		{
 			"name": "Huolpoch",
 			"about": "Del maya huolpoch (cantil yucateco o cuatro narices).\n\nNuestro querido amigo, a diferencia de sus parientes más cercanos, se trata de una víbora bastante gentil y amable, así que no te dejes llevar por su cara inexpresiva. Aunque las cosas vayan mal, Huolpoch no se enojará, tal vez sea porque trabaja medio tiempo en atención a clientes o porque parece venir de una raza extraterreste de más allá de las estrellas, trátala bien y podrás contar con un amigo de por vida.",
-			"easy_problems": [
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}"
-			],
-			"medium_problems": [
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}"
-			],
-			"hard_problems": [
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}",
-				"{fraction}, {drinks} y {breads}"
-			],
 			"bonus_multiplier": 4,
 			"intro_texts": [
 				"¡Ssssaludos! Vine a pedir una pizza que sea tan deliciosa como peligrosa.",
@@ -297,62 +235,42 @@
 			"easy_problems_data": [
 				{
 					"fraction": "2/1",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/2",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/3",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/4",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/5",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/6",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/7",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/8",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/9",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/10",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 			],
@@ -485,27 +403,6 @@
 		{
 			"name": "Toh",
 			"about": "Del maya Toh (momoto ceja turquesa o pájaro reloj).\n\nAtrás quedaron sus glorias pasadas, en algún momento fue el favorito de los dioses del Mayab, hoy es un lunes más. La personalidad de nuestro intrépido amigo refleja el reconocimiento que alguna vez tuvo, pero quizás es incapaz de dejar ir esos momentos tan añorados de fama. Bastante amable, pero si las cosas andan mal no dudará en gritar y exigir lo que por derecho le corresponde.",
-			"easy_problems": [
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}"
-			],
-			"medium_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
-			],
-			"hard_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
-			],
 			"bonus_multiplier": 3,
 			"intro_texts": [
 				"¡Tic tac, tic tac! El tiempo es perfecto para una pizza deliciosa.",
@@ -538,62 +435,42 @@
 			"easy_problems_data": [
 				{
 					"fraction": "2/1",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/2",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/3",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/4",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/5",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/6",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/7",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/8",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/9",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/10",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 			],
@@ -726,27 +603,6 @@
 		{
 			"name": "Keken",
 			"about": "Del maya K’éek’en (cerdo, puerco o cochino).\n\nHeredero de la acaudalada familia \"Tocineta\" que por generaciones ha amasado una gran fortuna con el servicio de taxis. Ya sea por ser miembro del sindicato de taxistas o por ser un nepobaby, Keken tiene un temperamento bastante irritable e incluso puede ser algo berrinchudo, pero es uno de tus mejores clientes y siempre tratará de llegar a la hora de apertura para degustar su pizza del día.",
-			"easy_problems": [
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}"
-			],
-			"medium_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
-			],
-			"hard_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
-			],
 			"bonus_multiplier": 2,
 			"intro_texts": [
 				"¡Hola, amiguito! Soy el cerdo más hambriento de esta pizzería, ¡y ya estoy listo para ordenar!",
@@ -779,62 +635,42 @@
 			"easy_problems_data": [
 				{
 					"fraction": "2/1",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/2",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/3",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/4",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/5",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/6",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/7",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/8",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/9",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/10",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 			],
@@ -967,27 +803,6 @@
 		{
 			"name": "Zotz",
 			"about": "Del maya Soots' (murciélago).\n\nZotz es bastante retraída, incluso para los estándares de un murciélago. Ella mantendrá la serenidad y la paz a fin de evitar el mayor contacto social posible, así que no temas, pues no suele manifestar muchas emociones.",
-			"easy_problems": [
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}",
-				"{fraction}"
-			],
-			"medium_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
-			],
-			"hard_problems": [
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}",
-				"{fraction} {drinks} {breads}"
-			],
 			"bonus_multiplier": 5,
 			"intro_texts": [
 				"Hola, no quiero incomodarte. Solo vine a pedir mi pizza y disfrutar de mi momento.",
@@ -1020,62 +835,42 @@
 			"easy_problems_data": [
 				{
 					"fraction": "2/1",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/2",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/3",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/4",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/5",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/6",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/7",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/8",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/9",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 				{
 					"fraction": "2/10",
-					"drinks": "3",
-					"breads": "1",
 					"imagePath": "res://icon.svg"
 				},
 			],
