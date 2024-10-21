@@ -20,7 +20,7 @@ func clear_player_session() -> void:
 	self.score = 0
 	self.difficulty = "easy"
 	self.multipliers = []
-	self.character = 06
+	self.character = 0
 
 
 # Obtiene el siguiente personaje:
