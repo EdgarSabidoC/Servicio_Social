@@ -34,23 +34,23 @@
 			],
 			"easy_problems_data": [
 				{
-					"fraction": "2/1",
+					"fraction": "1/5",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/2",
+					"fraction": "1/7",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/3",
+					"fraction": "1/8",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/4",
+					"fraction": "1/4",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/5",
+					"fraction": "1/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
@@ -66,11 +66,11 @@
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/9",
+					"fraction": "2/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/10",
+					"fraction": "2/4",
 					"imagePath": "res://icon.svg"
 				},
 			],
@@ -234,19 +234,7 @@
 			],
 			"easy_problems_data": [
 				{
-					"fraction": "2/1",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/2",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/3",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/4",
+					"fraction": "3/4",
 					"imagePath": "res://icon.svg"
 				},
 				{
@@ -254,7 +242,19 @@
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/6",
+					"fraction": "4/7",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "1/12",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "7/8",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/6",
 					"imagePath": "res://icon.svg"
 				},
 				{
@@ -262,15 +262,15 @@
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/8",
+					"fraction": "3/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/9",
+					"fraction": "5/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/10",
+					"fraction": "7/12",
 					"imagePath": "res://icon.svg"
 				},
 			],
@@ -434,43 +434,43 @@
 			],
 			"easy_problems_data": [
 				{
-					"fraction": "2/1",
+					"fraction": "1/6",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/2",
+					"fraction": "5/8",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/3",
+					"fraction": "6/6",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/4",
+					"fraction": "3/8",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/5",
+					"fraction": "9/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/6",
+					"fraction": "10/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/7",
+					"fraction": "4/6",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/8",
+					"fraction": "6/7",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/9",
+					"fraction": "11/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/10",
+					"fraction": "4/5",
 					"imagePath": "res://icon.svg"
 				},
 			],
@@ -634,27 +634,27 @@
 			],
 			"easy_problems_data": [
 				{
-					"fraction": "2/1",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/2",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/3",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/4",
-					"imagePath": "res://icon.svg"
-				},
-				{
 					"fraction": "2/5",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/6",
+					"fraction": "3/4",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/4",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/8",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "4/12",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "3/6",
 					"imagePath": "res://icon.svg"
 				},
 				{
@@ -662,15 +662,15 @@
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/8",
+					"fraction": "12/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/9",
+					"fraction": "8/8",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/10",
+					"fraction": "7/7",
 					"imagePath": "res://icon.svg"
 				},
 			],
@@ -834,19 +834,7 @@
 			],
 			"easy_problems_data": [
 				{
-					"fraction": "2/1",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/2",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/3",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/4",
+					"fraction": "3/6",
 					"imagePath": "res://icon.svg"
 				},
 				{
@@ -854,7 +842,23 @@
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/6",
+					"fraction": "2/3",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "5/12",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "10/12",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "8/12",
+					"imagePath": "res://icon.svg"
+				},
+				{
+					"fraction": "9/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
@@ -862,15 +866,11 @@
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/8",
+					"fraction": "1/7",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/9",
-					"imagePath": "res://icon.svg"
-				},
-				{
-					"fraction": "2/10",
+					"fraction": "4/5",
 					"imagePath": "res://icon.svg"
 				},
 			],

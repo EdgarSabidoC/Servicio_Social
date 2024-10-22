@@ -272,7 +272,8 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 		problem = "Voy a querer "
 	elif probability <= 1:
 		problem = "Dame "
-	
+	print_debug("FRACCIÓN: ", fraction)
+	print_debug("NUMERADOR: {num} DENOMINADOR: {den}".format({"num": numerator, "den": denominator}))
 	var slices: String = "rebanada"
 	var size: String = ""
 	match denominator:
@@ -300,8 +301,7 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				if numerator > "1":
 					slices = "rebanadas"
 					size = "medianas"
-				else:
-					problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
+				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
 			else:
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"6":
@@ -331,6 +331,22 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
 			else:
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
+		"3":
+			size = "tamaño personal"
+			if probability <= 0.61:
+				if numerator > "1":
+					slices = "rebanadas"
+				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
+			else:
+				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
+		"2":
+			size = "tamaño personal"
+			if probability <= 0.52:
+				if numerator > "1":
+					slices = "rebanadas"
+				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
+			else:
+				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 	
 	if PlayerSession.difficulty != "easy":
 		var _drinks: String = "refrescos"
@@ -339,6 +355,8 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 			_drinks = "refresco"
 		if breads == "1":
 			_breads = "pan"
-		problem += ", también quiero la promoción de {drinks} {_drinks} y {breads} {_breads}".format({"drinks": drinks, "_drinks": _drinks, "breads": breads, "_breads": _breads})
-	print_debug("DIFFICULTY: ", PlayerSession.difficulty)
+		problem += ", también quiero la promoción de {drinks} {_drinks} y {breads} {_breads}, por favor.".format({"drinks": drinks, "_drinks": _drinks, "breads": breads, "_breads": _breads})
+	else:
+		problem += ", por favor."
+	print_debug("PROBLEM: ", problem)
 	return problem
