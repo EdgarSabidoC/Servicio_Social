@@ -247,6 +247,71 @@ func get_character_icon(character: CharacterResource) -> Texture2D:
 	return load(character.main_asset_path)
 
 
+# Dado un numerador y un denominador de una fracción, genera una expresión aritmética.
+func generateExpressionFromFraction(num: String, den: String) -> String:
+	var allowed_denominators = [2, 3, 4, 5, 6, 7, 8, 12]
+	var operations = ["+", "-", "*"]
+	
+	# Se convierten a enteros el numerador y el denominador:
+	var numerator: int = int(num)
+	var denominator: int = int(den)
+
+	# Valida denominador y numerador
+	if denominator not in allowed_denominators or numerator <= 0 or numerator > denominator:
+		print_debug("ERROR: Denominador o numerador inválidos.")
+		return ""
+
+	# Elige una operación aleatoriamente (suma, resta, multiplicación)
+	var chosen_operation: String = operations[randi() % operations.size()]
+	
+	# Se genera la expresión:
+	var expression: String = ""
+	match chosen_operation:
+		"+": # Generar suma
+			var frac: Array = generateFractionLessThan(numerator, denominator)
+			var num2 = numerator * frac[1] - frac[0] * denominator
+			var den2 = denominator * frac[1]
+			expression = "{num1}/{den1} + {num2}/{den2}".format({"num1": frac[0], "den1": frac[1], "num2": num2, "den2": den2})
+		
+		"-": # Generar resta
+			var frac: Array = generateFractionGreaterThan(numerator, denominator)
+			var num2: int = frac[0] * denominator - numerator * frac[1]
+			var den2: int = denominator * frac[1]
+			expression = "{num1}/{den1} - {num2}/{den2}".format({"num1": frac[0], "den1": frac[1], "num2": num2, "den2": den2})
+		
+		"*": # Generar multiplicación
+			var factor = findFactorForFraction(numerator, denominator)
+			@warning_ignore("integer_division")
+			var num1: int = numerator / factor
+			@warning_ignore("integer_division")
+			var den1: int = denominator / factor
+			expression = "{num1}/{den1} * {factor}/{factor}".format({"num1": num1, "den1": den1, "factor": factor})
+	
+	return expression
+
+
+# Genera una fracción menor que la original (para suma)
+func generateFractionLessThan(numerator: int, denominator: int) -> Array:
+	var num1 = randi() % numerator + 1
+	var den1 = denominator
+	return [num1, den1]
+
+
+# Genera una fracción mayor que la original (para resta)
+func generateFractionGreaterThan(numerator: int, denominator: int) -> Array:
+	var num1 = randi() % (denominator - numerator) + numerator + 1
+	var den1 = denominator
+	return [num1, den1]
+
+
+# Encuentra un factor multiplicativo para la fracción
+func findFactorForFraction(numerator: int, denominator: int) -> int:
+	@warning_ignore("integer_division")
+	var factor = randi() % (denominator / numerator) + 1
+	return factor
+
+
+# Genera un problema
 func generateProblem(fraction: String, drinks: String = "", breads: String = "") -> String:
 	var problem: String = ""
 	
@@ -276,10 +341,15 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 	print_debug("NUMERADOR: {num} DENOMINADOR: {den}".format({"num": numerator, "den": denominator}))
 	var slices: String = "rebanada"
 	var size: String = ""
+	
+	# Si la dificultad es difícil se genera una expresión aritmética:
+	if PlayerSession.difficulty == "hard":
+		fraction = generateExpressionFromFraction(numerator, denominator)
+
 	match denominator:
 		"12":
 			size = "grande"
-			if probability <= 0.54:
+			if probability <= 0.54 and PlayerSession.difficulty == "medium":
 				if numerator > "1":
 					slices = "rebanadas"
 					size = "grandes"
@@ -288,7 +358,7 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"8":
 			size = "grande"
-			if probability <= 0.65:
+			if probability <= 0.65 and PlayerSession.difficulty == "medium":
 				if numerator > "1":
 					slices = "rebanadas"
 					size = "grandes"
@@ -297,7 +367,7 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"7":
 			size = "mediana"
-			if probability <= 0.62:
+			if probability <= 0.62 and PlayerSession.difficulty == "medium":
 				if numerator > "1":
 					slices = "rebanadas"
 					size = "medianas"
@@ -306,7 +376,7 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"6":
 			size = "mediana"
-			if probability <= 0.55:
+			if probability <= 0.55 and PlayerSession.difficulty != "hard":
 				if numerator > "1":
 					slices = "rebanadas"
 					size = "medianas"
@@ -315,7 +385,7 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"5":
 			size = "chica"
-			if probability <= 0.5:
+			if probability <= 0.5 and PlayerSession.difficulty != "hard":
 				if numerator > "1":
 					slices = "rebanadas"
 					size = "chicas"
@@ -324,7 +394,7 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"4":
 			size = "chica"
-			if probability <= 0.6:
+			if probability <= 0.6 and PlayerSession.difficulty != "hard":
 				if numerator > "1":
 					slices = "rebanadas"
 					size = "chicas"
@@ -333,7 +403,7 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"3":
 			size = "tamaño personal"
-			if probability <= 0.61:
+			if probability <= 0.61 and PlayerSession.difficulty != "hard":
 				if numerator > "1":
 					slices = "rebanadas"
 				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
@@ -341,7 +411,7 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"2":
 			size = "tamaño personal"
-			if probability <= 0.52:
+			if probability <= 0.52 and PlayerSession.difficulty != "hard":
 				if numerator > "1":
 					slices = "rebanadas"
 				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
