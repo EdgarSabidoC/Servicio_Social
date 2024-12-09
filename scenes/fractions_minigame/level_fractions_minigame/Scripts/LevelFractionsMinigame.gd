@@ -236,7 +236,9 @@ func _on_answer_button_1_pressed() -> void:
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_1.defeated
 	elif self.answer_button_1.defeated and self.extras_container.correctAnswer:
-		self.defeated = true
+		self.defeated =  self.answer_button_1.defeated
+	else:
+		self.defeated = false
 	# Test debug:
 	print_debug("Defeated: %s" %self.defeated)
 	CharactersData.characters[self.character].defeated = self.defeated
@@ -254,7 +256,9 @@ func _on_answer_button_2_pressed() -> void:
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_2.defeated
 	elif self.answer_button_2.defeated and self.extras_container.correctAnswer:
-		self.defeated = true
+		self.defeated = self.answer_button_2.defeated
+	else:
+		self.defeated = false
 	# Test debug:
 	print_debug("Defeated: %s" %self.defeated)
 	CharactersData.characters[self.character].defeated = self.defeated
@@ -272,7 +276,9 @@ func _on_answer_button_3_pressed() -> void:
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_3.defeated
 	elif self.answer_button_3.defeated and self.extras_container.correctAnswer:
-		self.defeated = true
+		self.defeated = self.answer_button_3.defeated
+	else:
+		self.defeated = false
 	# Test debug:
 	print_debug("Defeated: %s" %self.defeated)
 	CharactersData.characters[self.character].defeated = self.defeated
@@ -290,7 +296,9 @@ func _on_answer_button_4_pressed() -> void:
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_4.defeated
 	elif self.answer_button_4.defeated and self.extras_container.correctAnswer:
-		self.defeated = true
+		self.defeated = self.answer_button_4.defeated
+	else:
+		self.defeated = false
 	# Test debug:
 	print_debug("Defeated: %s" %self.defeated)
 	CharactersData.characters[self.character].defeated = self.defeated

@@ -6,9 +6,11 @@ extends VBoxContainer
 @onready var extras_container: VBoxContainer = $"."
 
 
-func _enter_tree() -> void:
+func _ready() -> void:
 	# Si la dificultad es fácil, entonces se ocultan los sliders de extras:
 	if PlayerSession.difficulty == "easy":
+		print_debug("NO DEBERÍA ENTRAR A PROCESS")
+		self.set_process(false)
 		self.hide()
 
 

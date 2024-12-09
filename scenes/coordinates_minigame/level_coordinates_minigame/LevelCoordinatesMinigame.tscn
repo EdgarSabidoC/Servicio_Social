@@ -799,8 +799,8 @@ pivot_offset = Vector2(32.5002, 54)
 texture = SubResource("AtlasTexture_pmlm1")
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_jwl6i")
-frame_index = 5
 auto_play = true
+playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Wall" type="NinePatchRect" parent="CanvasLayer"]
@@ -943,8 +943,8 @@ texture = SubResource("AtlasTexture_prdtn")
 stretch_mode = 5
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_7qhfs")
-frame_index = 45
 auto_play = true
+playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Opossum"]
