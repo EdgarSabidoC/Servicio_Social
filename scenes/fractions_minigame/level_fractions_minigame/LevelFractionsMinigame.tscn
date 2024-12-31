@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ba5ecdey055s5" path="res://assets/graphical_assets/characters/icons/keken_icon.tga" id="18_xp0px"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m4vv6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_av2ji"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 320, 240, 160)
 
@@ -32,9 +33,9 @@ region = Rect2(0, 0, 240, 160)
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 160, 240, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_av2ji"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dnvn"]
 atlas = ExtResource("12_4d807")
-region = Rect2(0, 480, 240, 160)
+region = Rect2(0, 160, 240, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2x5ef"]
 resource_local_to_scene = true
@@ -106,10 +107,12 @@ anchor_bottom = 1.0
 offset_left = 0.359985
 pivot_offset = Vector2(391.5, 288)
 texture = SubResource("AtlasTexture_m4vv6")
+texture = SubResource("AtlasTexture_av2ji")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")
 frame_index = 2
+frame_index = 3
 auto_play = true
 playing = true
 
