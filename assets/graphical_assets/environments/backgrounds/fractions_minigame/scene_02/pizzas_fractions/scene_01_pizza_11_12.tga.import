@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dawlvmhxye4c8"
-path="res://.godot/imported/scene_01_pizza_7.tga-c43d5425ddff9cabd69cef7c7dafffab.ctex"
+uid="uid://c18ggcex35tpl"
+path="res://.godot/imported/scene_01_pizza_11_12.tga-394883cc363e7d1b39aa6623da460827.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_7.tga"
-dest_files=["res://.godot/imported/scene_01_pizza_7.tga-c43d5425ddff9cabd69cef7c7dafffab.ctex"]
+source_file="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_11_12.tga"
+dest_files=["res://.godot/imported/scene_01_pizza_11_12.tga-394883cc363e7d1b39aa6623da460827.ctex"]
 
 [params]
 

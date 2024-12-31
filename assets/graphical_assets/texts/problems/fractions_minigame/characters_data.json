@@ -834,19 +834,19 @@
 			],
 			"easy_problems_data": [
 				{
-					"fraction": "3/6",
-					"imagePath": "res://icon.svg"
+					"fraction": "2/4",
+					"imagePath": "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_2_4.tga"
 				},
 				{
 					"fraction": "2/5",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "2/3",
+					"fraction": "2/7",
 					"imagePath": "res://icon.svg"
 				},
 				{
-					"fraction": "5/12",
+					"fraction": "2/12",
 					"imagePath": "res://icon.svg"
 				},
 				{
