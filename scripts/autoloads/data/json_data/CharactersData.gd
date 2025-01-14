@@ -1,5 +1,5 @@
 extends Node
-class_name LoadCharacters 
+class_name LoadCharacters
 
 const LOWER_LIMIT: int = 0
 const PROBLEMS_DATA_UPPER_LIMIT: int = 9
@@ -11,6 +11,33 @@ const NUMBER_OF_CHARACTERS: int = 5
 @onready var easy_data_loaded: bool = false
 @onready var hard_data_loaded: bool = false
 @onready var medium_data_loaded: bool = false
+@onready var fractions_cache: Array = []
+@onready var easy_fractions = [
+	"1",
+	"1/4","2/4","3/4","4/4",
+	"1/5","2/5","3/5","4/5","5/5",
+	"1/6","2/6","3/6","4/6","5/6","6/6",
+	"1/7","2/7","3/7","4/7","5/7","6/7","7/7",
+]
+
+@onready var medium_fractions = [
+	"1/1",
+	"1/4","2/4","3/4","4/4",
+	"1/5","2/5","3/5","4/5","5/5",
+	"1/6","2/6","3/6","4/6","5/6","6/6",
+	"1/7","2/7","3/7","4/7","5/7","6/7","7/7",
+	"1/8","2/8","3/8","4/8","5/8","6/8","7/8","8/8"
+]
+
+@onready var hard_fractions = [
+	"1",
+	"1/4","2/4","3/4","4/4",
+	"1/5","2/5","3/5","4/5","5/5",
+	"1/6","2/6","3/6","4/6","5/6","6/6",
+	"1/7","2/7","3/7","4/7","5/7","6/7","7/7",
+	"1/8","2/8","3/8","4/8","5/8","6/8","7/8","8/8",
+	"1/12","2/12","3/12","4/12","5/12","6/12","7/12","8/12","9/12","10/12","11/12","12/12"
+]
 
 # Se accede a la global como: CharactersData.characters
 @onready var characters: Array[CharacterResource] = []
@@ -100,21 +127,21 @@ func loadProblemsData() -> void:
 		outro_sad_texts.shuffle()
 		
 		# Se asignan los datos al personaje:
-		character.intro_text = intro_texts[randi_range(LOWER_LIMIT,DIALOGUES_UPPER_LIMIT)]
-		character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT,DIALOGUES_UPPER_LIMIT)]
-		character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT,DIALOGUES_UPPER_LIMIT)]
-		character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT,DIALOGUES_UPPER_LIMIT)]
+		character.intro_text = intro_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
+		character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
+		character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
+		character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
 		
 		# Se obtienen los datos del personaje de acuerdo a la dificultad:
 		match PlayerSession.difficulty:
 			"medium":
 				var medium_problems_data: Array = characters_data[n]["medium_problems_data"]
 				medium_problems_data.shuffle()
-				character.correct_answer = medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+				character.correct_answer = medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
 				var wrong_answers_array: Array[Dictionary] = [
-					medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-					medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-					medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+					medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
+					medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
+					medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
 				]
 				character.wrong_answers = wrong_answers_array
 				character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
@@ -123,11 +150,11 @@ func loadProblemsData() -> void:
 			"hard":
 				var hard_problems_data: Array = characters_data[n]["hard_problems_data"]
 				hard_problems_data.shuffle()
-				character.correct_answer = hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+				character.correct_answer = hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
 				var wrong_answers_array: Array[Dictionary] = [
-					hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-					hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-					hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+					hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
+					hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
+					hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
 				]
 				character.wrong_answers = wrong_answers_array
 				character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
@@ -136,11 +163,11 @@ func loadProblemsData() -> void:
 			_:
 				var easy_problems_data: Array = characters_data[n]["easy_problems_data"]
 				easy_problems_data.shuffle()
-				character.correct_answer = easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+				character.correct_answer = easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
 				var wrong_answers_array: Array[Dictionary] = [
-					easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-					easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-					easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+					easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
+					easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
+					easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
 				]
 				character.wrong_answers = wrong_answers_array
 				character.problem = generateProblem(character.correct_answer["fraction"])
@@ -163,7 +190,7 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	
 	var json = readJSON(characters_data_path)
 	var characters_data: Array = json.data
-	var n: int	
+	var n: int
 	match character.name:
 		"Alux":
 			n = 0
@@ -192,21 +219,21 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	problems_data.shuffle()
 	
 	# Se asignan los datos al personaje:
-	character.intro_text = intro_texts[randi_range(LOWER_LIMIT,DIALOGUES_UPPER_LIMIT)]
-	character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT,DIALOGUES_UPPER_LIMIT)]
-	character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT,DIALOGUES_UPPER_LIMIT)]
-	character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT,DIALOGUES_UPPER_LIMIT)]
+	character.intro_text = intro_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
+	character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
+	character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
+	character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
 	
 	# Se obtienen los datos del personaje de acuerdo a la dificultad:
 	match PlayerSession.difficulty:
 		"medium":
 			var medium_problems_data: Array = characters_data[n]["medium_problems_data"]
 			medium_problems_data.shuffle()
-			character.correct_answer = medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+			character.correct_answer = medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
 			var wrong_answers_array: Array[Dictionary] = [
-				medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-				medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-				medium_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+				medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
+				medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
+				medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
 			]
 			character.wrong_answers = wrong_answers_array
 			character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
@@ -214,11 +241,11 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 		"hard":
 			var hard_problems_data: Array = characters_data[n]["hard_problems_data"]
 			hard_problems_data.shuffle()
-			character.correct_answer = hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+			character.correct_answer = hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
 			var wrong_answers_array: Array[Dictionary] = [
-				hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-				hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-				hard_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+				hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
+				hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
+				hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
 			]
 			character.wrong_answers = wrong_answers_array
 			character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
@@ -226,11 +253,11 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 		_:
 			var easy_problems_data: Array = characters_data[n]["easy_problems_data"]
 			easy_problems_data.shuffle()
-			character.correct_answer = easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT))
+			character.correct_answer = easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
 			var wrong_answers_array: Array[Dictionary] = [
-				easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-1)), \
-				easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-2)), \
-				easy_problems_data.pop_at(randi_range(LOWER_LIMIT,PROBLEMS_DATA_UPPER_LIMIT-3))
+				easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
+				easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
+				easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
 			]
 			character.wrong_answers = wrong_answers_array
 			character.problem = generateProblem(character.correct_answer["fraction"])
@@ -240,6 +267,93 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 func clear_data() -> void:
 	for character in self.characters:
 		character.clear()
+
+
+# Obtiene la ruta del gráfica de una pizza dada una fracción:
+func get_pizza_graph(fraction: String) -> String:
+	match fraction:
+		"1/4":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_1_4.tga"
+		"2/4":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_2_4.tga"
+		"3/4":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_3_4.tga"
+		"1/5":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_1_5.tga"
+		"2/5":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_2_5.tga"
+		"3/5":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_3_5.tga"
+		"4/5":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_4_5.tga"
+		"1/7":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_1_7.tga"
+		"2/7":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_2_7.tga"
+		"3/7":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_3_7.tga"
+		"4/7":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_4_7.tga"
+		"5/7":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_5_7.tga"
+		"6/7":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_6_7.tga"
+		"1/8":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_1_8.tga"
+		"2/8":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_2_8.tga"
+		"3/8":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_3_8.tga"
+		"4/8":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_4_8.tga"
+		"5/8":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_5_8.tga"
+		"6/8":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_6_8.tga"
+		"7/8":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_7_8.tga"
+		"1/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_1_12.tga"
+		"2/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_2_12.tga"
+		"3/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_3_12.tga"
+		"4/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_4_12.tga"
+		"5/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_5_12.tga"
+		"6/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_6_12.tga"
+		"7/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_7_12.tga"
+		"8/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_8_12.tga"
+		"9/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_9_12.tga"
+		"10/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_10_12.tga"
+		"11/12":
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_11_12.tga"
+		_:
+			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_1.tga"
+
+
+# Obtiene una fracción aleatoria:
+func get_rand_fraction() -> String:
+	var fraction: String = ""
+	randomize()
+	match PlayerSession.difficulty:
+		"hard":
+			hard_fractions.shuffle()
+			fraction = hard_fractions.pop_at(randi() % hard_fractions.size())
+		"medium":
+			medium_fractions.shuffle()
+			fraction = medium_fractions.pop_at(randi() % medium_fractions.size())
+		_:
+			easy_fractions.shuffle()
+			fraction = easy_fractions.pop_at(randi() % easy_fractions.size())
+	fractions_cache.append(fraction)
+	return fraction
 
 
 # Retorna el asset principal del personaje:
