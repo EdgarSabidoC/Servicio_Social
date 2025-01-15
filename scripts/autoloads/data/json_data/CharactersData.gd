@@ -11,36 +11,31 @@ const NUMBER_OF_CHARACTERS: int = 5
 @onready var easy_data_loaded: bool = false
 @onready var hard_data_loaded: bool = false
 @onready var medium_data_loaded: bool = false
-@onready var fractions_cache: Array = []
+@onready var answers_cache: Array = []
 @onready var easy_fractions = [
-	"1",
-	"1/4","2/4","3/4","4/4",
-	"1/5","2/5","3/5","4/5","5/5",
-	"1/6","2/6","3/6","4/6","5/6","6/6",
-	"1/7","2/7","3/7","4/7","5/7","6/7","7/7",
+	"1/4","2/4","3/4",
+	"1/5","2/5","3/5","4/5",
+	"1/7","2/7","3/7","4/7","5/7","6/7"
 ]
 
 @onready var medium_fractions = [
-	"1/1",
-	"1/4","2/4","3/4","4/4",
-	"1/5","2/5","3/5","4/5","5/5",
-	"1/6","2/6","3/6","4/6","5/6","6/6",
-	"1/7","2/7","3/7","4/7","5/7","6/7","7/7",
-	"1/8","2/8","3/8","4/8","5/8","6/8","7/8","8/8"
+	"1/4","2/4","3/4",
+	"1/5","2/5","3/5","4/5",
+	"1/7","2/7","3/7","4/7","5/7","6/7",
+	"1/8","2/8","3/8","4/8","5/8","6/8","7/8",
 ]
 
 @onready var hard_fractions = [
-	"1",
-	"1/4","2/4","3/4","4/4",
-	"1/5","2/5","3/5","4/5","5/5",
-	"1/6","2/6","3/6","4/6","5/6","6/6",
-	"1/7","2/7","3/7","4/7","5/7","6/7","7/7",
-	"1/8","2/8","3/8","4/8","5/8","6/8","7/8","8/8",
-	"1/12","2/12","3/12","4/12","5/12","6/12","7/12","8/12","9/12","10/12","11/12","12/12"
+	"1/4","2/4","3/4",
+	"1/5","2/5","3/5","4/5",
+	"1/7","2/7","3/7","4/7","5/7","6/7",
+	"1/8","2/8","3/8","4/8","5/8","6/8","7/8",
+	"1/12","2/12","3/12","4/12","5/12","6/12","7/12","8/12","9/12","10/12","11/12"
 ]
 
 # Se accede a la global como: CharactersData.characters
 @onready var characters: Array[CharacterResource] = []
+
 
 func _ready() -> void:
 	# Se cargan los datos al iniciar:
@@ -112,7 +107,6 @@ func loadProblemsData() -> void:
 				n = 3
 			"Zotz":
 				n = 4
-		
 		# Se cambia la semilla:
 		randomize()
 		
@@ -132,47 +126,30 @@ func loadProblemsData() -> void:
 		character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
 		character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
 		
-		# Se obtienen los datos del personaje de acuerdo a la dificultad:
-		match PlayerSession.difficulty:
-			"medium":
-				var medium_problems_data: Array = characters_data[n]["medium_problems_data"]
-				medium_problems_data.shuffle()
-				character.correct_answer = medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
-				var wrong_answers_array: Array[Dictionary] = [
-					medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
-					medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
-					medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
-				]
-				character.wrong_answers = wrong_answers_array
-				character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
-				medium_data_loaded = true
-				print_debug(character.problem)
-			"hard":
-				var hard_problems_data: Array = characters_data[n]["hard_problems_data"]
-				hard_problems_data.shuffle()
-				character.correct_answer = hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
-				var wrong_answers_array: Array[Dictionary] = [
-					hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
-					hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
-					hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
-				]
-				character.wrong_answers = wrong_answers_array
-				character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
-				hard_data_loaded = true
-				print_debug(character.problem)
-			_:
-				var easy_problems_data: Array = characters_data[n]["easy_problems_data"]
-				easy_problems_data.shuffle()
-				character.correct_answer = easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
-				var wrong_answers_array: Array[Dictionary] = [
-					easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
-					easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
-					easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
-				]
-				character.wrong_answers = wrong_answers_array
-				character.problem = generateProblem(character.correct_answer["fraction"])
-				easy_data_loaded = true
-				print_debug(character.problem)
+		# Se genera un problema:
+		var fraction: String = get_rand_fraction()
+		# Respuesta correcta:
+		
+		if PlayerSession.difficulty != "easy":
+			character.correct_answer = {"fraction": fraction, "imagePath": get_pizza_graph(fraction), "drinks": str(gen_rand_drinks()), "breads": str(gen_rand_breads())}
+			# Se crea un problema con su respuesta correcta:
+			character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
+		else:
+			character.correct_answer = {"fraction": fraction, "imagePath": get_pizza_graph(fraction)}
+			# Se crea un problema con su respuesta correcta:
+			character.problem = generateProblem(character.correct_answer["fraction"])
+		# Se obtienen las respuestas incorrectas:
+		for i in range(3):
+			fraction = get_rand_fraction()
+			var problem: Dictionary
+			if PlayerSession.difficulty != "easy":
+				problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction), "drinks": str(gen_rand_drinks()), "breads": str(gen_rand_breads())}
+			else:
+				problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction)}
+			character.wrong_answers.append(problem)
+		
+		# Se regresan las fracciones al pool de respuestas:
+		return_fractions_to_list()
 
 	# Se mezcla la lista de personajes:
 	randomize()
@@ -181,6 +158,7 @@ func loadProblemsData() -> void:
 
 # Función que carga los datos de problema de un personaje en específico.
 # Esta función debe ser utilizada después de loadCharacters().
+# No regresa las fracciones de los problemas al pool.
 func loadProblemCharacter(character: CharacterResource) -> void:
 	if (PlayerSession.difficulty == "easy" and easy_data_loaded) \
 	or (PlayerSession.difficulty == "medium" and medium_data_loaded) \
@@ -194,7 +172,7 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	match character.name:
 		"Alux":
 			n = 0
-		"huolpoch":
+		"Huolpoch":
 			n = 1
 		"Toh":
 			n = 2
@@ -211,12 +189,10 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	var outro_happy_texts: Array = characters_data[n]["outro_happy_texts"]
 	var outro_angry_texts: Array = characters_data[n]["outro_angry_texts"]
 	var outro_sad_texts: Array = characters_data[n]["outro_sad_texts"]
-	var problems_data: Array = characters_data[n]["problems_data"]
 	intro_texts.shuffle()
 	outro_happy_texts.shuffle()
 	outro_angry_texts.shuffle()
 	outro_sad_texts.shuffle()
-	problems_data.shuffle()
 	
 	# Se asignan los datos al personaje:
 	character.intro_text = intro_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
@@ -224,44 +200,30 @@ func loadProblemCharacter(character: CharacterResource) -> void:
 	character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
 	character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
 	
-	# Se obtienen los datos del personaje de acuerdo a la dificultad:
-	match PlayerSession.difficulty:
-		"medium":
-			var medium_problems_data: Array = characters_data[n]["medium_problems_data"]
-			medium_problems_data.shuffle()
-			character.correct_answer = medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
-			var wrong_answers_array: Array[Dictionary] = [
-				medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
-				medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
-				medium_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
-			]
-			character.wrong_answers = wrong_answers_array
-			character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
-			print_debug(character.problem)
-		"hard":
-			var hard_problems_data: Array = characters_data[n]["hard_problems_data"]
-			hard_problems_data.shuffle()
-			character.correct_answer = hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
-			var wrong_answers_array: Array[Dictionary] = [
-				hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
-				hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
-				hard_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
-			]
-			character.wrong_answers = wrong_answers_array
-			character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
-			print_debug(character.problem)
-		_:
-			var easy_problems_data: Array = characters_data[n]["easy_problems_data"]
-			easy_problems_data.shuffle()
-			character.correct_answer = easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT))
-			var wrong_answers_array: Array[Dictionary] = [
-				easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 1)), \
-				easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 2)), \
-				easy_problems_data.pop_at(randi_range(LOWER_LIMIT, PROBLEMS_DATA_UPPER_LIMIT - 3))
-			]
-			character.wrong_answers = wrong_answers_array
-			character.problem = generateProblem(character.correct_answer["fraction"])
-			print_debug(character.problem)
+	# Se genera un problema:
+	var fraction: String = get_rand_fraction()
+	# Respuesta correcta:
+	
+	if PlayerSession.difficulty != "easy":
+		character.correct_answer = {"fraction": fraction, "imagePath": get_pizza_graph(fraction), "drinks": str(gen_rand_drinks()), "breads": str(gen_rand_breads())}
+		# Se crea un problema con su respuesta correcta:
+		character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
+	else:
+		character.correct_answer = {"fraction": fraction, "imagePath": get_pizza_graph(fraction)}
+		# Se crea un problema con su respuesta correcta:
+		character.problem = generateProblem(character.correct_answer["fraction"])
+	# Se obtienen las respuestas incorrectas:
+	for i in range(3):
+		fraction = get_rand_fraction()
+		var problem: Dictionary
+		if PlayerSession.difficulty != "easy":
+			problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction), "drinks": str(gen_rand_drinks()), "breads": str(gen_rand_breads())}
+		else:
+			problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction)}
+		character.wrong_answers.append(problem)
+	
+	# Se regresan las fracciones al pool de respuestas:
+	return_fractions_to_list()
 
 
 func clear_data() -> void:
@@ -335,6 +297,7 @@ func get_pizza_graph(fraction: String) -> String:
 		"11/12":
 			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_11_12.tga"
 		_:
+			print_debug("Entró la fracción: ", fraction)
 			return "res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/pizzas_fractions/scene_01_pizza_1.tga"
 
 
@@ -345,15 +308,42 @@ func get_rand_fraction() -> String:
 	match PlayerSession.difficulty:
 		"hard":
 			hard_fractions.shuffle()
-			fraction = hard_fractions.pop_at(randi() % hard_fractions.size())
+			fraction = hard_fractions.pop_back()
+			print_debug(hard_fractions)
 		"medium":
 			medium_fractions.shuffle()
-			fraction = medium_fractions.pop_at(randi() % medium_fractions.size())
+			fraction = medium_fractions.pop_back()
 		_:
 			easy_fractions.shuffle()
-			fraction = easy_fractions.pop_at(randi() % easy_fractions.size())
-	fractions_cache.append(fraction)
+			fraction = easy_fractions.pop_back()
+	answers_cache.append(fraction)
 	return fraction
+
+
+# Genera un número de bebidas aleatorio:
+func gen_rand_drinks() -> int:
+	return randi_range(1, 5)
+
+
+# Genera un número de panes aleatorio:
+func gen_rand_breads() -> int:
+	return randi_range(1, 10)
+
+
+# Regresa las fracciones de respuestas correctas del caché a las listas originales:
+func return_fractions_to_list() -> void:
+	if answers_cache.is_empty():
+		return
+	match PlayerSession.difficulty:
+		"hard":
+			hard_fractions.append_array(answers_cache)
+			hard_fractions.shuffle()
+		"medium":
+			medium_fractions.append_array(answers_cache)
+			medium_fractions.shuffle()
+		_:
+			easy_fractions.append_array(answers_cache)
+			easy_fractions.shuffle()
 
 
 # Retorna el asset principal del personaje:
@@ -361,68 +351,120 @@ func get_character_icon(character: CharacterResource) -> Texture2D:
 	return load(character.main_asset_path)
 
 
-# Dado un numerador y un denominador de una fracción, genera una expresión aritmética.
-func generateExpressionFromFraction(num: String, den: String) -> String:
-	var allowed_denominators = [2, 3, 4, 5, 6, 7, 8, 12]
-	var operations = ["+", "-", "*"]
+# Verifica si dos fracciones son equivalentes:
+func are_equal(fraction1: String, fraction2: String) -> bool:
+	if fraction1 == fraction2:
+		return true
+	elif fraction1 == "2/4" or fraction1 == "4/8" or fraction1 == "6/12" or fraction1 == "1/2":
+		if fraction2 == "2/4" or fraction2 == "4/8" or fraction2 == "6/12" or fraction2 == "1/2":
+			return true
+	elif fraction1 == "3/4" or fraction1 == "6/8" or fraction1 == "9/12":
+		if fraction2 == "3/4" or fraction2 == "6/8" or fraction2 == "9/12":
+			return true
+	elif fraction1 == "4/4" or fraction1 == "5/5" or fraction1 == "7/7" or \
+		 fraction1 == "8/8" or fraction1 == "12/12" or fraction1 == "1/1" or fraction1 == "1":
+		if fraction2 == "4/4" or fraction2 == "5/5" or fraction2 == "7/7" or \
+		   fraction2 == "8/8" or fraction2 == "12/12" or fraction2 == "1/1" or fraction2 == "1":
+			return true
+	return false
+
+
+# Dados un numerador y denominador retorna el nombre de la fracción:
+func fraction_name(num: String, den: String) -> String:
+	var fraction: String = "{num}/{den}".format({"num": num, "den": den})
+	var new_expression: String = ""
 	
-	# Se convierten a enteros el numerador y el denominador:
-	var numerator: int = int(num)
-	var denominator: int = int(den)
-
-	# Valida denominador y numerador
-	if denominator not in allowed_denominators or numerator <= 0 or numerator > denominator:
-		print_debug("ERROR: Denominador o numerador inválidos.")
-		return ""
-
-	# Elige una operación aleatoriamente (suma, resta, multiplicación)
-	var chosen_operation: String = operations[randi() % operations.size()]
+	if PlayerSession.difficulty == "hard":
+		if (num == "2" and den == "4") or \
+			(num == "6" and den == "12") or \
+			(num == "4" and den == "8"):
+			num = "1"
+			den = "2"
+		elif (num == "6" and den == "8") or (num == "9" and den == "12") :
+			num = "3"
+			den = "4"
 	
-	# Se genera la expresión:
-	var expression: String = ""
-	match chosen_operation:
-		"+": # Generar suma
-			var frac: Array = generateFractionLessThan(numerator, denominator)
-			var num2 = numerator * frac[1] - frac[0] * denominator
-			var den2 = denominator * frac[1]
-			expression = "{num1}/{den1} + {num2}/{den2}".format({"num1": frac[0], "den1": frac[1], "num2": num2, "den2": den2})
-		
-		"-": # Generar resta
-			var frac: Array = generateFractionGreaterThan(numerator, denominator)
-			var num2: int = frac[0] * denominator - numerator * frac[1]
-			var den2: int = denominator * frac[1]
-			expression = "{num1}/{den1} - {num2}/{den2}".format({"num1": frac[0], "den1": frac[1], "num2": num2, "den2": den2})
-		
-		"*": # Generar multiplicación
-			var factor = findFactorForFraction(numerator, denominator)
-			@warning_ignore("integer_division")
-			var num1: int = numerator / factor
-			@warning_ignore("integer_division")
-			var den1: int = denominator / factor
-			expression = "{num1}/{den1} * {factor}/{factor}".format({"num1": num1, "den1": den1, "factor": factor})
-	
-	return expression
+	match fraction:
+		"1":
+			new_expression = "una"
+		"1/1":
+			new_expression = "una"
+		"1/2":
+			new_expression = "media"
+		"1/4":
+			new_expression = "un cuarto"
+		"2/4":
+			new_expression = "dos cuartos"
+		"3/4":
+			new_expression = "tres cuartos"
+		"4/4":
+			new_expression = "cuatro cuartos"
+		"1/5":
+			new_expression = "un quinto"
+		"2/5":
+			new_expression = "dos quintos"
+		"3/5":
+			new_expression = "tres quintos"
+		"4/5":
+			new_expression = "cuatro quintos"
+		"5/5":
+			new_expression = "cinco quintos"
+		"1/7":
+			new_expression = "un séptimo"
+		"2/7":
+			new_expression = "dos séptimos"
+		"3/7":
+			new_expression = "tres séptimos"
+		"4/7":
+			new_expression = "cuatro séptimos"
+		"5/7":
+			new_expression = "cinco séptimos"
+		"6/7":
+			new_expression = "seis séptimos"
+		"7/7":
+			new_expression = "siete séptimos"
+		"1/8":
+			new_expression = "un octavo"
+		"2/8":
+			new_expression = "dos octavos"
+		"3/8":
+			new_expression = "tres octavos"
+		"4/8":
+			new_expression = "cuatro octavos"
+		"5/8":
+			new_expression = "cinco octavos"
+		"6/8":
+			new_expression = "seis octavos"
+		"7/8":
+			new_expression = "siete octavos"
+		"8/8":
+			new_expression = "ocho octavos"
+		"1/12":
+			new_expression = "un doceavo"
+		"2/12":
+			new_expression = "dos doceavos"
+		"3/12":
+			new_expression = "tres doceavos"
+		"4/12":
+			new_expression = "cuatro doceavos"
+		"5/12":
+			new_expression = "cinco doceavos"
+		"6/12":
+			new_expression = "seis doceavos"
+		"7/12":
+			new_expression = "siete doceavos"
+		"8/12":
+			new_expression = "ocho doceavos"
+		"9/12":
+			new_expression = "nueve doceavos"
+		"10/12":
+			new_expression = "diez doceavos"
+		"11/12":
+			new_expression = "once doceavos"
+		"12/12":
+			new_expression = "doce doceavos"
 
-
-# Genera una fracción menor que la original (para suma)
-func generateFractionLessThan(numerator: int, denominator: int) -> Array:
-	var num1 = randi() % numerator + 1
-	var den1 = denominator
-	return [num1, den1]
-
-
-# Genera una fracción mayor que la original (para resta)
-func generateFractionGreaterThan(numerator: int, denominator: int) -> Array:
-	var num1 = randi() % (denominator - numerator) + numerator + 1
-	var den1 = denominator
-	return [num1, den1]
-
-
-# Encuentra un factor multiplicativo para la fracción
-func findFactorForFraction(numerator: int, denominator: int) -> int:
-	@warning_ignore("integer_division")
-	var factor = randi() % (denominator / numerator) + 1
-	return factor
+	return new_expression
 
 
 # Genera un problema
@@ -451,18 +493,16 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 		problem = "Voy a querer "
 	elif probability <= 1:
 		problem = "Dame "
-	print_debug("FRACCIÓN: ", fraction)
-	print_debug("NUMERADOR: {num} DENOMINADOR: {den}".format({"num": numerator, "den": denominator}))
 	var slices: String = "rebanada"
 	var size: String = ""
 	
-	# Si la dificultad es difícil se genera una expresión aritmética:
+	# Si la dificultad es mayor a fácil, se utilizan los nombres de las fracciones:
 	if PlayerSession.difficulty == "hard":
-		fraction = generateExpressionFromFraction(numerator, denominator)
+		fraction = fraction_name(numerator, denominator)
 
 	match denominator:
 		"12":
-			size = "grande"
+			size = "extra grande"
 			if probability <= 0.54 and PlayerSession.difficulty == "medium":
 				if numerator > "1":
 					slices = "rebanadas"
@@ -488,15 +528,6 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
 			else:
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
-		"6":
-			size = "mediana"
-			if probability <= 0.55 and PlayerSession.difficulty != "hard":
-				if numerator > "1":
-					slices = "rebanadas"
-					size = "medianas"
-				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
-			else:
-				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"5":
 			size = "chica"
 			if probability <= 0.5 and PlayerSession.difficulty != "hard":
@@ -507,27 +538,11 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 			else:
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
 		"4":
-			size = "chica"
+			size = "tamaño personal"
 			if probability <= 0.6 and PlayerSession.difficulty != "hard":
 				if numerator > "1":
 					slices = "rebanadas"
-					size = "chicas"
-				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
-			else:
-				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
-		"3":
-			size = "tamaño personal"
-			if probability <= 0.61 and PlayerSession.difficulty != "hard":
-				if numerator > "1":
-					slices = "rebanadas"
-				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
-			else:
-				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})
-		"2":
-			size = "tamaño personal"
-			if probability <= 0.52 and PlayerSession.difficulty != "hard":
-				if numerator > "1":
-					slices = "rebanadas"
+					size = "tamaño personal"
 				problem += "{numerator} {slices} {size}".format({"numerator": numerator, "slices": slices, "size": size})
 			else:
 				problem += "{fraction} de pizza {size}".format({"fraction": fraction, "size": size})

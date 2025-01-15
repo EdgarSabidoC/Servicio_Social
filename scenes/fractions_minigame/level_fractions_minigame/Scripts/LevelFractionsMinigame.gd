@@ -10,6 +10,7 @@ extends Node2D
 @onready var answer_button_4: AnswerButton = $CanvasLayer/Control/GridContainer/AnswerButton4
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var defeated: bool = false
+@onready var correct_pizza: bool = false
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var extras_container = $CanvasLayer/Control/ExtrasContainer
 @onready var buttons: Array[AnswerButton] = [answer_button_1, answer_button_2, answer_button_3, answer_button_4]
@@ -196,8 +197,7 @@ func set_score() -> void:
 	print_debug("El personaje es %s y es %s" % [CharactersData.characters[character].name, CharactersData.characters[character].defeated])
 	
 	# Se valida si se obtuvieron los puntos correctos:
-	if self.defeated and PlayerSession.difficulty != "easy" \
-	and self.extras_container.correctAnswer:
+	if self.defeated and PlayerSession.difficulty != "easy":
 		if self.clock.minutes < 1:
 			PlayerSession.score += self.default_score*CharactersData.characters[self.character].bonus_multiplier
 		else:
@@ -209,11 +209,29 @@ func set_score() -> void:
 			self.reduce_default_score()
 
 
+# Función que verifica si es correcta la respuesta
+func is_correct() -> bool:
+	if  !self.correct_pizza:
+		print_debug("Pizza incorrecta")
+		return false
+	elif str(extras_container.drinks.value) != CharactersData.characters[self.character].correct_answer["drinks"]:
+		print_debug("Cantidad de bebidas incorrecta: ", extras_container.drinks.value)
+		print_debug("Se esperaban: ", CharactersData.characters[self.character].correct_answer["drinks"])
+		return false
+	elif str(extras_container.breads.value) != CharactersData.characters[self.character].correct_answer["breads"]:
+		print_debug("Cantidad de panes incorrecta: ", extras_container.breads.value)
+		print_debug("Se esperaban: ", CharactersData.characters[self.character].correct_answer["breads"])
+		return false
+	self.defeated = true
+	CharactersData.characters[self.character].defeated = self.defeated
+	return true
+
+
 # Función que obtiene el score al haber presionado AcceptButton:
 func _on_accept_button_pressed():
-	# Se obtiene el puntaje:
-	self.set_score()
-	if self.defeated:
+	if is_correct():
+		# Se obtiene el puntaje:
+		self.set_score()
 		# Se muestra el puntaje obtenido en score_flash_label:
 		self.print_score()
 		print_debug("The character is dead :v")
@@ -226,6 +244,7 @@ func _on_accept_button_pressed():
 
 
 func _on_answer_button_1_pressed() -> void:
+	answer_button_1.button_pressed = true
 	answer_button_1.disabled = true
 	answer_button_2.button_pressed = false
 	answer_button_3.button_pressed = false
@@ -235,17 +254,12 @@ func _on_answer_button_1_pressed() -> void:
 	answer_button_4.disabled = false
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_1.defeated
-	elif self.answer_button_1.defeated and self.extras_container.correctAnswer:
-		self.defeated =  self.answer_button_1.defeated
 	else:
-		self.defeated = false
-	# Test debug:
-	print_debug("Defeated: %s" %self.defeated)
-	CharactersData.characters[self.character].defeated = self.defeated
-	print_debug("Character %s defeated: %s" %[self.character, CharactersData.characters[self.character].defeated])
+		self.correct_pizza =  self.answer_button_1.defeated
 
 
 func _on_answer_button_2_pressed() -> void:
+	answer_button_2.button_pressed = true
 	answer_button_2.disabled = true
 	answer_button_1.button_pressed = false
 	answer_button_3.button_pressed = false
@@ -255,17 +269,12 @@ func _on_answer_button_2_pressed() -> void:
 	answer_button_4.disabled = false
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_2.defeated
-	elif self.answer_button_2.defeated and self.extras_container.correctAnswer:
-		self.defeated = self.answer_button_2.defeated
 	else:
-		self.defeated = false
-	# Test debug:
-	print_debug("Defeated: %s" %self.defeated)
-	CharactersData.characters[self.character].defeated = self.defeated
-	print_debug("Character %s defeated: %s" %[self.character, CharactersData.characters[self.character].defeated])
+		self.correct_pizza =  self.answer_button_2.defeated
 
 
 func _on_answer_button_3_pressed() -> void:
+	answer_button_3.button_pressed = true
 	answer_button_3.disabled = true
 	answer_button_1.button_pressed = false
 	answer_button_2.button_pressed = false
@@ -275,17 +284,12 @@ func _on_answer_button_3_pressed() -> void:
 	answer_button_4.disabled = false
 	if PlayerSession.difficulty == "easy":
 		self.defeated = self.answer_button_3.defeated
-	elif self.answer_button_3.defeated and self.extras_container.correctAnswer:
-		self.defeated = self.answer_button_3.defeated
 	else:
-		self.defeated = false
-	# Test debug:
-	print_debug("Defeated: %s" %self.defeated)
-	CharactersData.characters[self.character].defeated = self.defeated
-	print_debug("Character %s defeated: %s" %[self.character, CharactersData.characters[self.character].defeated])
+		self.correct_pizza =  self.answer_button_3.defeated
 
 
 func _on_answer_button_4_pressed() -> void:
+	answer_button_4.button_pressed = true
 	answer_button_4.disabled = true
 	answer_button_1.button_pressed = false
 	answer_button_2.button_pressed = false
@@ -294,15 +298,9 @@ func _on_answer_button_4_pressed() -> void:
 	answer_button_2.disabled = false
 	answer_button_3.disabled = false
 	if PlayerSession.difficulty == "easy":
-		self.defeated = self.answer_button_4.defeated
-	elif self.answer_button_4.defeated and self.extras_container.correctAnswer:
-		self.defeated = self.answer_button_4.defeated
+		self.correct_pizza = self.answer_button_4.defeated
 	else:
-		self.defeated = false
-	# Test debug:
-	print_debug("Defeated: %s" %self.defeated)
-	CharactersData.characters[self.character].defeated = self.defeated
-	print_debug("Character %s defeated: %s" %[self.character, CharactersData.characters[self.character].defeated])
+		self.correct_pizza =  self.answer_button_4.defeated
 
 
 # Si se desactiva el menú de pausa:
