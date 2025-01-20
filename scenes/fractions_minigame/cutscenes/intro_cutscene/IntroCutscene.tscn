@@ -1,13 +1,44 @@
-[gd_scene load_steps=25 format=3 uid="uid://du4oiw4gwst0p"]
+[gd_scene load_steps=31 format=3 uid="uid://du4oiw4gwst0p"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/intro_cutscene/scripts/IntroCutscene.gd" id="1_mh2mp"]
+[ext_resource type="Texture2D" uid="uid://bs6y27mj81rwu" path="res://assets/graphical_assets/user_interface/button/pizzaMenuButton.tga" id="3_dy4fg"]
 [ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/Scene01.tscn" id="3_n2iwx"]
 [ext_resource type="Texture2D" uid="uid://cjma5hvf4tsdw" path="res://assets/graphical_assets/user_interface/button/buttons.tga" id="3_rwoer"]
-[ext_resource type="Theme" uid="uid://cl220ixbnd62e" path="res://assets/graphical_assets/styles/register_button.tres" id="3_t8qiy"]
 [ext_resource type="Texture2D" uid="uid://cg16nxnmuou8l" path="res://assets/graphical_assets/user_interface/container/pizzaContainer.tga" id="4_5ag7h"]
 [ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="4_gjk83"]
 [ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="6_3qxic"]
 [ext_resource type="PackedScene" uid="uid://dvxevt6jgtg4s" path="res://components/pizza_sizes_info/PizzaSizesInfoMenu.tscn" id="7_68bye"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_87glj"]
+texture = ExtResource("3_dy4fg")
+region_rect = Rect2(0, 0, 64, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koydq"]
+texture = ExtResource("4_gjk83")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c81mo"]
+texture = ExtResource("3_dy4fg")
+region_rect = Rect2(128, 0, 64, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nwp2"]
+texture = ExtResource("3_dy4fg")
+region_rect = Rect2(64, 0, 64, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_263o5"]
+texture = ExtResource("3_dy4fg")
+region_rect = Rect2(192, 0, 64, 48)
+
+[sub_resource type="Theme" id="Theme_b1rrm"]
+Button/styles/disabled = SubResource("StyleBoxTexture_87glj")
+Button/styles/focus = SubResource("StyleBoxTexture_koydq")
+Button/styles/hover = SubResource("StyleBoxTexture_c81mo")
+Button/styles/normal = SubResource("StyleBoxTexture_6nwp2")
+Button/styles/pressed = SubResource("StyleBoxTexture_263o5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw07n"]
 texture = ExtResource("3_rwoer")
@@ -189,12 +220,12 @@ metadata/_edit_use_anchors_ = true
 [node name="PizzaSizesBtn" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.132813
-anchor_bottom = 0.0902778
-theme = ExtResource("3_t8qiy")
+anchor_left = 0.00976563
+anchor_top = 0.0173611
+anchor_right = 0.144531
+anchor_bottom = 0.178819
+theme = SubResource("Theme_b1rrm")
 theme_override_font_sizes/font_size = 16
-text = "Ver tamaños
-de pizzas"
 metadata/_edit_use_anchors_ = true
 
 [node name="OptionButtonsContainer" type="HBoxContainer" parent="."]
