@@ -214,14 +214,15 @@ func is_correct() -> bool:
 	if  !self.correct_pizza:
 		print_debug("Pizza incorrecta")
 		return false
-	elif str(extras_container.drinks.value) != CharactersData.characters[self.character].correct_answer["drinks"]:
-		print_debug("Cantidad de bebidas incorrecta: ", extras_container.drinks.value)
-		print_debug("Se esperaban: ", CharactersData.characters[self.character].correct_answer["drinks"])
-		return false
-	elif str(extras_container.breads.value) != CharactersData.characters[self.character].correct_answer["breads"]:
-		print_debug("Cantidad de panes incorrecta: ", extras_container.breads.value)
-		print_debug("Se esperaban: ", CharactersData.characters[self.character].correct_answer["breads"])
-		return false
+	if PlayerSession.difficulty != "easy":
+		if str(extras_container.drinks.value) != CharactersData.characters[self.character].correct_answer["drinks"]:
+			print_debug("Cantidad de bebidas incorrecta: ", extras_container.drinks.value)
+			print_debug("Se esperaban: ", CharactersData.characters[self.character].correct_answer["drinks"])
+			return false
+		if str(extras_container.breads.value) != CharactersData.characters[self.character].correct_answer["breads"]:
+			print_debug("Cantidad de panes incorrecta: ", extras_container.breads.value)
+			print_debug("Se esperaban: ", CharactersData.characters[self.character].correct_answer["breads"])
+			return false
 	self.defeated = true
 	CharactersData.characters[self.character].defeated = self.defeated
 	return true
@@ -252,10 +253,7 @@ func _on_answer_button_1_pressed() -> void:
 	answer_button_2.disabled = false
 	answer_button_3.disabled = false
 	answer_button_4.disabled = false
-	if PlayerSession.difficulty == "easy":
-		self.defeated = self.answer_button_1.defeated
-	else:
-		self.correct_pizza =  self.answer_button_1.defeated
+	self.correct_pizza =  self.answer_button_1.defeated
 
 
 func _on_answer_button_2_pressed() -> void:
@@ -267,10 +265,7 @@ func _on_answer_button_2_pressed() -> void:
 	answer_button_1.disabled = false
 	answer_button_3.disabled = false
 	answer_button_4.disabled = false
-	if PlayerSession.difficulty == "easy":
-		self.defeated = self.answer_button_2.defeated
-	else:
-		self.correct_pizza =  self.answer_button_2.defeated
+	self.correct_pizza =  self.answer_button_2.defeated
 
 
 func _on_answer_button_3_pressed() -> void:
@@ -297,10 +292,7 @@ func _on_answer_button_4_pressed() -> void:
 	answer_button_1.disabled = false
 	answer_button_2.disabled = false
 	answer_button_3.disabled = false
-	if PlayerSession.difficulty == "easy":
-		self.correct_pizza = self.answer_button_4.defeated
-	else:
-		self.correct_pizza =  self.answer_button_4.defeated
+	self.correct_pizza =  self.answer_button_4.defeated
 
 
 # Si se desactiva el menú de pausa:
