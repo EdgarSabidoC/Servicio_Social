@@ -230,6 +230,7 @@ func is_correct() -> bool:
 
 # Función que obtiene el score al haber presionado AcceptButton:
 func _on_accept_button_pressed():
+	$CanvasLayer/Control/AcceptButton.disabled = true
 	if is_correct():
 		# Se obtiene el puntaje:
 		self.set_score()
