@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://deare6ipirplk"]
+[gd_scene load_steps=59 format=3 uid="uid://deare6ipirplk"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/UI/UI.gd" id="1_5kdpa"]
 [ext_resource type="Script" path="res://scenes/title_screen/scripts/ColorRect.gd" id="1_uy7ao"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/settings/Video.gd" id="11_c0uvf"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/AdditionsMinigame.gd" id="11_cyuk5"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/minigames_menu/CoordinatesMinigame.gd" id="12_b254f"]
+[ext_resource type="Script" path="res://scenes/main_menu/scripts/CreditsBtn.gd" id="12_nuca8"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/HardBtn.gd" id="12_pwd64"]
 [ext_resource type="PackedScene" uid="uid://mj3ta3rrgamh" path="res://scenes/info_screen/InfoScreen.tscn" id="12_tuiap"]
 [ext_resource type="Script" path="res://scenes/main_menu/scripts/difficulty_menu/ReturnBtn.gd" id="13_0ewxx"]
@@ -191,11 +192,9 @@ expand_mode = 3
 [node name="MenuContainer" type="HBoxContainer" parent="UI"]
 anchors_preset = -1
 anchor_left = 0.108887
-anchor_top = 0.203125
+anchor_top = 0.0833335
 anchor_right = 0.891113
-anchor_bottom = 0.821181
-offset_top = 53.0
-offset_bottom = -53.0
+anchor_bottom = 0.826389
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -254,6 +253,13 @@ keep_pressed_outside = true
 text = "Cómo jugar"
 script = ExtResource("7_e8xsr")
 hint = "En esta sección encontrarás la ayuda necesaria para aprender a jugar."
+
+[node name="CreditsBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_mou80")
+text = "Créditos"
+script = ExtResource("12_nuca8")
 
 [node name="QuitBtn" type="Button" parent="UI/MenuContainer/MainMenu"]
 custom_minimum_size = Vector2(200, 50)
@@ -810,7 +816,6 @@ text = "PAUSA"
 [node name="MouseMode" type="Label" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer/ControlsLabelsContainer"]
 layout_mode = 2
 text = "ACTIVAR MODO RATÓN"
-vertical_alignment = 1
 
 [node name="ActionButtonContainer" type="VBoxContainer" parent="UI/Settings/Controls/ControlsOptionsContainer/MarginContainer/HBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -1186,6 +1191,11 @@ unique_name_in_owner = true
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/MenuContainer/MainMenu/HowToPlayBtn" to="UI/MenuContainer/MainMenu/HowToPlayBtn" method="_on_pressed"]
+[connection signal="focus_entered" from="UI/MenuContainer/MainMenu/CreditsBtn" to="UI/MenuContainer/MainMenu/CreditsBtn" method="_on_focus_entered"]
+[connection signal="focus_exited" from="UI/MenuContainer/MainMenu/CreditsBtn" to="UI/MenuContainer/MainMenu/CreditsBtn" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/CreditsBtn" to="UI/MenuContainer/MainMenu/CreditsBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MenuContainer/MainMenu/CreditsBtn" to="UI/MenuContainer/MainMenu/CreditsBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/MenuContainer/MainMenu/CreditsBtn" to="UI/MenuContainer/MainMenu/CreditsBtn" method="_on_pressed"]
 [connection signal="focus_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_focus_entered"]
 [connection signal="focus_exited" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="UI/MenuContainer/MainMenu/QuitBtn" to="UI/MenuContainer/MainMenu/QuitBtn" method="_on_mouse_entered"]

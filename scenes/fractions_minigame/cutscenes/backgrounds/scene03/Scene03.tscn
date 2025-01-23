@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ds63jgyp6jy4t"]
+[gd_scene load_steps=40 format=3 uid="uid://ds63jgyp6jy4t"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/scripts/Scene03.gd" id="1_ci4q3"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="2_nxqrt"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dukje3b261m7v" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_neon.tga" id="16_n27ff"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene03/TohAnimationPlayer.gd" id="16_n63hu"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="17_xf006"]
+[ext_resource type="Script" path="res://scenes/title_screen/scripts/RichTextLabelTextFlash.gd" id="20_om44d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fmt8"]
 atlas = ExtResource("16_n27ff")
@@ -216,7 +217,6 @@ pivot_offset = Vector2(94.4983, 134)
 texture = SubResource("AtlasTexture_8fmt8")
 script = ExtResource("17_xf006")
 sprites = SubResource("SpriteFrames_p07of")
-frame_index = 4
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
@@ -235,7 +235,7 @@ offset_bottom = -25.7617
 grow_horizontal = 1
 grow_vertical = 1
 pivot_offset = Vector2(74.2476, 96.3098)
-frame_index = 45
+playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ZotzAnimationPlayer" type="AnimationPlayer" parent="Zotz"]
@@ -352,5 +352,36 @@ anchor_left = 0.445313
 anchor_top = 0.194444
 anchor_right = 0.748047
 anchor_bottom = 0.444444
+alignment = 2
+
+[node name="DialogueBox2" parent="." instance=ExtResource("12_itseu")]
+layout_mode = 1
+anchor_left = 0.0625
+anchor_top = 0.255208
+anchor_right = 0.333984
+anchor_bottom = 0.501736
+alignment = 2
+
+[node name="RichTextLabelTextFlash" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, -0.759605)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 0.0235294, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Presiona [img=0x65]res://addons/ActionIcon/Keyboard/Enter.png[/img] o presiona [img=0x50]res://addons/ActionIcon/Mouse/Left.png[/img] para continuar[/center]"
+fit_content = true
+script = ExtResource("20_om44d")
+speed = 2.0
+fade = true
+preview = true
 
 [connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]
+[connection signal="dialogue_box_closed" from="DialogueBox2" to="." method="_on_dialogue_box_2_dialogue_box_closed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://btf3hylb8368j"]
+[gd_scene load_steps=54 format=3 uid="uid://btf3hylb8368j"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/Scene01.gd" id="1_qya30"]
 [ext_resource type="Texture2D" uid="uid://ck1damiiqgeaw" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_background.tga" id="1_trfx7"]
@@ -14,11 +14,12 @@
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/KekenAnimationPlayer.gd" id="6_hyu0v"]
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/ZotzAnimationPlayer.gd" id="11_eey68"]
 [ext_resource type="PackedScene" uid="uid://pwr76yb2kbx2" path="res://components/characters/Huolpoch/Huolpoch.tscn" id="16_1b0bk"]
-[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/HuolpochAnimationPlayer.gd" id="16_d0i3l"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/HuolpochAnimationPlayer.gd" id="16_d0i3l"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="16_lwaoq"]
 [ext_resource type="Texture2D" uid="uid://dukje3b261m7v" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_01/scene_01_neon.tga" id="17_m6vla"]
 [ext_resource type="PackedScene" uid="uid://cdug6yjyj81et" path="res://components/characters/Toh/Toh.tscn" id="18_7x8ee"]
-[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/TohAnimationPlayer.gd" id="19_othhx"]
+[ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/scripts/TohAnimationPlayer.gd" id="19_othhx"]
+[ext_resource type="Texture2D" uid="uid://cg16nxnmuou8l" path="res://assets/graphical_assets/user_interface/container/pizzaContainer.tga" id="20_npn4p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_komxm"]
 atlas = ExtResource("3_he3bh")
@@ -158,9 +159,9 @@ _data = {
 "Moving_forward_3": SubResource("Animation_i8gwe")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7044d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuto4"]
 atlas = ExtResource("17_m6vla")
-region = Rect2(0, 136, 48, 68)
+region = Rect2(0, 204, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrubn"]
 atlas = ExtResource("17_m6vla")
@@ -170,9 +171,9 @@ region = Rect2(0, 0, 48, 68)
 atlas = ExtResource("17_m6vla")
 region = Rect2(0, 68, 48, 68)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iuto4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7044d"]
 atlas = ExtResource("17_m6vla")
-region = Rect2(0, 204, 48, 68)
+region = Rect2(0, 136, 48, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fmt8"]
 atlas = ExtResource("17_m6vla")
@@ -274,6 +275,19 @@ resource_name = "entrance"
 _data = {
 "entrance": SubResource("Animation_r62bj")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bssgm"]
+texture = ExtResource("20_npn4p")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4, 4, 88, 88)
+
+[sub_resource type="Theme" id="Theme_u2nhe"]
+Panel/styles/panel = SubResource("StyleBoxTexture_bssgm")
 
 [node name="Scene01" type="Control"]
 layout_mode = 3
@@ -419,10 +433,10 @@ offset_top = 2.0
 offset_right = -1.0
 offset_bottom = 2.0
 pivot_offset = Vector2(94.4983, 134)
-texture = SubResource("AtlasTexture_7044d")
+texture = SubResource("AtlasTexture_iuto4")
 script = ExtResource("16_lwaoq")
 sprites = SubResource("SpriteFrames_02adc")
-frame_index = 2
+frame_index = 3
 auto_play = true
 playing = true
 metadata/_edit_use_anchors_ = true
@@ -548,5 +562,16 @@ anchor_left = 0.445313
 anchor_top = 0.194444
 anchor_right = 0.748047
 anchor_bottom = 0.444444
+alignment = 2
+
+[node name="DialogueBox2" parent="." instance=ExtResource("5_tojxw")]
+layout_mode = 1
+anchor_left = 0.0625
+anchor_top = 0.255208
+anchor_right = 0.333984
+anchor_bottom = 0.501736
+theme = SubResource("Theme_u2nhe")
+alignment = 2
 
 [connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]
+[connection signal="dialogue_box_closed" from="DialogueBox2" to="." method="_on_dialogue_box_2_dialogue_box_closed"]

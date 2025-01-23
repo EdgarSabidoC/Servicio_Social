@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvxevt6jgtg4s"]
+
+[ext_resource type="Script" path="res://components/pizza_sizes_info/scripts/PizzaSizesInfoMenu.gd" id="1_7hur2"]
+[ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="1_yhvtn"]
+[ext_resource type="Texture2D" uid="uid://cw1ptgeehfyw7" path="res://assets/graphical_assets/user_interface/container/pizzaPriceContainer.tga" id="3_p43l1"]
+[ext_resource type="Script" path="res://components/pizza_sizes_info/scripts/Sizes.gd" id="4_dq6ns"]
+[ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="5_06bqp"]
+
+[node name="PizzaSizesInfoMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hur2")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yhvtn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 64.0
+offset_right = 875.0
+offset_bottom = 512.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_p43l1")
+region_rect = Rect2(16, 16, 96, 96)
+
+[node name="SizesTexture" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.151367
+anchor_top = 0.111111
+anchor_right = 0.853516
+anchor_bottom = 0.888889
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sizes" type="RichTextLabel" parent="SizesTexture"]
+layout_mode = 2
+anchor_left = 0.03125
+anchor_top = 0.0357143
+anchor_right = 0.96875
+anchor_bottom = 0.964286
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+script = ExtResource("4_dq6ns")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84961
+anchor_top = 0.859375
+anchor_right = 0.982422
+anchor_bottom = 0.970486
+theme = ExtResource("5_06bqp")
+text = "Regresar"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="visibility_changed" from="BackBtn" to="." method="_on_back_btn_visibility_changed"]

@@ -6,6 +6,9 @@ extends Button
 
 
 func _on_pressed():
+	# Se configura la dificultad:
+	PlayerSession.difficulty = "easy"
+	
 	# Se selecciona el minijuego:
 	match PlayerSession.current_minigame:
 		PlayerSession.Minigames.FRACCTIONS:
@@ -19,9 +22,6 @@ func _on_pressed():
 			self._move_to = "res://scenes/symmetry_minigame/level_symmetry_minigame/LevelSymmetryMinigame.tscn"
 	# Se para la música global del menú:
 	BackgroundMusic.stop()
-	
-	# Se configura la dificultad:
-	PlayerSession.difficulty = "easy"
 	
 	# Consume el evento:
 	get_viewport().set_input_as_handled()

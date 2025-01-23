@@ -30,5 +30,9 @@ func clear() -> void:
 	self.problem = ""
 
 
+func get_problem() -> String:
+	return self.problem
+
+
 func is_rejected() -> bool:
 	return self.rejected

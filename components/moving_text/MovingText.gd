@@ -11,6 +11,8 @@ func _ready() -> void:
 
 # Realiza el efecto de movimiento de los caracteres del texto:
 func move_text() -> void:
+	if not is_inside_tree():
+		return
 	self.visible_characters = 0 # Char visible
 	
 	# Se van mostrando los chars de la propiedad text:
