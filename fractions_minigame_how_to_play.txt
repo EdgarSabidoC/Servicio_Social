@@ -1,0 +1,29 @@
+[font_size=28]Objetivo[/font_size]
+¡El cliente siempre tiene la razón! Los diferentes amigos y clientes de nuestra querida amiga zarigüeya entrarán y te ordenarán sus pizzas favoritas. Presta atención a los detalles, pues te pedirán fracciones o números de rebanadas, así como la cantidad de bebidas y órdenes de pan. No querrás decepcionarlos, así que selecciona las opciones correctas.
+Puedes checar los controles al final de las instrucciones.
+
+
+[font_size=28]Contrarreloj[/font_size]
+En este modo de juego debes resolver cada problema lo más rápido posible. No hay límite de tiempo, pero debes estar atento porque mientras más tiempo tardes en resolver cada problema, menos puntos obtendrás.
+
+
+[font_size=28]Multiplicadores de personaje[/font_size]
+Gana los multiplicadores de personaje para ganar un bonus sobre los puntos que obtienes. Para ello es necesario aceptar la orden del respectivo personaje y vender la orden correcta.
+
+
+[font_size=28]Dificultades[/font_size]
+A mayor dificultad, mayores serán las oportunidades de obtener puntajes más altos, así que no tengas miedo de probar cada una de ellas.
+
+[font_size=22]Dificultad fácil[/font_size]
+El objetivo es encontrar la fracción de pizza correcta que corresponde al problema que se te presenta. Los problemas se pueden presentar directamente como fracciones.
+
+[font_size=22]Dificultad media[/font_size]
+El objetivo es encontrar la fracción de pizza correcta que corresponde al problema que se te presenta. Los problemas se pueden presentar directamente como fracciones, además tienes que hallar la proporción correcta de panes con respecto a las bebidas.
+
+[font_size=22]Dificultad difícil[/font_size]
+El objetivo es encontrar la fracción de pizza correcta que corresponde al problema que se te presenta. Los problemas se pueden presentar directamente como fracciones o cantidad de rebanadas, además tienes que hallar la proporción correcta de panes con respecto a las bebidas.
+
+
+[font_size=28]Controles\n\n[/font_size]
+
+

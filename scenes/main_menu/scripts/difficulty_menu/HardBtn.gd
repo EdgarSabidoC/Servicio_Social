@@ -6,10 +6,14 @@ extends Button
 
 
 func _on_pressed():
+	# Se configura la dificultad:
+	PlayerSession.difficulty = "hard"
+	
 	# Se selecciona el minijuego:
 	match PlayerSession.current_minigame:
 		PlayerSession.Minigames.FRACCTIONS:
 			self._move_to = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
+			CharactersData.loadProblemsData() # Se cargan los datos de los problemas de los diferentes personajes
 		PlayerSession.Minigames.ADDITIONS:
 			self._move_to = "res://scenes/additions_minigame/level_additions_minigame/LevelAdditionsMinigame.tscn"
 		PlayerSession.Minigames.COORDINATES:
@@ -18,12 +22,6 @@ func _on_pressed():
 			self._move_to = "res://scenes/symmetry_minigame/level_symmetry_minigame/LevelSymmetryMinigame.tscn"
 	# Se para la música global del menú:
 	BackgroundMusic.stop()
-	
-	# Se cargan los datos del personaje:
-	PlayerSession.difficulty = "hard"
-	
-	# Se cargan los datos de los problemas de los diferentes personajes:
-	CharactersData.loadProblemsData()
 	
 	# Consume el evento:
 	get_viewport().set_input_as_handled()

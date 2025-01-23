@@ -20,12 +20,12 @@ func _on_alux_finished() -> void:
 		self.alux.enable_loop()
 	elif self.current_character.rejected:
 		# Si el personaje fue rechazado:
-		self.alux.current_animation = "sad"
+		self.alux.play("sad")
 		# Se desactiva el loop de la animación:
 		self.alux.disable_loop()
 	else:
 		# Si no:
-		self.alux.current_animation = "anger"
+		self.alux.play("anger")
 		# Se desactiva el loop de la animación:
 		self.alux.disable_loop()
 	# Se desconecta la señal:

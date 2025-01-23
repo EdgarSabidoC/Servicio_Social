@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://drlgd1b3cem03"]
+[gd_scene load_steps=108 format=3 uid="uid://drlgd1b3cem03"]
 
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/LevelCoordinatesMinigame.gd" id="1_3xota"]
 [ext_resource type="Script" path="res://scenes/coordinates_minigame/level_coordinates_minigame/scripts/ColorRect.gd" id="2_80h4x"]
@@ -8,15 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://b1konyslocvmf" path="res://components/clock/Clock.tscn" id="4_rjwd5"]
 [ext_resource type="Texture2D" uid="uid://dulwas4a83juq" path="res://assets/graphical_assets/characters/player/door_scene_04.tga" id="4_xt2ru"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="4_xtxav"]
+[ext_resource type="Texture2D" uid="uid://dqmio2aqbditx" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_floor_coor.tga" id="5_8ghr4"]
 [ext_resource type="Texture2D" uid="uid://ci340lo4qqdij" path="res://assets/graphical_assets/characters/player/main_character_scene_04_request_end.tga" id="5_418cv"]
+[ext_resource type="Texture2D" uid="uid://dkk6ypbtxptq1" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_wall.tga" id="5_bsc3k"]
 [ext_resource type="Texture2D" uid="uid://bcheoudihgr1s" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_04_frame.tga" id="5_onsio"]
 [ext_resource type="Texture2D" uid="uid://dbso1mmo204t6" path="res://assets/graphical_assets/characters/player/main_character_scene_04_request.tga" id="5_r0dx5"]
 [ext_resource type="Theme" uid="uid://bf2gebxg2263k" path="res://assets/graphical_assets/styles/points.tres" id="6_4l6hj"]
+[ext_resource type="Texture2D" uid="uid://wj7brkjo5805" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_o4_soda.tga" id="8_yl6bo"]
 [ext_resource type="Texture2D" uid="uid://cygeue24uwy4k" path="res://assets/graphical_assets/characters/player/robot_scene_04.tga" id="9_rgbo7"]
 [ext_resource type="PackedScene" uid="uid://cv1ytr5mbabfm" path="res://components/score_screen/ScoreScreen.tscn" id="10_ix28s"]
-[ext_resource type="Theme" uid="uid://ot4iuwcbdrhy" path="res://assets/graphical_assets/styles/pause_button.tres" id="13_hx565"]
 [ext_resource type="Texture2D" uid="uid://cm1qbqgxj7c82" path="res://assets/graphical_assets/characters/player/main_character_scene_04.tga" id="13_tc6v6"]
 [ext_resource type="Script" path="res://components/animated_texture_rect/AnimatedTextureRect.gd" id="14_07qk4"]
+[ext_resource type="Theme" uid="uid://cv4w4ffaby5el" path="res://assets/graphical_assets/styles/button_main.tres" id="16_ioskb"]
+[ext_resource type="Theme" uid="uid://74os7ymbjql" path="res://assets/graphical_assets/styles/coordinate_label.tres" id="20_kfko6"]
+[ext_resource type="Texture2D" uid="uid://b10lk6v0t8of2" path="res://assets/graphical_assets/environments/backgrounds/coordinates_minigame/scene_o4_plant.tga" id="21_y6um3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmlm1"]
 atlas = ExtResource("4_xt2ru")
@@ -621,6 +626,114 @@ tracks/1/keys = {
 "update": 0,
 "values": [557.0, 490.0, 442.0, 390.0, 345.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Robot/../Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Robot/../Label7:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Robot/../Label8:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Robot/../Label2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%Robot/../Label3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%Robot/../Label5:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%Robot/../Label6:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%Robot/../Label4:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("%Robot/../Label9:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gj4mb"]
 _data = {
@@ -673,6 +786,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.513726, 0.321569, 0.286275, 1)
 script = ExtResource("2_80h4x")
+metadata/_edit_lock_ = true
 
 [node name="AnimatedTextureRect2" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
@@ -685,8 +799,62 @@ pivot_offset = Vector2(32.5002, 54)
 texture = SubResource("AtlasTexture_pmlm1")
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_jwl6i")
-frame_index = 5
 auto_play = true
+playing = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Wall" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = -0.0920139
+anchor_right = 1.0
+anchor_bottom = 0.0798611
+texture = ExtResource("5_bsc3k")
+region_rect = Rect2(0, 30, 480, 111)
+patch_margin_left = 32
+patch_margin_top = 10
+patch_margin_right = 280
+patch_margin_bottom = 13
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Floor" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.176
+anchor_top = 0.146
+anchor_right = 0.851
+anchor_bottom = 1.03
+offset_left = -0.224014
+offset_top = -0.0960083
+offset_right = -0.424011
+offset_bottom = -0.280029
+texture = ExtResource("5_8ghr4")
+
+[node name="Plant1" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.0585938
+anchor_top = 0.633681
+anchor_right = 0.125977
+anchor_bottom = 0.880208
+texture = ExtResource("21_y6um3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Plant2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.0585938
+anchor_top = 0.138889
+anchor_right = 0.125977
+anchor_bottom = 0.385417
+texture = ExtResource("21_y6um3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Soda" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.861328
+anchor_right = 1.06348
+anchor_bottom = 0.663194
+texture = ExtResource("8_yl6bo")
+stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="Table1" parent="CanvasLayer" instance=ExtResource("3_tnj4g")]
@@ -775,8 +943,8 @@ texture = SubResource("AtlasTexture_prdtn")
 stretch_mode = 5
 script = ExtResource("14_07qk4")
 sprites = SubResource("SpriteFrames_7qhfs")
-frame_index = 45
 auto_play = true
+playing = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Opossum"]
@@ -831,6 +999,115 @@ patch_margin_bottom = 30
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.464844
+anchor_top = 0.479167
+anchor_right = 0.529297
+anchor_bottom = 0.583333
+theme = ExtResource("20_kfko6")
+text = "0, 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label7" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.464844
+anchor_top = 0.149306
+anchor_right = 0.529297
+anchor_bottom = 0.253472
+theme = ExtResource("20_kfko6")
+text = "0, 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label8" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.464844
+anchor_top = 0.798611
+anchor_right = 0.529297
+anchor_bottom = 0.902778
+theme = ExtResource("20_kfko6")
+text = "0, -1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.688477
+anchor_top = 0.149306
+anchor_right = 0.75293
+anchor_bottom = 0.253472
+theme = ExtResource("20_kfko6")
+text = "1, 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.248047
+anchor_top = 0.479167
+anchor_right = 0.3125
+anchor_bottom = 0.583333
+theme = ExtResource("20_kfko6")
+text = "-1, 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.248047
+anchor_top = 0.798611
+anchor_right = 0.3125
+anchor_bottom = 0.902778
+offset_right = 6.0
+theme = ExtResource("20_kfko6")
+text = "-1, -1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label6" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.248047
+anchor_top = 0.149306
+anchor_right = 0.3125
+anchor_bottom = 0.253472
+theme = ExtResource("20_kfko6")
+text = "-1, 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.691406
+anchor_top = 0.479167
+anchor_right = 0.755859
+anchor_bottom = 0.583333
+theme = ExtResource("20_kfko6")
+text = "1, 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label9" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.691406
+anchor_top = 0.798611
+anchor_right = 0.755859
+anchor_bottom = 0.902778
+theme = ExtResource("20_kfko6")
+text = "1, -1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="ScorePanel" type="Panel" parent="CanvasLayer"]
 visible = false
 custom_minimum_size = Vector2(200, 50)
@@ -858,7 +1135,6 @@ vertical_alignment = 1
 script = ExtResource("3_qyoai")
 
 [node name="ScoreFlashLabel" type="Label" parent="CanvasLayer"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.0546875
 anchor_top = 0.0555556
@@ -876,17 +1152,18 @@ libraries = {
 
 [node name="PauseBtn" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.210938
-anchor_top = 0.00520833
-anchor_right = 0.25
-anchor_bottom = 0.0746528
+anchor_left = 0.861328
+anchor_top = 0.173611
+anchor_right = 0.988281
+anchor_bottom = 0.295139
 focus_neighbor_left = NodePath("../PricesBtn")
 focus_neighbor_top = NodePath("../PricesBtn")
 focus_neighbor_right = NodePath("../VBoxContainer/AcceptBtn")
 focus_neighbor_bottom = NodePath("../VBoxContainer/AcceptBtn")
 focus_next = NodePath("../VBoxContainer/AcceptBtn")
 focus_previous = NodePath("../PricesBtn")
-theme = ExtResource("13_hx565")
+theme = ExtResource("16_ioskb")
+text = "Pausar"
 metadata/_edit_use_anchors_ = true
 
 [node name="Clock" parent="CanvasLayer" instance=ExtResource("4_rjwd5")]
@@ -906,7 +1183,6 @@ size_flags_vertical = 6
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
-[connection signal="finished" from="CanvasLayer/Opossum" to="." method="_on_opossum_finished"]
 [connection signal="pressed" from="CanvasLayer/PauseBtn" to="." method="_on_pause_btn_pressed"]
 [connection signal="countdown_finished" from="CanvasLayer/Clock" to="." method="_on_clock_countdown_finished"]
 [connection signal="pivot_changed" from="CanvasLayer/Clock" to="." method="_on_clock_pivot_changed"]

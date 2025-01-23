@@ -8,7 +8,9 @@ var bonus_multiplier: int
 var defeated: bool
 var rejected: bool
 var intro_text: String
-var outro_text: String
+var outro_happy_text: String
+var outro_angry_text: String
+var outro_sad_text: String
 var correct_answer: Dictionary
 var wrong_answers: Array[Dictionary]
 var main_asset_path: String
@@ -22,8 +24,14 @@ func clear() -> void:
 	self.correct_answer = {}
 	self.wrong_answers = []
 	self.intro_text = ""
-	self.outro_text = ""
+	self.outro_happy_text = ""
+	self.outro_angry_text = ""
+	self.outro_sad_text = ""
 	self.problem = ""
+
+
+func get_problem() -> String:
+	return self.problem
 
 
 func is_rejected() -> bool:

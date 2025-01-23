@@ -23,7 +23,6 @@ func load_data() -> void:
 		# Si el archivo de configuración no existe se cargan datos predeterminados
 		_default_data() # Datos predeterminados
 		save_data()
-		return
 
 	# Si el archivo existe, se cargan los datos:
 	load_control_settings()
@@ -88,8 +87,8 @@ func _default_data() -> void:
 			config.set_value("Controls", action, InputMap.action_get_events(action)[0])
 
 	# Valores predeterminados de la configuración de vídeo:
-	config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
-	config.set_value("Video", "borderless", false)
+	config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_FULLSCREEN)
+	config.set_value("Video", "borderless", true)
 	config.set_value("Video", "vsync", DisplayServer.VSYNC_DISABLED)
 
 	# Se configuran los valores predeterminados para audio:
@@ -97,8 +96,8 @@ func _default_data() -> void:
 	var music: String = "1"
 	var sfx: String = "2"
 	config.set_value("Audio", master, 0.50)
-	config.set_value("Audio", music, 0.25)
-	config.set_value("Audio", sfx, 0.25)
+	config.set_value("Audio", music, 0.35)
+	config.set_value("Audio", sfx, 0.30)
 
 	# Se configuran los mejores puntajes:
 	var best_scores: Array = [

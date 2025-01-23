@@ -38,6 +38,7 @@ Sfx="*res://scripts/autoloads/sound/sfx/SFX.tscn"
 window/size/viewport_width=1024
 window/size/viewport_height=576
 window/size/initial_position_type=0
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

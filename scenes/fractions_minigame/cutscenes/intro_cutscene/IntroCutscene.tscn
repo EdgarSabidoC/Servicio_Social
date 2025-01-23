@@ -1,10 +1,44 @@
-[gd_scene load_steps=20 format=3 uid="uid://du4oiw4gwst0p"]
+[gd_scene load_steps=31 format=3 uid="uid://du4oiw4gwst0p"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/cutscenes/intro_cutscene/scripts/IntroCutscene.gd" id="1_mh2mp"]
+[ext_resource type="Texture2D" uid="uid://bs6y27mj81rwu" path="res://assets/graphical_assets/user_interface/button/pizzaMenuButton.tga" id="3_dy4fg"]
 [ext_resource type="PackedScene" uid="uid://btf3hylb8368j" path="res://scenes/fractions_minigame/cutscenes/backgrounds/scene01/Scene01.tscn" id="3_n2iwx"]
 [ext_resource type="Texture2D" uid="uid://cjma5hvf4tsdw" path="res://assets/graphical_assets/user_interface/button/buttons.tga" id="3_rwoer"]
 [ext_resource type="Texture2D" uid="uid://cg16nxnmuou8l" path="res://assets/graphical_assets/user_interface/container/pizzaContainer.tga" id="4_5ag7h"]
 [ext_resource type="Texture2D" uid="uid://c4n851jqokqfq" path="res://assets/graphical_assets/user_interface/button/button_focus.tga" id="4_gjk83"]
+[ext_resource type="PackedScene" uid="uid://dtbscmdccyexm" path="res://components/dialogue_box/DialogueBox.tscn" id="6_3qxic"]
+[ext_resource type="PackedScene" uid="uid://dvxevt6jgtg4s" path="res://components/pizza_sizes_info/PizzaSizesInfoMenu.tscn" id="7_68bye"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_87glj"]
+texture = ExtResource("3_dy4fg")
+region_rect = Rect2(0, 0, 64, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koydq"]
+texture = ExtResource("4_gjk83")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+region_rect = Rect2(28, 32, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c81mo"]
+texture = ExtResource("3_dy4fg")
+region_rect = Rect2(128, 0, 64, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nwp2"]
+texture = ExtResource("3_dy4fg")
+region_rect = Rect2(64, 0, 64, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_263o5"]
+texture = ExtResource("3_dy4fg")
+region_rect = Rect2(192, 0, 64, 48)
+
+[sub_resource type="Theme" id="Theme_b1rrm"]
+Button/styles/disabled = SubResource("StyleBoxTexture_87glj")
+Button/styles/focus = SubResource("StyleBoxTexture_koydq")
+Button/styles/hover = SubResource("StyleBoxTexture_c81mo")
+Button/styles/normal = SubResource("StyleBoxTexture_6nwp2")
+Button/styles/pressed = SubResource("StyleBoxTexture_263o5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw07n"]
 texture = ExtResource("3_rwoer")
@@ -141,6 +175,19 @@ region_rect = Rect2(4, 100, 88, 88)
 [sub_resource type="Theme" id="Theme_7g2ov"]
 Panel/styles/panel = SubResource("StyleBoxTexture_vpegd")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1604m"]
+texture = ExtResource("4_5ag7h")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4, 4, 88, 88)
+
+[sub_resource type="Theme" id="Theme_b4r53"]
+Panel/styles/panel = SubResource("StyleBoxTexture_1604m")
+
 [node name="IntroCutscene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -154,9 +201,11 @@ script = ExtResource("1_mh2mp")
 metadata/_edit_use_anchors_ = true
 
 [node name="Scene01" parent="." instance=ExtResource("3_n2iwx")]
+process_mode = 1
 layout_mode = 1
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 anchor_left = 0.896484
 anchor_top = 0.270833
@@ -166,6 +215,17 @@ text = "Intro
 Cutscene"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PizzaSizesBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00976563
+anchor_top = 0.0173611
+anchor_right = 0.144531
+anchor_bottom = 0.178819
+theme = SubResource("Theme_b1rrm")
+theme_override_font_sizes/font_size = 16
 metadata/_edit_use_anchors_ = true
 
 [node name="OptionButtonsContainer" type="HBoxContainer" parent="."]
@@ -220,6 +280,24 @@ grow_vertical = 2
 theme = SubResource("Theme_7g2ov")
 metadata/_edit_use_anchors_ = true
 
+[node name="DialogueBox" parent="." instance=ExtResource("6_3qxic")]
+layout_mode = 1
+anchor_left = 0.0625
+anchor_top = 0.255208
+anchor_right = 0.333984
+anchor_bottom = 0.501736
+theme = SubResource("Theme_b4r53")
+alignment = 2
+
+[node name="PizzaSizesInfoMenu" parent="." instance=ExtResource("7_68bye")]
+process_mode = 3
+visible = false
+layout_mode = 1
+
 [connection signal="finished" from="Scene01" to="." method="_on_scene_01_finished"]
+[connection signal="pressed" from="PizzaSizesBtn" to="." method="_on_pizza_sizes_btn_pressed"]
 [connection signal="pressed" from="OptionButtonsContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]
 [connection signal="pressed" from="OptionButtonsContainer/RejectBtn" to="." method="_on_reject_btn_pressed"]
+[connection signal="dialogue_box_closed" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_box_closed"]
+[connection signal="back_btn_pressed" from="PizzaSizesInfoMenu" to="." method="_on_pizza_sizes_info_menu_back_btn_pressed"]
+[connection signal="visibility_changed" from="PizzaSizesInfoMenu" to="." method="_on_pizza_sizes_info_menu_visibility_changed"]

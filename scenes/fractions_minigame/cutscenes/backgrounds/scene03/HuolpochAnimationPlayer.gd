@@ -20,27 +20,20 @@ func _on_huolpoch_finished() -> void:
 		self.huolpoch.enable_loop()
 	elif self.current_character.rejected:
 		# Si el personaje fue rechazado:
-		self.huolpoch.current_animation = "sad"
+		self.huolpoch.play("sad")
 		# Se desactiva el loop de la animación:
 		self.huolpoch.disable_loop()
-		# Se pausa la animación en espera del siguiente evento:
-		if self.huolpoch.frame_index == 11:
-			self.huolpoch.pause()
 	else:
 		# Si no:
-		self.huolpoch.current_animation = "anger"
+		self.huolpoch.play("anger")
 		# Se desactiva el loop de la animación:
 		self.huolpoch.disable_loop()
-		# Se pausa la animación en espera del siguiente evento:
-		if self.huolpoch.frame_index == 14:
-			self.huolpoch.pause()
 	# Se desconecta la señal:
 	self.huolpoch.disconnect("finished", self._on_huolpoch_finished)
 	# Se reproduce la animación:
 	self.huolpoch.playing = true
+	self.play("exit")
 
 
 func start_exit() -> void:
-	self.play("exit")
-	self.huolpoch.play()
 	self.dialogue_box.disconnect("dialogue_box_closed", self.start_exit)

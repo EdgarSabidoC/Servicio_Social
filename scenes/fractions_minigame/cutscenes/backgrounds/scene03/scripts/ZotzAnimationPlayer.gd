@@ -20,12 +20,12 @@ func _on_zotz_finished() -> void:
 		self.zotz.enable_loop()
 	elif self.current_character.rejected:
 		# Si el personaje fue rechazado:
-		self.zotz.current_animation = "sad"
+		self.zotz.play("sad")
 		# Se desactiva el loop de la animación:
 		self.zotz.disable_loop()
 	else:
 		# Si no:
-		self.zotz.current_animation = "anger"
+		self.zotz.play("anger")
 		# Se desactiva el loop de la animación:
 		self.zotz.disable_loop()
 	# Se desconecta la señal:

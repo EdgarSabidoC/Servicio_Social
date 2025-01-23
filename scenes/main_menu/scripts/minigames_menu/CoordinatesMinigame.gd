@@ -16,7 +16,7 @@ func _on_pressed() -> void:
 	self.menu_background_color.fade_in()
 	self.settings_background_color.fade_out()
 	PlayerSession.current_minigame = PlayerSession.Minigames.COORDINATES
-	if !PlayerSession.coordinates_info_screen:
+	if not PlayerSession.coordinates_info_screen and not PlayerSession.debug_mode:
 		%InfoScreen.start()
 		await %InfoScreen.finished
 	self.difficulty_menu.show()

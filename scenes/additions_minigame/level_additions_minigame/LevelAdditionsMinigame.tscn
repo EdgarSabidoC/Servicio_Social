@@ -205,6 +205,8 @@ _data = {
 
 [node name="LevelAdditionsMinigame" type="Node2D"]
 script = ExtResource("1_x0vea")
+time_medium = 240.0
+time_hard = 300.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
