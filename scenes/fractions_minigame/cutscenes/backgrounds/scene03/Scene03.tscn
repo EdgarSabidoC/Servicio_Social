@@ -364,7 +364,7 @@ anchor_bottom = 0.501736
 alignment = 2
 
 [node name="RichTextLabelTextFlash" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0.368337)
+modulate = Color(1, 1, 1, 0.394861)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
