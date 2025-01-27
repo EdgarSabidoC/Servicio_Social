@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvxevt6jgtg4s"]
+[gd_scene load_steps=12 format=3 uid="uid://dvxevt6jgtg4s"]
 
 [ext_resource type="Script" path="res://components/pizza_sizes_info/scripts/PizzaSizesInfoMenu.gd" id="1_7hur2"]
 [ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="1_yhvtn"]
 [ext_resource type="Texture2D" uid="uid://cw1ptgeehfyw7" path="res://assets/graphical_assets/user_interface/container/pizzaPriceContainer.tga" id="3_p43l1"]
 [ext_resource type="Script" path="res://components/pizza_sizes_info/scripts/Sizes.gd" id="4_dq6ns"]
 [ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="5_06bqp"]
+[ext_resource type="Texture2D" uid="uid://cjl4vidatos34" path="res://assets/graphical_assets/user_interface/container/pizzaBG.tga" id="6_3ofas"]
+[ext_resource type="Texture2D" uid="uid://dprspdl7sl8j5" path="res://assets/graphical_assets/environments/pizzas/green_pepper.tga" id="7_lba60"]
+[ext_resource type="Texture2D" uid="uid://bchkjr10c67qj" path="res://assets/graphical_assets/environments/pizzas/pepperoni.tga" id="8_g8g5b"]
+[ext_resource type="Texture2D" uid="uid://bnlmbr11wobk6" path="res://assets/graphical_assets/environments/pizzas/scene_04_pizza.tga" id="9_vx6ek"]
+[ext_resource type="Texture2D" uid="uid://cvq4bangn502e" path="res://assets/graphical_assets/environments/pizzas/fish.tga" id="10_4tn5r"]
+[ext_resource type="Texture2D" uid="uid://yeq0myastlf" path="res://assets/graphical_assets/environments/pizzas/mushroom.tga" id="11_b11gp"]
 
 [node name="PizzaSizesInfoMenu" type="Control"]
 layout_mode = 3
@@ -70,6 +76,140 @@ anchor_right = 0.982422
 anchor_bottom = 0.970486
 theme = ExtResource("5_06bqp")
 text = "Regresar"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.196289
+anchor_top = 0.333333
+anchor_right = 0.454102
+anchor_bottom = 0.791667
+texture = ExtResource("6_3ofas")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_left = 0.446289
+anchor_top = 0.651042
+anchor_right = 0.821289
+anchor_bottom = 0.776042
+color = Color(0.6, 0.0862745, 0.105882, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_left = 0.432617
+anchor_top = 0.637153
+anchor_right = 0.807617
+anchor_bottom = 0.762153
+color = Color(0.952941, 0.396078, 0.137255, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+anchor_left = 0.314453
+anchor_top = 0.21875
+anchor_right = 0.81543
+anchor_bottom = 0.453125
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "Personal ................... 4 Rebanadas
+
+Chica ......................... 5 Rebanadas
+
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.451172
+anchor_top = 0.4375
+anchor_right = 0.81543
+anchor_bottom = 0.809028
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "Mediana .... 7 Rebanadas
+
+Grande ...... 8 Rebanadas
+
+Extra Grande ........ 12 Rebanadas
+
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.216797
+anchor_top = 0.510417
+anchor_right = 0.27832
+anchor_bottom = 0.619792
+texture = ExtResource("7_lba60")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.286133
+anchor_top = 0.671875
+anchor_right = 0.347656
+anchor_bottom = 0.78125
+texture = ExtResource("8_g8g5b")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0351563
+anchor_top = 0.0954861
+anchor_right = 0.163086
+anchor_bottom = 0.322917
+rotation = -0.206889
+texture = ExtResource("9_vx6ek")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.889103
+anchor_top = 0.369792
+anchor_right = 0.889103
+anchor_bottom = 0.662679
+offset_left = 76.5583
+offset_right = 207.558
+offset_bottom = -37.7033
+rotation = 1.21141
+texture = ExtResource("10_4tn5r")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.90918
+anchor_top = 0.293403
+anchor_right = 0.941481
+anchor_bottom = 0.60987
+offset_right = 97.9238
+offset_bottom = -51.2853
+rotation = 0.605898
+texture = ExtResource("10_4tn5r")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0273438
+anchor_top = 0.782986
+anchor_right = 0.180094
+anchor_bottom = 0.955341
+offset_right = -25.4167
+offset_bottom = 31.7234
+rotation = -0.219859
+texture = ExtResource("11_b11gp")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
