@@ -42,26 +42,26 @@ extends Control
 
 # Lista de cadenas para los créditos
 @export var credits_list: Array = [
-	"DESARROLLADO POR",
+	"💻 DESARROLLADO POR",
 	"Edgar",
 	"Carlos",
 	"PARA EL PROYECTO",
-	"Aprende, juega y diviérte con Linux",
+	"Aprende, juega y diviérte con Linux 🐧",
 	"RESPONSABLE DEL PROYECTO",
 	"M. en T. María del Carmen Zozaya Ayuso",
-	"ARTE y DISEÑO",
+	"🎨 ARTE y DISEÑO",
 	"Carlos",
-	"MÚSICA y SFX",
+	"🎶 MÚSICA y SFX",
 	"Edgar",
 	"CANCIONES",
-	"\"Tarantella napoletana\"\nComposición tradicional napolitana",
-	"\"Funiculì, funiculà\"\nCompositor: Luigi Denza\nLetra: Peppino Turco",
-	"\"’O sole mio\"\nCompositor: Eduardo di Capua\nLetra: Giovanni Capurro",
+	"🎵 \"Tarantella napoletana\"\nComposición tradicional napolitana",
+	"🎵 \"Funiculì, funiculà\"\nCompositor: Luigi Denza\nLetra: Peppino Turco",
+	"🎵 \"’O sole mio\"\nCompositor: Eduardo di Capua\nLetra: Giovanni Capurro",
 	"AGRADECIMIENTOS ESPECIALES",
 	"Universidad Autónoma de Yucatán\n(UADY)",
 	"Facultad de Matemáticas - UADY",
-	"Y a ti <3",
-	"Gracias por jugar! :D"
+	"Y a ti ❤️",
+	"¡Gracias por jugar!\n\n😄"
 ]
 
 @onready var total_time: float = 0
