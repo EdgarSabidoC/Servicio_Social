@@ -4,6 +4,7 @@ class_name AnswerButton
 
 
 # Utilizar custom resources para almacenar la respuesta y los assets del botón.
+var fraction: String = ""
 var defeated: bool = false
 var asset_path: String
 var asset: Texture2D
@@ -17,6 +18,8 @@ func construct(answer: Dictionary) -> void:
 	
 	# Carga el Texture2D desde asset_path
 	asset = load_texture(asset_path)
+	
+	fraction = answer["fraction"]
 	
 	if asset:
 		# Se utiliza la textura en el botón:

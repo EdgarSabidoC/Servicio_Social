@@ -129,7 +129,6 @@ func loadProblemsData() -> void:
 		# Se genera un problema:
 		var fraction: String = get_rand_fraction()
 		# Respuesta correcta:
-		
 		if PlayerSession.difficulty != "easy":
 			character.correct_answer = {"fraction": fraction, "imagePath": get_pizza_graph(fraction), "drinks": str(gen_rand_drinks()), "breads": str(gen_rand_breads())}
 			# Se crea un problema con su respuesta correcta:
@@ -139,7 +138,7 @@ func loadProblemsData() -> void:
 			# Se crea un problema con su respuesta correcta:
 			character.problem = generateProblem(character.correct_answer["fraction"])
 		# Se obtienen las respuestas incorrectas:
-		for i in range(3):
+		for i in range(0, 3):
 			fraction = get_rand_fraction()
 			var problem: Dictionary
 			if PlayerSession.difficulty != "easy":
@@ -147,88 +146,31 @@ func loadProblemsData() -> void:
 			else:
 				problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction)}
 			character.wrong_answers.append(problem)
-		
+		print_debug("\n\n")
 		# Se regresan las fracciones al pool de respuestas:
 		return_fractions_to_list()
-
+	
+	# Se actualizan las banderas de cargas de datos:
+	if PlayerSession.difficulty == "easy":
+		easy_data_loaded = true
+	elif PlayerSession.difficulty == "medium":
+		medium_data_loaded = true
+	elif PlayerSession.difficulty == "hard":
+		hard_data_loaded = true
+	
 	# Se mezcla la lista de personajes:
 	randomize()
 	characters.shuffle()
 
 
-# Función que carga los datos de problema de un personaje en específico.
-# Esta función debe ser utilizada después de loadCharacters().
-# No regresa las fracciones de los problemas al pool.
-func loadProblemCharacter(character: CharacterResource) -> void:
-	if (PlayerSession.difficulty == "easy" and easy_data_loaded) \
-	or (PlayerSession.difficulty == "medium" and medium_data_loaded) \
-	or (PlayerSession.difficulty == "hard" and hard_data_loaded):
-		print_debug("Datos previamente cargados")
-		return
-	
-	var json = readJSON(characters_data_path)
-	var characters_data: Array = json.data
-	var n: int
-	match character.name:
-		"Alux":
-			n = 0
-		"Huolpoch":
-			n = 1
-		"Toh":
-			n = 2
-		"Keken":
-			n = 3
-		"Zotz":
-			n = 4
-		
-	# Se cambia la semilla:
-	randomize()
-	
-	# Se mezclan los arreglos de datos:
-	var intro_texts: Array = characters_data[n]["intro_texts"]
-	var outro_happy_texts: Array = characters_data[n]["outro_happy_texts"]
-	var outro_angry_texts: Array = characters_data[n]["outro_angry_texts"]
-	var outro_sad_texts: Array = characters_data[n]["outro_sad_texts"]
-	intro_texts.shuffle()
-	outro_happy_texts.shuffle()
-	outro_angry_texts.shuffle()
-	outro_sad_texts.shuffle()
-	
-	# Se asignan los datos al personaje:
-	character.intro_text = intro_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
-	character.outro_happy_text = outro_happy_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
-	character.outro_angry_text = outro_angry_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
-	character.outro_sad_text = outro_sad_texts[randi_range(LOWER_LIMIT, DIALOGUES_UPPER_LIMIT)]
-	
-	# Se genera un problema:
-	var fraction: String = get_rand_fraction()
-	# Respuesta correcta:
-	
-	if PlayerSession.difficulty != "easy":
-		character.correct_answer = {"fraction": fraction, "imagePath": get_pizza_graph(fraction), "drinks": str(gen_rand_drinks()), "breads": str(gen_rand_breads())}
-		# Se crea un problema con su respuesta correcta:
-		character.problem = generateProblem(character.correct_answer["fraction"], character.correct_answer["drinks"], character.correct_answer["breads"])
-	else:
-		character.correct_answer = {"fraction": fraction, "imagePath": get_pizza_graph(fraction)}
-		# Se crea un problema con su respuesta correcta:
-		character.problem = generateProblem(character.correct_answer["fraction"])
-	# Se obtienen las respuestas incorrectas:
-	for i in range(3):
-		fraction = get_rand_fraction()
-		var problem: Dictionary
-		if PlayerSession.difficulty != "easy":
-			problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction), "drinks": str(gen_rand_drinks()), "breads": str(gen_rand_breads())}
-		else:
-			problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction)}
-		character.wrong_answers.append(problem)
-	
-	# Se regresan las fracciones al pool de respuestas:
-	return_fractions_to_list()
-
-
+# Limpia los datos de los personajes y reinicia las banderas de las cargas de datos:
 func clear_data() -> void:
 	for character in self.characters:
 		character.clear()
+	# Se reinician las banderas de carga de datos:
+	self.easy_data_loaded = false
+	self.medium_data_loaded = false
+	self.hard_data_loaded = false
 
 
 # Obtiene la ruta del gráfica de una pizza dada una fracción:
@@ -307,16 +249,18 @@ func get_rand_fraction() -> String:
 	randomize()
 	match PlayerSession.difficulty:
 		"hard":
-			hard_fractions.shuffle()
-			fraction = hard_fractions.pop_back()
-			print_debug(hard_fractions)
+			self.hard_fractions.shuffle()
+			fraction = self.hard_fractions.pop_front()
+			print_debug(self.hard_fractions)
 		"medium":
-			medium_fractions.shuffle()
-			fraction = medium_fractions.pop_back()
+			self.medium_fractions.shuffle()
+			fraction = self.medium_fractions.pop_front()
+			print_debug(self.medium_fractions)
 		_:
-			easy_fractions.shuffle()
-			fraction = easy_fractions.pop_back()
-	answers_cache.append(fraction)
+			self.easy_fractions.shuffle()
+			fraction = self.easy_fractions.pop_front()
+			print_debug(self.easy_fractions)
+	self.answers_cache.append(fraction)
 	return fraction
 
 
@@ -336,14 +280,15 @@ func return_fractions_to_list() -> void:
 		return
 	match PlayerSession.difficulty:
 		"hard":
-			hard_fractions.append_array(answers_cache)
-			hard_fractions.shuffle()
+			self.hard_fractions.append_array(answers_cache)
+			self.hard_fractions.shuffle()
 		"medium":
-			medium_fractions.append_array(answers_cache)
-			medium_fractions.shuffle()
+			self.medium_fractions.append_array(answers_cache)
+			self.medium_fractions.shuffle()
 		_:
-			easy_fractions.append_array(answers_cache)
-			easy_fractions.shuffle()
+			self.easy_fractions.append_array(answers_cache)
+			self.easy_fractions.shuffle()
+	self.answers_cache = []
 
 
 # Retorna el asset principal del personaje:
