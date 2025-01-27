@@ -11,6 +11,7 @@ extends Node2D
 @onready var clock: Clock = $CanvasLayer/Clock
 @onready var defeated: bool = false
 @onready var correct_pizza: bool = false
+@onready var pizza_fraction: String = ""
 @onready var score_label: Label = $CanvasLayer/ScorePanel/ScoreLabel
 @onready var extras_container = $CanvasLayer/Control/ExtrasContainer
 @onready var buttons: Array[AnswerButton] = [answer_button_1, answer_button_2, answer_button_3, answer_button_4]
@@ -212,15 +213,16 @@ func set_score() -> void:
 # Función que verifica si es correcta la respuesta
 func is_correct() -> bool:
 	if  !self.correct_pizza:
-		print_debug("Pizza incorrecta")
+		print("Fracción incorrecta: ", self.pizza_fraction)
+		print_debug("Se esperaba: ",  CharactersData.characters[self.character].correct_answer["fraction"])
 		return false
 	if PlayerSession.difficulty != "easy":
 		if str(extras_container.drinks.value) != CharactersData.characters[self.character].correct_answer["drinks"]:
-			print_debug("Cantidad de bebidas incorrecta: ", extras_container.drinks.value)
+			print("Cantidad de bebidas incorrecta: ", extras_container.drinks.value)
 			print_debug("Se esperaban: ", CharactersData.characters[self.character].correct_answer["drinks"])
 			return false
 		if str(extras_container.breads.value) != CharactersData.characters[self.character].correct_answer["breads"]:
-			print_debug("Cantidad de panes incorrecta: ", extras_container.breads.value)
+			print("Cantidad de panes incorrecta: ", extras_container.breads.value)
 			print_debug("Se esperaban: ", CharactersData.characters[self.character].correct_answer["breads"])
 			return false
 	self.defeated = true
@@ -255,6 +257,8 @@ func _on_answer_button_1_pressed() -> void:
 	answer_button_3.disabled = false
 	answer_button_4.disabled = false
 	self.correct_pizza =  self.answer_button_1.defeated
+	if self.correct_pizza:
+		self.pizza_fraction = self.answer_button_1.fraction
 
 
 func _on_answer_button_2_pressed() -> void:
@@ -267,6 +271,8 @@ func _on_answer_button_2_pressed() -> void:
 	answer_button_3.disabled = false
 	answer_button_4.disabled = false
 	self.correct_pizza =  self.answer_button_2.defeated
+	if self.correct_pizza:
+		self.pizza_fraction = self.answer_button_2.fraction
 
 
 func _on_answer_button_3_pressed() -> void:
@@ -278,10 +284,9 @@ func _on_answer_button_3_pressed() -> void:
 	answer_button_1.disabled = false
 	answer_button_2.disabled = false
 	answer_button_4.disabled = false
-	if PlayerSession.difficulty == "easy":
-		self.defeated = self.answer_button_3.defeated
-	else:
-		self.correct_pizza =  self.answer_button_3.defeated
+	self.correct_pizza =  self.answer_button_3.defeated
+	if self.correct_pizza:
+		self.pizza_fraction = self.answer_button_3.fraction
 
 
 func _on_answer_button_4_pressed() -> void:
@@ -294,6 +299,8 @@ func _on_answer_button_4_pressed() -> void:
 	answer_button_2.disabled = false
 	answer_button_3.disabled = false
 	self.correct_pizza =  self.answer_button_4.defeated
+	if self.correct_pizza:
+		self.pizza_fraction = self.answer_button_4.fraction
 
 
 # Si se desactiva el menú de pausa:
