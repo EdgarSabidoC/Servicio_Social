@@ -25,13 +25,13 @@
 [ext_resource type="Texture2D" uid="uid://colm7hogfyj3o" path="res://assets/graphical_assets/user_interface/container/breadContainer.tga" id="21_oyffn"]
 [ext_resource type="Texture2D" uid="uid://bljqppsyp8en" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/posticks_10.tga" id="22_5bdx4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1hbc"]
-atlas = ExtResource("12_4d807")
-region = Rect2(0, 0, 240, 160)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ggsc"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 160, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1hbc"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 0, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdyqe"]
 atlas = ExtResource("12_4d807")
@@ -110,10 +110,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.359985
 pivot_offset = Vector2(391.5, 288)
-texture = SubResource("AtlasTexture_p1hbc")
+texture = SubResource("AtlasTexture_0ggsc")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")
+frame_index = 1
 auto_play = true
 playing = true
 

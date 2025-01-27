@@ -9,6 +9,21 @@ func _input(event: InputEvent) -> void:
 
 # Guarda el nombre de usuario ingresado en la variable user_name:
 func save_user_name() -> void:
+	match text.length():
+		1:
+			text += "......"
+		2:
+			text += "....."
+		3:
+			text += "...."
+		4:
+			text += "..."
+		5:
+			text += ".."
+		6:
+			text += "."
+		_:
+			text = text.substr(0, 6)
 	PlayerSession.name = text.to_upper()
 	self.editable = false # Desactiva la entrada 
 
