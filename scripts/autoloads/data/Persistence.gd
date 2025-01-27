@@ -88,7 +88,7 @@ func _default_data() -> void:
 
 	# Valores predeterminados de la configuración de vídeo:
 	config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_FULLSCREEN)
-	config.set_value("Video", "borderless", true)
+	config.set_value("Video", "borderless", DisplayServer.WINDOW_FLAG_BORDERLESS)
 	config.set_value("Video", "vsync", DisplayServer.VSYNC_DISABLED)
 
 	# Se configuran los valores predeterminados para audio:

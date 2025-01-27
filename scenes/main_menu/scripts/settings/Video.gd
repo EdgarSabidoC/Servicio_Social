@@ -22,8 +22,8 @@ func _ready() -> void:
 	# Se obtiene el valor de modo sin bordes y se configura el botón
 	# de acuerdo con ello.
 	var borderless_type = Persistence.config.get_value("Video", "borderless")
+
 	if borderless_type and not is_fullscreen:
-		print_debug("Modo borderless")
 		%Fullscreen.button_pressed = false
 		self.is_fullscreen = false
 	
@@ -64,10 +64,10 @@ func _on_fullscreen_pressed() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		print_debug("Entró a modo windowed borderless: ", is_fullscreen)
+		print_debug("Entró a modo windowed borderless: ", !is_fullscreen)
 		# Modo sin bordes:
-		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, is_fullscreen)
-		Persistence.config.set_value("Video", "borderless", is_fullscreen)
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, !is_fullscreen)
+		Persistence.config.set_value("Video", "borderless", !is_fullscreen)
 		# Modo ventana:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
