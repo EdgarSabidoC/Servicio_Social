@@ -294,6 +294,15 @@ texture = ExtResource("14_hsxpv")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/IconsContainer/AluxIcon"]
+show_behind_parent = true
+layout_mode = 0
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="TohIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
 visible = false
 custom_minimum_size = Vector2(30, 30)
@@ -301,6 +310,16 @@ layout_mode = 2
 texture = ExtResource("15_vh67f")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/IconsContainer/TohIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ZotzIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
 visible = false
@@ -310,6 +329,16 @@ texture = ExtResource("16_w1h7d")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/IconsContainer/ZotzIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="HuolpochIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
 visible = false
 custom_minimum_size = Vector2(30, 30)
@@ -318,6 +347,16 @@ texture = ExtResource("17_m1bib")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/IconsContainer/HuolpochIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="KekenIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
 visible = false
 custom_minimum_size = Vector2(30, 30)
@@ -325,6 +364,16 @@ layout_mode = 2
 texture = ExtResource("18_xp0px")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/IconsContainer/KekenIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("2_madr3")]
 show_behind_parent = false
