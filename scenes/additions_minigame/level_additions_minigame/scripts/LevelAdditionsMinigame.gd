@@ -296,7 +296,7 @@ func print_message():
 		self.score_flash_label.text = "¡Buen esfuerzo!"
 	
 	Sfx.play_sound(Sfx.Sounds.SCORE)
-	self.score_flash_label.set("theme_override_colors/font_color", Color.BLUE)
+	self.score_flash_label.set("theme_override_colors/font_color", Color.DEEP_SKY_BLUE)
 	self.score_label_player.play("fade_out")
 
 
