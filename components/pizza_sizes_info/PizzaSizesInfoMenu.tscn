@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvxevt6jgtg4s"]
+[gd_scene load_steps=12 format=3 uid="uid://dvxevt6jgtg4s"]
 
 [ext_resource type="Script" path="res://components/pizza_sizes_info/scripts/PizzaSizesInfoMenu.gd" id="1_7hur2"]
 [ext_resource type="Texture2D" uid="uid://bt87st5yo841i" path="res://assets/graphical_assets/parallax/color.tga" id="1_yhvtn"]
 [ext_resource type="Texture2D" uid="uid://cw1ptgeehfyw7" path="res://assets/graphical_assets/user_interface/container/pizzaPriceContainer.tga" id="3_p43l1"]
 [ext_resource type="Script" path="res://components/pizza_sizes_info/scripts/Sizes.gd" id="4_dq6ns"]
 [ext_resource type="Theme" uid="uid://b5k01sjc6qta0" path="res://assets/graphical_assets/styles/back_button.tres" id="5_06bqp"]
+[ext_resource type="Texture2D" uid="uid://cjl4vidatos34" path="res://assets/graphical_assets/user_interface/container/pizzaBG.tga" id="6_3ofas"]
+[ext_resource type="Texture2D" uid="uid://dprspdl7sl8j5" path="res://assets/graphical_assets/environments/pizzas/green_pepper.tga" id="7_lba60"]
+[ext_resource type="Texture2D" uid="uid://bchkjr10c67qj" path="res://assets/graphical_assets/environments/pizzas/pepperoni.tga" id="8_g8g5b"]
+[ext_resource type="Texture2D" uid="uid://bnlmbr11wobk6" path="res://assets/graphical_assets/environments/pizzas/scene_04_pizza.tga" id="9_vx6ek"]
+[ext_resource type="Texture2D" uid="uid://cvq4bangn502e" path="res://assets/graphical_assets/environments/pizzas/fish.tga" id="10_4tn5r"]
+[ext_resource type="Texture2D" uid="uid://yeq0myastlf" path="res://assets/graphical_assets/environments/pizzas/mushroom.tga" id="11_b11gp"]
 
 [node name="PizzaSizesInfoMenu" type="Control"]
 layout_mode = 3
@@ -59,6 +65,171 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 script = ExtResource("4_dq6ns")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.00195313
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.176758
+anchor_top = 0.270833
+anchor_right = 0.434571
+anchor_bottom = 0.729167
+offset_left = -2.0
+offset_right = 51.6875
+offset_bottom = 45.6666
+texture = ExtResource("6_3ofas")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+anchor_left = 0.446289
+anchor_top = 0.651042
+anchor_right = 0.821289
+anchor_bottom = 0.776042
+offset_left = -2.0
+offset_right = -2.0
+color = Color(0.6, 0.0862745, 0.105882, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+anchor_left = 0.432617
+anchor_top = 0.637153
+anchor_right = 0.807617
+anchor_bottom = 0.762153
+offset_left = -2.0
+offset_right = -2.0
+color = Color(0.952941, 0.396078, 0.137255, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.313477
+anchor_top = 0.21875
+anchor_right = 0.81543
+anchor_bottom = 0.453125
+offset_left = -2.0
+offset_right = -1.99994
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "Personal ................... 4 Rebanadas
+
+     Chica .................... 5 Rebanadas
+
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.451172
+anchor_top = 0.4375
+anchor_right = 0.81543
+anchor_bottom = 0.809028
+offset_left = -2.0
+offset_right = -1.99994
+offset_bottom = -3.05176e-05
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "Mediana .... 7 Rebanadas
+
+Grande ...... 8 Rebanadas
+
+Extra Grande ........ 12 Rebanadas
+
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.197266
+anchor_top = 0.447917
+anchor_right = 0.258789
+anchor_bottom = 0.557292
+offset_left = -2.0
+offset_right = 11.5391
+offset_bottom = 11.625
+texture = ExtResource("7_lba60")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.266602
+anchor_top = 0.609375
+anchor_right = 0.328125
+anchor_bottom = 0.71875
+offset_left = -2.0
+offset_right = 11.5391
+offset_bottom = 11.625
+texture = ExtResource("8_g8g5b")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0351563
+anchor_top = 0.0954861
+anchor_right = 0.163086
+anchor_bottom = 0.322917
+offset_left = -2.0
+offset_right = 16.8828
+offset_bottom = 14.9028
+rotation = -0.206889
+texture = ExtResource("9_vx6ek")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect6" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0273438
+anchor_top = 0.782986
+anchor_right = 0.180094
+anchor_bottom = 0.955341
+offset_left = -2.0
+offset_right = 7.89
+offset_bottom = 31.7234
+rotation = -0.219859
+texture = ExtResource("11_b11gp")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect5" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.889103
+anchor_top = 0.369792
+anchor_right = 0.889103
+anchor_bottom = 0.662679
+offset_left = 74.5583
+offset_right = 205.558
+offset_bottom = 4.28455
+rotation = 1.21141
+texture = ExtResource("10_4tn5r")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect7" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.90918
+anchor_top = 0.293403
+anchor_right = 0.941481
+anchor_bottom = 0.60987
+offset_left = -2.0
+offset_right = 95.924
+offset_bottom = 3.34131
+rotation = 0.605898
+texture = ExtResource("10_4tn5r")
 metadata/_edit_use_anchors_ = true
 
 [node name="BackBtn" type="Button" parent="."]

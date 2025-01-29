@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=33 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
@@ -20,7 +20,15 @@
 [ext_resource type="Texture2D" uid="uid://cvinaewo3wkdk" path="res://assets/graphical_assets/characters/icons/huolpoch_icon.tga" id="17_m1bib"]
 [ext_resource type="Texture2D" uid="uid://ba5ecdey055s5" path="res://assets/graphical_assets/characters/icons/keken_icon.tga" id="18_xp0px"]
 [ext_resource type="Texture2D" uid="uid://drmst83nrr5f5" path="res://assets/graphical_assets/user_interface/container/sodaContainer.tga" id="20_q42qr"]
+[ext_resource type="Texture2D" uid="uid://bmy8scvpj5ksa" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/posticks_0.tga" id="20_weqke"]
+[ext_resource type="Texture2D" uid="uid://i7dedt2gu6c3" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/posticks_5.tga" id="21_efer0"]
 [ext_resource type="Texture2D" uid="uid://colm7hogfyj3o" path="res://assets/graphical_assets/user_interface/container/breadContainer.tga" id="21_oyffn"]
+[ext_resource type="Texture2D" uid="uid://bljqppsyp8en" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/posticks_10.tga" id="22_5bdx4"]
+[ext_resource type="Texture2D" uid="uid://dwgawggetqw6q" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/book.tga" id="25_ohwof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdyqe"]
+atlas = ExtResource("12_4d807")
+region = Rect2(0, 320, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1hbc"]
 atlas = ExtResource("12_4d807")
@@ -29,10 +37,6 @@ region = Rect2(0, 0, 240, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ggsc"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 160, 240, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vdyqe"]
-atlas = ExtResource("12_4d807")
-region = Rect2(0, 320, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8va5w"]
 atlas = ExtResource("12_4d807")
@@ -107,10 +111,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.359985
 pivot_offset = Vector2(391.5, 288)
-texture = SubResource("AtlasTexture_p1hbc")
+texture = SubResource("AtlasTexture_vdyqe")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")
+frame_index = 2
 auto_play = true
 playing = true
 
@@ -291,6 +296,15 @@ texture = ExtResource("14_hsxpv")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/IconsContainer/AluxIcon"]
+show_behind_parent = true
+layout_mode = 0
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="TohIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
 visible = false
 custom_minimum_size = Vector2(30, 30)
@@ -298,6 +312,16 @@ layout_mode = 2
 texture = ExtResource("15_vh67f")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/IconsContainer/TohIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ZotzIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
 visible = false
@@ -307,6 +331,16 @@ texture = ExtResource("16_w1h7d")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/IconsContainer/ZotzIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="HuolpochIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
 visible = false
 custom_minimum_size = Vector2(30, 30)
@@ -314,6 +348,16 @@ layout_mode = 2
 texture = ExtResource("17_m1bib")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/IconsContainer/HuolpochIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="KekenIcon" type="TextureRect" parent="CanvasLayer/IconsContainer"]
 visible = false
@@ -323,28 +367,95 @@ texture = ExtResource("18_xp0px")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("2_madr3")]
-show_behind_parent = false
-size_flags_horizontal = 4
-size_flags_vertical = 6
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/IconsContainer/KekenIcon"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.875
+color = Color(0.984916, 0.130566, 0.536387, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Postick_0_1" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.270508
+anchor_top = 0.0538194
+anchor_right = 0.301758
+anchor_bottom = 0.109375
+texture = ExtResource("20_weqke")
+metadata/_edit_use_anchors_ = true
+
+[node name="Postick_0_2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.271484
+anchor_top = 0.168403
+anchor_right = 0.298874
+anchor_bottom = 0.230062
+offset_right = 3.95294
+offset_bottom = -3.51566
+rotation = 0.116963
+texture = ExtResource("20_weqke")
+metadata/_edit_use_anchors_ = true
+
+[node name="Postick_5" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.602539
+anchor_top = 0.0729167
+anchor_right = 0.641899
+anchor_bottom = 0.108645
+offset_right = -8.30487
+offset_bottom = 11.4205
+rotation = -0.313309
+texture = ExtResource("21_efer0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Postick_10" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.607422
+anchor_top = 0.185764
+anchor_right = 0.643839
+anchor_bottom = 0.230276
+offset_right = -5.2915
+offset_bottom = 6.3613
+rotation = -0.183097
+texture = ExtResource("22_5bdx4")
+metadata/_edit_use_anchors_ = true
 
 [node name="Soda" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.620117
+anchor_left = 0.632812
 anchor_top = 0.0329861
-anchor_right = 0.666992
+anchor_right = 0.679687
 anchor_bottom = 0.116319
 texture = ExtResource("20_q42qr")
 metadata/_edit_use_anchors_ = true
 
 [node name="Bread" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.620117
+anchor_left = 0.632812
 anchor_top = 0.164931
-anchor_right = 0.666992
+anchor_right = 0.679687
 anchor_bottom = 0.248264
 texture = ExtResource("21_oyffn")
 metadata/_edit_use_anchors_ = true
+
+[node name="Book" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.621094
+anchor_top = 0.342014
+anchor_right = 0.713515
+anchor_bottom = 0.577648
+offset_right = 22.3605
+offset_bottom = -18.7253
+rotation = 0.176496
+texture = ExtResource("25_ohwof")
+metadata/_edit_use_anchors_ = true
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("2_madr3")]
+show_behind_parent = false
+size_flags_horizontal = 4
+size_flags_vertical = 6
 
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton1" to="." method="_on_answer_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
