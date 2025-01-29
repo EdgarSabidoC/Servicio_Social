@@ -3,6 +3,7 @@ extends Node
 const PATH = "user://settings.cfg"
 var config = ConfigFile.new()
 var high_scores: Array
+var help: Variant 
 
 # Configura todas las acciones y eventos predeterminados en la sección
 # "Controls" dentro del archivo de configuración.
@@ -25,10 +26,16 @@ func load_data() -> void:
 		save_data()
 
 	# Si el archivo existe, se cargan los datos:
+	load_help_settings()
 	load_control_settings()
 	load_video_settings()
 	load_audio_settings()
 	load_scores()
+
+
+# Obtiene la configuración para activar o desactivar las ayudas:
+func load_help_settings() -> void:
+	self.help = config.get_value("Help", "is_active") 
 
 
 # Obtiene los datos de audio y cambia la configuración:
@@ -72,6 +79,7 @@ func load_video_settings() -> void:
 	DisplayServer.window_set_vsync_mode(vsync_index)
 
 
+# Carga los mejores puntajes:
 func load_scores() -> void:
 	var best_scores: Variant = config.get_value("BestScores", "HighScores")
 	self.high_scores = str_to_var(best_scores)
@@ -79,6 +87,10 @@ func load_scores() -> void:
 
 # Crea la información predeterminada en un archivo de configuración:
 func _default_data() -> void:
+	# Valor predeterminado de las ayudas:
+	self.help = false
+	config.set_value("Help", "is_active", self.help)
+
 	# Valores predeterminados de las acciones:
 	for action in InputMap.get_actions():
 		# Test debug
@@ -88,9 +100,9 @@ func _default_data() -> void:
 
 	# Valores predeterminados de la configuración de vídeo:
 	config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_FULLSCREEN)
-	config.set_value("Video", "borderless", true)
+	config.set_value("Video", "borderless", DisplayServer.WINDOW_FLAG_BORDERLESS)
 	config.set_value("Video", "vsync", DisplayServer.VSYNC_DISABLED)
-
+	
 	# Se configuran los valores predeterminados para audio:
 	var master: String = "0"
 	var music: String = "1"
@@ -157,7 +169,10 @@ func update_high_scores() -> void:
 		self.high_scores.pop_back()
 
 	# Test debug:
-	#print_debug("High Scores:", self.high_scores)
+	print_debug("High Scores:", self.high_scores)
+	
+	# Se guardan los nuevos puntajes:
+	config.set_value("BestScores", "HighScores", JSON.stringify(self.high_scores))
 
 
 # Función que convierte el arreglo de high_scores a una cadena formateada con BBCode

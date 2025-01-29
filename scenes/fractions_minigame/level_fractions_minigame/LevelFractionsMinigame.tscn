@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://djd5hvlykjgse"]
+[gd_scene load_steps=33 format=3 uid="uid://djd5hvlykjgse"]
 
 [ext_resource type="Script" path="res://scenes/fractions_minigame/level_fractions_minigame/scripts/LevelFractionsMinigame.gd" id="1_jhhw6"]
 [ext_resource type="PackedScene" uid="uid://ja2ux2ygrksu" path="res://components/pause/Pause.tscn" id="2_madr3"]
@@ -24,18 +24,19 @@
 [ext_resource type="Texture2D" uid="uid://i7dedt2gu6c3" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/posticks_5.tga" id="21_efer0"]
 [ext_resource type="Texture2D" uid="uid://colm7hogfyj3o" path="res://assets/graphical_assets/user_interface/container/breadContainer.tga" id="21_oyffn"]
 [ext_resource type="Texture2D" uid="uid://bljqppsyp8en" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/posticks_10.tga" id="22_5bdx4"]
+[ext_resource type="Texture2D" uid="uid://dwgawggetqw6q" path="res://assets/graphical_assets/environments/backgrounds/fractions_minigame/scene_02/book.tga" id="25_ohwof"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ggsc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdyqe"]
 atlas = ExtResource("12_4d807")
-region = Rect2(0, 160, 240, 160)
+region = Rect2(0, 320, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1hbc"]
 atlas = ExtResource("12_4d807")
 region = Rect2(0, 0, 240, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vdyqe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ggsc"]
 atlas = ExtResource("12_4d807")
-region = Rect2(0, 320, 240, 160)
+region = Rect2(0, 160, 240, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8va5w"]
 atlas = ExtResource("12_4d807")
@@ -110,11 +111,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.359985
 pivot_offset = Vector2(391.5, 288)
-texture = SubResource("AtlasTexture_0ggsc")
+texture = SubResource("AtlasTexture_vdyqe")
 stretch_mode = 4
 script = ExtResource("12_2gj1l")
 sprites = SubResource("SpriteFrames_2x5ef")
-frame_index = 1
+frame_index = 2
 auto_play = true
 playing = true
 
@@ -376,11 +377,6 @@ anchor_bottom = 0.875
 color = Color(0.984916, 0.130566, 0.536387, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("2_madr3")]
-show_behind_parent = false
-size_flags_horizontal = 4
-size_flags_vertical = 6
-
 [node name="Postick_0_1" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.270508
@@ -443,6 +439,23 @@ anchor_right = 0.679687
 anchor_bottom = 0.248264
 texture = ExtResource("21_oyffn")
 metadata/_edit_use_anchors_ = true
+
+[node name="Book" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.621094
+anchor_top = 0.342014
+anchor_right = 0.713515
+anchor_bottom = 0.577648
+offset_right = 22.3605
+offset_bottom = -18.7253
+rotation = 0.176496
+texture = ExtResource("25_ohwof")
+metadata/_edit_use_anchors_ = true
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("2_madr3")]
+show_behind_parent = false
+size_flags_horizontal = 4
+size_flags_vertical = 6
 
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton1" to="." method="_on_answer_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/GridContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]

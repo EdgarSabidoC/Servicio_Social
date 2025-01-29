@@ -400,7 +400,8 @@ func set_game() -> void:
 		
 		# Contiúa la animación del reloj:
 		self.clock.continue_clock()
-
+	else:
+		self.score_flash_label.set_position(Vector2(30, 32))
 
 # Reduce el puntaje predeterminado:
 func reduce_default_score() -> void:
