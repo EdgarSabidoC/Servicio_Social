@@ -8,6 +8,8 @@ extends Control
 @export var cancel_width: float = 0
 @export var cancel_height: float = 30
 @onready var cancel_texture_path: String = "res://addons/ActionIcon/Keyboard/Esc.png"
+@onready var m1_texture_path: String = "res://addons/ActionIcon/Mouse/Left.png"
+
 # Escena del menú principal:
 @onready var main_menu: PackedScene = load("res://scenes/main_menu/MainScene.tscn")
 
@@ -94,8 +96,14 @@ func _ready():
 	self.show_next.emit()
 	# Se inicia la animación inicial
 	self.animated_sprite_2d.play("default")
-	self.notification_label.text = "Mantén presionado [img={cancel_width}x{cancel_height}]{cancel}[/img] para salir...".format({"cancel_width": str(self.cancel_width), "cancel_height": str(self.cancel_height), "cancel": self.cancel_texture_path})
-
+	
+	print_debug("Mouse mode: ",Mouse.mouse_mode_activated)
+	if Mouse.mouse_mode_activated:
+		self.notification_label.text = "[center]Mantén presionado [img={cancel_width}x{cancel_height}]{m1}[/img] para salir...[/center]".format({"cancel_width": str(self.cancel_width), "cancel_height": str(self.cancel_height), "m1": self.m1_texture_path})
+	else:
+		self.notification_label.text = "[center]Mantén presionado [img={cancel_width}x{cancel_height}]{cancel}[/img] para salir...[/center]".format({"cancel_width": str(self.cancel_width), "cancel_height": str(self.cancel_height), "cancel": self.cancel_texture_path
+		
+		})
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("m1"):
