@@ -33,15 +33,29 @@ func load_data() -> void:
 	right_click_image_path = action_icon._get_mouse(MOUSE_BUTTON_RIGHT).get_path()
 	# Se carga la información:
 	_str = "[font_size=32]Objetivo[/font_size]
-¡Arma la pizza! Debes lograr armar la pizza de tal forma que ambos lados sean simétricos (simetría con respecto al eje Y). Imagina como si doblaras la pizza por la mitad de forma vertical, cada ingrediente del lado izquierdo debe de coincidir con su respectivo ingrediente del lado derecho. Puedes rotar los ingredientes ya colocados utilizando las teclas de navegación o el click derecho del mouse (ver sección Controles al final de las instrucciones).
+¡Arma la pizza!
+Debes lograr armar la pizza de tal forma que ambos lados sean simétricos (simetría con respecto al eje Y).
+Imagina como si doblaras la pizza por la mitad de forma vertical, cada ingrediente del lado izquierdo debe de coincidir con su respectivo ingrediente del lado derecho.
+
+Puedes rotar los ingredientes ya colocados utilizando las teclas de navegación o el click derecho del mouse.
+
+Puedes encontrar los controles al final de estas instrucciones.
 
 
 [font_size=32]Modo contrarreloj[/font_size]
-En este modo de juego debes armar cada pizza lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
+En este modo de juego debes armar cada pizza lo más rápido posible.
+
+¡Tienes límite de tiempo!
+Mientras más tiempo pase, menos puntos obtendrás.
+Si el reloj llega a 0, el juego se termina.
 
 
 [font_size=32]Modo práctica[/font_size]
-La puntuación y el reloj están desactivados. Este modo es ideal para practicar. Tienes todo el tiempo que necesites para asegurarte de que estás comprendiendo el funcionamiento de la simetría sobre el eje Y. Presta atención a los mensajes, ellos te indicarán si has resuelto correctamente los problemas.
+La puntuación y el reloj están desactivados.
+Este modo es ideal para experimentar.
+
+Tienes todo el tiempo que necesites para asegurarte de que estás comprendiendo el funcionamiento de la simetría sobre el eje Y.
+Presta atención a los mensajes, ellos te indicarán si has resuelto correctamente los problemas.
 
 
 [font_size=32]Dificultades[/font_size]
@@ -59,7 +73,7 @@ Límite de tiempo: 3 minutos
 
 [font_size=32]Controles\n\n[/font_size]"
 	# Teclado:
-	_str += "[font_size=24]Teclas de navegación:[/font_size]\n" 
+	_str += "[font_size=24]Teclas de navegación:[/font_size]\n"
 	up_image_path = "Giro completo hacia la derecha: [img={up_width}x{up_height}]{up_image}[/img]\n".format({"up_width": 0, "up_height": 40, "up_image": up_image_path})
 	down_image_path = "Giro completo hacia la izquierda: [img={down_width}x{down_height}]{down_image}[/img]\n".format({"down_width": 0, "down_height": 40, "down_image": down_image_path})
 	left_image_path = "Medio giro hacia la izquierda: [img={left_width}x{left_height}]{left_image}[/img]\n".format({"left_width": 0, "left_height": 40, "left_image": left_image_path})

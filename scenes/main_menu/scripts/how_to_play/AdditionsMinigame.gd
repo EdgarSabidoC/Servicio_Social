@@ -58,16 +58,31 @@ func load_data() -> void:
 	
 	# Se carga la información:
 	_str = "[font_size=32]Objetivo[/font_size]
-¡El momento ha llegado! Después de que nuestros queridos clientes han llenado sus panzas con nuestras deliciosas pizzas llega el momento de cobrarles, pero lamentablemente la caja registradora está fallando y sólo te permite ingresar el monto total de la cuenta. Realiza la sumas y multiplicaciones para hallar el total de la cuenta de cada cliente e ingrésalo en la caja registradora. ¡Te sugerimos tener a mano una libreta donde puedas apuntar los precios y realizar tus operaciones! Si lo necesitas puedes checar la lista de precios en todo momento.
+¡El momento ha llegado!
+Después de que nuestros queridos clientes han llenado sus panzas con nuestras deliciosas pizzas llega el momento de cobrarles, pero lamentablemente la caja registradora está fallando y sólo te permite ingresar el monto total de la cuenta.
+Realiza la sumas y multiplicaciones para hallar el total de la cuenta de cada cliente e ingrésalo en la caja registradora.
+
+¡Te sugerimos tener a mano una libreta donde puedas apuntar los precios y realizar tus operaciones!
+Si lo necesitas puedes checar la lista de precios en todo momento.
+
 Los controles se encuentran al final de las instrucciones.
 
 
 [font_size=32]Modo contrarreloj[/font_size]
-En este modo de juego debes cobrar cada cuenta lo más rápido posible. ¡Tienes límite de tiempo! Mientras más tiempo pase, menos puntos obtendrás. Si el reloj llega a 0, el juego se termina.
+En este modo de juego debes cobrar cada cuenta lo más rápido posible.
+
+¡Tienes límite de tiempo!
+Mientras más tiempo pase, menos puntos obtendrás.
+Si el reloj llega a 0, el juego se termina.
 
 
 [font_size=32]Modo práctica[/font_size]
-En el modo de práctica, no hay puntos ni límite de tiempo. Este modo es ideal para que puedas practicar las sumas y multiplicaciones sin preocuparte por cometer errores. Tienes todo el tiempo que necesites para asegurarte de que estás aprendiendo bien cómo sumar y multiplicar. Presta atención a los mensajes, ellos te indicarán si has resuelto correctamente los problemas.
+En el modo de práctica, no hay puntos ni límite de tiempo.
+Este modo es ideal para que puedas experimentar con las sumas y multiplicaciones sin preocuparte por cometer errores.
+
+Tienes todo el tiempo que necesites para asegurarte de que estás aprendiendo bien cómo sumar y multiplicar.
+
+Presta atención a los mensajes, ellos te indicarán si has resuelto correctamente los problemas.
 
 
 [font_size=32]Dificultades[/font_size]
@@ -105,7 +120,7 @@ Límite de tiempo: 5 minutos
 	left_click_image_path = "Seleccionar/Presionar botones de la registradora: [img={left_click_width}x{left_click_height}]{left_click_image}[/img]\n".format({"left_click_width": 0, "left_click_height": 60, "left_click_image": left_click_image_path})
 	_str += left_click_image_path
 	# Teclado:
-	_str += "\n\n[font_size=24]Teclas de navegación[/font_size]\n" 
+	_str += "\n\n[font_size=24]Teclas de navegación[/font_size]\n"
 	up_image_path = "Arriba: [img={up_width}x{up_height}]{up_image}[/img]\n".format({"up_width": 0, "up_height": 40, "up_image": up_image_path})
 	down_image_path = "Abajo: [img={down_width}x{down_height}]{down_image}[/img]\n".format({"down_width": 0, "down_height": 40, "down_image": down_image_path})
 	left_image_path = "Izquierda: [img={left_width}x{left_height}]{left_image}[/img]\n".format({"left_width": 0, "left_height": 40, "left_image": left_image_path})
