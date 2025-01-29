@@ -35,6 +35,7 @@ func load_data() -> void:
 	_str = "[font_size=32]Objetivo[/font_size]
 ¡Arma la pizza!
 Debes lograr armar la pizza de tal forma que ambos lados sean simétricos (simetría con respecto al eje Y).
+
 Imagina como si doblaras la pizza por la mitad de forma vertical, cada ingrediente del lado izquierdo debe de coincidir con su respectivo ingrediente del lado derecho.
 
 Puedes rotar los ingredientes ya colocados utilizando las teclas de navegación o el click derecho del mouse.

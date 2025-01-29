@@ -21,6 +21,7 @@ func load_data() -> void:
 	_str = "[font_size=32]Objetivo[/font_size]
 ¡Las pizzas se enfrían!
 Ayuda al mesero robot a entregar las pizzas en las mesas con la coordenada correspondiente.
+
 Presta atención al chef, pues él te indicará la coordenada.
 
 Puedes encontrar los controles al final de estas instrucciones.

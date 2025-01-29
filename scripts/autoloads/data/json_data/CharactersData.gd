@@ -441,8 +441,8 @@ func generateProblem(fraction: String, drinks: String = "", breads: String = "")
 	var slices: String = "rebanada"
 	var size: String = ""
 	
-	# Si la dificultad es mayor a fácil, se utilizan los nombres de las fracciones:
-	if PlayerSession.difficulty == "hard":
+	# Si la dificultad es diferente de fácil, se utilizan los nombres de las fracciones:
+	if PlayerSession.difficulty == "hard" or (PlayerSession.difficulty == "medium" and probability <= 0.5):
 		fraction = fraction_name(numerator, denominator)
 
 	match denominator:

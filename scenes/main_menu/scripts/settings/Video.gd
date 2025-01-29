@@ -7,12 +7,26 @@ extends TabBar
 @onready var vsync_label: Label = $VideoOptionsContainer/VideoLabelsContainer/VSyncContainer/VsyncLabel
 @onready var vsync: OptionButton = %Vsync
 @onready var is_fullscreen: bool = false
+@onready var is_help_active: bool
+@onready var help_btn: CheckButton = $VideoOptionsContainer/VideoLabelsContainer/HelpContainer/HelpBtn
+
 
 
 func _ready() -> void:
 	# Se obtiene el valor de pantalla completa y se configura el botón
 	# de acuerdo con ello.
 	var screen_type = Persistence.config.get_value("Video", "fullscreen")
+	
+	# Se obtiene el valor del botón de ayuda:
+	self.is_help_active = Persistence.config.get_value("Help", "is_active")
+	PlayerSession.debug_mode = self.is_help_active
+	
+	if PlayerSession.debug_mode:
+		self.help_btn.button_pressed = true
+	else:
+		self.help_btn.button_pressed = false
+	
+	print_debug("Help btn pressed: ", self.help_btn.button_pressed)
 	
 	if screen_type == DisplayServer.WINDOW_MODE_FULLSCREEN:
 		print_debug("Fullscreen mode")
@@ -71,4 +85,15 @@ func _on_fullscreen_pressed() -> void:
 		# Modo ventana:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		Persistence.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
+	Persistence.save_data()
+
+
+func _on_help_btn_pressed() -> void:
+	if self.is_help_active:
+		self.is_help_active = false
+	else:
+		self.is_help_active = true
+	
+	PlayerSession.debug_mode = self.is_help_active
+	Persistence.config.set_value("Help", "is_active", self.is_help_active)
 	Persistence.save_data()
