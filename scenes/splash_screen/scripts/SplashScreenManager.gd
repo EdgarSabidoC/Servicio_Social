@@ -8,13 +8,18 @@ var _splash_screens: Array[SplashScreen] = []
 
 @onready var _splash_screen_container: CenterContainer = $SplashScreenContainer
 @onready var _first_splash_screen: bool = true
- 
+
 
 func _ready() -> void:
+	# La ventana del juego agarra el focus:
+	get_window().grab_focus()
 	# Se centra la ventana del juego:
 	get_window().move_to_center()
+
 	# Se oculta el mouse:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	
+	print_debug("Tiene el focus el juego: ", get_window().has_focus())
 	
 	assert(_move_to)
 	
@@ -29,6 +34,10 @@ func _ready() -> void:
 	_start_splash_screen()
 
 	set_process_input(true)
+
+
+func _exit_tree() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 # Lee los inputs que permiten saltar las escenas, llama a _skip():
