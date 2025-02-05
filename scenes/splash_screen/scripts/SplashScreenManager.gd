@@ -9,18 +9,16 @@ var _splash_screens: Array[SplashScreen] = []
 @onready var _splash_screen_container: CenterContainer = $SplashScreenContainer
 @onready var _first_splash_screen: bool = true
 
-
-func _ready() -> void:
-	# La ventana del juego agarra el focus:
-	get_window().grab_focus()
+func _enter_tree() -> void:
+	DisplayServer.window_set_current_screen(DisplayServer.get_primary_screen())
 	# Se centra la ventana del juego:
 	get_window().move_to_center()
+	# Hack para que se mantenga el focus del SO:
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
-	# Se oculta el mouse:
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
-	
-	print_debug("Tiene el focus el juego: ", get_window().has_focus())
-	
+
+func _ready() -> void:
 	assert(_move_to)
 	
 	set_process_input(false)

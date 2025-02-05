@@ -68,7 +68,7 @@ func load_control_settings() -> void:
 
 
 # Obtiene los datos de vídeo y cambia la configuración:
-func load_video_settings() -> void:
+func load_video_settings() -> void:	
 	var screen_type: Variant = config.get_value("Video", "fullscreen")
 	DisplayServer.window_set_mode(screen_type)
 
