@@ -47,6 +47,21 @@ extends Node2D
 func _enter_tree() -> void:
 	# Se configura la música:
 	self.set_music()
+	
+	if !Mouse.actions_enabled:
+		Mouse.enable_actions()
+
+	# Se activa el mouse independientemente del modo de entrada:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func _exit_tree() -> void:
+	if Mouse.mouse_mode_activated:
+		# Si el modo mouse está activo, se deshabilita el teclado:
+		Mouse.disable_actions()
+	else:
+		# Si el modo teclado está activo, se desactiva el mouse:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 # Called when the node enters the scene tree for the first time.
