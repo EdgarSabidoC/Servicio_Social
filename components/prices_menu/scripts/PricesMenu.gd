@@ -10,8 +10,8 @@ signal back_btn_pressed
 
 
 func _ready() -> void:
-	if !Mouse.mouse_mode_activated:
-		self.back_btn.grab_focus()
+	#if !Mouse.mouse_mode_activated:
+	self.back_btn.grab_focus()
 	self.prices = self.prices_label.get_prices()
 	self.back_btn.text = "Iniciar"
 	self.back_btn.grab_focus()

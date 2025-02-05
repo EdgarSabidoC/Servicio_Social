@@ -55,11 +55,11 @@ func change_mode() -> void:
 	if not self.mouse_mode_activated:
 		self.mouse_mode_activated = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		self.disable_actions()
+		#self.disable_actions()
 	else:
 		self.mouse_mode_activated = false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		self.enable_actions()	
+		#self.enable_actions()
 	
 
 # Función que desactiva las acciones:

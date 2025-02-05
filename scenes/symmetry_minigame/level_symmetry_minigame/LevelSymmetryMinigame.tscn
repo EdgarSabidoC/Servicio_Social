@@ -812,6 +812,7 @@ script = ExtResource("5_3fpxh")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreFlashLabel" type="Label" parent="CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.0546875
 anchor_top = 0.0555556

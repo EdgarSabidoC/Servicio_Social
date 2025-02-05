@@ -1085,9 +1085,9 @@ vertical_alignment = 1
 
 [node name="ActionIcon1" type="TextureRect" parent="UI/ActionHints/UpActionHint"]
 layout_mode = 2
-offset_left = 79.0
+offset_left = 70.0
 offset_top = -10.0
-offset_right = 119.0
+offset_right = 110.0
 offset_bottom = 30.0
 script = ExtResource("32_i2vn0")
 
@@ -1099,9 +1099,9 @@ vertical_alignment = 1
 
 [node name="ActionIcon2" type="TextureRect" parent="UI/ActionHints/DownActionHint"]
 layout_mode = 2
-offset_left = 81.0
+offset_left = 64.0
 offset_top = -10.0
-offset_right = 121.0
+offset_right = 104.0
 offset_bottom = 30.0
 script = ExtResource("32_i2vn0")
 
@@ -1127,9 +1127,9 @@ vertical_alignment = 1
 
 [node name="ActionIcon4" type="TextureRect" parent="UI/ActionHints/RightActionHint"]
 layout_mode = 2
-offset_left = 96.0
+offset_left = 87.0
 offset_top = -10.0
-offset_right = 136.0
+offset_right = 127.0
 offset_bottom = 30.0
 script = ExtResource("32_i2vn0")
 
@@ -1150,15 +1150,15 @@ joypad_mode = 1
 
 [node name="CancelActionHint" type="Label" parent="UI/ActionHints"]
 layout_mode = 2
-text = "Salir:"
+text = "Regresar:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ActionIcon6" type="TextureRect" parent="UI/ActionHints/CancelActionHint"]
 layout_mode = 2
-offset_left = 54.0
+offset_left = 96.0
 offset_top = -10.0
-offset_right = 94.0
+offset_right = 136.0
 offset_bottom = 30.0
 script = ExtResource("32_i2vn0")
 action_name = &"ui_cancel"

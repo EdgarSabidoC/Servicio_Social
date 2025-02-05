@@ -56,6 +56,7 @@ func _ready() -> void:
 	else:
 		self.score_flash_label.position = Vector2(56,27)
 	self.set_game()
+	print_debug("Actions enabled: ", Mouse.actions_enabled)
 
 
 func _process(_delta: float) -> void:
@@ -76,7 +77,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		# Se leen las entradas si está en modo teclado:
 		self.check_input_actions()
-
+		print_debug("Action: ", event.as_text())
 
 # Configura la música de fondo:
 func set_music() -> void:
@@ -230,37 +231,37 @@ func check_input_actions() -> void:
 		# Si los botones de la caja registradora están bloqueados o el largo
 		# de los dígitos superó el límite:
 		return
-	if Input.is_action_just_pressed("num_0"):
+	if Input.is_action_just_pressed("num_0") or Input.is_key_pressed(KEY_0):
 		self._register_sound()
 		self.button_0.pressed.emit()
-	elif Input.is_action_just_pressed("num_1"):
+	elif Input.is_action_just_pressed("num_1") or Input.is_key_pressed(KEY_1):
 		self._register_sound()
 		self.button_1.pressed.emit()
-	elif Input.is_action_just_pressed("num_2"):
+	elif Input.is_action_just_pressed("num_2") or Input.is_key_pressed(KEY_2):
 		self._register_sound()
 		self.button_2.pressed.emit()
-	elif Input.is_action_just_pressed("num_3"):
+	elif Input.is_action_just_pressed("num_3") or Input.is_key_pressed(KEY_3):
 		self._register_sound()
 		self.button_3.pressed.emit()
-	elif Input.is_action_just_pressed("num_4"):
+	elif Input.is_action_just_pressed("num_4") or Input.is_key_pressed(KEY_4):
 		self._register_sound()
 		self.button_4.pressed.emit()
-	elif Input.is_action_just_pressed("num_5"):
+	elif Input.is_action_just_pressed("num_5") or Input.is_key_pressed(KEY_5):
 		self._register_sound()
 		self.button_5.pressed.emit()
-	elif Input.is_action_just_pressed("num_6"):
+	elif Input.is_action_just_pressed("num_6") or Input.is_key_pressed(KEY_6):
 		self._register_sound()
 		self.button_6.pressed.emit()
-	elif Input.is_action_just_pressed("num_7"):
+	elif Input.is_action_just_pressed("num_7") or Input.is_key_pressed(KEY_7):
 		self._register_sound()
 		self.button_7.pressed.emit()
-	elif Input.is_action_just_pressed("num_8"):
+	elif Input.is_action_just_pressed("num_8") or Input.is_key_pressed(KEY_8):
 		self._register_sound()
 		self.button_8.pressed.emit()
-	elif Input.is_action_just_pressed("num_9"):
+	elif Input.is_action_just_pressed("num_9") or Input.is_key_pressed(KEY_9):
 		self._register_sound()
 		self.button_9.pressed.emit()
-	elif Input.is_action_just_pressed("period"):
+	elif Input.is_action_just_pressed("period") or Input.is_key_pressed(KEY_PERIOD):
 		if !self.total_label.text.contains("."):
 			self._register_sound()
 			self.button_dot.pressed.emit()
