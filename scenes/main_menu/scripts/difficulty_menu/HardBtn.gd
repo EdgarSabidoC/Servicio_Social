@@ -13,6 +13,7 @@ func _on_pressed():
 	match PlayerSession.current_minigame:
 		PlayerSession.Minigames.FRACCTIONS:
 			self._move_to = "res://scenes/fractions_minigame/cutscenes/intro_cutscene/IntroCutscene.tscn"
+			CharactersData.reset_state() # Se reinicia el estado del juego
 			CharactersData.loadProblemsData() # Se cargan los datos de los problemas de los diferentes personajes
 		PlayerSession.Minigames.ADDITIONS:
 			self._move_to = "res://scenes/additions_minigame/level_additions_minigame/LevelAdditionsMinigame.tscn"

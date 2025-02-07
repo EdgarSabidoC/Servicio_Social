@@ -22,7 +22,10 @@ func _on_pressed() -> void:
 	self.difficulty_menu.show()
 	get_parent().hide() # Oculta el menú principal
 	self.margin_container.hide()
-
+	
+	# Se reinician los personajes:
+	for _character in CharactersData.characters:
+		_character.defeated = false
 
 # Al estar enfocado el botón:
 func _on_focus_entered():

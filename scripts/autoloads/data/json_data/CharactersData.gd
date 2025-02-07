@@ -145,6 +145,7 @@ func loadProblemsData() -> void:
 				problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction), "drinks": str(gen_rand_drinks()), "breads": str(gen_rand_breads())}
 			else:
 				problem = {"fraction": fraction, "imagePath": get_pizza_graph(fraction)}
+			
 			character.wrong_answers.append(problem)
 		print_debug("\n\n")
 		# Se regresan las fracciones al pool de respuestas:
@@ -161,6 +162,25 @@ func loadProblemsData() -> void:
 	# Se mezcla la lista de personajes:
 	randomize()
 	characters.shuffle()
+
+
+# Reinicia las banderas de carga de datos y los personajes:
+func reset_data_flags() -> void:
+	self.easy_data_loaded = false
+	self.medium_data_loaded = false
+	self.hard_data_loaded = false
+	
+	for character in characters:
+		character.defeated = false
+
+
+# Reinicia el estado del juego:
+func reset_state() -> void:
+	# Se reinician las banderas:
+	self.reset_data_flags()
+	
+	# Se mezclan los personajes:
+	self.characters.shuffle()
 
 
 # Limpia los datos de los personajes y reinicia las banderas de las cargas de datos:
@@ -249,16 +269,16 @@ func get_rand_fraction() -> String:
 	randomize()
 	match PlayerSession.difficulty:
 		"hard":
-			self.hard_fractions.shuffle()
-			fraction = self.hard_fractions.pop_front()
+			fraction = self.hard_fractions.pick_random()
+			self.hard_fractions.erase(fraction)
 			print_debug(self.hard_fractions)
 		"medium":
-			self.medium_fractions.shuffle()
-			fraction = self.medium_fractions.pop_front()
+			fraction = self.medium_fractions.pick_random()
+			self.medium_fractions.erase(fraction)
 			print_debug(self.medium_fractions)
 		_:
-			self.easy_fractions.shuffle()
-			fraction = self.easy_fractions.pop_front()
+			fraction = self.easy_fractions.pick_random()
+			self.easy_fractions.erase(fraction)
 			print_debug(self.easy_fractions)
 	self.answers_cache.append(fraction)
 	return fraction
