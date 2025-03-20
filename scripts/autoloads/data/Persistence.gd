@@ -25,6 +25,15 @@ func load_data() -> void:
 		_default_data() # Datos predeterminados
 		save_data()
 
+	# Verifica la versión:
+	var version = config.get_value("Settings", "version")
+	
+	if not version or version < 1.0:
+		config.set_value("Settings", "version", 1.0)
+		# Si el archivo de configuración no existe se cargan datos predeterminados
+		_default_data() # Datos predeterminados
+		save_data()
+
 	# Si el archivo existe, se cargan los datos:
 	load_help_settings()
 	load_control_settings()
@@ -68,7 +77,7 @@ func load_control_settings() -> void:
 
 
 # Obtiene los datos de vídeo y cambia la configuración:
-func load_video_settings() -> void:
+func load_video_settings() -> void:	
 	var screen_type: Variant = config.get_value("Video", "fullscreen")
 	DisplayServer.window_set_mode(screen_type)
 
@@ -87,6 +96,9 @@ func load_scores() -> void:
 
 # Crea la información predeterminada en un archivo de configuración:
 func _default_data() -> void:
+	# Se crea la versión predeterminada:
+	config.set_value("Settings", "version", 1.0)
+	
 	# Valor predeterminado de las ayudas:
 	self.help = false
 	config.set_value("Help", "is_active", self.help)

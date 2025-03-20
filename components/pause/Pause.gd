@@ -44,6 +44,7 @@ func _on_main_menu_btn_pressed() -> void:
 		PlayerSession.change_practice_mode()
 	self.is_pause_active = false
 	self.finished.emit()
+	
 	SceneTransition.change_scene(main_menu)
 	PlayerSession.clear_player_session()
 	# Se cambia la música del minijuego a la del menú principal:

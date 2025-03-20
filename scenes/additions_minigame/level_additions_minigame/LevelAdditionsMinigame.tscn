@@ -394,78 +394,88 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_mode = 0
+focus_neighbor_left = NodePath("../../VBoxContainer/AcceptBtn")
+focus_neighbor_top = NodePath("../ButtonDot")
+focus_previous = NodePath("../../VBoxContainer/AcceptBtn")
 text = "7"
 
 [node name="Button8" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_mode = 0
+focus_neighbor_top = NodePath("../Button0")
 text = "8"
 
 [node name="Button9" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_mode = 0
+focus_neighbor_top = NodePath("../ButtonClear")
+focus_neighbor_right = NodePath("../../VBoxContainer/AcceptBtn")
+focus_next = NodePath("../../VBoxContainer/AcceptBtn")
 text = "9"
 
 [node name="Button4" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-focus_mode = 0
+focus_neighbor_left = NodePath("../../VBoxContainer/AcceptBtn")
+focus_previous = NodePath("../../VBoxContainer/AcceptBtn")
 text = "4"
 
 [node name="Button5" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_mode = 0
 text = "5"
 
 [node name="Button6" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_mode = 0
+focus_neighbor_right = NodePath("../../VBoxContainer/AcceptBtn")
+focus_next = NodePath("../../VBoxContainer/AcceptBtn")
 text = "6"
 
 [node name="Button1" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_mode = 0
+focus_neighbor_left = NodePath("../../VBoxContainer/ClearBtn")
+focus_previous = NodePath("../../VBoxContainer/ClearBtn")
 text = "1"
 
 [node name="Button2" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_mode = 0
 text = "2"
 
 [node name="Button3" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_mode = 0
+focus_neighbor_right = NodePath("../../VBoxContainer/ClearBtn")
+focus_next = NodePath("../../VBoxContainer/ClearBtn")
 text = "3"
 
 [node name="ButtonDot" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-focus_mode = 0
+focus_neighbor_left = NodePath("../../VBoxContainer/ClearBtn")
+focus_neighbor_bottom = NodePath("../Button7")
+focus_previous = NodePath("../../VBoxContainer/ClearBtn")
 text = ".
 "
 
 [node name="Button0" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-focus_mode = 0
+focus_neighbor_bottom = NodePath("../Button8")
 text = "0"
 
 [node name="ButtonClear" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-focus_mode = 0
+focus_neighbor_right = NodePath("../../VBoxContainer/ClearBtn")
+focus_neighbor_bottom = NodePath("../Button9")
+focus_next = NodePath("../../VBoxContainer/ClearBtn")
 text = "←"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
@@ -482,23 +492,23 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AcceptBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../PauseBtn")
+focus_neighbor_left = NodePath("../../GridContainer/Button9")
 focus_neighbor_top = NodePath("../../PauseBtn")
-focus_neighbor_right = NodePath("../ClearBtn")
+focus_neighbor_right = NodePath("../../GridContainer/Button7")
 focus_neighbor_bottom = NodePath("../ClearBtn")
 focus_next = NodePath("../ClearBtn")
-focus_previous = NodePath("../../PauseBtn")
+focus_previous = NodePath("../../GridContainer/Button9")
 text = "Aceptar"
 script = ExtResource("3_d5r3h")
 
 [node name="ClearBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../AcceptBtn")
+focus_neighbor_left = NodePath("../../GridContainer/ButtonClear")
 focus_neighbor_top = NodePath("../AcceptBtn")
-focus_neighbor_right = NodePath("../../PricesBtn")
+focus_neighbor_right = NodePath("../../GridContainer/Button7")
 focus_neighbor_bottom = NodePath("../../PricesBtn")
 focus_next = NodePath("../../PricesBtn")
-focus_previous = NodePath("../AcceptBtn")
+focus_previous = NodePath("../../GridContainer/ButtonClear")
 text = "Borrar"
 script = ExtResource("4_ijd4p")
 
